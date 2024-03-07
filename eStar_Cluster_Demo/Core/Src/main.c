@@ -28,8 +28,7 @@
 #include "stm32h735g_discovery_ospi.h"
 #include "stm32h7xx_hal_ospi.h"
 /* USER CODE END Includes */
-//#include "include\sys\_stdint.h"
-//#include "_stdint.h"
+
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 
@@ -91,6 +90,13 @@ const osThreadAttr_t WatchdogService_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for DigitalDebounce */
+osThreadId_t DigitalDebounceHandle;
+const osThreadAttr_t DigitalDebounce_attributes = {
+  .name = "DigitalDebounce",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -114,10 +120,11 @@ void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
 extern void videoTaskFunc(void *argument);
 void WDG_SRVC_Task(void *argument);
-static uint32_t TimeoutCalculation(uint32_t timevalue);
+void Dig_Deb_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
-
+static uint32_t TimeoutCalculation(uint32_t timevalue);
+extern void debounceTestApp(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -215,6 +222,9 @@ int main(void)
 
   /* creation of WatchdogService */
   WatchdogServiceHandle = osThreadNew(WDG_SRVC_Task, NULL, &WatchdogService_attributes);
+
+  /* creation of DigitalDebounce */
+  DigitalDebounceHandle = osThreadNew(Dig_Deb_Task, NULL, &DigitalDebounce_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -845,7 +855,37 @@ static void MX_WWDG1_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN WWDG1_Init 2 */
+}
 
+/* USER CODE BEGIN WWDG1_Init 2 */
+uint32_t TimeoutCalculation(uint32_t timevalue)
+{
+      uint32_t timeoutvalue = 0;
+      uint32_t pclk1 = 0;
+      uint32_t wdgtb = 0;
+
+      /* Get PCLK1 value */
+      pclk1 = HAL_RCC_GetPCLK1Freq();
+
+      /* get prescaler */
+      switch(hwwdg1.Init.Prescaler)
+      {
+        case WWDG_PRESCALER_1:   wdgtb = 1;   break;
+        case WWDG_PRESCALER_2:   wdgtb = 2;   break;
+        case WWDG_PRESCALER_4:   wdgtb = 4;   break;
+        case WWDG_PRESCALER_8:   wdgtb = 8;   break;
+        case WWDG_PRESCALER_16:  wdgtb = 16;  break;
+        case WWDG_PRESCALER_32:  wdgtb = 32;  break;
+        case WWDG_PRESCALER_64:  wdgtb = 64;  break;
+        case WWDG_PRESCALER_128: wdgtb = 128; break;
+
+        default: Error_Handler(); break;
+      }
+
+      /* calculate timeout */
+      timeoutvalue = ((4096 * wdgtb * timevalue) / (pclk1 / 1000));
+
+      return timeoutvalue;
   /* USER CODE END WWDG1_Init 2 */
 
 }
@@ -951,10 +991,19 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(VSYNC_FREQ_GPIO_Port, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
+//  static void debounceTestApp(void)
+//  {
+//  	uint8_t mybitstatus = get_debounce_status();
+//  }
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
+void debounceTestApp(void)
+{
+	uint8_t mybitstatus = get_debounce_status();
+
+}
 
 /* USER CODE END 4 */
 
@@ -987,8 +1036,8 @@ void StartDefaultTask(void *argument)
 void WDG_SRVC_Task(void *argument)
 {
   /* USER CODE BEGIN WDG_SRVC_Task */
-  /* Infinite loop */
-	uint32_t delay = TimeoutCalculation((hwwdg1.Init.Counter - hwwdg1.Init.Window) + 1) + 1;
+	uint32_t delay=0;
+	delay = TimeoutCalculation((hwwdg1.Init.Counter - hwwdg1.Init.Window) + 1) + 1;
   for(;;)
   {
     osDelay(delay); //watchdog period
@@ -1003,41 +1052,30 @@ void WDG_SRVC_Task(void *argument)
   /* USER CODE END WDG_SRVC_Task */
 }
 
-static uint32_t TimeoutCalculation(uint32_t timevalue)
+/* USER CODE BEGIN Header_Dig_Deb_Task */
+/**
+* @brief Function implementing the DigitalDebounce thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Dig_Deb_Task */
+void Dig_Deb_Task(void *argument)
 {
-  uint32_t timeoutvalue = 0;
-  uint32_t pclk1 = 0;
-  uint32_t wdgtb = 0;
-
-  /* Get PCLK1 value */
-  pclk1 = HAL_RCC_GetPCLK1Freq();
-
-  /* get prescaler */
-  switch(hwwdg1.Init.Prescaler)
+  /* USER CODE BEGIN Dig_Deb_Task */
+  /* Infinite loop */
+  for(;;)
   {
-    case WWDG_PRESCALER_1:   wdgtb = 1;   break;
-    case WWDG_PRESCALER_2:   wdgtb = 2;   break;
-    case WWDG_PRESCALER_4:   wdgtb = 4;   break;
-    case WWDG_PRESCALER_8:   wdgtb = 8;   break;
-    case WWDG_PRESCALER_16:  wdgtb = 16;  break;
-    case WWDG_PRESCALER_32:  wdgtb = 32;  break;
-    case WWDG_PRESCALER_64:  wdgtb = 64;  break;
-    case WWDG_PRESCALER_128: wdgtb = 128; break;
-
-    default: Error_Handler(); break;
+	  DebounceTask();
+	  debounceTestApp();
+	  osDelay(4);
   }
-
-  /* calculate timeout */
-  timeoutvalue = ((4096 * wdgtb * timevalue) / (pclk1 / 1000));
-
-  return timeoutvalue;
+  /* USER CODE END Dig_Deb_Task */
 }
 
 /* MPU Configuration */
 
 void MPU_Config(void)
-{
-  MPU_Region_InitTypeDef MPU_InitStruct = {0};
+{  MPU_Region_InitTypeDef MPU_InitStruct = {0};
 
   /* Disables the MPU */
   HAL_MPU_Disable();
@@ -1075,7 +1113,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE BEGIN Callback 0 */
 
   /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM6) {
+  if (htim->Instance == TIM6)
+  {
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
@@ -1091,7 +1130,8 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-
+	uint8_t counter = 0;
+	counter++;
   /* USER CODE END Error_Handler_Debug */
 }
 
