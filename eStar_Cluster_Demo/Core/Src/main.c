@@ -27,6 +27,8 @@
 /* USER CODE BEGIN Includes */
 #include "stm32h735g_discovery_ospi.h"
 #include "stm32h7xx_hal_ospi.h"
+#include "digital_debounce.h"
+#include "digital_debounce_cfg.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/

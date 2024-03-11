@@ -66,7 +66,9 @@ Application/User/Core/main.o: \
  ../../Drivers/BSP/STM32H735G-DK/../Components/mx25lm51245g/mx25lm51245g.h \
  ../../Core/Inc/mx25lm51245g_conf.h \
  ../../Drivers/BSP/STM32H735G-DK/../Components/s70kl1281/s70kl1281.h \
- ../../Core/Inc/s70kl1281_conf.h
+ ../../Core/Inc/s70kl1281_conf.h ../../Core/Inc/digital_debounce.h \
+ ../../Core/Inc/digital_debounce_cfg.h ../../Core/Inc/digital_debounce.h \
+ ../../Core/Inc/main.h
 ../../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:
@@ -136,3 +138,7 @@ Application/User/Core/main.o: \
 ../../Core/Inc/mx25lm51245g_conf.h:
 ../../Drivers/BSP/STM32H735G-DK/../Components/s70kl1281/s70kl1281.h:
 ../../Core/Inc/s70kl1281_conf.h:
+../../Core/Inc/digital_debounce.h:
+../../Core/Inc/digital_debounce_cfg.h:
+../../Core/Inc/digital_debounce.h:
+../../Core/Inc/main.h:
