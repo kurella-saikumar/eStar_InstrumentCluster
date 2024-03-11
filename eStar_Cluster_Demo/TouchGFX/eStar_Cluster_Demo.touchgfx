@@ -6,19 +6,454 @@
         "Components": [
           {
             "Type": "Image",
-            "Name": "image1",
+            "Name": "BackGround",
             "Width": 480,
             "Height": 272,
-            "RelativeFilename": "image.png"
+            "LockPosition": true,
+            "RelativeFilename": "BackGround.png"
           },
           {
             "Type": "Image",
-            "Name": "Low_Fuel",
-            "X": 54,
+            "Name": "image1",
+            "X": -1,
+            "Width": 480,
+            "Height": 272,
+            "Visible": false,
+            "LockPosition": true,
+            "RelativeFilename": "HMI_LAYOUT1.png",
+            "Alpha": 104
+          },
+          {
+            "Type": "Image",
+            "Name": "ABS_Detection_w",
+            "X": 224,
+            "Y": 47,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "WarningIndicators\\ABS_Detection\\ABS_Detection1.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "ABS_Detection_r",
+            "X": 224,
+            "Y": 47,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "WarningIndicators\\ABS_Detection\\ABS_Detection2.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "LowBatteryIcon_w",
+            "X": 174,
+            "Y": 14,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "WarningIndicators\\BatteryIcon\\LowBattery1.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "LowBatteryIcon_r",
+            "X": 174,
+            "Y": 14,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "WarningIndicators\\BatteryIcon\\LowBattery2.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "DoorsIcon_w",
+            "X": 126,
+            "Y": 48,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "WarningIndicators\\Doors\\DoorsWarning1.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "DoorsIcon_r",
+            "X": 126,
+            "Y": 48,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "WarningIndicators\\Doors\\DoorsWarning2.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "EngineOIl_w",
+            "X": 266,
+            "Y": 14,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "WarningIndicators\\EngineOil\\EngineOil1.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "EngineOIl_r",
+            "X": 266,
+            "Y": 14,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "WarningIndicators\\EngineOil\\EngineOil2.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "Temperature_w",
+            "X": 38,
+            "Y": 48,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "WarningIndicators\\Temperature\\TempIcon1.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "Temperature_r",
+            "X": 38,
+            "Y": 48,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "WarningIndicators\\Temperature\\TempIcon2.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "FuelICon_w",
+            "X": 406,
             "Y": 241,
             "Width": 24,
             "Height": 20,
-            "RelativeFilename": "fuel_Red.png"
+            "RelativeFilename": "IndicatorIcons\\FuelIcon\\ClusterIcons1.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "FuelIcon_r",
+            "X": 406,
+            "Y": 241,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "IndicatorIcons\\FuelIcon\\ClusterIcons2.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "HighBeam_w",
+            "X": 355,
+            "Y": 15,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "IndicatorIcons\\HighBeam\\HighBeam1.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "HighBeam_r",
+            "X": 355,
+            "Y": 15,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "IndicatorIcons\\HighBeam\\HighBeam2.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "LeftIndicator_w",
+            "X": 99,
+            "Y": 147,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "IndicatorIcons\\LeftIndicator\\LeftIndicator1.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "LeftIndicator_r",
+            "X": 99,
+            "Y": 147,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "IndicatorIcons\\LeftIndicator\\LeftIndicator2.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "LowBeam_w",
+            "X": 79,
+            "Y": 15,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "IndicatorIcons\\Low_beam\\LowBeam1.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "LowBeam_r",
+            "X": 79,
+            "Y": 15,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "IndicatorIcons\\Low_beam\\LowBeam2.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "RightIndicator_w",
+            "X": 356,
+            "Y": 146,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "IndicatorIcons\\RightIndicator\\RightIndicator1.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "RightIndicator_r",
+            "X": 356,
+            "Y": 146,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "IndicatorIcons\\RightIndicator\\RightIndicator2.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "RPMIcon_w",
+            "X": 50,
+            "Y": 241,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "IndicatorIcons\\RMPIcon\\RPMIcon1.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "RPMIcon_r",
+            "X": 50,
+            "Y": 241,
+            "Width": 24,
+            "Height": 20,
+            "RelativeFilename": "IndicatorIcons\\RMPIcon\\RPMIcon2.png"
+          },
+          {
+            "Type": "AnimatedImage",
+            "Name": "FuelBarAnimation",
+            "X": 342,
+            "Y": 100,
+            "Width": 128,
+            "Height": 128,
+            "FileNameFirst": "AnimationImages\\FuelBar_UpToDown\\FuelBar01.png",
+            "FileNameLast": "AnimationImages\\FuelBar_UpToDown\\FuelBar10.png",
+            "UpdateTicksInterval": 1,
+            "LoopEnabled": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "Speed_Ta",
+            "X": 158,
+            "Y": 88,
+            "Width": 129,
+            "Height": 97,
+            "TextId": "__SingleUse_VG2X",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_MEO5",
+              "UseBuffer": true,
+              "BufferSize": 6
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "KMPH_MPH",
+            "X": 290,
+            "Y": 166,
+            "Width": 25,
+            "Height": 15,
+            "TextId": "__SingleUse_DKL2",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 247,
+              "Blue": 247
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_ZEGA",
+              "UseBuffer": true,
+              "BufferSize": 4
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "KMPH_MPH_ODO",
+            "X": 278,
+            "Y": 213,
+            "Width": 25,
+            "Height": 15,
+            "TextId": "__SingleUse_VE6R",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 247,
+              "Blue": 247
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_947A"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "KMPH_MPH_DTE",
+            "X": 258,
+            "Y": 244,
+            "Width": 25,
+            "Height": 15,
+            "TextId": "__SingleUse_EPWF",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 247,
+              "Blue": 247
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_CK36"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "ODOReadings",
+            "X": 174,
+            "Y": 192,
+            "Width": 96,
+            "Height": 37,
+            "TextId": "__SingleUse_7ZNN",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_1I4V"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "DriverInfo",
+            "X": 215,
+            "Y": 236,
+            "Width": 33,
+            "Height": 25,
+            "TextId": "__SingleUse_0GI1",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_69GV"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "DriverInfo_Data",
+            "X": 180,
+            "Y": 244,
+            "Width": 18,
+            "Height": 15,
+            "TextId": "__SingleUse_GG4S",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_M7CG"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "Clock_HR",
+            "X": 395,
+            "Y": 14,
+            "Width": 18,
+            "Height": 21,
+            "TextId": "__SingleUse_8JLD",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_T3J1"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "Clock_MIN",
+            "X": 418,
+            "Y": 14,
+            "Width": 18,
+            "Height": 21,
+            "TextId": "__SingleUse_SWRW",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_X2EZ"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "Semicolon",
+            "X": 413,
+            "Y": 15,
+            "Width": 3,
+            "Height": 21,
+            "TextId": "__SingleUse_D0FJ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_AS99"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "AM_PM",
+            "X": 436,
+            "Y": 20,
+            "Width": 13,
+            "Height": 15,
+            "TextId": "__SingleUse_A8BG",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_9DYF"
+            }
+          },
+          {
+            "Type": "Image",
+            "Name": "RPMBars",
+            "X": 10,
+            "Y": 100,
+            "Width": 128,
+            "Height": 128,
+            "RelativeFilename": "AnimationImages\\RPM\\RPMBar.png"
           }
         ],
         "Interactions": []
@@ -84,6 +519,6 @@
       "Video"
     ]
   },
-  "Version": "4.23.0",
+  "Version": "4.23.1",
   "CreatedBy": "4.23.0"
 }

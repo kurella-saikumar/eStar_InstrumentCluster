@@ -15,7 +15,8 @@ public:
         model = m;
     }
 
-    virtual void setLight (bool state) {};
+    virtual void notifyCounterChanged (uint16_t counter) {};
+    //virtual void notifyFuelCounter(int FuelCounter){};
 
 protected:
     Model* model;

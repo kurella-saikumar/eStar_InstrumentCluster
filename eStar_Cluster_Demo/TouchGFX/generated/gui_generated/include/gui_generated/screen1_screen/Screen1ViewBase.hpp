@@ -9,6 +9,8 @@
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/Image.hpp>
+#include <touchgfx/widgets/AnimatedImage.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -26,8 +28,51 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
+    touchgfx::Image BackGround;
     touchgfx::Image image1;
-    touchgfx::Image Low_Fuel;
+    touchgfx::Image ABS_Detection_w;
+    touchgfx::Image ABS_Detection_r;
+    touchgfx::Image LowBatteryIcon_w;
+    touchgfx::Image LowBatteryIcon_r;
+    touchgfx::Image DoorsIcon_w;
+    touchgfx::Image DoorsIcon_r;
+    touchgfx::Image EngineOIl_w;
+    touchgfx::Image EngineOIl_r;
+    touchgfx::Image Temperature_w;
+    touchgfx::Image Temperature_r;
+    touchgfx::Image FuelICon_w;
+    touchgfx::Image FuelIcon_r;
+    touchgfx::Image HighBeam_w;
+    touchgfx::Image HighBeam_r;
+    touchgfx::Image LeftIndicator_w;
+    touchgfx::Image LeftIndicator_r;
+    touchgfx::Image LowBeam_w;
+    touchgfx::Image LowBeam_r;
+    touchgfx::Image RightIndicator_w;
+    touchgfx::Image RightIndicator_r;
+    touchgfx::Image RPMIcon_w;
+    touchgfx::Image RPMIcon_r;
+    touchgfx::AnimatedImage FuelBarAnimation;
+    touchgfx::TextAreaWithOneWildcard Speed_Ta;
+    touchgfx::TextAreaWithOneWildcard KMPH_MPH;
+    touchgfx::TextAreaWithOneWildcard KMPH_MPH_ODO;
+    touchgfx::TextAreaWithOneWildcard KMPH_MPH_DTE;
+    touchgfx::TextAreaWithOneWildcard ODOReadings;
+    touchgfx::TextAreaWithOneWildcard DriverInfo;
+    touchgfx::TextAreaWithOneWildcard DriverInfo_Data;
+    touchgfx::TextAreaWithOneWildcard Clock_HR;
+    touchgfx::TextAreaWithOneWildcard Clock_MIN;
+    touchgfx::TextAreaWithOneWildcard Semicolon;
+    touchgfx::TextAreaWithOneWildcard AM_PM;
+    touchgfx::Image RPMBars;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t SPEED_TA_SIZE = 6;
+    touchgfx::Unicode::UnicodeChar Speed_TaBuffer[SPEED_TA_SIZE];
+    static const uint16_t KMPH_MPH_SIZE = 4;
+    touchgfx::Unicode::UnicodeChar KMPH_MPHBuffer[KMPH_MPH_SIZE];
 
 private:
 

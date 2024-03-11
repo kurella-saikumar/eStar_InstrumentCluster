@@ -1,19 +1,44 @@
 #include <gui/model/Model.hpp>
 #include <gui/model/ModelListener.hpp>
-#include "main.h"
 
-Model::Model() : modelListener(0), Button_State(false)
+
+Model::Model() : modelListener(0),counter(0),TickCount(0)
 {
 
 }
+#if 0
 
 void Model::tick()
 {
-	if(HAL_GPIO_ReadPin(GPIOC,GPIO_PIN_13))
+	TickCount++;
+	if (TickCount > 10)
 	{
-		Button_State = true;
+		SpeedData();
+		//FuelData();
+		TickCount =0;
 	}
-	else Button_State = false;
-
-	modelListener->setLight (Button_State);
 }
+#endif
+void Model::tick()
+{
+
+	counter++;
+	if(counter >220)
+	{
+		counter =0;
+	}
+	if(modelListener !=0)
+	{
+		modelListener->notifyCounterChanged(counter);
+	}
+}
+#if 0
+void Model::FuelData()
+{
+	FuelCounter++;
+	if(modelListener !=0)
+	{
+		modelListener->notifyFuelCounter(FuelCounter);
+	}
+}
+#endif

@@ -27,11 +27,18 @@
 /* USER CODE BEGIN Includes */
 #include "stm32h735g_discovery_ospi.h"
 #include "stm32h7xx_hal_ospi.h"
+
 /* USER CODE END Includes */
-//#include "include\sys\_stdint.h"
-//#include "_stdint.h"
+
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+#ifdef __GNUC__
+/* With GCC, small printf (option LD Linker->Libraries->Small printf
+   set to 'Yes') calls __io_putchar() */
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif /* __GNUC__ */
 
 /* USER CODE END PTD */
 
@@ -58,8 +65,9 @@ OSPI_HandleTypeDef hospi2;
 
 RTC_HandleTypeDef hrtc;
 
-TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim4;
+
+UART_HandleTypeDef huart3;
 
 WWDG_HandleTypeDef hwwdg1;
 
@@ -74,8 +82,8 @@ const osThreadAttr_t defaultTask_attributes = {
 osThreadId_t TouchGFXTaskHandle;
 const osThreadAttr_t TouchGFXTask_attributes = {
   .name = "TouchGFXTask",
-  .stack_size = 1024 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
+  .stack_size = 4096 * 4,
+  .priority = (osPriority_t) osPriorityHigh1,
 };
 /* Definitions for videoTask */
 osThreadId_t videoTaskHandle;
@@ -105,24 +113,29 @@ static void MX_DMA2D_Init(void);
 static void MX_LTDC_Init(void);
 static void MX_OCTOSPI1_Init(void);
 static void MX_OCTOSPI2_Init(void);
-static void MX_TIM1_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_RTC_Init(void);
 static void MX_WWDG1_Init(void);
+static void MX_USART3_UART_Init(void);
 void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
 extern void videoTaskFunc(void *argument);
 void WDG_SRVC_Task(void *argument);
-static uint32_t TimeoutCalculation(uint32_t timevalue);
 
 /* USER CODE BEGIN PFP */
-
+static uint32_t TimeoutCalculation(uint32_t timevalue);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+PUTCHAR_PROTOTYPE
+{
+  /* Place your implementation of fputc here */
+  /* e.g. write a character to the USART1 and Loop until the end of transmission */
+  HAL_UART_Transmit(&huart3, (uint8_t *)&ch, 1, 0xFFFF);
+  return ch;
+}
 /* USER CODE END 0 */
 
 /**
@@ -172,11 +185,11 @@ int main(void)
   MX_OCTOSPI1_Init();
   MX_OCTOSPI2_Init();
   MX_LIBJPEG_Init();
-  MX_TIM1_Init();
   MX_TIM4_Init();
   MX_ADC1_Init();
   MX_RTC_Init();
   MX_WWDG1_Init();
+  MX_USART3_UART_Init();
   MX_TouchGFX_Init();
   /* Call PreOsInit function */
   MX_TouchGFX_PreOSInit();
@@ -723,56 +736,6 @@ static void MX_RTC_Init(void)
 }
 
 /**
-  * @brief TIM1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_TIM1_Init(void)
-{
-
-  /* USER CODE BEGIN TIM1_Init 0 */
-
-  /* USER CODE END TIM1_Init 0 */
-
-  TIM_MasterConfigTypeDef sMasterConfig = {0};
-  TIM_IC_InitTypeDef sConfigIC = {0};
-
-  /* USER CODE BEGIN TIM1_Init 1 */
-
-  /* USER CODE END TIM1_Init 1 */
-  htim1.Instance = TIM1;
-  htim1.Init.Prescaler = 0;
-  htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 65535;
-  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-  htim1.Init.RepetitionCounter = 0;
-  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  if (HAL_TIM_IC_Init(&htim1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
-  sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
-  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sConfigIC.ICPolarity = TIM_INPUTCHANNELPOLARITY_RISING;
-  sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
-  sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
-  sConfigIC.ICFilter = 0;
-  if (HAL_TIM_IC_ConfigChannel(&htim1, &sConfigIC, TIM_CHANNEL_1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN TIM1_Init 2 */
-
-  /* USER CODE END TIM1_Init 2 */
-
-}
-
-/**
   * @brief TIM4 Initialization Function
   * @param None
   * @retval None
@@ -817,6 +780,54 @@ static void MX_TIM4_Init(void)
   /* USER CODE BEGIN TIM4_Init 2 */
 
   /* USER CODE END TIM4_Init 2 */
+
+}
+
+/**
+  * @brief USART3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART3_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART3_Init 0 */
+
+  /* USER CODE END USART3_Init 0 */
+
+  /* USER CODE BEGIN USART3_Init 1 */
+
+  /* USER CODE END USART3_Init 1 */
+  huart3.Instance = USART3;
+  huart3.Init.BaudRate = 115200;
+  huart3.Init.WordLength = UART_WORDLENGTH_8B;
+  huart3.Init.StopBits = UART_STOPBITS_1;
+  huart3.Init.Parity = UART_PARITY_NONE;
+  huart3.Init.Mode = UART_MODE_TX_RX;
+  huart3.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart3.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart3.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart3.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart3.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetTxFifoThreshold(&huart3, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&huart3, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&huart3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART3_Init 2 */
+
+  /* USER CODE END USART3_Init 2 */
 
 }
 
@@ -943,6 +954,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LCD_DISP_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PE14 */
+  GPIO_InitStruct.Pin = GPIO_PIN_14;
+  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  GPIO_InitStruct.Alternate = GPIO_AF1_TIM1;
+  HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
+
   /*Configure GPIO pin : VSYNC_FREQ_Pin */
   GPIO_InitStruct.Pin = VSYNC_FREQ_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -955,6 +974,36 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+static uint32_t TimeoutCalculation(uint32_t timevalue)
+{
+  uint32_t timeoutvalue = 0;
+  uint32_t pclk1 = 0;
+  uint32_t wdgtb = 0;
+
+  /* Get PCLK1 value */
+  pclk1 = HAL_RCC_GetPCLK1Freq();
+
+  /* get prescaler */
+  switch(hwwdg1.Init.Prescaler)
+  {
+    case WWDG_PRESCALER_1:   wdgtb = 1;   break;
+    case WWDG_PRESCALER_2:   wdgtb = 2;   break;
+    case WWDG_PRESCALER_4:   wdgtb = 4;   break;
+    case WWDG_PRESCALER_8:   wdgtb = 8;   break;
+    case WWDG_PRESCALER_16:  wdgtb = 16;  break;
+    case WWDG_PRESCALER_32:  wdgtb = 32;  break;
+    case WWDG_PRESCALER_64:  wdgtb = 64;  break;
+    case WWDG_PRESCALER_128: wdgtb = 128; break;
+
+    default: Error_Handler(); break;
+  }
+
+  /* calculate timeout */
+  timeoutvalue = ((4096 * wdgtb * timevalue) / (pclk1 / 1000));
+
+  return timeoutvalue;
+}
+
 
 /* USER CODE END 4 */
 
@@ -1001,36 +1050,6 @@ void WDG_SRVC_Task(void *argument)
 
   }
   /* USER CODE END WDG_SRVC_Task */
-}
-
-static uint32_t TimeoutCalculation(uint32_t timevalue)
-{
-  uint32_t timeoutvalue = 0;
-  uint32_t pclk1 = 0;
-  uint32_t wdgtb = 0;
-
-  /* Get PCLK1 value */
-  pclk1 = HAL_RCC_GetPCLK1Freq();
-
-  /* get prescaler */
-  switch(hwwdg1.Init.Prescaler)
-  {
-    case WWDG_PRESCALER_1:   wdgtb = 1;   break;
-    case WWDG_PRESCALER_2:   wdgtb = 2;   break;
-    case WWDG_PRESCALER_4:   wdgtb = 4;   break;
-    case WWDG_PRESCALER_8:   wdgtb = 8;   break;
-    case WWDG_PRESCALER_16:  wdgtb = 16;  break;
-    case WWDG_PRESCALER_32:  wdgtb = 32;  break;
-    case WWDG_PRESCALER_64:  wdgtb = 64;  break;
-    case WWDG_PRESCALER_128: wdgtb = 128; break;
-
-    default: Error_Handler(); break;
-  }
-
-  /* calculate timeout */
-  timeoutvalue = ((4096 * wdgtb * timevalue) / (pclk1 / 1000));
-
-  return timeoutvalue;
 }
 
 /* MPU Configuration */
