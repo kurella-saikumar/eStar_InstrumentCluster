@@ -22,6 +22,8 @@ RM := rm -rf
 -include Application/User/TouchGFX/App/subdir.mk
 -include Application/User/Startup/subdir.mk
 -include Application/User/LIBJPEG/App/subdir.mk
+-include Application/User/Core/stateManager/IgnitionManager/subdir.mk
+-include Application/User/Core/stateManager/subdir.mk
 -include Application/User/Core/DigitalDebounce/subdir.mk
 -include Application/User/Core/subdir.mk
 -include objects.mk

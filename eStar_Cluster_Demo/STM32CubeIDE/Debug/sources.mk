@@ -41,6 +41,8 @@ CPP_DEPS :=
 SUBDIRS := \
 Application/User/Core/DigitalDebounce \
 Application/User/Core \
+Application/User/Core/stateManager/IgnitionManager \
+Application/User/Core/stateManager \
 Application/User/LIBJPEG/App \
 Application/User/Startup \
 Application/User/TouchGFX/App \
