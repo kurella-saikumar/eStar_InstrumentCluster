@@ -1,0 +1,4 @@
+../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.c:75:6:IGNON_func	0	static
+../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.c:88:6:IGNOFF_func	0	static
+../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.c:101:6:in_IGNON_func	0	static
+../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.c:115:6:in_IGNOFF_func	0	static

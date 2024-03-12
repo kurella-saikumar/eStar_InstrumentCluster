@@ -27,6 +27,8 @@
 /* USER CODE BEGIN Includes */
 #include "stm32h735g_discovery_ospi.h"
 #include "stm32h7xx_hal_ospi.h"
+#include "smHandler.h"
+#include "digital_debounce.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -1081,7 +1083,7 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void debounceTestApp(void)
 {
-	uint8_t mybitstatus = get_debounce_status();
+	//uint8_t mybitstatus = get_debounce_status();
 
 }
 
