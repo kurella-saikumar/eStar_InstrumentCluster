@@ -22,15 +22,10 @@
 /**************************************************************************************************
  * Include Platform or Standard Headers
 ***************************************************************************************************/
-//#include "batterVoltage_SmHandler.h"
-//#include "TempSensor_SmHandler.h"
-//#include "ACC_SmHandler.h"
 #include "IGN_SmHandler.h"
 #include "IGN_SmHandler_cfg.h"
-//#include "ACC_SmHandler.h"
-//#include "ACC_SmHandler_cfg.h"
-//#include "IgnitionManager/ACC_SmHandler.h"
-//#include "smHandler_cfg.h"
+#include "ECUPwrMode_SmHandler_cfg.h"
+
 /**************************************************************************************************
  * Include Project Specific Headers
 ***************************************************************************************************/
@@ -45,8 +40,8 @@
 #define STATE_MACHINES_CONFIG \
 /*Default State of the state machine, Array of Transitions of the state machine*/\
 /*Make sure to have {SM_STATE_INVALID, SM_STATE_INVALID, NULL, NULL } always as the last transition in each state machine's transition array*/\
-/*State Machine 0 Configuration*/{IGN_MANAGER_DEFAULT_STATE, gl_IGNMode_SM_t}
-
+/*State Machine 0 Configuration*/{IGN_MANAGER_DEFAULT_STATE, gl_IGNMode_SM_t},\
+/*State Machine 1 Configuration*/{PM_MANAGER_DEFAULT_STATE, gl_ECUPwrMode_SM_t}
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES
 ***************************************************************************************************/

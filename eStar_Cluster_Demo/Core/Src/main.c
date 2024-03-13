@@ -32,6 +32,7 @@
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
+typedef StaticTask_t osStaticThreadDef_t;
 /* USER CODE BEGIN PTD */
 #ifdef __GNUC__
 /* With GCC, small printf (option LD Linker->Libraries->Small printf
@@ -74,9 +75,14 @@ WWDG_HandleTypeDef hwwdg1;
 
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
+uint32_t defaultTaskBuffer[ 128 ];
+osStaticThreadDef_t defaultTaskControlBlock;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
-  .stack_size = 128 * 4,
+  .cb_mem = &defaultTaskControlBlock,
+  .cb_size = sizeof(defaultTaskControlBlock),
+  .stack_mem = &defaultTaskBuffer[0],
+  .stack_size = sizeof(defaultTaskBuffer),
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for TouchGFXTask */
@@ -88,30 +94,50 @@ const osThreadAttr_t TouchGFXTask_attributes = {
 };
 /* Definitions for videoTask */
 osThreadId_t videoTaskHandle;
+uint32_t videoTaskBuffer[ 1024 ];
+osStaticThreadDef_t videoTaskControlBlock;
 const osThreadAttr_t videoTask_attributes = {
   .name = "videoTask",
-  .stack_size = 1024 * 4,
+  .cb_mem = &videoTaskControlBlock,
+  .cb_size = sizeof(videoTaskControlBlock),
+  .stack_mem = &videoTaskBuffer[0],
+  .stack_size = sizeof(videoTaskBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
 /* Definitions for WatchdogService */
 osThreadId_t WatchdogServiceHandle;
+uint32_t WatchdogServiceBuffer[ 128 ];
+osStaticThreadDef_t WatchdogServiceControlBlock;
 const osThreadAttr_t WatchdogService_attributes = {
   .name = "WatchdogService",
-  .stack_size = 128 * 4,
+  .cb_mem = &WatchdogServiceControlBlock,
+  .cb_size = sizeof(WatchdogServiceControlBlock),
+  .stack_mem = &WatchdogServiceBuffer[0],
+  .stack_size = sizeof(WatchdogServiceBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
 /* Definitions for DigitalDebounce */
 osThreadId_t DigitalDebounceHandle;
+uint32_t DigitalDebounceBuffer[ 128 ];
+osStaticThreadDef_t DigitalDebounceControlBlock;
 const osThreadAttr_t DigitalDebounce_attributes = {
   .name = "DigitalDebounce",
-  .stack_size = 128 * 4,
+  .cb_mem = &DigitalDebounceControlBlock,
+  .cb_size = sizeof(DigitalDebounceControlBlock),
+  .stack_mem = &DigitalDebounceBuffer[0],
+  .stack_size = sizeof(DigitalDebounceBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
 /* Definitions for State_Manager */
 osThreadId_t State_ManagerHandle;
+uint32_t State_ManagerBuffer[ 128 ];
+osStaticThreadDef_t State_ManagerControlBlock;
 const osThreadAttr_t State_Manager_attributes = {
   .name = "State_Manager",
-  .stack_size = 128 * 4,
+  .cb_mem = &State_ManagerControlBlock,
+  .cb_size = sizeof(State_ManagerControlBlock),
+  .stack_mem = &State_ManagerBuffer[0],
+  .stack_size = sizeof(State_ManagerBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
 /* USER CODE BEGIN PV */
@@ -149,12 +175,12 @@ void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
 extern void videoTaskFunc(void *argument);
 void WDG_SRVC_Task(void *argument);
-void Dig_Deb_Task(void *argument);
-void State_Machine(void *argument);
+void DigitalDebounce_Task(void *argument);
+void State_Machine_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
 static uint32_t TimeoutCalculation(uint32_t timevalue);
-extern void debounceTestApp(void);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -255,10 +281,10 @@ int main(void)
   WatchdogServiceHandle = osThreadNew(WDG_SRVC_Task, NULL, &WatchdogService_attributes);
 
   /* creation of DigitalDebounce */
-  DigitalDebounceHandle = osThreadNew(Dig_Deb_Task, NULL, &DigitalDebounce_attributes);
+  DigitalDebounceHandle = osThreadNew(DigitalDebounce_Task, NULL, &DigitalDebounce_attributes);
 
   /* creation of State_Manager */
-  State_ManagerHandle = osThreadNew(State_Machine, NULL, &State_Manager_attributes);
+  State_ManagerHandle = osThreadNew(State_Machine_Task, NULL, &State_Manager_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1073,19 +1099,11 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(VSYNC_FREQ_GPIO_Port, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
-//  static void debounceTestApp(void)
-//  {
-//  	uint8_t mybitstatus = get_debounce_status();
-//  }
+
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
-void debounceTestApp(void)
-{
-	//uint8_t mybitstatus = get_debounce_status();
-
-}
 
 /* USER CODE END 4 */
 
@@ -1100,7 +1118,6 @@ void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
-	//delay = TimeoutCalculation((WwdgHandle.Init.Counter - WwdgHandle.Init.Window) + 1) + 1;
   for(;;)
   {
     osDelay(100);
@@ -1134,43 +1151,40 @@ void WDG_SRVC_Task(void *argument)
   /* USER CODE END WDG_SRVC_Task */
 }
 
-/* USER CODE BEGIN Header_Dig_Deb_Task */
+/* USER CODE BEGIN Header_DigitalDebounce_Task */
 /**
 * @brief Function implementing the DigitalDebounce thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_Dig_Deb_Task */
-void Dig_Deb_Task(void *argument)
+/* USER CODE END Header_DigitalDebounce_Task */
+void DigitalDebounce_Task(void *argument)
 {
-  /* USER CODE BEGIN Dig_Deb_Task */
+  /* USER CODE BEGIN DigitalDebounce_Task */
   /* Infinite loop */
   for(;;)
   {
-	  DebounceTask();
-	  debounceTestApp();
-	  osDelay(4);
+    osDelay(1);
   }
-  /* USER CODE END Dig_Deb_Task */
+  /* USER CODE END DigitalDebounce_Task */
 }
 
-/* USER CODE BEGIN Header_State_Machine */
+/* USER CODE BEGIN Header_State_Machine_Task */
 /**
 * @brief Function implementing the State_Manager thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_State_Machine */
-void State_Machine(void *argument)
+/* USER CODE END Header_State_Machine_Task */
+void State_Machine_Task(void *argument)
 {
-  /* USER CODE BEGIN State_Machine */
+  /* USER CODE BEGIN State_Machine_Task */
   /* Infinite loop */
   for(;;)
   {
-      State_Manager_task();
-      osDelay(10);
+    osDelay(1);
   }
-  /* USER CODE END State_Machine */
+  /* USER CODE END State_Machine_Task */
 }
 
 /* MPU Configuration */

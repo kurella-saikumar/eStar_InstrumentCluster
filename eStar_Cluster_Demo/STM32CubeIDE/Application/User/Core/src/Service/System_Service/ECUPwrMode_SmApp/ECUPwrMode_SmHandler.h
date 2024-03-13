@@ -22,7 +22,7 @@
 /**************************************************************************************************
  * Include Platform or Standard Headers
 ***************************************************************************************************/
-//#include "smHandler.h"
+#include "smHandler.h"
 
 /**************************************************************************************************
  * Include Project Specific Headers
@@ -79,7 +79,7 @@ extern void ECUPwrModeOff_Active_ENtryAction(void);
 extern void ECUPerModeInitial_Off_EntryAction(void);
 extern void ECUPwrModeInitial_Action(void);
 
-
+extern const transition_T gl_ECUPwrMode_SM_t[];
 #endif	/* ECUPWRMODE_SMHANDLER_H */
 /**************************************************************************************************
  * End Of File

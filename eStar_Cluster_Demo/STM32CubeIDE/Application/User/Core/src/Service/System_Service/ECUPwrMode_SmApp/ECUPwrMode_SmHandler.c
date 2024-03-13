@@ -27,7 +27,6 @@
  * Include Project Specific Headers
 ***************************************************************************************************/
 
-#include "ECUPwrMode_SmHandler.h"
 #include "ECUPwrMode_SmHandler_cfg.h"
 #include "IGN_SmHandler.h"
 #include "smHandler.h"
@@ -607,13 +606,12 @@ uint8_t ECUPwrModeOff_To_Active_TransCheck_func(void)
  *
  * @param[in] void type
  *
- * @return true if A53,A7,R5 are in same state otherwisee return false
+ * @return true if same state otherwise return false
  *
  */
 uint8_t ECUPwrModeInitial_To_Off_TransCheck_func(void)
 {
     uint8_t fl_allow_initial_off_state_u8 = TRANSITION_NOT_ALLOWED; /*0*/
-    bool fl_sync_status_bool = false;
 
     if(l_PwrModeInitial_Timer_u16<=100)//ECUPWRMODE_INITIAL_TIMEOUT)
     {
@@ -629,23 +627,11 @@ uint8_t ECUPwrModeInitial_To_Off_TransCheck_func(void)
         if(IGN_STATUS==IgnOFF_mode)
         {
             //printf("powermodeActive_to_off\n");
-
-            /**:Request for A53 and A7 Core to enter into OFF State;*/
-            pm_ReqNewSyncState(ECU_POWER_MODE_OFF);
-            fl_sync_status_bool = pm_GetSyncStatus();
-
-            if(fl_sync_status_bool != false)
-            {
-                fl_allow_initial_off_state_u8 = ALLOW_TRANSITION; /*1*/
-            }
+             fl_allow_initial_off_state_u8 = ALLOW_TRANSITION; /*1*/
         }
 
     }
-    /**:Also, A53 and A7 cores should have already been in OFF State;*/
-
     return (fl_allow_initial_off_state_u8);
-
-
 }
 
 /**
