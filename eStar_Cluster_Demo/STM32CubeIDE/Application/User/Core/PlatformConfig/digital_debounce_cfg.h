@@ -89,13 +89,13 @@
 	/**
 	 * Define Input 1 pair values
 	 */
-	#define DI_01_RAW_VALUE HAL_GPIO_ReadPin(GPIOG,GPIO_PIN_5)
+	#define DI_01_RAW_VALUE 0//HAL_GPIO_ReadPin(GPIOG,GPIO_PIN_5)
 	#define DI_01_DEFAULT_VALUE 0
 
 	/**
 	 * Define Input 0 pair values
 	 */
-	#define DI_00_RAW_VALUE HAL_GPIO_ReadPin(GPIOE,GPIO_PIN_3)
+	#define DI_00_RAW_VALUE 0//HAL_GPIO_ReadPin(GPIOE,GPIO_PIN_3)
 	#define DI_00_DEFAULT_VALUE 0
 
 #else
