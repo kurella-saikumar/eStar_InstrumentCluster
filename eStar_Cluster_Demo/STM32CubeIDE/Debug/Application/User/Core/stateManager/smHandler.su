@@ -1,3 +1,0 @@
-../Application/User/Core/stateManager/smHandler.c:69:11:SM_get_current_state	0	static
-../Application/User/Core/stateManager/smHandler.c:82:6:State_Manager_init	0	static
-../Application/User/Core/stateManager/smHandler.c:101:6:State_Manager_task	32	static

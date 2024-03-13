@@ -1,7 +1,0 @@
-../Application/User/Core/stateManager/IgnitionManager/IGN_SmHandler.c:135:6:IGNONEntryAction_func	2
-../Application/User/Core/stateManager/IgnitionManager/IGN_SmHandler.c:186:6:in_IGNONstateAction_func	2
-../Application/User/Core/stateManager/IgnitionManager/IGN_SmHandler.c:210:6:in_IGNOFFstateAction_func	2
-../Application/User/Core/stateManager/IgnitionManager/IGN_SmHandler.c:97:9:IGNONTransCheck_func	1
-../Application/User/Core/stateManager/IgnitionManager/IGN_SmHandler.c:116:9:IGNOFFTransCheck_func	1
-../Application/User/Core/stateManager/IgnitionManager/IGN_SmHandler.c:159:6:IGNOFFEntryAction_func	2
-../Application/User/Core/stateManager/IgnitionManager/IGN_SmHandler.c:237:10:IGN_get_current_state	1
