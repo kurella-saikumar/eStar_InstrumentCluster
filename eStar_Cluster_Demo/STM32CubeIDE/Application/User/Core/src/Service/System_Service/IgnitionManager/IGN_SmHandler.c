@@ -96,10 +96,12 @@ const transition_T gl_IGNMode_SM_t[] =
  */
 uint8_t IGNONTransCheck_func(void)
 {
-    //printf("IGNONTransCheck_func \r\n");
     uint8_t fl_ret_val_bool = 0;
-    uint8_t l_DBNC_Status_u8 = (get_debounce_status() & 0x01);/**Checking ACC Status*/
-    if(l_DBNC_Status_u8==1)
+    uint8_t fl_IGN_Status_Check_u8 =0;
+    fl_IGN_Status_Check_u8 = get_debounce_status();
+    fl_IGN_Status_Check_u8 = (fl_IGN_Status_Check_u8>>2);
+    uint8_t l_DBNC_Status_u8 = (fl_IGN_Status_Check_u8 & 0x01);/**Checking IGN Status*/
+    if(l_DBNC_Status_u8==0)
     {
         fl_ret_val_bool = 1;   
     }
@@ -115,10 +117,12 @@ uint8_t IGNONTransCheck_func(void)
  */
 uint8_t IGNOFFTransCheck_func(void)
 {
-    //printf("IGNOFFTransCheck_func \r\n");
     uint8_t fl_ret_val_bool = 0;
-    uint8_t l_DBNC_Status_u8  = (get_debounce_status() & 0x01);/**Checking ACC Status*/
-    if(l_DBNC_Status_u8==0)
+    uint8_t fl_IGN_Status_Check_u8 =0;
+    fl_IGN_Status_Check_u8 = get_debounce_status();
+    fl_IGN_Status_Check_u8 = (fl_IGN_Status_Check_u8>>2);
+    uint8_t l_DBNC_Status_u8 = (fl_IGN_Status_Check_u8 & 0x01);/**Checking IGN Status*/
+    if(l_DBNC_Status_u8==1)
     {
         fl_ret_val_bool = 1;
     }
@@ -134,7 +138,6 @@ uint8_t IGNOFFTransCheck_func(void)
  */
 void IGNONEntryAction_func(void)
 {
-    //printf("IGNONEntryAction_func \r\n");
     uint8_t fl_IGNOff_ON_counter_u8 = 0;
     static const Ign_ptr_t IGNOff_To_ON_List[]=
     {
@@ -209,9 +212,6 @@ void in_IGNONstateAction_func(void)
 
 void in_IGNOFFstateAction_func(void)
 {
-    //in_IGNOFF_func();
-#if 1
-//    printf("in_IGNOFFstateAction_func \r\n");
     uint8_t fl_IGNOffstate_counter_u8 = 0;
     static const Ign_ptr_t IGNOffState_List[]=
     {
@@ -224,7 +224,6 @@ void in_IGNOFFstateAction_func(void)
         IGNOffState_List[fl_IGNOffstate_counter_u8]();
         fl_IGNOffstate_counter_u8++;
     }
-#endif  
 }
 /**
  * @brief  ign_get_current_state function is to get the current state of ecupoermode
@@ -238,6 +237,7 @@ uint16_t IGN_get_current_state(void)
 {
     return(SM_get_current_state(IGN_SM_INDEX));
 }
+
    
  
 

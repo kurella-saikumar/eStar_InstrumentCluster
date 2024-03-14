@@ -29,6 +29,8 @@
 #include "stm32h7xx_hal_ospi.h"
 #include "smHandler.h"
 #include "digital_debounce.h"
+#include "digital_debounce_cfg.h"
+#include "IGN_SmHandler.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -1184,10 +1186,13 @@ void DigitalDebounce_Task(void *argument)
 void State_Machine(void *argument)
 {
   /* USER CODE BEGIN State_Machine */
+	uint16_t Current_IGN_Status = 0;
   /* Infinite loop */
   for(;;)
   {
       State_Manager_task();
+      Current_IGN_Status = IGN_get_current_state();
+      printf("Current_IGN_Status : %u\r\n", Current_IGN_Status);
       osDelay(10);
   }
   /* USER CODE END State_Machine */
