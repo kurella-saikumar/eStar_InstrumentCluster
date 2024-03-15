@@ -22,15 +22,8 @@
 /**************************************************************************************************
  * Include Platform or Standard Headers
 ***************************************************************************************************/
-//#include "batterVoltage_SmHandler.h"
-//#include "TempSensor_SmHandler.h"
-//#include "ACC_SmHandler.h"
 #include "IGN_SmHandler.h"
 #include "IGN_SmHandler_cfg.h"
-//#include "ACC_SmHandler.h"
-//#include "ACC_SmHandler_cfg.h"
-//#include "IgnitionManager/ACC_SmHandler.h"
-//#include "smHandler_cfg.h"
 /**************************************************************************************************
  * Include Project Specific Headers
 ***************************************************************************************************/

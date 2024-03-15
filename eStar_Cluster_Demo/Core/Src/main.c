@@ -1162,13 +1162,11 @@ void WDG_SRVC_Task(void *argument)
 void DigitalDebounce_Task(void *argument)
 {
   /* USER CODE BEGIN DigitalDebounce_Task */
-	uint8_t fl_mybitstatus_u8;
   /* Infinite loop */
   for(;;)
   {
 	DebounceTask();
-	fl_mybitstatus_u8 = get_debounce_status();
-	printf("fl_mybitstatus_u8:%d\r\n",fl_mybitstatus_u8);
+	//get_debounce_status();
     osDelay(4);
   }
   /* USER CODE END DigitalDebounce_Task */
@@ -1188,7 +1186,8 @@ void State_Machine(void *argument)
   for(;;)
   {
       State_Manager_task();
-      osDelay(10);
+      //IGN_get_current_state();
+      osDelay(50);
   }
   /* USER CODE END State_Machine */
 }
