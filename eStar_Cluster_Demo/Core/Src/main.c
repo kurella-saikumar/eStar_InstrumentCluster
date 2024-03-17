@@ -29,6 +29,7 @@
 #include "stm32h7xx_hal_ospi.h"
 #include "smHandler.h"
 #include "digital_debounce.h"
+#include "SwitchInf.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -1162,11 +1163,25 @@ void WDG_SRVC_Task(void *argument)
 void DigitalDebounce_Task(void *argument)
 {
   /* USER CODE BEGIN DigitalDebounce_Task */
+	uint8_t mybitstatus;
+	STATE_t SwitchStatus0;
+	STATE_t SwitchStatus1;
+	STATE_t SwitchStatus2;
+	//uint8_t SIntStatus;
   /* Infinite loop */
   for(;;)
   {
 	DebounceTask();
 	//get_debounce_status();
+	mybitstatus = get_debounce_status();
+	printf("mybitstatus:%d\r\n",mybitstatus);
+	vGet_Switch_DebouncedStatus();
+	SwitchStatus0 = xGetModeSwitch();
+	SwitchStatus1 = xGetResetSwitch();
+	SwitchStatus2 = xGetIgnSwitch();
+	printf("SwitchStatus:%d\r\n", SwitchStatus0);
+	printf("SwitchStatus:%d\r\n", SwitchStatus1);
+	printf("SwitchStatus:%d\r\n", SwitchStatus2);
     osDelay(4);
   }
   /* USER CODE END DigitalDebounce_Task */
@@ -1182,11 +1197,14 @@ void DigitalDebounce_Task(void *argument)
 void State_Machine(void *argument)
 {
   /* USER CODE BEGIN State_Machine */
+	//STATE_t SwitchStatus;
   /* Infinite loop */
   for(;;)
   {
       State_Manager_task();
       //IGN_get_current_state();
+      //SwitchStatus = xGetModeSwitch();
+      //printf("SwitchStatus:%d\r\n", SwitchStatus);
       osDelay(50);
   }
   /* USER CODE END State_Machine */

@@ -10,6 +10,7 @@
 "./Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/ECUPwrMode_SmHandler_Demo.o"
 "./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o"
 "./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.o"
+"./Application/User/Core/src/Service/System_Service/SwitchInterface/SwitchInf.o"
 "./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o"
 "./Application/User/LIBJPEG/App/libjpeg.o"
 "./Application/User/Startup/startup_stm32h735igkx.o"

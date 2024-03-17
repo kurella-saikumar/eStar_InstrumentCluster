@@ -1,0 +1,4 @@
+../Application/User/Core/src/Service/System_Service/SwitchInterface/SwitchInf.c:18:6:vGet_Switch_DebouncedStatus	8	static
+../Application/User/Core/src/Service/System_Service/SwitchInterface/SwitchInf.c:24:9:xGetModeSwitch	0	static
+../Application/User/Core/src/Service/System_Service/SwitchInterface/SwitchInf.c:39:9:xGetResetSwitch	0	static
+../Application/User/Core/src/Service/System_Service/SwitchInterface/SwitchInf.c:53:9:xGetIgnSwitch	0	static

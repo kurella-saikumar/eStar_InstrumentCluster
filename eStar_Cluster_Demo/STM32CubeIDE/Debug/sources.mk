@@ -43,6 +43,7 @@ Application/User/Core \
 Application/User/Core/src/Service/IO_HAL/DigitalDebounce \
 Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp \
 Application/User/Core/src/Service/System_Service/IgnitionManager \
+Application/User/Core/src/Service/System_Service/SwitchInterface \
 Application/User/Core/src/Service/System_Service/stateManager \
 Application/User/LIBJPEG/App \
 Application/User/Startup \
