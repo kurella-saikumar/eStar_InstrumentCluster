@@ -40,7 +40,10 @@ CPP_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Application/User/Core \
+Application/User/Core/src/Service/APP/DriverInfoApplication \
 Application/User/Core/src/Service/IO_HAL/DigitalDebounce \
+Application/User/Core/src/Service/IO_HAL/Switch \
+Application/User/Core/src/Service/IO_HAL/Switch_Handler \
 Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp \
 Application/User/Core/src/Service/System_Service/IgnitionManager \
 Application/User/Core/src/Service/System_Service/stateManager \

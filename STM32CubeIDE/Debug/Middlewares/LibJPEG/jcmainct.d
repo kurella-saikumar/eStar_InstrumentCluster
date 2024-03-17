@@ -1,5 +1,5 @@
 Middlewares/LibJPEG/jcmainct.o: \
- D:/Git_Workspace/eSTAR_InstrumentCluster/Middlewares/Third_Party/LibJPEG/source/jcmainct.c \
+ D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/Middlewares/Third_Party/LibJPEG/source/jcmainct.c \
  ../../Middlewares/Third_Party/LibJPEG/include/jinclude.h \
  ../../LIBJPEG/Target/jconfig.h ../../LIBJPEG/Target/jdata_conf.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \

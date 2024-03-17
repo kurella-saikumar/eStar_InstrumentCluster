@@ -29,6 +29,8 @@
 #include "stm32h7xx_hal_ospi.h"
 #include "smHandler.h"
 #include "digital_debounce.h"
+#include "SwitchHandler_App.h"
+//#include "SwitchInf.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -140,6 +142,18 @@ const osThreadAttr_t State_Manager_attributes = {
   .stack_size = sizeof(State_ManagerBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for SwitchHandler_T */
+osThreadId_t SwitchHandler_THandle;
+uint32_t SwitchTaskBuffer[ 128 ];
+osStaticThreadDef_t SwitchTaskControlBlock;
+const osThreadAttr_t SwitchHandler_T_attributes = {
+  .name = "SwitchHandler_T",
+  .cb_mem = &SwitchTaskControlBlock,
+  .cb_size = sizeof(SwitchTaskControlBlock),
+  .stack_mem = &SwitchTaskBuffer[0],
+  .stack_size = sizeof(SwitchTaskBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* USER CODE BEGIN PV */
 /**
   * @brief  Retargets the C library printf function to the USART.
@@ -177,6 +191,7 @@ extern void videoTaskFunc(void *argument);
 void WDG_SRVC_Task(void *argument);
 void DigitalDebounce_Task(void *argument);
 void State_Machine(void *argument);
+void SwitchHandlerTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 static uint32_t TimeoutCalculation(uint32_t timevalue);
@@ -285,6 +300,9 @@ int main(void)
 
   /* creation of State_Manager */
   State_ManagerHandle = osThreadNew(State_Machine, NULL, &State_Manager_attributes);
+
+  /* creation of SwitchHandler_T */
+  SwitchHandler_THandle = osThreadNew(SwitchHandlerTask, NULL, &SwitchHandler_T_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1190,6 +1208,27 @@ void State_Machine(void *argument)
       osDelay(50);
   }
   /* USER CODE END State_Machine */
+}
+
+/* USER CODE BEGIN Header_SwitchHandlerTask */
+/**
+* @brief Function implementing the SwitchHandler_T thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_SwitchHandlerTask */
+void SwitchHandlerTask(void *argument)
+{
+  /* USER CODE BEGIN SwitchHandlerTask */
+  /* Infinite loop */
+  for(;;)
+  {
+	  vHandleModeResetActions();
+	  vSwitchHandlerTask();
+	  Switch_Task();
+    osDelay(50);
+  }
+  /* USER CODE END SwitchHandlerTask */
 }
 
 /* MPU Configuration */

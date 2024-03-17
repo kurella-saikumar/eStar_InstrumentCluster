@@ -1,5 +1,5 @@
 Application/User/generated/LanguageGb.o: \
- D:/Git_Workspace/eSTAR_InstrumentCluster/TouchGFX/generated/texts/src/LanguageGb.cpp \
+ D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/TouchGFX/generated/texts/src/LanguageGb.cpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp
