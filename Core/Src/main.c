@@ -29,6 +29,7 @@
 #include "stm32h7xx_hal_ospi.h"
 #include "smHandler.h"
 #include "digital_debounce.h"
+#include "FuelGuage_App.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,6 +46,7 @@ typedef StaticTask_t osStaticThreadDef_t;
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+uint16_t ADC_Value;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -140,6 +142,18 @@ const osThreadAttr_t State_Manager_attributes = {
   .stack_size = sizeof(State_ManagerBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for FuelGuage */
+osThreadId_t FuelGuageHandle;
+uint32_t FuelGuageBuffer[ 128 ];
+osStaticThreadDef_t FuelGuageControlBlock;
+const osThreadAttr_t FuelGuage_attributes = {
+  .name = "FuelGuage",
+  .cb_mem = &FuelGuageControlBlock,
+  .cb_size = sizeof(FuelGuageControlBlock),
+  .stack_mem = &FuelGuageBuffer[0],
+  .stack_size = sizeof(FuelGuageBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* USER CODE BEGIN PV */
 /**
   * @brief  Retargets the C library printf function to the USART.
@@ -177,6 +191,7 @@ extern void videoTaskFunc(void *argument);
 void WDG_SRVC_Task(void *argument);
 void DigitalDebounce_Task(void *argument);
 void State_Machine(void *argument);
+void FuelGuageTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 static uint32_t TimeoutCalculation(uint32_t timevalue);
@@ -246,6 +261,9 @@ int main(void)
   MX_TouchGFX_PreOSInit();
   /* USER CODE BEGIN 2 */
   State_Manager_init();
+  vFuelGuage_TaskInit();
+
+
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -285,6 +303,9 @@ int main(void)
 
   /* creation of State_Manager */
   State_ManagerHandle = osThreadNew(State_Machine, NULL, &State_Manager_attributes);
+
+  /* creation of FuelGuage */
+  FuelGuageHandle = osThreadNew(FuelGuageTask, NULL, &FuelGuage_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -379,14 +400,14 @@ void PeriphCommonClock_Config(void)
   /** Initializes the peripherals clock
   */
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_OSPI;
-  PeriphClkInitStruct.PLL2.PLL2M = 5;
-  PeriphClkInitStruct.PLL2.PLL2N = 80;
+  PeriphClkInitStruct.PLL2.PLL2M = 2;
+  PeriphClkInitStruct.PLL2.PLL2N = 15;
   PeriphClkInitStruct.PLL2.PLL2P = 2;
   PeriphClkInitStruct.PLL2.PLL2Q = 2;
-  PeriphClkInitStruct.PLL2.PLL2R = 2;
-  PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_2;
+  PeriphClkInitStruct.PLL2.PLL2R = 1;
+  PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_3;
   PeriphClkInitStruct.PLL2.PLL2VCOSEL = RCC_PLL2VCOWIDE;
-  PeriphClkInitStruct.PLL2.PLL2FRACN = 0;
+  PeriphClkInitStruct.PLL2.PLL2FRACN = 2950;
   PeriphClkInitStruct.OspiClockSelection = RCC_OSPICLKSOURCE_PLL2;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {
@@ -445,13 +466,12 @@ static void MX_ADC1_Init(void)
 
   /** Configure Regular Channel
   */
-  sConfig.Channel = ADC_CHANNEL_1;
+  sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = ADC_REGULAR_RANK_1;
   sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
   sConfig.SingleDiff = ADC_SINGLE_ENDED;
   sConfig.OffsetNumber = ADC_OFFSET_NONE;
-  sConfig.Offset = 0;
-  sConfig.OffsetSignedSaturation = DISABLE;
+  sConfig.Offset = 62;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -1190,6 +1210,30 @@ void State_Machine(void *argument)
       osDelay(50);
   }
   /* USER CODE END State_Machine */
+}
+
+/* USER CODE BEGIN Header_FuelGuageTask */
+/**
+* @brief Function implementing the FuelGuage thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_FuelGuageTask */
+void FuelGuageTask(void *argument)
+{
+  /* USER CODE BEGIN FuelGuageTask */
+
+  /* Infinite loop */
+  for(;;)
+  {
+	  HAL_ADC_Start(&hadc1);
+	  HAL_ADC_PollForConversion(&hadc1, 1);
+	  ADC_Value=(uint16_t)HAL_ADC_GetValue(&hadc1);
+	  //printf("ADC-%d\r\n",ADC_Value);
+	  vFuelGuage_Task();
+      osDelay(100);
+  }
+  /* USER CODE END FuelGuageTask */
 }
 
 /* MPU Configuration */

@@ -230,7 +230,7 @@ void vInIgnitionOffStateActionFunc(void)
  */
 uint16_t usIgnitionGetCurrentState(void)
 {
-    return(SM_get_current_state(IGN_SM_INDEX));
+    return((uint16_t)SM_get_current_state(IGN_SM_INDEX));
 
 }
 

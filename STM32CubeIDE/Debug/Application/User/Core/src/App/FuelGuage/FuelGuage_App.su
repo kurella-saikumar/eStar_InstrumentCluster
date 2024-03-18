@@ -1,0 +1,8 @@
+../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:124:6:vFuelGuage_TaskInit	0	static
+../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:293:10:prvInital_SamplingProcess	16	static
+../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:332:18:prvOffline_FillTypeDtcn_Prcs	0	static
+../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:373:18:prvOnline_FillTypeDtcn_Prcs	8	static
+../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:417:6:prvSet_FuelLevel	0	static
+../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:140:6:vFuelGuage_Task	24	static
+../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:433:9:xGet_FuelLevel	0	static
+../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:458:10:calculateAverage	0	static

@@ -1,5 +1,5 @@
 Application/User/generated/Screen1ViewBase.o: \
- D:/Git_Workspace/eSTAR_InstrumentCluster/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp \
+ D:/GitWork_Areas/eSTAR_InstrumentCluster/TouchGFX/generated/gui_generated/src/screen1_screen/Screen1ViewBase.cpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp \
  ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp \

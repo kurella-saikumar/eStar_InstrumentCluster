@@ -1,6 +1,6 @@
 Application/User/LIBJPEG/App/libjpeg.o: \
- D:/Git_Workspace/eSTAR_InstrumentCluster/LIBJPEG/App/libjpeg.c \
- D:/Git_Workspace/eSTAR_InstrumentCluster/LIBJPEG/App/libjpeg.h \
+ D:/GitWork_Areas/eSTAR_InstrumentCluster/LIBJPEG/App/libjpeg.c \
+ D:/GitWork_Areas/eSTAR_InstrumentCluster/LIBJPEG/App/libjpeg.h \
  ../../Middlewares/Third_Party/LibJPEG/include/jpeglib.h \
  ../../LIBJPEG/Target/jconfig.h ../../LIBJPEG/Target/jdata_conf.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
@@ -15,7 +15,7 @@ Application/User/LIBJPEG/App/libjpeg.o: \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../../LIBJPEG/Target/jmorecfg.h
-D:/Git_Workspace/eSTAR_InstrumentCluster/LIBJPEG/App/libjpeg.h:
+D:/GitWork_Areas/eSTAR_InstrumentCluster/LIBJPEG/App/libjpeg.h:
 ../../Middlewares/Third_Party/LibJPEG/include/jpeglib.h:
 ../../LIBJPEG/Target/jconfig.h:
 ../../LIBJPEG/Target/jdata_conf.h:
