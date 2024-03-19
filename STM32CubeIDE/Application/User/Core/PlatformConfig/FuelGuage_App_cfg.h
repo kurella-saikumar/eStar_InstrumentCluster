@@ -54,9 +54,18 @@
 
 
 
-#define TASK_PERIOD_MS       100 /*100 milli seconds*/
-#define INITIAL_TIMEOUT_MS 120000 /*120 seconds*/
-#define IGN_TIMEOUT (INITIAL_TIMEOUT_MS/TASK_PERIOD_MS)
+#define TASK_PERIOD_MS           100 /*100 milli seconds*/
+
+#define FastFill_UpdateTime_ms   30000 /*3 sec*/
+#define FastFill_TimeOut_ms      (FastFill_UpdateTime_ms/TASK_PERIOD_MS)
+
+#define SlowFill_UpdateTime_ms   300000 /*5 Min*/
+#define SlowFill_TimeOut_ms      (SlowFill_UpdateTime_ms/TASK_PERIOD_MS)
+
+#define NormalFill_UpdateTime_ms 900000 /*15 Min*/
+#define NormalFill_TimeOut_ms    (NormalFill_UpdateTime_ms/TASK_PERIOD_MS)
+
+
 
 #endif/*FUELGUAGE_APP_CFG_H*/
 /**************************************************************************************************

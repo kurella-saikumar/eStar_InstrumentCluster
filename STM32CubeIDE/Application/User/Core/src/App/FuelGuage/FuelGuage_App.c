@@ -67,6 +67,11 @@ bool IGN;
 FillType_State_T Previous_FillType;
 FillType_State_T Current_FillType;
 
+uint16_t FastFillCount;
+uint16_t SlowFillCount;
+uint16_t NormalFillCount;
+
+
 extern uint16_t ADC_Value;
 extern uint16_t l_count_u16[1];
 extern Input_Thresholds_T inp_thresholds[1];
@@ -161,6 +166,7 @@ void vFuelGuage_Task(void)
         case Offline_FillType_Dtcn_State:
         {
             FillType = prvOffline_FillTypeDtcn_Prcs();
+            Current_FillType = FillType;
             printf("FT-%d\r\n",FillType);
             printf("IGN_ON\n");
             if((usIgnitionGetCurrentState() == IgnON_mode) && (FillType_DetctOver_Flag==1))
@@ -173,10 +179,11 @@ void vFuelGuage_Task(void)
                 else /*Instantaneous_Update*/ 
                 {
                     /*Instantaneous update code*/
-                    inp_thresholds[FuelIndex].Min_time = Instantaneous_Filter_UpdateRate;
-                    inp_thresholds[FuelIndex].Max_Step_Size = Instantaneous_Filter_StepSize;
-                    printf("IUCnt %d \t", inp_thresholds[0].Min_time );
-                    printf("IUSiz %d \t",inp_thresholds[0].Max_Step_Size);
+                    inp_thresholds[0].Min_time = Instantaneous_Filter_UpdateRate;
+                    inp_thresholds[0].Max_Step_Size = Instantaneous_Filter_StepSize;
+                    printf("CFL-%d\t",Current_FuelLevel);
+                    printf("IUCnt %d\t", inp_thresholds[0].Min_time );
+                    printf("IUSiz %d\t",inp_thresholds[0].Max_Step_Size);
                     DAMP_OUT ();
                     Dampout_value = Get_DAMP_OUT(0);
                     prvSet_FuelLevel();
@@ -199,14 +206,27 @@ void vFuelGuage_Task(void)
                     {
                         l_count_u16[FuelIndex]= 0;
                     }
-                    inp_thresholds[FuelIndex].Min_time = Fuel_Fast_Fill_Loss_Filter_UpdateRate;
-                    inp_thresholds[FuelIndex].Max_Step_Size = Fuel_Fast_Fill_Loss_Filter_StepSize;
-                    printf("FFCnt %d\t", inp_thresholds[0].Min_time );
-                    printf("FFSiz %d\t",inp_thresholds[0].Max_Step_Size);
-                    DAMP_OUT ();
-                    Dampout_value = Get_DAMP_OUT(0);
-                    prvSet_FuelLevel();
-                            
+                    while(FastFillCount <= FastFill_TimeOut_ms)
+                    {
+                        if(Current_FuelLevel == Dampout_value )
+                        {
+                            FastFillCount=0;
+                            break;
+                        }
+                        else
+                        {
+                            FastFillCount++;
+                            /*Fast Fill code*/
+                            inp_thresholds[0].Min_time = Fuel_Fast_Fill_Loss_Filter_UpdateRate;
+                            inp_thresholds[0].Max_Step_Size = Fuel_Fast_Fill_Loss_Filter_StepSize; 
+                            printf("CFL-%d\t",Current_FuelLevel);
+                            printf("FFCnt %d\t", inp_thresholds[0].Min_time );
+                            printf("FFSiz %d\t",inp_thresholds[0].Max_Step_Size);
+                            DAMP_OUT ();
+                            Dampout_value = Get_DAMP_OUT(0);
+                            prvSet_FuelLevel();
+                        }
+                    }      
                     break;
                 }
                 case Slow_fill:
@@ -216,15 +236,27 @@ void vFuelGuage_Task(void)
                     {
                         l_count_u16[FuelIndex]= 0;
                     }
-                    inp_thresholds[FuelIndex].Min_time = (uint16_t)Fuel_slow_Fill_Loss_Filter_UpdateRate;
-                    inp_thresholds[FuelIndex].Max_Step_Size = (uint16_t) Fuel_slow_Fill_Loss_Filter_StepSize;
-                    printf("SFCnt %d\t", inp_thresholds[0].Min_time );
-                    printf("SFSiz %d\t",inp_thresholds[0].Max_Step_Size);
-                    DAMP_OUT ();
-                    Dampout_value = Get_DAMP_OUT(0);
-                    prvSet_FuelLevel();
-
-                            
+                    while(SlowFillCount <= SlowFill_TimeOut_ms)
+                    {
+                         if(Current_FuelLevel == Dampout_value )
+                        {
+                            SlowFillCount=0;
+                            break;
+                        }
+                        else
+                        {
+                            SlowFillCount++;
+                            /*Slow Fill code*/
+                            inp_thresholds[0].Min_time = (uint16_t)Fuel_slow_Fill_Loss_Filter_UpdateRate;
+                            inp_thresholds[0].Max_Step_Size = (uint16_t) Fuel_slow_Fill_Loss_Filter_StepSize;
+                            printf("CFL-%d\t",Current_FuelLevel);
+                            printf("SFCnt %d\t", inp_thresholds[0].Min_time );
+                            printf("SFSiz %d\t",inp_thresholds[0].Max_Step_Size);
+                            DAMP_OUT ();
+                            Dampout_value = Get_DAMP_OUT(0);
+                            prvSet_FuelLevel();    
+                        }   
+                    }
                     break;
                 }
                 case Normal_fill:
@@ -234,13 +266,28 @@ void vFuelGuage_Task(void)
                     {
                         l_count_u16[FuelIndex]= 0;
                     }
-                    inp_thresholds[FuelIndex].Min_time = (uint16_t)Fuel_Normal_Fill_Loss_Filter_UpdateRate;
-                    inp_thresholds[FuelIndex].Max_Step_Size =  (uint16_t)Fuel_Normal_Fill_Loss_Filter_StepSize;
-                    printf("NFCnt %d\t", inp_thresholds[0].Min_time );
-                    printf("NFSiz %d\t",inp_thresholds[0].Max_Step_Size);
-                    DAMP_OUT ();
-                    Dampout_value = Get_DAMP_OUT(0);
-                    prvSet_FuelLevel();      
+                    while(NormalFillCount <= NormalFill_TimeOut_ms)
+                    {
+                        if(Current_FuelLevel == Dampout_value )
+                        {
+                            NormalFillCount=0;
+                            break;
+                        }
+                        else
+                        {
+                            NormalFillCount++;
+                            /*Normal Fill code*/
+                            inp_thresholds[0].Min_time = (uint16_t)Fuel_Normal_Fill_Loss_Filter_UpdateRate;
+                            inp_thresholds[0].Max_Step_Size =  (uint16_t)Fuel_Normal_Fill_Loss_Filter_StepSize;
+                            printf("CFL-%d\t",Current_FuelLevel);
+                            printf("NFCnt %d\t", inp_thresholds[0].Min_time );
+                            printf("NFSiz %d\t",inp_thresholds[0].Max_Step_Size);
+                            DAMP_OUT ();
+                            Dampout_value = Get_DAMP_OUT(0);
+                            prvSet_FuelLevel();
+                        }
+                             
+                    }     
                     break;
                 }
                 default:
@@ -252,17 +299,17 @@ void vFuelGuage_Task(void)
             FillType = prvOnline_FillTypeDtcn_Prcs(); 
             Current_FillType = FillType;
             printf("FT-%d\r\n",FillType);
-            if(FillType == Slow_fill)
+            if(FillType == Fast_fill)
+            {
+                SubData.Sub_state = Fast_fill;
+            }
+            else if(FillType == Slow_fill)
             {
                 SubData.Sub_state = Slow_fill;
             }
-            else if(FillType == Normal_fill)
-            {
-                SubData.Sub_state = Normal_fill;
-            }
             else
             {
-                SubData.Sub_state = Fast_fill;
+                SubData.Sub_state = Normal_fill;
             }
             
             if(usIgnitionGetCurrentState() == IgnOFF_mode)
@@ -417,7 +464,7 @@ FillType_State_T prvOnline_FillTypeDtcn_Prcs(void)
 void prvSet_FuelLevel(void)
 {
     FuelLevel = (Dampout_value * 100)/(Maximum_ADC_Range);
-    printf("DO: %lu \t FL:%lu\r\n",Dampout_value, FuelLevel);
+    printf("DO: %lu\tFL:%lu\r\n",Dampout_value, FuelLevel);
 }
 
 /**************************************************************************************************
