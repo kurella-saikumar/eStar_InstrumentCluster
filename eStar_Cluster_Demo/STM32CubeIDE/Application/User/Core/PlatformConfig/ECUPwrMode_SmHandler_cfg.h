@@ -37,7 +37,7 @@
  * DEFINE GLOBAL SCOPE TYPES
 ***************************************************************************************************/
 
-#define PM_MANAGER_DEFAULT_STATE ECU_POWER_MODE_INITIAL
+#define PM_MANAGER_DEFAULT_STATE ECU_POWER_MODE_OFF
 
 #define POWER_MODE_TASK_PERIOD_MS       10 /*10 milli seconds*/
 #define ECUPWRMODE_INITIAL_TIMEOUT_MS 3000 /*3 seconds*/
@@ -49,68 +49,32 @@
 * It is likely used to invoke or execute a function called IGNON_func()
 */
 
-#define ECUPWRMODESTANDBY_TO_OFF_LIST \
-ECUPwrModeStandBy_To_Off_EntryAction,\
+#define ECUPWRMODESLEEP_TO_OFF_LIST \
+ECUPwrModeSleep_To_Off_EntryAction,\
 
 #define ECUPWRMODEACTIVE_TO_OFF_LIST \
-PwrModeActive_To_Off_EntryAction,\
+ECUPwrModeActive_To_Off_EntryAction,\
 
-#define ECUPWRMODEOFF_TO_STANDBY_LIST \
-ECUPwrModeOff_To_StandBy_EntryAction,\
+#define ECUPWRMODEOFF_TO_SLEEP_LIST \
+ECUPwrModeOff_To_Sleep_EntryAction,\
 
-#define ECUPWRMODESTATIC_TO_STANDBY_LIST \
-ECUPwrModeStatic_To_StandBy_EntryAction,\
+#define ECUPWRMODEACTIVE_TO_SLEEP_LIST \
+ECUPwrModeActive_To_Sleep_EntryAction,\
 
-#define ECUPWRMODEACTIVE_TO_STANDBY_LIST \
-ECUPwrModeActive_To_StandBy_EntryAction,\
-
-#define ECUPWRMODESTANDBY_TO_STATIC_LIST \
-ECUPwrModeStandBy_To_Static_EntryAction,\
-
-#define ECUPWRMODEACTIVE_TO_STATIC_LIST \
-ECUPwrModeActive_To_Static_EntryAction,\
-
-#define ECUPWRMODESTANDBY_TO_CRANK_LIST \
-ECUPwrModeStandBy_To_Crank_EntryAction,\
-
-#define ECUPWRMODESTATIC_TO_CRANK_LIST \
-ECUPwrModeStatic_To_Crank_EntryAction,\
-
-#define ECUPWRMODEACTIVE_TO_CRANK_LIST \
-ECUPwrModeActive_To_Crank_EntryAction,\
-
-#define ECUPWRMODESTANDBY_TO_ACTIVE_LIST \
-ECUPwrModeStandBy_To_Active_EntryAction,\
-
-#define ECUPWRMODESTATIC_TO_ACTIVE_LIST \
-ECUPwrModeStatic_To_Active_EntryAction,\
-
-#define ECUPWRMODECRANK_TO_ACTIVE_LIST \
-ECUPwrModeCrank_To_Active_EntryAction,\
+#define ECUPWRMODESLEEP_TO_ACTIVE_LIST \
+ECUPwrModeSleep_To_Active_EntryAction,\
 
 #define ECUPWRMODEOFF_LIST \
 ECUPwrModeOff_Action,\
 
-#define ECUPWRMODESTANDBY_LIST \
-ECUPwrModeStandBy_Action,\
-
-#define ECUPWRMODESTATIC_LIST \
-ECUPwrModeStatic_Action,\
-
-#define ECUPWRMODECRANK_LIST \
-ECUPwrModeCrank_Action,\
+#define ECUPWRMODESLEEP_LIST \
+ECUPwrModeSleep_Action,\
 
 #define ECUPWRMODEACTIVE_LIST \
 ECUPwrModeActive_Action,\
 
 #define ECUPWRMODEOFF_To_ACTIVE_LIST \
 ECUPwrModeOff_Active_ENtryAction,\
-
-#define ECUPERMODEINITIAL_TO_OFF_LIST \
-ECUPerModeInitial_Off_EntryAction,\
-
-#define ECUPERMODEINITIAL_LIST \
-ECUPwrModeInitial_Action,\
 
 
 

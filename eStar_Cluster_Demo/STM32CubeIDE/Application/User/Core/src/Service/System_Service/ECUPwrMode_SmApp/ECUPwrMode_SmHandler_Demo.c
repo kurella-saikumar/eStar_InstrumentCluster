@@ -23,7 +23,7 @@
 // #include "stdint.h"
  #include "stdio.h"
 //#include "types.h"
-
+#include "main.h"
 /**************************************************************************************************
  * Include Project Specific Headers
 ***************************************************************************************************/
@@ -50,216 +50,119 @@
 /**************************************************************************************************
  * DEFINE FILE SCOPE STATIC FUNCTION PROTOTYPES
 ***************************************************************************************************/
-void ECUPwrModeStandBy_To_Off_EntryAction(void);
-void PwrModeActive_To_Off_EntryAction(void);
-void ECUPwrModeOff_To_StandBy_EntryAction(void);
-void ECUPwrModeStatic_To_StandBy_EntryAction(void);
-void ECUPwrModeActive_To_StandBy_EntryAction(void);
-void ECUPwrModeStandBy_To_Static_EntryAction(void);
-void ECUPwrModeActive_To_Static_EntryAction(void);
-void ECUPwrModeStandBy_To_Crank_EntryAction(void);
-void ECUPwrModeStatic_To_Crank_EntryAction(void);
-void ECUPwrModeActive_To_Crank_EntryAction(void);
-void ECUPwrModeStandBy_To_Active_EntryAction(void);
-void ECUPwrModeStatic_To_Active_EntryAction(void);
-void ECUPwrModeCrank_To_Active_EntryAction(void);
+void ECUPwrModeSleep_To_Off_EntryAction(void);
+void ECUPwrModeActive_To_Off_EntryAction(void);
+void ECUPwrModeOff_To_Sleep_EntryAction(void);
+void ECUPwrModeActive_To_Sleep_EntryAction(void);
+void ECUPwrModeSleep_To_Active_EntryAction(void);
 void ECUPwrModeOff_Action(void);
-void ECUPwrModeStandBy_Action(void);
-void ECUPwrModeStatic_Action(void) ;
-void ECUPwrModeCrank_Action(void);
+void ECUPwrModeSleep_Action(void);
 void ECUPwrModeActive_Action(void);
-
 void ECUPwrModeOff_Active_ENtryAction(void);
-void ECUPerModeInitial_Off_EntryAction(void);
-void ECUPwrModeInitial_Action(void);
 
 /**************************************************************************************************
  * FUNCTION DEFINITIONS
 ***************************************************************************************************/
 
 /**
- * @brief  ECUPwrModeStandBy_To_Off_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_STANDBY to ECU_POWER_MODE_OFF
+ * @brief  ECUPwrModeSleep_To_Off_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_SLEEP to ECU_POWER_MODE_OFF
  *
  * @param[in] void type
  *
  * @return void
  *
  */
-void ECUPwrModeStandBy_To_Off_EntryAction(void)
+void ECUPwrModeSleep_To_Off_EntryAction(void)
 {
-    printf("ECUPwrModeStandBy_To_Off_EntryAction\n");
+  //  printf("ECUPwrModeSleep_To_Off_EntryAction\n");
 }
 
 /**
- * @brief  PwrModeActive_To_Off_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_ACTIVE to ECU_POWER_MODE_OFF
+ * @brief  ECUPwrModeActive_To_Off_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_ACTIVE to ECU_POWER_MODE_OFF
  *
  * @param[in] void type
  *
  * @return void
  *
  */
-void PwrModeActive_To_Off_EntryAction(void)
+void ECUPwrModeActive_To_Off_EntryAction(void)
 {
-    printf("wrModeActive_To_Off_EntryAction\n");
+   // printf("wrModeActive_To_Off_EntryAction\n");
     //PowerDown(Hw_ACC_DET);
+	pm_ReqNewState(ECU_POWER_MODE_OFF);
+	printf("ECUPwrModeAction_off\n");
+
 }
 
 /**
- * @brief  ECUPwrModeOff_To_StandBy_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_OFF to ECU_POWER_MODE_STANDBY
+ * @brief  ECUPwrModeOff_To_Sleep_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_OFF to ECU_POWER_MODE_SLEEP
  *
  * @param[in] void type
  *
  * @return void
  *
  */
-void ECUPwrModeOff_To_StandBy_EntryAction(void)
+extern RTC_HandleTypeDef hrtc;
+extern LTDC_HandleTypeDef hltdc;
+void ECUPwrModeOff_To_Sleep_EntryAction(void)
 {
-    printf("ECUPwrModeOff_To_StandBy_EntryAction\n");
+//    printf("ECUPwrModeOff_To_Sleep_EntryAction\n");
+	HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+	/*## Configure the Wake up timer ###########################################*/
+	  /*  RTC Wake-up Interrupt Generation:
+		  Wake-up Time Base = (RTC_WAKEUPCLOCK_RTCCLK_DIV /(LSI))
+		  ==> WakeUpCounter = Wake-up Time / Wake-up Time Base
+
+		  To configure the wake up timer to 20s the WakeUpCounter is set to 0xA017:
+			RTC_WAKEUPCLOCK_RTCCLK_DIV = RTCCLK_Div16 = 16
+			Wake-up Time Base = 16 /(32KHz) = 0.0005 seconds
+			==> WakeUpCounter = ~10s/0.0005s = 20000 = 0x4E20 */
+	  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,0x4E20, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+		{
+		  Error_Handler();
+		}
+	  /****** Suspend the Ticks before entering the STOP mode or else this can wake the device up **********/
+	  HAL_SuspendTick();
+	  HAL_PWR_EnableSleepOnExit();
+	  HAL_LTDC_DeInit(&hltdc);
+	  HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
+	  // The code will continue here upon wake-up
+	// Deactivate the Wake-up Timer
+	HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+	while(1)
+	{
+
+	}
 }
 
+
 /**
- * @brief  ECUPwrModeStatic_To_StandBy_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_STATIC to ECU_POWER_MODE_STANDBY
+ * @brief  ECUPwrModeActive_To_Sleep_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_ACTIVE to ECU_POWER_MODE_SLEEP
  *
  * @param[in] void type
  *
  * @return void
  *
  */
-void ECUPwrModeStatic_To_StandBy_EntryAction(void)
+void ECUPwrModeActive_To_Sleep_EntryAction(void)
 {
-    printf("ECUPwrModeStatic_To_StandBy_EntryAction\n");
+   // printf("ECUPwrModeActive_To_Sleep_EntryAction\n");
 }
 
+
 /**
- * @brief  ECUPwrModeActive_To_StandBy_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_ACTIVE to ECU_POWER_MODE_STANDBY
+ * @brief  ECUPwrModeSleep_To_Active_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_SLEEP to ECU_POWER_MODE_ACTIVE
  *
  * @param[in] void type
  *
  * @return void
  *
  */
-void ECUPwrModeActive_To_StandBy_EntryAction(void)
+void ECUPwrModeSleep_To_Active_EntryAction(void)
 {
-    printf("ECUPwrModeActive_To_StandBy_EntryAction\n");
+  //  printf("ECUPwrModeSleep_To_Active_EntryAction\n");
 }
 
-/**
- * @brief  ECUPwrModeStandBy_To_Static_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_STANDBY to ECU_POWER_MODE_STATIC
- *
- * @param[in] void type
- *
- * @return void
- *
- */
-void ECUPwrModeStandBy_To_Static_EntryAction(void)
-{
-    printf("ECUPwrModeStandBy_To_Static_EntryAction\n");
-}
-
-/**
- * @brief  ECUPwrModeActive_To_Static_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_ACTIVE to ECU_POWER_MODE_STATIC
- *
- * @param[in] void type
- *
- * @return void
- *
- */
-void ECUPwrModeActive_To_Static_EntryAction(void)
-{
-    printf("ECUPwrModeActive_To_Static_EntryAction\n");
-}
-
-/**
- * @brief  ECUPwrModeStandBy_To_Crank_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_STANDBY to ECU_POWER_MODE_CRANK
- *
- * @param[in] void type
- *
- * @return void
- *
- */
-void ECUPwrModeStandBy_To_Crank_EntryAction(void)
-{
-    printf("ECUPwrModeStandBy_To_Crank_EntryAction\n");
-}
-
-/**
- * @brief  ECUPwrModeStatic_To_Crank_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_STATIC to ECU_POWER_MODE_CRANK
- *
- * @param[in] void type
- *
- * @return void
- *
- */
-void ECUPwrModeStatic_To_Crank_EntryAction(void)
-{
-    printf("ECUPwrModeStatic_To_Crank_EntryAction\n");
-}
-
-/**
- * @brief  ECUPwrModeActive_To_Crank_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_ACTIVE to ECU_POWER_MODE_CRANK
- *
- * @param[in] void type
- *
- * @return void
- *
- */
-void ECUPwrModeActive_To_Crank_EntryAction(void)
-{
-    printf("ECUPwrModeActive_To_Crank_EntryAction\n");
-}
-
-/**
- * @brief  ECUPwrModeStandBy_To_Active_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_STANDBY to ECU_POWER_MODE_ACTIVE
- *
- * @param[in] void type
- *
- * @return void
- *
- */
-void ECUPwrModeStandBy_To_Active_EntryAction(void)
-{
-    printf("ECUPwrModeStandBy_To_Active_EntryAction\n");
-}
-
-/**
- * @brief  ECUPwrModeStatic_To_Active_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_STATIC to ECU_POWER_MODE_ACTIVE
- *
- * @param[in] void type
- *
- * @return void
- *
- */
-void ECUPwrModeStatic_To_Active_EntryAction(void)
-{
-    printf("ECUPwrModeStatic_To_Active_EntryAction\n");
-}
-
-/**
- * @brief  ECUPwrModeCrank_To_Active_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_CRANK to ECU_POWER_MODE_ACTIVE
- *
- * @param[in] void type
- *
- * @return void
- *
- */
-void ECUPwrModeCrank_To_Active_EntryAction(void)
-{
-    printf("ECUPwrModeCrank_To_Active_EntryAction\n");
-
-}
-/**
- * @brief  ECUPerModeInitial_Off_EntryAction function is to perform some action when the state changed from ECU_POWER_MODE_Initial to ECU_POWER_MODE_OFF
- *
- * @param[in] void type
- *
- * @return void
- *
- */
-void ECUPerModeInitial_Off_EntryAction(void)
-{
-    printf("ECUPerModeInitial_Off_EntryAction\n");
-
-}
 
 /**
  * @brief  ECUPwrModeOff_Action function is to perform some action when the state remain in ECU_POWER_MODE_OFF
@@ -269,51 +172,43 @@ void ECUPerModeInitial_Off_EntryAction(void)
  * @return void
  *
  */
+uint16_t l_PowerOff_Sleep_u16 = 0;
 void ECUPwrModeOff_Action(void)
 {
     //Enable Wakeup Settings
     // Enter into sleep mode
-    printf("ECUPwrModeOff_Action\n");
+	/*No warnings, Display OFF - When Warning Indicators are OFF,Display Shall be in OFF mode, All features non functional
+	Any Warnings, Display ON - When Warning Indicators are ON, Display Shall be in ON mode*/
+	// if non of the Activity are active for particular period, enter into Sleep mode
+	if(pm_GetSyncStatus() == ECU_POWER_MODE_OFF )
+	{
+		l_PowerOff_Sleep_u16++;
+	}
+	else
+	{
+		l_PowerOff_Sleep_u16 = 0;
+	}
+	if(l_PowerOff_Sleep_u16 == 650)
+	{
+		l_PowerOff_Sleep_u16 = 0;
+		printf("ECUPwrModeOff_Action\n");
+		pm_ReqNewState(ECU_POWER_MODE_SLEEP);
+	}
 }
 
 /**
- * @brief  ECUPwrModeStandBy_Action function is to perform some action when the state remain in ECU_POWER_MODE_STANDBY
+ * @brief  ECUPwrModeSleep_Action function is to perform some action when the state remain in ECU_POWER_MODE_SLEEP
  *
  * @param[in] void type
  *
  * @return void
  *
  */
-void ECUPwrModeStandBy_Action(void)
+void ECUPwrModeSleep_Action(void)
 {
-    printf("ECUPwrModeStandBy_Action\n");
+   // printf("ECUPwrModeSleep_Action\n");
 }
 
-/**
- * @brief  ECUPwrModeStatic_Action function is to perform some action when the state remain in ECU_POWER_MODE_STATIC
- *
- * @param[in] void type
- *
- * @return void
- *
- */
-void ECUPwrModeStatic_Action(void)
-{
-    printf("ECUPwrModeStatic_Action\n");
-}
-
-/**
- * @brief  ECUPwrModeCrank_Action function is to perform some action when the state remain in ECU_POWER_MODE_CRANK
- *
- * @param[in] void type
- *
- * @return void
- *
- */
-void ECUPwrModeCrank_Action(void)
-{
-    printf("ECUPwrModeCrank_Action\n");
-}
 
 /**
  * @brief  ECUPwrModeActive_Action function is to perform some action when the state remain in ECU_POWER_MODE_ACTIVE
@@ -325,20 +220,40 @@ void ECUPwrModeCrank_Action(void)
  */
 void ECUPwrModeActive_Action(void)
 {
-    printf("ECUPwrModeActive_Action\n");
+   // printf("ECUPwrModeActive_Action\n");
+//	 printf("ECUPwrModeOff_To_Sleep_EntryAction\n");
+//		RTC_HandleTypeDef hrtc;
+//		/*## Configure the Wake up timer ###########################################*/
+//			  /*  RTC Wake-up Interrupt Generation:
+//			      Wake-up Time Base = (RTC_WAKEUPCLOCK_RTCCLK_DIV /(LSI))
+//			      ==> WakeUpCounter = Wake-up Time / Wake-up Time Base
+//
+//			      To configure the wake up timer to 20s the WakeUpCounter is set to 0xA017:
+//			        RTC_WAKEUPCLOCK_RTCCLK_DIV = RTCCLK_Div16 = 16
+//			        Wake-up Time Base = 16 /(32KHz) = 0.0005 seconds
+//			        ==> WakeUpCounter = ~10s/0.0005s = 20000 = 0x4E20 */
+//
+//			  HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x4E20, RTC_WAKEUPCLOCK_RTCCLK_DIV16);
+//
+//			  /****** Suspend the Ticks before entering the STOP mode or else this can wake the device up **********/
+//			  HAL_SuspendTick();
+//
+//			//  HAL_PWR_EnableSleepOnExit();
+//			  HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
+			  // The code will continue here upon wake-up
+
+//			  // Deactivate the Wake-up Timer
+//			  HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+//
+//			  // Resume the system tick
+//			  HAL_ResumeTick();
+
+//		while(1)
+//		{
+//
+//		}
 }
-/**
- * @brief  ECUPwrModeInitial_Action function is to perform some action when the state remain in ECU_POWER_MODE_INITIAL
- *
- * @param[in] void type
- *
- * @return void
- *
- */
-void ECUPwrModeInitial_Action(void)
-{
-    printf("ECUPwrModeInitial_Action\n");
-}
+
 /**
  * @brief  ECUPwrModeOff_Active_ENtryAction function is to perform some action when the state  change from ECU_POWER_MODE_OFF to Active
  *
@@ -350,8 +265,9 @@ void ECUPwrModeInitial_Action(void)
 
 void ECUPwrModeOff_Active_ENtryAction()
 {
-    printf("ECUPwrModeOff_Active_ENtryAction\n");
+    //printf("ECUPwrModeOff_Active_ENtryAction\n");
     //PowerDown(Hw_ACC_DET);
+	pm_ReqNewState(ECU_POWER_MODE_ACTIVE);
 }
 
 /**************************************************************************************************

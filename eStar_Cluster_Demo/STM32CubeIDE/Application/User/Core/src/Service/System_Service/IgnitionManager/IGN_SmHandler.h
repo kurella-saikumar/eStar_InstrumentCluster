@@ -49,12 +49,12 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES
 ***************************************************************************************************/
-extern uint16_t /*states_SM*/ IGN_get_current_state(void);
-extern void IGNON_func(void);
-extern void IGNOFF_func(void);
-extern void in_IGNON_func(void);
-extern void in_IGNOFF_func(void);
-extern uint16_t IGN_get_current_state(void);
+
+extern void vIgnitionONFunc(void);
+extern void vIgnitionOffFunc(void);
+extern void vInIgnitionONFunc(void);
+extern void vInIgnitionOffFunc(void);
+extern uint16_t usIgnitionGetCurrentState(void);
 
 extern const transition_T gl_IGNMode_SM_t[];
 

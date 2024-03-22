@@ -44,7 +44,7 @@
 * It is likely used to invoke or execute a function called IGNON_func()
 */
 #define IGNON_ACTION_FUNC \
-IGNON_func, \
+vIgnitionONFunc, \
 
 
 /*
@@ -52,7 +52,7 @@ IGNON_func, \
 * It is likely used to invoke or execute a function called IGNOFF_func()
 */
 #define IGNOFF_ACTION_FUNC \
-IGNOFF_func, \
+vIgnitionOffFunc, \
 
 
 
@@ -61,7 +61,7 @@ IGNOFF_func, \
 * It is likely used to invoke or execute a function called in_IGNON_func()
 */
 #define IN_IGNON_ACTION_FUNC \
-in_IGNON_func, \
+vInIgnitionONFunc, \
 
         
 /*
@@ -69,7 +69,7 @@ in_IGNON_func, \
 * It is likely used to invoke or execute a function called in_IGNOFF_func()
 */
 #define IN_IGNOFF_ACTION_FUNC \
-in_IGNOFF_func, \
+vInIgnitionOffFunc, \
 
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES

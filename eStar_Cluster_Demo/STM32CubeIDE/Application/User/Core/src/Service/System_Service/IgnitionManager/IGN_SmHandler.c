@@ -30,7 +30,6 @@
 #include "IGN_SmHandler.h"
 #include "digital_debounce.h"
 #include "digital_debounce_cfg.h"
-
 #include "IGN_SmHandler_cfg.h"
 
 /**************************************************************************************************
@@ -46,13 +45,13 @@
  */
 typedef  void (*Ign_ptr_t)(void);
 
-uint8_t IGNONTransCheck_func(void);
-uint8_t IGNOFFTransCheck_func(void);
+uint8_t ucIGNONTransCheckFunc(void);
+uint8_t ucIGNOFFTransCheckFunc(void);
 
-void IGNONEntryAction_func(void);
-void IGNOFFEntryAction_func(void);
-void in_IGNONstateAction_func(void);
-void in_IGNOFFstateAction_func(void);
+void vIgnitionOnEntryActionFunc(void);
+void vIgnitionOffEntryActionFunc(void);
+void vInIgnitionOnStateActionFunc(void);
+void vInIgnitionOffStateActionFunc(void);
 
 
 //uint16_t IGN_get_current_state(void);
@@ -68,10 +67,10 @@ void in_IGNOFFstateAction_func(void);
 */
 const transition_T gl_IGNMode_SM_t[] = 
 {/*Current State, Next State, CurrentState to NextStateTransitionCheckFunction, NextStateTransitionActionFunction*/
-    {IgnOFF_mode, IgnON_mode, IGNONTransCheck_func, IGNONEntryAction_func},\
-    {IgnON_mode, IgnOFF_mode, IGNOFFTransCheck_func, IGNOFFEntryAction_func},\
-    {IgnON_mode, IgnON_mode, NULL, in_IGNONstateAction_func },\
-    {IgnOFF_mode, IgnOFF_mode, NULL, in_IGNOFFstateAction_func },\
+    {IgnOFF_mode, IgnON_mode, ucIGNONTransCheckFunc, vIgnitionOnEntryActionFunc},\
+    {IgnON_mode, IgnOFF_mode, ucIGNOFFTransCheckFunc, vIgnitionOffEntryActionFunc},\
+    {IgnON_mode, IgnON_mode, NULL, vInIgnitionOnStateActionFunc },\
+    {IgnOFF_mode, IgnOFF_mode, NULL, vInIgnitionOffStateActionFunc },\
     {SM_STATE_INVALID, SM_STATE_INVALID, NULL, NULL }
 };
 
@@ -94,16 +93,18 @@ const transition_T gl_IGNMode_SM_t[] =
  * @return true if ACC is ON otherwise return false
  *
  */
-uint8_t IGNONTransCheck_func(void)
+uint8_t ucIGNONTransCheckFunc(void)
 {
-    //printf("IGNONTransCheck_func \r\n");
-    uint8_t fl_ret_val_bool = 0;
-    uint8_t l_DBNC_Status_u8 = (get_debounce_status() & 0x01);/**Checking ACC Status*/
-    if(l_DBNC_Status_u8==1)
+    uint8_t ucReturnValueBool = 0;
+    uint8_t ucIGNStatusCheck =0;
+    ucIGNStatusCheck = get_debounce_status();
+    ucIGNStatusCheck = (ucIGNStatusCheck>>2);
+    uint8_t ucDebounceStatus = (ucIGNStatusCheck & 0x01);/**Checking IGN Status*/
+    if(ucDebounceStatus==0)
     {
-        fl_ret_val_bool = 1;   
+    	ucReturnValueBool = 1;
     }
-    return fl_ret_val_bool; 
+    return ucReturnValueBool;
 }
 /**
  * @brief  IGNOFFTransCheck_func function is to check the entry condition for  IGN_OFF
@@ -113,16 +114,18 @@ uint8_t IGNONTransCheck_func(void)
  * @return true if IGN is OFF otherwise return false
  *
  */
-uint8_t IGNOFFTransCheck_func(void)
+uint8_t ucIGNOFFTransCheckFunc(void)
 {
-    //printf("IGNOFFTransCheck_func \r\n");
-    uint8_t fl_ret_val_bool = 0;
-    uint8_t l_DBNC_Status_u8  = (get_debounce_status() & 0x01);/**Checking ACC Status*/
-    if(l_DBNC_Status_u8==0)
+    uint8_t ucReturnValueBool = 0;
+    uint8_t ucIGNStatusCheck =0;
+    ucIGNStatusCheck = get_debounce_status();
+    ucIGNStatusCheck = (ucIGNStatusCheck>>2);
+    uint8_t ucDebounceStatus = (ucIGNStatusCheck & 0x01);/**Checking IGN Status*/
+    if(ucDebounceStatus==1)
     {
-        fl_ret_val_bool = 1;
+    	ucReturnValueBool = 1;
     }
-    return fl_ret_val_bool; 
+    return ucReturnValueBool;
 }
 /**
  * @brief  IGNONEntryAction_func function is to perform some action when the state changed to IGN_ON
@@ -132,20 +135,19 @@ uint8_t IGNOFFTransCheck_func(void)
  * @return void
  *
  */
-void IGNONEntryAction_func(void)
+void vIgnitionOnEntryActionFunc(void)
 {
-    //printf("IGNONEntryAction_func \r\n");
-    uint8_t fl_IGNOff_ON_counter_u8 = 0;
-    static const Ign_ptr_t IGNOff_To_ON_List[]=
+    uint8_t ucIgnitionOffToOnCounter = 0;
+    static const Ign_ptr_t IgnitionOffToOnList[]=
     {
         IGNON_ACTION_FUNC\
         NULL       
     };
 
-    while (IGNOff_To_ON_List[fl_IGNOff_ON_counter_u8] != NULL)
+    while (IgnitionOffToOnList[ucIgnitionOffToOnCounter] != NULL)
     {
-        IGNOff_To_ON_List[fl_IGNOff_ON_counter_u8]();
-        fl_IGNOff_ON_counter_u8++;
+    	IgnitionOffToOnList[ucIgnitionOffToOnCounter]();
+    	ucIgnitionOffToOnCounter++;
     }
 }
 /**
@@ -156,24 +158,20 @@ void IGNONEntryAction_func(void)
  * @return void
  *
  */
-void IGNOFFEntryAction_func(void)
+void vIgnitionOffEntryActionFunc(void)
 {
-    IGNOFF_func();
-#if 1
-//    printf("IGNOFFEntryAction_func \r\n");
-    uint8_t fl_IGNON_Off_counter_u8 = 0;
-    static const Ign_ptr_t IGNON_To_Off_List[]=
+    uint8_t ucIgnitionOnToOffCounter = 0;
+    static const Ign_ptr_t IgnitionOnToOffList[]=
     {
         IGNOFF_ACTION_FUNC\
         NULL
     };
 
-    while (IGNON_To_Off_List[fl_IGNON_Off_counter_u8] != NULL)
+    while (IgnitionOnToOffList[ucIgnitionOnToOffCounter] != NULL)
     {
-        IGNON_To_Off_List[fl_IGNON_Off_counter_u8]();
-        fl_IGNON_Off_counter_u8++;
+    	IgnitionOnToOffList[ucIgnitionOnToOffCounter]();
+        ucIgnitionOnToOffCounter++;
     }
-#endif  
 } 
 /**
  * @brief  in_IGNONstateAction_func function is to perform some action when the state remain in IGN_ON
@@ -183,19 +181,19 @@ void IGNOFFEntryAction_func(void)
  * @return void
  *
  */
-void in_IGNONstateAction_func(void)
+void vInIgnitionOnStateActionFunc(void)
 {
-    uint8_t fl_IGNONstate_counter_u8 = 0;
-    static const Ign_ptr_t IGNONState_List[]=
+    uint8_t ucIgnitionOnStateCounter = 0;
+    static const Ign_ptr_t IgnitionOnStateList[]=
     {
         IN_IGNON_ACTION_FUNC\
         NULL
     };
 
-    while (IGNONState_List[fl_IGNONstate_counter_u8] != NULL)
+    while (IgnitionOnStateList[ucIgnitionOnStateCounter] != NULL)
     {
-        IGNONState_List[fl_IGNONstate_counter_u8]();
-        fl_IGNONstate_counter_u8++;
+    	IgnitionOnStateList[ucIgnitionOnStateCounter]();
+        ucIgnitionOnStateCounter++;
     }
 } 
 /**
@@ -207,37 +205,35 @@ void in_IGNONstateAction_func(void)
  *
  */
 
-void in_IGNOFFstateAction_func(void)
+void vInIgnitionOffStateActionFunc(void)
 {
-    //in_IGNOFF_func();
-#if 1
-//    printf("in_IGNOFFstateAction_func \r\n");
-    uint8_t fl_IGNOffstate_counter_u8 = 0;
+    uint8_t uc_IGNOffstate_counter_u8 = 0;
     static const Ign_ptr_t IGNOffState_List[]=
     {
         IN_IGNOFF_ACTION_FUNC\
         NULL
     };
 
-    while (IGNOffState_List[fl_IGNOffstate_counter_u8] != NULL)
+    while (IGNOffState_List[uc_IGNOffstate_counter_u8] != NULL)
     {
-        IGNOffState_List[fl_IGNOffstate_counter_u8]();
-        fl_IGNOffstate_counter_u8++;
+        IGNOffState_List[uc_IGNOffstate_counter_u8]();
+        uc_IGNOffstate_counter_u8++;
     }
-#endif  
 }
 /**
- * @brief  ign_get_current_state function is to get the current state of ecupoermode
+ * @brief  ign_get_current_state function is to get the current state of ecupowermode
  *
  * @param[in] void type
  *
  * @return current state of IGN
  *
  */
-uint16_t IGN_get_current_state(void)
+uint16_t usIgnitionGetCurrentState(void)
 {
     return(SM_get_current_state(IGN_SM_INDEX));
+
 }
+
    
  
 

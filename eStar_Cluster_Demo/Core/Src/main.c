@@ -25,6 +25,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "stdint.h"
+#include "Sys_WakeUp_Reason.h"
 #include "stm32h735g_discovery_ospi.h"
 #include "stm32h7xx_hal_ospi.h"
 #include "smHandler.h"
@@ -59,6 +61,8 @@ CRC_HandleTypeDef hcrc;
 
 DMA2D_HandleTypeDef hdma2d;
 
+IWDG_HandleTypeDef hiwdg1;
+
 LTDC_HandleTypeDef hltdc;
 
 OSPI_HandleTypeDef hospi1;
@@ -70,8 +74,6 @@ TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart3;
-
-WWDG_HandleTypeDef hwwdg1;
 
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
@@ -130,7 +132,7 @@ const osThreadAttr_t DigitalDebounce_attributes = {
 };
 /* Definitions for State_Manager */
 osThreadId_t State_ManagerHandle;
-uint32_t State_ManagerBuffer[ 128 ];
+uint32_t State_ManagerBuffer[ 512 ];
 osStaticThreadDef_t State_ManagerControlBlock;
 const osThreadAttr_t State_Manager_attributes = {
   .name = "State_Manager",
@@ -169,8 +171,8 @@ static void MX_TIM1_Init(void);
 static void MX_TIM4_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_RTC_Init(void);
-static void MX_WWDG1_Init(void);
 static void MX_USART3_UART_Init(void);
+static void MX_IWDG1_Init(void);
 void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
 extern void videoTaskFunc(void *argument);
@@ -179,8 +181,9 @@ void DigitalDebounce_Task(void *argument);
 void State_Machine_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
-static uint32_t TimeoutCalculation(uint32_t timevalue);
-
+RTC_TimeTypeDef sTime;
+RTC_DateTypeDef sDate;
+HAL_StatusTypeDef res;
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -239,12 +242,13 @@ int main(void)
   MX_TIM4_Init();
   MX_ADC1_Init();
   MX_RTC_Init();
-  MX_WWDG1_Init();
   MX_USART3_UART_Init();
+  MX_IWDG1_Init();
   MX_TouchGFX_Init();
   /* Call PreOsInit function */
   MX_TouchGFX_PreOSInit();
   /* USER CODE BEGIN 2 */
+  (void)Mcu_GetResetReason();
   State_Manager_init();
   /* USER CODE END 2 */
 
@@ -328,11 +332,18 @@ void SystemClock_Config(void)
 
   while(!__HAL_PWR_GET_FLAG(PWR_FLAG_VOSRDY)) {}
 
+  /** Configure LSE Drive Capability
+  */
+  HAL_PWR_EnableBkUpAccess();
+  __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_LOW);
+
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE
+                              |RCC_OSCILLATORTYPE_LSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
   RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
@@ -519,6 +530,35 @@ static void MX_DMA2D_Init(void)
   /* USER CODE BEGIN DMA2D_Init 2 */
 
   /* USER CODE END DMA2D_Init 2 */
+
+}
+
+/**
+  * @brief IWDG1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_IWDG1_Init(void)
+{
+
+  /* USER CODE BEGIN IWDG1_Init 0 */
+
+  /* USER CODE END IWDG1_Init 0 */
+
+  /* USER CODE BEGIN IWDG1_Init 1 */
+
+  /* USER CODE END IWDG1_Init 1 */
+  hiwdg1.Instance = IWDG1;
+  hiwdg1.Init.Prescaler = IWDG_PRESCALER_256;
+  hiwdg1.Init.Window = 400;
+  hiwdg1.Init.Reload = 4095;
+  if (HAL_IWDG_Init(&hiwdg1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN IWDG1_Init 2 */
+
+  /* USER CODE END IWDG1_Init 2 */
 
 }
 
@@ -768,26 +808,46 @@ static void MX_RTC_Init(void)
 
   /** Initialize RTC and set the Time and Date
   */
-  sTime.Hours = 0x0;
-  sTime.Minutes = 0x0;
-  sTime.Seconds = 0x0;
+  sTime.Hours = 0x8;
+  sTime.Minutes = 0x51;
+  sTime.Seconds = 0x20;
   sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
   sTime.StoreOperation = RTC_STOREOPERATION_RESET;
   if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
   {
     Error_Handler();
   }
-  sDate.WeekDay = RTC_WEEKDAY_MONDAY;
-  sDate.Month = RTC_MONTH_JANUARY;
-  sDate.Date = 0x1;
-  sDate.Year = 0x0;
+  sDate.WeekDay = RTC_WEEKDAY_THURSDAY;
+  sDate.Month = RTC_MONTH_MARCH;
+  sDate.Date = 0x22;
+  sDate.Year = 0x24;
 
   if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN RTC_Init 2 */
 
+  /** Enable the WakeUp
+  */
+//  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
+  /* USER CODE BEGIN RTC_Init 2 */
+  if(HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR0) != 0x32F2)
+  {
+		if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BIN) != HAL_OK)
+		{
+		  Error_Handler();
+		}
+
+		if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BIN) != HAL_OK)
+		{
+		  Error_Handler();
+		}
+
+    HAL_RTCEx_BKUPWrite(&hrtc,RTC_BKP_DR0,0x32F2);
+  }
   /* USER CODE END RTC_Init 2 */
 
 }
@@ -939,66 +999,6 @@ static void MX_USART3_UART_Init(void)
 }
 
 /**
-  * @brief WWDG1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_WWDG1_Init(void)
-{
-
-  /* USER CODE BEGIN WWDG1_Init 0 */
-
-  /* USER CODE END WWDG1_Init 0 */
-
-  /* USER CODE BEGIN WWDG1_Init 1 */
-
-  /* USER CODE END WWDG1_Init 1 */
-  hwwdg1.Instance = WWDG1;
-  hwwdg1.Init.Prescaler = WWDG_PRESCALER_128;
-  hwwdg1.Init.Window = 0x50;
-  hwwdg1.Init.Counter = 0x7F;
-  hwwdg1.Init.EWIMode = WWDG_EWI_DISABLE;
-  if (HAL_WWDG_Init(&hwwdg1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN WWDG1_Init 2 */
-}
-
-/* USER CODE BEGIN WWDG1_Init 2 */
-uint32_t TimeoutCalculation(uint32_t timevalue)
-{
-      uint32_t timeoutvalue = 0;
-      uint32_t pclk1 = 0;
-      uint32_t wdgtb = 0;
-
-      /* Get PCLK1 value */
-      pclk1 = HAL_RCC_GetPCLK1Freq();
-
-      /* get prescaler */
-      switch(hwwdg1.Init.Prescaler)
-      {
-        case WWDG_PRESCALER_1:   wdgtb = 1;   break;
-        case WWDG_PRESCALER_2:   wdgtb = 2;   break;
-        case WWDG_PRESCALER_4:   wdgtb = 4;   break;
-        case WWDG_PRESCALER_8:   wdgtb = 8;   break;
-        case WWDG_PRESCALER_16:  wdgtb = 16;  break;
-        case WWDG_PRESCALER_32:  wdgtb = 32;  break;
-        case WWDG_PRESCALER_64:  wdgtb = 64;  break;
-        case WWDG_PRESCALER_128: wdgtb = 128; break;
-
-        default: Error_Handler(); break;
-      }
-
-      /* calculate timeout */
-      timeoutvalue = ((4096 * wdgtb * timevalue) / (pclk1 / 1000));
-
-      return timeoutvalue;
-  /* USER CODE END WWDG1_Init 2 */
-
-}
-
-/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -1056,6 +1056,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(Reset_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : EXTI_Pin */
+  GPIO_InitStruct.Pin = EXTI_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(EXTI_GPIO_Port, &GPIO_InitStruct);
+
   /*Configure GPIO pin : PF6 */
   GPIO_InitStruct.Pin = GPIO_PIN_6;
   GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -1098,13 +1104,41 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(VSYNC_FREQ_GPIO_Port, &GPIO_InitStruct);
 
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI4_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 
 /* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef *hrtc)
+{
+	HAL_IWDG_Refresh(&hiwdg1);
+	SystemClock_Config ();
+	HAL_ResumeTick();
+	printf("WAKEUP FROM RTC\n NOW GOING IN STOP MODE AGAIN\r\n");
+	//HAL_PWR_DisableSleepOnExit();
+    /* Reset all RSR(Reset) flags */
+    SET_BIT(RCC->RSR, RCC_RSR_RMVF);
+}
 
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	/* Prevent unused argument(s) compilation warning */
+	  UNUSED(GPIO_Pin);
+	  res = HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
+	  if(res == HAL_OK)
+	  {
+		  printf("%02d:%02d:%02d \n", sTime.Hours, sTime.Minutes, sTime.Seconds);
+	  }
+	  SystemClock_Config ();
+	  HAL_ResumeTick();
+	  printf("WAKEUP FROM EXTII\r\n");
+ // HAL_PWR_DisableSleepOnExit();
+}
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -1117,10 +1151,22 @@ static void MX_GPIO_Init(void)
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
+
   /* Infinite loop */
   for(;;)
   {
-    osDelay(100);
+	  res = HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
+	  if(res == HAL_OK)
+	  {
+		  printf("%02d:%02d:%02d \n", sTime.Hours, sTime.Minutes, sTime.Seconds);
+	  }
+
+	  res = HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
+	  if(res == HAL_OK)
+	  {
+		  printf("Current date: %02d-%02d-%04d\n", sDate.Date, sDate.Month, sDate.Year);
+	  }
+    osDelay(10000);
   }
   /* USER CODE END 5 */
 }
@@ -1135,14 +1181,12 @@ void StartDefaultTask(void *argument)
 void WDG_SRVC_Task(void *argument)
 {
   /* USER CODE BEGIN WDG_SRVC_Task */
-	uint32_t delay=0;
-	delay = TimeoutCalculation((hwwdg1.Init.Counter - hwwdg1.Init.Window) + 1) + 1;
   for(;;)
   {
-    osDelay(delay); //watchdog period
+    osDelay(30000); //watchdog period
     //service or refresh or reload the watchdog here
-
-    if (HAL_WWDG_Refresh(&hwwdg1) != HAL_OK)
+    printf("WDG_SRVC_Task\r\n");
+    if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
     {
           Error_Handler();
     }
@@ -1164,7 +1208,8 @@ void DigitalDebounce_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	DebounceTask();
+    osDelay(4);
   }
   /* USER CODE END DigitalDebounce_Task */
 }
@@ -1182,7 +1227,9 @@ void State_Machine_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	//HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x4E20, RTC_WAKEUPCLOCK_RTCCLK_DIV16);
+	State_Manager_task();
+    osDelay(10);
   }
   /* USER CODE END State_Machine_Task */
 }

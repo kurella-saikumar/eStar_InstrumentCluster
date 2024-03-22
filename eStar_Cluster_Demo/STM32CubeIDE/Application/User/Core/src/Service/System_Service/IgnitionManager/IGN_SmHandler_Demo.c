@@ -29,8 +29,6 @@
  * Include Project Specific Headers
 ***************************************************************************************************/
 #include "IGN_SmHandler.h"
-//#include "debug.h"
-//#include "ACC_SmHandler_cfg.h"
 #include "IGN_SmHandler_cfg.h"
 /**************************************************************************************************
  * DEFINE FILE SCOPE MACROS
@@ -40,10 +38,10 @@
  * DEFINE FILE SCOPE TYPES
 ***************************************************************************************************/
 
-void IGNON_func(void);
-void IGNOFF_func(void);
-void in_IGNON_func(void);
-void in_IGNOFF_func(void);
+void vIgnitionONFunc(void);
+void vIgnitionOffFunc(void);
+void vInIgnitionONFunc(void);
+void vInIgnitionOffFunc(void);
 
 
 
@@ -72,9 +70,9 @@ void in_IGNOFF_func(void);
  *
  */
 
-void IGNON_func(void)
+void vIgnitionONFunc(void)
 {
-    printf("IGNON_STATE_ON_ENTRY_Action\r\n");
+   // printf("IGNON_STATE_ON_ENTRY_Action\r\n");
 }
 
 /**
@@ -85,9 +83,9 @@ void IGNON_func(void)
  * @return void
  *
  */
-void IGNOFF_func(void)
+void vIgnitionOffFunc(void)
 {
-   printf("IGNOFF_STATE_OFF_ENTRY_Action\r\n");
+  // printf("IGNOFF_STATE_OFF_ENTRY_Action\r\n");
 }  
 
 /**
@@ -98,9 +96,9 @@ void IGNOFF_func(void)
  * @return void
  *
  */
-void in_IGNON_func(void)
+void vInIgnitionONFunc(void)
 {
-    printf("IGN_STATE_in_IGNON_Action\r\n");
+    //printf("IGN_STATE_in_IGNON_Action\r\n");
     //printf("\nIGNON_To_IGNON_STATE\n");
 } 
 
@@ -112,9 +110,10 @@ void in_IGNON_func(void)
  * @return void
  *
  */
-void in_IGNOFF_func(void)
+
+void vInIgnitionOffFunc(void)
 {
-    printf("IGN_STATE_in_IGNOFF_Action\r\n");
+    //printf("IGN_STATE_in_IGNOFF_Action\r\n");
     //printf("\nIGNOFF_To_IGNOFF_STATE\n");
 } 
 

@@ -66,6 +66,9 @@ void Error_Handler(void);
 #define LCD_BL_CTRL_GPIO_Port GPIOG
 #define Reset_Pin GPIO_PIN_5
 #define Reset_GPIO_Port GPIOG
+#define EXTI_Pin GPIO_PIN_4
+#define EXTI_GPIO_Port GPIOG
+#define EXTI_EXTI_IRQn EXTI4_IRQn
 #define RENDER_TIME_Pin GPIO_PIN_3
 #define RENDER_TIME_GPIO_Port GPIOG
 #define Ignition_Pin GPIO_PIN_8
