@@ -1,0 +1,4 @@
+../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:89:6:vTachoInit	1
+../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:103:10:prvMeasureRPM	3
+../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:145:10:xGet_TachometerData	2
+../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:170:6:vTacho_App	2

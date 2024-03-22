@@ -82,8 +82,6 @@ void Error_Handler(void);
 #define VSYNC_FREQ_GPIO_Port GPIOA
 #define BatteryVoltage_Pin GPIO_PIN_1
 #define BatteryVoltage_GPIO_Port GPIOA
-#define OdoSpeedo_Pin GPIO_PIN_9
-#define OdoSpeedo_GPIO_Port GPIOE
 
 /* USER CODE BEGIN Private defines */
 

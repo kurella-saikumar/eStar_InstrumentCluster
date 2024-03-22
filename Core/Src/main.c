@@ -29,6 +29,10 @@
 #include "stm32h7xx_hal_ospi.h"
 #include "smHandler.h"
 #include "digital_debounce.h"
+#include"Tachometer_App.h"
+#include "Odometer_App.h"
+#include "speedometer_App.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -140,6 +144,42 @@ const osThreadAttr_t State_Manager_attributes = {
   .stack_size = sizeof(State_ManagerBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for Odometer */
+osThreadId_t OdometerHandle;
+uint32_t OdometerBuffer[ 128 ];
+osStaticThreadDef_t OdometerControlBlock;
+const osThreadAttr_t Odometer_attributes = {
+  .name = "Odometer",
+  .cb_mem = &OdometerControlBlock,
+  .cb_size = sizeof(OdometerControlBlock),
+  .stack_mem = &OdometerBuffer[0],
+  .stack_size = sizeof(OdometerBuffer),
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for speedometer */
+osThreadId_t speedometerHandle;
+uint32_t speedometerBuffer[ 128 ];
+osStaticThreadDef_t speedometerControlBlock;
+const osThreadAttr_t speedometer_attributes = {
+  .name = "speedometer",
+  .cb_mem = &speedometerControlBlock,
+  .cb_size = sizeof(speedometerControlBlock),
+  .stack_mem = &speedometerBuffer[0],
+  .stack_size = sizeof(speedometerBuffer),
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for Tachometer */
+osThreadId_t TachometerHandle;
+uint32_t TachometerBuffer[ 128 ];
+osStaticThreadDef_t TachometerControlBlock;
+const osThreadAttr_t Tachometer_attributes = {
+  .name = "Tachometer",
+  .cb_mem = &TachometerControlBlock,
+  .cb_size = sizeof(TachometerControlBlock),
+  .stack_mem = &TachometerBuffer[0],
+  .stack_size = sizeof(TachometerBuffer),
+  .priority = (osPriority_t) osPriorityNormal,
+};
 /* USER CODE BEGIN PV */
 /**
   * @brief  Retargets the C library printf function to the USART.
@@ -177,6 +217,9 @@ extern void videoTaskFunc(void *argument);
 void WDG_SRVC_Task(void *argument);
 void DigitalDebounce_Task(void *argument);
 void State_Machine(void *argument);
+void Odo_Task(void *argument);
+void speedo_Task(void *argument);
+void Tacho_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
 static uint32_t TimeoutCalculation(uint32_t timevalue);
@@ -246,6 +289,19 @@ int main(void)
   MX_TouchGFX_PreOSInit();
   /* USER CODE BEGIN 2 */
   State_Manager_init();
+  vOdoInit();
+  vSpeedoInit();
+
+
+
+  if(HAL_TIM_IC_Start_IT(&htim1,TIM_CHANNEL_4)!=HAL_OK)
+      {
+    	  Error_Handler();
+      }
+  if(HAL_TIM_IC_Start_IT(&htim4,TIM_CHANNEL_4)!=HAL_OK)
+      {
+    	  Error_Handler();
+      }
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -285,6 +341,15 @@ int main(void)
 
   /* creation of State_Manager */
   State_ManagerHandle = osThreadNew(State_Machine, NULL, &State_Manager_attributes);
+
+  /* creation of Odometer */
+  OdometerHandle = osThreadNew(Odo_Task, NULL, &Odometer_attributes);
+
+  /* creation of speedometer */
+  speedometerHandle = osThreadNew(speedo_Task, NULL, &speedometer_attributes);
+
+  /* creation of Tachometer */
+  TachometerHandle = osThreadNew(Tacho_Task, NULL, &Tachometer_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -804,6 +869,7 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 0 */
 
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
   TIM_IC_InitTypeDef sConfigIC = {0};
 
@@ -817,6 +883,15 @@ static void MX_TIM1_Init(void)
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
   if (HAL_TIM_IC_Init(&htim1) != HAL_OK)
   {
     Error_Handler();
@@ -832,7 +907,7 @@ static void MX_TIM1_Init(void)
   sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
   sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
   sConfigIC.ICFilter = 0;
-  if (HAL_TIM_IC_ConfigChannel(&htim1, &sConfigIC, TIM_CHANNEL_1) != HAL_OK)
+  if (HAL_TIM_IC_ConfigChannel(&htim1, &sConfigIC, TIM_CHANNEL_4) != HAL_OK)
   {
     Error_Handler();
   }
@@ -1190,6 +1265,63 @@ void State_Machine(void *argument)
       osDelay(50);
   }
   /* USER CODE END State_Machine */
+}
+
+/* USER CODE BEGIN Header_Odo_Task */
+/**
+* @brief Function implementing the Odometer thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Odo_Task */
+void Odo_Task(void *argument)
+{
+  /* USER CODE BEGIN Odo_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+	  vOdoAlgorithm();
+    osDelay(5000);
+  }
+  /* USER CODE END Odo_Task */
+}
+
+/* USER CODE BEGIN Header_speedo_Task */
+/**
+* @brief Function implementing the speedometer thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_speedo_Task */
+void speedo_Task(void *argument)
+{
+  /* USER CODE BEGIN speedo_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+	vSpeedoAlgorithm();
+    osDelay(5000);
+  }
+  /* USER CODE END speedo_Task */
+}
+
+/* USER CODE BEGIN Header_Tacho_Task */
+/**
+* @brief Function implementing the Tachometer thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Tacho_Task */
+void Tacho_Task(void *argument)
+{
+  /* USER CODE BEGIN Tacho_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+	  vTacho_App();
+    osDelay(5000);
+  }
+  /* USER CODE END Tacho_Task */
 }
 
 /* MPU Configuration */

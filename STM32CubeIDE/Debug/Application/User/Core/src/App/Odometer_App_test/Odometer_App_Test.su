@@ -1,0 +1,2 @@
+../Application/User/Core/src/App/Odometer_App_test/Odometer_App_Test.c:66:6:xGetIgnitionStatus	0	static
+../Application/User/Core/src/App/Odometer_App_test/Odometer_App_Test.c:83:6:vReadOdoUnitsCustomizePin	0	static

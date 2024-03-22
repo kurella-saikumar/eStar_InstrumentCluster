@@ -78,6 +78,10 @@
 									<listOptionValue builtIn="false" value="../../LIBJPEG/App"/>
 									<listOptionValue builtIn="false" value="../../LIBJPEG/Target"/>
 									<listOptionValue builtIn="false" value="../../Middlewares/Third_Party/LibJPEG/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Application/User/Core/src/App/Odometer_App}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Application/User/Core/src/App/Speedometer_App}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Application/User/Core/src/App/Tachometer_App}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Application/User/Core/src/Service/IO_HAL/ICU_middleware}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1702615917" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -217,6 +221,7 @@
 									<listOptionValue builtIn="false" value="../../LIBJPEG/App"/>
 									<listOptionValue builtIn="false" value="../../LIBJPEG/Target"/>
 									<listOptionValue builtIn="false" value="../../Middlewares/Third_Party/LibJPEG/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Application/User/Core/src/App/Tachometer_App}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.738452034" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>

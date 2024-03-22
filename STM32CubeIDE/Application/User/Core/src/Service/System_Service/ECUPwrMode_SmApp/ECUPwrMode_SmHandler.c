@@ -617,7 +617,7 @@ uint8_t ECUPwrModeInitial_To_Off_TransCheck_func(void)
 
     if(l_PwrModeInitial_Timer_u16<=100)//ECUPWRMODE_INITIAL_TIMEOUT)
     {
-        printf("l_PwrModeInitial_Timer_u16 %d\n",l_PwrModeInitial_Timer_u16);
+       // printf("l_PwrModeInitial_Timer_u16 %d\n",l_PwrModeInitial_Timer_u16);
         l_PwrModeInitial_Timer_u16++;
     }
     else
