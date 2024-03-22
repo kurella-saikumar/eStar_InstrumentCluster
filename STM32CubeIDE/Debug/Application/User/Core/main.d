@@ -70,7 +70,8 @@ Application/User/Core/main.o: \
  D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/System_Service/stateManager/smHandler.h \
  D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.h \
  D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.h \
- D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/Switch_Handler/../Switch/switch.h
+ D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/Switch_Handler/../Switch/switch.h \
+ D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/System_Service/Switch_Interface/SwitchInf.h
 ../../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:
@@ -144,3 +145,4 @@ D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/STM32CubeIDE/Applic
 D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.h:
 D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.h:
 D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/Switch_Handler/../Switch/switch.h:
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/System_Service/Switch_Interface/SwitchInf.h:

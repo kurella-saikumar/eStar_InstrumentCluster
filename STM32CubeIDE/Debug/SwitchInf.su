@@ -1,0 +1,4 @@
+../SwitchInf.c:18:6:vGet_Switch_DebouncedStatus	8	static
+../SwitchInf.c:24:9:xGetModeSwitch	0	static
+../SwitchInf.c:40:9:xGetResetSwitch	0	static
+../SwitchInf.c:56:9:xGetIgnSwitch	0	static

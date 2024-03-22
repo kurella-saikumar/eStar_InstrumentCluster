@@ -30,6 +30,7 @@ RM := rm -rf
 -include Application/User/Core/src/Service/IO_HAL/DigitalDebounce/subdir.mk
 -include Application/User/Core/src/Service/APP/DriverInfoApplication/subdir.mk
 -include Application/User/Core/subdir.mk
+-include subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

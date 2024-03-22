@@ -37,7 +37,7 @@
 #include "Switch.h"
 #include "Switch_cfg.h"
 #include "SwitchHandler_App.h"
-//#include "SwitchInf.h"
+#include "SwitchInf.h"
 #include "stm32h7xx_hal.h"
 
 //#include "../Clock_App/clock_App.h"
@@ -104,9 +104,10 @@ void vReset_Button_Press_Hdlr(Button_Push_Event_T eResetButtonStatus)
 void vSwitchHandlerTask(void)
 {
     // Read the status of mode and reset buttons
-    //l_mode_button_status_u8 = xGetModeSwitch();
-    //l_reset_button_status_u8 = xGetResetSwitch();
+    l_mode_button_status_u8 = xGetModeSwitch();
+    l_reset_button_status_u8 = xGetResetSwitch();
     
+
     // Check if mode button is pressed
     if (l_mode_button_status_u8 == PRESSED)
     {
@@ -130,6 +131,8 @@ void vSwitchHandlerTask(void)
         // Update global reset button state to released
         gl_reset_button_Push_Release_state_t = BUTTON_RELEASED;
     }
+    //printf("l_Mode_button_status_u8:%d\r\n",l_mode_button_status_u8);
+    //printf("l_Reset_button_status_u8:%d\r\n",l_reset_button_status_u8);
 }
 
 /**
@@ -225,6 +228,7 @@ Button_Push_Event_T getResetButtonStatus(void)
 
 void vHandleModeResetActions(void)
 {
+
     /***/
     // Check if both mode and reset buttons are short-pressed
     if (l_Mode_ButtonEvent_Status_u8 == SHORT_PRESS_RELEASED && l_Reset_ButtonEvent_Status_u8 == SHORT_PRESS_RELEASED)
@@ -284,12 +288,14 @@ void vHandleModeResetActions(void)
              Button_Push_Event_T reset_status = getResetButtonStatus();
              printf("reset short press\r\n");
              l_Reset_ButtonEvent_Status_u8 = 0xFF;
-
+         }
         
     }
     // Check if both mode and reset buttons are long-pressed
     else if (l_Mode_ButtonEvent_Status_u8 == LONG_PRESS_HELD && l_Reset_ButtonEvent_Status_u8 == LONG_PRESS_HELD)
     {
+
+    	printf("clock:%d\r\n",eclockMode);
         
         if (eclockMode == CLOCK_MODE_INACTIVE) 
         {
@@ -357,7 +363,7 @@ void vHandleModeResetActions(void)
 }
 
 
-}
+
 
 
 #endif /* SWITCH_HANDLER_C */

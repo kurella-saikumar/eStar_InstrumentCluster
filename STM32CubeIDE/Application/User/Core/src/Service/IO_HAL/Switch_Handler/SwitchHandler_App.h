@@ -45,10 +45,7 @@ typedef enum
     RESET_SHORTPRESS
 }Clock_Edit_Actions;
 
-typedef enum {
-	PRESSED,
-	RELEASED
-}STATE;
+
 
 // Function to get the current clock mode
 ClockMode xGetClockMode(void);

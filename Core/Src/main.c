@@ -30,6 +30,8 @@
 #include "smHandler.h"
 #include "digital_debounce.h"
 #include "SwitchHandler_App.h"
+#include "SwitchInf.h"
+
 //#include "SwitchInf.h"
 /* USER CODE END Includes */
 
@@ -1180,11 +1182,17 @@ void WDG_SRVC_Task(void *argument)
 void DigitalDebounce_Task(void *argument)
 {
   /* USER CODE BEGIN DigitalDebounce_Task */
+
   /* Infinite loop */
   for(;;)
   {
 	DebounceTask();
 	//get_debounce_status();
+	vGet_Switch_DebouncedStatus();
+//	xGetModeSwitch();
+//	xGetResetSwitch();
+
+
     osDelay(4);
   }
   /* USER CODE END DigitalDebounce_Task */
@@ -1205,7 +1213,10 @@ void State_Machine(void *argument)
   {
       State_Manager_task();
       //IGN_get_current_state();
-      osDelay(50);
+
+
+
+      osDelay(1000);
   }
   /* USER CODE END State_Machine */
 }
@@ -1223,10 +1234,13 @@ void SwitchHandlerTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  vHandleModeResetActions();
+
 	  vSwitchHandlerTask();
 	  Switch_Task();
-    osDelay(50);
+	  vHandleModeResetActions();
+	  clockSettingGetSetMode();
+
+    osDelay(1);
   }
   /* USER CODE END SwitchHandlerTask */
 }

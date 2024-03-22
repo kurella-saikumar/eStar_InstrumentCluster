@@ -149,3 +149,4 @@
 "./Middlewares/LibJPEG/jquant1.o"
 "./Middlewares/LibJPEG/jquant2.o"
 "./Middlewares/LibJPEG/jutils.o"
+"./SwitchInf.o"

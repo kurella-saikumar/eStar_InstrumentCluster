@@ -70,7 +70,7 @@ void vInIgnitionOffFunc(void);
 
 void vIgnitionONFunc(void)
 {
-    printf("IGNON_STATE_ON_ENTRY_Action\r\n");
+    //printf("IGNON_STATE_ON_ENTRY_Action\r\n");
 }
 
 /**
@@ -96,7 +96,7 @@ void vIgnitionOffFunc(void)
  */
 void vInIgnitionONFunc(void)
 {
-    printf("IGN_STATE_in_IGNON_Action\r\n");
+   // printf("IGN_STATE_in_IGNON_Action\r\n");
 } 
 
 /**
@@ -110,7 +110,7 @@ void vInIgnitionONFunc(void)
 
 void vInIgnitionOffFunc(void)
 {
-    printf("IGN_STATE_in_IGNOFF_Action\r\n");
+   // printf("IGN_STATE_in_IGNOFF_Action\r\n");
 } 
 
 

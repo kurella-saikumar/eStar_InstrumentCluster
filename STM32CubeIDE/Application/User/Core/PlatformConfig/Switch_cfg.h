@@ -48,7 +48,7 @@ extern Switch_PushRelease_State_T gl_reset_button_Push_Release_state_t;
 /* Macros for short-push,long-push and stuck functionality of all analog and digital switches */
 /*  Stuck functionality is implemented for 5minutes (12000 * 5 = 60000msec) */
 
-#define MODE_BUTTON_DURATIONS_CONFIG {200,3000,30000} 
+#define MODE_BUTTON_DURATIONS_CONFIG {200,3000,30000}
 #define RESET_BUTTON_DURATION_CONFIG {200,3000,30000}
 
 /**************************************************************************************************************************************************
