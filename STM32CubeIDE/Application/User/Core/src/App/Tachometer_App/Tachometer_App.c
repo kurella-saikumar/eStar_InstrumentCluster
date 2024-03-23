@@ -122,7 +122,7 @@ uint32_t prvMeasureRPM(void)
     }
 
     //printf("Ap: %ld\r\t",l_presentCapture_u32);
-    printf("Td: %ld\t",l_deltaPulses_u32);
+    //printf("Td: %ld\t",l_deltaPulses_u32);
    // printf("pv:%ld\r\t",l_previousCapture_u32);
 //    g_rpm_u32 = ( l_presentCapture_u32 / 16)* 1000;
 //    printf("rpm %lu\r\n", g_rpm_u32);
@@ -152,9 +152,9 @@ uint16_t xGet_TachometerData(IndicationStatus_t* Indication, bool *status)
         Indication->indicators.tachometer_indicator = 1;
         *status = true;
         g_rpm_u32 = 0;
-        printf("warning\t");
+        //printf("warning\t");
     }
-    	printf("RPM: %ld\t\r\n\n",g_rpm_u32);
+    	printf("RPM: %ld\n", g_rpm_u32);
     	return g_rpm_u32;
 }
 /**
@@ -176,7 +176,7 @@ void vTacho_App(void)
     if(ignitionStatus == IgnOFF_mode)
     {
         g_rpm_u32 = 0;
-        printf("Tachometer Ignition is off\r\n\n");
+        printf("Tachometer Ignition: OFF\n");
     }
     else
     {

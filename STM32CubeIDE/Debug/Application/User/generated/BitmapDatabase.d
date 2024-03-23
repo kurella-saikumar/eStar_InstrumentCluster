@@ -1,5 +1,5 @@
 Application/User/generated/BitmapDatabase.o: \
- E:/GitProjects/eSTAR_InstrumentCluster/TouchGFX/generated/images/src/BitmapDatabase.cpp \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/TouchGFX/generated/images/src/BitmapDatabase.cpp \
  ../../TouchGFX/generated/images/include/images/BitmapDatabase.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp \

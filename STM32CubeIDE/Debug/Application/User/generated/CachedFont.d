@@ -1,5 +1,5 @@
 Application/User/generated/CachedFont.o: \
- E:/GitProjects/eSTAR_InstrumentCluster/TouchGFX/generated/fonts/src/CachedFont.cpp \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/TouchGFX/generated/fonts/src/CachedFont.cpp \
  ../../TouchGFX/generated/fonts/include/fonts/CachedFont.hpp \
  ../../TouchGFX/generated/fonts/include/fonts/FontCache.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp \

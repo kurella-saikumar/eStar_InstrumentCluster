@@ -112,7 +112,7 @@ void vSpeedoInit(void)
     defaultSpeedoUnits = SPEED_IN_KMPH;
     speedoUnits = defaultSpeedoUnits;
     vInitializeSpeedometer();
-   // printf("Speedometer initialization...\r\n");
+    printf("Speedometer initialization...\r\n");
     xLoadToEEPROM();
 }
 
@@ -136,7 +136,7 @@ void vInitializeSpeedometer(void)
 }
 void xLoadToEEPROM(void)
 {
-   // printf("Config parameters loaded to EEPROM...\r\n");
+   printf("Config parameters loaded to EEPROM...\r\n");
 }
  /**
  * @brief Speed calculation algorithm
@@ -151,7 +151,7 @@ void vSpeedoAlgorithm(void)
 	 ignitionStatus = usIgnitionGetCurrentState();
 	 if(ignitionStatus == IgnOFF_mode)
     {
-		printf("Speedometer Ignition is off\r \n");
+		printf("Speedometer Ignition: OFF\n");
         speedInkm = 0;
         speedInMiles = 0;
     }
@@ -187,8 +187,8 @@ void vCalculateSpeedInKm(void)
             
     speedInkm = ( distanceInKm / timeInHr);
     
-    printf("Sd: %ld\t",receivedPulses);
-    printf("dm: %ld\tdK: %ld\ttH: %lu\t", distanceInMts, distanceInKm, timeInHr);   //Debug purpose
+    //printf("Sd: %ld\t",receivedPulses);
+    //printf("dm: %ld\tdK: %ld\ttH: %lu\t", distanceInMts, distanceInKm, timeInHr);   //Debug purpose
     printf("sK: %ld\n", speedInkm);   //Debug purpose
     //printf("dU: %d\t\r", speedoUnits);   //Debug purpose
    // printf("dI: %d\t\r\n", xSafeSpeedCheck());   //Debug purpose
@@ -244,7 +244,7 @@ bool xSafeSpeedCheck(void)
     {
         //do nothing
     }
-    //printf("r: %d\t", safeSpeedLimitExceededFlag);   //Debug purpose
+    //printf("hSF: %d\n", safeSpeedLimitExceededFlag);   //Debug purpose
     return safeSpeedLimitExceededFlag;
 }
 
@@ -281,27 +281,27 @@ void vCustomizeSpeedUnits(void)
  * 
  * @return uint16_t  This return parameter provides the latest updated Speed value
  */
-//uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStatus_t *speedStatus)
-//{
-//    *speedDisplayUnits = speedoUnits;
-//
-//    if(xSafeSpeedCheck())
-//    {
-//    	speedStatus->indicators.over_speed_indicator = 1;
-//
-////    printf("dU: %d\t", speedDisplayUnits);   //Debug purpose
-////    printf("dI: %d\t", speedStatus);   //Debug purpose
-//
-//		if(speedoUnits == SPEED_IN_KMPH)
-//		{
-//			return speedInkm;
-//		}
-//		else if(speedoUnits == SPEED_IN_MPH)
-//		{
-//			return speedInMiles;
-//		}
-//    }
-//}
+uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStatus_t *speedStatus)
+{
+    *speedDisplayUnits = speedoUnits;
+
+    if(xSafeSpeedCheck())
+    {
+    	speedStatus->indicators.over_speed_indicator = 1;
+
+//    printf("dU: %d\t", speedDisplayUnits);   //Debug purpose
+//    printf("dI: %d\t", speedStatus);   //Debug purpose
+
+		if(speedoUnits == SPEED_IN_KMPH)
+		{
+			return speedInkm;
+		}
+		else if(speedoUnits == SPEED_IN_MPH)
+		{
+			return speedInMiles;
+		}
+    }
+}
 
 #endif	/* SPEEDOMETER_C */
 

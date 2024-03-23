@@ -1,5 +1,5 @@
 Application/User/generated/TypedTextDatabase.o: \
- E:/GitProjects/eSTAR_InstrumentCluster/TouchGFX/generated/texts/src/TypedTextDatabase.cpp \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/TouchGFX/generated/texts/src/TypedTextDatabase.cpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp \
