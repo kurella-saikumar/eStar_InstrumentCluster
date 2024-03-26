@@ -187,11 +187,12 @@ void vCalculateSpeedInKm(void)
             
     speedInkm = ( distanceInKm / timeInHr);
     
+    /**Debug purpose*/
     //printf("Sd: %ld\t",receivedPulses);
-    //printf("dm: %ld\tdK: %ld\ttH: %lu\t", distanceInMts, distanceInKm, timeInHr);   //Debug purpose
-    printf("sK: %ld\n", speedInkm);   //Debug purpose
-    //printf("dU: %d\t\r", speedoUnits);   //Debug purpose
-   // printf("dI: %d\t\r\n", xSafeSpeedCheck());   //Debug purpose
+    //printf("dm: %ld\tdK: %ld\ttH: %lu\t", distanceInMts, distanceInKm, timeInHr);
+    printf("sK: %ld\n", speedInkm);
+    //printf("dU: %d\t\r", speedoUnits);
+   // printf("dI: %d\t\r\n", xSafeSpeedCheck());
 }
 
 void vCalculateSpeedInMiles(void)

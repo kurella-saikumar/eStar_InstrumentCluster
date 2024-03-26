@@ -56,7 +56,7 @@ typedef union {
         uint8_t fuel_bar_indicator : 1;
         uint8_t over_speed_indicator : 1;
     } indicators;
-    uint8_t all_indicators;
+    uint16_t all_indicators;
  }IndicationStatus_t;
  extern IndicationStatus_t IndicationStatus;
 

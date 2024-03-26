@@ -1,4 +1,4 @@
-../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.c:71:6:vIgnitionONFunc	0	static
-../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.c:84:6:vIgnitionOffFunc	0	static
-../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.c:97:6:vInIgnitionONFunc	0	static
-../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.c:111:6:vInIgnitionOffFunc	0	static
+../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.c:71:6:vIgnitionONFunc	8	static
+../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.c:85:6:vIgnitionOffFunc	8	static
+../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.c:99:6:vInIgnitionONFunc	0	static
+../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.c:113:6:vInIgnitionOffFunc	0	static

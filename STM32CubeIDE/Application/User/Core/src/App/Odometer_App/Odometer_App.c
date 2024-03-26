@@ -107,7 +107,6 @@ void vOdoInit(void)
 {
     defaultOdoUnits = ODO_IN_KM;
     OdometerUnits = defaultOdoUnits;
-    write_odo_to_EEPROM();
 }
 
 /**
@@ -125,19 +124,12 @@ void vOdoAlgorithm(void)
 	if(ignitionStatus == IgnOFF_mode)
     {
 		printf("Odometer Ignition: OFF\n");
-       g_distanceInKm_u32 = 0;
+        g_distanceInKm_u32 = 0;
     }
     else
     {        
         vCalculateOdo();
-        //vResetTripA_OdoReadings();
-        //xGetTripA_OdoReading(&TripA_Units);
-        //vResetTripA_OdoReadings();
-        //xGetTripB_OdoReading(&TripB_Units);
-
     }
-    //printf("pulses:%u\n", l_deltaPulses_u32);   //Debug purpose
-    //printf("distance:%u\n", l_distanceInKm_u32);   //Debug purpose
 }
 
 /**
@@ -179,23 +171,16 @@ void vCalculateOdoInKm(void)
 	g_receivedPulses_u32 = vPulseCount();
     g_pulse100mCountRatio_u32 = ( g_receivedPulses_u32 / pulsesPer100Meters );
     g_distanceInMts_u32 = g_pulse100mCountRatio_u32 * pulse_multi_factor;
+
     g_distanceInKm_u32 = (g_distanceInMts_u32 / mts_to_km_dist_conv_factor);
     g_Total_odo_u32 = g_Total_odo_u32 + g_distanceInKm_u32;
-    //printf("od: %ld\t",g_receivedPulses_u32);
-    printf("odo: %ld\t", g_Total_odo_u32);
+    printf("odo: %ld\n", g_Total_odo_u32);
+
     updatedOdoValue = OdoInEeprom + g_pulse100mCountRatio_u32;// Update OdoInEeprom with the new value
     OdoInEeprom = updatedOdoValue;
-    //printf("Eeprom: %ld\n", OdoInEeprom);
-    write_odo_to_EEPROM();
+    xWrite_OdoVal_to_EEPROM();
 
 }
-
-//uint32_t xGetOdoReadings(vehicleDisplayMetrics_t*OdoUnits)
-//{
-//    vCalculateOdoInKm();
-//    //printf("odo:%d\n",g_Total_odo_u32);
-//    //l_previousPulses_u32 = l_presentPulses_u32;
-//}
 
 void vCalculateOdoInMiles(void)
 {
@@ -222,12 +207,10 @@ uint16_t xGetTripA_OdoReading(vehicleDisplayMetrics_t *TripA_Units)
 
     // Calculate the total odometer reading after the reset
      g_TripA_u16 = g_Total_odo_u32 -  g_OdoValBeforeTripA_Reset_u32 ;
-    if ( g_TripA_u16 >= 999)
+    if ( g_TripA_u16 >= 1000)
     {
         // Reset Trip A value
          g_OdoValBeforeTripA_Reset_u32  = g_Total_odo_u32;
-         //g_TripA_u16 = 0;
-        //printf("Trip A value reset to 0\n");
     }
     else
     {
@@ -259,10 +242,17 @@ void vResetTripB_OdoReadings(void)
      g_OdoValBeforeTripB_Reset_u32 = g_Total_odo_u32;
     //printf("BR:%d\t\n ",  g_OdoValBeforeTripB_Reset_u32);
 }
-void write_odo_to_EEPROM(void)
+void xWrite_OdoVal_to_EEPROM(void)
 {
+	//Write EEPROM API here
 	printf("OdoInEeprom: %ld\n", OdoInEeprom);
-  //printf("OdoInEeprom");
+}
+
+void xRetrive_LastStored_OdoVal_from_EEPROM(void)
+{
+	//Write EEPROM API here
+	// g_Total_odo_u32 = ActualAPI();
+	printf("Reading last stored Odo value from EEPROM\n");
 }
 
 uint16_t xGetTripB_OdoReading(vehicleDisplayMetrics_t *TripB_Units)
@@ -316,8 +306,8 @@ uint32_t xGetOdoReadings(vehicleDisplayMetrics_t* OdoUnits)
 {
     if(OdometerUnits == ODO_IN_KM)
     {
-       // OdoUnits = odoUnits;
-        return OdoUnits;
+       *OdoUnits = OdometerUnits;
+        return g_Total_odo_u32;
     }
     else
     {
@@ -347,5 +337,12 @@ void vToggleOdoUnits(void)
         OdometerUnits = ODO_IN_KM;
     }
 }
+
+//uint32_t xGetOdoReadings(vehicleDisplayMetrics_t*OdoUnits)
+//{
+//    vCalculateOdoInKm();
+//    //printf("odo:%d\n",g_Total_odo_u32);
+//    //l_previousPulses_u32 = l_presentPulses_u32;
+//}
 #endif	/* ODOMETER_C */
 

@@ -1,3 +1,5 @@
-../Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.c:75:6:vTriggeredEdge_Counter	2
-../Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.c:96:10:xGetRollingPulseCount	2
-../Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.c:106:6:HAL_TIM_IC_CaptureCallback	3
+../Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.c:78:6:vTriggeredEdge_Counter	2
+../Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.c:99:10:xGetRollingPulseCount	2
+../Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.c:109:6:HAL_TIM_IC_CaptureCallback	3
+../Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.c:128:6:vDisable_OdoSpeedo_Channel_Interrupts	2
+../Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.c:136:6:vEnable_OdoSpeedo_Channel_Interrupts	2

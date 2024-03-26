@@ -51,6 +51,9 @@
 uint16_t edge_Counter[MAX_CHANNELS] = {0};
 uint8_t edge_Counter_Rollover_Flag[MAX_CHANNELS] = {0};
 uint32_t temp_edgeCounter = 0;
+
+extern TIM_HandleTypeDef htim1;
+extern TIM_HandleTypeDef htim4;
 /**************************************************************************************************
  * DECLARE FILE SCOPE STATIC VARIABLES
  ***************************************************************************************************/
@@ -120,6 +123,22 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
   /* NOTE : This function should not be modified, when the callback is needed,
             the HAL_TIM_IC_CaptureCallback could be implemented in the user file
    */
+}
+
+void vDisable_OdoSpeedo_Channel_Interrupts(void)
+{
+	if( HAL_TIM_IC_Stop_IT(&htim1,TIM_CHANNEL_4)!= HAL_OK )
+	{
+		Error_Handler();
+	}
+}
+
+void vEnable_OdoSpeedo_Channel_Interrupts(void)
+{
+	if(HAL_TIM_IC_Start_IT(&htim1,TIM_CHANNEL_4)!=HAL_OK)
+	{
+		Error_Handler();
+	}
 }
 #endif	/* ICU_DRIVER_C */
 

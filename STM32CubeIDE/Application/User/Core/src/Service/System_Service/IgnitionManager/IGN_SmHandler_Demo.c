@@ -70,7 +70,8 @@ void vInIgnitionOffFunc(void);
 
 void vIgnitionONFunc(void)
 {
-    printf("IGNON_STATE_ON_ENTRY_Action\r\n");
+    printf("IGNON_STATE_OFF_TO_ON_ENTRY_Action\r\n");
+    vEnable_OdoSpeedo_Channel_Interrupts();
 }
 
 /**
@@ -83,7 +84,8 @@ void vIgnitionONFunc(void)
  */
 void vIgnitionOffFunc(void)
 {
-  // printf("IGNOFF_STATE_OFF_ENTRY_Action\r\n");
+	printf("IGNOFF_STATE_ON_TO_OFF_ENTRY_Action\r\n");
+    vDisable_OdoSpeedo_Channel_Interrupts();
 }  
 
 /**

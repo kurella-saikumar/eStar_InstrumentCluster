@@ -68,7 +68,8 @@ void vResetTripA_OdoReadings(void);
 uint16_t xGetTripB_OdoReading(vehicleDisplayMetrics_t *TripB_Units);
 void vResetTripB_OdoReadings(void);
 
-void write_odo_to_EEPROM(void);
+void xWrite_OdoVal_to_EEPROM(void);
+void xRetrive_LastStored_OdoVal_from_EEPROM(void);
 
 
 #endif	/* ODOMETER_H */

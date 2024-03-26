@@ -154,7 +154,7 @@ uint16_t xGet_TachometerData(IndicationStatus_t* Indication, bool *status)
         g_rpm_u32 = 0;
         //printf("warning\t");
     }
-    	printf("RPM: %ld\n", g_rpm_u32);
+    	//printf("RPM: %ld\n", g_rpm_u32);
     	return g_rpm_u32;
 }
 /**
