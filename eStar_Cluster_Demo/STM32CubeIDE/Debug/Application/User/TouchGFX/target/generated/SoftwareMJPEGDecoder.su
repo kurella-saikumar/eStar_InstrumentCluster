@@ -15,7 +15,7 @@ D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/ta
 D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/SoftwareMJPEGDecoder.cpp:168:6:virtual bool SoftwareMJPEGDecoder::gotoNextFrame()	32	static
 D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/SoftwareMJPEGDecoder.cpp:416:6:virtual bool SoftwareMJPEGDecoder::decodeFrame(const touchgfx::Rect&, uint8_t*, uint32_t)	672	static
 D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/SoftwareMJPEGDecoder.cpp:534:6:virtual void SoftwareMJPEGDecoder::gotoFrame(uint32_t)	16	static
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/SoftwareMJPEGDecoder.cpp:228:6:void SoftwareMJPEGDecoder::readVideoHeader()	32	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/SoftwareMJPEGDecoder.cpp:228:6:void SoftwareMJPEGDecoder::readVideoHeader()	24	static
 D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/SoftwareMJPEGDecoder.cpp:205:6:virtual void SoftwareMJPEGDecoder::setVideoData(const uint8_t*, uint32_t)	0	static
 D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/SoftwareMJPEGDecoder.cpp:214:6:virtual void SoftwareMJPEGDecoder::setVideoData(touchgfx::VideoDataReader&)	8	static
 D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/SoftwareMJPEGDecoder.cpp:331:6:void SoftwareMJPEGDecoder::decodeMJPEGFrame(const uint8_t*, uint32_t, uint8_t*, uint16_t, uint16_t, uint32_t)	16	static

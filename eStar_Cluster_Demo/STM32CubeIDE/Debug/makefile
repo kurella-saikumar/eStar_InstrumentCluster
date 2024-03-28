@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (11.3.rel1)
+# Toolchain: GNU Tools for STM32 (12.3.rel1)
 ################################################################################
 
 -include ../makefile.init
@@ -25,7 +25,9 @@ RM := rm -rf
 -include Application/User/Core/src/Service/System_Service/stateManager/subdir.mk
 -include Application/User/Core/src/Service/System_Service/IgnitionManager/subdir.mk
 -include Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/subdir.mk
+-include Application/User/Core/src/Service/System_Service/BatteryVoltage_SmApp/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/DigitalDebounce/subdir.mk
+-include Application/User/Core/src/Service/IO_HAL/AnalogDebounce/subdir.mk
 -include Application/User/Core/subdir.mk
 -include objects.mk
 
