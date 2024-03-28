@@ -52,11 +52,11 @@ D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:2900:19:HAL_LIN_SendBreak	2
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:2945:23:HAL_UART_GetState	1
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:2961:10:HAL_UART_GetError	1
-D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:3007:19:UART_SetConfig	60
+D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:3007:19:UART_SetConfig	111
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:3271:6:UART_AdvFeatureConfig	10
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:3414:19:UART_WaitOnFlagUntilTimeout	8
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:1120:19:HAL_UART_Transmit	10
-D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:1210:19:HAL_UART_Receive	12
+D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:1210:19:HAL_UART_Receive	13
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:3345:19:UART_CheckIdleState	8
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:307:19:HAL_UART_Init	5
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:380:19:HAL_HalfDuplex_Init	5

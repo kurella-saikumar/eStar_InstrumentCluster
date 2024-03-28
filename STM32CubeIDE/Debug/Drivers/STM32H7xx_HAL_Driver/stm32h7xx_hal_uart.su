@@ -39,8 +39,8 @@ D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:2212:6:HAL_UART_IRQHandler	24	static,ignoring_inline_asm
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:4207:13:UART_RxISR_8BIT	8	static,ignoring_inline_asm
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:4298:13:UART_RxISR_16BIT	8	static,ignoring_inline_asm
-D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:4391:13:UART_RxISR_8BIT_FIFOEN	48	static,ignoring_inline_asm
-D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:4553:13:UART_RxISR_16BIT_FIFOEN	48	static,ignoring_inline_asm
+D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:4391:13:UART_RxISR_8BIT_FIFOEN	40	static,ignoring_inline_asm
+D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:4553:13:UART_RxISR_16BIT_FIFOEN	40	static,ignoring_inline_asm
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:3766:13:UART_DMARxHalfCplt	8	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:3705:13:UART_DMAReceiveCplt	8	static,ignoring_inline_asm
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:2712:6:HAL_UART_ReceiverTimeout_Config	0	static
@@ -57,7 +57,7 @@ D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:3414:19:UART_WaitOnFlagUntilTimeout	32	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:1120:19:HAL_UART_Transmit	40	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:1210:19:HAL_UART_Receive	40	static
-D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:3345:19:UART_CheckIdleState	32	static,ignoring_inline_asm
+D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:3345:19:UART_CheckIdleState	24	static,ignoring_inline_asm
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:307:19:HAL_UART_Init	8	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:380:19:HAL_HalfDuplex_Init	8	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c:453:19:HAL_LIN_Init	16	static

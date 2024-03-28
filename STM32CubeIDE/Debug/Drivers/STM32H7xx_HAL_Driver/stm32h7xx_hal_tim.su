@@ -83,7 +83,7 @@ D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c:2639:19:HAL_TIM_OnePulse_Init	16	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c:3030:19:HAL_TIM_Encoder_Init	24	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c:7053:6:TIM_OC2_SetConfig	16	static
-D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c:4064:19:HAL_TIM_OC_ConfigChannel	16	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c:4064:19:HAL_TIM_OC_ConfigChannel	8	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c:4264:19:HAL_TIM_PWM_ConfigChannel	16	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c:7514:6:TIM_TI1_SetConfig	16	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c:4163:19:HAL_TIM_IC_ConfigChannel	24	static

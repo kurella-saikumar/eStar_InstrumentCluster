@@ -1,6 +1,6 @@
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Middlewares/Third_Party/LibJPEG/source/jcparam.c:169:1:add_huff_table	5
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Middlewares/Third_Party/LibJPEG/source/jcparam.c:531:1:fill_dc_scans	4
-D:/GitWork_Areas/eSTAR_InstrumentCluster/Middlewares/Third_Party/LibJPEG/source/jcparam.c:24:1:jpeg_add_quant_table	7
+D:/GitWork_Areas/eSTAR_InstrumentCluster/Middlewares/Third_Party/LibJPEG/source/jcparam.c:24:1:jpeg_add_quant_table	8
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Middlewares/Third_Party/LibJPEG/source/jcparam.c:91:1:jpeg_default_qtables	1
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Middlewares/Third_Party/LibJPEG/source/jcparam.c:106:1:jpeg_set_linear_quality	1
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Middlewares/Third_Party/LibJPEG/source/jcparam.c:123:1:jpeg_quality_scaling	4

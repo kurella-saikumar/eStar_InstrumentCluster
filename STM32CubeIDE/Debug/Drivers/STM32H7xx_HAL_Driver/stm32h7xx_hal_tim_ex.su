@@ -9,7 +9,7 @@ D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c:383:19:HAL_TIMEx_HallSensor_Stop	8	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c:411:19:HAL_TIMEx_HallSensor_Start_IT	16	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c:468:19:HAL_TIMEx_HallSensor_Stop_IT	8	static
-D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c:501:19:HAL_TIMEx_HallSensor_Start_DMA	16	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c:501:19:HAL_TIMEx_HallSensor_Start_DMA	24	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c:577:19:HAL_TIMEx_HallSensor_Stop_DMA	8	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c:639:19:HAL_TIMEx_OCN_Start	8	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c:690:19:HAL_TIMEx_OCN_Stop	16	static
@@ -34,7 +34,7 @@ D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c:2066:19:HAL_TIMEx_ConfigBreakDeadTime	12	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c:2153:19:HAL_TIMEx_ConfigBreakInput	20	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c:2337:19:HAL_TIMEx_RemapConfig	0	static
-D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c:2431:20:HAL_TIMEx_TISelection	8	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c:2431:20:HAL_TIMEx_TISelection	0	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c:2476:19:HAL_TIMEx_GroupChannel5	0	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c:2515:19:HAL_TIMEx_DisarmBreakInput	0	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c:2570:19:HAL_TIMEx_ReArmBreakInput	16	static

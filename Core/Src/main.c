@@ -46,7 +46,7 @@ typedef StaticTask_t osStaticThreadDef_t;
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-uint16_t ADC_Value;
+uint16_t gl_ADC_Value_u16;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -1228,8 +1228,8 @@ void FuelGuageTask(void *argument)
   {
 	  HAL_ADC_Start(&hadc1);
 	  HAL_ADC_PollForConversion(&hadc1, 1);
-	  ADC_Value=(uint16_t)HAL_ADC_GetValue(&hadc1);
-	  //printf("ADC-%d\r\n",ADC_Value);
+	  gl_ADC_Value_u16=(uint16_t)HAL_ADC_GetValue(&hadc1);
+	  //printf("ADC-%d\r\n",gl_ADC_Value_u16);
 	  vFuelGuage_Task();
       osDelay(100);
   }

@@ -90,7 +90,7 @@ typedef union {
         uint8_t over_speed_indicator : 1;
         uint8_t Fuel_warning_indicator : 1;
     } indicators;
-    uint8_t all_indicators;
+    uint16_t all_indicators;
 } IndicationStatus_t;
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES
@@ -104,7 +104,5 @@ typedef union {
 extern void vFuelGuage_TaskInit(void);
 extern void vFuelGuage_Task(void);
 extern uint8_t xGet_FuelLevel(IndicationStatus_t* ucFuelWarning_Indictr, bool* Warning_status);
-
-extern bool IGN;
 
 #endif /* FUELGUAGE_APP_H */

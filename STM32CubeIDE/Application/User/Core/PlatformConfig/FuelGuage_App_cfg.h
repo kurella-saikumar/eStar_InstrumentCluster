@@ -31,39 +31,41 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
 ***************************************************************************************************/
-#define Fuel_Fast_Fill_Loss_Filter_StepSize 273 /*6.66% Fuel*/       /*341 33.33% Fuel*/
-#define Fuel_Fast_Fill_Loss_Filter_UpdateRate 2 /*200ms*/            /*10 1sec*/
-
-#define Fuel_slow_Fill_Loss_Filter_StepSize 136.5 /*3.33% Fuel*/     /*102 9.92% Fuel*/
-#define Fuel_slow_Fill_Loss_Filter_UpdateRate 100 /*10sec */         /*300 30 sec*/
-
-#define Fuel_Normal_Fill_Loss_Filter_StepSize 136.5 /*3.33% Fuel*/   /*51 4.97% Fuel*/
-#define Fuel_Normal_Fill_Loss_Filter_UpdateRate 300 /*30 sec*/       /*450 45sec*/
-
-#define Instantaneous_Filter_StepSize 4096 /*100% Fuel*/             /*1023 100%*/
-#define Instantaneous_Filter_UpdateRate 0 /*100ms*/                  /*1 100ms */
 
 
-#define Maximum_ADC_Range 4095
+#define FAST_FILL_LOSS_FILTER_STEPSIZE   273 /*6.66% Fuel*/
+#define FAST_FILL_LOSS_FILTER_UPDATERATE 2  /*200ms*/
+
+#define SLOW_FILL_LOSS_FILTER_STEPSIZE  136.5 /*3.33% Fuel*/
+#define SLOW_FILL_LOSS_FILTER_UPDATERATE 100 /*10sec */
+
+#define NORMAL_FILL_LOSS_FILTER_STEPSIZE 136.5 /*3.33% Fuel*/
+#define NORMAL_FILL_LOSS_FILTER_UPDATERATE 300 /*30 sec*/
+
+#define INSTANTANEOUS_FILTER_STEPSIZE 4096 /*100% Fuel*/
+#define INSTANTANEOUS_FILTER_UPDATERATE 0 /*100ms*/
+
+
+#define MAXIMUM_ADC_RANGE 4095
 
 #define WINDOW_SIZE 30
 
-#define FastFillRange 819       /*205 20% of ADC range*/
-#define SlowFillRange 409       /*102 10% of ADC range*/
-#define WARNING_FUELLEVEL 341    /*85*/
+#define FAST_FILL_RANGE 819       /*20% of ADC range*/
+#define SLOW_FILL_RANGE 409       /*10% of ADC range*/
+#define WARNING_FUELLEVEL 341    /*8% of ADC range*/
 
 
 
-#define TASK_PERIOD_MS           100 /*100 milli seconds*/
+#define TASK_PERIOD_MS             100 /*100 milli seconds*/
 
-#define FastFill_UpdateTime_ms   30000 /*3 sec*/
-#define FastFill_TimeOut_ms      (FastFill_UpdateTime_ms/TASK_PERIOD_MS)
+#define FASTFILL_UPDATETIME_MS     30000 /*3 sec*/
+#define FASTFILL_TIMEOUT_MS       (FASTFILL_UPDATETIME_MS/TASK_PERIOD_MS)
 
-#define SlowFill_UpdateTime_ms   300000 /*5 Min*/
-#define SlowFill_TimeOut_ms      (SlowFill_UpdateTime_ms/TASK_PERIOD_MS)
+#define SLOWFILL_UPDATETIME_MS     300000 /*5 Min*/
+#define SLOWFILL_TIMEOUT_MS       (SLOWFILL_UPDATETIME_MS/TASK_PERIOD_MS)
 
-#define NormalFill_UpdateTime_ms 900000 /*15 Min*/
-#define NormalFill_TimeOut_ms    (NormalFill_UpdateTime_ms/TASK_PERIOD_MS)
+#define NORMALFILL_UPDATETIME_MS  900000 /*15 Min*/
+#define NORMALFILL_TIMEOUT_MS     (NORMALFILL_UPDATETIME_MS/TASK_PERIOD_MS)
 
 
 

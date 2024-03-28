@@ -11,10 +11,10 @@ D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:312:19:HAL_ADCEx_LinearCalibration_SetValue	32	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:403:19:HAL_ADCEx_LinearCalibration_FactorLoad	40	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:449:19:HAL_ADCEx_InjectedStart	16	static
-D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:586:19:HAL_ADCEx_InjectedStop	8	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:586:19:HAL_ADCEx_InjectedStop	16	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:641:19:HAL_ADCEx_InjectedPollForConversion	24	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:775:19:HAL_ADCEx_InjectedStart_IT	16	static
-D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:936:19:HAL_ADCEx_InjectedStop_IT	8	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:936:19:HAL_ADCEx_InjectedStop_IT	16	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1002:19:HAL_ADCEx_MultiModeStart_DMA	144	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1118:19:HAL_ADCEx_MultiModeStop_DMA	128	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1242:10:HAL_ADCEx_MultiModeGetValue	0	static
@@ -24,8 +24,8 @@ D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1357:13:HAL_ADCEx_LevelOutOfWindow2Callback	0	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1372:13:HAL_ADCEx_LevelOutOfWindow3Callback	0	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1388:13:HAL_ADCEx_EndOfSamplingCallback	0	static
-D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1405:19:HAL_ADCEx_RegularStop	8	static
-D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1463:19:HAL_ADCEx_RegularStop_IT	8	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1405:19:HAL_ADCEx_RegularStop	16	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1463:19:HAL_ADCEx_RegularStop_IT	16	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1523:19:HAL_ADCEx_RegularStop_DMA	16	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1609:19:HAL_ADCEx_RegularMultiModeStop_DMA	128	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1793:19:HAL_ADCEx_InjectedConfigChannel	32	static,ignoring_inline_asm

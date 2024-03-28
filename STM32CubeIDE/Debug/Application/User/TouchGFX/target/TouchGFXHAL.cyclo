@@ -18,8 +18,8 @@ D:/GitWork_Areas/eSTAR_InstrumentCluster/TouchGFX/target/TouchGFXHAL.cpp:162:6:v
 D:/GitWork_Areas/eSTAR_InstrumentCluster/TouchGFX/target/TouchGFXHAL.cpp:176:6:virtual void TouchGFXHAL::enableLCDControllerInterrupt()	1
 ../../TouchGFX/target/TouchGFXHAL.hpp:113:18:virtual void TouchGFXHAL::flushFrameBuffer()	1
 ../../TouchGFX/target/TouchGFXHAL.hpp:35:7:virtual TouchGFXHAL::~TouchGFXHAL()	1
-../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:320:28:virtual touchgfx::BlitOperations touchgfx::HAL::getBlitCaps()	2
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:1162:18:virtual void touchgfx::HAL::performDisplayOrientationChange()	4
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:720:18:virtual void touchgfx::HAL::setFrameBufferStartAddresses(void*, void*, void*)	1
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:156:18:virtual void touchgfx::HAL::setFrameBufferSize(uint16_t, uint16_t)	2
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:320:28:virtual touchgfx::BlitOperations touchgfx::HAL::getBlitCaps()	2
 D:/GitWork_Areas/eSTAR_InstrumentCluster/TouchGFX/target/TouchGFXHAL.cpp:188:19:long int IdleTaskHook(void*)	2

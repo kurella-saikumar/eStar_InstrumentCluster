@@ -28,7 +28,7 @@ D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1463:19:HAL_ADCEx_RegularStop_IT	5
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1523:19:HAL_ADCEx_RegularStop_DMA	7
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1609:19:HAL_ADCEx_RegularMultiModeStop_DMA	15
-D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1793:19:HAL_ADCEx_InjectedConfigChannel	66
+D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:1793:19:HAL_ADCEx_InjectedConfigChannel	74
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:2353:19:HAL_ADCEx_MultiModeConfigChannel	7
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:2466:19:HAL_ADCEx_EnableInjectedQueue	2
 D:/GitWork_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c:2507:19:HAL_ADCEx_DisableInjectedQueue	2

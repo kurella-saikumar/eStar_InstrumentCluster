@@ -1,8 +1,8 @@
-../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:124:6:vFuelGuage_TaskInit	1
-../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:293:10:prvInital_SamplingProcess	2
-../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:332:18:prvOffline_FillTypeDtcn_Prcs	3
-../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:373:18:prvOnline_FillTypeDtcn_Prcs	3
-../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:417:6:prvSet_FuelLevel	1
-../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:140:6:vFuelGuage_Task	18
-../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:433:9:xGet_FuelLevel	1
-../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:458:10:calculateAverage	1
+../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:122:6:vFuelGuage_TaskInit	1
+../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:334:10:prvInital_SamplingProcess	2
+../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:374:18:prvOffline_FillTypeDtcn_Prcs	3
+../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:416:18:prvOnline_FillTypeDtcn_Prcs	3
+../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:461:6:prvSet_FuelLevel	1
+../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:138:6:vFuelGuage_Task	24
+../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:477:9:xGet_FuelLevel	1
+../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:502:10:calculateAverage	1
