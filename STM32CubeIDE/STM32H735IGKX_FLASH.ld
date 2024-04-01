@@ -196,14 +196,14 @@ SECTIONS
     *(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
   } >OSPI
-*/
+ */
   ExtFlashSection :
   {
     *(ExtFlashSection ExtFlashSection.*)
     *(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
-  } >OSPI
-  
+  } >HYPERRAM
+ 
   BufferSection (NOLOAD) :
   {
 	*(TouchGFX_Framebuffer TouchGFX_Framebuffer.*)
@@ -214,4 +214,5 @@ SECTIONS
     *(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
   } >HYPERRAM
+
 }

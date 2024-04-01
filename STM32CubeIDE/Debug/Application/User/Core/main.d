@@ -1,5 +1,5 @@
 Application/User/Core/main.o: \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/Core/Src/main.c \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/Core/Src/main.c \
  ../../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
@@ -67,17 +67,17 @@ Application/User/Core/main.o: \
  ../../Core/Inc/mx25lm51245g_conf.h \
  ../../Drivers/BSP/STM32H735G-DK/../Components/s70kl1281/s70kl1281.h \
  ../../Core/Inc/s70kl1281_conf.h \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/System_Service/stateManager/smHandler.h \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.h \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App.h \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App_cfg.h \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/../ICU_middleware/ICU_driver.h \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/PlatformConfig/ICU_driver_cfg.h \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App_cfg.h \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App.h \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App_cfg.h \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App_cfg.h
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/System_Service/stateManager/smHandler.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App_cfg.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/../ICU_middleware/ICU_driver.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/PlatformConfig/ICU_driver_cfg.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App_cfg.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App_cfg.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App_cfg.h
 ../../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:
@@ -147,14 +147,14 @@ Application/User/Core/main.o: \
 ../../Core/Inc/mx25lm51245g_conf.h:
 ../../Drivers/BSP/STM32H735G-DK/../Components/s70kl1281/s70kl1281.h:
 ../../Core/Inc/s70kl1281_conf.h:
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/System_Service/stateManager/smHandler.h:
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.h:
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App.h:
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App_cfg.h:
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/../ICU_middleware/ICU_driver.h:
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/PlatformConfig/ICU_driver_cfg.h:
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h:
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App_cfg.h:
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App.h:
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App_cfg.h:
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App_cfg.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/System_Service/stateManager/smHandler.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App_cfg.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/../ICU_middleware/ICU_driver.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/PlatformConfig/ICU_driver_cfg.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App_cfg.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App_cfg.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App_cfg.h:

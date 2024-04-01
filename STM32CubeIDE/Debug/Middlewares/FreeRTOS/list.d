@@ -1,5 +1,5 @@
 Middlewares/FreeRTOS/list.o: \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/Middlewares/Third_Party/FreeRTOS/Source/list.c \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/Middlewares/Third_Party/FreeRTOS/Source/list.c \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../../Core/Inc/FreeRTOSConfig.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \

@@ -1,0 +1,13 @@
+../Application/User/Core/src/Service/System_Service/emulated_eprom/eeprom.c:278:16:GetPageState	12
+../Application/User/Core/src/Service/System_Service/emulated_eprom/eeprom.c:388:12:SetPageState	11
+../Application/User/Core/src/Service/System_Service/emulated_eprom/eeprom.c:488:11:EE_CleanUp	5
+../Application/User/Core/src/Service/System_Service/emulated_eprom/eeprom.c:546:11:VerifyPageFullyErased	5
+../Application/User/Core/src/Service/System_Service/emulated_eprom/eeprom.c:167:11:EE_Format	7
+../Application/User/Core/src/Service/System_Service/emulated_eprom/eeprom.c:735:10:FindPage	19
+../Application/User/Core/src/Service/System_Service/emulated_eprom/eeprom.c:603:11:ReadVariable	6
+../Application/User/Core/src/Service/System_Service/emulated_eprom/eeprom.c:226:11:EE_ReadVariable32bits	2
+../Application/User/Core/src/Service/System_Service/emulated_eprom/eeprom.c:888:11:VerifyPagesFullWriteVariable	6
+../Application/User/Core/src/Service/System_Service/emulated_eprom/eeprom.c:952:11:PagesTransfer	27
+../Application/User/Core/src/Service/System_Service/emulated_eprom/eeprom.c:700:12:WriteVariable	2
+../Application/User/Core/src/Service/System_Service/emulated_eprom/eeprom.c:258:11:EE_WriteVariable32bits	2
+../Application/User/Core/src/Service/System_Service/emulated_eprom/eeprom.c:1179:12:EE_Init	32

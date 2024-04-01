@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (11.3.rel1)
+# Toolchain: GNU Tools for STM32 (12.3.rel1)
 ################################################################################
 
 C++M_SRCS := 
@@ -48,6 +48,8 @@ Application/User/Core/src/Service/IO_HAL/DigitalDebounce \
 Application/User/Core/src/Service/IO_HAL/ICU_middleware \
 Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp \
 Application/User/Core/src/Service/System_Service/IgnitionManager \
+Application/User/Core/src/Service/System_Service/checksum \
+Application/User/Core/src/Service/System_Service/emulated_eprom \
 Application/User/Core/src/Service/System_Service/stateManager \
 Application/User/LIBJPEG/App \
 Application/User/Startup \

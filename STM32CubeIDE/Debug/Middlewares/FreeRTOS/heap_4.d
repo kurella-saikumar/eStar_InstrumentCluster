@@ -1,5 +1,5 @@
 Middlewares/FreeRTOS/heap_4.o: \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../../Core/Inc/FreeRTOSConfig.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \

@@ -1,5 +1,5 @@
 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_wwdg.o: \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_wwdg.c \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_wwdg.c \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \

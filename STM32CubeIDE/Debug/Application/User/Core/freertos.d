@@ -1,5 +1,5 @@
 Application/User/Core/freertos.o: \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/Core/Src/freertos.c \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/Core/Src/freertos.c \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../../Core/Inc/FreeRTOSConfig.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \

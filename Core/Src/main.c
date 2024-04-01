@@ -1237,6 +1237,7 @@ void WDG_SRVC_Task(void *argument)
 void DigitalDebounce_Task(void *argument)
 {
   /* USER CODE BEGIN DigitalDebounce_Task */
+	vEEpromDemoFunc();
   /* Infinite loop */
   for(;;)
   {
