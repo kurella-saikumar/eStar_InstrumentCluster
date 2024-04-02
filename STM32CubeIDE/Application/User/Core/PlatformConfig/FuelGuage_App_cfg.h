@@ -32,16 +32,19 @@
  * DEFINE GLOBAL SCOPE MACROS
 ***************************************************************************************************/
 
-
+/*FAST_FILL_LOSS_FILTER parameters which takes the 3sec time to update from 0 to 4096*/
 #define FAST_FILL_LOSS_FILTER_STEPSIZE   273 /*6.66% Fuel*/
 #define FAST_FILL_LOSS_FILTER_UPDATERATE 2  /*200ms*/
 
-#define SLOW_FILL_LOSS_FILTER_STEPSIZE  136.5 /*3.33% Fuel*/
+/*SLOW_FILL_LOSS_FILTER parameters which takes the 5min time to update from 0 to 4096*/
+#define SLOW_FILL_LOSS_FILTER_STEPSIZE  136 /*3.33% Fuel*/
 #define SLOW_FILL_LOSS_FILTER_UPDATERATE 100 /*10sec */
 
-#define NORMAL_FILL_LOSS_FILTER_STEPSIZE 136.5 /*3.33% Fuel*/
+/*NORMAL_FILL_LOSS_FILTER parameters which takes the 15min time to update from 0 to 4096*/
+#define NORMAL_FILL_LOSS_FILTER_STEPSIZE 136 /*3.33% Fuel*/
 #define NORMAL_FILL_LOSS_FILTER_UPDATERATE 300 /*30 sec*/
 
+/*INSTANTANEOUS_FILTER parameters which takes the 100ms time to update from 0 to 4096*/
 #define INSTANTANEOUS_FILTER_STEPSIZE 4096 /*100% Fuel*/
 #define INSTANTANEOUS_FILTER_UPDATERATE 0 /*100ms*/
 
@@ -50,8 +53,8 @@
 
 #define WINDOW_SIZE 30
 
-#define FAST_FILL_RANGE 819       /*20% of ADC range*/
-#define SLOW_FILL_RANGE 409       /*10% of ADC range*/
+#define FAST_FILL_RANGE 819      /*20% of ADC range*/
+#define SLOW_FILL_RANGE 409      /*10% of ADC range*/
 #define WARNING_FUELLEVEL 341    /*8% of ADC range*/
 
 

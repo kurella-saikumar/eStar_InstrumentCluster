@@ -43,11 +43,13 @@
  * The base counter for the MIN_TIME is the periodicity and Max_Step_Size is the change in steps at which
  * the "Damp_Out" is called by the application */
 /*{ Min_Time , Max_Step_Size}*/
+#if 0
 #define INPUT_CONFIG \
 {MinTimeValue, MaxStepSizeValue},
 /*{10, 15},\
  {10, 20}, \
  {10, 10} */
+#endif
  /**
  *  Declaration of  the three input levels
  */

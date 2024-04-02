@@ -71,6 +71,15 @@ extern void DAMP_OUT( void );
  */
 extern uint16_t Get_DAMP_OUT(uint8_t );
 
+/**
+ * @brief This function  used to update the min time and step size parameters
+ *
+ * @param[in] uint16_t MinTime, uint16_t MaxStepSize
+ *
+ * @return void
+ *
+ */
+extern void vUpdateParametrs(uint16_t MinTime, uint16_t MaxStepSize);
 
 #endif /* _DAMP_OUT_H */
 

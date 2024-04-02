@@ -162,6 +162,21 @@ uint16_t Get_DAMP_OUT(uint8_t input_type)/*getting  the returned damped output v
 	}
 	return p_Damp_Out;/*getting  the returned damped output value */
 }
+
+/********************************************************************************
+ * @brief This function is used to update the min_time and max_step_size .
+ *
+ *
+ * @return void;
+ */
+void vUpdateParametrs(uint16_t MinTime, uint16_t MaxStepSize)
+{
+	uint8_t fl_Fuel_Index_u8=0;
+
+	inp_thresholds[fl_Fuel_Index_u8].Min_time = MinTime;
+	inp_thresholds[fl_Fuel_Index_u8].Max_Step_Size = MaxStepSize;
+
+}
 /*******************************************************************************
  End of File
  */
