@@ -90,7 +90,7 @@ void ECUPwrModeActive_To_Off_EntryAction(void)
    // printf("wrModeActive_To_Off_EntryAction\n");
     //PowerDown(Hw_ACC_DET);
 	pm_ReqNewState(ECU_POWER_MODE_OFF);
-	printf("ECUPwrModeAction_off\n");
+	//printf("ECUPwrModeAction_off\n");
 
 }
 
@@ -191,7 +191,7 @@ void ECUPwrModeOff_Action(void)
 	if(l_PowerOff_Sleep_u16 == 650)
 	{
 		l_PowerOff_Sleep_u16 = 0;
-		printf("ECUPwrModeOff_Action\n");
+		//printf("ECUPwrModeOff_Action\n");
 		pm_ReqNewState(ECU_POWER_MODE_SLEEP);
 	}
 }

@@ -79,7 +79,7 @@ void in_UHV_func(void);
  */
 void LV_func(void)
 {
-   printf("\nLOW_VOLTAGE_STATE_ENTRY_Action\n");
+  // printf("\nLOW_VOLTAGE_STATE_ENTRY_Action\n");
 } 
 
 /**
@@ -92,7 +92,7 @@ void LV_func(void)
  */
 void NV_func(void)
 {
-  printf("\nNORMAL_VOLTAGE_STATE_ENTRY_Action\n");
+  //printf("\nNORMAL_VOLTAGE_STATE_ENTRY_Action\n");
 } 
 
 /**
@@ -105,7 +105,7 @@ void NV_func(void)
  */
 void HV_func(void)
 {
-   printf("\nHIGH_VOLTAGE_STATE_ENTRY_Action\n");
+   //printf("\nHIGH_VOLTAGE_STATE_ENTRY_Action\n");
 } 
 
 /**
@@ -118,7 +118,7 @@ void HV_func(void)
  */
 void UHV_func(void)
 {
-    printf("\nULTRA_LOW_VOLTAGE_STATE_ENTRY_Action\n");
+    //printf("\nULTRA_LOW_VOLTAGE_STATE_ENTRY_Action\n");
 }
 
 /**
@@ -131,7 +131,7 @@ void UHV_func(void)
  */
 void in_LV_func(void)
 {
-    printf("\nLOW_LOW_voltage\n");
+   // printf("\nLOW_LOW_voltage\n");
 } 
 
 /**
@@ -144,7 +144,7 @@ void in_LV_func(void)
  */
 void in_NV_func(void)
 {
-   printf("\nNORMAL_NORMAL_voltage\n");
+   //printf("\nNORMAL_NORMAL_voltage\n");
 } 
 
 /**
@@ -157,7 +157,7 @@ void in_NV_func(void)
  */
 void in_HV_func(void)
 {
-    printf("\nHIGH_HIGH_voltage\n");
+   // printf("\nHIGH_HIGH_voltage\n");
 } 
 /**
  * @brief  in_UHV_func function is to perform some action when the state remain in ULTRA_HIGH_VOLTAGE_STATE
@@ -170,7 +170,7 @@ void in_HV_func(void)
 
 void in_UHV_func(void)
 {
-    printf("\nUL_UL_voltage\n");
+    //printf("\nUL_UL_voltage\n");
 }
 
 

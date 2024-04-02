@@ -58,6 +58,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Application/User/Core/src/Service/System_Service/stateManager}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Application/User/Core/PlatformConfig}&quot;"/>
 									<listOptionValue builtIn="false" value="../../Core/Inc"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Application/User/Core/src/App/FuelGuage}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Application/User/Core/src/Service/IO_HAL/Damping_Filter}&quot;"/>
 									<listOptionValue builtIn="false" value="../../TouchGFX/App"/>
 									<listOptionValue builtIn="false" value="../../TouchGFX/target/generated"/>
 									<listOptionValue builtIn="false" value="../../TouchGFX/target"/>

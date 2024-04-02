@@ -207,7 +207,7 @@ void LVEntryAction_func(void)
  */
 void NVEntryAction_func(void)
 {
-	printf("STATE- %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
+	//printf("STATE- %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
     uint8_t fl_NV_entry_counter_u8 = 0;
     static const BatterVolage_ptr_t NV_EntryState_List[]=
     {
@@ -232,7 +232,7 @@ void NVEntryAction_func(void)
  */
 void HVEntryAction_func(void)
 {
-	printf("STATE- %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
+	//printf("STATE- %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
     uint8_t fl_HV_entry_counter_u8 = 0;
     static const BatterVolage_ptr_t HV_EntryState_List[]=
     {
@@ -257,7 +257,7 @@ void HVEntryAction_func(void)
  */
 void UHVEntryAction_func(void)
 {
-	printf("STATE- %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
+	//printf("STATE- %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
     uint8_t fl_UHV_entry_counter_u8 = 0;
     static const BatterVolage_ptr_t UHV_EntryState_List[]=
     {
@@ -284,7 +284,7 @@ void UHVEntryAction_func(void)
  */
 void in_LVstateAction_func(void)
 {
-	printf("STATE- %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
+	//printf("STATE- %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
     uint8_t fl_HVState_counter_u8 = 0;
     static const BatterVolage_ptr_t HVState_List[]=
     {
@@ -308,7 +308,7 @@ void in_LVstateAction_func(void)
  */
 void in_NVstateAction_func(void)
 {
-	printf("STATE- %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
+	//printf("STATE- %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
     uint8_t fl_NVState_counter_u8 = 0;
     static const BatterVolage_ptr_t NVState_List[]=
     {
@@ -333,7 +333,7 @@ void in_NVstateAction_func(void)
  */
 void in_HVstateAction_func(void)
 {
-	printf("STATE- %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
+	//printf("STATE- %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
     uint8_t fl_HVState_counter_u8 = 0;
     static const BatterVolage_ptr_t HVState_List[]=
     {
@@ -359,7 +359,7 @@ void in_HVstateAction_func(void)
  */
 void in_UHVstateAction_func(void)
 {
-	printf("STATE- %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
+	//printf("STATE- %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
     uint8_t fl_UHVState_counter_u8 = 0;
     static const BatterVolage_ptr_t UHVState_List[]=
     {

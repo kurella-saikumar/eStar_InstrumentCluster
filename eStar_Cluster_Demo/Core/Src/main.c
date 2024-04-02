@@ -32,6 +32,7 @@
 #include "smHandler.h"
 #include "digital_debounce.h"
 #include "Analog_debounce.h"
+#include "FuelGuage_App.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -48,6 +49,8 @@ typedef StaticTask_t osStaticThreadDef_t;
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+uint16_t gl_ADC_Value_u16;
+uint32_t gl_BAT_MON_u32;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -156,6 +159,18 @@ const osThreadAttr_t Analog_Debounce_attributes = {
   .stack_size = sizeof(Analog_DebounceBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for FuelGuage */
+osThreadId_t FuelGuageHandle;
+uint32_t FuelGuageBuffer[ 128 ];
+osStaticThreadDef_t FuelGuageControlBlock;
+const osThreadAttr_t FuelGuage_attributes = {
+  .name = "FuelGuage",
+  .cb_mem = &FuelGuageControlBlock,
+  .cb_size = sizeof(FuelGuageControlBlock),
+  .stack_mem = &FuelGuageBuffer[0],
+  .stack_size = sizeof(FuelGuageBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* USER CODE BEGIN PV */
 /**
   * @brief  Retargets the C library printf function to the USART.
@@ -197,8 +212,10 @@ void WDG_SRVC_Task(void *argument);
 void DigitalDebounce_Task(void *argument);
 void State_Machine_Task(void *argument);
 void Analog_Debounce_Task(void *argument);
+void FuelGuageTask(void *argument);
 
 /* USER CODE BEGIN PFP */
+
 RTC_TimeTypeDef sTime;
 RTC_DateTypeDef sDate;
 HAL_StatusTypeDef res;
@@ -271,6 +288,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
   (void)Mcu_GetResetReason();
   State_Manager_init();
+  vFuelGuage_TaskInit();
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -313,6 +331,9 @@ int main(void)
 
   /* creation of Analog_Debounce */
   Analog_DebounceHandle = osThreadNew(Analog_Debounce_Task, NULL, &Analog_Debounce_attributes);
+
+  /* creation of FuelGuage */
+  FuelGuageHandle = osThreadNew(FuelGuageTask, NULL, &FuelGuage_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -462,8 +483,8 @@ static void MX_ADC1_Init(void)
   /** Common config
   */
   hadc1.Instance = ADC1;
-  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
-  hadc1.Init.Resolution = ADC_RESOLUTION_16B;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV4;
+  hadc1.Init.Resolution = ADC_RESOLUTION_12B;
   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc1.Init.LowPowerAutoWait = DISABLE;
@@ -1253,7 +1274,7 @@ void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef *hrtc)
 	//SystemClock_Config ();
 	SYSCLKConfig_STOP();
 	HAL_ResumeTick();
-	printf("WAKEUP FROM RTC\n NOW GOING IN STOP MODE AGAIN\r\n");
+	//printf("WAKEUP FROM RTC\n NOW GOING IN STOP MODE AGAIN\r\n");
 	//HAL_PWR_DisableSleepOnExit();
     /* Reset all RSR(Reset) flags */
     SET_BIT(RCC->RSR, RCC_RSR_RMVF);
@@ -1266,11 +1287,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	  res = HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
 	  if(res == HAL_OK)
 	  {
-		  printf("%02d:%02d:%02d \n", sTime.Hours, sTime.Minutes, sTime.Seconds);
+		  //printf("%02d:%02d:%02d \n", sTime.Hours, sTime.Minutes, sTime.Seconds);
 	  }
 	  SystemClock_Config ();
 	  HAL_ResumeTick();
-	  printf("WAKEUP FROM EXTII\r\n");
+	 // printf("WAKEUP FROM EXTII\r\n");
  // HAL_PWR_DisableSleepOnExit();
 }
 /* USER CODE END 4 */
@@ -1319,7 +1340,7 @@ void WDG_SRVC_Task(void *argument)
   {
     osDelay(30000); //watchdog period
     //service or refresh or reload the watchdog here
-    printf("WDG_SRVC_Task\r\n");
+    //printf("WDG_SRVC_Task\r\n");
     if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
     {
           Error_Handler();
@@ -1368,7 +1389,6 @@ void State_Machine_Task(void *argument)
   /* USER CODE END State_Machine_Task */
 }
 
-uint16_t gl_BAT_MON_u32 = 0;
 /* USER CODE BEGIN Header_Analog_Debounce_Task */
 /**
 * @brief Function implementing the Analog_Debounce thread.
@@ -1386,14 +1406,37 @@ void Analog_Debounce_Task(void *argument)
 	  HAL_ADC_Start(&hadc3); // start the adc
 	  HAL_ADC_PollForConversion(&hadc3, 100); // poll for conversion
 	  gl_BAT_MON_u32 = HAL_ADC_GetValue(&hadc3); // get the adc value
-	  printf("gl_BAT_MON_u32:%d\r\n",gl_BAT_MON_u32);
+	 // printf("gl_BAT_MON_u32:%ld\r\n",gl_BAT_MON_u32);
 	//  HAL_ADC_Stop(&hadc1); // stop adc
 	  analog_debounce_task();
 	  Batt_state = get_analog_debounce_state(0);
-	  printf("Batt_state:%d\r\n",Batt_state);
+	 // printf("Batt_state:%d\r\n",Batt_state);
     osDelay(100);
   }
   /* USER CODE END Analog_Debounce_Task */
+}
+
+/* USER CODE BEGIN Header_FuelGuageTask */
+/**
+* @brief Function implementing the FuelGuage thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_FuelGuageTask */
+void FuelGuageTask(void *argument)
+{
+  /* USER CODE BEGIN FuelGuageTask */
+  /* Infinite loop */
+  for(;;)
+  {
+	  HAL_ADC_Start(&hadc1);
+	  HAL_ADC_PollForConversion(&hadc1, 1);
+	  gl_ADC_Value_u16=(uint16_t)HAL_ADC_GetValue(&hadc1);
+	  //printf("ADC-%d\r\n",gl_ADC_Value_u16);
+	  vFuelGuage_Task();
+    osDelay(100);
+  }
+  /* USER CODE END FuelGuageTask */
 }
 
  /* MPU Configuration */

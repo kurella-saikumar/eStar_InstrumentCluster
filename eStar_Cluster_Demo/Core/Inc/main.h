@@ -83,6 +83,8 @@ void Error_Handler(void);
 #define LCD_DISP_GPIO_Port GPIOD
 #define VSYNC_FREQ_Pin GPIO_PIN_0
 #define VSYNC_FREQ_GPIO_Port GPIOA
+#define FuelGuage_Pin GPIO_PIN_0
+#define FuelGuage_GPIO_Port GPIOA
 #define OdoSpeedo_Pin GPIO_PIN_9
 #define OdoSpeedo_GPIO_Port GPIOE
 
