@@ -31,7 +31,7 @@
 #include "digital_debounce.h"
 #include "SwitchHandler_App.h"
 #include "SwitchInf.h"
-
+#include "clock_App.h"
 //#include "SwitchInf.h"
 /* USER CODE END Includes */
 
@@ -53,7 +53,8 @@ typedef StaticTask_t osStaticThreadDef_t;
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+//RTC_TimeTypeDef time;
+//RTC_DateTypeDef date;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -64,11 +65,9 @@ CRC_HandleTypeDef hcrc;
 DMA2D_HandleTypeDef hdma2d;
 
 LTDC_HandleTypeDef hltdc;
-
+RTC_HandleTypeDef hrtc;
 OSPI_HandleTypeDef hospi1;
 OSPI_HandleTypeDef hospi2;
-
-RTC_HandleTypeDef hrtc;
 
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim4;
@@ -156,6 +155,18 @@ const osThreadAttr_t SwitchHandler_T_attributes = {
   .stack_size = sizeof(SwitchTaskBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for Get_Clock */
+osThreadId_t Get_ClockHandle;
+uint32_t Get_ClockBuffer[ 128 ];
+osStaticThreadDef_t Get_ClockControlBlock;
+const osThreadAttr_t Get_Clock_attributes = {
+  .name = "Get_Clock",
+  .cb_mem = &Get_ClockControlBlock,
+  .cb_size = sizeof(Get_ClockControlBlock),
+  .stack_mem = &Get_ClockBuffer[0],
+  .stack_size = sizeof(Get_ClockBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* USER CODE BEGIN PV */
 /**
   * @brief  Retargets the C library printf function to the USART.
@@ -194,6 +205,7 @@ void WDG_SRVC_Task(void *argument);
 void DigitalDebounce_Task(void *argument);
 void State_Machine(void *argument);
 void SwitchHandlerTask(void *argument);
+void GetClock(void *argument);
 
 /* USER CODE BEGIN PFP */
 static uint32_t TimeoutCalculation(uint32_t timevalue);
@@ -263,6 +275,7 @@ int main(void)
   MX_TouchGFX_PreOSInit();
   /* USER CODE BEGIN 2 */
   State_Manager_init();
+//  clock_Init();
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -305,6 +318,9 @@ int main(void)
 
   /* creation of SwitchHandler_T */
   SwitchHandler_THandle = osThreadNew(SwitchHandlerTask, NULL, &SwitchHandler_T_attributes);
+
+  /* creation of Get_Clock */
+  Get_ClockHandle = osThreadNew(GetClock, NULL, &Get_Clock_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -788,19 +804,19 @@ static void MX_RTC_Init(void)
 
   /** Initialize RTC and set the Time and Date
   */
-  sTime.Hours = 0x0;
-  sTime.Minutes = 0x0;
-  sTime.Seconds = 0x0;
+  sTime.Hours = 0x12;
+  sTime.Minutes = 0x30;
+  sTime.Seconds = 0x1;
   sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
   sTime.StoreOperation = RTC_STOREOPERATION_RESET;
   if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
   {
     Error_Handler();
   }
-  sDate.WeekDay = RTC_WEEKDAY_MONDAY;
-  sDate.Month = RTC_MONTH_JANUARY;
-  sDate.Date = 0x1;
-  sDate.Year = 0x0;
+  sDate.WeekDay = RTC_WEEKDAY_THURSDAY;
+  sDate.Month = RTC_MONTH_MARCH;
+  sDate.Date = 0x28;
+  sDate.Year = 0x24;
 
   if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
   {
@@ -1238,11 +1254,31 @@ void SwitchHandlerTask(void *argument)
 	  vSwitchHandlerTask();
 	  Switch_Task();
 	  vHandleModeResetActions();
-	  clockSettingGetSetMode();
+//	  clockSettingGetSetMode();
 
     osDelay(1);
   }
   /* USER CODE END SwitchHandlerTask */
+}
+
+/* USER CODE BEGIN Header_GetClock */
+/**
+* @brief Function implementing the Get_Clock thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_GetClock */
+void GetClock(void *argument)
+{
+  /* USER CODE BEGIN GetClock */
+//	HAL_StatusTypeDef res;
+  /* Infinite loop */
+  for(;;)
+  {
+	vGet_Clock();
+    osDelay(500);
+  }
+  /* USER CODE END GetClock */
 }
 
 /* MPU Configuration */

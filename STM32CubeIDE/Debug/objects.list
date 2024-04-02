@@ -5,6 +5,7 @@
 "./Application/User/Core/stm32h7xx_it.o"
 "./Application/User/Core/syscalls.o"
 "./Application/User/Core/sysmem.o"
+"./Application/User/Core/src/Service/APP/Clock_App/clock_App.o"
 "./Application/User/Core/src/Service/APP/DriverInfoApplication/DriverInfoMenu_App.o"
 "./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o"
 "./Application/User/Core/src/Service/IO_HAL/Switch/switch.o"

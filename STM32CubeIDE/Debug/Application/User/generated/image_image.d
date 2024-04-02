@@ -1,4 +1,4 @@
 Application/User/generated/image_image.o: \
- D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/TouchGFX/generated/images/src/image_image.cpp \
+ D:/GITWORKAREA/eSTAR_InstrumentCluster/TouchGFX/generated/images/src/image_image.cpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp:

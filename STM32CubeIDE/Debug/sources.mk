@@ -1,6 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
-# Toolchain: GNU Tools for STM32 (11.3.rel1)
+# Toolchain: GNU Tools for STM32 (12.3.rel1)
 ################################################################################
 
 C++M_SRCS := 
@@ -40,6 +40,7 @@ CPP_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Application/User/Core \
+Application/User/Core/src/Service/APP/Clock_App \
 Application/User/Core/src/Service/APP/DriverInfoApplication \
 Application/User/Core/src/Service/IO_HAL/DigitalDebounce \
 Application/User/Core/src/Service/IO_HAL/Switch \

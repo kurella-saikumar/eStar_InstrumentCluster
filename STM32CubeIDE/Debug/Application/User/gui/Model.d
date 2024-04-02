@@ -1,5 +1,5 @@
 Application/User/gui/Model.o: \
- D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/TouchGFX/gui/src/model/Model.cpp \
+ D:/GITWORKAREA/eSTAR_InstrumentCluster/TouchGFX/gui/src/model/Model.cpp \
  ../../TouchGFX/gui/include/gui/model/Model.hpp \
  ../../TouchGFX/gui/include/gui/model/ModelListener.hpp \
  ../../Core/Inc/main.h \

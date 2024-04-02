@@ -1,5 +1,5 @@
 Application/User/TouchGFX/target/TouchGFXHAL.o: \
- D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/TouchGFX/target/TouchGFXHAL.cpp \
+ D:/GITWORKAREA/eSTAR_InstrumentCluster/TouchGFX/target/TouchGFXHAL.cpp \
  ../../TouchGFX/target/TouchGFXHAL.hpp \
  ../../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp \

@@ -1,5 +1,5 @@
 Application/User/generated/FrontendApplicationBase.o: \
- D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp \
+ D:/GITWORKAREA/eSTAR_InstrumentCluster/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/common/FrontendApplicationBase.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/mvp/MVPApplication.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/common/AbstractPartition.hpp \

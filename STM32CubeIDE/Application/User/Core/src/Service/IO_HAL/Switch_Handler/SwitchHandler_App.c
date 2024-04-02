@@ -178,28 +178,28 @@ Clock_Edit_Actions clockSettingGetSetMode(void)
 {
     Button_Push_Event_T clk_mode_status = getModeButtonStatus();
     Button_Push_Event_T clk_reset_status = getResetButtonStatus();
-    //clockSettingRunMode(CLOCK_ENTRY);
+    clockSettingRunMode(CLOCK_ENTRY);
 
 
      if(clk_mode_status == SHORT_PRESS_RELEASED )
      {
          printf("Clock mode short press\r\n");
-         //clockSettingRunMode(MODE_SHORTPRESS);
+         clockSettingRunMode(MODE_SHORTPRESS);
      }
      else if(clk_mode_status == LONG_PRESS_HELD)
      {
-         printf("clock mode long press\r\n");
-         //clockSettingRunMode(MODE_LONGPRESS);
+        printf("clock mode long press\r\n");
+         clockSettingRunMode(MODE_LONGPRESS);
      }
      else if(clk_reset_status == SHORT_PRESS_RELEASED)
      {
          printf("clock reset short press\r\n");
-         //clockSettingRunMode(RESET_SHORTPRESS);
+         clockSettingRunMode(RESET_SHORTPRESS);
      }
      else if(clk_reset_status == LONG_PRESS_HELD)
      {
          printf("clock reset long press");
-         //clockSettingRunMode(RESET_LONGPRESS);
+         clockSettingRunMode(RESET_LONGPRESS);
      }
      else
      {
@@ -286,7 +286,7 @@ void vHandleModeResetActions(void)
          {
              clockSettingGetSetMode();
              Button_Push_Event_T reset_status = getResetButtonStatus();
-             printf("reset short press\r\n");
+             //printf("reset short press\r\n");
              l_Reset_ButtonEvent_Status_u8 = 0xFF;
          }
         
@@ -295,7 +295,7 @@ void vHandleModeResetActions(void)
     else if (l_Mode_ButtonEvent_Status_u8 == LONG_PRESS_HELD && l_Reset_ButtonEvent_Status_u8 == LONG_PRESS_HELD)
     {
 
-    	printf("clock:%d\r\n",eclockMode);
+//    	printf("clock:%d\r\n",eclockMode);
         
         if (eclockMode == CLOCK_MODE_INACTIVE) 
         {
@@ -322,7 +322,7 @@ void vHandleModeResetActions(void)
             if (l_button_Timeout >= BUTTON_TIMEOUT_THRESHOLD)
             {
                 printf("Clock Exit after time out\r\n");
-
+                vClock_exit();
                 // Exit clock setting mode due to timeout
                 eclockMode = CLOCK_MODE_INACTIVE;
                 l_button_Timeout = 0; // Reset the button timeout counter

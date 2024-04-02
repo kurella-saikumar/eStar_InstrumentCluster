@@ -1,5 +1,5 @@
 Middlewares/FreeRTOS/tasks.o: \
- D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/Middlewares/Third_Party/FreeRTOS/Source/tasks.c \
+ D:/GITWORKAREA/eSTAR_InstrumentCluster/Middlewares/Third_Party/FreeRTOS/Source/tasks.c \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../../Core/Inc/FreeRTOSConfig.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
