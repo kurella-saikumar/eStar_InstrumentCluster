@@ -93,7 +93,7 @@ void vGet_Clock(void)
     }
     else
     {
-    	printf("%02d:%02d \n", time.Hours, time.Minutes);
+    	printf("DT: %02d:%02d \n", time.Hours, time.Minutes);
     }
     res = HAL_RTC_GetDate(&hrtc, &date, RTC_FORMAT_BIN);
     if(res != HAL_OK)
@@ -102,7 +102,7 @@ void vGet_Clock(void)
     }
     else
     {
-    	printf("Current date: %02d-%02d-%04d\n", date.Date, date.Month, date.Year);
+    	//printf("Current date: %02d-%02d-%04d\n", date.Date, date.Month, date.Year);
     }
 
 }
@@ -111,12 +111,14 @@ void clockSettingRunMode(Clock_Edit_Actions clockSettingMode) {
     switch (clockSettingMode) {
 
         case CLOCK_ENTRY:
+        {
+        	printf("Clock Edit Mode Entry\n");
         	HAL_RTC_GetTime(&hrtc, &editTime, RTC_FORMAT_BIN);
             Hours = editTime.Hours;
             Minutes = editTime.Minutes;
-
             printf("%02d:%02d \n", Hours, Minutes);
-            break;
+        }
+        break;
 
         case MODE_LONGPRESS:
         	vClock_exit();
@@ -153,9 +155,9 @@ void clockSettingRunMode(Clock_Edit_Actions clockSettingMode) {
 					editTime.Hours %= 24;
 				}
 			}
-            Hours = editTime.Hours;
-            Minutes = editTime.Minutes;
-            printf("%02d:%02d \n", Hours, Minutes);
+//            Hours = editTime.Hours;
+//            Minutes = editTime.Minutes;
+//            printf("%02d:%02d \n", Hours, Minutes);
             break;
 
         default:

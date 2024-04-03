@@ -1,4 +1,4 @@
 ../Application/User/Core/src/Service/APP/Clock_App/clock_App.c:78:6:clock_Init	1
 ../Application/User/Core/src/Service/APP/Clock_App/clock_App.c:85:6:vGet_Clock	3
-../Application/User/Core/src/Service/APP/Clock_App/clock_App.c:169:6:vClock_exit	1
+../Application/User/Core/src/Service/APP/Clock_App/clock_App.c:170:6:vClock_exit	1
 ../Application/User/Core/src/Service/APP/Clock_App/clock_App.c:110:6:clockSettingRunMode	9

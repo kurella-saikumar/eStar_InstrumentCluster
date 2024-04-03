@@ -178,7 +178,7 @@ Clock_Edit_Actions clockSettingGetSetMode(void)
 {
     Button_Push_Event_T clk_mode_status = getModeButtonStatus();
     Button_Push_Event_T clk_reset_status = getResetButtonStatus();
-    clockSettingRunMode(CLOCK_ENTRY);
+    //clockSettingRunMode(CLOCK_ENTRY);
 
 
      if(clk_mode_status == SHORT_PRESS_RELEASED )
