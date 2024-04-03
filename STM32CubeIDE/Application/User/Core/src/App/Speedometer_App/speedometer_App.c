@@ -54,36 +54,36 @@ speedDisplayMetrics_t speedoUnits = 0;
 bool safeSpeedLimitExceededFlag = 0;
 
 /**Km configuration parameters*/
-uint32_t mts_to_km_dist_conv_factor_speed = 0;
-uint32_t sec_to_hr_time_conv_factor = 0;
-uint32_t pulse_multi_factor_speed = 0;
-uint32_t pulsesPer100Meters_speed = 0;
-uint32_t timeInSecs = 0;
-uint8_t safeThresholdSpeedInKm = 0;
-uint32_t maxVehicleSpeedInKm = 0; 
+uint32_t gl_mts_to_km_dist_conv_factor_speed_u32 = 0;
+uint32_t gl_sec_to_hr_time_conv_factor_u32 = 0;
+uint32_t gl_pulse_multi_factor_speed_u32 = 0;
+uint32_t gl_pulsesPer100MetersSpeed_u32 = 0;
+uint32_t gl_timeInSecs_u32 = 0;
+uint8_t gl_safeThresholdSpeedInKm_u8 = 0;
+uint32_t fl_maxVehicleSpeedInKm_u32 = 0;
 
 /**Miles configuration parameters*/
-uint8_t safeThresholdSpeedInMiles = 0;
-uint32_t maxVehicleSpeedInMiles = 0;
-uint8_t kmToMilesDivisionFactor = 0;
-uint8_t km_to_miles_speed_multi_factor = 0;
+uint8_t gl_safeThresholdSpeedInMiles_u8 = 0;
+uint32_t fl_maxVehicleSpeedInMiles_u32 = 0;
+uint8_t gl_kmToMilesDivisionFactor_u8 = 0;
+uint8_t gl_km_to_miles_speed_multi_factor_u32 = 0;
 
 /**Speedometer variables*/
 bool ignitionStatus_speed = 0;
-int32_t delta = 0;
-uint32_t currentReceivedPulses = 0;
-uint32_t previousReceivedPulses = 0;
+int32_t fl_delta_i32 = 0;
+uint32_t fl_currentReceivedPulses_u32 = 0;
+uint32_t fl_previousReceivedPulses_u32 = 0;
 
 /**km variables*/
-uint32_t distanceInMts = 0;
-uint32_t pulse100mCountRatio = 0;
-uint32_t receivedPulses = 0;
-uint32_t distanceInKm = 0;
-uint32_t timeInHr = 0;
-uint32_t speedInkm = 0;
+uint32_t fl_distanceInMts_32 = 0;
+uint32_t fl_pulse100mCountRatio_u32 = 0;
+uint32_t fl_receivedPulses_u32 = 0;
+uint32_t fl_distanceInKm_u32 = 0;
+uint32_t fl_timeInHr_u32 = 0;
+uint32_t gl_speedInkm_u32 = 0;
 
 /**miles variables*/
-uint32_t speedInMiles = 0;
+uint32_t gl_speedInMiles_u32 = 0;
 
 IndicationStatus_t IndicationStatus;
 /**************************************************************************************************
@@ -112,31 +112,33 @@ void vSpeedoInit(void)
     defaultSpeedoUnits = SPEED_IN_KMPH;
     speedoUnits = defaultSpeedoUnits;
     vInitializeSpeedometer();
-    printf("Speedometer initialization...\r\n");
+    //printf("Speedometer initialization...\r\n");
     xLoadToEEPROM();
 }
 
 void vInitializeSpeedometer(void)
 {
     /**Km configuration parameters*/
-	mts_to_km_dist_conv_factor_speed = MTS_TO_KM_DIST_CONV_FACTOR;
-    sec_to_hr_time_conv_factor = SEC_TO_HR_TIME_CONV_FACTOR;
-    pulse_multi_factor_speed = PULSE_MULTI_FACTOR;
-    pulsesPer100Meters_speed = PULSES_PER_100_METERS;
-    timeInSecs = TIME_IN_SECS;
-    safeThresholdSpeedInKm = SAFE_THRESHOLD_VEH_SPEED_IN_KM;
-    maxVehicleSpeedInKm = MAX_VEH_SPEED_IN_KM; 
+	gl_mts_to_km_dist_conv_factor_speed_u32 = MTS_TO_KM_DIST_CONV_FACTOR;
+	gl_sec_to_hr_time_conv_factor_u32 = SEC_TO_HR_TIME_CONV_FACTOR;
+	gl_pulse_multi_factor_speed_u32 = PULSE_MULTI_FACTOR;
+    gl_pulsesPer100MetersSpeed_u32 = PULSES_PER_100_METERS;
+    gl_timeInSecs_u32 = TIME_IN_SECS;
+    gl_safeThresholdSpeedInKm_u8 = SAFE_THRESHOLD_VEH_SPEED_IN_KM;
+    fl_maxVehicleSpeedInKm_u32 = MAX_VEH_SPEED_IN_KM;
 
 /**Miles configuration parameters*/
-    kmToMilesDivisionFactor = KM_TO_MILES_DIV_FACTOR;
-    km_to_miles_speed_multi_factor = KM_TO_MILES_MULTI_FACTOR;
-    safeThresholdSpeedInMiles = SAFE_THRESHOLD_VEH_SPEED_IN_MILES;
-    maxVehicleSpeedInMiles = MAX_VEH_SPEED_IN_MILES;
+    gl_kmToMilesDivisionFactor_u8 = KM_TO_MILES_DIV_FACTOR;
+    gl_km_to_miles_speed_multi_factor_u32 = KM_TO_MILES_MULTI_FACTOR;
+    gl_safeThresholdSpeedInMiles_u8 = SAFE_THRESHOLD_VEH_SPEED_IN_MILES;
+    fl_maxVehicleSpeedInMiles_u32 = MAX_VEH_SPEED_IN_MILES;
 
 }
 void xLoadToEEPROM(void)
 {
+#if(SpeedoTestMacro == 1)
    printf("Config parameters loaded to EEPROM...\r\n");
+#endif
 }
  /**
  * @brief Speed calculation algorithm
@@ -151,9 +153,11 @@ void vSpeedoAlgorithm(void)
 	 ignitionStatus = usIgnitionGetCurrentState();
 	 if(ignitionStatus == IgnOFF_mode)
     {
+#if(SpeedoTestMacro == 1)
 		printf("Speedometer Ignition: OFF\n");
-        speedInkm = 0;
-        speedInMiles = 0;
+#endif
+		gl_speedInkm_u32 = 0;
+		gl_speedInMiles_u32 = 0;
     }
     else    
     {        
@@ -177,51 +181,52 @@ void vCalculateSpeed(void)
 
 void vCalculateSpeedInKm(void)
 {
-	receivedPulses = vPulseDeltaCounter();
+	fl_receivedPulses_u32 = vPulseDeltaCounter();
     
-    pulse100mCountRatio = (receivedPulses / pulsesPer100Meters_speed);
-    distanceInMts = pulse100mCountRatio * pulse_multi_factor_speed;
+	fl_pulse100mCountRatio_u32 = (fl_receivedPulses_u32 / gl_pulsesPer100MetersSpeed_u32);
+    fl_distanceInMts_32 = fl_pulse100mCountRatio_u32 * gl_pulse_multi_factor_speed_u32;
     
-    distanceInKm = ( distanceInMts * mts_to_km_dist_conv_factor_speed );
-    timeInHr = timeInSecs * sec_to_hr_time_conv_factor;
+    fl_distanceInKm_u32 = ( fl_distanceInMts_32 * gl_mts_to_km_dist_conv_factor_speed_u32 );
+    fl_timeInHr_u32 = gl_timeInSecs_u32 * gl_sec_to_hr_time_conv_factor_u32;
             
-    speedInkm = ( distanceInKm / timeInHr);
-    
+    gl_speedInkm_u32 = ( fl_distanceInKm_u32 / fl_timeInHr_u32);
+#if(SpeedoTestMacro == 1)
     /**Debug purpose*/
-    //printf("Sd: %ld\t",receivedPulses);
-    //printf("dm: %ld\tdK: %ld\ttH: %lu\t", distanceInMts, distanceInKm, timeInHr);
-    printf("sK: %ld\n", speedInkm);
-    //printf("dU: %d\t\r", speedoUnits);
-   // printf("dI: %d\t\r\n", xSafeSpeedCheck());
+    printf("Sd: %ld\t",fl_receivedPulses_u32);
+    printf("dm: %ld\tdK: %ld\ttH: %lu\t", fl_distanceInMts_32, fl_distanceInKm_u32, fl_timeInHr_u32);
+    printf("sK: %ld\t", gl_speedInkm_u32);
+    printf("dU: %d\t", speedoUnits);
+    printf("dI: %d\t\n\n\r", xSafeSpeedCheck());
+#endif
 }
 
 void vCalculateSpeedInMiles(void)
 {
     vCalculateSpeedInKm();
-    speedInMiles = ( (speedInkm * km_to_miles_speed_multi_factor) / kmToMilesDivisionFactor );
-    //printf("sM: %d\t", speedInMiles);   //Debug purpose
+    gl_speedInMiles_u32 = ( (gl_speedInkm_u32 * gl_km_to_miles_speed_multi_factor_u32) / gl_kmToMilesDivisionFactor_u8 );
+    //printf("sM: %d\t", gl_speedInMiles_u32);   //Debug purpose
 }
 
 uint32_t vPulseDeltaCounter(void)
 {
-	currentReceivedPulses = xGetRollingPulseCount(ODO_SPEEDO_CHANNEL);
+	fl_currentReceivedPulses_u32 = xGetRollingPulseCount(ODO_SPEEDO_CHANNEL);
 
-	delta = currentReceivedPulses - previousReceivedPulses;
+	fl_delta_i32 = fl_currentReceivedPulses_u32 - fl_previousReceivedPulses_u32;
 
-	if(delta < 0 )
+	if(fl_delta_i32 < 0 )
 	{
-		delta = UINT32_MAX + delta;
+		fl_delta_i32 = UINT32_MAX + fl_delta_i32;
 	}
 
-	previousReceivedPulses = currentReceivedPulses;
-	return delta;
+	fl_previousReceivedPulses_u32 =  fl_currentReceivedPulses_u32;
+	return fl_delta_i32;
 }
 
 bool xSafeSpeedCheck(void)
 {
     if(speedoUnits == SPEED_IN_KMPH)
     {
-        if(speedInkm > safeThresholdSpeedInKm)
+        if(gl_speedInkm_u32 > gl_safeThresholdSpeedInKm_u8)
         {
             safeSpeedLimitExceededFlag = 1;
         }
@@ -232,7 +237,7 @@ bool xSafeSpeedCheck(void)
     }
     else if(speedoUnits == SPEED_IN_MPH)
     {
-        if(speedInkm > safeThresholdSpeedInMiles)
+        if(gl_speedInkm_u32 > gl_safeThresholdSpeedInMiles_u8)
         {
             safeSpeedLimitExceededFlag = 1;
         }
@@ -292,16 +297,17 @@ uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStat
 
 //    printf("dU: %d\t", speedDisplayUnits);   //Debug purpose
 //    printf("dI: %d\t", speedStatus);   //Debug purpose
+    }
 
 		if(speedoUnits == SPEED_IN_KMPH)
 		{
-			return speedInkm;
+			return gl_speedInkm_u32;
 		}
 		else if(speedoUnits == SPEED_IN_MPH)
 		{
-			return speedInMiles;
+			return gl_speedInMiles_u32;
 		}
-    }
+ return 0;
 }
 
 #endif	/* SPEEDOMETER_C */

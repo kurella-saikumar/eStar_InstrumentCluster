@@ -1319,7 +1319,7 @@ void Tacho_Task(void *argument)
   for(;;)
   {
 	  vTacho_App();
-    osDelay(5000);
+    osDelay(1000);
   }
   /* USER CODE END Tacho_Task */
 }

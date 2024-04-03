@@ -1,5 +1,5 @@
 Application/User/generated/Texts.o: \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/TouchGFX/generated/texts/src/Texts.cpp \
+ E:/GitProjects/eSTAR_InstrumentCluster/TouchGFX/generated/texts/src/Texts.cpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TextProvider.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Unicode.hpp \

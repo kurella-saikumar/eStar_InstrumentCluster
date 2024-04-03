@@ -58,7 +58,7 @@
  ***************************************************************************************************/
  void vTriggeredEdge_Counter(uint8_t channelNum);
 uint32_t xGetRollingPulseCount(uint8_t channelNum);
-
+void vEnable_OdoSpeedo_Channel_Interrupts(void);
 void vDisable_OdoSpeedo_Channel_Interrupts(void);
 
 

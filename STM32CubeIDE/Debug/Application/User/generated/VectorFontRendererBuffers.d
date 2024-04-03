@@ -1,5 +1,5 @@
 Application/User/generated/VectorFontRendererBuffers.o: \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/TouchGFX/generated/fonts/src/VectorFontRendererBuffers.cpp \
+ E:/GitProjects/eSTAR_InstrumentCluster/TouchGFX/generated/fonts/src/VectorFontRendererBuffers.cpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/VectorFontRendererImpl.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp \

@@ -48,11 +48,12 @@
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES
  ***************************************************************************************************/
-	uint32_t g_rpm_u32 = 0;
-	uint32_t l_previousCapture_u32 = 0;
-    uint32_t l_presentCapture_u32 = 0;
-    int32_t l_deltaPulses_u32 = 0;
-    uint32_t l_frequency_u32 = 0;
+	uint32_t gl_rpm_u32 = 0;
+	uint32_t fl_previousCapture_u32 = 0;
+	uint32_t fl_presentCapture_u32 = 0;
+	int32_t fl_deltaPulses_i32 = 0;
+	uint32_t fl_frequency_u32 = 0;
+
 
 
 
@@ -100,35 +101,37 @@ void vTachoInit(void)
 */
 //gl_pulses_u32
 
-uint32_t prvMeasureRPM(void)
+void vMeasureRPM(void)
 {
-    l_presentCapture_u32 = xGetRollingPulseCount(1);
-    l_deltaPulses_u32 = l_presentCapture_u32 - l_previousCapture_u32;
 
-    if(l_deltaPulses_u32 < 0)
+	fl_presentCapture_u32 = xGetRollingPulseCount(1);
+	fl_deltaPulses_i32 = fl_presentCapture_u32 - fl_previousCapture_u32;
+
+    if(fl_deltaPulses_i32 < 0)
     {
 
-    	l_deltaPulses_u32 = UINT32_MAX + l_deltaPulses_u32;
+    	fl_deltaPulses_i32 = UINT32_MAX + fl_deltaPulses_i32;
     }
-    l_frequency_u32 = (l_deltaPulses_u32) / TIME; // Assuming TIME is in seconds
+    fl_frequency_u32 = (fl_deltaPulses_i32) / TIME; // Assuming TIME is in seconds
 
-    if(l_frequency_u32 >= (UINT32_MAX / 60))
+    if(fl_frequency_u32 >= (UINT32_MAX / 60))
     {
-    	g_rpm_u32= UINT32_MAX;
+    	gl_rpm_u32= UINT32_MAX;
     }
     else
     {
-    	g_rpm_u32 = ((l_frequency_u32 * 60) / FIXED_PPR_VALUE);
+    	gl_rpm_u32 = ((fl_frequency_u32 * 60) / FIXED_PPR_VALUE);
     }
+#if(TachoTestMacro == 1)
+    //printf("Ap: %ld\r\t",fl_presentCapture_u32);
+      printf("Td: %ld\t",fl_deltaPulses_i32);
+//    printf("pv:%ld\r\t",fl_previousCapture_u32);
+//    gl_rpm_u32 = ( fl_presentCapture_u32 / 16)* 1000;
+//    printf("rpm %lu\r\n", gl_rpm_u32);
+      printf("RPM:%ld\n\r",gl_rpm_u32);
+#endif
+      fl_previousCapture_u32 = fl_presentCapture_u32;
 
-    //printf("Ap: %ld\r\t",l_presentCapture_u32);
-    //printf("Td: %ld\t",l_deltaPulses_u32);
-   // printf("pv:%ld\r\t",l_previousCapture_u32);
-//    g_rpm_u32 = ( l_presentCapture_u32 / 16)* 1000;
-//    printf("rpm %lu\r\n", g_rpm_u32);
-    l_previousCapture_u32 = l_presentCapture_u32;
-//    printf("RPM:%ld\n\r",g_rpm_u32);
-    return g_rpm_u32;
 }
 
 /**
@@ -144,18 +147,25 @@ uint32_t prvMeasureRPM(void)
 
 uint16_t xGet_TachometerData(IndicationStatus_t* Indication, bool *status)
 {
-
+	 Indication->indicators.tachometer_indicator = 0;
+	 *status = false;
      
-    if( g_rpm_u32 >= MAXIMUM_ENGINE_RPM || g_rpm_u32 <= IDLE_ENGINE_RPM)
+    if( gl_rpm_u32 >= MAXIMUM_ENGINE_RPM || gl_rpm_u32 <= IDLE_ENGINE_RPM)
     {
 
         Indication->indicators.tachometer_indicator = 1;
         *status = true;
-        g_rpm_u32 = 0;
-        //printf("warning\t");
+        gl_rpm_u32 = 0;
+#if(TachoTestMacro == 1)
+        printf("warning\t");
+#endif
+
     }
-    	//printf("RPM: %ld\n", g_rpm_u32);
-    	return g_rpm_u32;
+#if(TachoTestMacro == 1)
+    printf("RPM: %ld\n\r", gl_rpm_u32);
+#endif
+
+    	return gl_rpm_u32;
 }
 /**
  * @brief Tachometer Application.
@@ -170,20 +180,23 @@ uint16_t xGet_TachometerData(IndicationStatus_t* Indication, bool *status)
 void vTacho_App(void)
 {   
 
-    uint8_t ignitionStatus=0;
-    ignitionStatus = usIgnitionGetCurrentState();
+    uint8_t l_ignitionStatus_u8=0;
+    l_ignitionStatus_u8 = usIgnitionGetCurrentState();
 //   // printf("IgnitionStatus: %i\r\n", ignitionStatus);  debug purpose
-    if(ignitionStatus == IgnOFF_mode)
+    if(l_ignitionStatus_u8 == IgnOFF_mode)
     {
-        g_rpm_u32 = 0;
-        printf("Tachometer Ignition: OFF\n");
+    	gl_rpm_u32 = 0;
+
+#if(TachoTestMacro == 1)
+        printf("Tachometer Ignition: OFF\n\r");
+#endif
     }
     else
     {
-    	 IndicationStatus_t Indication;
-    	 bool status = false;
-    	 prvMeasureRPM();
-    	 xGet_TachometerData(&Indication,&status);
+//    	 IndicationStatus_t Indication;
+//    	 bool status = false;
+    	 vMeasureRPM();
+//    	 xGet_TachometerData(&Indication,&status);
     }
     
    

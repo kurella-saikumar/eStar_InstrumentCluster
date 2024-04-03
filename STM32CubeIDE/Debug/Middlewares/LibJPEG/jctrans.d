@@ -1,5 +1,5 @@
 Middlewares/LibJPEG/jctrans.o: \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/Middlewares/Third_Party/LibJPEG/source/jctrans.c \
+ E:/GitProjects/eSTAR_InstrumentCluster/Middlewares/Third_Party/LibJPEG/source/jctrans.c \
  ../../Middlewares/Third_Party/LibJPEG/include/jinclude.h \
  ../../LIBJPEG/Target/jconfig.h ../../LIBJPEG/Target/jdata_conf.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \

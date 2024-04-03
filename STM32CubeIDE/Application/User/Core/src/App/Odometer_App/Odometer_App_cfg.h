@@ -58,10 +58,10 @@ typedef enum {
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES
  ***************************************************************************************************/
-extern uint32_t mts_to_km_dist_conv_factor;
-extern uint32_t pulse_multi_factor;
+//extern uint32_t mts_to_km_dist_conv_factor;
+extern uint32_t fl_pulse_multi_factor_u32;
 extern uint32_t pulsesPer100Meters;
-extern  uint32_t Km_to_Miles_dist_conv_factor;
+extern  uint32_t gl_Km_to_Miles_dist_conv_factor_u32;
 
 extern vehicleDisplayMetrics_t defaultOdoUnits;
 extern vehicleDisplayMetrics_t OdometerUnits;
