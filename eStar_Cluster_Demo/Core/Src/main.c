@@ -33,6 +33,9 @@
 #include "digital_debounce.h"
 #include "Analog_debounce.h"
 #include "FuelGuage_App.h"
+#include "Odometer_App.h"
+#include "speedometer_App.h"
+#include "Tachometer_App.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -133,11 +136,11 @@ const osThreadAttr_t DigitalDebounce_attributes = {
   .cb_size = sizeof(DigitalDebounceControlBlock),
   .stack_mem = &DigitalDebounceBuffer[0],
   .stack_size = sizeof(DigitalDebounceBuffer),
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityNormal1,
 };
 /* Definitions for State_Manager */
 osThreadId_t State_ManagerHandle;
-uint32_t State_ManagerBuffer[ 512 ];
+uint32_t State_ManagerBuffer[ 1024 ];
 osStaticThreadDef_t State_ManagerControlBlock;
 const osThreadAttr_t State_Manager_attributes = {
   .name = "State_Manager",
@@ -145,7 +148,7 @@ const osThreadAttr_t State_Manager_attributes = {
   .cb_size = sizeof(State_ManagerControlBlock),
   .stack_mem = &State_ManagerBuffer[0],
   .stack_size = sizeof(State_ManagerBuffer),
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityHigh,
 };
 /* Definitions for Analog_Debounce */
 osThreadId_t Analog_DebounceHandle;
@@ -157,7 +160,7 @@ const osThreadAttr_t Analog_Debounce_attributes = {
   .cb_size = sizeof(Analog_DebounceControlBlock),
   .stack_mem = &Analog_DebounceBuffer[0],
   .stack_size = sizeof(Analog_DebounceBuffer),
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityNormal1,
 };
 /* Definitions for FuelGuage */
 osThreadId_t FuelGuageHandle;
@@ -169,7 +172,43 @@ const osThreadAttr_t FuelGuage_attributes = {
   .cb_size = sizeof(FuelGuageControlBlock),
   .stack_mem = &FuelGuageBuffer[0],
   .stack_size = sizeof(FuelGuageBuffer),
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityNormal,
+};
+/* Definitions for OdoMeter */
+osThreadId_t OdoMeterHandle;
+uint32_t OdoBuffer[ 128 ];
+osStaticThreadDef_t OdoControlBlock;
+const osThreadAttr_t OdoMeter_attributes = {
+  .name = "OdoMeter",
+  .cb_mem = &OdoControlBlock,
+  .cb_size = sizeof(OdoControlBlock),
+  .stack_mem = &OdoBuffer[0],
+  .stack_size = sizeof(OdoBuffer),
+  .priority = (osPriority_t) osPriorityBelowNormal,
+};
+/* Definitions for SpeedoMeter */
+osThreadId_t SpeedoMeterHandle;
+uint32_t SpeedoBuffer[ 128 ];
+osStaticThreadDef_t SpeedoControlBlock;
+const osThreadAttr_t SpeedoMeter_attributes = {
+  .name = "SpeedoMeter",
+  .cb_mem = &SpeedoControlBlock,
+  .cb_size = sizeof(SpeedoControlBlock),
+  .stack_mem = &SpeedoBuffer[0],
+  .stack_size = sizeof(SpeedoBuffer),
+  .priority = (osPriority_t) osPriorityBelowNormal,
+};
+/* Definitions for TachoMeter */
+osThreadId_t TachoMeterHandle;
+uint32_t TachoMeterBuffer[ 128 ];
+osStaticThreadDef_t TachoMeterControlBlock;
+const osThreadAttr_t TachoMeter_attributes = {
+  .name = "TachoMeter",
+  .cb_mem = &TachoMeterControlBlock,
+  .cb_size = sizeof(TachoMeterControlBlock),
+  .stack_mem = &TachoMeterBuffer[0],
+  .stack_size = sizeof(TachoMeterBuffer),
+  .priority = (osPriority_t) osPriorityBelowNormal,
 };
 /* USER CODE BEGIN PV */
 /**
@@ -213,6 +252,9 @@ void DigitalDebounce_Task(void *argument);
 void State_Machine_Task(void *argument);
 void Analog_Debounce_Task(void *argument);
 void FuelGuageTask(void *argument);
+void Odo_Task(void *argument);
+void Speedo_Task(void *argument);
+void Tacho_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -288,7 +330,18 @@ int main(void)
   /* USER CODE BEGIN 2 */
   (void)Mcu_GetResetReason();
   State_Manager_init();
+  vOdoInit();
+  vSpeedoInit();
   vFuelGuage_TaskInit();
+
+  if(HAL_TIM_IC_Start_IT(&htim1,TIM_CHANNEL_4)!=HAL_OK)
+  {
+	  Error_Handler();
+  }
+  if(HAL_TIM_IC_Start_IT(&htim4,TIM_CHANNEL_4)!=HAL_OK)
+  {
+	  Error_Handler();
+  }
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -334,6 +387,15 @@ int main(void)
 
   /* creation of FuelGuage */
   FuelGuageHandle = osThreadNew(FuelGuageTask, NULL, &FuelGuage_attributes);
+
+  /* creation of OdoMeter */
+  OdoMeterHandle = osThreadNew(Odo_Task, NULL, &OdoMeter_attributes);
+
+  /* creation of SpeedoMeter */
+  SpeedoMeterHandle = osThreadNew(Speedo_Task, NULL, &SpeedoMeter_attributes);
+
+  /* creation of TachoMeter */
+  TachoMeterHandle = osThreadNew(Tacho_Task, NULL, &TachoMeter_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -982,6 +1044,7 @@ static void MX_TIM1_Init(void)
 
   /* USER CODE END TIM1_Init 0 */
 
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
   TIM_IC_InitTypeDef sConfigIC = {0};
 
@@ -995,6 +1058,15 @@ static void MX_TIM1_Init(void)
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
   if (HAL_TIM_IC_Init(&htim1) != HAL_OK)
   {
     Error_Handler();
@@ -1010,7 +1082,7 @@ static void MX_TIM1_Init(void)
   sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
   sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
   sConfigIC.ICFilter = 0;
-  if (HAL_TIM_IC_ConfigChannel(&htim1, &sConfigIC, TIM_CHANNEL_1) != HAL_OK)
+  if (HAL_TIM_IC_ConfigChannel(&htim1, &sConfigIC, TIM_CHANNEL_4) != HAL_OK)
   {
     Error_Handler();
   }
@@ -1274,7 +1346,8 @@ void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef *hrtc)
 	//SystemClock_Config ();
 	SYSCLKConfig_STOP();
 	HAL_ResumeTick();
-	//printf("WAKEUP FROM RTC\n NOW GOING IN STOP MODE AGAIN\r\n");
+	HAL_LTDC_MspInit(&hltdc);
+	printf("WAKEUP FROM RTC\r\n");
 	//HAL_PWR_DisableSleepOnExit();
     /* Reset all RSR(Reset) flags */
     SET_BIT(RCC->RSR, RCC_RSR_RMVF);
@@ -1291,7 +1364,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	  }
 	  SystemClock_Config ();
 	  HAL_ResumeTick();
-	 // printf("WAKEUP FROM EXTII\r\n");
+	  printf("WAKEUP FROM EXTII\r\n");
  // HAL_PWR_DisableSleepOnExit();
 }
 /* USER CODE END 4 */
@@ -1437,6 +1510,63 @@ void FuelGuageTask(void *argument)
     osDelay(100);
   }
   /* USER CODE END FuelGuageTask */
+}
+
+/* USER CODE BEGIN Header_Odo_Task */
+/**
+* @brief Function implementing the OdoMeter thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Odo_Task */
+void Odo_Task(void *argument)
+{
+  /* USER CODE BEGIN Odo_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+	  vOdoAlgorithm();
+    osDelay(5000);
+  }
+  /* USER CODE END Odo_Task */
+}
+
+/* USER CODE BEGIN Header_Speedo_Task */
+/**
+* @brief Function implementing the SpeedoMeter thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Speedo_Task */
+void Speedo_Task(void *argument)
+{
+  /* USER CODE BEGIN Speedo_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+	  vSpeedoAlgorithm();
+    osDelay(5000);
+  }
+  /* USER CODE END Speedo_Task */
+}
+
+/* USER CODE BEGIN Header_Tacho_Task */
+/**
+* @brief Function implementing the TachoMeter thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Tacho_Task */
+void Tacho_Task(void *argument)
+{
+  /* USER CODE BEGIN Tacho_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+	  vTacho_App();
+    osDelay(5000);
+  }
+  /* USER CODE END Tacho_Task */
 }
 
  /* MPU Configuration */

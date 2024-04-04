@@ -11,7 +11,9 @@ E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal
 E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_msp.c:614:6:HAL_OSPI_MspDeInit	8	static
 E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_msp.c:700:6:HAL_RTC_MspInit	192	static
 E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_msp.c:736:6:HAL_RTC_MspDeInit	0	static
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_msp.c:761:6:HAL_TIM_IC_MspInit	48	static
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_msp.c:823:6:HAL_TIM_IC_MspDeInit	8	static
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_msp.c:871:6:HAL_UART_MspInit	224	static
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_msp.c:918:6:HAL_UART_MspDeInit	0	static
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_msp.c:761:6:HAL_TIM_Base_MspInit	40	static
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_msp.c:799:6:HAL_TIM_IC_MspInit	40	static
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_msp.c:837:6:HAL_TIM_Base_MspDeInit	8	static
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_msp.c:867:6:HAL_TIM_IC_MspDeInit	8	static
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_msp.c:897:6:HAL_UART_MspInit	224	static
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_msp.c:944:6:HAL_UART_MspDeInit	0	static

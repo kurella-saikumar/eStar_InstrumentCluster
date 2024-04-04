@@ -30,6 +30,7 @@
 ***************************************************************************************************/
 #include "IGN_SmHandler.h"
 #include "IGN_SmHandler_cfg.h"
+#include "ICU_driver.h"
 /**************************************************************************************************
  * DEFINE FILE SCOPE MACROS
 ***************************************************************************************************/
@@ -72,7 +73,8 @@ void vInIgnitionOffFunc(void);
 
 void vIgnitionONFunc(void)
 {
-   // printf("IGNON_STATE_ON_ENTRY_Action\r\n");
+	    printf("IGNON_STATE_OFF_TO_ON_ENTRY_Action\r\n");
+	    vEnable_OdoSpeedo_Channel_Interrupts();
 }
 
 /**
@@ -85,7 +87,8 @@ void vIgnitionONFunc(void)
  */
 void vIgnitionOffFunc(void)
 {
-  // printf("IGNOFF_STATE_OFF_ENTRY_Action\r\n");
+	 printf("IGNOFF_STATE_ON_TO_OFF_ENTRY_Action\r\n");
+	 vDisable_OdoSpeedo_Channel_Interrupts();
 }  
 
 /**
@@ -99,7 +102,7 @@ void vIgnitionOffFunc(void)
 void vInIgnitionONFunc(void)
 {
     //printf("IGN_STATE_in_IGNON_Action\r\n");
-    //printf("\nIGNON_To_IGNON_STATE\n");
+     //printf("\nIGNON_To_IGNON_STATE\n");
 } 
 
 /**

@@ -41,9 +41,13 @@ CPP_DEPS :=
 SUBDIRS := \
 Application/User/Core \
 Application/User/Core/src/App/FuelGuage \
+Application/User/Core/src/App/Odometer_App \
+Application/User/Core/src/App/Speedometer_App \
+Application/User/Core/src/App/Tachometer_App \
 Application/User/Core/src/Service/IO_HAL/AnalogDebounce \
 Application/User/Core/src/Service/IO_HAL/Damping_Filter \
 Application/User/Core/src/Service/IO_HAL/DigitalDebounce \
+Application/User/Core/src/Service/IO_HAL/ICU_middleware \
 Application/User/Core/src/Service/System_Service/BatteryVoltage_SmApp \
 Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp \
 Application/User/Core/src/Service/System_Service/IgnitionManager \

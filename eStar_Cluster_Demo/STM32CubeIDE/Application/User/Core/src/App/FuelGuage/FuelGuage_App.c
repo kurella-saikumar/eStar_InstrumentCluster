@@ -44,7 +44,7 @@
 ***************************************************************************************************/
 Main_DATA MainData;
 Sub_DATA SubData;
-
+IndicationStatus_t IndicationStatus;
 /**************************************************************************************************
  * Purpose: The purpose of gl_ADC_Value_u16 variable is to store the ADC value and used in application.
  *

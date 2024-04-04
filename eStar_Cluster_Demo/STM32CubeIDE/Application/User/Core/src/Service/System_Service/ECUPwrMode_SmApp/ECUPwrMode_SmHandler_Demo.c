@@ -90,7 +90,7 @@ void ECUPwrModeActive_To_Off_EntryAction(void)
    // printf("wrModeActive_To_Off_EntryAction\n");
     //PowerDown(Hw_ACC_DET);
 	pm_ReqNewState(ECU_POWER_MODE_OFF);
-	//printf("ECUPwrModeAction_off\n");
+	printf("ECUPwrModeAction_off\n");
 
 }
 
@@ -116,8 +116,8 @@ void ECUPwrModeOff_To_Sleep_EntryAction(void)
 		  To configure the wake up timer to 20s the WakeUpCounter is set to 0xA017:
 			RTC_WAKEUPCLOCK_RTCCLK_DIV = RTCCLK_Div16 = 16
 			Wake-up Time Base = 16 /(32KHz) = 0.0005 seconds
-			==> WakeUpCounter = ~10s/0.0005s = 20000 = 0x4E20 */
-	  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,0x4E20, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+			==> WakeUpCounter = ~10s/0.0005s = 20000 = 0x4E20,25s -C350  */
+	  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,0xC350, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
 		{
 		  Error_Handler();
 		}

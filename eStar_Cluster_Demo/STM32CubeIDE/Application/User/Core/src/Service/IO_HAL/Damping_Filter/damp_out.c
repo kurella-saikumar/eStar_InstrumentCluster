@@ -96,7 +96,7 @@ void DAMP_OUT (void)
        
         
         p_index_u8--;/*reading inputs from MAX_INPUTS to 0 */
-         printf("counter %d\t",l_count_u16[p_index_u8]);
+        // printf("counter %d\t",l_count_u16[p_index_u8]);
         /* Read from the input pointer table*/
         if(inp_list[p_index_u8] != NULL)
         {

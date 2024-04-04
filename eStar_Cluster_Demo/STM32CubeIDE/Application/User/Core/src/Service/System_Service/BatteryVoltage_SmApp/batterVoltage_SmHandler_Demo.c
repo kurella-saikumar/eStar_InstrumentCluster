@@ -43,13 +43,13 @@
 void HV_func(void);
 void NV_func(void);
 void LV_func(void);
-void UHV_func(void);
+void ULV_func(void);
 
 
 void in_LV_func(void); 
 void in_NV_func(void);
 void in_HV_func(void);
-void in_UHV_func(void);
+void in_ULV_func(void);
 
 
 
@@ -68,7 +68,18 @@ void in_UHV_func(void);
 /**************************************************************************************************
  * FUNCTION DEFINITIONS
 ***************************************************************************************************/
-
+/**
+ * @brief  ULV_func function is to perform some action when the state changed to ULTRA_Low_VOLTAGE_STATE
+ *
+ * @param[in] void type
+ *
+ * @return void
+ *
+ */
+void ULV_func(void)
+{
+   // printf("\nULTRA_LOW_VOLTAGE_STATE_ENTRY_Action\n");
+}
 /**
  * @brief  LV_func function is to perform some action when the state changed to LOW_VOLTAGE_STATE 
  *
@@ -105,20 +116,21 @@ void NV_func(void)
  */
 void HV_func(void)
 {
-   //printf("\nHIGH_VOLTAGE_STATE_ENTRY_Action\n");
+  // printf("\nHIGH_VOLTAGE_STATE_ENTRY_Action\n");
 } 
 
 /**
- * @brief  UHV_func function is to perform some action when the state changed to ULTRA_HIGH_VOLTAGE_STATE
+ * @brief  in_ULV_func function is to perform some action when the state remain in ULTRA_LOW_VOLTAGE_STATE
  *
  * @param[in] void type
  *
  * @return void
  *
  */
-void UHV_func(void)
+
+void in_ULV_func(void)
 {
-    //printf("\nULTRA_LOW_VOLTAGE_STATE_ENTRY_Action\n");
+   // printf("\nUL_UL_voltage\n");
 }
 
 /**
@@ -131,7 +143,7 @@ void UHV_func(void)
  */
 void in_LV_func(void)
 {
-   // printf("\nLOW_LOW_voltage\n");
+    //printf("\nLOW_LOW_voltage\n");
 } 
 
 /**
@@ -144,7 +156,7 @@ void in_LV_func(void)
  */
 void in_NV_func(void)
 {
-   //printf("\nNORMAL_NORMAL_voltage\n");
+  // printf("\nNORMAL_NORMAL_voltage\n");
 } 
 
 /**
@@ -157,21 +169,9 @@ void in_NV_func(void)
  */
 void in_HV_func(void)
 {
-   // printf("\nHIGH_HIGH_voltage\n");
+  // printf("\nHIGH_HIGH_voltage\n");
 } 
-/**
- * @brief  in_UHV_func function is to perform some action when the state remain in ULTRA_HIGH_VOLTAGE_STATE
- *
- * @param[in] void type
- *
- * @return void
- *
- */
 
-void in_UHV_func(void)
-{
-    //printf("\nUL_UL_voltage\n");
-}
 
 
 

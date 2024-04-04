@@ -46,21 +46,22 @@
  */
 typedef  void (*BatterVolage_ptr_t)(void);
 
-
+uint8_t ULVTransCheck_func(void);
 uint8_t LVTransCheck_func(void);
 uint8_t NVTransCheck_func(void);
 uint8_t HVTransCheck_func(void);
-uint8_t UHVTransCheck_func(void);
+
 
 void HVEntryAction_func(void);
 void NVEntryAction_func(void);
 void LVEntryAction_func(void);
-void UHVEntryAction_func(void);
+void ULVEntryAction_func(void);
 
+void in_ULVstateAction_func(void);
 void in_LVstateAction_func(void);
 void in_NVstateAction_func(void);
 void in_HVstateAction_func(void);
-void in_UHVstateAction_func(void);
+
 
 
 
@@ -73,14 +74,14 @@ void in_UHVstateAction_func(void);
 */
 const transition_T gl_batteryMode_SM_t[] = 
 {/*Current State, Next State, CurrentState to NextStateTransitionCheckFunction, NextStateTransitionActionFunction*/
-    {NORMAL_VOLTAGE_STATE|HIGH_VOLTAGE_STATE|ULTRA_HIGH_VOLTAGE_STATE, LOW_VOLTAGE_STATE, LVTransCheck_func, LVEntryAction_func},\
-    {LOW_VOLTAGE_STATE|HIGH_VOLTAGE_STATE|ULTRA_HIGH_VOLTAGE_STATE, NORMAL_VOLTAGE_STATE, NVTransCheck_func, NVEntryAction_func},\
-    {LOW_VOLTAGE_STATE|NORMAL_VOLTAGE_STATE|ULTRA_HIGH_VOLTAGE_STATE, HIGH_VOLTAGE_STATE, HVTransCheck_func, HVEntryAction_func},\
-    {LOW_VOLTAGE_STATE|NORMAL_VOLTAGE_STATE|HIGH_VOLTAGE_STATE, ULTRA_HIGH_VOLTAGE_STATE, UHVTransCheck_func, UHVEntryAction_func},\
+	{LOW_VOLTAGE_STATE|NORMAL_VOLTAGE_STATE|HIGH_VOLTAGE_STATE, ULTRA_LOW_VOLTAGE_STATE, ULVTransCheck_func, ULVEntryAction_func},\
+    {ULTRA_LOW_VOLTAGE_STATE|NORMAL_VOLTAGE_STATE|HIGH_VOLTAGE_STATE, LOW_VOLTAGE_STATE, LVTransCheck_func, LVEntryAction_func},\
+    {ULTRA_LOW_VOLTAGE_STATE|LOW_VOLTAGE_STATE|HIGH_VOLTAGE_STATE, NORMAL_VOLTAGE_STATE, NVTransCheck_func, NVEntryAction_func},\
+    {ULTRA_LOW_VOLTAGE_STATE|LOW_VOLTAGE_STATE|NORMAL_VOLTAGE_STATE, HIGH_VOLTAGE_STATE, HVTransCheck_func, HVEntryAction_func},\
     {LOW_VOLTAGE_STATE, LOW_VOLTAGE_STATE, NULL, in_LVstateAction_func },\
     {NORMAL_VOLTAGE_STATE, NORMAL_VOLTAGE_STATE, NULL, in_NVstateAction_func },\
     {HIGH_VOLTAGE_STATE, HIGH_VOLTAGE_STATE, NULL, in_HVstateAction_func },\
-    {ULTRA_HIGH_VOLTAGE_STATE, ULTRA_HIGH_VOLTAGE_STATE, NULL, in_UHVstateAction_func },\
+    {ULTRA_LOW_VOLTAGE_STATE, ULTRA_LOW_VOLTAGE_STATE, NULL, in_ULVstateAction_func },\
     {SM_STATE_INVALID, SM_STATE_INVALID, NULL, NULL }
 };
 
@@ -161,7 +162,7 @@ uint8_t HVTransCheck_func(void)
  * @return true if get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE)) is 0 otherwisee return false
  *
  */
-uint8_t UHVTransCheck_func(void)
+uint8_t ULVTransCheck_func(void)
 {
    // printf("UHVTransCheck_func %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
     uint8_t fl_ret_val_bool = 0;
@@ -248,27 +249,27 @@ void HVEntryAction_func(void)
     
 }
 /**
- * @brief  UHVEntryAction_func function is to perform some action when the state changed to ULTRA_HIGH_VOLTAGE_STATE
+ * @brief  UHVEntryAction_func function is to perform some action when the state changed to ULTRA_LOW_VOLTAGE_STATE
  *
  * @param[in] void type
  *
  * @return void
  *
  */
-void UHVEntryAction_func(void)
+void ULVEntryAction_func(void)
 {
 	//printf("STATE- %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
-    uint8_t fl_UHV_entry_counter_u8 = 0;
-    static const BatterVolage_ptr_t UHV_EntryState_List[]=
+    uint8_t fl_ULV_entry_counter_u8 = 0;
+    static const BatterVolage_ptr_t ULV_EntryState_List[]=
     {
-        UHV_ACTION_FUNC\
+        ULV_ACTION_FUNC\
         NULL
     };
 
-    while (UHV_EntryState_List[fl_UHV_entry_counter_u8] != NULL)
+    while (ULV_EntryState_List[fl_ULV_entry_counter_u8] != NULL)
     {
-        UHV_EntryState_List[fl_UHV_entry_counter_u8]();
-        fl_UHV_entry_counter_u8++;
+        ULV_EntryState_List[fl_ULV_entry_counter_u8]();
+        fl_ULV_entry_counter_u8++;
     }
 
 }
@@ -357,20 +358,20 @@ void in_HVstateAction_func(void)
  * @return void
  *
  */
-void in_UHVstateAction_func(void)
+void in_ULVstateAction_func(void)
 {
 	//printf("STATE- %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
-    uint8_t fl_UHVState_counter_u8 = 0;
-    static const BatterVolage_ptr_t UHVState_List[]=
+    uint8_t fl_ULVState_counter_u8 = 0;
+    static const BatterVolage_ptr_t ULVState_List[]=
     {
-        IN_UH_ACTION_FUNC\
+        IN_UL_ACTION_FUNC\
         NULL
     };
 
-    while (UHVState_List[fl_UHVState_counter_u8] != NULL)
+    while (ULVState_List[fl_ULVState_counter_u8] != NULL)
     {
-        UHVState_List[fl_UHVState_counter_u8]();
-        fl_UHVState_counter_u8++;
+        ULVState_List[fl_ULVState_counter_u8]();
+        fl_ULVState_counter_u8++;
     }
 
 }

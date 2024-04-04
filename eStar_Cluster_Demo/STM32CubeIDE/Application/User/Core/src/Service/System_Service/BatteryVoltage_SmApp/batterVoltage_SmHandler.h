@@ -32,11 +32,11 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
 ***************************************************************************************************/
+#define ULTRA_LOW_VOLTAGE_STATE SM_STATE_1
+#define LOW_VOLTAGE_STATE       SM_STATE_2
+#define NORMAL_VOLTAGE_STATE    SM_STATE_3
+#define HIGH_VOLTAGE_STATE      SM_STATE_4
 
-#define LOW_VOLTAGE_STATE SM_STATE_1
-#define NORMAL_VOLTAGE_STATE SM_STATE_2
-#define HIGH_VOLTAGE_STATE SM_STATE_3
-#define ULTRA_HIGH_VOLTAGE_STATE SM_STATE_4
 
 #define BATTERVOLTAGE_MODE_SM_INDEX 1
 /**************************************************************************************************
@@ -50,12 +50,12 @@
 extern void HV_func(void);
 extern void NV_func(void);
 extern void LV_func(void);
-extern void UHV_func(void);
+extern void ULV_func(void);
 
 extern void in_LV_func(void); 
 extern void in_NV_func(void);
 extern void in_HV_func(void);
-extern void in_UHV_func(void);
+extern void in_ULV_func(void);
 
 extern const transition_T gl_batteryMode_SM_t[];
 

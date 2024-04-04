@@ -65,8 +65,8 @@ HV_func, \
 *the defined macro "ULV_ACTION_FUNC" that expands to ULV_func().
 * It is likely used to invoke or execute a function called ULV_func()
 */
-#define UHV_ACTION_FUNC \
-UHV_func, \
+#define ULV_ACTION_FUNC \
+ULV_func, \
 
 
 /*
@@ -94,8 +94,8 @@ in_HV_func, \
 *the defined macro "IN_UL_ACTION_FUNC" that expands to in_ULV_func().
 * It is likely used to invoke or execute a function called in_ULV_func()
 */
-#define IN_UH_ACTION_FUNC \
-in_UHV_func, \
+#define IN_UL_ACTION_FUNC \
+in_ULV_func, \
 
 
 /**************************************************************************************************
