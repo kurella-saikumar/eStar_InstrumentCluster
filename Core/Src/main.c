@@ -1276,7 +1276,8 @@ void GetClock(void *argument)
   for(;;)
   {
 	vGet_Clock();
-    osDelay(2000);
+	vClockIncreament();
+    osDelay(500);
   }
   /* USER CODE END GetClock */
 }

@@ -59,10 +59,12 @@ HAL_StatusTypeDef res;
 extern RTC_HandleTypeDef hrtc;
 
 RTC_TimeTypeDef editTime;
+
+uint8_t gl_ContinousIncrement_flag;
 /**************************************************************************************************
  * DEFINE FILE SCOPE STATIC FUNCTION PROTOTYPES
 ***************************************************************************************************/
-//static void vClock_exit(void);
+
 /**************************************************************************************************
  * FUNCTION DEFINITIONS
 ***************************************************************************************************/
@@ -108,6 +110,8 @@ void vGet_Clock(void)
 }
 
 void clockSettingRunMode(Clock_Edit_Actions clockSettingMode) {
+
+//	gl_SwitchState = clockSettingMode;
     switch (clockSettingMode) {
 
         case CLOCK_ENTRY:
@@ -133,9 +137,13 @@ void clockSettingRunMode(Clock_Edit_Actions clockSettingMode) {
             }
             break;
         case RESET_LONGPRESS:
-            
-            break;
 
+        	gl_ContinousIncrement_flag = 1;
+            break;
+        case RESET_LONGPRESS_RELEASE:
+
+        	gl_ContinousIncrement_flag = 0;
+            break;
         case RESET_SHORTPRESS:
 			if (shiftingPosition == E_CLOCK_HOURS_POS) {
 				// Increment hours
@@ -174,7 +182,45 @@ void vClock_exit(void)
 	printf("Clock edit mode exit\n");
 }
 
+void ContinousIncrement(void)
+{
+	if (shiftingPosition == E_CLOCK_HOURS_POS)
+	{// Increment hours
+		editTime.Hours++;
+		// Ensure hours wrap around correctly
+		editTime.Hours %= 24;
+	}
+	else if (shiftingPosition == E_CLOCK_MINS_POS)
+	{
+		// Increment minutes
+		editTime.Minutes++;
+		// Check if minutes reached 60
+		if (editTime.Minutes == 60)
+		{
+				// Reset minutes to 0
+				editTime.Minutes = 0;
+				// Increment hours
+				editTime.Hours++;
+				// Ensure hours wrap around correctly
+				editTime.Hours %= 24;
+		}
+	}
+}
 
+void vClockIncreament(void)
+{
+	if(gl_ContinousIncrement_flag == 1)
+	{
+		ContinousIncrement();
+//		gl_ContinousIncrement_flag =0;
+
+	}
+	else
+	{
+		/*do nothing*/
+	}
+
+}
 /** end*/ /** @enduml */
 /**************************************************************************************************
  * End Of File

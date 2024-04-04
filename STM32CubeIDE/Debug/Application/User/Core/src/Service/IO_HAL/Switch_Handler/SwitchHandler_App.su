@@ -3,6 +3,6 @@
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:104:6:vSwitchHandlerTask	8	static
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:146:11:xGetClockMode	0	static
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:161:21:getModeButtonStatus	0	static
-../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:212:21:getResetButtonStatus	0	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:218:21:getResetButtonStatus	0	static
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:177:20:clockSettingGetSetMode	8	static
-../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:229:6:vHandleModeResetActions	24	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:235:6:vHandleModeResetActions	24	static

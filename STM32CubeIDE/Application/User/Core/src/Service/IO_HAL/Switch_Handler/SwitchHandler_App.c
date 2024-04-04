@@ -198,11 +198,17 @@ Clock_Edit_Actions clockSettingGetSetMode(void)
      }
      else if(clk_reset_status == LONG_PRESS_HELD)
      {
-         printf("clock reset long press");
+         printf("clock reset long press held");
          clockSettingRunMode(RESET_LONGPRESS);
      }
+     else if(clk_reset_status == LONG_PRESS_RELEASED)
+	  {
+		  printf("clock reset long press Released");
+		  clockSettingRunMode(RESET_LONGPRESS_RELEASE);
+	  }
      else
      {
+
      }
 
 	return 0;
