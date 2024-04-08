@@ -50,31 +50,31 @@
 */
 
 #define ECUPWRMODESLEEP_TO_OFF_LIST \
-ECUPwrModeSleep_To_Off_EntryAction,\
+vEcuPwrModeSleepToOffEntryAction,\
 
 #define ECUPWRMODEACTIVE_TO_OFF_LIST \
-ECUPwrModeActive_To_Off_EntryAction,\
+vEcuPwrModeActiveToOffEntryAction,\
 
 #define ECUPWRMODEOFF_TO_SLEEP_LIST \
-ECUPwrModeOff_To_Sleep_EntryAction,\
+vEcuPwrModeOffToSleepEntryAction,\
 
 #define ECUPWRMODEACTIVE_TO_SLEEP_LIST \
-ECUPwrModeActive_To_Sleep_EntryAction,\
+vEcuPwrModeActiveToSleepEntryAction,\
 
 #define ECUPWRMODESLEEP_TO_ACTIVE_LIST \
-ECUPwrModeSleep_To_Active_EntryAction,\
+vEcuPwrModeSleepToActiveEntryAction,\
 
 #define ECUPWRMODEOFF_LIST \
-ECUPwrModeOff_Action,\
+vEcuPwrModeOffAction,\
 
 #define ECUPWRMODESLEEP_LIST \
-ECUPwrModeSleep_Action,\
+vEcuPwrModeSleepAction,\
 
 #define ECUPWRMODEACTIVE_LIST \
-ECUPwrModeActive_Action,\
+vEcuPwrModeActiveAction,\
 
 #define ECUPWRMODEOFF_To_ACTIVE_LIST \
-ECUPwrModeOff_Active_ENtryAction,\
+vEcuPwrModeOffActiveEntryAction,\
 
 
 

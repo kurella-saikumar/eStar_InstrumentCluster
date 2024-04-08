@@ -1,8 +1,8 @@
 
 /** \addtogroup  
  *  @{
- * @file template.c
- *
+
+ * @file Speedometer_App_cfg.h
  * @brief Template Source File
  *
  * File Short Name: 
@@ -19,14 +19,14 @@
  ********************************************************************************************** @}*/
 
 /* 
- * File:   Odometer_cfg.h
- * Author: Monika
+ * File:   Speedometer_cfg.h
+ * Author: ravit
  *
- * Created on February 28, 2024, 4:09 PM
+ * Created on February 22, 2024, 4:09 PM
  */
 
-#ifndef ODOMETER_CFG_H
-#define	ODOMETER_CFG_H
+#ifndef SPEEDOMETER_CFG_H
+#define	SPEEDOMETER_CFG_H
 
 /**************************************************************************************************
  * Include Platform or Standard Headers
@@ -39,34 +39,37 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
  ***************************************************************************************************/
-//#define PULSES_PER_100_METERS 1
-//#define PULSE_MULTI_FACTOR 100
-//#define MTS_TO_KM_DIST_CONV_FACTOR 1000
-//#define KM_TO_MILES_DIST_CONV_FACTOR 0.621
+/**Vehicle specific configurations*/
+#define configPULSES_PER_100_METERS               1
+#define configMAX_VEH_SPEED_IN_KM                 200
+#define configMAX_VEH_SPEED_IN_MILES              125
+
+/**Industry standard configurations*/
+#define configMTS_TO_KM_DIST_CONV_FACTOR          1000
+#define configSEC_TO_HR_TIME_CONV_FACTOR          3600
+
+/**Speedometer configurations*/
+#define configSPEEDO_ALGO_CALL_FREQ_IN_MS			5000
+
+/**Km configuration parameters*/
+#define configPULSE_MULTI_FACTOR                  100
+#define configTIME_IN_SECS                        (configSPEEDO_ALGO_CALL_FREQ_IN_MS/1000)
+#define configSAFE_THRESHOLD_VEH_SPEED_IN_KM      60
+
+/**Miles configuration parameters*/
+#define configKM_TO_MILES_DIV_FACTOR                 50
+#define configKM_TO_MILES_MULTI_FACTOR               16
+#define configSAFE_THRESHOLD_VEH_SPEED_IN_MILES      40
 
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES
  ***************************************************************************************************/
-typedef enum {
-    DEFAULT_ODO_UNITS,
-    ODO_IN_KM,
-    ODO_IN_MILES,
-} vehicleDisplayMetrics_t;        
-
 
 //typedef bool IndicationStatus_t;
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES
  ***************************************************************************************************/
-//extern uint32_t mts_to_km_dist_conv_factor;
-extern uint32_t fl_pulse_multi_factor_u32;
-extern uint32_t pulsesPer100Meters;
-extern  uint32_t gl_Km_to_Miles_dist_conv_factor_u32;
 
-extern vehicleDisplayMetrics_t defaultOdoUnits;
-extern vehicleDisplayMetrics_t OdometerUnits;
-extern vehicleDisplayMetrics_t TripA_Units;
-extern vehicleDisplayMetrics_t TripB_Units;
 
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES
@@ -77,5 +80,5 @@ extern vehicleDisplayMetrics_t TripB_Units;
 
 
 
-#endif	/* ODOMETER_CFG_H */
+#endif	/* SPEEDOMETER_CFG_H */
 

@@ -50,15 +50,17 @@
 /**************************************************************************************************
  * DEFINE FILE SCOPE STATIC FUNCTION PROTOTYPES
 ***************************************************************************************************/
-void ECUPwrModeSleep_To_Off_EntryAction(void);
-void ECUPwrModeActive_To_Off_EntryAction(void);
-void ECUPwrModeOff_To_Sleep_EntryAction(void);
-void ECUPwrModeActive_To_Sleep_EntryAction(void);
-void ECUPwrModeSleep_To_Active_EntryAction(void);
-void ECUPwrModeOff_Action(void);
-void ECUPwrModeSleep_Action(void);
-void ECUPwrModeActive_Action(void);
-void ECUPwrModeOff_Active_ENtryAction(void);
+
+void vEcuPwrModeSleepToOffEntryAction(void);
+void vEcuPwrModeActiveToOffEntryAction(void);
+void vEcuPwrModeOffToSleepEntryAction(void);
+void vEcuPwrModeActiveToSleepEntryAction(void);
+void vEcuPwrModeSleepToActiveEntryAction(void);
+void vEcuPwrModeOffAction(void);
+void vEcuPwrModeSleepAction(void);
+void vEcuPwrModeActiveAction(void);
+void vEcuPwrModeOffActiveEntryAction(void);
+
 
 /**************************************************************************************************
  * FUNCTION DEFINITIONS
@@ -72,7 +74,7 @@ void ECUPwrModeOff_Active_ENtryAction(void);
  * @return void
  *
  */
-void ECUPwrModeSleep_To_Off_EntryAction(void)
+void vEcuPwrModeSleepToOffEntryAction(void)
 {
   //  printf("ECUPwrModeSleep_To_Off_EntryAction\n");
 }
@@ -85,7 +87,7 @@ void ECUPwrModeSleep_To_Off_EntryAction(void)
  * @return void
  *
  */
-void ECUPwrModeActive_To_Off_EntryAction(void)
+void vEcuPwrModeActiveToOffEntryAction(void)
 {
    // printf("wrModeActive_To_Off_EntryAction\n");
     //PowerDown(Hw_ACC_DET);
@@ -104,7 +106,7 @@ void ECUPwrModeActive_To_Off_EntryAction(void)
  */
 extern RTC_HandleTypeDef hrtc;
 extern LTDC_HandleTypeDef hltdc;
-void ECUPwrModeOff_To_Sleep_EntryAction(void)
+void vEcuPwrModeOffToSleepEntryAction(void)
 {
 //    printf("ECUPwrModeOff_To_Sleep_EntryAction\n");
 	HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
@@ -116,8 +118,8 @@ void ECUPwrModeOff_To_Sleep_EntryAction(void)
 		  To configure the wake up timer to 20s the WakeUpCounter is set to 0xA017:
 			RTC_WAKEUPCLOCK_RTCCLK_DIV = RTCCLK_Div16 = 16
 			Wake-up Time Base = 16 /(32KHz) = 0.0005 seconds
-			==> WakeUpCounter = ~10s/0.0005s = 20000 = 0x4E20,25s -C350  */
-	  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,0xC350, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+			==> WakeUpCounter = ~10s/0.0005s = 20000 = 0x4E20,20s -0x9C40  */
+	  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,0x9C40, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
 		{
 		  Error_Handler();
 		}
@@ -144,7 +146,7 @@ void ECUPwrModeOff_To_Sleep_EntryAction(void)
  * @return void
  *
  */
-void ECUPwrModeActive_To_Sleep_EntryAction(void)
+void vEcuPwrModeActiveToSleepEntryAction(void)
 {
    // printf("ECUPwrModeActive_To_Sleep_EntryAction\n");
 }
@@ -158,7 +160,7 @@ void ECUPwrModeActive_To_Sleep_EntryAction(void)
  * @return void
  *
  */
-void ECUPwrModeSleep_To_Active_EntryAction(void)
+void vEcuPwrModeSleepToActiveEntryAction(void)
 {
   //  printf("ECUPwrModeSleep_To_Active_EntryAction\n");
 }
@@ -173,7 +175,7 @@ void ECUPwrModeSleep_To_Active_EntryAction(void)
  *
  */
 uint16_t l_PowerOff_Sleep_u16 = 0;
-void ECUPwrModeOff_Action(void)
+void vEcuPwrModeOffAction(void)
 {
     //Enable Wakeup Settings
     // Enter into sleep mode
@@ -188,7 +190,7 @@ void ECUPwrModeOff_Action(void)
 	{
 		l_PowerOff_Sleep_u16 = 0;
 	}
-	if(l_PowerOff_Sleep_u16 == 650)
+	if(l_PowerOff_Sleep_u16 == 6500)
 	{
 		l_PowerOff_Sleep_u16 = 0;
 		//printf("ECUPwrModeOff_Action\n");
@@ -204,7 +206,7 @@ void ECUPwrModeOff_Action(void)
  * @return void
  *
  */
-void ECUPwrModeSleep_Action(void)
+void vEcuPwrModeSleepAction(void)
 {
    // printf("ECUPwrModeSleep_Action\n");
 }
@@ -218,7 +220,7 @@ void ECUPwrModeSleep_Action(void)
  * @return void
  *
  */
-void ECUPwrModeActive_Action(void)
+void vEcuPwrModeActiveAction(void)
 {
    // printf("ECUPwrModeActive_Action\n");
 //	 printf("ECUPwrModeOff_To_Sleep_EntryAction\n");
@@ -263,7 +265,7 @@ void ECUPwrModeActive_Action(void)
  *
  */
 
-void ECUPwrModeOff_Active_ENtryAction()
+void vEcuPwrModeOffActiveEntryAction()
 {
     //printf("ECUPwrModeOff_Active_ENtryAction\n");
     //PowerDown(Hw_ACC_DET);

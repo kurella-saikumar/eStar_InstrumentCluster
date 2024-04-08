@@ -46,7 +46,7 @@ Main_DATA MainData;
 Sub_DATA SubData;
 IndicationStatus_t IndicationStatus;
 /**************************************************************************************************
- * Purpose: The purpose of gl_ADC_Value_u16 variable is to store the ADC value and used in application.
+ * Purpose: The purpose of usADCValue variable is to store the ADC value and used in application.
  *
  * Unit: 16 bit
  *
@@ -61,10 +61,10 @@ IndicationStatus_t IndicationStatus;
  * Shutdown Value\Action: Don't Care
  *
  ***************************************************************************************************/
-extern uint16_t gl_ADC_Value_u16;
+extern uint16_t usADCValue;
 
 /**************************************************************************************************
- * Purpose: The purpose of gl_Current_FuelLevel_u16 variable is to store the current fuel level.
+ * Purpose: The purpose of usCurrentFuelLevel variable is to store the current fuel level.
  *
  * Unit: 16 bit
  *
@@ -79,7 +79,7 @@ extern uint16_t gl_ADC_Value_u16;
  * Shutdown Value\Action: Don't Care
  *
  ***************************************************************************************************/
-uint16_t gl_Current_FuelLevel_u16;
+uint16_t usCurrentFuelLevel;
 
 
 /**************************************************************************************************
@@ -90,7 +90,7 @@ uint16_t gl_Current_FuelLevel_u16;
  * DECLARE FILE SCOPE STATIC VARIABLES
 ***************************************************************************************************/
 /**************************************************************************************************
- * Purpose: The purpose of l_FuelLevel_InPercentage_u32 variable is to store the fuel level in percentage.
+ * Purpose: The purpose of ulFuelLevelInPercentage variable is to store the fuel level in percentage.
  *
  * Unit: 32 bit
  *
@@ -105,10 +105,10 @@ uint16_t gl_Current_FuelLevel_u16;
  * Shutdown Value\Action: Don't Care
  *
  ***************************************************************************************************/
-static uint32_t l_FuelLevel_InPercentage_u32;
+static uint32_t ulFuelLevelInPercentage;
 
 /**************************************************************************************************
- * Purpose: The purpose of l_Dampout_value_u32 variable is to store the updated damp out value with step size parameter.
+ * Purpose: The purpose of ulDampout_value variable is to store the updated damp out value with step size parameter.
  *
  * Unit: 32 bit
  *
@@ -123,10 +123,10 @@ static uint32_t l_FuelLevel_InPercentage_u32;
  * Shutdown Value\Action: Don't Care
  *
  ***************************************************************************************************/
-static uint32_t l_Dampout_value_u32;
+static uint32_t ulDampout_value;
 
 /**************************************************************************************************
- * Purpose: The purpose of l_adcValues_u16A array is store the continuous moving average values from ADC.
+ * Purpose: The purpose of usADCValues_A array is store the continuous moving average values from ADC.
  *
  * Unit: 16 bit
  *
@@ -141,10 +141,10 @@ static uint32_t l_Dampout_value_u32;
  * Shutdown Value\Action: Don't Care
  *
  ***************************************************************************************************/
-static uint16_t l_adcValues_u16A[WINDOW_SIZE];
+static uint16_t usADCValues_A[configWINDOW_SIZE];
 
 /**************************************************************************************************
- * Purpose: The purpose of l_SampleCount_u16 variable is to keep track of the number of samples
+ * Purpose: The purpose of usSampleCount variable is to keep track of the number of samples
  *
  * Unit: 16 bit
  *
@@ -159,10 +159,10 @@ static uint16_t l_adcValues_u16A[WINDOW_SIZE];
  * Shutdown Value\Action: Don't Care
  *
  ***************************************************************************************************/
-static uint16_t l_SampleCount_u16 = 0;
+static uint16_t usSampleCount = 0;
 
 /**************************************************************************************************
- * Purpose: The purpose of l_TotalSum_u16 variable is to add and store the total sum of ADC values
+ * Purpose: The purpose of usTotalSum variable is to add and store the total sum of ADC values
  *
  * Unit: 16 bit
  *
@@ -177,10 +177,10 @@ static uint16_t l_SampleCount_u16 = 0;
  * Shutdown Value\Action: Don't Care
  *
  ***************************************************************************************************/
-static uint16_t l_TotalSum_u16 = 0;
+static uint16_t usTotalSum = 0;
 
 /**************************************************************************************************
- * Purpose: The purpose of l_Initial_samplingOver_Flag_u8 flag to indicate if initial sampling process is over
+ * Purpose: The purpose of ucInitialSamplingOverFlag flag to indicate if initial sampling process is over
  *
  * Unit: 8 bit
  *
@@ -195,10 +195,10 @@ static uint16_t l_TotalSum_u16 = 0;
  * Shutdown Value\Action: Don't Care
  *
  ***************************************************************************************************/
-static uint8_t l_Initial_samplingOver_Flag_u8=0;
+static uint8_t ucInitialSamplingOverFlag=0;
 
 /**************************************************************************************************
- * Purpose: The purpose of l_FillType_DetctOver_Flag_u8 flag to indicate if fill type detection process is over
+ * Purpose: The purpose of ucFillTypeDetctOverFlag flag to indicate if fill type detection process is over
  *
  * Unit: 8 bit
  *
@@ -213,10 +213,10 @@ static uint8_t l_Initial_samplingOver_Flag_u8=0;
  * Shutdown Value\Action: Don't Care
  *
  ***************************************************************************************************/
-static uint8_t l_FillType_DetctOver_Flag_u8=0;
+static uint8_t ucFillTypeDetctOverFlag=0;
 
 /**************************************************************************************************
- * Purpose: The purpose of l_FastFillCount_16 variable to count the duration of fast fill operation
+ * Purpose: The purpose of usFastFillCount variable to count the duration of fast fill operation
  *
  * Unit: 16 bit
  *
@@ -231,10 +231,10 @@ static uint8_t l_FillType_DetctOver_Flag_u8=0;
  * Shutdown Value\Action: Don't Care
  *
  ***************************************************************************************************/
-static uint16_t l_FastFillCount_16;
+static uint16_t usFastFillCount;
 
 /**************************************************************************************************
- * Purpose: The purpose of static variable to count the duration of slow fill operation
+ * Purpose: The purpose of  usSlowFillCount variable to count the duration of slow fill operation
  *
  * Unit: 16 bit
  *
@@ -249,10 +249,10 @@ static uint16_t l_FastFillCount_16;
  * Shutdown Value\Action: Don't Care
  *
  ***************************************************************************************************/
-static uint16_t l_SlowFillCount_u16;
+static uint16_t usSlowFillCount;
 
 /**************************************************************************************************
- * Purpose: The purpose of l_NormalFillCount_u16 variable to count the duration of normal fill operation
+ * Purpose: The purpose of usNormalFillCount variable to count the duration of normal fill operation
  *
  * Unit: 16 bit
  *
@@ -267,7 +267,7 @@ static uint16_t l_SlowFillCount_u16;
  * Shutdown Value\Action: Don't Care
  *
  ***************************************************************************************************/
-static uint16_t l_NormalFillCount_u16;
+static uint16_t usNormalFillCount;
 
 static FillType_State_T l_FillType_t;
 static FillType_State_T l_Previous_FillType_t;
@@ -279,17 +279,17 @@ extern uint16_t l_count_u16[1];
 /**************************************************************************************************
  * DEFINE FILE SCOPE FUNCTION PROTOTYPES
 ***************************************************************************************************/
-static uint16_t prvInital_SamplingProcess(void);
-static FillType_State_T prvOffline_FillTypeDtcn_Prcs(void);
-static FillType_State_T prvOnline_FillTypeDtcn_Prcs(void);
-static void prvSet_FuelLevel(void);
-static uint16_t calculateAverage(void);
+static uint16_t prvInitalSamplingProcess(void);
+static FillType_State_T prvOfflineFillTypeDtcnPrcs(void);
+static FillType_State_T prvOnlineFillTypeDtcnPrcs(void);
+static void prvSetFuelLevel(void);
+static uint16_t prvCalculateAverage(void);
 /**************************************************************************************************
  * FUNCTION DEFINITIONS
 ***************************************************************************************************/
 
 /**************************************************************************************************
- * Function Name: vFuelGuage_TaskInit
+ * Function Name: vFuelGuageTaskInit
  *
  * Input Parameter: void
  *
@@ -298,13 +298,13 @@ static uint16_t calculateAverage(void);
  * Description: This function is designed to Initialize the main state.
  *
  ***************************************************************************************************/
-void vFuelGuage_TaskInit(void)
+void vFuelGuageTaskInit(void)
 {
     MainData.Main_state = INIT_Sampling_State;
     
 }
 
-/**************************************************************************************************vFuelGuage_Task
+/**************************************************************************************************vFuelGuageTask
  *
  * Function Name: 
  * Input Parameter: void
@@ -314,7 +314,7 @@ void vFuelGuage_TaskInit(void)
  * Description: This function is designed to update the fuelLevel
  *
  ***************************************************************************************************/
-void vFuelGuage_Task(void)
+void vFuelGuageTask(void)
 {
 
     
@@ -324,18 +324,18 @@ void vFuelGuage_Task(void)
         case INIT_Sampling_State:
         {
         	/**:Perform initial sampling process to get the continuous moving average values for 3sec time period;*/
-            gl_Current_FuelLevel_u16 = prvInital_SamplingProcess();
-#if(TESTMACRO == 1)
-            printf("CFL-%d\r\n",gl_Current_FuelLevel_u16);
+            usCurrentFuelLevel = prvInitalSamplingProcess();
+#if(FuelApp_TestMacro == 1)
+            printf("CFL-%d\r\n",usCurrentFuelLevel);
             printf("IGN_OFF\n");
 #endif
             /**Check if enough samples are accumulated and ignition is ON for state transition*/
-            if(l_SampleCount_u16 >= WINDOW_SIZE)
+            if(usSampleCount >= configWINDOW_SIZE)
             {
-                if ((usIgnitionGetCurrentState() == IgnON_mode) && (l_Initial_samplingOver_Flag_u8==1))
+                if ((usIgnitionGetCurrentState() == IgnON_mode) && (ucInitialSamplingOverFlag==1))
                 {
                 	/**:Reset sample count;*/
-                	l_SampleCount_u16=0;
+                	usSampleCount=0;
                 	/**:Transition to Offline_FillType_Dtcn_State:*/
                     MainData.Main_state = Offline_FillType_Dtcn_State;
                 }
@@ -345,14 +345,14 @@ void vFuelGuage_Task(void)
         case Offline_FillType_Dtcn_State:
         {
         	/**:Perform offline fill type detection process to check the current fill type;*/
-            l_FillType_t = prvOffline_FillTypeDtcn_Prcs();
+            l_FillType_t = prvOfflineFillTypeDtcnPrcs();
             /**:Update current fill type;*/
             l_Current_FillType_t = l_FillType_t;
-#if(TESTMACRO ==1)
+#if(FuelApp_TestMacro ==1)
             printf("IGN_ON\n");
 #endif
             /**Check if ignition is ON and fill type detection is over for state transition*/
-            if((usIgnitionGetCurrentState() == IgnON_mode) && (l_FillType_DetctOver_Flag_u8==1))
+            if((usIgnitionGetCurrentState() == IgnON_mode) && (ucFillTypeDetctOverFlag==1))
             {
                  if((l_FillType_t == Normal_fill) || (l_FillType_t == Slow_fill))
                 {
@@ -364,18 +364,18 @@ void vFuelGuage_Task(void)
                 else /*Instantaneous_Update*/ 
                 {
                 	/**:perform vUpdateParametrs function to update the min time and step size of Instantaneous_Update filter;*/
-                	vUpdateParametrs(INSTANTANEOUS_FILTER_UPDATERATE, INSTANTANEOUS_FILTER_STEPSIZE);
-#if(TESTMACRO ==1)
-                    printf("CFL-%d\t",gl_Current_FuelLevel_u16);
-                    printf("IUCnt %d\t", INSTANTANEOUS_FILTER_UPDATERATE );
-                    printf("IUSiz %d\t",INSTANTANEOUS_FILTER_STEPSIZE);
+                	vUpdateParametrs(configINSTANTANEOUS_FILTER_UPDATERATE, configINSTANTANEOUS_FILTER_STEPSIZE);
+#if(FuelApp_TestMacro ==1)
+                    printf("CFL-%d\t",usCurrentFuelLevel);
+                    printf("IUCnt %d\t", configINSTANTANEOUS_FILTER_UPDATERATE );
+                    printf("IUSiz %d\t",configINSTANTANEOUS_FILTER_STEPSIZE);
 #endif
                     /**:Perform damp_out task to update the dampout value to the current fuel level;*/
                     DAMP_OUT ();
                     /**: Get the updated damp out value;*/
-                    l_Dampout_value_u32 = Get_DAMP_OUT(0);
+                    ulDampout_value = Get_DAMP_OUT(0);
                     /**: perform Set fuel level function to update the fuel level in percentage;*/
-                    prvSet_FuelLevel();
+                    prvSetFuelLevel();
                     /**:Transition to Online_Process_State;*/
                     MainData.Main_state = Online_Process_State;
                     /**: Set sub-state to invalid;*/
@@ -386,7 +386,7 @@ void vFuelGuage_Task(void)
         }
         case Online_Process_State:
         {
-#if(TESTMACRO ==1)
+#if(FuelApp_TestMacro ==1)
         	printf("IGN_ON: \r\n");
 #endif
             switch(SubData.Sub_state)
@@ -400,33 +400,33 @@ void vFuelGuage_Task(void)
                         l_count_u16[0]= 0;
                     }
                     /**Execute fast fill process within a timeout period*/
-                    while(l_FastFillCount_16 <= FASTFILL_TIMEOUT_MS)
+                    while(usFastFillCount <= configFASTFILL_TIMEOUT_MS)
                     {
                     	/**check if Current_FuelLevel and Dampout_values are equal*/
-                        if(gl_Current_FuelLevel_u16 == l_Dampout_value_u32 )
+                        if(usCurrentFuelLevel == ulDampout_value )
                         {
                         	/**:Reset fast fill count;*/
-                            l_FastFillCount_16=0;
+                            usFastFillCount=0;
                             /**:Exit loop if current fuel level matches damp out value;*/
                             break;
                         }
                         else
                         {
                         	/**:Increment fast fill count;*/
-                            l_FastFillCount_16++;
+                            usFastFillCount++;
                             /**:perform vUpdateParametrs function to update the min time and step size of Fast Fill filter;*/
-                            vUpdateParametrs(FAST_FILL_LOSS_FILTER_UPDATERATE, FAST_FILL_LOSS_FILTER_STEPSIZE);
-#if(TESTMACRO ==1)
-                            printf("CFL-%d\t",gl_Current_FuelLevel_u16);
-                            printf("FFCnt %d\t", FAST_FILL_LOSS_FILTER_UPDATERATE );
-                            printf("FFSiz %d\t",FAST_FILL_LOSS_FILTER_STEPSIZE);
+                            vUpdateParametrs(configFAST_FILL_LOSS_FILTER_UPDATERATE, configFAST_FILL_LOSS_FILTER_STEPSIZE);
+#if(FuelApp_TestMacro ==1)
+                            printf("CFL-%d\t",usCurrentFuelLevel);
+                            printf("FFCnt %d\t", configFAST_FILL_LOSS_FILTER_UPDATERATE );
+                            printf("FFSiz %d\t",configFAST_FILL_LOSS_FILTER_STEPSIZE);
 #endif
                             /**:Perform damp_out task to update the dampout value to the current fuel level;*/
                             DAMP_OUT ();
                             /**: Get the updated damp out value;*/
-                            l_Dampout_value_u32 = Get_DAMP_OUT(0);
+                            ulDampout_value = Get_DAMP_OUT(0);
                             /**: perform Set fuel level function to update the fuel level in percentage;*/
-                            prvSet_FuelLevel();
+                            prvSetFuelLevel();
                         }
                     }      
                     break;
@@ -440,33 +440,33 @@ void vFuelGuage_Task(void)
                         l_count_u16[0]= 0;
                     }
                     /**Execute slow fill process within a timeout period*/
-                    while(l_SlowFillCount_u16 <= SLOWFILL_TIMEOUT_MS)
+                    while(usSlowFillCount <= configSLOWFILL_TIMEOUT_MS)
                     {
                     	/**check if Current_FuelLevel and Dampout_values are equal*/
-                         if(gl_Current_FuelLevel_u16 == l_Dampout_value_u32 )
+                         if(usCurrentFuelLevel == ulDampout_value )
                         {
                         	/**:Reset slow fill count;*/
-                            l_SlowFillCount_u16=0;
+                            usSlowFillCount=0;
                             /**Exit loop if current fuel level matches damp out value*/
                             break;
                         }
                         else
                         {
                         	/**:Increment slow fill count;*/
-                            l_SlowFillCount_u16++;
+                            usSlowFillCount++;
                             /**:perform vUpdateParametrs function to update the min time and step size of Slow Fill filter;*/
-                            vUpdateParametrs(SLOW_FILL_LOSS_FILTER_UPDATERATE, SLOW_FILL_LOSS_FILTER_STEPSIZE);
-#if(TESTMACRO ==1)
-                            printf("CFL-%d\t",gl_Current_FuelLevel_u16);
-                            printf("SFCnt %d\t",SLOW_FILL_LOSS_FILTER_UPDATERATE);
-                            printf("SFSiz %d\t",SLOW_FILL_LOSS_FILTER_STEPSIZE);
+                            vUpdateParametrs(configSLOW_FILL_LOSS_FILTER_UPDATERATE, configSLOW_FILL_LOSS_FILTER_STEPSIZE);
+#if(FuelApp_TestMacro ==1)
+                            printf("CFL-%d\t",usCurrentFuelLevel);
+                            printf("SFCnt %d\t",configSLOW_FILL_LOSS_FILTER_UPDATERATE);
+                            printf("SFSiz %d\t",configSLOW_FILL_LOSS_FILTER_STEPSIZE);
 #endif
                             /**:Perform damp_out task to update the dampout value to the current fuel level;*/
                             DAMP_OUT ();
                             /**: Get the updated damp out value;*/
-                            l_Dampout_value_u32 = Get_DAMP_OUT(0);
+                            ulDampout_value = Get_DAMP_OUT(0);
                             /**: perform Set fuel level function to update the fuel level in percentage;*/
-                            prvSet_FuelLevel();    
+                            prvSetFuelLevel();    
                         }   
                     }
                     break;
@@ -480,33 +480,33 @@ void vFuelGuage_Task(void)
                         l_count_u16[0]= 0;
                     }
                     /**Execute Normal fill process within a timeout period*/
-                    while(l_NormalFillCount_u16 <= NORMALFILL_TIMEOUT_MS)
+                    while(usNormalFillCount <= configNORMALFILL_TIMEOUT_MS)
                     {
                     	/**check if Current_FuelLevel and Dampout_values are equal*/
-                        if(gl_Current_FuelLevel_u16 == l_Dampout_value_u32 )
+                        if(usCurrentFuelLevel == ulDampout_value )
                         {
                         	/**:Reset slow fill count;*/
-                            l_NormalFillCount_u16=0;
+                            usNormalFillCount=0;
                             /**:Exit loop if current fuel level matches damp out value;*/
                             break;
                         }
                         else
                         {
                         	/**:Increment Normal fill count;*/
-                            l_NormalFillCount_u16++;
+                            usNormalFillCount++;
                             /**:perform vUpdateParametrs function to update the min time and step size of Normal Fill filter;*/
-                            vUpdateParametrs(NORMAL_FILL_LOSS_FILTER_UPDATERATE, NORMAL_FILL_LOSS_FILTER_STEPSIZE);
-#if(TESTMACRO ==1)
-                            printf("CFL-%d\t",gl_Current_FuelLevel_u16);
-                            printf("NFCnt %d\t", NORMAL_FILL_LOSS_FILTER_UPDATERATE);
-                            printf("NFSiz %d\t",NORMAL_FILL_LOSS_FILTER_STEPSIZE);
+                            vUpdateParametrs(configNORMAL_FILL_LOSS_FILTER_UPDATERATE, configNORMAL_FILL_LOSS_FILTER_STEPSIZE);
+#if(FuelApp_TestMacro ==1)
+                            printf("CFL-%d\t",usCurrentFuelLevel);
+                            printf("NFCnt %d\t", configNORMAL_FILL_LOSS_FILTER_UPDATERATE);
+                            printf("NFSiz %d\t",configNORMAL_FILL_LOSS_FILTER_STEPSIZE);
 #endif
                             /**:Perform damp_out task to update the dampout value to the current fuel level;*/
                             DAMP_OUT ();
                             /**: Get the updated damp out value;*/
-                            l_Dampout_value_u32 = Get_DAMP_OUT(0);
+                            ulDampout_value = Get_DAMP_OUT(0);
                             /**: perform Set fuel level function to update the fuel level in percentage;*/
-                            prvSet_FuelLevel();
+                            prvSetFuelLevel();
                         }
                              
                     }     
@@ -520,7 +520,7 @@ void vFuelGuage_Task(void)
             /**: Update previous fill type with Current_FillType;*/
             l_Previous_FillType_t=l_Current_FillType_t;
             /**:Perform online fill type detection process to check the current fill type in online;*/
-            l_FillType_t = prvOnline_FillTypeDtcn_Prcs();
+            l_FillType_t = prvOnlineFillTypeDtcnPrcs();
             /**: Update current fill type;*/
             l_Current_FillType_t = l_FillType_t;
             /**:Update sub-state based on fill type;*/
@@ -557,7 +557,7 @@ void vFuelGuage_Task(void)
 }
 
 /**************************************************************************************************
- * Function Name: prvInital_SamplingProcess
+ * Function Name: prvInitalSamplingProcess
  *
  * Input Parameter: void
  *
@@ -566,7 +566,7 @@ void vFuelGuage_Task(void)
  * Description: This function is designed to calculate the 3sec continuous moving average value.
  *
  ***************************************************************************************************/
-static uint16_t prvInital_SamplingProcess(void)
+static uint16_t prvInitalSamplingProcess(void)
 {
 	/**:Variable to store the Resulting calculated average;*/
     uint16_t l_res_t=0;
@@ -575,28 +575,28 @@ static uint16_t prvInital_SamplingProcess(void)
     /**: Static variable to track the circular buffer index;*/
     static uint8_t l_currentIndex_u8 = 0;
     
-    fl_sensorValue_u16 = gl_ADC_Value_u16;
+    fl_sensorValue_u16 = usADCValue;
     /**: Store the value in the circular buffer;*/
-    l_adcValues_u16A[l_currentIndex_u8] = fl_sensorValue_u16;
+    usADCValues_A[l_currentIndex_u8] = fl_sensorValue_u16;
 
     /**: Move to the next index in the circular buffer;*/
-    l_currentIndex_u8 = (l_currentIndex_u8 + 1) % WINDOW_SIZE;
+    l_currentIndex_u8 = (l_currentIndex_u8 + 1) % configWINDOW_SIZE;
 
     /**: Accumulate the ADC values;*/
-    l_TotalSum_u16 += fl_sensorValue_u16;
-    l_SampleCount_u16++;
+    usTotalSum += fl_sensorValue_u16;
+    usSampleCount++;
 
     /** If we have accumulated enough samples, calculate the average*/
-    if (l_SampleCount_u16 >= WINDOW_SIZE)
+    if (usSampleCount >= configWINDOW_SIZE)
     {
 
     	/*:do the avaerage calculation of adc samples;*/
-        l_res_t = calculateAverage();
-        /*:set l_Initial_samplingOver_Flag_u8 flag bit tp 1;*/
-        l_Initial_samplingOver_Flag_u8=1;
+        l_res_t = prvCalculateAverage();
+        /*:set ucInitialSamplingOverFlag flag bit tp 1;*/
+        ucInitialSamplingOverFlag=1;
 
         /**: Subtract the oldest sample from the total sum;*/
-        l_TotalSum_u16 -= l_adcValues_u16A[l_currentIndex_u8];
+        usTotalSum -= usADCValues_A[l_currentIndex_u8];
     
     }
     /**:Return the calculated average;*/
@@ -605,7 +605,7 @@ static uint16_t prvInital_SamplingProcess(void)
 }
 
 /**************************************************************************************************
- * Function Name: prvOffline_FillTypeDtcn_Prcs.
+ * Function Name: prvOfflineFillTypeDtcnPrcs.
  *
  * Input Parameter: void
  *
@@ -614,7 +614,7 @@ static uint16_t prvInital_SamplingProcess(void)
  * Description: This function is designed to detect the fillType(slow_fill,Normal_fill,Instantaneous_update)in offline.
  *
  ***************************************************************************************************/
-static FillType_State_T prvOffline_FillTypeDtcn_Prcs(void)
+static FillType_State_T prvOfflineFillTypeDtcnPrcs(void)
 {
 	/**:Variable to store the difference between current and last displayed levels;*/
     uint16_t fl_delta_u16;
@@ -624,28 +624,28 @@ static FillType_State_T prvOffline_FillTypeDtcn_Prcs(void)
     uint16_t fl_Last_Displayed_Level_u16;
     
     /**: Get the last displayed fuel level from dampout value;*/
-    fl_Last_Displayed_Level_u16 = (uint16_t)l_Dampout_value_u32;
+    fl_Last_Displayed_Level_u16 = (uint16_t)ulDampout_value;
     /**: Calculate the difference between current fuel level and last displayed levels;*/
-    if(gl_Current_FuelLevel_u16 > fl_Last_Displayed_Level_u16 )
+    if(usCurrentFuelLevel > fl_Last_Displayed_Level_u16 )
     {
-        fl_delta_u16 = gl_Current_FuelLevel_u16 - fl_Last_Displayed_Level_u16;
+        fl_delta_u16 = usCurrentFuelLevel - fl_Last_Displayed_Level_u16;
     }
     else
     {
-        fl_delta_u16 = fl_Last_Displayed_Level_u16 - gl_Current_FuelLevel_u16;
+        fl_delta_u16 = fl_Last_Displayed_Level_u16 - usCurrentFuelLevel;
     }
-    /**:set the l_FillType_DetctOver_Flag_u8 to 1 after offline fill type detection completed;*/
-    l_FillType_DetctOver_Flag_u8=1;
+    /**:set the ucFillTypeDetctOverFlag to 1 after offline fill type detection completed;*/
+    ucFillTypeDetctOverFlag=1;
 
     /**: Determine fill type based on the difference;*/
-    /**check if delta is greater than or equal to FAST_FILL_RANGE*/
-    if(fl_delta_u16 >= FAST_FILL_RANGE)
+    /**check if delta is greater than or equal to configFAST_FILL_RANGE*/
+    if(fl_delta_u16 >= configFAST_FILL_RANGE)
     {
     	/**: set fill type is Instantaneous_Update;*/
         l_res_t = Instantaneous_Update;
     }
-    /**check if delta is greater than or equal to  SLOW_FILL_RANGE and less than FAST_FILL_RANGE*/
-    else if((fl_delta_u16 >= SLOW_FILL_RANGE) && (fl_delta_u16 < FAST_FILL_RANGE))
+    /**check if delta is greater than or equal to  configSLOW_FILL_RANGE and less than configFAST_FILL_RANGE*/
+    else if((fl_delta_u16 >= configSLOW_FILL_RANGE) && (fl_delta_u16 < configFAST_FILL_RANGE))
     {
     	/**: set fill type is Slow_fill;*/
         l_res_t = Slow_fill;
@@ -660,7 +660,7 @@ static FillType_State_T prvOffline_FillTypeDtcn_Prcs(void)
 }
 
 /**************************************************************************************************
- * Function Name:  prvOnline_FillTypeDtcn_Prcs
+ * Function Name:  prvOnlineFillTypeDtcnPrcs
  *
  * Input Parameter: void
  *
@@ -669,7 +669,7 @@ static FillType_State_T prvOffline_FillTypeDtcn_Prcs(void)
  * Description: This function is designed to detect the fillType(slow_fill,Normal_fill, Fast_fill)in online.
  *
  ***************************************************************************************************/
-static FillType_State_T prvOnline_FillTypeDtcn_Prcs(void)
+static FillType_State_T prvOnlineFillTypeDtcnPrcs(void)
 {
 	/**:Variable to store the difference between current fuel level and last displayed levels;*/
     uint16_t fl_delta_u16;
@@ -679,30 +679,30 @@ static FillType_State_T prvOnline_FillTypeDtcn_Prcs(void)
     uint16_t fl_Last_Displayed_Level_u16;
     
     /**: Get current fuel level from ADC;*/
-    gl_Current_FuelLevel_u16 = gl_ADC_Value_u16;
-#if(TESTMACRO ==1)
-    printf("CFL-%d\r\n",gl_Current_FuelLevel_u16);
+    usCurrentFuelLevel = usADCValue;
+#if(FuelApp_TestMacro ==1)
+    printf("CFL-%d\r\n",usCurrentFuelLevel);
 #endif
     /**:Get the last displayed fuel level from dampout value;*/
-    fl_Last_Displayed_Level_u16 = (uint16_t)l_Dampout_value_u32;
+    fl_Last_Displayed_Level_u16 = (uint16_t)ulDampout_value;
     /**:Calculate the difference between current fuel level and last displayed levels;*/
-    if(gl_Current_FuelLevel_u16 > fl_Last_Displayed_Level_u16)
+    if(usCurrentFuelLevel > fl_Last_Displayed_Level_u16)
     {  
-        fl_delta_u16 = gl_Current_FuelLevel_u16 - fl_Last_Displayed_Level_u16;
+        fl_delta_u16 = usCurrentFuelLevel - fl_Last_Displayed_Level_u16;
     }
     else
     {
-        fl_delta_u16 = fl_Last_Displayed_Level_u16 - gl_Current_FuelLevel_u16;
+        fl_delta_u16 = fl_Last_Displayed_Level_u16 - usCurrentFuelLevel;
     }
     /**:Determine fill type based on the difference;*/
-    /**check if delta is greater than or equal to FAST_FILL_RANGE*/
-    if(fl_delta_u16 >= FAST_FILL_RANGE)
+    /**check if delta is greater than or equal to configFAST_FILL_RANGE*/
+    if(fl_delta_u16 >= configFAST_FILL_RANGE)
     {
     	/**: set fill type is Fast_fill;*/
         l_res_t = Fast_fill;
     }
-    /**check if delta is greater than or equal to  SLOW_FILL_RANGE and less than FAST_FILL_RANGE*/
-    else if((fl_delta_u16 >= SLOW_FILL_RANGE) && (fl_delta_u16< FAST_FILL_RANGE))
+    /**check if delta is greater than or equal to  configSLOW_FILL_RANGE and less than configFAST_FILL_RANGE*/
+    else if((fl_delta_u16 >= configSLOW_FILL_RANGE) && (fl_delta_u16< configFAST_FILL_RANGE))
     {
     	/**: set fill type is Slow_fill;*/
         l_res_t = Slow_fill;
@@ -718,26 +718,26 @@ static FillType_State_T prvOnline_FillTypeDtcn_Prcs(void)
 }
 
 /**************************************************************************************************
- * Function Name:  prvSet_FuelLevel
+ * Function Name:  prvSetFuelLevel
  *
  * Input Parameter: void
  *
  * Return Value: void
  *
- * Description: This function is designed to set the fuel level in percentage.#ifdef TESTMACRO
+ * Description: This function is designed to set the fuel level in percentage.#ifdef FuelApp_TestMacro
  *
  ***************************************************************************************************/
-static void prvSet_FuelLevel(void)
+static void prvSetFuelLevel(void)
 {
 	/**: Calculate fuel level as a percentage;*/
-    l_FuelLevel_InPercentage_u32 = (l_Dampout_value_u32 * 100)/(MAXIMUM_ADC_RANGE);
-#if(TESTMACRO ==1)
-    printf("DO: %lu\t FL:%lu\r\n",l_Dampout_value_u32, l_FuelLevel_InPercentage_u32);
+    ulFuelLevelInPercentage = (ulDampout_value * 100)/(configMAXIMUM_ADC_RANGE);
+#if(FuelApp_TestMacro ==1)
+    printf("DO: %lu\t FL:%lu\r\n",ulDampout_value, ulFuelLevelInPercentage);
 #endif
 }
 
 /**************************************************************************************************
- * Function Name: xGet_FuelLevel
+ * Function Name: xGetFuelLevel
  *
  * output Parameters: ucFuelWarning_Indictr, Warning_status
  *
@@ -746,16 +746,16 @@ static void prvSet_FuelLevel(void)
  * Description: This function is designed to get the Updated FuelLevel and providing the status of Fuel bar and Fuel Icon
  *
  ***************************************************************************************************/
-uint8_t xGet_FuelLevel(IndicationStatus_t* pucFuelWarning_Indictr_u16p, bool* p_Warning_status_bool)
+uint8_t xGetFuelLevel(IndicationStatus_t* pucFuelWarning_Indictr_u16p, bool* p_Warning_status_bool)
 {
 	/**:Variable to store the fuel level;*/
     uint8_t fl_FuelLevel_Res_u8 = 0 ;
     /**:Initialize warning status to false;*/
     *p_Warning_status_bool=false;
     /**:Get fuel level as a percentage;*/
-    fl_FuelLevel_Res_u8 = (uint8_t)l_FuelLevel_InPercentage_u32;
-    /**check if fl_FuelLevel_Res_u8 is less than or equeal to WARNING_FUELLEVEL*/
-    if(fl_FuelLevel_Res_u8 <= WARNING_FUELLEVEL)
+    fl_FuelLevel_Res_u8 = (uint8_t)ulFuelLevelInPercentage;
+    /**check if fl_FuelLevel_Res_u8 is less than or equeal to configWARNING_FUELLEVEL*/
+    if(fl_FuelLevel_Res_u8 <= configWARNING_FUELLEVEL)
     {
        /**:Set warning status to true;*/
        *p_Warning_status_bool=true;
@@ -767,7 +767,7 @@ uint8_t xGet_FuelLevel(IndicationStatus_t* pucFuelWarning_Indictr_u16p, bool* p_
 }
 
 /**************************************************************************************************
- * Function Name: calculateAverage
+ * Function Name: prvCalculateAverage
  *
  * Input Parameter: void
  *
@@ -776,12 +776,12 @@ uint8_t xGet_FuelLevel(IndicationStatus_t* pucFuelWarning_Indictr_u16p, bool* p_
  * Description: This function is designed to get the average value of ADC raw inputs for 3sec time period.
  *
  ***************************************************************************************************/
-static uint16_t calculateAverage(void)
+static uint16_t prvCalculateAverage(void)
 {
 	/**:Variable to store the calculated average;*/
     uint16_t fl_average_u16;
     /**:Calculate the average by dividing the total sum by the window size;*/
-    fl_average_u16 = l_TotalSum_u16 / WINDOW_SIZE;
+    fl_average_u16 = usTotalSum / configWINDOW_SIZE;
     /**:Return the calculated average;*/
     return fl_average_u16;
 

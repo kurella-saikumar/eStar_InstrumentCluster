@@ -41,61 +41,61 @@
 
 
 /*
-*the defined macro "LV_ACTION_FUNC" that expands to LV_func().
-* It is likely used to invoke or execute a function called LV_func()
+*the defined macro "LV_ACTION_FUNC" that expands to vLVFunc().
+* It is likely used to invoke or execute a function called vLVFunc()
 */
 #define LV_ACTION_FUNC \
-LV_func, \
+vLVFunc, \
 
 /*
 *the defined macro "IN_IGNCRANK_ACTION_FUNC" that expands to in_IGNCRANK_func().
 * It is likely used to invoke or execute a function called in_IGNCRANK_func()
 */
 #define NV_ACTION_FUNC \
-NV_func, \
+vNVFunc, \
 
 /*
-*the defined macro "NV_ACTION_FUNC" that expands to HV_func().
-* It is likely used to invoke or execute a function called HV_func()
+*the defined macro "NV_ACTION_FUNC" that expands to vHVFunc().
+* It is likely used to invoke or execute a function called vHVFunc()
 */
 #define HV_ACTION_FUNC \
-HV_func, \
+vHVFunc, \
 
 /*
-*the defined macro "ULV_ACTION_FUNC" that expands to ULV_func().
-* It is likely used to invoke or execute a function called ULV_func()
+*the defined macro "ULV_ACTION_FUNC" that expands to vULVFunc().
+* It is likely used to invoke or execute a function called vULVFunc()
 */
 #define ULV_ACTION_FUNC \
-ULV_func, \
+vULVFunc, \
 
 
 /*
-*the defined macro "IN_LV_ACTION_FUNC" that expands to in_LV_func().
-* It is likely used to invoke or execute a function called in_LV_func()
+*the defined macro "IN_LV_ACTION_FUNC" that expands to vInLVFunc().
+* It is likely used to invoke or execute a function called vInLVFunc()
 */
 #define IN_LV_ACTION_FUNC \
-in_LV_func, \
+vInLVFunc, \
 
 /*
-*the defined macro "IN_NV_ACTION_FUNC" that expands to in_NV_func().
-* It is likely used to invoke or execute a function called in_NV_func()
+*the defined macro "IN_NV_ACTION_FUNC" that expands to vInNVFunc().
+* It is likely used to invoke or execute a function called vInNVFunc()
 */
 #define IN_NV_ACTION_FUNC \
-in_NV_func, \
+vInNVFunc, \
 
 /*
-*the defined macro "IN_HV_ACTION_FUNC" that expands to in_HV_func().
-* It is likely used to invoke or execute a function called in_HV_func()
+*the defined macro "IN_HV_ACTION_FUNC" that expands to vInHVFunc().
+* It is likely used to invoke or execute a function called vInHVFunc()
 */
 #define IN_HV_ACTION_FUNC \
-in_HV_func, \
+vInHVFunc, \
 
 /*
-*the defined macro "IN_UL_ACTION_FUNC" that expands to in_ULV_func().
-* It is likely used to invoke or execute a function called in_ULV_func()
+*the defined macro "IN_UL_ACTION_FUNC" that expands to vInULVFunc().
+* It is likely used to invoke or execute a function called vInULVFunc()
 */
 #define IN_UL_ACTION_FUNC \
-in_ULV_func, \
+vInULVFunc, \
 
 
 /**************************************************************************************************

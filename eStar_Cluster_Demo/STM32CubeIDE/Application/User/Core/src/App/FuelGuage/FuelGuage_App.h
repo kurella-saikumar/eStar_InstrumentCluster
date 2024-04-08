@@ -35,7 +35,7 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
 ***************************************************************************************************/
-#define TESTMACRO (0)
+#define FuelApp_TestMacro (0)
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES
 ***************************************************************************************************/
@@ -83,8 +83,8 @@ typedef struct
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES
 ***************************************************************************************************/
-extern void vFuelGuage_TaskInit(void);
-extern void vFuelGuage_Task(void);
-extern uint8_t xGet_FuelLevel(IndicationStatus_t* ucFuelWarning_Indictr, bool* Warning_status);
+extern void vFuelGuageTaskInit(void);
+extern void vFuelGuageTask(void);
+extern uint8_t xGetFuelLevel(IndicationStatus_t* ucFuelWarning_Indictr, bool* Warning_status);
 
 #endif /* FUELGUAGE_APP_H */

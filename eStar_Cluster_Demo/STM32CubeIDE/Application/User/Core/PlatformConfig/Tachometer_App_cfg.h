@@ -1,6 +1,6 @@
 /** \addtogroup TEMPLATE
  *  @{
- * @Tachometer_cfg.h
+ * @Tachometer_App_cfg.h
  *
  * @brief This file contains an example template of how the .h 
  *
@@ -30,12 +30,12 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
 ***************************************************************************************************/
-#define IDLE_ENGINE_RPM 700
-#define WARNING_ENGINE_RPM 10000
-#define MAXIMUM_ENGINE_RPM 12000
+#define configIDLE_ENGINE_RPM 700
+#define configWARNING_ENGINE_RPM 10000
+#define configMAXIMUM_ENGINE_RPM 12000
 //#define ERROR_THRESHOLD_RPM  >12000 
-#define FIXED_PPR_VALUE 1
-#define TIME 1
+#define configFIXED_PPR_VALUE 1
+#define configTIME 1
 
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES

@@ -36,6 +36,7 @@
 #include "Odometer_App.h"
 #include "speedometer_App.h"
 #include "Tachometer_App.h"
+#include "batterVoltage_SmHandler.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -52,7 +53,7 @@ typedef StaticTask_t osStaticThreadDef_t;
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-uint16_t gl_ADC_Value_u16;
+uint16_t usADCValue;
 uint32_t gl_BAT_MON_u32;
 /* USER CODE END PD */
 
@@ -332,7 +333,7 @@ int main(void)
   State_Manager_init();
   vOdoInit();
   vSpeedoInit();
-  vFuelGuage_TaskInit();
+  vFuelGuageTaskInit();
 
   if(HAL_TIM_IC_Start_IT(&htim1,TIM_CHANNEL_4)!=HAL_OK)
   {
@@ -1360,7 +1361,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	  res = HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
 	  if(res == HAL_OK)
 	  {
-		  //printf("%02d:%02d:%02d \n", sTime.Hours, sTime.Minutes, sTime.Seconds);
+		  printf("%02d:%02d:%02d \n", sTime.Hours, sTime.Minutes, sTime.Seconds);
 	  }
 	  SystemClock_Config ();
 	  HAL_ResumeTick();
@@ -1413,7 +1414,7 @@ void WDG_SRVC_Task(void *argument)
   {
     osDelay(30000); //watchdog period
     //service or refresh or reload the watchdog here
-    //printf("WDG_SRVC_Task\r\n");
+    printf("WDG_SRVC_Task\r\n");
     if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
     {
           Error_Handler();
@@ -1483,7 +1484,9 @@ void Analog_Debounce_Task(void *argument)
 	//  HAL_ADC_Stop(&hadc1); // stop adc
 	  analog_debounce_task();
 	  Batt_state = get_analog_debounce_state(0);
-	 // printf("Batt_state:%d\r\n",Batt_state);
+#if(BATMON_TEST_MACRO == 1)
+	  printf("Batt_state:%d\r\n",Batt_state);
+#endif
     osDelay(100);
   }
   /* USER CODE END Analog_Debounce_Task */
@@ -1504,9 +1507,9 @@ void FuelGuageTask(void *argument)
   {
 	  HAL_ADC_Start(&hadc1);
 	  HAL_ADC_PollForConversion(&hadc1, 1);
-	  gl_ADC_Value_u16=(uint16_t)HAL_ADC_GetValue(&hadc1);
-	  //printf("ADC-%d\r\n",gl_ADC_Value_u16);
-	  vFuelGuage_Task();
+	  usADCValue=(uint16_t)HAL_ADC_GetValue(&hadc1);
+	  //printf("ADC-%d\r\n",usADCValue);
+	  vFuelGuageTask();
     osDelay(100);
   }
   /* USER CODE END FuelGuageTask */
@@ -1564,7 +1567,7 @@ void Tacho_Task(void *argument)
   for(;;)
   {
 	  vTacho_App();
-    osDelay(5000);
+    osDelay(1000);
   }
   /* USER CODE END Tacho_Task */
 }

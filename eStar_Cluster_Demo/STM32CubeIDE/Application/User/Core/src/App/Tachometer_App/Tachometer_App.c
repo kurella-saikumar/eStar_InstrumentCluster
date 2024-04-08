@@ -1,7 +1,7 @@
 /** \addtogroup  
  *  @{
- * @file Tachometer.c
- * @file Tachometer.h
+ * @file Tachometer_App.c
+ * @file Tachometer_App.h
  * @brief Template Source File
  *
  * File Short Name: 
@@ -32,6 +32,7 @@
 
 #include"Tachometer_App.h"
 #include"stdio.h"
+#include "inttypes.h"
 #include "IGN_SmHandler.h"
 /**************************************************************************************************
  * Include Project Specific Headers
@@ -48,11 +49,13 @@
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES
  ***************************************************************************************************/
-	uint32_t gl_rpm_u32 = 0;
-	uint32_t fl_previousCapture_u32 = 0;
-	uint32_t fl_presentCapture_u32 = 0;
-	int32_t fl_deltaPulses_i32 = 0;
-	uint32_t fl_frequency_u32 = 0;
+
+	uint32_t ulRpm = 0;
+	uint32_t ulPreviousCapture = 0;
+	uint32_t ulPresentCapture = 0;
+	int32_t slDeltaPulse = 0;
+	uint32_t ulFrequency = 0;
+
 
 
 
@@ -104,33 +107,33 @@ void vTachoInit(void)
 void vMeasureRPM(void)
 {
 
-	fl_presentCapture_u32 = xGetRollingPulseCount(1);
-	fl_deltaPulses_i32 = fl_presentCapture_u32 - fl_previousCapture_u32;
+	ulPresentCapture = xGetRollingPulseCount(1);
+	slDeltaPulse = ulPresentCapture - ulPreviousCapture;
 
-    if(fl_deltaPulses_i32 < 0)
+    if(slDeltaPulse < 0)
     {
 
-    	fl_deltaPulses_i32 = UINT32_MAX + fl_deltaPulses_i32;
+    	slDeltaPulse = UINT32_MAX + slDeltaPulse;
     }
-    fl_frequency_u32 = (fl_deltaPulses_i32) / TIME; // Assuming TIME is in seconds
+    ulFrequency = (slDeltaPulse) / configTIME; // Assuming TIME is in seconds
 
-    if(fl_frequency_u32 >= (UINT32_MAX / 60))
+    if(ulFrequency >= (UINT32_MAX / 60))
     {
-    	gl_rpm_u32= UINT32_MAX;
+    	ulRpm= UINT32_MAX;
     }
     else
     {
-    	gl_rpm_u32 = ((fl_frequency_u32 * 60) / FIXED_PPR_VALUE);
+    	ulRpm = ((ulFrequency * 60) / configFIXED_PPR_VALUE);
     }
-#if(TachoTestMacro == 1)
-    //printf("Ap: %ld\r\t",fl_presentCapture_u32);
-      printf("Td: %ld\t",fl_deltaPulses_i32);
-//    printf("pv:%ld\r\t",fl_previousCapture_u32);
-//    gl_rpm_u32 = ( fl_presentCapture_u32 / 16)* 1000;
-//    printf("rpm %lu\r\n", gl_rpm_u32);
-      printf("RPM:%ld\n\r",gl_rpm_u32);
+#if(TACHO_TEST_MACRO == 1)
+    //printf("Ap: %ld\r\t",ulPresentCapture);
+    printf("Td: %ld\t", slDeltaPulse);
+//    printf("pv:%ld\r\t",ulPreviousCapture);
+//    ulRpm = ( ulPresentCapture / 16)* 1000;
+//    printf("rpm %lu\r\n", ulRpm);
+      printf("RPM:%ld\n\r",ulRpm);
 #endif
-      fl_previousCapture_u32 = fl_presentCapture_u32;
+      ulPreviousCapture = ulPresentCapture;
 
 }
 
@@ -150,22 +153,22 @@ uint16_t xGet_TachometerData(IndicationStatus_t* Indication, bool *status)
 	 Indication->indicators.tachometer_indicator = 0;
 	 *status = false;
      
-    if( gl_rpm_u32 >= MAXIMUM_ENGINE_RPM || gl_rpm_u32 <= IDLE_ENGINE_RPM)
+    if( ulRpm >= configMAXIMUM_ENGINE_RPM || ulRpm <= configIDLE_ENGINE_RPM)
     {
 
         Indication->indicators.tachometer_indicator = 1;
         *status = true;
-        gl_rpm_u32 = 0;
-#if(TachoTestMacro == 1)
+        ulRpm = 0;
+#if(TACHO_TEST_MACRO == 1)
         printf("warning\t");
 #endif
 
     }
-#if(TachoTestMacro == 1)
-    printf("RPM: %ld\n\r", gl_rpm_u32);
+#if(TACHO_TEST_MACRO == 1)
+    printf("RPM: %ld\n\r", ulRpm);
 #endif
 
-    	return gl_rpm_u32;
+    	return ulRpm;
 }
 /**
  * @brief Tachometer Application.
@@ -180,14 +183,14 @@ uint16_t xGet_TachometerData(IndicationStatus_t* Indication, bool *status)
 void vTacho_App(void)
 {   
 
-    uint8_t l_ignitionStatus_u8=0;
-    l_ignitionStatus_u8 = usIgnitionGetCurrentState();
+    uint8_t ucIgnitionStatus=0;
+    ucIgnitionStatus = usIgnitionGetCurrentState();
 //   // printf("IgnitionStatus: %i\r\n", ignitionStatus);  debug purpose
-    if(l_ignitionStatus_u8 == IgnOFF_mode)
+    if(ucIgnitionStatus == IgnOFF_mode)
     {
-    	gl_rpm_u32 = 0;
+    	ulRpm = 0;
 
-#if(TachoTestMacro == 1)
+#if(TACHO_TEST_MACRO == 1)
         printf("Tachometer Ignition: OFF\n\r");
 #endif
     }

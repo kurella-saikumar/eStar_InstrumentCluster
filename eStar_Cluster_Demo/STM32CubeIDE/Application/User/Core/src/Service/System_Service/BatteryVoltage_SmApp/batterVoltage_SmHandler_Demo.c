@@ -40,16 +40,16 @@
 ***************************************************************************************************/
 
 
-void HV_func(void);
-void NV_func(void);
-void LV_func(void);
-void ULV_func(void);
+void vHVFunc(void);
+void vNVFunc(void);
+void vLVFunc(void);
+void vULVFunc(void);
 
 
-void in_LV_func(void); 
-void in_NV_func(void);
-void in_HV_func(void);
-void in_ULV_func(void);
+void vInLVFunc(void); 
+void vInNVFunc(void);
+void vInHVFunc(void);
+void vInULVFunc(void);
 
 
 
@@ -69,58 +69,66 @@ void in_ULV_func(void);
  * FUNCTION DEFINITIONS
 ***************************************************************************************************/
 /**
- * @brief  ULV_func function is to perform some action when the state changed to ULTRA_Low_VOLTAGE_STATE
+ * @brief  vULVFunc function is to perform some action when the state changed to ULTRA_Low_VOLTAGE_STATE
  *
  * @param[in] void type
  *
  * @return void
  *
  */
-void ULV_func(void)
+void vULVFunc(void)
 {
-   // printf("\nULTRA_LOW_VOLTAGE_STATE_ENTRY_Action\n");
+#if(BATMON_TEST_MACRO == 1)
+    printf("\nULTRA_LOW_VOLTAGE_STATE_ENTRY_Action\n");
+#endif
 }
 /**
- * @brief  LV_func function is to perform some action when the state changed to LOW_VOLTAGE_STATE 
+ * @brief  vLVFunc function is to perform some action when the state changed to LOW_VOLTAGE_STATE 
  *
  * @param[in] void type
  *
  * @return void
  *
  */
-void LV_func(void)
+void vLVFunc(void)
 {
-  // printf("\nLOW_VOLTAGE_STATE_ENTRY_Action\n");
+#if(BATMON_TEST_MACRO == 1)
+    printf("\nLOW_VOLTAGE_STATE_ENTRY_Action\n");
+#endif
 } 
 
 /**
- * @brief  NV_func function is to perform some action when the state changed to NORMAL_VOLTAGE_STATE 
+ * @brief  vNVFunc function is to perform some action when the state changed to NORMAL_VOLTAGE_STATE 
  *
  * @param[in] void type
  *
  * @return void
  *
  */
-void NV_func(void)
+void vNVFunc(void)
 {
-  //printf("\nNORMAL_VOLTAGE_STATE_ENTRY_Action\n");
+#if(BATMON_TEST_MACRO == 1)
+    printf("\nNORMAL_VOLTAGE_STATE_ENTRY_Action\n");
+#endif
 } 
 
 /**
- * @brief  HV_func function is to perform some action when the state changed to HIGH_VOLTAGE_STATE 
+ * @brief  vHVFunc function is to perform some action when the state changed to HIGH_VOLTAGE_STATE 
  *
  * @param[in] void type
  *
  * @return void
  *
  */
-void HV_func(void)
+void vHVFunc(void)
 {
-  // printf("\nHIGH_VOLTAGE_STATE_ENTRY_Action\n");
+#if(BATMON_TEST_MACRO == 1)
+    printf("\nHIGH_VOLTAGE_STATE_ENTRY_Action\n");
+#endif
 } 
 
 /**
- * @brief  in_ULV_func function is to perform some action when the state remain in ULTRA_LOW_VOLTAGE_STATE
+ * @brief  vInULVFunc function is to perform some action when the state remain in ULTRA_LOW_VOLTAGE_STATE
  *
  * @param[in] void type
  *
@@ -128,48 +136,56 @@ void HV_func(void)
  *
  */
 
-void in_ULV_func(void)
+void vInULVFunc(void)
 {
-   // printf("\nUL_UL_voltage\n");
+#if(BATMON_TEST_MACRO == 1)
+    printf("\nUL_UL_voltage\n");
+#endif
 }
 
 /**
- * @brief  in_LV_func function is to perform some action when the state state remain in LOW_VOLTAGE_STATE 
+ * @brief  vInLVFunc function is to perform some action when the state state remain in LOW_VOLTAGE_STATE 
  *
  * @param[in] void type
  *
  * @return void
  *
  */
-void in_LV_func(void)
+void vInLVFunc(void)
 {
-    //printf("\nLOW_LOW_voltage\n");
+#if(BATMON_TEST_MACRO == 1)
+    printf("\nLOW_LOW_voltage\n");
+#endif
 } 
 
 /**
- * @brief  in_NV_func function is to perform some action when the state remain in NORMAL_VOLTAGE_STATE
+ * @brief  vInNVFunc function is to perform some action when the state remain in NORMAL_VOLTAGE_STATE
  *
  * @param[in] void type
  *
  * @return void
  *
  */
-void in_NV_func(void)
+void vInNVFunc(void)
 {
-  // printf("\nNORMAL_NORMAL_voltage\n");
+#if(BATMON_TEST_MACRO == 1)
+   printf("\nNORMAL_NORMAL_voltage\n");
+#endif
 } 
 
 /**
- * @brief  in_HV_func function is to perform some action when the state state remain in HIGH_VOLTAGE_STATE
+ * @brief  vInHVFunc function is to perform some action when the state state remain in HIGH_VOLTAGE_STATE
  *
  * @param[in] void type
  *
  * @return void
  *
  */
-void in_HV_func(void)
+void vInHVFunc(void)
 {
-  // printf("\nHIGH_HIGH_voltage\n");
+#if(BATMON_TEST_MACRO == 1)
+  printf("\nHIGH_HIGH_voltage\n");
+#endif
 } 
 
 

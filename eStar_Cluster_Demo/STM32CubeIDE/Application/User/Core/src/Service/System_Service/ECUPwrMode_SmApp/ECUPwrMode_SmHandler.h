@@ -54,15 +54,15 @@
  * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES
 ***************************************************************************************************/
 
-extern void ECUPwrModeSleep_To_Off_EntryAction(void);
-extern void ECUPwrModeActive_To_Off_EntryAction(void);
-extern void ECUPwrModeOff_To_Sleep_EntryAction(void);
-extern void ECUPwrModeActive_To_Sleep_EntryAction(void);
-extern void ECUPwrModeSleep_To_Active_EntryAction(void);
-extern void ECUPwrModeOff_Action(void);
-extern void ECUPwrModeSleep_Action(void);
-extern void ECUPwrModeActive_Action(void);
-extern void ECUPwrModeOff_Active_ENtryAction(void);
+extern void vEcuPwrModeSleepToOffEntryAction(void);
+extern void vEcuPwrModeActiveToOffEntryAction(void);
+extern void vEcuPwrModeOffToSleepEntryAction(void);
+extern void vEcuPwrModeActiveToSleepEntryAction(void);
+extern void vEcuPwrModeSleepToActiveEntryAction(void);
+extern void vEcuPwrModeOffAction(void);
+extern void vEcuPwrModeSleepAction(void);
+extern void vEcuPwrModeActiveAction(void);
+extern void vEcuPwrModeOffActiveEntryAction(void);
 
 extern void pm_ReqNewState(states_SM p_requested_status_sm);
 extern states_SM pm_GetSyncStatus(void);
