@@ -47,20 +47,30 @@ typedef enum
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES
 ***************************************************************************************************/
-
+extern RTC_HandleTypeDef hrtc;
 /**************************************************************************************************
  * DECLARE FILE SCOPE STATIC VARIABLES
 ***************************************************************************************************/
-uint8_t Hours,Minutes;
-uint8_t shiftingPosition = E_CLOCK_HOURS_POS;
-RTC_TimeTypeDef time;
-RTC_DateTypeDef date;
-HAL_StatusTypeDef res;
-extern RTC_HandleTypeDef hrtc;
+uint8_t ulHours,ulMinutes;
 
-RTC_TimeTypeDef editTime;
+uint8_t ulShiftingPosition = E_CLOCK_HOURS_POS;
+/*
+ * @brief Variable representing the RTC time.
+ */
+RTC_TimeTypeDef xTime;
+/*
+ * @brief Variable representing the RTC Date.
+ */
+RTC_DateTypeDef xDate;
+/*
+ * @brief To store the HAL function result.
+ */
+HAL_StatusTypeDef xRes;
 
-uint8_t gl_ContinousIncrement_flag;
+
+RTC_TimeTypeDef xEditTime;
+
+uint8_t ulContinousIncrement_flag;
 /**************************************************************************************************
  * DEFINE FILE SCOPE STATIC FUNCTION PROTOTYPES
 ***************************************************************************************************/
@@ -79,145 +89,173 @@ uint8_t gl_ContinousIncrement_flag;
  ***************************************************************************************************/
 void clock_Init(void)
 {
-//    HAL_RTC_SetTime(&hrtc, &time, RTC_FORMAT_BIN);
+	ulHours = xTime.Hours;
+	ulMinutes = xTime.Minutes;
+	HAL_RTC_GetTime(&hrtc, &xTime, RTC_FORMAT_BIN);
 }
 
 
 
 void vGet_Clock(void)
 {
-    Hours = time.Hours;
-    Minutes = time.Minutes;
-    res = HAL_RTC_GetTime(&hrtc, &time, RTC_FORMAT_BIN);
-    if(res != HAL_OK)
+    xRes = HAL_RTC_GetTime(&hrtc, &xTime, RTC_FORMAT_BIN);
+    if(xRes != HAL_OK)
     {
-    	printf("HAL_RTC_GetTime failed: %d\r\n", res);
+    	printf("HAL_RTC_GetTime failed: %d\r\n", xRes);
     }
     else
     {
-    	printf("DT: %02d:%02d \n", time.Hours, time.Minutes);
+    	printf("DT: %02d:%02d \n", xTime.Hours, xTime.Minutes);
     }
-    res = HAL_RTC_GetDate(&hrtc, &date, RTC_FORMAT_BIN);
-    if(res != HAL_OK)
+    xRes = HAL_RTC_GetDate(&hrtc, &xDate, RTC_FORMAT_BIN);
+    if(xRes != HAL_OK)
     {
-    	printf("HAL_RTC_GetDate failed: %d\r\n", res);
+    	printf("HAL_RTC_GetDate failed: %d\r\n", xRes);
     }
     else
     {
-    	//printf("Current date: %02d-%02d-%04d\n", date.Date, date.Month, date.Year);
+    	printf("Current date: %02d-%02d-%04d\n", xDate.Date, xDate.Month, xDate.Year);
     }
 
 }
 
-void clockSettingRunMode(Clock_Edit_Actions clockSettingMode) {
-
-//	gl_SwitchState = clockSettingMode;
-    switch (clockSettingMode) {
-
-        case CLOCK_ENTRY:
-        {
-        	printf("Clock Edit Mode Entry\n");
-        	HAL_RTC_GetTime(&hrtc, &editTime, RTC_FORMAT_BIN);
-            Hours = editTime.Hours;
-            Minutes = editTime.Minutes;
-            printf("%02d:%02d \n", Hours, Minutes);
-        }
+void clockSettingRunMode(Clock_Edit_Actions clockSettingMode)
+{
+	switch (clockSettingMode)
+	{
+	case CLOCK_ENTRY:
+	{
+		printf("Clock Edit Mode Entry\n");
+		HAL_RTC_GetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
+		ulHours = xEditTime.Hours;
+		ulMinutes = xEditTime.Minutes;
+		printf("Hours:%02d,Minutes:%02d \n", ulHours, ulMinutes);
+	}
+	break;
+	case MODE_LONGPRESS:
+	{
+		vClock_exit();
+	}
+	break;
+	case MODE_SHORTPRESS:
+	{
+		ulShiftingPosition++;
+		if (ulShiftingPosition == E_CLOCK_INVALID_POS)
+		{
+			ulShiftingPosition = E_CLOCK_HOURS_POS;
+		}
+		else
+		{
+			/*do nothing*/
+		}
+	}
+	break;
+    case RESET_LONGPRESS_RELEASE:
+        	ulContinousIncrement_flag = 0;
+        	printf("Long Press Release\n\r");
         break;
-
-        case MODE_LONGPRESS:
-        	vClock_exit();
-            break;
-
-        case MODE_SHORTPRESS:
-            
-            shiftingPosition++;
-            if (shiftingPosition == E_CLOCK_INVALID_POS)
-            {
-                shiftingPosition = E_CLOCK_HOURS_POS;
-            }
-            break;
-        case RESET_LONGPRESS:
-
-        	gl_ContinousIncrement_flag = 1;
-            break;
-        case RESET_LONGPRESS_RELEASE:
-
-        	gl_ContinousIncrement_flag = 0;
-            break;
-        case RESET_SHORTPRESS:
-			if (shiftingPosition == E_CLOCK_HOURS_POS) {
+    case RESET_LONGPRESS_HELD:
+    	ulContinousIncrement_flag = 1;
+    	printf("Long Press Held\n\r");
+    break;
+      case RESET_SHORTPRESS:
+    	if (ulShiftingPosition == E_CLOCK_HOURS_POS)
+    	{
+			//Increment hours
+			xEditTime.Hours++;
+			// Ensure hours wrap around correctly
+			xEditTime.Hours %= 24;
+		}
+        else if (ulShiftingPosition == E_CLOCK_MINS_POS)
+        {
+			// Increment minutes
+			xEditTime.Minutes++;
+			// Check if minutes reached 60
+			if (xEditTime.Minutes == 60)
+			{
+				// Reset minutes to 0
+				xEditTime.Minutes = 0;
 				// Increment hours
-				editTime.Hours++;
+//				xEditTime.Hours++;
 				// Ensure hours wrap around correctly
-				editTime.Hours %= 24;
-			} else if (shiftingPosition == E_CLOCK_MINS_POS) {
-				// Increment minutes
-				editTime.Minutes++;
-				// Check if minutes reached 60
-				if (editTime.Minutes == 60) {
-					// Reset minutes to 0
-					editTime.Minutes = 0;
-					// Increment hours
-					editTime.Hours++;
-					// Ensure hours wrap around correctly
-					editTime.Hours %= 24;
-				}
+//				xEditTime.Hours %= 24;
 			}
-//            Hours = editTime.Hours;
-//            Minutes = editTime.Minutes;
-//            printf("%02d:%02d \n", Hours, Minutes);
-            break;
-
-        default:
-            // Handle unknown mode
-            break;
-    }
+			else
+			{
+				/*do nothing*/
+			}
+		}
+       break;
+       default:
+    	   // Handle unknown mode
+       break;
+	}
 
 }
 
 void vClock_exit(void)
 {
-	printf("Exit Param: H: %d\tM: %d\n", editTime.Hours, editTime.Minutes);
-	HAL_RTC_SetTime(&hrtc, &editTime, RTC_FORMAT_BIN);
+	printf("Exit Param: H: %d\tM: %d\n", xEditTime.Hours, xEditTime.Minutes);
+	HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
 	printf("Clock edit mode exit\n");
 }
 
 void ContinousIncrement(void)
 {
-	if (shiftingPosition == E_CLOCK_HOURS_POS)
-	{// Increment hours
-		editTime.Hours++;
+	if (ulShiftingPosition == E_CLOCK_HOURS_POS)
+	{
+		// Increment hours
+		xEditTime.Hours++;
 		// Ensure hours wrap around correctly
-		editTime.Hours %= 24;
+		xEditTime.Hours %= 24;
+		printf("ContinousIncrement_Hours:%d",xEditTime.Hours);
 	}
-	else if (shiftingPosition == E_CLOCK_MINS_POS)
+	else if (ulShiftingPosition == E_CLOCK_MINS_POS)
 	{
 		// Increment minutes
-		editTime.Minutes++;
+		xEditTime.Minutes++;
 		// Check if minutes reached 60
-		if (editTime.Minutes == 60)
+		if (xEditTime.Minutes == 60)
 		{
-				// Reset minutes to 0
-				editTime.Minutes = 0;
+			// Reset minutes to 0
+			xEditTime.Minutes = 0;
 				// Increment hours
-				editTime.Hours++;
+			xEditTime.Hours++;
 				// Ensure hours wrap around correctly
-				editTime.Hours %= 24;
+			xEditTime.Hours %= 24;
+			printf("ContinousIncrement_Minutes:%d",xEditTime.Minutes);
 		}
+		else
+		{
+				/*do nothing*/
+		}
+	}
+	else
+
+	{
+		/*do nothing*/
 	}
 }
 
 void vClockIncreament(void)
 {
-	if(gl_ContinousIncrement_flag == 1)
+	if(ulContinousIncrement_flag == 1)
 	{
-		ContinousIncrement();
-//		gl_ContinousIncrement_flag =0;
-
+//		if (0 == xGetResetSwitch())
+//		{
+			ContinousIncrement();
+			printf("ContinousIncrement success\n\r");
+//		}
+//		else
+//		{
+//			ulContinousIncrement_flag =0;
+//			printf("Long press released1\n\r");
+//		}
 	}
 	else
 	{
-		/*do nothing*/
+		ulContinousIncrement_flag =0;
+//		printf("Long press released2\n\r");
 	}
 
 }

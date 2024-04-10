@@ -65,9 +65,11 @@ CRC_HandleTypeDef hcrc;
 DMA2D_HandleTypeDef hdma2d;
 
 LTDC_HandleTypeDef hltdc;
-RTC_HandleTypeDef hrtc;
+
 OSPI_HandleTypeDef hospi1;
 OSPI_HandleTypeDef hospi2;
+
+RTC_HandleTypeDef hrtc;
 
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim4;
@@ -275,7 +277,7 @@ int main(void)
   MX_TouchGFX_PreOSInit();
   /* USER CODE BEGIN 2 */
   State_Manager_init();
-//  clock_Init();
+  clock_Init();
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -1275,7 +1277,7 @@ void GetClock(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	vGet_Clock();
+//	vGet_Clock();
 	vClockIncreament();
     osDelay(500);
   }

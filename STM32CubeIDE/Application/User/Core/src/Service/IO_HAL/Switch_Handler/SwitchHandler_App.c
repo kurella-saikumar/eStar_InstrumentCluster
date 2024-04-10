@@ -90,7 +90,7 @@ void vMode_Button_Press_Hdlr(Button_Push_Event_T eModeButtonStatus)
 void vReset_Button_Press_Hdlr(Button_Push_Event_T eResetButtonStatus)
 {
 
-    l_Reset_ButtonEvent_Status_u8 = eResetButtonStatus;
+	l_Reset_ButtonEvent_Status_u8 = eResetButtonStatus;
 }
 
 
@@ -178,8 +178,8 @@ Clock_Edit_Actions clockSettingGetSetMode(void)
 {
     Button_Push_Event_T clk_mode_status = getModeButtonStatus();
     Button_Push_Event_T clk_reset_status = getResetButtonStatus();
-    //clockSettingRunMode(CLOCK_ENTRY);
-
+//    printf("clk_reset_status : %d",clk_reset_status);
+//    clockSettingRunMode(CLOCK_ENTRY);
 
      if(clk_mode_status == SHORT_PRESS_RELEASED )
      {
@@ -196,16 +196,16 @@ Clock_Edit_Actions clockSettingGetSetMode(void)
          printf("clock reset short press\r\n");
          clockSettingRunMode(RESET_SHORTPRESS);
      }
+     else if(clk_reset_status == LONG_PRESS_RELEASED)
+	  {
+		  printf("clock reset long press release");
+		  clockSettingRunMode(RESET_LONGPRESS_RELEASE);
+	  }
      else if(clk_reset_status == LONG_PRESS_HELD)
      {
          printf("clock reset long press held");
-         clockSettingRunMode(RESET_LONGPRESS);
+         clockSettingRunMode(RESET_LONGPRESS_HELD);
      }
-     else if(clk_reset_status == LONG_PRESS_RELEASED)
-	  {
-		  printf("clock reset long press Released");
-		  clockSettingRunMode(RESET_LONGPRESS_RELEASE);
-	  }
      else
      {
 
@@ -302,6 +302,7 @@ void vHandleModeResetActions(void)
     {
 
 //    	printf("clock:%d\r\n",eclockMode);
+        clockSettingRunMode(CLOCK_ENTRY);
         
         if (eclockMode == CLOCK_MODE_INACTIVE) 
         {
@@ -356,6 +357,16 @@ void vHandleModeResetActions(void)
             l_Reset_ButtonEvent_Status_u8 = 0xFF;
         }
         
+    }
+    if(l_Reset_ButtonEvent_Status_u8 == LONG_PRESS_RELEASED)
+    {
+    	if(eclockMode == CLOCK_MODE_ACTIVE)
+		{
+			clockSettingGetSetMode();
+			Button_Push_Event_T reset_status = getResetButtonStatus();
+
+			l_Reset_ButtonEvent_Status_u8 = 0xFF;
+		}
     }
     // Reset button timeout and statuses if clock mode is active and any button is short-pressed
     if ((eclockMode == CLOCK_MODE_ACTIVE) && (l_Mode_ButtonEvent_Status_u8 == SHORT_PRESS_HELD || l_Reset_ButtonEvent_Status_u8 == SHORT_PRESS_HELD))
