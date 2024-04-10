@@ -1,5 +1,5 @@
 Application/User/generated/SVGDatabase.o: \
- E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/images/src/SVGDatabase.cpp \
+ D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/images/src/SVGDatabase.cpp \
  ../../TouchGFX/generated/images/include/images/SVGDatabase.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp \

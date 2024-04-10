@@ -37,6 +37,9 @@
 #include "speedometer_App.h"
 #include "Tachometer_App.h"
 #include "batterVoltage_SmHandler.h"
+#include "SwitchHandler_App.h"
+#include "SwitchInf.h"
+#include "clock_App.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -211,6 +214,30 @@ const osThreadAttr_t TachoMeter_attributes = {
   .stack_size = sizeof(TachoMeterBuffer),
   .priority = (osPriority_t) osPriorityBelowNormal,
 };
+/* Definitions for SwitchHandler */
+osThreadId_t SwitchHandlerHandle;
+uint32_t SwitchHandlerBuffer[ 128 ];
+osStaticThreadDef_t SwitchHandlerControlBlock;
+const osThreadAttr_t SwitchHandler_attributes = {
+  .name = "SwitchHandler",
+  .cb_mem = &SwitchHandlerControlBlock,
+  .cb_size = sizeof(SwitchHandlerControlBlock),
+  .stack_mem = &SwitchHandlerBuffer[0],
+  .stack_size = sizeof(SwitchHandlerBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
+/* Definitions for GetClock */
+osThreadId_t GetClockHandle;
+uint32_t GetClockBuffer[ 128 ];
+osStaticThreadDef_t GetClockControlBlock;
+const osThreadAttr_t GetClock_attributes = {
+  .name = "GetClock",
+  .cb_mem = &GetClockControlBlock,
+  .cb_size = sizeof(GetClockControlBlock),
+  .stack_mem = &GetClockBuffer[0],
+  .stack_size = sizeof(GetClockBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* USER CODE BEGIN PV */
 /**
   * @brief  Retargets the C library printf function to the USART.
@@ -256,6 +283,8 @@ void FuelGuageTask(void *argument);
 void Odo_Task(void *argument);
 void Speedo_Task(void *argument);
 void Tacho_Task(void *argument);
+void SwitchHandlerTask(void *argument);
+void GetClockTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -333,6 +362,7 @@ int main(void)
   State_Manager_init();
   vOdoInit();
   vSpeedoInit();
+  clock_Init();
   vFuelGuageTaskInit();
 
   if(HAL_TIM_IC_Start_IT(&htim1,TIM_CHANNEL_4)!=HAL_OK)
@@ -397,6 +427,12 @@ int main(void)
 
   /* creation of TachoMeter */
   TachoMeterHandle = osThreadNew(Tacho_Task, NULL, &TachoMeter_attributes);
+
+  /* creation of SwitchHandler */
+  SwitchHandlerHandle = osThreadNew(SwitchHandlerTask, NULL, &SwitchHandler_attributes);
+
+  /* creation of GetClock */
+  GetClockHandle = osThreadNew(GetClockTask, NULL, &GetClock_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -989,8 +1025,8 @@ static void MX_RTC_Init(void)
 
   /** Initialize RTC and set the Time and Date
   */
-  sTime.Hours = 0x8;
-  sTime.Minutes = 0x51;
+  sTime.Hours = 0x12;
+  sTime.Minutes = 0x30;
   sTime.Seconds = 0x20;
   sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
   sTime.StoreOperation = RTC_STOREOPERATION_RESET;
@@ -999,8 +1035,8 @@ static void MX_RTC_Init(void)
     Error_Handler();
   }
   sDate.WeekDay = RTC_WEEKDAY_THURSDAY;
-  sDate.Month = RTC_MONTH_MARCH;
-  sDate.Date = 0x22;
+  sDate.Month = RTC_MONTH_APRIL;
+  sDate.Date = 0x10;
   sDate.Year = 0x24;
 
   if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
@@ -1222,11 +1258,11 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(VSYNC_FREQ_GPIO_Port, VSYNC_FREQ_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : Mode_Pin */
-  GPIO_InitStruct.Pin = Mode_Pin;
+  /*Configure GPIO pin : Mode_switch_Pin */
+  GPIO_InitStruct.Pin = Mode_switch_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(Mode_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(Mode_switch_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : Switch_Fuel_Pin */
   GPIO_InitStruct.Pin = Switch_Fuel_Pin;
@@ -1241,11 +1277,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LCD_BL_CTRL_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : Reset_Pin */
-  GPIO_InitStruct.Pin = Reset_Pin;
+  /*Configure GPIO pin : Reset_switch_Pin */
+  GPIO_InitStruct.Pin = Reset_switch_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(Reset_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(Reset_switch_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : EXTI_Pin */
   GPIO_InitStruct.Pin = EXTI_Pin;
@@ -1438,6 +1474,7 @@ void DigitalDebounce_Task(void *argument)
   for(;;)
   {
 	DebounceTask();
+	vGet_Switch_DebouncedStatus();
     osDelay(4);
   }
   /* USER CODE END DigitalDebounce_Task */
@@ -1570,6 +1607,47 @@ void Tacho_Task(void *argument)
     osDelay(1000);
   }
   /* USER CODE END Tacho_Task */
+}
+
+/* USER CODE BEGIN Header_SwitchHandlerTask */
+/**
+* @brief Function implementing the SwitchHandler thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_SwitchHandlerTask */
+void SwitchHandlerTask(void *argument)
+{
+  /* USER CODE BEGIN SwitchHandlerTask */
+  /* Infinite loop */
+  for(;;)
+  {
+	  vSwitchHandlerTask();
+	  Switch_Task();
+	  vHandleModeResetActions();
+	  osDelay(1);
+  }
+  /* USER CODE END SwitchHandlerTask */
+}
+
+/* USER CODE BEGIN Header_GetClockTask */
+/**
+* @brief Function implementing the GetClock thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_GetClockTask */
+void GetClockTask(void *argument)
+{
+  /* USER CODE BEGIN GetClockTask */
+  /* Infinite loop */
+  for(;;)
+  {
+//	  vGet_Clock();
+	  vClockIncreament();
+	  osDelay(500);
+  }
+  /* USER CODE END GetClockTask */
 }
 
  /* MPU Configuration */

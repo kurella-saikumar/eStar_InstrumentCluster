@@ -40,6 +40,8 @@ CPP_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Application/User/Core \
+Application/User/Core/src/App/Clock_App \
+Application/User/Core/src/App/DriverInfoApplication \
 Application/User/Core/src/App/FuelGuage \
 Application/User/Core/src/App/Odometer_App \
 Application/User/Core/src/App/Speedometer_App \
@@ -48,9 +50,12 @@ Application/User/Core/src/Service/IO_HAL/AnalogDebounce \
 Application/User/Core/src/Service/IO_HAL/Damping_Filter \
 Application/User/Core/src/Service/IO_HAL/DigitalDebounce \
 Application/User/Core/src/Service/IO_HAL/ICU_middleware \
+Application/User/Core/src/Service/IO_HAL/Switch \
+Application/User/Core/src/Service/IO_HAL/Switch_Handler \
 Application/User/Core/src/Service/System_Service/BatteryVoltage_SmApp \
 Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp \
 Application/User/Core/src/Service/System_Service/IgnitionManager \
+Application/User/Core/src/Service/System_Service/Switch_Interface \
 Application/User/Core/src/Service/System_Service/stateManager \
 Application/User/LIBJPEG/App \
 Application/User/Startup \

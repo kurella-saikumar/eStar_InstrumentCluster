@@ -1,8 +1,8 @@
 Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o: \
  ../Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.c \
  ../Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.h \
- E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/digital_debounce_cfg.h \
- E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.h \
+ D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/digital_debounce_cfg.h \
+ D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.h \
  ../../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
@@ -49,8 +49,8 @@ Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h
 ../Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.h:
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/digital_debounce_cfg.h:
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.h:
+D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/digital_debounce_cfg.h:
+D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.h:
 ../../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:

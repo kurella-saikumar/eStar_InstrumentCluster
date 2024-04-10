@@ -1,7 +1,7 @@
 Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o: \
  ../Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.c \
  ../Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.h \
- E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/ICU_driver_cfg.h \
+ D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/ICU_driver_cfg.h \
  ../../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
@@ -48,7 +48,7 @@ Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h
 ../Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.h:
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/ICU_driver_cfg.h:
+D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/ICU_driver_cfg.h:
 ../../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:

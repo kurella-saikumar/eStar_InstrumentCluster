@@ -1,5 +1,5 @@
 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o: \
- E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c \
+ D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
