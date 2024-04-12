@@ -126,7 +126,7 @@ void vOdoAlgorithm(void)
 	if(ucIgnitionStatus == IgnOFF_mode)
     {
 #if(ODO_TEST_MACRO == 1)
-		printf("Odometer Ignition: OFF\n\r");
+		printf("Odometer Ignition: ON\n\r");
 #endif
 		ulDistanceInKmOdo = 0;
     }

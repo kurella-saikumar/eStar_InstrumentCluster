@@ -40,7 +40,8 @@
 #include "SwitchInf.h"
 #include "stm32h7xx_hal.h"
 
-//#include "../Clock_App/clock_App.h"
+
+#include "../Clock_App/clock_App.h"
 /**************************************************************************************************
  * DEFINE FILE SCOPE MACROS
 ***************************************************************************************************/
@@ -259,7 +260,7 @@ void vHandleModeResetActions(void)
         }
         if(eclockMode == CLOCK_MODE_ACTIVE)
         {
-           Button_Push_Event_T mode_status = getModeButtonStatus();
+           //Button_Push_Event_T mode_status = getModeButtonStatus();
            clockSettingGetSetMode();
 
               
@@ -290,7 +291,7 @@ void vHandleModeResetActions(void)
          if(eclockMode == CLOCK_MODE_ACTIVE)
          {
              clockSettingGetSetMode();
-             Button_Push_Event_T reset_status = getResetButtonStatus();
+//             Button_Push_Event_T reset_status = getResetButtonStatus();
              //printf("reset short press\r\n");
              l_Reset_ButtonEvent_Status_u8 = 0xFF;
          }
@@ -340,7 +341,7 @@ void vHandleModeResetActions(void)
         if(eclockMode == CLOCK_MODE_ACTIVE)
         {
             clockSettingGetSetMode();
-            Button_Push_Event_T mode_status = getModeButtonStatus();
+            //Button_Push_Event_T mode_status = getModeButtonStatus();
 
             l_Mode_ButtonEvent_Status_u8 = 0xFF;
         }
@@ -351,7 +352,7 @@ void vHandleModeResetActions(void)
         if(eclockMode == CLOCK_MODE_ACTIVE)
         {
             clockSettingGetSetMode();
-            Button_Push_Event_T reset_status = getResetButtonStatus();
+            //Button_Push_Event_T reset_status = getResetButtonStatus();
 
             l_Reset_ButtonEvent_Status_u8 = 0xFF;
         }
@@ -362,7 +363,7 @@ void vHandleModeResetActions(void)
     	if(eclockMode == CLOCK_MODE_ACTIVE)
 		{
 			clockSettingGetSetMode();
-			Button_Push_Event_T reset_status = getResetButtonStatus();
+			//Button_Push_Event_T reset_status = getResetButtonStatus();
 
 			l_Reset_ButtonEvent_Status_u8 = 0xFF;
 		}

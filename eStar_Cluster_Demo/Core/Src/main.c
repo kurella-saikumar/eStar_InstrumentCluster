@@ -1643,7 +1643,7 @@ void GetClockTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-//	  vGet_Clock();
+	  vGet_Clock();
 	  vClockIncreament();
 	  osDelay(500);
   }
