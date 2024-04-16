@@ -1,3 +1,0 @@
-../Application/User/Core/src/Service/System_Service/emulated_eprom/eeprom_Demo.c:143:10:ES_WriteVariable	16	static
-../Application/User/Core/src/Service/System_Service/emulated_eprom/eeprom_Demo.c:156:6:shadowRAM_Init	24	static
-../Application/User/Core/src/Service/System_Service/emulated_eprom/eeprom_Demo.c:181:6:vEEpromDemoFunc	40	static

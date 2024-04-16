@@ -23,7 +23,6 @@ RM := rm -rf
 -include Application/User/Startup/subdir.mk
 -include Application/User/LIBJPEG/App/subdir.mk
 -include Application/User/Core/src/Service/System_Service/stateManager/subdir.mk
--include Application/User/Core/src/Service/System_Service/emulated_eprom/subdir.mk
 -include Application/User/Core/src/Service/System_Service/checksum/subdir.mk
 -include Application/User/Core/src/Service/System_Service/IgnitionManager/subdir.mk
 -include Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/subdir.mk

@@ -77,7 +77,8 @@ Application/User/Core/main.o: \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App_cfg.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App_cfg.h \
- D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App_cfg.h
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App_cfg.h \
+ ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp
 ../../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:
@@ -158,3 +159,4 @@ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App_cfg.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App_cfg.h:
+../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp:

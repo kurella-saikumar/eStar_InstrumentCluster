@@ -202,7 +202,7 @@ SECTIONS
     *(ExtFlashSection ExtFlashSection.*)
     *(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
-  } >HYPERRAM
+  } >OSPI
  
   BufferSection (NOLOAD) :
   {

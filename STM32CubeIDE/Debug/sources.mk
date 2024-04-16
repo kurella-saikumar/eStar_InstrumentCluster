@@ -49,7 +49,6 @@ Application/User/Core/src/Service/IO_HAL/ICU_middleware \
 Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp \
 Application/User/Core/src/Service/System_Service/IgnitionManager \
 Application/User/Core/src/Service/System_Service/checksum \
-Application/User/Core/src/Service/System_Service/emulated_eprom \
 Application/User/Core/src/Service/System_Service/stateManager \
 Application/User/LIBJPEG/App \
 Application/User/Startup \

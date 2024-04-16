@@ -29,9 +29,11 @@
 #include "stm32h7xx_hal_ospi.h"
 #include "smHandler.h"
 #include "digital_debounce.h"
-#include"Tachometer_App.h"
+#include "Tachometer_App.h"
 #include "Odometer_App.h"
 #include "speedometer_App.h"
+
+#include <touchgfx/hal/Config.hpp>
 
 /* USER CODE END Includes */
 
@@ -224,10 +226,18 @@ void Tacho_Task(void *argument);
 /* USER CODE BEGIN PFP */
 static uint32_t TimeoutCalculation(uint32_t timevalue);
 
+void ospi_HypRAM_init(void);
+void ospi_NORFlash_init(void);
+void Disp_imgDataHyperRAM_Init(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+KEEP extern const unsigned char image_image_const[];
+KEEP extern const unsigned char image_fuel_red_const[];
+extern unsigned char ucImage_image_HypRam[(32640*12)];
+extern unsigned char ucImage_fuel_red_HypRAM[160*12];
+
 
 /* USER CODE END 0 */
 
@@ -237,13 +247,15 @@ static uint32_t TimeoutCalculation(uint32_t timevalue);
   */
 int main(void)
 {
+
   /* USER CODE BEGIN 1 */
 
   /* USER CODE END 1 */
 
   /* MPU Configuration--------------------------------------------------------*/
-  MPU_Config();
-/* Enable the CPU Cache */
+//  MPU_Config();
+
+  /* Enable the CPU Cache */
 
   /* Enable I-Cache---------------------------------------------------------*/
   SCB_EnableICache();
@@ -292,16 +304,16 @@ int main(void)
   vOdoInit();
   vSpeedoInit();
 
-
-
   if(HAL_TIM_IC_Start_IT(&htim1,TIM_CHANNEL_4)!=HAL_OK)
-      {
-    	  Error_Handler();
-      }
+  {
+	  Error_Handler();
+  }
   if(HAL_TIM_IC_Start_IT(&htim4,TIM_CHANNEL_4)!=HAL_OK)
-      {
-    	  Error_Handler();
-      }
+  {
+	  Error_Handler();
+  }
+
+
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -363,6 +375,7 @@ int main(void)
   osKernelStart();
 
   /* We should never get here as control is now taken by the scheduler */
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
@@ -722,7 +735,7 @@ static void MX_OCTOSPI2_Init(void)
 {
 
   /* USER CODE BEGIN OCTOSPI2_Init 0 */
-  BSP_OSPI_RAM_Init_t ospi_ram_init;
+//  BSP_OSPI_RAM_Init_t ospi_ram_init;
   /* USER CODE END OCTOSPI2_Init 0 */
 
   OSPIM_CfgTypeDef sOspiManagerCfg = {0};
@@ -1179,7 +1192,175 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void Disp_imgDataHyperRAM_Init(void)
+{
+	memcpy(ucImage_image_HypRam,image_image_const,(32640*12));
+	if(memcmp(image_image_const,ucImage_image_HypRam,(32640*12))!=0)
+	{
+		printf("ucImage_image_HypRam,Verification Failed\n\r");
+	}
+	else
+	{
+		printf("ucImage_image_HypRam,Verification Passed\n\r");
+	}
 
+	memcpy(ucImage_fuel_red_HypRAM,image_fuel_red_const,(160*12));
+	if(memcmp(image_fuel_red_const,ucImage_fuel_red_HypRAM,(160*12))!=0)
+	{
+		printf("ucImage_fuel_red_HypRAM, Verification Failed\n\r");
+	}
+	else
+	{
+		printf("ucImage_fuel_red_HypRAM, Verification Passed\n\r");
+	}
+
+
+
+}
+#if 0
+void Disp_imgDataHyperRAM_Init(void)
+{
+	uint8_t ucTxData[4]={0};
+	uint8_t ucReadData[4]={0};
+	BSP_OSPI_NOR_Init_t ospiInit;
+	BSP_OSPI_RAM_Init_t OspiRamInit;
+
+	/*Initialize OSPI NOR Flash*/
+	ospiInit.InterfaceMode = BSP_OSPI_NOR_OPI_MODE;  // or BSP_OSPI_NOR_OPI_MODE for Octal SPI
+	ospiInit.TransferRate = BSP_OSPI_NOR_DTR_TRANSFER;  // or BSP_OSPI_NOR_DTR_TRANSFER for Double Transfer Rate
+
+	OspiRamInit.BurstLength = BSP_OSPI_RAM_BURST_32_BYTES;
+	OspiRamInit.BurstType = BSP_OSPI_RAM_LINEAR_BURST;
+	OspiRamInit.LatencyType = BSP_OSPI_RAM_FIXED_LATENCY;
+
+	// image_fuel_red - 1,920
+	// image_image - 3,91,680
+	uint32_t Tot_ImgDataSize = (uint32_t)(1920 + 391680 );
+
+	// TouchGFX_Framebuffer - 97920
+	// Video_RGB_Buffer - 97920
+	uint32_t ulRamFrameBuffOffset = (uint32_t) (97920*2);
+
+#if 0
+	/**Disable or Deinit the Memory Mapped mode*/
+	if(BSP_OSPI_NOR_DisableMemoryMappedMode(0) !=BSP_ERROR_NONE)
+	{
+		printf("BSP_OSPI_NOR_DisableMemoryMappedMode:Fail \n\r");
+	}
+
+	if(BSP_OSPI_RAM_DisableMemoryMappedMode(0) != BSP_ERROR_NONE)
+	{
+		printf("BSP_OSPI_RAM_DisableMemoryMappedMode:Fail \n\r");
+	}
+#endif
+	/* De-initialize OSPI NOR Flash */
+	if ( BSP_ERROR_NONE !=BSP_OSPI_NOR_DeInit(0))
+	{
+		printf("BSP_OSPI_NOR_DeInit:Fail \n\r");
+	}
+	else
+	{
+		printf("BSP_OSPI_NOR_DeInit:success \n\r");
+	}
+
+	/* De-initialize OSPI HyperRAM */
+	if (BSP_ERROR_NONE !=BSP_OSPI_RAM_DeInit(0))
+	{
+		printf("BSP_OSPI_RAM_DeInit:Fail \n\r");
+	}
+	else
+	{
+		printf("BSP_OSPI_RAM_DeInit:success \n\r");
+	}
+
+	/* Initialize OSPI NOR Flash */
+	if ( BSP_ERROR_NONE != BSP_OSPI_NOR_Init(0, &ospiInit))
+	{
+		printf("BSP_OSPI_NOR_Init:Fail \n\r");
+	}
+	else
+	{
+		printf("BSP_OSPI_NOR_Init:success \n\r");
+	}
+
+	/* Read the current status of the OSPI memory */
+	if ( BSP_ERROR_NONE != BSP_OSPI_NOR_GetStatus(0))
+	{
+		printf("BSP_OSPI_NOR_GetStatus:Fail \n\r");
+	}
+	else
+	{
+		printf("BSP_OSPI_NOR_GetStatus:success \n\r");
+	}
+
+	/* Initialize OSPI Hyper RAM */
+	if ( BSP_ERROR_NONE != BSP_OSPI_RAM_Init( 0, &OspiRamInit))
+	{
+		printf("BSP_OSPI_RAM_Init:Fail \n\r");
+	}
+	else
+	{
+		printf("BSP_OSPI_RAM_Init:success \n\r");
+	}
+
+	for(uint32_t ulLoopCounter = 0,ulNoOfLoops=0; ulLoopCounter < Tot_ImgDataSize ; (ulLoopCounter  += 4),ulNoOfLoops++ )
+	{
+		if (BSP_ERROR_NONE != BSP_OSPI_NOR_Read(0, (uint8_t*) ucTxData, ulLoopCounter , 4))
+		{
+			printf("BSP_OSPI_NOR_Read:Fail \n\r");
+		}
+		else
+		{
+			// printf("BSP_OSPI_NOR_Read:success \n\r");
+			if(BSP_ERROR_NONE != BSP_OSPI_RAM_Write(0, (uint8_t*) ucTxData  , ulLoopCounter+ ulRamFrameBuffOffset , 4))
+			{
+				printf("BSP_OSPI_RAM_Write:Fail ,%ld \n\r",ulLoopCounter);
+			}
+			else
+			{
+				// printf("%ld \n\r",ulNoOfLoops);
+				if(BSP_ERROR_NONE != BSP_OSPI_RAM_Read(0, (uint8_t*) ucReadData  , ulLoopCounter+ ulRamFrameBuffOffset , 4))
+				{
+					printf("BSP_OSPI_RAM_Write:Fail ,%ld \n\r",ulLoopCounter);
+				}
+				else
+				{
+	                // Verification
+	                if (memcmp((uint8_t*)ucTxData, (uint8_t*)ucReadData, 4) != 0)
+	                {
+	                    //printf("Verification failed at loop %ld\n\r", ulNoOfLoops);
+	                }
+	                else
+	                {
+	                	printf("%ld \n\r",ulNoOfLoops);
+	                    //printf("Verification passed at loop %ld\n\r", ulNoOfLoops);
+	                }
+
+				}
+			}
+		}
+	}
+
+	if ( BSP_ERROR_NONE !=BSP_OSPI_NOR_DeInit(0))
+	{
+		printf("BSP_OSPI_NOR_DeInit:Fail \n\r");
+	}
+	else
+	{
+		printf("BSP_OSPI_NOR_DeInit:success \n\r");
+	}
+
+	/* De-initialize OSPI HyperRAM */
+	if (BSP_ERROR_NONE !=BSP_OSPI_RAM_DeInit(0))
+	{
+		printf("BSP_OSPI_RAM_DeInit:Fail \n\r");
+	}
+	else
+	{
+		printf("BSP_OSPI_RAM_DeInit:success \n\r");
+	}
+}
+#endif
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -1237,13 +1418,14 @@ void WDG_SRVC_Task(void *argument)
 void DigitalDebounce_Task(void *argument)
 {
   /* USER CODE BEGIN DigitalDebounce_Task */
-	vEEpromDemoFunc();
+	Disp_imgDataHyperRAM_Init();
+
   /* Infinite loop */
   for(;;)
   {
 	DebounceTask();
 	//get_debounce_status();
-    osDelay(4);
+	osDelay(4);
   }
   /* USER CODE END DigitalDebounce_Task */
 }
@@ -1325,7 +1507,7 @@ void Tacho_Task(void *argument)
   /* USER CODE END Tacho_Task */
 }
 
-/* MPU Configuration */
+ /* MPU Configuration */
 
 void MPU_Config(void)
 {
@@ -1347,6 +1529,36 @@ void MPU_Config(void)
   MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
   MPU_InitStruct.IsCacheable = MPU_ACCESS_NOT_CACHEABLE;
   MPU_InitStruct.IsBufferable = MPU_ACCESS_NOT_BUFFERABLE;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+
+  /* Configure the MPU attributes as WT for OCTOSPI1 */
+  MPU_InitStruct.Enable = MPU_REGION_ENABLE;
+  MPU_InitStruct.BaseAddress = OCTOSPI1_BASE;
+  MPU_InitStruct.Size = MPU_REGION_SIZE_64MB;
+  MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+  MPU_InitStruct.IsBufferable = MPU_ACCESS_BUFFERABLE;
+  MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
+  MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
+  MPU_InitStruct.Number = MPU_REGION_NUMBER1;
+  MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL1;
+  MPU_InitStruct.SubRegionDisable = 0x00;
+  MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+
+  /* Configure the MPU attributes as WT for OCTOSPI2 */
+  MPU_InitStruct.Enable = MPU_REGION_ENABLE;
+  MPU_InitStruct.BaseAddress = OCTOSPI2_BASE;
+  MPU_InitStruct.Size = MPU_REGION_SIZE_64MB;
+  MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+  MPU_InitStruct.IsBufferable = MPU_ACCESS_BUFFERABLE;
+  MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
+  MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
+  MPU_InitStruct.Number = MPU_REGION_NUMBER1;
+  MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL1;
+  MPU_InitStruct.SubRegionDisable = 0x00;
+  MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
 
   HAL_MPU_ConfigRegion(&MPU_InitStruct);
   /* Enables the MPU */
