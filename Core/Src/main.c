@@ -225,9 +225,7 @@ void Tacho_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
 static uint32_t TimeoutCalculation(uint32_t timevalue);
-
-void ospi_HypRAM_init(void);
-void ospi_NORFlash_init(void);
+extern void vEE_Demo(void);
 void Disp_imgDataHyperRAM_Init(void);
 /* USER CODE END PFP */
 
@@ -1419,7 +1417,7 @@ void DigitalDebounce_Task(void *argument)
 {
   /* USER CODE BEGIN DigitalDebounce_Task */
 	Disp_imgDataHyperRAM_Init();
-
+//	vEE_Demo();
   /* Infinite loop */
   for(;;)
   {

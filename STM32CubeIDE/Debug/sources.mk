@@ -44,8 +44,11 @@ Application/User/Core/src/App/Odometer_App \
 Application/User/Core/src/App/Odometer_App_test \
 Application/User/Core/src/App/Speedometer_App \
 Application/User/Core/src/App/Tachometer_App \
+Application/User/Core/src/App/eeprom_emul_Demo_App \
 Application/User/Core/src/Service/IO_HAL/DigitalDebounce \
 Application/User/Core/src/Service/IO_HAL/ICU_middleware \
+Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation \
+Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface \
 Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp \
 Application/User/Core/src/Service/System_Service/IgnitionManager \
 Application/User/Core/src/Service/System_Service/checksum \

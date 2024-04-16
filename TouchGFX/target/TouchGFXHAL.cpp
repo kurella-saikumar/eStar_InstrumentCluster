@@ -29,14 +29,20 @@
 #include "task.h"
 
 using namespace touchgfx;
-
+#if 0
 LOCATION_PRAGMA_NOLOAD("TouchGFX_Framebuffer")
 unsigned char ucImage_image_HypRam[(32640*12)] LOCATION_ATTRIBUTE_NOLOAD("TouchGFX_Framebuffer");
 
 
 LOCATION_PRAGMA_NOLOAD("TouchGFX_Framebuffer")
 unsigned char ucImage_fuel_red_HypRAM[(160*12)] LOCATION_ATTRIBUTE_NOLOAD("TouchGFX_Framebuffer");
+#else
+LOCATION_PRAGMA_NOLOAD("image_fuel_red_buf")
+unsigned char ucImage_fuel_red_HypRAM[(160*12)] LOCATION_ATTRIBUTE_NOLOAD("image_fuel_red_buf");
 
+LOCATION_PRAGMA_NOLOAD("image_image_buf")
+unsigned char ucImage_image_HypRam[(32640*12)] LOCATION_ATTRIBUTE_NOLOAD("image_image_buf");
+#endif
 namespace
 {
 LOCATION_PRAGMA_NOLOAD("TouchGFX_Framebuffer")
