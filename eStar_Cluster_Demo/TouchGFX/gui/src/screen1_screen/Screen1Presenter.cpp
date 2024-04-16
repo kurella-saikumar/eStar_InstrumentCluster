@@ -23,6 +23,12 @@ void Screen1Presenter::notifyCounterChanged(uint16_t newCounter)
 	view.UpdateCount(newCounter);
 	view.KMPHtoMPH(newCounter);
 	view.FuelGauageAnimation(newCounter);
+
+}
+
+void Screen1Presenter::notifyOdoDataChanged(uint16_t newodoData)
+{
+	view.OdoDataUpdate(newodoData);
 }
 #if 0
 void Screen1Presenter::notifyFuelCounter(int newFuelCount)

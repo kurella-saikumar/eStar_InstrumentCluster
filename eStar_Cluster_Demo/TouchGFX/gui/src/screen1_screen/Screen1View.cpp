@@ -94,7 +94,13 @@ void Screen1View::KMPHtoMPH(int newCounter)
 		KMPH_MPH.invalidate();
 	}
 }
+void Screen1View::OdoDataUpdate(uint16_t newodoData)
+{
+	Unicode::snprintf(ODOReadingsBuffer, ODOREADINGS_SIZE, "%u", newodoData);
 
+	// Set the text of the ODOReadings widget to display the updated odometer value
+	ODOReadings.invalidate();
+}
 
 void Screen1View::FuelGauageAnimation(int newCounter)
 {

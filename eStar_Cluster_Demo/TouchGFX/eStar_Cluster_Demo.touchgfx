@@ -329,7 +329,9 @@
             },
             "AutoSize": true,
             "Wildcard1": {
-              "TextId": "__SingleUse_1I4V"
+              "TextId": "__SingleUse_1I4V",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {

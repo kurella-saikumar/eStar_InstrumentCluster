@@ -17,6 +17,7 @@ public:
     virtual void FuelbarWarningIcon(int newCounter);
     virtual void KMPHtoMPH(int newCounter);
     virtual void FuelGauageAnimation(int newCounter);
+    virtual void OdoDataUpdate(uint16_t newodoData);
 protected:
     touchgfx::BitmapId barImageIds[10];
     uint16_t newCounter;

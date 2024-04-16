@@ -16,6 +16,7 @@ public:
     }
 
     virtual void notifyCounterChanged (uint16_t counter) {};
+    virtual void notifyOdoDataChanged(uint16_t odometer){};
     //virtual void notifyFuelCounter(int FuelCounter){};
 
 protected:
