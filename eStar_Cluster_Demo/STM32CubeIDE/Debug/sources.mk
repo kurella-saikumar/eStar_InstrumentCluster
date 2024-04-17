@@ -40,6 +40,7 @@ CPP_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Application/User/Core \
+Application/User/Core/src/App/CAN_App \
 Application/User/Core/src/App/Clock_App \
 Application/User/Core/src/App/DriverInfoApplication \
 Application/User/Core/src/App/FuelGuage \
