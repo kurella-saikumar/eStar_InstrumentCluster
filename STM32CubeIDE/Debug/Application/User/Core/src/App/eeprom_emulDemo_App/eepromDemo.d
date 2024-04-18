@@ -1,5 +1,5 @@
-Application/User/Core/src/App/eeprom_emul_Demo_App/eepromDemo.o: \
- ../Application/User/Core/src/App/eeprom_emul_Demo_App/eepromDemo.c \
+Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o: \
+ ../Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.c \
  ../../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \

@@ -1,3 +1,0 @@
-../Application/User/Core/src/App/eeprom_emul_Demo_App/eepromDemo.c:228:10:xES_WriteVariable	2
-../Application/User/Core/src/App/eeprom_emul_Demo_App/eepromDemo.c:249:10:vShadowRAM_Init	4
-../Application/User/Core/src/App/eeprom_emul_Demo_App/eepromDemo.c:142:6:vEE_Demo	9

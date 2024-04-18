@@ -9,7 +9,7 @@
 "./Application/User/Core/src/App/Odometer_App_test/Odometer_App_Test.o"
 "./Application/User/Core/src/App/Speedometer_App/speedometer_App.o"
 "./Application/User/Core/src/App/Tachometer_App/Tachometer_App.o"
-"./Application/User/Core/src/App/eeprom_emul_Demo_App/eepromDemo.o"
+"./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o"
 "./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o"
 "./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o"
 "./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o"

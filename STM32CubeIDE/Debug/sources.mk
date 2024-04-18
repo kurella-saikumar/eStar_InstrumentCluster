@@ -44,7 +44,7 @@ Application/User/Core/src/App/Odometer_App \
 Application/User/Core/src/App/Odometer_App_test \
 Application/User/Core/src/App/Speedometer_App \
 Application/User/Core/src/App/Tachometer_App \
-Application/User/Core/src/App/eeprom_emul_Demo_App \
+Application/User/Core/src/App/eeprom_emulDemo_App \
 Application/User/Core/src/Service/IO_HAL/DigitalDebounce \
 Application/User/Core/src/Service/IO_HAL/ICU_middleware \
 Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation \

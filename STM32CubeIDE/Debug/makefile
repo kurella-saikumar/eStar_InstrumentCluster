@@ -30,7 +30,7 @@ RM := rm -rf
 -include Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/ICU_middleware/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/DigitalDebounce/subdir.mk
--include Application/User/Core/src/App/eeprom_emul_Demo_App/subdir.mk
+-include Application/User/Core/src/App/eeprom_emulDemo_App/subdir.mk
 -include Application/User/Core/src/App/Tachometer_App/subdir.mk
 -include Application/User/Core/src/App/Speedometer_App/subdir.mk
 -include Application/User/Core/src/App/Odometer_App_test/subdir.mk

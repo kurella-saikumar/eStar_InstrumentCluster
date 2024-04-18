@@ -124,7 +124,7 @@ const osThreadAttr_t WatchdogService_attributes = {
 };
 /* Definitions for DigitalDebounce */
 osThreadId_t DigitalDebounceHandle;
-uint32_t DigitalDebounceBuffer[ 128 ];
+uint32_t DigitalDebounceBuffer[ 4096*2 ];
 osStaticThreadDef_t DigitalDebounceControlBlock;
 const osThreadAttr_t DigitalDebounce_attributes = {
   .name = "DigitalDebounce",
@@ -285,8 +285,8 @@ int main(void)
   MX_CRC_Init();
   MX_DMA2D_Init();
   MX_LTDC_Init();
-  MX_OCTOSPI1_Init();
-  MX_OCTOSPI2_Init();
+//  MX_OCTOSPI1_Init();
+//  MX_OCTOSPI2_Init();
   MX_LIBJPEG_Init();
   MX_TIM1_Init();
   MX_TIM4_Init();
@@ -294,13 +294,14 @@ int main(void)
   MX_RTC_Init();
   MX_WWDG1_Init();
   MX_USART3_UART_Init();
-  MX_TouchGFX_Init();
+//  MX_TouchGFX_Init();
   /* Call PreOsInit function */
-  MX_TouchGFX_PreOSInit();
+//  MX_TouchGFX_PreOSInit();
   /* USER CODE BEGIN 2 */
   State_Manager_init();
   vOdoInit();
   vSpeedoInit();
+//  Disp_imgDataHyperRAM_Init();
 
   if(HAL_TIM_IC_Start_IT(&htim1,TIM_CHANNEL_4)!=HAL_OK)
   {
@@ -338,10 +339,10 @@ int main(void)
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* creation of TouchGFXTask */
-  TouchGFXTaskHandle = osThreadNew(TouchGFX_Task, NULL, &TouchGFXTask_attributes);
+//  TouchGFXTaskHandle = osThreadNew(TouchGFX_Task, NULL, &TouchGFXTask_attributes);
 
   /* creation of videoTask */
-  videoTaskHandle = osThreadNew(videoTaskFunc, NULL, &videoTask_attributes);
+//  videoTaskHandle = osThreadNew(videoTaskFunc, NULL, &videoTask_attributes);
 
   /* creation of WatchdogService */
   WatchdogServiceHandle = osThreadNew(WDG_SRVC_Task, NULL, &WatchdogService_attributes);
@@ -1192,6 +1193,8 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 void Disp_imgDataHyperRAM_Init(void)
 {
+	memset(ucImage_image_HypRam,0,(32640*12));
+	memset(ucImage_fuel_red_HypRAM,0,(160*12));
 	memcpy(ucImage_image_HypRam,image_image_const,(32640*12));
 	if(memcmp(image_image_const,ucImage_image_HypRam,(32640*12))!=0)
 	{
@@ -1211,154 +1214,7 @@ void Disp_imgDataHyperRAM_Init(void)
 	{
 		printf("ucImage_fuel_red_HypRAM, Verification Passed\n\r");
 	}
-
-
-
 }
-#if 0
-void Disp_imgDataHyperRAM_Init(void)
-{
-	uint8_t ucTxData[4]={0};
-	uint8_t ucReadData[4]={0};
-	BSP_OSPI_NOR_Init_t ospiInit;
-	BSP_OSPI_RAM_Init_t OspiRamInit;
-
-	/*Initialize OSPI NOR Flash*/
-	ospiInit.InterfaceMode = BSP_OSPI_NOR_OPI_MODE;  // or BSP_OSPI_NOR_OPI_MODE for Octal SPI
-	ospiInit.TransferRate = BSP_OSPI_NOR_DTR_TRANSFER;  // or BSP_OSPI_NOR_DTR_TRANSFER for Double Transfer Rate
-
-	OspiRamInit.BurstLength = BSP_OSPI_RAM_BURST_32_BYTES;
-	OspiRamInit.BurstType = BSP_OSPI_RAM_LINEAR_BURST;
-	OspiRamInit.LatencyType = BSP_OSPI_RAM_FIXED_LATENCY;
-
-	// image_fuel_red - 1,920
-	// image_image - 3,91,680
-	uint32_t Tot_ImgDataSize = (uint32_t)(1920 + 391680 );
-
-	// TouchGFX_Framebuffer - 97920
-	// Video_RGB_Buffer - 97920
-	uint32_t ulRamFrameBuffOffset = (uint32_t) (97920*2);
-
-#if 0
-	/**Disable or Deinit the Memory Mapped mode*/
-	if(BSP_OSPI_NOR_DisableMemoryMappedMode(0) !=BSP_ERROR_NONE)
-	{
-		printf("BSP_OSPI_NOR_DisableMemoryMappedMode:Fail \n\r");
-	}
-
-	if(BSP_OSPI_RAM_DisableMemoryMappedMode(0) != BSP_ERROR_NONE)
-	{
-		printf("BSP_OSPI_RAM_DisableMemoryMappedMode:Fail \n\r");
-	}
-#endif
-	/* De-initialize OSPI NOR Flash */
-	if ( BSP_ERROR_NONE !=BSP_OSPI_NOR_DeInit(0))
-	{
-		printf("BSP_OSPI_NOR_DeInit:Fail \n\r");
-	}
-	else
-	{
-		printf("BSP_OSPI_NOR_DeInit:success \n\r");
-	}
-
-	/* De-initialize OSPI HyperRAM */
-	if (BSP_ERROR_NONE !=BSP_OSPI_RAM_DeInit(0))
-	{
-		printf("BSP_OSPI_RAM_DeInit:Fail \n\r");
-	}
-	else
-	{
-		printf("BSP_OSPI_RAM_DeInit:success \n\r");
-	}
-
-	/* Initialize OSPI NOR Flash */
-	if ( BSP_ERROR_NONE != BSP_OSPI_NOR_Init(0, &ospiInit))
-	{
-		printf("BSP_OSPI_NOR_Init:Fail \n\r");
-	}
-	else
-	{
-		printf("BSP_OSPI_NOR_Init:success \n\r");
-	}
-
-	/* Read the current status of the OSPI memory */
-	if ( BSP_ERROR_NONE != BSP_OSPI_NOR_GetStatus(0))
-	{
-		printf("BSP_OSPI_NOR_GetStatus:Fail \n\r");
-	}
-	else
-	{
-		printf("BSP_OSPI_NOR_GetStatus:success \n\r");
-	}
-
-	/* Initialize OSPI Hyper RAM */
-	if ( BSP_ERROR_NONE != BSP_OSPI_RAM_Init( 0, &OspiRamInit))
-	{
-		printf("BSP_OSPI_RAM_Init:Fail \n\r");
-	}
-	else
-	{
-		printf("BSP_OSPI_RAM_Init:success \n\r");
-	}
-
-	for(uint32_t ulLoopCounter = 0,ulNoOfLoops=0; ulLoopCounter < Tot_ImgDataSize ; (ulLoopCounter  += 4),ulNoOfLoops++ )
-	{
-		if (BSP_ERROR_NONE != BSP_OSPI_NOR_Read(0, (uint8_t*) ucTxData, ulLoopCounter , 4))
-		{
-			printf("BSP_OSPI_NOR_Read:Fail \n\r");
-		}
-		else
-		{
-			// printf("BSP_OSPI_NOR_Read:success \n\r");
-			if(BSP_ERROR_NONE != BSP_OSPI_RAM_Write(0, (uint8_t*) ucTxData  , ulLoopCounter+ ulRamFrameBuffOffset , 4))
-			{
-				printf("BSP_OSPI_RAM_Write:Fail ,%ld \n\r",ulLoopCounter);
-			}
-			else
-			{
-				// printf("%ld \n\r",ulNoOfLoops);
-				if(BSP_ERROR_NONE != BSP_OSPI_RAM_Read(0, (uint8_t*) ucReadData  , ulLoopCounter+ ulRamFrameBuffOffset , 4))
-				{
-					printf("BSP_OSPI_RAM_Write:Fail ,%ld \n\r",ulLoopCounter);
-				}
-				else
-				{
-	                // Verification
-	                if (memcmp((uint8_t*)ucTxData, (uint8_t*)ucReadData, 4) != 0)
-	                {
-	                    //printf("Verification failed at loop %ld\n\r", ulNoOfLoops);
-	                }
-	                else
-	                {
-	                	printf("%ld \n\r",ulNoOfLoops);
-	                    //printf("Verification passed at loop %ld\n\r", ulNoOfLoops);
-	                }
-
-				}
-			}
-		}
-	}
-
-	if ( BSP_ERROR_NONE !=BSP_OSPI_NOR_DeInit(0))
-	{
-		printf("BSP_OSPI_NOR_DeInit:Fail \n\r");
-	}
-	else
-	{
-		printf("BSP_OSPI_NOR_DeInit:success \n\r");
-	}
-
-	/* De-initialize OSPI HyperRAM */
-	if (BSP_ERROR_NONE !=BSP_OSPI_RAM_DeInit(0))
-	{
-		printf("BSP_OSPI_RAM_DeInit:Fail \n\r");
-	}
-	else
-	{
-		printf("BSP_OSPI_RAM_DeInit:success \n\r");
-	}
-}
-#endif
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -1416,8 +1272,8 @@ void WDG_SRVC_Task(void *argument)
 void DigitalDebounce_Task(void *argument)
 {
   /* USER CODE BEGIN DigitalDebounce_Task */
-	Disp_imgDataHyperRAM_Init();
-//	vEE_Demo();
+//	Disp_imgDataHyperRAM_Init();
+	vEE_Demo();
   /* Infinite loop */
   for(;;)
   {
