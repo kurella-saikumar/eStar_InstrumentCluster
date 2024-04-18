@@ -22,6 +22,8 @@
 #include "cmsis_os.h"
 #include "libjpeg.h"
 #include "app_touchgfx.h"
+#include "stdint.h"
+#include "stdio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -41,6 +43,8 @@
 #include "SwitchInf.h"
 #include "clock_App.h"
 #include "CAN_App.h"
+#include "Indicator_App.h"
+
 
 /* USER CODE END Includes */
 
@@ -254,6 +258,18 @@ const osThreadAttr_t CAN_AppTask_attributes = {
   .stack_size = sizeof(CAN_AppTaskBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for IndicatorApp */
+osThreadId_t IndicatorAppHandle;
+uint32_t IndicatorAppBuffer[ 128 ];
+osStaticThreadDef_t IndicatorAppControlBlock;
+const osThreadAttr_t IndicatorApp_attributes = {
+  .name = "IndicatorApp",
+  .cb_mem = &IndicatorAppControlBlock,
+  .cb_size = sizeof(IndicatorAppControlBlock),
+  .stack_mem = &IndicatorAppBuffer[0],
+  .stack_size = sizeof(IndicatorAppBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* USER CODE BEGIN PV */
 /**
   * @brief  Retargets the C library printf function to the USART.
@@ -303,6 +319,7 @@ void Tacho_Task(void *argument);
 void SwitchHandlerTask(void *argument);
 void GetClockTask(void *argument);
 void CAN_Task(void *argument);
+void IndicatorApp_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -384,6 +401,7 @@ int main(void)
   clock_Init();
   vFuelGuageTaskInit();
   VCAN_Init();
+  vIndicatorsInit();
 
   if(HAL_TIM_IC_Start_IT(&htim1,TIM_CHANNEL_4)!=HAL_OK)
   {
@@ -456,6 +474,9 @@ int main(void)
 
   /* creation of CAN_AppTask */
   CAN_AppTaskHandle = osThreadNew(CAN_Task, NULL, &CAN_AppTask_attributes);
+
+  /* creation of IndicatorApp */
+  IndicatorAppHandle = osThreadNew(IndicatorApp_Task, NULL, &IndicatorApp_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1122,10 +1143,10 @@ static void MX_RTC_Init(void)
 
   /** Enable the WakeUp
   */
-//  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
-//  {
-//    Error_Handler();
-//  }
+  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+  {
+    Error_Handler();
+  }
   /* USER CODE BEGIN RTC_Init 2 */
   if(HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR0) != 0x32F2)
   {
@@ -1633,7 +1654,7 @@ void Odo_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  vOdoAlgorithm();
+	 vOdoAlgorithm();
     osDelay(5000);
   }
   /* USER CODE END Odo_Task */
@@ -1736,6 +1757,30 @@ void CAN_Task(void *argument)
     osDelay(100);
   }
   /* USER CODE END CAN_Task */
+}
+
+/* USER CODE BEGIN Header_IndicatorApp_Task */
+/**
+* @brief Function implementing the IndicatorApp thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_IndicatorApp_Task */
+void IndicatorApp_Task(void *argument)
+{
+  /* USER CODE BEGIN IndicatorApp_Task */
+	uint32_t  indicator = 0;
+  /* Infinite loop */
+  for(;;)
+  {
+	vIndicator_App_Task();
+	indicator = xGetIndicatorstatus();
+	printf("indicator=%lu\r\n",indicator);
+	printf("indicator_hexa=%lX\r\n",indicator);
+    osDelay(50);
+
+  }
+  /* USER CODE END IndicatorApp_Task */
 }
 
  /* MPU Configuration */

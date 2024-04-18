@@ -9,6 +9,7 @@
 "./Application/User/Core/src/App/Clock_App/clock_App.o"
 "./Application/User/Core/src/App/DriverInfoApplication/DriverInfoMenu_App.o"
 "./Application/User/Core/src/App/FuelGuage/FuelGuage_App.o"
+"./Application/User/Core/src/App/Indicator_App/Indicator_App.o"
 "./Application/User/Core/src/App/Odometer_App/Odometer_App.o"
 "./Application/User/Core/src/App/Speedometer_App/speedometer_App.o"
 "./Application/User/Core/src/App/Tachometer_App/Tachometer_App.o"
