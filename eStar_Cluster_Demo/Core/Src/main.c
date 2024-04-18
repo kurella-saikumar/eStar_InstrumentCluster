@@ -40,6 +40,8 @@
 #include "SwitchHandler_App.h"
 #include "SwitchInf.h"
 #include "clock_App.h"
+#include "CAN_App.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -72,6 +74,8 @@ ADC_HandleTypeDef hadc3;
 CRC_HandleTypeDef hcrc;
 
 DMA2D_HandleTypeDef hdma2d;
+
+FDCAN_HandleTypeDef hfdcan3;
 
 IWDG_HandleTypeDef hiwdg1;
 
@@ -238,6 +242,18 @@ const osThreadAttr_t GetClock_attributes = {
   .stack_size = sizeof(GetClockBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for CAN_AppTask */
+osThreadId_t CAN_AppTaskHandle;
+uint32_t CAN_AppTaskBuffer[ 128 ];
+osStaticThreadDef_t CAN_AppTaskControlBlock;
+const osThreadAttr_t CAN_AppTask_attributes = {
+  .name = "CAN_AppTask",
+  .cb_mem = &CAN_AppTaskControlBlock,
+  .cb_size = sizeof(CAN_AppTaskControlBlock),
+  .stack_mem = &CAN_AppTaskBuffer[0],
+  .stack_size = sizeof(CAN_AppTaskBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* USER CODE BEGIN PV */
 /**
   * @brief  Retargets the C library printf function to the USART.
@@ -272,6 +288,7 @@ static void MX_RTC_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_IWDG1_Init(void);
 static void MX_ADC3_Init(void);
+static void MX_FDCAN3_Init(void);
 void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
 extern void videoTaskFunc(void *argument);
@@ -285,6 +302,7 @@ void Speedo_Task(void *argument);
 void Tacho_Task(void *argument);
 void SwitchHandlerTask(void *argument);
 void GetClockTask(void *argument);
+void CAN_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -354,6 +372,7 @@ int main(void)
   MX_USART3_UART_Init();
   MX_IWDG1_Init();
   MX_ADC3_Init();
+  MX_FDCAN3_Init();
   MX_TouchGFX_Init();
   /* Call PreOsInit function */
   MX_TouchGFX_PreOSInit();
@@ -364,6 +383,7 @@ int main(void)
   vSpeedoInit();
   clock_Init();
   vFuelGuageTaskInit();
+  VCAN_Init();
 
   if(HAL_TIM_IC_Start_IT(&htim1,TIM_CHANNEL_4)!=HAL_OK)
   {
@@ -434,6 +454,9 @@ int main(void)
   /* creation of GetClock */
   GetClockHandle = osThreadNew(GetClockTask, NULL, &GetClock_attributes);
 
+  /* creation of CAN_AppTask */
+  CAN_AppTaskHandle = osThreadNew(CAN_Task, NULL, &CAN_AppTask_attributes);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -495,7 +518,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLM = 2;
   RCC_OscInitStruct.PLL.PLLN = 44;
   RCC_OscInitStruct.PLL.PLLP = 1;
-  RCC_OscInitStruct.PLL.PLLQ = 2;
+  RCC_OscInitStruct.PLL.PLLQ = 68;
   RCC_OscInitStruct.PLL.PLLR = 2;
   RCC_OscInitStruct.PLL.PLLRGE = RCC_PLL1VCIRANGE_3;
   RCC_OscInitStruct.PLL.PLLVCOSEL = RCC_PLL1VCOWIDE;
@@ -747,6 +770,59 @@ static void MX_DMA2D_Init(void)
   /* USER CODE BEGIN DMA2D_Init 2 */
 
   /* USER CODE END DMA2D_Init 2 */
+
+}
+
+/**
+  * @brief FDCAN3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_FDCAN3_Init(void)
+{
+
+  /* USER CODE BEGIN FDCAN3_Init 0 */
+
+  /* USER CODE END FDCAN3_Init 0 */
+
+  /* USER CODE BEGIN FDCAN3_Init 1 */
+
+  /* USER CODE END FDCAN3_Init 1 */
+  hfdcan3.Instance = FDCAN3;
+  hfdcan3.Init.FrameFormat = FDCAN_FRAME_CLASSIC;
+  hfdcan3.Init.Mode = FDCAN_MODE_NORMAL;
+  hfdcan3.Init.AutoRetransmission = ENABLE;
+  hfdcan3.Init.TransmitPause = DISABLE;
+  hfdcan3.Init.ProtocolException = DISABLE;
+  hfdcan3.Init.NominalPrescaler = 2;
+  hfdcan3.Init.NominalSyncJumpWidth = 0x8;
+  hfdcan3.Init.NominalTimeSeg1 = 13;
+  hfdcan3.Init.NominalTimeSeg2 = 2;
+  hfdcan3.Init.DataPrescaler = 1;
+  hfdcan3.Init.DataSyncJumpWidth = 1;
+  hfdcan3.Init.DataTimeSeg1 = 0x1F;
+  hfdcan3.Init.DataTimeSeg2 = 0x8;
+  hfdcan3.Init.MessageRAMOffset = 0;
+  hfdcan3.Init.StdFiltersNbr = 1;
+  hfdcan3.Init.ExtFiltersNbr = 1;
+  hfdcan3.Init.RxFifo0ElmtsNbr = 1;
+  hfdcan3.Init.RxFifo0ElmtSize = FDCAN_DATA_BYTES_8;
+  hfdcan3.Init.RxFifo1ElmtsNbr = 1;
+  hfdcan3.Init.RxFifo1ElmtSize = FDCAN_DATA_BYTES_8;
+  hfdcan3.Init.RxBuffersNbr = 1;
+  hfdcan3.Init.RxBufferSize = FDCAN_DATA_BYTES_8;
+  hfdcan3.Init.TxEventsNbr = 1;
+  hfdcan3.Init.TxBuffersNbr = 1;
+  hfdcan3.Init.TxFifoQueueElmtsNbr = 2;
+  hfdcan3.Init.TxFifoQueueMode = FDCAN_TX_FIFO_OPERATION;
+  hfdcan3.Init.TxElmtSize = FDCAN_DATA_BYTES_8;
+  if (HAL_FDCAN_Init(&hfdcan3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN FDCAN3_Init 2 */
+
+  /* USER CODE END FDCAN3_Init 2 */
 
 }
 
@@ -1289,14 +1365,6 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(EXTI_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : PF6 */
-  GPIO_InitStruct.Pin = GPIO_PIN_6;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF2_FDCAN3;
-  HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
-
   /*Configure GPIO pin : RENDER_TIME_Pin */
   GPIO_InitStruct.Pin = RENDER_TIME_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -1648,6 +1716,26 @@ void GetClockTask(void *argument)
 	  osDelay(500);
   }
   /* USER CODE END GetClockTask */
+}
+
+/* USER CODE BEGIN Header_CAN_Task */
+/**
+* @brief Function implementing the CAN_AppTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_CAN_Task */
+void CAN_Task(void *argument)
+{
+  /* USER CODE BEGIN CAN_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+	vCANTransmit();
+	vCANReceive();
+    osDelay(100);
+  }
+  /* USER CODE END CAN_Task */
 }
 
  /* MPU Configuration */

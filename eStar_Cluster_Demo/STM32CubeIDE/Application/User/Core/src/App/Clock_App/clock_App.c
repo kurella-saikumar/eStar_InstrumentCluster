@@ -105,8 +105,7 @@ void vGet_Clock(void)
     }
     else
     {
-//    	printf("DT: %02d:%02d \n", xTime.Hours, xTime.Minutes);
-    	printf("%02d:%02d:%02d \n", xTime.Hours, xTime.Minutes, xTime.Seconds);
+    	printf("DT: %02d:%02d \n", xTime.Hours, xTime.Minutes);
     }
     xRes = HAL_RTC_GetDate(&hrtc, &xDate, RTC_FORMAT_BIN);
     if(xRes != HAL_OK)

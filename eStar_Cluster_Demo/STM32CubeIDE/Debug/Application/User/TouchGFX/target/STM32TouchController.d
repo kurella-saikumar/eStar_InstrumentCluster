@@ -1,5 +1,5 @@
 Application/User/TouchGFX/target/STM32TouchController.o: \
- D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/STM32TouchController.cpp \
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/STM32TouchController.cpp \
  ../../TouchGFX/target/STM32TouchController.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/platform/driver/touch/TouchController.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
@@ -31,6 +31,7 @@ Application/User/TouchGFX/target/STM32TouchController.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_fdcan.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h \
@@ -126,6 +127,7 @@ Application/User/TouchGFX/target/STM32TouchController.o: \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_fdcan.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h:

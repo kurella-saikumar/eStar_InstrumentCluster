@@ -1,5 +1,5 @@
 Application/User/Core/stm32h7xx_hal_timebase_tim.o: \
- D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_timebase_tim.c \
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_timebase_tim.c \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -25,6 +25,7 @@ Application/User/Core/stm32h7xx_hal_timebase_tim.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_fdcan.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h \
@@ -69,6 +70,7 @@ Application/User/Core/stm32h7xx_hal_timebase_tim.o: \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_fdcan.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h:

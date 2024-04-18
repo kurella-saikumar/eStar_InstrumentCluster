@@ -1,6 +1,6 @@
 Middlewares/FreeRTOS/cmsis_os2.o: \
- D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c \
- D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.c \
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../../Drivers/CMSIS/Include/cmsis_compiler.h \
  ../../Drivers/CMSIS/Include/cmsis_gcc.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
@@ -17,8 +17,8 @@ Middlewares/FreeRTOS/cmsis_os2.o: \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
- D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/freertos_mpool.h \
- D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/freertos_os2.h \
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/freertos_mpool.h \
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/freertos_os2.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h735xx.h \
  ../../Drivers/CMSIS/Include/core_cm7.h \
@@ -43,6 +43,7 @@ Middlewares/FreeRTOS/cmsis_os2.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_fdcan.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h \
@@ -62,7 +63,7 @@ Middlewares/FreeRTOS/cmsis_os2.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h
-D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
+D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
 ../../Drivers/CMSIS/Include/cmsis_compiler.h:
 ../../Drivers/CMSIS/Include/cmsis_gcc.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
@@ -79,8 +80,8 @@ D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Part
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
-D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/freertos_mpool.h:
-D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/freertos_os2.h:
+D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/freertos_mpool.h:
+D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/freertos_os2.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h735xx.h:
 ../../Drivers/CMSIS/Include/core_cm7.h:
@@ -105,6 +106,7 @@ D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Part
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_fdcan.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h:

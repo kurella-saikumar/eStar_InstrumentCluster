@@ -1,5 +1,5 @@
 Application/User/gui/Model.o: \
- D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp \
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp \
  ../../TouchGFX/gui/include/gui/model/Model.hpp \
  ../../TouchGFX/gui/include/gui/model/ModelListener.hpp \
  ../../Core/Inc/main.h \
@@ -28,6 +28,7 @@ Application/User/gui/Model.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_fdcan.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h \
@@ -75,6 +76,7 @@ Application/User/gui/Model.o: \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_fdcan.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h:

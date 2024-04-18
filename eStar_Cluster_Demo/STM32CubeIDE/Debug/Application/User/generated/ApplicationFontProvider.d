@@ -1,5 +1,5 @@
 Application/User/generated/ApplicationFontProvider.o: \
- D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/fonts/src/ApplicationFontProvider.cpp \
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/fonts/src/ApplicationFontProvider.cpp \
  ../../TouchGFX/generated/fonts/include/fonts/ApplicationFontProvider.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/FontManager.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp \

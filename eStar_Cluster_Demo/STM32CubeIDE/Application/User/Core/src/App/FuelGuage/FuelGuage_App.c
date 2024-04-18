@@ -269,9 +269,9 @@ static uint16_t usSlowFillCount;
  ***************************************************************************************************/
 static uint16_t usNormalFillCount;
 
-static FillType_State_T l_FillType_t;
-static FillType_State_T l_Previous_FillType_t;
-static FillType_State_T l_Current_FillType_t;
+static FillType_State_T xFillType;
+static FillType_State_T xPrevious_FillType;
+static FillType_State_T xCurrent_FillType;
 
 
 extern uint16_t l_count_u16[1];
@@ -345,21 +345,21 @@ void vFuelGuageTask(void)
         case Offline_FillType_Dtcn_State:
         {
         	/**:Perform offline fill type detection process to check the current fill type;*/
-            l_FillType_t = prvOfflineFillTypeDtcnPrcs();
+            xFillType = prvOfflineFillTypeDtcnPrcs();
             /**:Update current fill type;*/
-            l_Current_FillType_t = l_FillType_t;
+            xCurrent_FillType = xFillType;
 #if(FuelApp_TestMacro ==1)
             printf("IGN_ON\n");
 #endif
             /**Check if ignition is ON and fill type detection is over for state transition*/
             if((usIgnitionGetCurrentState() == IgnON_mode) && (ucFillTypeDetctOverFlag==1))
             {
-                 if((l_FillType_t == Normal_fill) || (l_FillType_t == Slow_fill))
+                 if((xFillType == Normal_fill) || (xFillType == Slow_fill))
                 {
                 	/**:Transition to Online_Process_State;*/
                     MainData.Main_state = Online_Process_State;
                     /**: Set sub-state;*/
-                    SubData.Sub_state = l_FillType_t;
+                    SubData.Sub_state = xFillType;
                 }
                 else /*Instantaneous_Update*/ 
                 {
@@ -394,7 +394,7 @@ void vFuelGuageTask(void)
                 case Fast_fill:
                 {
                 	/**check if the Previous_FillType and Current_FillType is not same*/
-                    if(l_Previous_FillType_t != l_Current_FillType_t)
+                    if(xPrevious_FillType != xCurrent_FillType)
                     {
                     	/**: Reset fast fill count;*/
                         l_count_u16[0]= 0;
@@ -434,7 +434,7 @@ void vFuelGuageTask(void)
                 case Slow_fill:
                 {
                 	/**check if the Previous_FillType and Current_FillType is not same*/
-                    if(l_Previous_FillType_t != l_Current_FillType_t)
+                    if(xPrevious_FillType != xCurrent_FillType)
                     {
                     	/**: Reset slow fill count;*/
                         l_count_u16[0]= 0;
@@ -474,7 +474,7 @@ void vFuelGuageTask(void)
                 case Normal_fill:
                 {
                 	/**check if the Previous_FillType and Current_FillType is not same*/
-                    if(l_Previous_FillType_t != l_Current_FillType_t)
+                    if(xPrevious_FillType != xCurrent_FillType)
                     {
                     	/**: Reset Normal fill count;*/
                         l_count_u16[0]= 0;
@@ -518,20 +518,20 @@ void vFuelGuageTask(void)
                 } 
             }
             /**: Update previous fill type with Current_FillType;*/
-            l_Previous_FillType_t=l_Current_FillType_t;
+            xPrevious_FillType=xCurrent_FillType;
             /**:Perform online fill type detection process to check the current fill type in online;*/
-            l_FillType_t = prvOnlineFillTypeDtcnPrcs();
+            xFillType = prvOnlineFillTypeDtcnPrcs();
             /**: Update current fill type;*/
-            l_Current_FillType_t = l_FillType_t;
+            xCurrent_FillType = xFillType;
             /**:Update sub-state based on fill type;*/
             /**check if fill type is Fast fill*/
-            if(l_FillType_t == Fast_fill)
+            if(xFillType == Fast_fill)
             {
             	/**:Set sub-state to Fast_fill;*/
                 SubData.Sub_state = Fast_fill;
             }
             /**check if fill type is Slow fill*/
-            else if(l_FillType_t == Slow_fill)
+            else if(xFillType == Slow_fill)
             {
             	/**: Set sub-state to Slow_fill;*/
                 SubData.Sub_state = Slow_fill;
@@ -569,21 +569,21 @@ void vFuelGuageTask(void)
 static uint16_t prvInitalSamplingProcess(void)
 {
 	/**:Variable to store the Resulting calculated average;*/
-    uint16_t l_res_t=0;
+    uint16_t us_res=0;
     /**:Variable to store the Sensor value from ADC;*/
-    uint16_t fl_sensorValue_u16;
+    uint16_t us_sensorValue;
     /**: Static variable to track the circular buffer index;*/
     static uint8_t l_currentIndex_u8 = 0;
     
-    fl_sensorValue_u16 = usADCValue;
+    us_sensorValue = usADCValue;
     /**: Store the value in the circular buffer;*/
-    usADCValues_A[l_currentIndex_u8] = fl_sensorValue_u16;
+    usADCValues_A[l_currentIndex_u8] = us_sensorValue;
 
     /**: Move to the next index in the circular buffer;*/
     l_currentIndex_u8 = (l_currentIndex_u8 + 1) % configWINDOW_SIZE;
 
     /**: Accumulate the ADC values;*/
-    usTotalSum += fl_sensorValue_u16;
+    usTotalSum += us_sensorValue;
     usSampleCount++;
 
     /** If we have accumulated enough samples, calculate the average*/
@@ -591,7 +591,7 @@ static uint16_t prvInitalSamplingProcess(void)
     {
 
     	/*:do the avaerage calculation of adc samples;*/
-        l_res_t = prvCalculateAverage();
+        us_res = prvCalculateAverage();
         /*:set ucInitialSamplingOverFlag flag bit tp 1;*/
         ucInitialSamplingOverFlag=1;
 
@@ -600,7 +600,7 @@ static uint16_t prvInitalSamplingProcess(void)
     
     }
     /**:Return the calculated average;*/
-    return l_res_t;
+    return us_res;
     
 }
 
@@ -617,46 +617,46 @@ static uint16_t prvInitalSamplingProcess(void)
 static FillType_State_T prvOfflineFillTypeDtcnPrcs(void)
 {
 	/**:Variable to store the difference between current and last displayed levels;*/
-    uint16_t fl_delta_u16;
+    uint16_t us_delta;
     /**:Variable to store the Resulting fill type state;*/
-    FillType_State_T l_res_t;
+    FillType_State_T xFillTypeRes;
     /**:Variable to store the Last displayed fuel level;*/
-    uint16_t fl_Last_Displayed_Level_u16;
+    uint16_t us_Last_Displayed_Level;
     
     /**: Get the last displayed fuel level from dampout value;*/
-    fl_Last_Displayed_Level_u16 = (uint16_t)ulDampout_value;
+    us_Last_Displayed_Level = (uint16_t)ulDampout_value;
     /**: Calculate the difference between current fuel level and last displayed levels;*/
-    if(usCurrentFuelLevel > fl_Last_Displayed_Level_u16 )
+    if(usCurrentFuelLevel > us_Last_Displayed_Level )
     {
-        fl_delta_u16 = usCurrentFuelLevel - fl_Last_Displayed_Level_u16;
+        us_delta = usCurrentFuelLevel - us_Last_Displayed_Level;
     }
     else
     {
-        fl_delta_u16 = fl_Last_Displayed_Level_u16 - usCurrentFuelLevel;
+        us_delta = us_Last_Displayed_Level - usCurrentFuelLevel;
     }
     /**:set the ucFillTypeDetctOverFlag to 1 after offline fill type detection completed;*/
     ucFillTypeDetctOverFlag=1;
 
     /**: Determine fill type based on the difference;*/
     /**check if delta is greater than or equal to configFAST_FILL_RANGE*/
-    if(fl_delta_u16 >= configFAST_FILL_RANGE)
+    if(us_delta >= configFAST_FILL_RANGE)
     {
     	/**: set fill type is Instantaneous_Update;*/
-        l_res_t = Instantaneous_Update;
+        xFillTypeRes = Instantaneous_Update;
     }
     /**check if delta is greater than or equal to  configSLOW_FILL_RANGE and less than configFAST_FILL_RANGE*/
-    else if((fl_delta_u16 >= configSLOW_FILL_RANGE) && (fl_delta_u16 < configFAST_FILL_RANGE))
+    else if((us_delta >= configSLOW_FILL_RANGE) && (us_delta < configFAST_FILL_RANGE))
     {
     	/**: set fill type is Slow_fill;*/
-        l_res_t = Slow_fill;
+        xFillTypeRes = Slow_fill;
     }
     else
     {
     	/**: set fill type is Normal_fill;*/
-        l_res_t = Normal_fill;
+        xFillTypeRes = Normal_fill;
     }
     /**:Return the fill type state;*/
-    return l_res_t;
+    return xFillTypeRes;
 }
 
 /**************************************************************************************************
@@ -672,11 +672,11 @@ static FillType_State_T prvOfflineFillTypeDtcnPrcs(void)
 static FillType_State_T prvOnlineFillTypeDtcnPrcs(void)
 {
 	/**:Variable to store the difference between current fuel level and last displayed levels;*/
-    uint16_t fl_delta_u16;
+    uint16_t us_delta;
     /**:Resulting fill type state;*/
-    FillType_State_T l_res_t;
+    FillType_State_T xFillTypeRes;
     /**:Variable to store the Damp_out value;*/
-    uint16_t fl_Last_Displayed_Level_u16;
+    uint16_t us_Last_Displayed_Level;
     
     /**: Get current fuel level from ADC;*/
     usCurrentFuelLevel = usADCValue;
@@ -684,36 +684,36 @@ static FillType_State_T prvOnlineFillTypeDtcnPrcs(void)
     printf("CFL-%d\r\n",usCurrentFuelLevel);
 #endif
     /**:Get the last displayed fuel level from dampout value;*/
-    fl_Last_Displayed_Level_u16 = (uint16_t)ulDampout_value;
+    us_Last_Displayed_Level = (uint16_t)ulDampout_value;
     /**:Calculate the difference between current fuel level and last displayed levels;*/
-    if(usCurrentFuelLevel > fl_Last_Displayed_Level_u16)
+    if(usCurrentFuelLevel > us_Last_Displayed_Level)
     {  
-        fl_delta_u16 = usCurrentFuelLevel - fl_Last_Displayed_Level_u16;
+        us_delta = usCurrentFuelLevel - us_Last_Displayed_Level;
     }
     else
     {
-        fl_delta_u16 = fl_Last_Displayed_Level_u16 - usCurrentFuelLevel;
+        us_delta = us_Last_Displayed_Level - usCurrentFuelLevel;
     }
     /**:Determine fill type based on the difference;*/
     /**check if delta is greater than or equal to configFAST_FILL_RANGE*/
-    if(fl_delta_u16 >= configFAST_FILL_RANGE)
+    if(us_delta >= configFAST_FILL_RANGE)
     {
     	/**: set fill type is Fast_fill;*/
-        l_res_t = Fast_fill;
+        xFillTypeRes = Fast_fill;
     }
     /**check if delta is greater than or equal to  configSLOW_FILL_RANGE and less than configFAST_FILL_RANGE*/
-    else if((fl_delta_u16 >= configSLOW_FILL_RANGE) && (fl_delta_u16< configFAST_FILL_RANGE))
+    else if((us_delta >= configSLOW_FILL_RANGE) && (us_delta< configFAST_FILL_RANGE))
     {
     	/**: set fill type is Slow_fill;*/
-        l_res_t = Slow_fill;
+        xFillTypeRes = Slow_fill;
     }
     else
     {
     	/**: set fill type is Normal_fill;*/
-        l_res_t = Normal_fill;
+        xFillTypeRes = Normal_fill;
     }
     /**:Return the fill type state;*/
-    return l_res_t;
+    return xFillTypeRes;
     
 }
 
@@ -749,13 +749,13 @@ static void prvSetFuelLevel(void)
 uint8_t xGetFuelLevel(IndicationStatus_t* pucFuelWarning_Indictr_u16p, bool* p_Warning_status_bool)
 {
 	/**:Variable to store the fuel level;*/
-    uint8_t fl_FuelLevel_Res_u8 = 0 ;
+    uint8_t uc_FuelLevel_Res = 0 ;
     /**:Initialize warning status to false;*/
     *p_Warning_status_bool=false;
     /**:Get fuel level as a percentage;*/
-    fl_FuelLevel_Res_u8 = (uint8_t)ulFuelLevelInPercentage;
-    /**check if fl_FuelLevel_Res_u8 is less than or equeal to configWARNING_FUELLEVEL*/
-    if(fl_FuelLevel_Res_u8 <= configWARNING_FUELLEVEL)
+    uc_FuelLevel_Res = (uint8_t)ulFuelLevelInPercentage;
+    /**check if uc_FuelLevel_Res is less than or equeal to configWARNING_FUELLEVEL*/
+    if(uc_FuelLevel_Res <= configWARNING_FUELLEVEL)
     {
        /**:Set warning status to true;*/
        *p_Warning_status_bool=true;
@@ -763,7 +763,7 @@ uint8_t xGetFuelLevel(IndicationStatus_t* pucFuelWarning_Indictr_u16p, bool* p_W
        pucFuelWarning_Indictr_u16p->indicators.Fuel_warning_indicator=1;
     }
     /**:Return the fuel level;*/
-	return fl_FuelLevel_Res_u8;
+	return uc_FuelLevel_Res;
 }
 
 /**************************************************************************************************
@@ -779,11 +779,11 @@ uint8_t xGetFuelLevel(IndicationStatus_t* pucFuelWarning_Indictr_u16p, bool* p_W
 static uint16_t prvCalculateAverage(void)
 {
 	/**:Variable to store the calculated average;*/
-    uint16_t fl_average_u16;
+    uint16_t us_average;
     /**:Calculate the average by dividing the total sum by the window size;*/
-    fl_average_u16 = usTotalSum / configWINDOW_SIZE;
+    us_average = usTotalSum / configWINDOW_SIZE;
     /**:Return the calculated average;*/
-    return fl_average_u16;
+    return us_average;
 
 }
 

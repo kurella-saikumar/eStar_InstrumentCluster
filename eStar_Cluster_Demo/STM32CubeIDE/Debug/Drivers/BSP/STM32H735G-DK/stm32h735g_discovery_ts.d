@@ -1,6 +1,6 @@
 Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o: \
- D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.c \
- D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.h \
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.c \
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.h \
  ../../Core/Inc/stm32h735g_discovery_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
@@ -27,6 +27,7 @@ Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_fdcan.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h \
@@ -46,13 +47,13 @@ Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h \
- D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336.h \
- D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336_reg.h \
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h \
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336.h \
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336_reg.h \
  ../../Core/Inc/ft5336_conf.h \
- D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/Common/ts.h \
- D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.h
-D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.h:
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/Common/ts.h \
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.h
+D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.h:
 ../../Core/Inc/stm32h735g_discovery_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:
@@ -79,6 +80,7 @@ D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h:
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_fdcan.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h:
@@ -98,9 +100,9 @@ D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
-D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h:
-D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336.h:
-D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336_reg.h:
+D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h:
+D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336.h:
+D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336_reg.h:
 ../../Core/Inc/ft5336_conf.h:
-D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/Common/ts.h:
-D:/GITWORKAREA/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.h:
+D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/Common/ts.h:
+D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.h:

@@ -190,7 +190,7 @@ void vEcuPwrModeOffAction(void)
 	{
 		l_PowerOff_Sleep_u16 = 0;
 	}
-	if(l_PowerOff_Sleep_u16 == 650)
+	if(l_PowerOff_Sleep_u16 == 6500)
 	{
 		l_PowerOff_Sleep_u16 = 0;
 		//printf("ECUPwrModeOff_Action\n");

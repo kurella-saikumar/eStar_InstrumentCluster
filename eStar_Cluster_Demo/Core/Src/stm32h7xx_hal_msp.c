@@ -256,6 +256,82 @@ void HAL_DMA2D_MspDeInit(DMA2D_HandleTypeDef* hdma2d)
 }
 
 /**
+* @brief FDCAN MSP Initialization
+* This function configures the hardware resources used in this example
+* @param hfdcan: FDCAN handle pointer
+* @retval None
+*/
+void HAL_FDCAN_MspInit(FDCAN_HandleTypeDef* hfdcan)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
+  if(hfdcan->Instance==FDCAN3)
+  {
+  /* USER CODE BEGIN FDCAN3_MspInit 0 */
+
+  /* USER CODE END FDCAN3_MspInit 0 */
+
+  /** Initializes the peripherals clock
+  */
+    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_FDCAN;
+    PeriphClkInitStruct.FdcanClockSelection = RCC_FDCANCLKSOURCE_PLL;
+    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
+    {
+      Error_Handler();
+    }
+
+    /* Peripheral clock enable */
+    __HAL_RCC_FDCAN_CLK_ENABLE();
+
+    __HAL_RCC_GPIOF_CLK_ENABLE();
+    /**FDCAN3 GPIO Configuration
+    PF6     ------> FDCAN3_RX
+    PF7     ------> FDCAN3_TX
+    */
+    GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    GPIO_InitStruct.Alternate = GPIO_AF2_FDCAN3;
+    HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+
+  /* USER CODE BEGIN FDCAN3_MspInit 1 */
+
+  /* USER CODE END FDCAN3_MspInit 1 */
+  }
+
+}
+
+/**
+* @brief FDCAN MSP De-Initialization
+* This function freeze the hardware resources used in this example
+* @param hfdcan: FDCAN handle pointer
+* @retval None
+*/
+void HAL_FDCAN_MspDeInit(FDCAN_HandleTypeDef* hfdcan)
+{
+  if(hfdcan->Instance==FDCAN3)
+  {
+  /* USER CODE BEGIN FDCAN3_MspDeInit 0 */
+
+  /* USER CODE END FDCAN3_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_FDCAN_CLK_DISABLE();
+
+    /**FDCAN3 GPIO Configuration
+    PF6     ------> FDCAN3_RX
+    PF7     ------> FDCAN3_TX
+    */
+    HAL_GPIO_DeInit(GPIOF, GPIO_PIN_6|GPIO_PIN_7);
+
+  /* USER CODE BEGIN FDCAN3_MspDeInit 1 */
+
+  /* USER CODE END FDCAN3_MspDeInit 1 */
+  }
+
+}
+
+/**
 * @brief LTDC MSP Initialization
 * This function configures the hardware resources used in this example
 * @param hltdc: LTDC handle pointer
