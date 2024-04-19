@@ -33,6 +33,7 @@
 #include "damp_out.h"
 #include "IGN_SmHandler.h"
 #include "stm32h7xx_hal.h"
+#include "Indicator_App.h"
 
 
 /**************************************************************************************************
@@ -44,7 +45,7 @@
 ***************************************************************************************************/
 Main_DATA MainData;
 Sub_DATA SubData;
-IndicationStatus_t IndicationStatus;
+//IndicationStatus_t IndicationStatus;
 /**************************************************************************************************
  * Purpose: The purpose of usADCValue variable is to store the ADC value and used in application.
  *
@@ -754,7 +755,7 @@ uint8_t xGetFuelLevel(IndicationStatus_t* pucFuelWarning_Indictr_u16p, bool* p_W
     *p_Warning_status_bool=false;
     /**:Get fuel level as a percentage;*/
     uc_FuelLevel_Res = (uint8_t)ulFuelLevelInPercentage;
-    /**check if uc_FuelLevel_Res is less than or equeal to configWARNING_FUELLEVEL*/
+    /**check if uc_FuelLevel_Res is less than or equal to configWARNING_FUELLEVEL*/
     if(uc_FuelLevel_Res <= configWARNING_FUELLEVEL)
     {
        /**:Set warning status to true;*/

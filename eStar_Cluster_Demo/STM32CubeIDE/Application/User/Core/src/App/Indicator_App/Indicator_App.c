@@ -1,10 +1,10 @@
 /** \addtogroup CODE_TEMPLATE
  *  @{
- * @file template.c
+ * @file Indicator_App.c
  *
- * @brief Template C file
+ * @brief Indicator_App file
  *
- * File Short Name: tmpl
+ * File Short Name: IndicatorApp
  *
  * @author: _________
  *
@@ -16,6 +16,12 @@
  * forbidden unless prior written permission is obtained from
  * eSTAR TECHNOLOGIES(OPC) PRIVATE LIMITED
 ********************************************************************************************** @}*/
+/*
+ * File:   Indicator_App.c
+ * Author: Roja_Ramani
+ *
+ * Created on April, 2024,
+ */
 #ifndef INDICATOR_C
 #define	INDICATOR_C
 /**************************************************************************************************
@@ -50,8 +56,7 @@
  * DECLARE GLOBAL VARIABLES\n
 ***************************************************************************************************/
 IndicationStatus_t   Status;
-//IndicatorStatus_t   indicators;
-//bool Tacho_status;
+
 
 /**************************************************************************************************
  * DECLARE FILE STATIC VARIABLES\n
@@ -73,10 +78,7 @@ IndicationStatus_t   Status;
  * Shutdown Value\Action: Don't Care
  *
  */
-void vIndicatorsInit(void)
-{
-	Status.Indicator_status = 0;
-}
+
 
 
 /**************************************************************************************************
@@ -88,7 +90,7 @@ void vIndicatorsInit(void)
 ***************************************************************************************************/
 
 /**
- * @brief This is template file. Every function name should be prefixed with the short name
+ * @brief Intilaize the indicator.
  *
  * @param[in] None
  *
@@ -97,7 +99,20 @@ void vIndicatorsInit(void)
  * @return None
  *
  */
-
+void vIndicatorsInit(void)
+{
+	Status.Indicator_status = 0;
+}
+/**
+ * @brief This function is used to update the indicators status for every 50ms.
+ *
+ * @param[in] None
+ *
+ * @param[out] None
+ *
+ * @return None
+ *
+ */
 void vIndicator_App_Task(void)
 {
 
@@ -121,9 +136,21 @@ void vIndicator_App_Task(void)
 }
 
 
+
+
+/**
+ * @brief This function is used to get the indicator status.
+ *
+ * @param[in] None
+ *
+ * @param[out] This function returns the indicator status.
+ *
+ * @return None
+ *
+ */
 uint32_t  xGetIndicatorstatus(void)
 {
-	uint32_t  l_Indicator_Status;
+	uint32_t  l_Indicator_Status=0;
 
 	   l_Indicator_Status = Status.Indicator_status;
 
