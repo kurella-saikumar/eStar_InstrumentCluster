@@ -16,5 +16,5 @@ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:553:6:Pe
 D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:322:5:main	144	static,ignoring_inline_asm
 D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1447:6:HAL_RTCEx_WakeUpTimerEventCallback	128	static
 D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1460:6:HAL_GPIO_EXTI_Callback	8	static
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1777:6:HAL_TIM_PeriodElapsedCallback	0	static
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1794:6:Error_Handler	0	static
+D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1776:6:HAL_TIM_PeriodElapsedCallback	0	static
+D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1793:6:Error_Handler	0	static
