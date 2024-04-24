@@ -7,13 +7,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2019 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2019 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -84,7 +83,7 @@ typedef struct
 #define BUS_I2C4_SDA_AF                        GPIO_AF4_I2C4
 
 #ifndef BUS_I2C4_FREQUENCY
-   #define BUS_I2C4_FREQUENCY                  400000U /* Frequency of I2Cn in Hz*/
+   #define BUS_I2C4_FREQUENCY                  100000U /* Frequency of I2Cn = 100 KHz*/
 #endif
 
 /**
@@ -138,5 +137,3 @@ HAL_StatusTypeDef MX_I2C4_Init(I2C_HandleTypeDef *phi2c, uint32_t timing);
 #endif
 
 #endif /* STM32H735G_DK_BUS_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

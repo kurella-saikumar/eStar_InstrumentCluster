@@ -10,4 +10,4 @@
 ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:914:11:prvPagesTransfer	64	static
 ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:657:12:prvWriteVariable	16	static
 ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:212:11:xEE_WriteVariable32bits	0	static
-../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:1130:12:xEE_Init	40	static
+../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:1129:12:xEE_Init	40	static

@@ -171,10 +171,9 @@ void vEE_Demo(void)
 	{
 		printf("xEE_Init:Success \n\r");
 	}
-	osDelay(50);
+
 	/* ShadowRAM initialization*/
 	vShadowRAM_Init();
-	osDelay(50);
 	/* Loop through each variable and perform the write check */
 	for (int i =10; i <50; i++)
 	{
@@ -192,7 +191,7 @@ void vEE_Demo(void)
 				//return FlashStatus;
 			}
 		}
-		osDelay(5);
+
 	}
 	/* Loop through each variable and perform the Read check */
 	for (int i = 0; i < sizeof(eepromVariables) / sizeof(eepromVariables[0]); i++)
@@ -208,10 +207,9 @@ void vEE_Demo(void)
 		{
 			printf("Read Success:eepromVariables[%d] at :%p data :%ld\n\r",i,eepromVariables[i],*eepromVariables[i]);
 		}
-		osDelay(5);
 	}
 	/* De-initialize OSPI NOR Flash */
-	BSP_OSPI_NOR_DeInit(0);
+//	BSP_OSPI_NOR_DeInit(0);
 
 }
 
