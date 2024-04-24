@@ -315,7 +315,7 @@ int main(void)
 	  Error_Handler();
   }
 
-  //  Disp_imgDataHyperRAM_Init();
+    Disp_imgDataHyperRAM_Init();
     vEE_Demo();
 
   /* USER CODE END 2 */
