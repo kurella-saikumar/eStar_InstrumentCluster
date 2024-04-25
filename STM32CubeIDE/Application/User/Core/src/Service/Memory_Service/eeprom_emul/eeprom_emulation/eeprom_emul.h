@@ -47,7 +47,8 @@
 #define VOLTAGE_RANGE           	(uint8_t)VOLTAGE_RANGE_3
 
 /* EEPROM emulation start address in Flash */
-#define START_PAGE_ADDRESS 		  	(uint32_t)(0x93FF0000U) /*!< Start address of the 1st page in flash, for EEPROM emulation */
+#define START_PAGE_ADDRESS 		  	(uint32_t)(0x90000000U) /*!< Start address of the 1st page in flash, for EEPROM emulation */
+#define EE_EMULATION_START_ADDR		(uint32_t)( 0x93FF0000U - START_PAGE_ADDRESS)
 #define EEPROM_START_ADDRESS  		EE_FLASH_BASE_ADDR /* sector0 of bank 1 */
 #define EEPROM_OFFSET 		  		EEPROM_START_ADDRESS
 #define NB_MAX_ELEMENTS_BY_PAGE 	((PAGE_SIZE - PAGE_HEADER_SIZE) / EE_ELEMENT_SIZE) /*!< Max number of elements by page *///506//

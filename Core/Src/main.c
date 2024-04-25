@@ -32,7 +32,7 @@
 #include "Tachometer_App.h"
 #include "Odometer_App.h"
 #include "speedometer_App.h"
-
+#include "eeprom_emul.h"
 #include <touchgfx/hal/Config.hpp>
 
 /* USER CODE END Includes */
@@ -315,8 +315,8 @@ int main(void)
 	  Error_Handler();
   }
 
-    Disp_imgDataHyperRAM_Init();
-    vEE_Demo();
+  vEE_Demo();
+  Disp_imgDataHyperRAM_Init();
 
   /* USER CODE END 2 */
 
@@ -1256,10 +1256,31 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
 void Disp_imgDataHyperRAM_Init(void)
 {
 	memset(ucImage_image_HypRam,0,(32640*12));
 	memset(ucImage_fuel_red_HypRAM,0,(160*12));
+#if 1
+	uint32_t Address1 = (uint32_t)(&image_image_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_image_HypRam, Address1, (32640*12)))
+	{
+		printf("Copy Fail-1\n\r");
+	}
+	else
+	{
+		printf("Copy Success1\n\r");
+	}
+	uint32_t Address2 = (uint32_t)(&image_fuel_red_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_image_HypRam, Address2, (160*12)))
+	{
+		printf("Copy Fail-2\n\r");
+	}
+	else
+	{
+		printf("Copy Success2\n\r");
+	}
+#else
 	memcpy(ucImage_image_HypRam,image_image_const,(32640*12));
 	if(memcmp(image_image_const,ucImage_image_HypRam,(32640*12))!=0)
 	{
@@ -1279,6 +1300,7 @@ void Disp_imgDataHyperRAM_Init(void)
 	{
 		printf("ucImage_fuel_red_HypRAM, Verification Passed\n\r");
 	}
+#endif
 }
 /* USER CODE END 4 */
 
