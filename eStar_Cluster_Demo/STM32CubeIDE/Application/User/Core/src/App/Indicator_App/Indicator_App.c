@@ -30,6 +30,7 @@
 #include "Indicator_App.h"
 #include "IGN_SmHandler.h"
 #include "Tachometer_App.h"
+#include "CAN_App.h"
 #include <stdint.h>
 
 /**************************************************************************************************
@@ -56,6 +57,7 @@
  * DECLARE GLOBAL VARIABLES\n
 ***************************************************************************************************/
 IndicationStatus_t   Status;
+CAN_RxMessage_t  Rxdata1;
 
 
 /**************************************************************************************************
@@ -115,24 +117,27 @@ void vIndicatorsInit(void)
  */
 void vIndicator_App_Task(void)
 {
-
-  if(usIgnitionGetCurrentState() == IgnON_mode)
+     uint8_t var;
+	 Rxdata1 = Get_SignalStatus();
+	 var = usIgnitionGetCurrentState();
+    if(var == IgnON_mode)
 	{
 
-		Status.indicators.right_indicator    = RIGHTTURNINDICATOR_STATUS;
-		Status.indicators.left_indicator     = LEFTTURNINDICATOR_STATUS;
-		Status.indicators.parking_indicator  = PARKINGINDICATORS_STATUS;
-		Status.indicators.HighBeam_indicator = HIGHBEAMINDICATOR_STATUS;
-		Status.indicators.LowBeam_indicator  = LOWBEAMINDICATOR_STATUS;
-		Status.indicators.engine_oil_temp_indicator   = ENGTEMPINDICATOR_STATUS ;
-		Status.indicators.seat_belt_indicator        =  SEATBELTWARINDICATOR_STATUS ;
-		Status.indicators.engine_malfunction_indicator  = ENGINEMALFUNCTION_STATUS;
-		Status.indicators.door_open_indicator       = DOOROPENWARINDICATOR_STATUS;
-		Status.indicators.abs_warning_indicator  =    ABSINDICATOR_STATUS;
-	    Status.indicators.FaultyRight_indicator    =  FAULTYRIGHT_STATUS;
-	    Status.indicators.FaultyLeft_indicator	  =	FAULTYLEFT_STATUS;
+		Status.indicators.right_indicator    =  Rxdata1.flags.Signal_1;
+		Status.indicators.left_indicator     =  Rxdata1.flags.Signal_2;
+		Status.indicators.parking_indicator  =  Rxdata1.flags.Signal_3;
+		Status.indicators.HighBeam_indicator =  Rxdata1.flags.Signal_4;
+		Status.indicators.LowBeam_indicator  =  Rxdata1.flags.Signal_5;
+		Status.indicators.engine_oil_temp_indicator   = Rxdata1.flags.Signal_6;
+		Status.indicators.seat_belt_indicator        =  Rxdata1.flags.Signal_7;
+		Status.indicators.engine_malfunction_indicator  = Rxdata1.flags.Signal_8;
+		Status.indicators.door_open_indicator       = Rxdata1.flags.Signal_9;
+		Status.indicators.abs_warning_indicator  =    Rxdata1.flags.Signal_10;
+	    Status.indicators.FaultyRight_indicator    =  Rxdata1.flags.Signal_11;
+	    Status.indicators.FaultyLeft_indicator	  =	Rxdata1.flags.Signal_12;
 
      }
+    // printf("Indicator_status: %x\r\n", Status.Indicator_status);
 }
 
 
@@ -148,13 +153,12 @@ void vIndicator_App_Task(void)
  * @return None
  *
  */
-uint32_t  xGetIndicatorstatus(void)
+IndicationStatus_t  xGetIndicatorstatus(void)
 {
-	uint32_t  l_Indicator_Status=0;
+	//uint32_t  l_Indicator_Status=0;
 
-	   l_Indicator_Status = Status.Indicator_status;
-
-    return l_Indicator_Status;
+	  // l_Indicator_Status = Status.Indicator_status;
+	return  Status;
 }
 
 

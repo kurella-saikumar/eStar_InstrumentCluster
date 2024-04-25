@@ -22,8 +22,6 @@
 #include "cmsis_os.h"
 #include "libjpeg.h"
 #include "app_touchgfx.h"
-#include "stdint.h"
-#include "stdio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -64,6 +62,7 @@ typedef StaticTask_t osStaticThreadDef_t;
 /* USER CODE BEGIN PD */
 uint16_t usADCValue;
 uint32_t gl_BAT_MON_u32;
+IndicationStatus_t  indicator;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -326,6 +325,7 @@ void IndicatorApp_Task(void *argument);
 RTC_TimeTypeDef sTime;
 RTC_DateTypeDef sDate;
 HAL_StatusTypeDef res;
+CAN_RxMessage_t Rxdata2;
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -1539,7 +1539,7 @@ void WDG_SRVC_Task(void *argument)
   {
     osDelay(30000); //watchdog period
     //service or refresh or reload the watchdog here
-    printf("WDG_SRVC_Task\r\n");
+   // printf("WDG_SRVC_Task\r\n");
     if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
     {
           Error_Handler();
@@ -1752,8 +1752,8 @@ void CAN_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	vCANTransmit();
-	vCANReceive();
+//	vCANTransmit();
+//	vCANReceive();
     osDelay(100);
   }
   /* USER CODE END CAN_Task */
@@ -1769,14 +1769,18 @@ void CAN_Task(void *argument)
 void IndicatorApp_Task(void *argument)
 {
   /* USER CODE BEGIN IndicatorApp_Task */
-	uint32_t  indicator = 0;
+
   /* Infinite loop */
   for(;;)
   {
 	vIndicator_App_Task();
 	indicator = xGetIndicatorstatus();
-	printf("indicator=%lu\r\n",indicator);
-	printf("indicator_hexa=%lX\r\n",indicator);
+	//printf("indicator=%lu\r\n",indicator);
+	//printf("Indicator_status: %x\r\n", indicator.Indicator_status); // Example: Print ReceivedData member
+
+	//printf("Right indicator: %x\r\n", indicator.Indicator_status);
+	// or
+	//printf("Indicator_status: %x\r\n",  xGetIndicatorstatus());
     osDelay(50);
 
   }

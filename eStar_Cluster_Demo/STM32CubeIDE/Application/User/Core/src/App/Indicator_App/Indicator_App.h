@@ -60,22 +60,48 @@ typedef union {
          uint8_t parking_indicator : 1;
          uint8_t HighBeam_indicator :1;
          uint8_t LowBeam_indicator : 1;
-         uint8_t low_battery_indicator : 1;
-         uint8_t engine_oil_temp_indicator : 1;
+         uint8_t engine_oil_temp_indicator : 1;                                      //
          uint8_t seat_belt_indicator : 1;
          uint8_t engine_malfunction_indicator : 1;
-         uint8_t service_reminder_indicator : 1;
-         uint8_t door_open_indicator : 1;
+         uint8_t door_open_indicator : 1;                                              //
          uint8_t abs_warning_indicator : 1;
+         uint8_t FaultyRight_indicator : 1;																			  //
+         uint8_t FaultyLeft_indicator :1;
+         uint8_t low_battery_indicator : 1;
+         uint8_t service_reminder_indicator : 1;
          uint8_t tachometer_indicator : 1;
          uint8_t over_speed_indicator : 1;
          uint8_t Fuel_warning_indicator : 1;
-         uint8_t FaultyLeft_indicator : 1;
-         uint8_t FaultyRight_indicator :1;
          uint32_t reserved :15;
-     }indicators;
-
+     }indicators;																		  //
+																					  //
 }IndicationStatus_t;
+
+
+
+//typedef union
+//{
+//	uint16_t ReceivedData;
+//	struct
+//	{
+//		uint16_t Signal_1 : 1;
+//		uint16_t Signal_2 : 1;
+//		uint16_t Signal_3 : 1;
+//		uint16_t Signal_4 : 1;
+//		uint16_t Signal_5 : 1;
+//		uint16_t Signal_6 : 1;
+//		uint16_t Signal_7 : 1;
+//		uint16_t Signal_8 : 1;
+//		uint16_t Signal_9 : 1;
+//		uint16_t Signal_10 : 1;
+//		uint16_t Signal_11 : 1;
+//		uint16_t Signal_12 : 1;
+//		uint16_t Signal_13 : 1;
+//		uint16_t Signal_14 : 1;
+//		uint16_t Reserved : 2;
+//	}flags;
+//}CAN_RxMessage_t;
+
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES\n
 ***************************************************************************************************/
@@ -86,7 +112,7 @@ typedef union {
 
 extern void vIndicatorsInit(void);
 extern void vIndicator_App_Task(void);
-extern uint32_t  xGetIndicatorstatus(void);
+extern IndicationStatus_t xGetIndicatorstatus(void);
 #endif /* FILE_TEMPLATE_H */
 
 /**************************************************************************************************
