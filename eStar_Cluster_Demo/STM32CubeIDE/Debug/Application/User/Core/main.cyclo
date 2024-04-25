@@ -1,20 +1,21 @@
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1484:6:StartDefaultTask	1
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1708:6:GetClockTask	1
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1514:6:WDG_SRVC_Task	1
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1538:6:DigitalDebounce_Task	1
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1558:6:State_Machine_Task	1
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1578:6:Analog_Debounce_Task	1
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1607:6:FuelGuageTask	1
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1630:6:Odo_Task	1
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1649:6:Speedo_Task	1
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1668:6:Tacho_Task	1
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1687:6:SwitchHandlerTask	1
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1728:6:CAN_Task	1
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:263:1:__io_putchar	1
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:488:6:SystemClock_Config	2
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:554:6:PeriphCommonClock_Config	1
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:323:5:main	6
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1448:6:HAL_RTCEx_WakeUpTimerEventCallback	2
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1461:6:HAL_GPIO_EXTI_Callback	2
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1778:6:HAL_TIM_PeriodElapsedCallback	2
-D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1795:6:Error_Handler	1
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1503:6:StartDefaultTask	1
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1747:6:CAN_Task	1
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1533:6:WDG_SRVC_Task	1
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1557:6:DigitalDebounce_Task	1
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1577:6:State_Machine_Task	1
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1597:6:Analog_Debounce_Task	1
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1626:6:FuelGuageTask	1
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1649:6:Odo_Task	1
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1668:6:Speedo_Task	1
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1687:6:Tacho_Task	1
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1706:6:SwitchHandlerTask	1
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1727:6:GetClockTask	1
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1767:6:IndicatorsApp_Task	1
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:277:1:__io_putchar	1
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:507:6:SystemClock_Config	2
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:573:6:PeriphCommonClock_Config	1
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:338:5:main	6
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1467:6:HAL_RTCEx_WakeUpTimerEventCallback	2
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1480:6:HAL_GPIO_EXTI_Callback	2
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1824:6:HAL_TIM_PeriodElapsedCallback	2
+D:/MY PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1841:6:Error_Handler	1

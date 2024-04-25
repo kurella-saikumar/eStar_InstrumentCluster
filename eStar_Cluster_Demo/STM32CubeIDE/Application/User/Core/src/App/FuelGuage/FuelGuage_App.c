@@ -33,6 +33,7 @@
 #include "damp_out.h"
 #include "IGN_SmHandler.h"
 #include "stm32h7xx_hal.h"
+#include "Indicator_App.h"
 
 
 /**************************************************************************************************

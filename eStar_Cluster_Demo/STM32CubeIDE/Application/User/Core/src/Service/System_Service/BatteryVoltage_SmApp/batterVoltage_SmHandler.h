@@ -60,6 +60,8 @@ extern void vInULVFunc(void);
 
 extern const transition_T gl_batteryMode_SM_t[];
 
+states_SM xbatteryvoltage_get_current_state(void);
+
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES
 ***************************************************************************************************/

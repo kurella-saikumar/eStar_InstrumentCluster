@@ -41,6 +41,7 @@
 #include "SwitchInf.h"
 #include "clock_App.h"
 #include "CAN_App.h"
+#include "Indicator_App.h"
 
 /* USER CODE END Includes */
 
@@ -60,6 +61,7 @@ typedef StaticTask_t osStaticThreadDef_t;
 /* USER CODE BEGIN PD */
 uint16_t usADCValue;
 uint32_t gl_BAT_MON_u32;
+IndicationStatus_t indicator;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -254,6 +256,18 @@ const osThreadAttr_t CAN_AppTask_attributes = {
   .stack_size = sizeof(CAN_AppTaskBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for Indicators_App */
+osThreadId_t Indicators_AppHandle;
+uint32_t Indicators_AppBuffer[ 128 ];
+osStaticThreadDef_t Indicators_AppControlBlock;
+const osThreadAttr_t Indicators_App_attributes = {
+  .name = "Indicators_App",
+  .cb_mem = &Indicators_AppControlBlock,
+  .cb_size = sizeof(Indicators_AppControlBlock),
+  .stack_mem = &Indicators_AppBuffer[0],
+  .stack_size = sizeof(Indicators_AppBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* USER CODE BEGIN PV */
 /**
   * @brief  Retargets the C library printf function to the USART.
@@ -303,6 +317,7 @@ void Tacho_Task(void *argument);
 void SwitchHandlerTask(void *argument);
 void GetClockTask(void *argument);
 void CAN_Task(void *argument);
+void IndicatorsApp_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -384,6 +399,7 @@ int main(void)
   clock_Init();
   vFuelGuageTaskInit();
   VCAN_Init();
+  vIndicatorsInit();
 
   if(HAL_TIM_IC_Start_IT(&htim1,TIM_CHANNEL_4)!=HAL_OK)
   {
@@ -456,6 +472,9 @@ int main(void)
 
   /* creation of CAN_AppTask */
   CAN_AppTaskHandle = osThreadNew(CAN_Task, NULL, &CAN_AppTask_attributes);
+
+  /* creation of Indicators_App */
+  Indicators_AppHandle = osThreadNew(IndicatorsApp_Task, NULL, &Indicators_App_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1122,10 +1141,10 @@ static void MX_RTC_Init(void)
 
   /** Enable the WakeUp
   */
-//  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
-//  {
-//    Error_Handler();
-//  }
+  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+  {
+    Error_Handler();
+  }
   /* USER CODE BEGIN RTC_Init 2 */
   if(HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR0) != 0x32F2)
   {
@@ -1731,11 +1750,38 @@ void CAN_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	vCANTransmit();
-	vCANReceive();
+//	vCANTransmit();
+//	vCANReceive();
     osDelay(100);
   }
   /* USER CODE END CAN_Task */
+}
+
+/* USER CODE BEGIN Header_IndicatorsApp_Task */
+/**
+* @brief Function implementing the Indicators_App thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_IndicatorsApp_Task */
+void IndicatorsApp_Task(void *argument)
+{
+  /* USER CODE BEGIN IndicatorsApp_Task */
+  /* Infinite loop */
+	for(;;)
+	  {
+		vIndicator_App_Task();
+		indicator = xGetIndicatorstatus();
+		//printf("indicator=%lu\r\n",indicator);
+		//printf("Indicator_status: %x\r\n", indicator.Indicator_status); // Example: Print ReceivedData member
+
+		printf("Right indicator: %x\r\n", indicator.Indicator_status);
+		// or
+		//printf("Indicator_status: %x\r\n",  xGetIndicatorstatus());
+	    osDelay(50);
+
+	  }
+  /* USER CODE END IndicatorsApp_Task */
 }
 
  /* MPU Configuration */
