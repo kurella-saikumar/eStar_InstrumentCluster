@@ -315,8 +315,8 @@ int main(void)
 	  Error_Handler();
   }
 
-  vEE_Demo();
-  Disp_imgDataHyperRAM_Init();
+//  vEE_Demo();
+//  Disp_imgDataHyperRAM_Init();
 
   /* USER CODE END 2 */
 
@@ -1359,8 +1359,8 @@ void WDG_SRVC_Task(void *argument)
 void DigitalDebounce_Task(void *argument)
 {
   /* USER CODE BEGIN DigitalDebounce_Task */
-//	Disp_imgDataHyperRAM_Init();
-//	vEE_Demo();
+	vEE_Demo();
+	Disp_imgDataHyperRAM_Init();
   /* Infinite loop */
   for(;;)
   {

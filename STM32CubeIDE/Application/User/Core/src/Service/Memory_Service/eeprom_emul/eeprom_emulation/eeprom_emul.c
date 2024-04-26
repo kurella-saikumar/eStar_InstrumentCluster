@@ -26,7 +26,7 @@
  * Include Project Specific Headers
 ***************************************************************************************************/
 #include "eeprom_emul.h"
-#include "../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h"
+#include "stm32h735g_discovery_ospi.h"
 #include "eeprom_emul_cfg.h"
 #include "checksum.h"
 #include "flash_interface.h"
@@ -571,6 +571,7 @@ EE_Status prvReadVariable(uint32_t VirtAddress, EE_DATA_TYPE* pData)
 	uint8_t ucCRC [2]= {0x00};
 	uint16_t usCRCCalculated = 0;
 	uint32_t ulData = 0;
+	int32_t	slRet=0;
 
     EE_State_type pagestate = STATE_PAGE_INVALID;
 
@@ -596,8 +597,11 @@ EE_Status prvReadVariable(uint32_t VirtAddress, EE_DATA_TYPE* pData)
 		while (ulCounter >= PAGE_HEADER_SIZE)
 		{
 			/* Get the current location content to be compared with virtual address */
-			xFI_ReadDoubleWord(((ulPageAddress + ulCounter + EE_ADDRESS_OFFSET)+EE_EMULATION_START_ADDR -START_PAGE_ADDRESS), ucReadAddressValue);
-
+			slRet = xFI_ReadDoubleWord(((ulPageAddress + ulCounter + EE_ADDRESS_OFFSET)+EE_EMULATION_START_ADDR -START_PAGE_ADDRESS), ucReadAddressValue);
+			if(slRet != 0)
+			{
+				return slRet;
+			}
 			ulReadAddr = (ucReadAddressValue[0]<<24|ucReadAddressValue[1]<<16|ucReadAddressValue[2]<<8|ucReadAddressValue[3]);
 
 			if (ulReadAddr != 0xFFFFFFFFU)
@@ -624,7 +628,6 @@ EE_Status prvReadVariable(uint32_t VirtAddress, EE_DATA_TYPE* pData)
 					}
 					else
 					{
-
 						return EE_READ_DATA_INVALID;
 					}
         		}

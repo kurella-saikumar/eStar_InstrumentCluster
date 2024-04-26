@@ -48,12 +48,12 @@ Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/ee
  ../../Core/Inc/main.h \
  ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul_cfg.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.H \
- ../../Core/Inc/../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h \
+ ../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h \
  ../../Core/Inc/stm32h735g_discovery_conf.h \
- ../../Core/Inc/../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h \
- ../../Core/Inc/../../Drivers/BSP/STM32H735G-DK/../Components/mx25lm51245g/mx25lm51245g.h \
+ ../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h \
+ ../../Drivers/BSP/STM32H735G-DK/../Components/mx25lm51245g/mx25lm51245g.h \
  ../../Core/Inc/mx25lm51245g_conf.h \
- ../../Core/Inc/../../Drivers/BSP/STM32H735G-DK/../Components/s70kl1281/s70kl1281.h \
+ ../../Drivers/BSP/STM32H735G-DK/../Components/s70kl1281/s70kl1281.h \
  ../../Core/Inc/s70kl1281_conf.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/System_Service/checksum/checksum.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.h
@@ -105,12 +105,12 @@ Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/ee
 ../../Core/Inc/main.h:
 ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul_cfg.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.H:
-../../Core/Inc/../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h:
+../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h:
 ../../Core/Inc/stm32h735g_discovery_conf.h:
-../../Core/Inc/../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h:
-../../Core/Inc/../../Drivers/BSP/STM32H735G-DK/../Components/mx25lm51245g/mx25lm51245g.h:
+../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h:
+../../Drivers/BSP/STM32H735G-DK/../Components/mx25lm51245g/mx25lm51245g.h:
 ../../Core/Inc/mx25lm51245g_conf.h:
-../../Core/Inc/../../Drivers/BSP/STM32H735G-DK/../Components/s70kl1281/s70kl1281.h:
+../../Drivers/BSP/STM32H735G-DK/../Components/s70kl1281/s70kl1281.h:
 ../../Core/Inc/s70kl1281_conf.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/System_Service/checksum/checksum.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.h:
