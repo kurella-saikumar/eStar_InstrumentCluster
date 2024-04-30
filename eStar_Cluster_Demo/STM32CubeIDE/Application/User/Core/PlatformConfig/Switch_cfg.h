@@ -35,8 +35,8 @@
 ***************************************************************************************************/
 #define SEPARATE_CALLBACK_FUNCTIONS 0
 
-extern Switch_PushRelease_State_T gl_mode_button_Push_Release_state_t;
-extern Switch_PushRelease_State_T gl_reset_button_Push_Release_state_t;
+extern Switch_PushRelease_State_T eModeButtonPushReleaseState;
+extern Switch_PushRelease_State_T eResetButtonPushReleaseState;
 
 /**
  * Define a structure of button press durations for each of the buttons, in the following format
@@ -57,8 +57,8 @@ extern Switch_PushRelease_State_T gl_reset_button_Push_Release_state_t;
 
 /* Both Analog and Digital Switch states can be added... However, the inputs to be fed finally as only two states - PUSHED and RELEASED  */
 #define INPUT_SWITCH_POINTERS \
-    &gl_mode_button_Push_Release_state_t, /** Pointer to the variable giving the button state - PUSHED and RELEASED*/\
-    &gl_reset_button_Push_Release_state_t /** Pointer to the variable giving the button state - PUSHED and RELEASED*/\
+    &eModeButtonPushReleaseState, /** Pointer to the variable giving the button state - PUSHED and RELEASED*/\
+    &eResetButtonPushReleaseState /** Pointer to the variable giving the button state - PUSHED and RELEASED*/\
 
 
 #define SWITCH_PRESS_DURATION_CONFIGURATION \
@@ -68,12 +68,12 @@ extern Switch_PushRelease_State_T gl_reset_button_Push_Release_state_t;
 #if SEPARATE_CALLBACK_FUNCTIONS
 
 #else
-extern void vMode_Button_Press_Hdlr(Button_Push_Event_T);
-extern void vReset_Button_Press_Hdlr(Button_Push_Event_T);
+extern void vModeButtonPressHandler(Button_Push_Event_T);
+extern void vResetButtonPressHandler(Button_Push_Event_T);
 
 #define BUTTON_PUSH_NOTIFY_CALLBACKS \
-&vMode_Button_Press_Hdlr,\
-&vReset_Button_Press_Hdlr
+&vModeButtonPressHandler,\
+&vResetButtonPressHandler
 
 #endif
 

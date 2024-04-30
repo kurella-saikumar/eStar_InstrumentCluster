@@ -1,2 +1,2 @@
-../Application/User/Core/src/Service/IO_HAL/AnalogDebounce/Analog_debounce.c:91:6:analog_debounce_task	48	static
+../Application/User/Core/src/Service/IO_HAL/AnalogDebounce/Analog_debounce.c:91:6:analog_debounce_task	16	static
 ../Application/User/Core/src/Service/IO_HAL/AnalogDebounce/Analog_debounce.c:429:28:get_analog_debounce_state	0	static

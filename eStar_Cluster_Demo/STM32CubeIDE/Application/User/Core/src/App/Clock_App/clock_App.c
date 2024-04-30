@@ -120,7 +120,7 @@ void vGet_Clock(void)
 
 }
 
-void clockSettingRunMode(Clock_Edit_Actions clockSettingMode)
+void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 {
 	switch (clockSettingMode)
 	{
