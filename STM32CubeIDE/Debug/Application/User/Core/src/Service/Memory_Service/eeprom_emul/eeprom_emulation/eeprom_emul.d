@@ -47,6 +47,7 @@ Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/ee
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_wwdg.h \
  ../../Core/Inc/main.h \
  ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul_cfg.h \
+ ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.H \
  ../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h \
  ../../Core/Inc/stm32h735g_discovery_conf.h \
@@ -104,6 +105,7 @@ Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/ee
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_wwdg.h:
 ../../Core/Inc/main.h:
 ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul_cfg.h:
+../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.H:
 ../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h:
 ../../Core/Inc/stm32h735g_discovery_conf.h:

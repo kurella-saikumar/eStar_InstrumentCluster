@@ -313,7 +313,7 @@ uint32_t xGetOdoReadings(vehicleDisplayMetrics_t* OdoUnits)
     {
 
     }
-
+    return 0;
 }
 
 /**

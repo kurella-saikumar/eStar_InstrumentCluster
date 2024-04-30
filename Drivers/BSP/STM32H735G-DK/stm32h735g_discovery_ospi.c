@@ -450,8 +450,8 @@ int32_t BSP_OSPI_NOR_Write(uint32_t Instance, uint8_t* pData, uint32_t WriteAddr
   else
   {
     /* Calculation of the size between the write address and the end of the page */
-   // current_size = MX25LM51245G_PAGE_SIZE - (WriteAddr % MX25LM51245G_PAGE_SIZE);
-    current_size = MX25LM51245G_SUBSECTOR_4K - (WriteAddr % MX25LM51245G_SUBSECTOR_4K);
+    current_size = MX25LM51245G_PAGE_SIZE - (WriteAddr % MX25LM51245G_PAGE_SIZE);
+    //current_size = MX25LM51245G_SUBSECTOR_4K - (WriteAddr % MX25LM51245G_SUBSECTOR_4K);
 
     /* Check if the size of the data is less than the remaining place in the page */
     if (current_size > Size)

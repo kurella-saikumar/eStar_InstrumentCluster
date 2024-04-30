@@ -57,7 +57,9 @@ uint32_t *eepromVariables[] = {
     &eep_Variables_t.eep_Speedo_Threshold,
     &eep_Variables_t.eep_Tacho_IdleEngineRPM,
     &eep_Variables_t.eep_Tacho_WarningEngineRPM,
-    &eep_Variables_t.eep_Tacho_MaximumEngineRPM,
+
+#if 0
+	&eep_Variables_t.eep_Tacho_MaximumEngineRPM,
     &eep_Variables_t.eep_Tacho_ErrorThresholdRPM,
     &eep_Variables_t.eep_Tacho_Fixed_PPR_Value,
     &eep_Variables_t.eep_Fuel_TankCapacity,
@@ -66,6 +68,7 @@ uint32_t *eepromVariables[] = {
     &eep_Variables_t.eep_ServiceRequest_ThresholdTime,
     &eep_Variables_t.eep_LastServiced_TimeStamp,
     &eep_Variables_t.eep_LastServiced_Distance
+#endif
 };
 
 uint32_t *eepromShadowVars[] = {
@@ -80,7 +83,9 @@ uint32_t *eepromShadowVars[] = {
     &eep_shadowRAM_t.eep_Speedo_Threshold,
     &eep_shadowRAM_t.eep_Tacho_IdleEngineRPM,
     &eep_shadowRAM_t.eep_Tacho_WarningEngineRPM,
-    &eep_shadowRAM_t.eep_Tacho_MaximumEngineRPM,
+
+#if 0
+	&eep_shadowRAM_t.eep_Tacho_MaximumEngineRPM,
     &eep_shadowRAM_t.eep_Tacho_ErrorThresholdRPM,
     &eep_shadowRAM_t.eep_Tacho_Fixed_PPR_Value,
     &eep_shadowRAM_t.eep_Fuel_TankCapacity,
@@ -89,6 +94,7 @@ uint32_t *eepromShadowVars[] = {
     &eep_shadowRAM_t.eep_ServiceRequest_ThresholdTime,
     &eep_shadowRAM_t.eep_LastServiced_TimeStamp,
     &eep_shadowRAM_t.eep_LastServiced_Distance
+#endif
 };
 
 const eepromData_t eep_default_t ={
@@ -103,6 +109,8 @@ const eepromData_t eep_default_t ={
 	.eep_Speedo_Threshold 		   			= SPEEDO_THRESHOLD,
 	.eep_Tacho_IdleEngineRPM 				= TACHO_IDLE_ENGINE_RPM,
 	.eep_Tacho_WarningEngineRPM 			= TACHO_WARNING_ENGINE_RPM,
+
+#if 0
 	.eep_Tacho_MaximumEngineRPM				= TACHO_MAXIMUM_ENGINE_RPM,
 	.eep_Tacho_ErrorThresholdRPM	 		= TACHO_ERROR_THRESHOLD_RPM,
 	.eep_Tacho_Fixed_PPR_Value				= TACHO_FIXED_PPR_VALUE,
@@ -112,6 +120,7 @@ const eepromData_t eep_default_t ={
 	.eep_ServiceRequest_ThresholdTime 		= SERVICE_REQUEST_THRESHOLD_TIME,
 	.eep_LastServiced_TimeStamp 			= LAST_SERVICED_TIMESTAMP,
 	.eep_LastServiced_Distance 				= LAST_SERVICED_DISTANCE,
+#endif
 };
 
 /**************************************************************************************************
@@ -175,7 +184,7 @@ void vEE_Demo(void)
 	/* ShadowRAM initialization*/
 	vShadowRAM_Init();
 	/* Loop through each variable and perform the write check */
-	for (int i =10; i <12; i++)
+	for (int i =10; i <11; i++)
 	{
 		for (int j = 0; j < sizeof(eepromVariables) / sizeof(eepromVariables[0]); j++)
 		{
@@ -246,10 +255,21 @@ uint16_t xES_WriteVariable(uint32_t VirtAddress, uint32_t Data,uint32_t *UpdateT
   * @param  None.
   * @retval FlashStatus:
   */
-
+extern EE_Status prvEE_Format(EE_Erase_type EraseType);
 uint16_t vShadowRAM_Init(void)
 {
 	uint16_t usFlashStatus;
+#if 0
+	uint8_t dummyData[8]={0xAA, 0x55,0xAA, 0x55,0xAA, 0x55,0xAA, 0x55};
+	prvEE_Format(EE_FORCED_ERASE);
+	xFI_WriteDoubleWord(0x3ff03f6, &dummyData[0]);
+	xFI_WriteDoubleWord(0x3ff03fA, &dummyData[4]);
+	xFI_WriteDoubleWord(0x3ff03fe, &dummyData[0]);
+	xFI_WriteDoubleWord(0x3ff0402, &dummyData[4]);
+	uint8_t read_array[16];
+	BSP_OSPI_NOR_Read(BSP_INSTANCE, read_array, 0x3ff03f6, 16);
+	printf("read_array = %x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x \n\r",read_array[0],read_array[1],read_array[2],read_array[3],read_array[4],read_array[5],read_array[6],read_array[7],read_array[8],read_array[9],read_array[10],read_array[11],read_array[12],read_array[13],read_array[14],read_array[15]);
+#endif
 	/* Write default values into eep_shadowRAM_t */
 	memcpy(&eep_shadowRAM_t, &eep_default_t, sizeof(eepromData_t));
 
@@ -260,7 +280,8 @@ uint16_t vShadowRAM_Init(void)
 		if (BSP_ERROR_NONE != usFlashStatus)
 		{
 			printf("EERead Fail:\n\r");
-//			return usFlashStatus;
+			prvEE_Format(EE_FORCED_ERASE);
+			return usFlashStatus;
 			break;
 		}
 		else

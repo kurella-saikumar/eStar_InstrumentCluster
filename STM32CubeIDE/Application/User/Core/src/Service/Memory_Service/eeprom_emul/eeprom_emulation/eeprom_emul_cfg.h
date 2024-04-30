@@ -28,8 +28,8 @@
 ***************************************************************************************************/
 #include "stm32h7xx_hal.h"
 #include "main.h"
-#include "eeprom_emul_cfg.h"
-#include "STM32H735xx.H"
+#include "stdio.h"
+#include "STM32H735xx.h"
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
 ***************************************************************************************************/
@@ -91,6 +91,7 @@ typedef struct
     uint32_t eep_Speedo_Threshold;
     uint32_t eep_Tacho_IdleEngineRPM ;
     uint32_t eep_Tacho_WarningEngineRPM;
+#if 0
     uint32_t eep_Tacho_MaximumEngineRPM;
     uint32_t eep_Tacho_ErrorThresholdRPM;
     uint32_t eep_Tacho_Fixed_PPR_Value;
@@ -100,6 +101,7 @@ typedef struct
     uint32_t eep_ServiceRequest_ThresholdTime;
     uint32_t eep_LastServiced_TimeStamp;
     uint32_t eep_LastServiced_Distance;
+#endif
 }eepromData_t;
 
 /**************************************************************************************************

@@ -80,6 +80,7 @@ Application/User/Core/main.o: \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App_cfg.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul_cfg.h \
+ ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.H \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp
 ../../Core/Inc/main.h:
@@ -164,5 +165,6 @@ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App_cfg.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul_cfg.h:
+../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.H:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp:

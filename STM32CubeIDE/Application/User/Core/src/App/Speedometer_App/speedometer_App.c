@@ -302,6 +302,7 @@ uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStat
 			return speedInMiles;
 		}
     }
+    return 0xff;
 }
 
 #endif	/* SPEEDOMETER_C */

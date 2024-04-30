@@ -164,7 +164,7 @@ uint8_t ECUPwrModeStandBy_To_Off_TransCheck_func(void)
 
     /**:Enter into OFF state if Standby Timer elapsed and IGN is OFF;*/
     /**if (IGN_STATUS) then (OFF)*/
-    states_SM IGN_STATUS = IGN_get_current_state();
+    states_SM IGN_STATUS = usIgnitionGetCurrentState();
     if(IGN_STATUS==IgnOFF_mode)
     {
 
@@ -196,7 +196,7 @@ uint8_t ECUPwrModeActive_To_Off_TransCheck_func(void)
 
     /**:Enter into OFF state if IGN is OFF;*/
     /**if (IGN_STATUS) then (OFF)*/
-    states_SM IGN_STATUS = IGN_get_current_state();
+    states_SM IGN_STATUS = usIgnitionGetCurrentState();
     if(IGN_STATUS==IgnOFF_mode)
     {
         //printf("powermodeActive_to_off\n");
@@ -293,7 +293,7 @@ uint8_t ECUPwrModeActive_To_StandBy_TransCheck_func(void)
 
     /**:Enter into StandBy state if IGN is ON;*/
     /**if (IGN_STATUS) then (ON)*/
-    states_SM IGN_STATUS = IGN_get_current_state();
+    states_SM IGN_STATUS = usIgnitionGetCurrentState();
     if(IGN_STATUS==IgnON_mode)
     {
         /**:Request for A53 and A7 Core to enter into ECU_POWER_MODE_STANDBY State;*/
@@ -357,7 +357,7 @@ uint8_t ECUPwrModeActive_To_Static_TransCheck_func(void)
 
     /**:Enter into static state if Ign is Off & EntryToActiveDueToRemoteFlag  is False and IsNewConfigurationDetectedFlag is False;*/
     /**if (IGN_STATUS) then (OFF)*/
-    states_SM IGN_STATUS = IGN_get_current_state();
+    states_SM IGN_STATUS = usIgnitionGetCurrentState();
     if(IGN_STATUS==IgnOFF_mode)
     {
         /**:Request for A53 and A7 Core to enter into ECU_POWER_MODE_STATIC State;*/
@@ -483,7 +483,7 @@ uint8_t ECUPwrModeStandBy_To_Active_TransCheck_func(void)
 
     /**:Enter into StandBy state if IGN is ON;*/
     /**if (IGN_STATUS) then (ON)*/
-    states_SM IGN_STATUS = IGN_get_current_state();
+    states_SM IGN_STATUS = usIgnitionGetCurrentState();
     if(IGN_STATUS==IgnOFF_mode)
     {
         /**:Request for A53 and A7 Core to enter into ECU_POWER_MODE_ACTIVE State;*/
@@ -515,7 +515,7 @@ uint8_t ECUPwrModeStatic_To_Active_TransCheck_func(void)
 
     /**:Enter into StandBy state if IGN is ON;*/
     /**if (IGN_STATUS) then (ON)*/
-    states_SM IGN_STATUS = IGN_get_current_state();
+    states_SM IGN_STATUS = usIgnitionGetCurrentState();
     if(IGN_STATUS==IgnON_mode)
     {
 
@@ -548,7 +548,7 @@ uint8_t ECUPwrModeCrank_To_Active_TransCheck_func(void)
 
     /**:Enter into StandBy state if IGN is ON;*/
     /**if (IGN_STATUS) then (ON)*/
-    states_SM IGN_STATUS = IGN_get_current_state();
+    states_SM IGN_STATUS = usIgnitionGetCurrentState();
     if(IGN_STATUS==IgnON_mode)
     {
 
@@ -582,7 +582,7 @@ uint8_t ECUPwrModeOff_To_Active_TransCheck_func(void)
 
     /**:Enter into StandBy state if IGN is ON;*/
     /**if (IGN_STATUS) then (ON)*/
-    states_SM IGN_STATUS = IGN_get_current_state();
+    states_SM IGN_STATUS = usIgnitionGetCurrentState();
     if(IGN_STATUS==IgnON_mode)
     {
         //printf("powermodeoff_to_Active_state\n");
@@ -625,7 +625,7 @@ uint8_t ECUPwrModeInitial_To_Off_TransCheck_func(void)
         l_PwrModeInitial_Timer_u16=0;
         /**:Enter into OFF state if IGN is OFF;*/
         /**if (IGN_STATUS) then (OFF)*/
-        states_SM IGN_STATUS = IGN_get_current_state();
+        states_SM IGN_STATUS = usIgnitionGetCurrentState();
         if(IGN_STATUS==IgnOFF_mode)
         {
             //printf("powermodeActive_to_off\n");

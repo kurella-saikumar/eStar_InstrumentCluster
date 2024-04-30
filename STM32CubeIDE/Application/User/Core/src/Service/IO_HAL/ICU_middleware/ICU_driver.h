@@ -61,7 +61,7 @@ uint32_t xGetRollingPulseCount(uint8_t channelNum);
 
 void vDisable_OdoSpeedo_Channel_Interrupts(void);
 
-
+void vEnable_OdoSpeedo_Channel_Interrupts(void);
 
 #endif	/* ICU_DRIVER_H */
 

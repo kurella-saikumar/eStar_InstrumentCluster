@@ -564,8 +564,8 @@ EE_Status prvReadVariable(uint32_t VirtAddress, EE_DATA_TYPE* pData)
 	uint32_t ulPage = 0U;
 	uint32_t ulPageAddress = 0U;
 	uint32_t ulCounter = 0U ;
-	uint8_t ucReadAddressValue[4] = {0X00,0x00,0x00,0x00};
-	uint8_t ucDataValue[4] = {0x00};
+	static uint8_t ucReadAddressValue[4] = {0X00,0x00,0x00,0x00};
+	static uint8_t ucDataValue[4] = {0x00};
 	uint32_t ulReadAddr = 0;
 	uint16_t usCRCRead = 0;
 	uint8_t ucCRC [2]= {0x00};
@@ -716,11 +716,13 @@ uint32_t prvFindPage(EE_Find_type Operation)
 				if (ulAddressNextWrite < (PAGE_SIZE - EE_ELEMENT_SIZE))
 				{
 					/* Return current Active page */
+					printf("Writing in %ld Page (Current)\n\r", ulCurrentPage);
 					return ulCurrentPage;
 				}
 				else
 				/* No more space in current active page */
 				{
+					printf("Writing in %ld Page (Following) \n\r", ulFollowingPage);
 					/* Check if following page is erasing state */
 					if (followingpagestatus == STATE_PAGE_ERASING)
 					{
@@ -843,6 +845,7 @@ EE_Status prvVerifyPagesFullWriteVariable(uint32_t VirtAddress, EE_DATA_TYPE Dat
 {
 	uint16_t usCRC = 0;
 	uint8_t  ucDataArray[4]={Data >> 24,Data >> 16,Data >> 8,Data};
+//	uint8_t readCpyArray[4];
 	uint8_t  ucVirtAddressArray[4]={VirtAddress >> 24,VirtAddress >> 16,VirtAddress >> 8,VirtAddress};
 
 	/* Check if pages are full, i.e. max number of written elements achieved */
@@ -875,7 +878,11 @@ EE_Status prvVerifyPagesFullWriteVariable(uint32_t VirtAddress, EE_DATA_TYPE Dat
 	{
 		return HAL_ERROR;
 	}
-
+//	xFI_ReadDoubleWord(((activepageaddress+ulAddressNextWrite)+EE_EMULATION_START_ADDR -START_PAGE_ADDRESS), readCpyArray);
+//	if(!memcmp(readCpyArray, ucDataArray, 4))
+	{
+//		while(1);
+	}
 
 	if (xFI_WriteDoubleWord((((activepageaddress+ulAddressNextWrite)+EE_ADDRESS_OFFSET)+EE_EMULATION_START_ADDR -START_PAGE_ADDRESS), ucVirtAddressArray)!= HAL_OK)
 	{
@@ -887,6 +894,10 @@ EE_Status prvVerifyPagesFullWriteVariable(uint32_t VirtAddress, EE_DATA_TYPE Dat
 		return HAL_ERROR;
 	}
 
+	uint8_t read_array[10];
+	BSP_OSPI_NOR_Read(BSP_INSTANCE, read_array, ((activepageaddress+ulAddressNextWrite)+EE_EMULATION_START_ADDR -START_PAGE_ADDRESS), 10);
+	printf("read_array = %x,%x,%x,%x,%x,%x,%x,%x,%x,%x \n\r",read_array[0],read_array[1],read_array[2],read_array[3],read_array[4],read_array[5],read_array[6],read_array[7],read_array[8],read_array[9]);
+
 	/* Increment global variables relative to write operation done*/
 	ulAddressNextWrite += EE_ELEMENT_SIZE;
 	usNbWrittenElements++;
@@ -894,7 +905,6 @@ EE_Status prvVerifyPagesFullWriteVariable(uint32_t VirtAddress, EE_DATA_TYPE Dat
 	printf( "usNbWrittenElements=%d\n",usNbWrittenElements);
 	printf( "ucCurrentActivePage=%d\n",ucCurrentActivePage);
 	printf( "ulAddressNextWrite=%lu\n",ulAddressNextWrite);
-
 	return EE_OK;
 }
 

@@ -54,6 +54,7 @@ Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o: \
  ../../Core/Inc/s70kl1281_conf.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul_cfg.h \
+ ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.H \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul_cfg.h
 ../../Core/Inc/main.h:
@@ -110,5 +111,6 @@ Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o: \
 ../../Core/Inc/s70kl1281_conf.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul_cfg.h:
+../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.H:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul_cfg.h:
