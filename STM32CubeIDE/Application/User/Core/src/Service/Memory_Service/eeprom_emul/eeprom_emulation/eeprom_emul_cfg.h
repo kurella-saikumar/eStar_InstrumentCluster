@@ -91,7 +91,7 @@ typedef struct
     uint32_t eep_Speedo_Threshold;
     uint32_t eep_Tacho_IdleEngineRPM ;
     uint32_t eep_Tacho_WarningEngineRPM;
-#if 0
+#if 1
     uint32_t eep_Tacho_MaximumEngineRPM;
     uint32_t eep_Tacho_ErrorThresholdRPM;
     uint32_t eep_Tacho_Fixed_PPR_Value;

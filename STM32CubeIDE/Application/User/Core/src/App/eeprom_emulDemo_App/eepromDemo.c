@@ -58,7 +58,7 @@ uint32_t *eepromVariables[] = {
     &eep_Variables_t.eep_Tacho_IdleEngineRPM,
     &eep_Variables_t.eep_Tacho_WarningEngineRPM,
 
-#if 0
+#if 1
 	&eep_Variables_t.eep_Tacho_MaximumEngineRPM,
     &eep_Variables_t.eep_Tacho_ErrorThresholdRPM,
     &eep_Variables_t.eep_Tacho_Fixed_PPR_Value,
@@ -84,7 +84,7 @@ uint32_t *eepromShadowVars[] = {
     &eep_shadowRAM_t.eep_Tacho_IdleEngineRPM,
     &eep_shadowRAM_t.eep_Tacho_WarningEngineRPM,
 
-#if 0
+#if 1
 	&eep_shadowRAM_t.eep_Tacho_MaximumEngineRPM,
     &eep_shadowRAM_t.eep_Tacho_ErrorThresholdRPM,
     &eep_shadowRAM_t.eep_Tacho_Fixed_PPR_Value,
@@ -110,7 +110,7 @@ const eepromData_t eep_default_t ={
 	.eep_Tacho_IdleEngineRPM 				= TACHO_IDLE_ENGINE_RPM,
 	.eep_Tacho_WarningEngineRPM 			= TACHO_WARNING_ENGINE_RPM,
 
-#if 0
+#if 1
 	.eep_Tacho_MaximumEngineRPM				= TACHO_MAXIMUM_ENGINE_RPM,
 	.eep_Tacho_ErrorThresholdRPM	 		= TACHO_ERROR_THRESHOLD_RPM,
 	.eep_Tacho_Fixed_PPR_Value				= TACHO_FIXED_PPR_VALUE,
@@ -184,7 +184,7 @@ void vEE_Demo(void)
 	/* ShadowRAM initialization*/
 	vShadowRAM_Init();
 	/* Loop through each variable and perform the write check */
-	for (int i =10; i <11; i++)
+	for (int i =10; i <90; i++)
 	{
 		for (int j = 0; j < sizeof(eepromVariables) / sizeof(eepromVariables[0]); j++)
 		{

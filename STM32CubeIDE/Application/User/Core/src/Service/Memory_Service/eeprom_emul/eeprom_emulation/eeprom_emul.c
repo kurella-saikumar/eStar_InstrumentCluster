@@ -1083,7 +1083,8 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 	/* and last element is dummy value that we have just written. */
 	/* Transfer shall then resume from (usNbWrittenElements-3) variable index */
 
-	for (ulVarIdx = (usNbWrittenElements >= 3U?(usNbWrittenElements-3U+1U):1U); ulVarIdx < NB_OF_VARIABLES+1; ulVarIdx++)
+//	for (ulVarIdx = (usNbWrittenElements >= 3U?(usNbWrittenElements-3U):0U); ulVarIdx < (sizeof(eepromVariables) / sizeof(eepromVariables[0])); ulVarIdx++)
+	for (ulVarIdx = 0U; ulVarIdx < (uint32_t)(sizeof((void*)eepromVariables) / sizeof((void*)eepromVariables[0])); ulVarIdx++)
 	{
         /* Check each variable except the one passed as parameter */
 		if ((uint32_t)eepromVariables[ulVarIdx] !=VirtAddress)
@@ -1168,7 +1169,6 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 
 	/* Check if no active page and no receive page present */
 	/* Browse all pages */
-
 	for (ulPage = START_PAGE; ulPage < (START_PAGE + PAGES_NUMBER); ulPage++)
 	{
 		ulPageAddress = PAGE_ADDRESS(ulPage);
