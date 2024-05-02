@@ -6,9 +6,9 @@
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp:65:13:virtual touchgfx::TypedText::~TypedText()	8	static
 ../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:11:13:Screen1View::~Screen1View()	8	static
 ../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:11:13:virtual Screen1View::~Screen1View()	8	static
-D:/eSTARgit/GitHub/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:8:1:Screen1View::Screen1View()	8	static
-D:/eSTARgit/GitHub/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:16:6:virtual void Screen1View::setupScreen()	8	static
-D:/eSTARgit/GitHub/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:40:6:virtual void Screen1View::UpdateCount(uint16_t)	16	static
-D:/eSTARgit/GitHub/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:55:6:virtual void Screen1View::FuelbarWarningIcon(int)	0	static
-D:/eSTARgit/GitHub/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:69:6:virtual void Screen1View::KMPHtoMPH(int)	32	static
-D:/eSTARgit/GitHub/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:99:6:virtual void Screen1View::FuelGauageAnimation(int)	24	static
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:8:1:Screen1View::Screen1View()	8	static
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:16:6:virtual void Screen1View::setupScreen()	8	static
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:40:6:virtual void Screen1View::UpdateCount(uint16_t)	16	static
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:55:6:virtual void Screen1View::FuelbarWarningIcon(int)	0	static
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:69:6:virtual void Screen1View::KMPHtoMPH(int)	24	static
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:99:6:virtual void Screen1View::FuelGauageAnimation(int)	16	static

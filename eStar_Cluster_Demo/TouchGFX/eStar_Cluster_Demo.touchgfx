@@ -456,7 +456,17 @@
             "RelativeFilename": "AnimationImages\\RPM\\RPMBar.png"
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionNone"
+            }
+          }
+        ]
       }
     ],
     "CustomContainerDefinitions": [],

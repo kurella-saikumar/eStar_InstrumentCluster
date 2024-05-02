@@ -1,5 +1,5 @@
 Middlewares/LibJPEG/jaricom.o: \
- D:/eSTARgit/GitHub/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jaricom.c \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jaricom.c \
  ../../Middlewares/Third_Party/LibJPEG/include/jinclude.h \
  ../../LIBJPEG/Target/jconfig.h ../../LIBJPEG/Target/jdata_conf.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \

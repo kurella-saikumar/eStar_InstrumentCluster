@@ -22,6 +22,9 @@ TouchGFX/build/STM32H735G-DK/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma2d.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_cortex.h \
+ Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h \
+ Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h \
+ Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h \
@@ -34,8 +37,13 @@ TouchGFX/build/STM32H735G-DK/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_ospi.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h \
+ Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rtc.h \
+ Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rtc_ex.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
+ Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
+ Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
+ Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_wwdg.h \
  Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h \
  Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336.h \
  Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336_reg.h \
@@ -91,6 +99,12 @@ Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h:
 
 Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_cortex.h:
 
+Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h:
+
+Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:
+
+Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h:
+
 Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h:
 
 Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h:
@@ -115,9 +129,19 @@ Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr.h:
 
 Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h:
 
+Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rtc.h:
+
+Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rtc_ex.h:
+
 Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h:
 
 Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
+
+Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
+
+Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
+
+Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_wwdg.h:
 
 Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h:
 
