@@ -47,18 +47,18 @@
 #define VOLTAGE_RANGE           	(uint8_t)VOLTAGE_RANGE_3
 
 /* EEPROM emulation start address in Flash */
-#define START_PAGE_ADDRESS 		  	(uint32_t)(0x90000000U) /*!< Start address of the 1st page in flash, for EEPROM emulation */
-#define EE_EMULATION_START_ADDR		(uint32_t)( 0x93FF0000U - START_PAGE_ADDRESS)
+#define START_PAGE_ADDRESS 		  	EE_FLASH_BASE_ADDR /*!< Start address of the 1st page in flash, for EEPROM emulation */
+
 #define EEPROM_START_ADDRESS  		EE_FLASH_BASE_ADDR /* sector0 of bank 1 */
-#define EEPROM_OFFSET 		  		EEPROM_START_ADDRESS
 #define NB_MAX_ELEMENTS_BY_PAGE 	((PAGE_SIZE - PAGE_HEADER_SIZE) / EE_ELEMENT_SIZE) /*!< Max number of elements by page *///506//
 #define NB_MAX_WRITTEN_ELEMENTS   	((NB_MAX_ELEMENTS_BY_PAGE * PAGES_NUMBER) / 2U)  /*!< Max number of elements written before triggering pages transfer */
-#define PAGES_NUMBER				((NB_TOTAL_WRITES/(CYCLES_NUMBER *NB_MAX_ELEMENTS_BY_PAGE))+((NB_TOTAL_WRITES/(CYCLES_NUMBER *NB_MAX_ELEMENTS_BY_PAGE))%2))  /*!< Number of consecutive pages used by the application */
 #define NB_TOTAL_WRITES				(NB_OF_WRITES * NB_OF_VARIABLES) /* Number of total writes used in entire application life time */
-#define EMPTY_BYTES_FOR_PAGE		4U  /* Number of bytes wasted for page */
+#define NB_OF_PAGES  				((NB_TOTAL_WRITES/(CYCLES_NUMBER *NB_MAX_ELEMENTS_BY_PAGE))+1)
+#define PAGES_NUMBER				((NB_OF_PAGES)+(NB_OF_PAGES%2))  /*!< Number of consecutive pages used by the application */
+#define EMPTY_BYTES_FOR_PAGE 		(uint32_t)((EE_FLASH_SECTOR_SIZE - PAGE_HEADER_SIZE)% EE_ELEMENT_SIZE) /*4U Number of bytes wasted for page */
 #define BANK_SIZE					(uint32_t)(PAGES_NUMBER * PAGE_SIZE)/* Flash Bank Size*/
 #define PAGE(__ADDRESS__)       	(uint32_t)((((__ADDRESS__) - FLASH_BASE) % BANK_SIZE) / FLASH_PAGE_SIZE) /*!< Get page index from page address */
-#define PAGE_ADDRESS(__PAGE__)  	(uint32_t)(EE_FLASH_BASE_ADDR + (__PAGE__) * PAGE_SIZE + ((START_PAGE_ADDRESS - EE_FLASH_BASE_ADDR) / BANK_SIZE) * BANK_SIZE) /*!< Get page address from page index */
+#define PAGE_ADDRESS(__PAGE__)  	(uint32_t)(EEPROM_START_ADDRESS + (__PAGE__) * PAGE_SIZE + ((START_PAGE_ADDRESS - EEPROM_START_ADDRESS) / BANK_SIZE) * BANK_SIZE) /*!< Get page address from page index */
 #define PREVIOUS_PAGE(__PAGE__)  	(uint32_t)((((__PAGE__) - START_PAGE - 1U + PAGES_NUMBER) % PAGES_NUMBER) + START_PAGE) /*!< Get page index of previous page, among circular page list */
 #define FOLLOWING_PAGE(__PAGE__) 	(uint32_t)((((__PAGE__) - START_PAGE + 1U) % PAGES_NUMBER) + START_PAGE) /*!< Get page index of following page, among circular page list */
 #define START_PAGE             		PAGE(START_PAGE_ADDRESS)                         /*!< Page index of the 1st page used for EEPROM emul, in the bank */

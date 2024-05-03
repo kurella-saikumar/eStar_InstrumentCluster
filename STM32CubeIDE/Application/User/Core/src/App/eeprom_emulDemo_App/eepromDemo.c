@@ -57,8 +57,6 @@ uint32_t *eepromVariables[] = {
     &eep_Variables_t.eep_Speedo_Threshold,
     &eep_Variables_t.eep_Tacho_IdleEngineRPM,
     &eep_Variables_t.eep_Tacho_WarningEngineRPM,
-
-#if 1
 	&eep_Variables_t.eep_Tacho_MaximumEngineRPM,
     &eep_Variables_t.eep_Tacho_ErrorThresholdRPM,
     &eep_Variables_t.eep_Tacho_Fixed_PPR_Value,
@@ -68,7 +66,6 @@ uint32_t *eepromVariables[] = {
     &eep_Variables_t.eep_ServiceRequest_ThresholdTime,
     &eep_Variables_t.eep_LastServiced_TimeStamp,
     &eep_Variables_t.eep_LastServiced_Distance
-#endif
 };
 
 uint32_t *eepromShadowVars[] = {
@@ -83,8 +80,6 @@ uint32_t *eepromShadowVars[] = {
     &eep_shadowRAM_t.eep_Speedo_Threshold,
     &eep_shadowRAM_t.eep_Tacho_IdleEngineRPM,
     &eep_shadowRAM_t.eep_Tacho_WarningEngineRPM,
-
-#if 1
 	&eep_shadowRAM_t.eep_Tacho_MaximumEngineRPM,
     &eep_shadowRAM_t.eep_Tacho_ErrorThresholdRPM,
     &eep_shadowRAM_t.eep_Tacho_Fixed_PPR_Value,
@@ -94,7 +89,6 @@ uint32_t *eepromShadowVars[] = {
     &eep_shadowRAM_t.eep_ServiceRequest_ThresholdTime,
     &eep_shadowRAM_t.eep_LastServiced_TimeStamp,
     &eep_shadowRAM_t.eep_LastServiced_Distance
-#endif
 };
 
 const eepromData_t eep_default_t ={
@@ -109,8 +103,6 @@ const eepromData_t eep_default_t ={
 	.eep_Speedo_Threshold 		   			= SPEEDO_THRESHOLD,
 	.eep_Tacho_IdleEngineRPM 				= TACHO_IDLE_ENGINE_RPM,
 	.eep_Tacho_WarningEngineRPM 			= TACHO_WARNING_ENGINE_RPM,
-
-#if 1
 	.eep_Tacho_MaximumEngineRPM				= TACHO_MAXIMUM_ENGINE_RPM,
 	.eep_Tacho_ErrorThresholdRPM	 		= TACHO_ERROR_THRESHOLD_RPM,
 	.eep_Tacho_Fixed_PPR_Value				= TACHO_FIXED_PPR_VALUE,
@@ -120,7 +112,6 @@ const eepromData_t eep_default_t ={
 	.eep_ServiceRequest_ThresholdTime 		= SERVICE_REQUEST_THRESHOLD_TIME,
 	.eep_LastServiced_TimeStamp 			= LAST_SERVICED_TIMESTAMP,
 	.eep_LastServiced_Distance 				= LAST_SERVICED_DISTANCE,
-#endif
 };
 
 /**************************************************************************************************
@@ -162,23 +153,32 @@ void vEE_Demo(void)
 	/* Initialize OSPI NOR Flash */
 	while ( BSP_ERROR_NONE != BSP_OSPI_NOR_Init(0, &ospiInit))
 	{
+#if(EMUL_DEBUG_ENABLE == 1)
 		printf("BSP_OSPI_NOR_Init:Fail \n\r");
+#endif
+
 	}
 
 	/* Read the current status of the OSPI memory */
 	while ( BSP_ERROR_NONE != BSP_OSPI_NOR_GetStatus(0))
 	{
+#if(EMUL_DEBUG_ENABLE == 1)
 		printf("BSP_OSPI_NOR_GetStatus:Fail \n\r");
+#endif
 	}
 
 	/* Init Sequence */
 	if ( 0U != xEE_Init(EE_FORCED_ERASE))
 	{
+#if(EMUL_DEBUG_ENABLE == 1)
 		printf("xEE_Init:Fail \n\r");
+#endif
 	}
 	else
 	{
+#if(EMUL_DEBUG_ENABLE == 1)
 		printf("xEE_Init:Success \n\r");
+#endif
 	}
 
 	/* ShadowRAM initialization*/
@@ -191,11 +191,15 @@ void vEE_Demo(void)
 			uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[j],(uint32_t)(i),eepromVariables[j]);
 			if (BSP_ERROR_NONE == FlashStatus)
 			{
+#if(EMUL_DEBUG_ENABLE == 1)
 				printf("ESWrite Success:at %p, eepromVariables[%d]:%ld \n\r",eepromVariables[j],j,*eepromVariables[j]);
+#endif
 			}
 			else
 			{
+#if(EMUL_DEBUG_ENABLE == 1)
 				printf("ESWrite Fail:eepromVariables\n\r");
+#endif
 				break;
 				//return FlashStatus;
 			}
@@ -208,15 +212,18 @@ void vEE_Demo(void)
 		uint16_t FlashStatus = xEE_ReadVariable32bits((uint32_t)eepromVariables[i], eepromVariables[i]);
 		if (BSP_ERROR_NONE != FlashStatus)
 		{
+#if(EMUL_DEBUG_ENABLE == 1)
 			printf("Read Fail:eepromVariables\n\r");
+#endif
 			break;
-			//return FlashStatus;
 		}
 		else
 		{
+#if(EMUL_DEBUG_ENABLE == 1)
 			printf("Read Success:eepromVariables[%d] at :%p data :%ld\n\r",i,eepromVariables[i],*eepromVariables[i]);
+#endif
 		}
-//		osDelay(10);
+
 	}
 	/* De-initialize OSPI NOR Flash */
 //	BSP_OSPI_NOR_DeInit(0);
@@ -240,7 +247,6 @@ uint16_t xES_WriteVariable(uint32_t VirtAddress, uint32_t Data,uint32_t *UpdateT
 	{
 		*UpdateToShadowRAM = Data;
 		return BSP_ERROR_NONE;
-
 	}
 	else
 	{
@@ -256,50 +262,36 @@ uint16_t xES_WriteVariable(uint32_t VirtAddress, uint32_t Data,uint32_t *UpdateT
   * @retval FlashStatus:
   */
 extern EE_Status prvEE_Format(EE_Erase_type EraseType);
+
 uint16_t vShadowRAM_Init(void)
 {
 	uint16_t usFlashStatus;
-#if 0
-	uint8_t dummyData[8]={0xAA, 0x55,0xAA, 0x55,0xAA, 0x55,0xAA, 0x55};
-	prvEE_Format(EE_FORCED_ERASE);
-	xFI_WriteDoubleWord(0x3ff03f6, &dummyData[0]);
-	xFI_WriteDoubleWord(0x3ff03fA, &dummyData[4]);
-	xFI_WriteDoubleWord(0x3ff03fe, &dummyData[0]);
-	xFI_WriteDoubleWord(0x3ff0402, &dummyData[4]);
-	uint8_t read_array[16];
-	BSP_OSPI_NOR_Read(BSP_INSTANCE, read_array, 0x3ff03f6, 16);
-	printf("read_array = %x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x,%x \n\r",read_array[0],read_array[1],read_array[2],read_array[3],read_array[4],read_array[5],read_array[6],read_array[7],read_array[8],read_array[9],read_array[10],read_array[11],read_array[12],read_array[13],read_array[14],read_array[15]);
-#endif
+
 	/* Write default values into eep_shadowRAM_t */
-	memcpy(&eep_shadowRAM_t, &eep_default_t, sizeof(eepromData_t));
+	memcpy(eepromShadowVars, &eep_default_t, sizeof(eepromData_t));
 
 	/* Loop through each variable and perform the check*/
 	for (int i = 0; i < sizeof(eepromVariables) / sizeof(eepromVariables[0]); i++)
 	{
-		usFlashStatus = xEE_ReadVariable32bits((uint32_t)eepromVariables[i],eepromVariables[i]);
+		usFlashStatus = xEE_ReadVariable32bits((uint32_t)eepromVariables[i],eepromShadowVars[i]);
 		if (BSP_ERROR_NONE != usFlashStatus)
 		{
+#if(EMUL_DEBUG_ENABLE == 1)
 			printf("EERead Fail:\n\r");
+#endif
 			prvEE_Format(EE_FORCED_ERASE);
 			return usFlashStatus;
 			break;
 		}
 		else
 		{
-			printf("EERead Success:eepromVariables[%d] at :%p data :%ld\n\r",i,eepromVariables[i],*eepromVariables[i]);
+#if(EMUL_DEBUG_ENABLE == 1)
+			printf("EERead Success:eepromVariables[%d] at :%p data :%ld\n\r",i,eepromVariables[i],*eepromShadowVars[i]);
+#endif
 		}
-	}
-
-	/* If EEPROM has valid data, update shadow RAM */
-	memcpy(eepromShadowVars, eepromVariables, sizeof(eepromData_t));
-	for(int i = 0; i < sizeof(eepromVariables) / sizeof(eepromVariables[0]); i++)
-	{
-		printf("Shadow_RAM Copy Success :eepromShadowVars[%d] at :0%p data :%ld\n\r",i,eepromShadowVars[i],*eepromShadowVars[i]);
 	}
 	return usFlashStatus;
 }
-
-
 /**************************************************************************************************
  * End Of File
 ***************************************************************************************************/

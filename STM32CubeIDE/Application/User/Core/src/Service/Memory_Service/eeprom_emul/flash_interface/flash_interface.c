@@ -68,7 +68,9 @@
   */
 int32_t xFI_WriteDoubleWord(uint32_t Address, uint8_t *Data)
 {
-	printf("Write Address at %lx \n\r", Address);
+#if(EMUL_DEBUG_ENABLE == 1)
+//	printf("Write Address at 0x%lx \n\r", Address);
+#endif
   return BSP_OSPI_NOR_Write(BSP_INSTANCE, Data, Address, EE_DATA_SIZE);
 }
 
@@ -84,7 +86,9 @@ int32_t xFI_WriteDoubleWord(uint32_t Address, uint8_t *Data)
   */
 int32_t xFI_ReadDoubleWord(uint32_t Address,  uint8_t *Data)
 {
-	printf("Read Address at %lx \n\r", Address);
+#if(EMUL_DEBUG_ENABLE == 1)
+//	printf("Read Address at 0x%lx \n\r", Address);
+#endif
 	return BSP_OSPI_NOR_Read(BSP_INSTANCE,Data, Address, EE_DATA_SIZE);
 }
 

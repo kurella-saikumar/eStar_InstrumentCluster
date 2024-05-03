@@ -39,10 +39,11 @@
 
 /*define user requirements*/
 #define EE_FLASH_BASE_ADDR      		FLASH_BASE_ADDR
+#define EE_EMULATION_START_ADDR			(uint32_t)(0x93FF0000U - EE_FLASH_BASE_ADDR)
 #define EE_FLASH_SECTOR_SIZE 		  	4096U 							/* 4096Bytes //BSP_OSPI_NOR_BLOCK_4K */
 #define CYCLES_NUMBER           		100000U  				 		/*!< Number of Erase/Write cycles given by manufacturer*/
-#define NB_OF_VARIABLES         		100U  							/*!< Number of variables to handle in eeprom */
-#define NB_OF_WRITES				    1600000U 						/* Number of writes required by each variable */
+#define NB_OF_VARIABLES         		20U//100U  							/*!< Number of variables to handle in eeprom */
+#define NB_OF_WRITES				    320000U//1600000U 						/* Number of writes required by each variable */
 
 /* Page Header status*/
 #define EE_ELEMENT_SIZE         	  	10U                         	 /*!< Size of element in Bytes */
@@ -72,6 +73,8 @@
 #define LAST_SERVICED_TIMESTAMP					(uint32_t)(0x000A)
 #define LAST_SERVICED_DISTANCE					(uint32_t)(0x000A)
 
+#define EMUL_DEBUG_ENABLE  (1U)
+
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES
 ***************************************************************************************************/
@@ -91,7 +94,6 @@ typedef struct
     uint32_t eep_Speedo_Threshold;
     uint32_t eep_Tacho_IdleEngineRPM ;
     uint32_t eep_Tacho_WarningEngineRPM;
-#if 1
     uint32_t eep_Tacho_MaximumEngineRPM;
     uint32_t eep_Tacho_ErrorThresholdRPM;
     uint32_t eep_Tacho_Fixed_PPR_Value;
@@ -101,7 +103,6 @@ typedef struct
     uint32_t eep_ServiceRequest_ThresholdTime;
     uint32_t eep_LastServiced_TimeStamp;
     uint32_t eep_LastServiced_Distance;
-#endif
 }eepromData_t;
 
 /**************************************************************************************************
