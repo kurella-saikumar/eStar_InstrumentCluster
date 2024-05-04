@@ -46,6 +46,7 @@ Application/User/Core/src/App/DriverInfoApplication \
 Application/User/Core/src/App/FuelGuage \
 Application/User/Core/src/App/Indicator_App \
 Application/User/Core/src/App/Odometer_App \
+Application/User/Core/src/App/ServiceRequest_App \
 Application/User/Core/src/App/Speedometer_App \
 Application/User/Core/src/App/Tachometer_App \
 Application/User/Core/src/Service/IO_HAL/AnalogDebounce \

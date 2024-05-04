@@ -31,6 +31,7 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
 ***************************************************************************************************/
+#define Indicator_Macro 0
 /**
  * Flag to indicate that the required mode of ADC conversion is Continuous Mode
  */

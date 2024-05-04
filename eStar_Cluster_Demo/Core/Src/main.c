@@ -43,6 +43,7 @@
 #include "CAN_App.h"
 #include "Indicator_App.h"
 
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -268,6 +269,18 @@ const osThreadAttr_t Indicators_App_attributes = {
   .stack_size = sizeof(Indicators_AppBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for Indicator_App */
+osThreadId_t Indicator_AppHandle;
+uint32_t Indicator_AppBuffer[ 128 ];
+osStaticThreadDef_t Indicator_AppControlBlock;
+const osThreadAttr_t Indicator_App_attributes = {
+  .name = "Indicator_App",
+  .cb_mem = &Indicator_AppControlBlock,
+  .cb_size = sizeof(Indicator_AppControlBlock),
+  .stack_mem = &Indicator_AppBuffer[0],
+  .stack_size = sizeof(Indicator_AppBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* USER CODE BEGIN PV */
 /**
   * @brief  Retargets the C library printf function to the USART.
@@ -318,6 +331,7 @@ void SwitchHandlerTask(void *argument);
 void GetClockTask(void *argument);
 void CAN_Task(void *argument);
 void IndicatorsApp_Task(void *argument);
+void IndicatorApp_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -475,6 +489,9 @@ int main(void)
 
   /* creation of Indicators_App */
   Indicators_AppHandle = osThreadNew(IndicatorsApp_Task, NULL, &Indicators_App_attributes);
+
+  /* creation of Indicator_App */
+  Indicator_AppHandle = osThreadNew(IndicatorApp_Task, NULL, &Indicator_App_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1141,10 +1158,10 @@ static void MX_RTC_Init(void)
 
   /** Enable the WakeUp
   */
-  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
-  {
-    Error_Handler();
-  }
+//  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
   /* USER CODE BEGIN RTC_Init 2 */
   if(HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR0) != 0x32F2)
   {
@@ -1772,16 +1789,29 @@ void IndicatorsApp_Task(void *argument)
 	  {
 		vIndicator_App_Task();
 		indicator = xGetIndicatorstatus();
-		//printf("indicator=%lu\r\n",indicator);
-		//printf("Indicator_status: %x\r\n", indicator.Indicator_status); // Example: Print ReceivedData member
-
-		printf("Right indicator: %x\r\n", indicator.Indicator_status);
-		// or
-		//printf("Indicator_status: %x\r\n",  xGetIndicatorstatus());
 	    osDelay(50);
 
 	  }
   /* USER CODE END IndicatorsApp_Task */
+}
+
+/* USER CODE BEGIN Header_IndicatorApp_Task */
+/**
+* @brief Function implementing the Indicator_App thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_IndicatorApp_Task */
+void IndicatorApp_Task(void *argument)
+{
+  /* USER CODE BEGIN IndicatorApp_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+	  prvServiceRequestTask();
+    osDelay(10000);
+  }
+  /* USER CODE END IndicatorApp_Task */
 }
 
  /* MPU Configuration */

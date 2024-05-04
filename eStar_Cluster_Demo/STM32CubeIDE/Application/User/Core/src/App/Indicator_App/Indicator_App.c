@@ -137,7 +137,9 @@ void vIndicator_App_Task(void)
 	    Status.indicators.FaultyLeft_indicator	  =	Rxdata1.flags.Signal_12;
 
      }
-    // printf("Indicator_status: %x\r\n", Status.Indicator_status);
+#if(Indicator_Macro == 1)
+       printf("Indicator_status: %x\r\n", Status.Indicator_status);
+#endif
 }
 
 

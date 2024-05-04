@@ -101,20 +101,20 @@ void vGet_Clock(void)
     xRes = HAL_RTC_GetTime(&hrtc, &xTime, RTC_FORMAT_BIN);
     if(xRes != HAL_OK)
     {
-    	printf("HAL_RTC_GetTime failed: %d\r\n", xRes);
+    	//printf("HAL_RTC_GetTime failed: %d\r\n", xRes);
     }
     else
     {
-    	printf("DT: %02d:%02d \n", xTime.Hours, xTime.Minutes);
+    	//printf("DT: %02d:%02d \n", xTime.Hours, xTime.Minutes);
     }
     xRes = HAL_RTC_GetDate(&hrtc, &xDate, RTC_FORMAT_BIN);
     if(xRes != HAL_OK)
     {
-    	printf("HAL_RTC_GetDate failed: %d\r\n", xRes);
+    	//printf("HAL_RTC_GetDate failed: %d\r\n", xRes);
     }
     else
     {
-    	printf("Current date: %02d-%02d-%04d\n", xDate.Date, xDate.Month, xDate.Year);
+    	//printf("Current date: %02d-%02d-%04d\n", xDate.Date, xDate.Month, xDate.Year);
     }
 
 }
