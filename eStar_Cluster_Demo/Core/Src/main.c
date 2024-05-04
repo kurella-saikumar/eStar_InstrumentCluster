@@ -42,6 +42,7 @@
 #include "clock_App.h"
 #include "CAN_App.h"
 #include "Indicator_App.h"
+#include "stm32h7xx_hal_tim.h"
 
 /* USER CODE END Includes */
 
@@ -62,6 +63,9 @@ typedef StaticTask_t osStaticThreadDef_t;
 uint16_t usADCValue;
 uint32_t gl_BAT_MON_u32;
 IndicationStatus_t indicator;
+uint32_t execTimeFault;
+
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -320,7 +324,7 @@ void CAN_Task(void *argument);
 void IndicatorsApp_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
-
+void vBacklightBrightness(void);
 RTC_TimeTypeDef sTime;
 RTC_DateTypeDef sDate;
 HAL_StatusTypeDef res;
@@ -396,6 +400,7 @@ int main(void)
   State_Manager_init();
   vOdoInit();
   vSpeedoInit();
+  vTacho_Init();
   clock_Init();
   vFuelGuageTaskInit();
   VCAN_Init();
@@ -409,6 +414,9 @@ int main(void)
   {
 	  Error_Handler();
   }
+  vBacklightBrightness();
+
+
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -556,7 +564,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB3CLKDivider = RCC_APB3_DIV2;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV2;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV16;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_APB2_DIV2;
   RCC_ClkInitStruct.APB4CLKDivider = RCC_APB4_DIV2;
 
@@ -1236,6 +1244,7 @@ static void MX_TIM4_Init(void)
 
   /* USER CODE END TIM4_Init 0 */
 
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
   TIM_IC_InitTypeDef sConfigIC = {0};
 
@@ -1248,6 +1257,15 @@ static void MX_TIM4_Init(void)
   htim4.Init.Period = 65535;
   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim4, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
   if (HAL_TIM_IC_Init(&htim4) != HAL_OK)
   {
     Error_Handler();
@@ -1529,19 +1547,23 @@ void StartDefaultTask(void *argument)
 * @param argument: Not used
 * @retval None
 */
+
+
+
 /* USER CODE END Header_WDG_SRVC_Task */
 void WDG_SRVC_Task(void *argument)
 {
   /* USER CODE BEGIN WDG_SRVC_Task */
+  /* Infinite loop */
   for(;;)
   {
-    osDelay(30000); //watchdog period
-    //service or refresh or reload the watchdog here
-    printf("WDG_SRVC_Task\r\n");
-    if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
-    {
-          Error_Handler();
-    }
+	    osDelay(30000); //watchdog period
+	    //service or refresh or reload the watchdog here
+	    printf("WDG_SRVC_Task\r\n");
+	    if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
+	    {
+	          Error_Handler();
+	    }
 
   }
   /* USER CODE END WDG_SRVC_Task */
@@ -1557,12 +1579,17 @@ void WDG_SRVC_Task(void *argument)
 void DigitalDebounce_Task(void *argument)
 {
   /* USER CODE BEGIN DigitalDebounce_Task */
+//  static TaskRunTimeStat_t p_measurement_var_ptr;
+//  vReset_executionTimeStats(&p_measurement_var_ptr);
   /* Infinite loop */
   for(;;)
   {
+
 	DebounceTask();
 	vGet_Switch_DebouncedStatus();
-    osDelay(4);
+     osDelay(4);
+
+
   }
   /* USER CODE END DigitalDebounce_Task */
 }
@@ -1580,9 +1607,11 @@ void State_Machine_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
+
 	//HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x4E20, RTC_WAKEUPCLOCK_RTCCLK_DIV16);
-	State_Manager_task();
-    osDelay(10);
+	  State_Manager_task();
+	      osDelay(10);
+
   }
   /* USER CODE END State_Machine_Task */
 }
@@ -1775,7 +1804,7 @@ void IndicatorsApp_Task(void *argument)
 		//printf("indicator=%lu\r\n",indicator);
 		//printf("Indicator_status: %x\r\n", indicator.Indicator_status); // Example: Print ReceivedData member
 
-		printf("Right indicator: %x\r\n", indicator.Indicator_status);
+		//printf("Right indicator: %x\r\n", indicator.Indicator_status);
 		// or
 		//printf("Indicator_status: %x\r\n",  xGetIndicatorstatus());
 	    osDelay(50);

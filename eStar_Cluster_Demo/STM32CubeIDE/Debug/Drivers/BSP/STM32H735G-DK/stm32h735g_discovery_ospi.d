@@ -1,6 +1,6 @@
 Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.o: \
- D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.c \
- D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h \
+ E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.c \
+ E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h \
  ../../Core/Inc/stm32h735g_discovery_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
@@ -47,12 +47,12 @@ Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h \
- D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/mx25lm51245g/mx25lm51245g.h \
+ E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h \
+ E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/mx25lm51245g/mx25lm51245g.h \
  ../../Core/Inc/mx25lm51245g_conf.h \
- D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/s70kl1281/s70kl1281.h \
+ E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/s70kl1281/s70kl1281.h \
  ../../Core/Inc/s70kl1281_conf.h
-D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h:
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h:
 ../../Core/Inc/stm32h735g_discovery_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:
@@ -99,8 +99,8 @@ D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
-D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h:
-D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/mx25lm51245g/mx25lm51245g.h:
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h:
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/mx25lm51245g/mx25lm51245g.h:
 ../../Core/Inc/mx25lm51245g_conf.h:
-D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/s70kl1281/s70kl1281.h:
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/s70kl1281/s70kl1281.h:
 ../../Core/Inc/s70kl1281_conf.h:

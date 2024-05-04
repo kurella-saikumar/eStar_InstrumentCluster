@@ -50,12 +50,16 @@
 /**************************************************************************************************
  * DEFINE FILE SCOPE TYPES
 ***************************************************************************************************/
-uint8_t l_Mode_ButtonEvent_Status_u8 = 0xFF;
-uint8_t l_Reset_ButtonEvent_Status_u8 = 0xFF;
+uint8_t ucModeButtonEventStatus = 0xFF;
+uint8_t ucResetButtonEventStatus = 0xFF;
+uint8_t ucModeButtonStatus = 0;
+uint8_t ucResetButtonStatus = 0;
 
 
-uint8_t l_mode_button_status_u8 = 0;
-uint8_t l_reset_button_status_u8 = 0;
+
+
+
+
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES\n
 ***************************************************************************************************/
@@ -63,12 +67,17 @@ uint8_t l_reset_button_status_u8 = 0;
 /**************************************************************************************************
  * DECLARE FILE SCOPE STATIC VARIABLES
 ***************************************************************************************************/
-Switch_PushRelease_State_T gl_mode_button_Push_Release_state_t = BUTTON_RELEASED;
-Switch_PushRelease_State_T gl_reset_button_Push_Release_state_t = BUTTON_RELEASED;
+Switch_PushRelease_State_T eModeButtonPushReleaseState = BUTTON_RELEASED;
+Switch_PushRelease_State_T eResetButtonPushReleaseState = BUTTON_RELEASED;
 
-ClockMode eclockMode = CLOCK_MODE_INACTIVE;
+
+
+
+ClockEditModeState_t eClockMode = CLOCK_MODE_INACTIVE; //eClockMode
 // Define a timer variable to track the count since the last button press
-uint32_t l_button_Timeout = 0,l_button_Timeout_Start=0,l_button_Timeout_End=0;
+
+uint32_t ulButtonTimeout = 0, ulButtonTimeoutStart = 0, ulButtonTimeoutEnd = 0;
+
 
 
 //extern STATE_t ModeSwitchState = RELEASED;
@@ -82,16 +91,16 @@ uint32_t l_button_Timeout = 0,l_button_Timeout_Start=0,l_button_Timeout_End=0;
  * @return None
  *
  ***************************************************************************************************/
-void vMode_Button_Press_Hdlr(Button_Push_Event_T eModeButtonStatus)
+void vModeButtonPressHandler(Button_Push_Event_T eModeButtonStatus) //vModeButtonPressHandler
 {
 
-    l_Mode_ButtonEvent_Status_u8 = eModeButtonStatus;
+	ucModeButtonEventStatus = eModeButtonStatus;
 }
 
-void vReset_Button_Press_Hdlr(Button_Push_Event_T eResetButtonStatus)
+void vResetButtonPressHandler(Button_Push_Event_T eResetButtonStatus) //vResetButtonPressHandler
 {
 
-	l_Reset_ButtonEvent_Status_u8 = eResetButtonStatus;
+	ucResetButtonEventStatus = eResetButtonStatus;
 }
 
 
@@ -105,32 +114,32 @@ void vReset_Button_Press_Hdlr(Button_Push_Event_T eResetButtonStatus)
 void vSwitchHandlerTask(void)
 {
     // Read the status of mode and reset buttons
-    l_mode_button_status_u8 = xGetModeSwitch();
-    l_reset_button_status_u8 = xGetResetSwitch();
+	ucModeButtonStatus = xGetModeSwitch();
+	ucResetButtonStatus = xGetResetSwitch();
     
 
     // Check if mode button is pressed
-    if (l_mode_button_status_u8 == PRESSED)
+    if (ucModeButtonStatus == PRESSED)
     {
         // Update global mode button state to pushed
-        gl_mode_button_Push_Release_state_t = BUTTON_PUSHED;
+    	eModeButtonPushReleaseState = BUTTON_PUSHED;
     }
     else
     {
         // Update global mode button state to released
-        gl_mode_button_Push_Release_state_t = BUTTON_RELEASED;
+    	eModeButtonPushReleaseState = BUTTON_RELEASED;
     }
     
     // Check if reset button is pressed
-    if (l_reset_button_status_u8 == PRESSED)
+    if (ucResetButtonStatus == PRESSED)
     {
         // Update global reset button state to pushed
-        gl_reset_button_Push_Release_state_t = BUTTON_PUSHED;
+    	eResetButtonPushReleaseState = BUTTON_PUSHED;
     }
     else
     {
         // Update global reset button state to released
-        gl_reset_button_Push_Release_state_t = BUTTON_RELEASED;
+    	eResetButtonPushReleaseState = BUTTON_RELEASED;
     }
     //printf("l_Mode_button_status_u8:%d\r\n",l_mode_button_status_u8);
     //printf("l_Reset_button_status_u8:%d\r\n",l_reset_button_status_u8);
@@ -144,10 +153,10 @@ void vSwitchHandlerTask(void)
  * 
  * @return The current clock mode.
  */
-ClockMode xGetClockMode(void) 
+ClockEditModeState_t xGetClockMode(void)
 {
     // Return the current clock mode stored in a local variable
-    return eclockMode;
+    return eClockMode;
 }
 
 
@@ -159,12 +168,12 @@ ClockMode xGetClockMode(void)
  * and resetting trip values. It also manages the clock mode and button timeout.
  */
 
-Button_Push_Event_T getModeButtonStatus(void)
+Button_Push_Event_T xGetModeButtonStatus(void)//xGetModeButtonStatus
 {
     Button_Push_Event_T mode_status = 0xFF;
-    if(eclockMode == CLOCK_MODE_ACTIVE)
+    if(eClockMode == CLOCK_MODE_ACTIVE)
     {
-        mode_status = l_Mode_ButtonEvent_Status_u8;
+        mode_status = ucModeButtonEventStatus;
         
     }
     else
@@ -175,35 +184,46 @@ Button_Push_Event_T getModeButtonStatus(void)
     
 }
 
-Clock_Edit_Actions clockSettingGetSetMode(void)
+ClockEditActions_t xClockSettingGetSetMode(void)
 {
-    Button_Push_Event_T clk_mode_status = getModeButtonStatus();
-    Button_Push_Event_T clk_reset_status = getResetButtonStatus();
+    Button_Push_Event_T eClkModeStatus = xGetModeButtonStatus(); //eClkModeStatus
+    Button_Push_Event_T eClkResetStatus = xGetResetButtonStatus(); //eClkResetStatus
 //    clockSettingRunMode(CLOCK_ENTRY);
 
-     if(clk_mode_status == SHORT_PRESS_RELEASED )
+     if(eClkModeStatus == SHORT_PRESS_RELEASED )
      {
+#if (SWITCH_HANDLER_MACRO == 1)
          printf("Clock mode short press\r\n");
+#endif
          clockSettingRunMode(MODE_SHORTPRESS);
      }
-     else if(clk_mode_status == LONG_PRESS_HELD)
+     else if(eClkModeStatus == LONG_PRESS_HELD)
      {
-        printf("clock mode long press\r\n");
+#if (SWITCH_HANDLER_MACRO == 1)
+    	 printf("clock mode long press\r\n");
+#endif
+
          clockSettingRunMode(MODE_LONGPRESS);
      }
-     else if(clk_reset_status == SHORT_PRESS_RELEASED)
+     else if(eClkResetStatus == SHORT_PRESS_RELEASED)
      {
+#if (SWITCH_HANDLER_MACRO == 1)
          printf("clock reset short press\r\n");
+#endif
          clockSettingRunMode(RESET_SHORTPRESS);
      }
-     else if(clk_reset_status == LONG_PRESS_RELEASED)
+     else if(eClkResetStatus == LONG_PRESS_RELEASED)
 	  {
+#if (SWITCH_HANDLER_MACRO == 1)
 		  printf("clock reset long press release");
+#endif
 		  clockSettingRunMode(RESET_LONGPRESS_RELEASE);
 	  }
-     else if(clk_reset_status == LONG_PRESS_HELD)
+     else if(eClkResetStatus == LONG_PRESS_HELD)
      {
+#if (SWITCH_HANDLER_MACRO == 1)
          printf("clock reset long press held");
+#endif
          clockSettingRunMode(RESET_LONGPRESS_HELD);
      }
      else
@@ -215,12 +235,12 @@ Clock_Edit_Actions clockSettingGetSetMode(void)
 
 }
 
-Button_Push_Event_T getResetButtonStatus(void)
+Button_Push_Event_T xGetResetButtonStatus(void)//xGetResetButtonStatus
 {
     Button_Push_Event_T reset_status = 0xFF;
-    if(eclockMode == CLOCK_MODE_ACTIVE)
+    if(eClockMode == CLOCK_MODE_ACTIVE)
     {
-        reset_status = l_Reset_ButtonEvent_Status_u8;
+        reset_status = ucResetButtonEventStatus;
         
     }
     else
@@ -237,145 +257,156 @@ void vHandleModeResetActions(void)
 
     /***/
     // Check if both mode and reset buttons are short-pressed
-    if (l_Mode_ButtonEvent_Status_u8 == SHORT_PRESS_RELEASED && l_Reset_ButtonEvent_Status_u8 == SHORT_PRESS_RELEASED)
+    if (ucModeButtonEventStatus == SHORT_PRESS_RELEASED && ucResetButtonEventStatus == SHORT_PRESS_RELEASED)
     {
         // Odometer Units Toggle
         //ToggleOdometerUnits();
         // Reset Button Status
         
-        l_Mode_ButtonEvent_Status_u8 = 0xFF;
-        l_Reset_ButtonEvent_Status_u8= 0xFF;
+    	ucModeButtonEventStatus = 0xFF;
+    	ucResetButtonEventStatus= 0xFF;
+#if (SWITCH_HANDLER_MACRO == 1)
         printf("mode and reset short pressed - Odo Units toggle\r\n");
-        
+#endif
     }
     // Check if mode button is short-pressed 
-    else if (l_Mode_ButtonEvent_Status_u8 == SHORT_PRESS_RELEASED)
+    else if (ucModeButtonEventStatus == SHORT_PRESS_RELEASED)
     {
         // Switch to next mode if clock mode is inactive
-        if (eclockMode == CLOCK_MODE_INACTIVE) 
+        if (eClockMode == CLOCK_MODE_INACTIVE)
         {
             vModeSwitchToNext();
+#if (SWITCH_HANDLER_MACRO == 1)
             printf("mode short press\r\n");
+#endif
             
         }
-        if(eclockMode == CLOCK_MODE_ACTIVE)
+        if(eClockMode == CLOCK_MODE_ACTIVE)
         {
            //Button_Push_Event_T mode_status = getModeButtonStatus();
-           clockSettingGetSetMode();
+        	xClockSettingGetSetMode();
 
               
         }
         // Reset Mode Button Status
-        l_Mode_ButtonEvent_Status_u8 = 0xFF;
+        ucModeButtonEventStatus = 0xFF;
     }
     // Check if reset button is short-pressed
-    else if (l_Reset_ButtonEvent_Status_u8 == SHORT_PRESS_RELEASED)
+    else if (ucResetButtonEventStatus == SHORT_PRESS_RELEASED)
     {
-         if (eclockMode == CLOCK_MODE_INACTIVE)
+         if (eClockMode == CLOCK_MODE_INACTIVE)
          {
                     // Reset trip values based on current mode
                if (xGetDriverInforMenu() == TASK_TRIP_ODO_A ) 
                {
+#if (SWITCH_HANDLER_MACRO == 1)
                    printf("Reset short press - Trip A Reset\r\n");
+#endif
 
-                   l_Reset_ButtonEvent_Status_u8= 0xFF;
+                   ucResetButtonEventStatus= 0xFF;
                }
                if( xGetDriverInforMenu() == TASK_TRIP_ODO_B)
                {
-                   l_Reset_ButtonEvent_Status_u8= 0xFF;
+            	   ucResetButtonEventStatus= 0xFF;
+#if (SWITCH_HANDLER_MACRO == 1)
                    printf("Reset short press - Trip B Reset\r\n");
+#endif
+
 
                }
              
          }
-         if(eclockMode == CLOCK_MODE_ACTIVE)
+         if(eClockMode == CLOCK_MODE_ACTIVE)
          {
-             clockSettingGetSetMode();
+        	 xClockSettingGetSetMode();
 //             Button_Push_Event_T reset_status = getResetButtonStatus();
              //printf("reset short press\r\n");
-             l_Reset_ButtonEvent_Status_u8 = 0xFF;
+             ucResetButtonEventStatus = 0xFF;
          }
         
     }
     // Check if both mode and reset buttons are long-pressed
-    else if (l_Mode_ButtonEvent_Status_u8 == LONG_PRESS_HELD && l_Reset_ButtonEvent_Status_u8 == LONG_PRESS_HELD)
+    else if (ucModeButtonEventStatus == LONG_PRESS_HELD && ucResetButtonEventStatus == LONG_PRESS_HELD)
     {
 
 //    	printf("clock:%d\r\n",eclockMode);
         clockSettingRunMode(CLOCK_ENTRY);
         
-        if (eclockMode == CLOCK_MODE_INACTIVE) 
+        if (eClockMode == CLOCK_MODE_INACTIVE)
         {
-            clockSettingGetSetMode();      //Deciding clk action based on buttons inputs
-
+        	xClockSettingGetSetMode();      //Deciding clk action based on buttons inputs
+#if (SWITCH_HANDLER_MACRO == 1)
             printf("mode and Reset Long press - Clock Setting mode\r\n");
+#endif
             
-            eclockMode = CLOCK_MODE_ACTIVE;
-            l_button_Timeout_Start = HAL_GetTick(); // Reset the button timeout counter
-            l_Mode_ButtonEvent_Status_u8 = 0xFF;
-            l_Reset_ButtonEvent_Status_u8 = 0xFF;
+            eClockMode = CLOCK_MODE_ACTIVE;
+            ulButtonTimeoutStart = HAL_GetTick(); // Reset the button timeout counter
+            ucModeButtonEventStatus = 0xFF;
+            ucResetButtonEventStatus = 0xFF;
             
         }
     }
     // Check if clock mode is active
-    else if (eclockMode == CLOCK_MODE_ACTIVE)
+    else if (eClockMode == CLOCK_MODE_ACTIVE)
     {
         // Increment button timeout counter if no button is pressed
-        if (gl_mode_button_Push_Release_state_t == BUTTON_RELEASED && gl_reset_button_Push_Release_state_t == BUTTON_RELEASED)
+        if (eModeButtonPushReleaseState == BUTTON_RELEASED && eResetButtonPushReleaseState == BUTTON_RELEASED)
         {
-            l_button_Timeout_End= HAL_GetTick();
-            l_button_Timeout = l_button_Timeout_End - l_button_Timeout_Start;
+        	ulButtonTimeoutEnd= HAL_GetTick();
+            ulButtonTimeout = ulButtonTimeoutEnd - ulButtonTimeoutStart;
             // Check if the timeout threshold has been reached
-            if (l_button_Timeout >= BUTTON_TIMEOUT_THRESHOLD)
+            if (ulButtonTimeout >= BUTTON_TIMEOUT_THRESHOLD)
             {
+#if (SWITCH_HANDLER_MACRO == 1)
                 printf("Clock Exit after time out\r\n");
+#endif
                 vClock_exit();
                 // Exit clock setting mode due to timeout
-                eclockMode = CLOCK_MODE_INACTIVE;
-                l_button_Timeout = 0; // Reset the button timeout counter
+                eClockMode = CLOCK_MODE_INACTIVE;
+                ulButtonTimeout = 0; // Reset the button timeout counter
             }
         }
     }
-    if(l_Mode_ButtonEvent_Status_u8 == LONG_PRESS_HELD)
+    if(ucModeButtonEventStatus == LONG_PRESS_HELD)
     {
-        if(eclockMode == CLOCK_MODE_ACTIVE)
+        if(eClockMode == CLOCK_MODE_ACTIVE)
         {
-            clockSettingGetSetMode();
+        	xClockSettingGetSetMode();
             //Button_Push_Event_T mode_status = getModeButtonStatus();
 
-            l_Mode_ButtonEvent_Status_u8 = 0xFF;
+            ucModeButtonEventStatus = 0xFF;
         }
         
     }
-    if(l_Reset_ButtonEvent_Status_u8 == LONG_PRESS_HELD)
+    if(ucResetButtonEventStatus == LONG_PRESS_HELD)
     {
-        if(eclockMode == CLOCK_MODE_ACTIVE)
+        if(eClockMode == CLOCK_MODE_ACTIVE)
         {
-            clockSettingGetSetMode();
+        	xClockSettingGetSetMode();
             //Button_Push_Event_T reset_status = getResetButtonStatus();
 
-            l_Reset_ButtonEvent_Status_u8 = 0xFF;
+            ucResetButtonEventStatus = 0xFF;
         }
         
     }
-    if(l_Reset_ButtonEvent_Status_u8 == LONG_PRESS_RELEASED)
+    if(ucResetButtonEventStatus == LONG_PRESS_RELEASED)
     {
-    	if(eclockMode == CLOCK_MODE_ACTIVE)
+    	if(eClockMode == CLOCK_MODE_ACTIVE)
 		{
-			clockSettingGetSetMode();
+    		xClockSettingGetSetMode();
 			//Button_Push_Event_T reset_status = getResetButtonStatus();
 
-			l_Reset_ButtonEvent_Status_u8 = 0xFF;
+			ucResetButtonEventStatus = 0xFF;
 		}
     }
     // Reset button timeout and statuses if clock mode is active and any button is short-pressed
-    if ((eclockMode == CLOCK_MODE_ACTIVE) && (l_Mode_ButtonEvent_Status_u8 == SHORT_PRESS_HELD || l_Reset_ButtonEvent_Status_u8 == SHORT_PRESS_HELD))
+    if ((eClockMode == CLOCK_MODE_ACTIVE) && (ucModeButtonEventStatus == SHORT_PRESS_HELD || ucResetButtonEventStatus == SHORT_PRESS_HELD))
     {
-         l_button_Timeout = 0;
-		 l_button_Timeout_End = HAL_GetTick();
-         l_button_Timeout_Start = HAL_GetTick();
-         l_Mode_ButtonEvent_Status_u8 = 0xFF;
-         l_Reset_ButtonEvent_Status_u8 = 0xFF;
+    	ulButtonTimeout = 0;
+    	ulButtonTimeoutEnd = HAL_GetTick();
+		 ulButtonTimeoutStart = HAL_GetTick();
+         ucModeButtonEventStatus = 0xFF;
+         ucResetButtonEventStatus = 0xFF;
     }
 }
 

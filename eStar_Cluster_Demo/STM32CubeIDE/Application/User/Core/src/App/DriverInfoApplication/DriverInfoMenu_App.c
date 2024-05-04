@@ -43,8 +43,8 @@
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES\n
 ***************************************************************************************************/
-DriverInfoModeStatus_t ecurrent_task = TASK_RANGE;
-DriverInfoModeStatus_t ebutton_Press_count = TASK_RANGE;
+DriverInfoModeStatus_t eCurrentTask = TASK_RANGE; //eCurrentTask
+DriverInfoModeStatus_t eButtonPressCount = TASK_RANGE; //eButtonPressCount
 
 
 /**************************************************************************************************
@@ -103,23 +103,19 @@ char mode_press4[] = "mode press 4 = Trip B\r\n";
 void vModeSwitchToNext(void)
 {
         // Increment the current task
-        ebutton_Press_count++;
+	eButtonPressCount++;
         // Check if the current task exceeds TASK_TRIP_ODO_B, and wrap around if necessary
 //        if (current_task1 > TASK_TRIP_ODO_B) 
 //        {
 //            current_task1 = TASK_RANGE;
 //        }
-        if(ebutton_Press_count >= TASK_NONE)
+        if(eButtonPressCount >= TASK_NONE)
         {
-            ebutton_Press_count = TASK_RANGE;
-        }
-        else
-        {
-            
+        	eButtonPressCount = TASK_RANGE;
         }
 
         // Handle each task case
-        switch (ebutton_Press_count) 
+        switch (eButtonPressCount)
         {
             case TASK_RANGE: // Add a case for TASK_RANGE
                 vSetDriverInforMenu(TASK_RANGE); // Set current task to TASK_RANGE
@@ -162,7 +158,7 @@ void vModeSwitchToNext(void)
  */
 DriverInfoModeStatus_t xGetDriverInforMenu(void)
 {
-    return ecurrent_task;
+    return eCurrentTask;
     
 }
 
@@ -173,7 +169,7 @@ DriverInfoModeStatus_t xGetDriverInforMenu(void)
  */
 void vSetDriverInforMenu(DriverInfoModeStatus_t MenuSetItem)
 {
-    ecurrent_task = MenuSetItem;
+	eCurrentTask = MenuSetItem;
 }
 
 #endif /* DRIVER_INFO_MENU_C */

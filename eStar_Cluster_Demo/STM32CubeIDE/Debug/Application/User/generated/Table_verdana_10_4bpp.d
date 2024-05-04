@@ -1,5 +1,5 @@
 Application/User/generated/Table_verdana_10_4bpp.o: \
- D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/fonts/src/Table_verdana_10_4bpp.cpp \
+ E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/fonts/src/Table_verdana_10_4bpp.cpp \
  ../../TouchGFX/generated/fonts/include/fonts/GeneratedFont.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/ConstFont.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp \

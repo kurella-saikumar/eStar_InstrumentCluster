@@ -1,5 +1,5 @@
 Application/User/TouchGFX/target/CortexMMCUInstrumentation.o: \
- D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/CortexMMCUInstrumentation.cpp \
+ E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/CortexMMCUInstrumentation.cpp \
  ../../TouchGFX/target/CortexMMCUInstrumentation.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/platform/core/MCUInstrumentation.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \

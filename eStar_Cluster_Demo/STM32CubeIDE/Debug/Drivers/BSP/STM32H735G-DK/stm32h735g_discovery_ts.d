@@ -1,6 +1,6 @@
 Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o: \
- D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.c \
- D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.h \
+ E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.c \
+ E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.h \
  ../../Core/Inc/stm32h735g_discovery_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
@@ -47,13 +47,13 @@ Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h \
- D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336.h \
- D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336_reg.h \
+ E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h \
+ E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336.h \
+ E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336_reg.h \
  ../../Core/Inc/ft5336_conf.h \
- D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/Common/ts.h \
- D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.h
-D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.h:
+ E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/Common/ts.h \
+ E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.h
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.h:
 ../../Core/Inc/stm32h735g_discovery_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:
@@ -100,9 +100,9 @@ D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
-D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h:
-D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336.h:
-D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336_reg.h:
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h:
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336.h:
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/ft5336/ft5336_reg.h:
 ../../Core/Inc/ft5336_conf.h:
-D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/Common/ts.h:
-D:/MY\ PROJECTS/GIT_REPOS/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.h:
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/../Components/Common/ts.h:
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.h:

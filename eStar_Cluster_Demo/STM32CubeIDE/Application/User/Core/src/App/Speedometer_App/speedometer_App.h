@@ -40,7 +40,7 @@ typedef enum {
 void vSpeedoInit(void);
 void vInitializeSpeedometer(void);
 void xLoadToEEPROM(void);
-//uint32_t xGetSpeedValue(speedDisplayMetrics_t*, IndicationStatus_t*);
+uint32_t xGetSpeedValue(speedDisplayMetrics_t*, IndicationStatus_t*);
 void vSpeedoAlgorithm(void);
 uint32_t vPulseDeltaCounter(void);
 

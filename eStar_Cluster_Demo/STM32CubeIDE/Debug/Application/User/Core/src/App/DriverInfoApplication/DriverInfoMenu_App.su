@@ -1,4 +1,4 @@
 ../Application/User/Core/src/App/DriverInfoApplication/DriverInfoMenu_App.c:64:6:vDriverInfoMenu_Init	0	static
 ../Application/User/Core/src/App/DriverInfoApplication/DriverInfoMenu_App.c:103:6:vModeSwitchToNext	0	static
-../Application/User/Core/src/App/DriverInfoApplication/DriverInfoMenu_App.c:163:24:xGetDriverInforMenu	0	static
-../Application/User/Core/src/App/DriverInfoApplication/DriverInfoMenu_App.c:174:6:vSetDriverInforMenu	0	static
+../Application/User/Core/src/App/DriverInfoApplication/DriverInfoMenu_App.c:159:24:xGetDriverInforMenu	0	static
+../Application/User/Core/src/App/DriverInfoApplication/DriverInfoMenu_App.c:170:6:vSetDriverInforMenu	0	static

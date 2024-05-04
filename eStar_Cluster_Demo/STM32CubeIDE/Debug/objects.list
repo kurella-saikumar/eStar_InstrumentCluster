@@ -12,6 +12,7 @@
 "./Application/User/Core/src/App/Indicator_App/Indicator_App.o"
 "./Application/User/Core/src/App/Odometer_App/Odometer_App.o"
 "./Application/User/Core/src/App/Speedometer_App/speedometer_App.o"
+"./Application/User/Core/src/App/Tachometer_App/DisplayBacklightBrightness.o"
 "./Application/User/Core/src/App/Tachometer_App/Tachometer_App.o"
 "./Application/User/Core/src/Service/IO_HAL/AnalogDebounce/Analog_debounce.o"
 "./Application/User/Core/src/Service/IO_HAL/Damping_Filter/damp_out.o"

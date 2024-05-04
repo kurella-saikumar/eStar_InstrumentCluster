@@ -31,6 +31,7 @@
  ***************************************************************************************************/
 
 #include"Tachometer_App.h"
+#include "stdint.h"
 #include"stdio.h"
 #include "inttypes.h"
 #include "IGN_SmHandler.h"
@@ -53,8 +54,10 @@
 	uint32_t ulRpm = 0;
 	uint32_t ulPreviousCapture = 0;
 	uint32_t ulPresentCapture = 0;
-	int32_t slDeltaPulse = 0;
+	int64_t slDeltaPulse = 0;
 	uint32_t ulFrequency = 0;
+	IndicationStatus_t *Indication;
+	bool status = false;
 
 
 
@@ -90,17 +93,19 @@
  * @return void
 */
 
-void vTachoInit(void)
+void vTacho_Init(void)
 {
-
+	 Indication->indicators.tachometer_indicator = 1;
+	 status = true;
+	 ulRpm = 0;
 }
 /** 
 * @brief Measures the revolutions per minute (RPM) of a static unit.
  *
-* This function calculates and returns the RPM of a static unit.
+* This function calculates RPM of a static unit.
 * The actual implementation details may vary based on the specific requirements.
  *
- * @return uint32_t  The measured RPM of the static unit. 
+ * @return void
 */
 //gl_pulses_u32
 
@@ -127,7 +132,7 @@ void vMeasureRPM(void)
     }
 #if(TACHO_TEST_MACRO == 1)
     //printf("Ap: %ld\r\t",ulPresentCapture);
-    printf("Td: %ld\t", slDeltaPulse);
+   // printf("Td: %llu\t", slDeltaPulse);
 //    printf("pv:%ld\r\t",ulPreviousCapture);
 //    ulRpm = ( ulPresentCapture / 16)* 1000;
 //    printf("rpm %lu\r\n", ulRpm);

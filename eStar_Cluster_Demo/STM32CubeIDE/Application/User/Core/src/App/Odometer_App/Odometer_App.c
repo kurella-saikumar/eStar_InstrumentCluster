@@ -118,6 +118,7 @@ void vOdoInit(void)
     defaultOdoUnits = ODO_IN_KM;
     OdometerUnits = defaultOdoUnits;
 }
+
 void vOdoAlgorithm(void)
 {   
 	 uint8_t ucIgnitionStatus=0;

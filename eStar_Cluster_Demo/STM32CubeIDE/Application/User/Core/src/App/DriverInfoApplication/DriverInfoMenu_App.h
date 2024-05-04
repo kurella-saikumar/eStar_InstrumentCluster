@@ -38,8 +38,7 @@ void vModeSwitchToNext(void); /**< Switches to the next mode */
 bool xGetIgnitionStatus(void); /**< Gets the ignition status */
 
 // Global variables
-extern DriverInfoModeStatus_t ecurrent_task; /**< Global variable to store the current task */
-extern bool ignition_status; /**< Global variable to store the ignition status */
+extern DriverInfoModeStatus_t eCurrentTask; /**< Global variable to store the current task */
 
 //void vDriverInfoRegisterHandles(uint8_t *DriverInfoArray);
 

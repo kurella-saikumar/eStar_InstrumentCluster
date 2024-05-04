@@ -34,7 +34,7 @@
 typedef enum {
     CLOCK_MODE_INACTIVE,  // Clock setting mode is off
     CLOCK_MODE_ACTIVE    // Clock setting mode is on
-} ClockMode;
+} ClockEditModeState_t;    //ClockMode_t;
 
 typedef enum
 {
@@ -44,16 +44,17 @@ typedef enum
     RESET_LONGPRESS_HELD,
 	RESET_LONGPRESS_RELEASE,
     RESET_SHORTPRESS
-}Clock_Edit_Actions;
+}ClockEditActions_t;
 
 
 
 // Function to get the current clock mode
-ClockMode xGetClockMode(void);
+ClockEditModeState_t xGetClockMode(void);
 
-extern Button_Push_Event_T getModeButtonStatus(void);
-extern Button_Push_Event_T getResetButtonStatus(void);
+extern Button_Push_Event_T xGetModeButtonStatus(void);
+extern Button_Push_Event_T xGetResetButtonStatus(void);
 
+#define SWITCH_HANDLER_MACRO 1
 //extern Clock_Edit_Actions clockSettingGetSetMode(void);
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES
@@ -63,6 +64,6 @@ extern void vSwitchHandlerTask(void);
 
 // Function prototype for handling mode reset actions
 extern void vHandleModeResetActions(void);
-Clock_Edit_Actions clockSettingGetSetMode(void);
+ClockEditActions_t xClockSettingGetSetMode(void);
 #endif /* SWITCH_HANDLER_APP_H */
 

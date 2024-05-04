@@ -105,7 +105,7 @@ void vGet_Clock(void)
     }
     else
     {
-    	printf("DT: %02d:%02d \n", xTime.Hours, xTime.Minutes);
+    	//printf("DT: %02d:%02d \n", xTime.Hours, xTime.Minutes);
     }
     xRes = HAL_RTC_GetDate(&hrtc, &xDate, RTC_FORMAT_BIN);
     if(xRes != HAL_OK)
@@ -114,12 +114,12 @@ void vGet_Clock(void)
     }
     else
     {
-    	printf("Current date: %02d-%02d-%04d\n", xDate.Date, xDate.Month, xDate.Year);
+    	//printf("Current date: %02d-%02d-%04d\n", xDate.Date, xDate.Month, xDate.Year);
     }
 
 }
 
-void clockSettingRunMode(Clock_Edit_Actions clockSettingMode)
+void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 {
 	switch (clockSettingMode)
 	{
