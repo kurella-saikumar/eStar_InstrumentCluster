@@ -47,8 +47,6 @@
  * All MACROS should be in CAPITAL LETTERS ONLY
  */
 
-
-
 /**************************************************************************************************
  * DEFINE FILE SCOPE TYPES
 ***************************************************************************************************/
@@ -57,31 +55,11 @@
  * DECLARE GLOBAL VARIABLES\n
 ***************************************************************************************************/
 IndicationStatus_t   Status;
-CAN_RxMessage_t  Rxdata1;
-
+CAN_RxMessage_t  CANRxdata;
 
 /**************************************************************************************************
  * DECLARE FILE STATIC VARIABLES\n
 ***************************************************************************************************/
-
-/**
- * Purpose: Describe the purpose of the variable
- *
- * Unit: Boolean
- *
- * Resolution: 1 Bit
- *
- * Range: TRUE/FALSE
- *
- * Power On Init Value\Action: FALSE
- *
- * Wakeup Value\Action: FALSE
- *
- * Shutdown Value\Action: Don't Care
- *
- */
-
-
 
 /**************************************************************************************************
  * DEFINE FILE SCOPE FUNCTION PROTOTYPES\n
@@ -103,6 +81,7 @@ CAN_RxMessage_t  Rxdata1;
  */
 void vIndicatorsInit(void)
 {
+
 	Status.Indicator_status = 0;
 }
 /**
@@ -117,24 +96,27 @@ void vIndicatorsInit(void)
  */
 void vIndicator_App_Task(void)
 {
-     uint8_t var;
-	 Rxdata1 = Get_SignalStatus();
-	 var = usIgnitionGetCurrentState();
-    if(var == IgnON_mode)
+     uint8_t usIgnition_State;
+     /**:Get signal status from CAN bus;*/
+     CANRxdata = Get_SignalStatus();
+     /**:Get current ignition state;*/
+	 usIgnition_State = usIgnitionGetCurrentState();
+	 /**check if the IGN status is ON mode*/
+    if(usIgnition_State  == IgnON_mode)
 	{
-
-		Status.indicators.right_indicator    =  Rxdata1.flags.Signal_1;
-		Status.indicators.left_indicator     =  Rxdata1.flags.Signal_2;
-		Status.indicators.parking_indicator  =  Rxdata1.flags.Signal_3;
-		Status.indicators.HighBeam_indicator =  Rxdata1.flags.Signal_4;
-		Status.indicators.LowBeam_indicator  =  Rxdata1.flags.Signal_5;
-		Status.indicators.engine_oil_temp_indicator   = Rxdata1.flags.Signal_6;
-		Status.indicators.seat_belt_indicator        =  Rxdata1.flags.Signal_7;
-		Status.indicators.engine_malfunction_indicator  = Rxdata1.flags.Signal_8;
-		Status.indicators.door_open_indicator       = Rxdata1.flags.Signal_9;
-		Status.indicators.abs_warning_indicator  =    Rxdata1.flags.Signal_10;
-	    Status.indicators.FaultyRight_indicator    =  Rxdata1.flags.Signal_11;
-	    Status.indicators.FaultyLeft_indicator	  =	Rxdata1.flags.Signal_12;
+    	/**:Update indicator statuses based on received CAN signals;*/
+		Status.indicators.right_indicator             = CANRxdata.flags.Signal_1;
+		Status.indicators.left_indicator              = CANRxdata.flags.Signal_2;
+		Status.indicators.parking_indicator           = CANRxdata.flags.Signal_3;
+		Status.indicators.HighBeam_indicator          = CANRxdata.flags.Signal_4;
+		Status.indicators.LowBeam_indicator           = CANRxdata.flags.Signal_5;
+		Status.indicators.engine_oil_temp_indicator   = CANRxdata.flags.Signal_6;
+		Status.indicators.seat_belt_indicator         = CANRxdata.flags.Signal_7;
+		Status.indicators.engine_malfunction_indicator= CANRxdata.flags.Signal_8;
+		Status.indicators.door_open_indicator         = CANRxdata.flags.Signal_9;
+		Status.indicators.abs_warning_indicator       = CANRxdata.flags.Signal_10;
+	    Status.indicators.FaultyRight_indicator       = CANRxdata.flags.Signal_11;
+	    Status.indicators.FaultyLeft_indicator	      =	CANRxdata.flags.Signal_12;
 
      }
 #if(Indicator_Macro == 1)
@@ -150,16 +132,13 @@ void vIndicator_App_Task(void)
  *
  * @param[in] None
  *
- * @param[out] This function returns the indicator status.
+ * @param[out]None
  *
- * @return None
+ * @return This function returns the indicator status.
  *
  */
 IndicationStatus_t  xGetIndicatorstatus(void)
 {
-	//uint32_t  l_Indicator_Status=0;
-
-	  // l_Indicator_Status = Status.Indicator_status;
 	return  Status;
 }
 
