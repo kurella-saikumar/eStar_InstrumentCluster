@@ -1,3 +1,3 @@
-../Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.c:244:10:xES_WriteVariable	16	static
-../Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.c:266:10:vShadowRAM_Init	24	static
-../Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.c:142:6:vEE_Demo	40	static
+../Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.c:241:10:xES_WriteVariable	16	static
+../Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.c:263:10:vShadowRAM_Init	8	static
+../Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.c:118:6:vEE_Demo	40	static

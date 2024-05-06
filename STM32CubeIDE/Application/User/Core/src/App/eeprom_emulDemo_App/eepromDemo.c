@@ -42,8 +42,7 @@
  * DEFINE FILE SCOPE TYPES
 ***************************************************************************************************/
 
-eepromData_t eep_Variables_t, eep_shadowRAM_t;
-
+eepromData_t eep_Variables_t;
 /* Define an array of pointers to the members of the structure */
 uint32_t *eepromVariables[] = {
     &eep_Variables_t.eep_Total_Odometer,
@@ -66,29 +65,6 @@ uint32_t *eepromVariables[] = {
     &eep_Variables_t.eep_ServiceRequest_ThresholdTime,
     &eep_Variables_t.eep_LastServiced_TimeStamp,
     &eep_Variables_t.eep_LastServiced_Distance
-};
-
-uint32_t *eepromShadowVars[] = {
-    &eep_shadowRAM_t.eep_Total_Odometer,
-    &eep_shadowRAM_t.eep_MaxOdometerInKM,
-    &eep_shadowRAM_t.eep_MaxOdometerInMiles,
-    &eep_shadowRAM_t.eep_PPM,
-    &eep_shadowRAM_t.eep_TripA_Odo,
-    &eep_shadowRAM_t.eep_TripB_Odo,
-    &eep_shadowRAM_t.eep_Speedo_Units,
-    &eep_shadowRAM_t.eep_Speedo_MaxSpeedPulseCount,
-    &eep_shadowRAM_t.eep_Speedo_Threshold,
-    &eep_shadowRAM_t.eep_Tacho_IdleEngineRPM,
-    &eep_shadowRAM_t.eep_Tacho_WarningEngineRPM,
-	&eep_shadowRAM_t.eep_Tacho_MaximumEngineRPM,
-    &eep_shadowRAM_t.eep_Tacho_ErrorThresholdRPM,
-    &eep_shadowRAM_t.eep_Tacho_Fixed_PPR_Value,
-    &eep_shadowRAM_t.eep_Fuel_TankCapacity,
-    &eep_shadowRAM_t.eep_Fuel_WarningThresholdValue,
-    &eep_shadowRAM_t.eep_ServiceRequest_ThresholdDistance,
-    &eep_shadowRAM_t.eep_ServiceRequest_ThresholdTime,
-    &eep_shadowRAM_t.eep_LastServiced_TimeStamp,
-    &eep_shadowRAM_t.eep_LastServiced_Distance
 };
 
 const eepromData_t eep_default_t ={
@@ -128,7 +104,7 @@ const eepromData_t eep_default_t ={
 ***************************************************************************************************/
 uint16_t vShadowRAM_Init(void);
 uint16_t xES_WriteVariable(uint32_t VirtAddress, uint32_t Data,uint32_t *UpdateToShadowRAM);
-
+uint32_t xShadowUpdate(void);
 /**************************************************************************************************
  * FUNCTION DEFINITIONS
 ***************************************************************************************************/
@@ -183,6 +159,27 @@ void vEE_Demo(void)
 
 	/* ShadowRAM initialization*/
 	vShadowRAM_Init();
+	/* Loop through each variable and perform the Read check */
+	for (int i = 0; i < sizeof(eepromVariables) / sizeof(eepromVariables[0]); i++)
+	{
+		uint16_t FlashStatus = xEE_ReadVariable32bits((uint32_t)eepromVariables[i], eepromVariables[i]);
+		if (BSP_ERROR_NONE != FlashStatus)
+		{
+#if(EMUL_DEBUG_ENABLE == 1)
+			printf("Read Fail:eepromVariables\n\r");
+#endif
+			break;
+		}
+		else
+		{
+#if(EMUL_DEBUG_ENABLE == 1)
+			printf("Read Success:eepromVariables[%d] at :%p data :%ld\n\r",i,eepromVariables[i],*eepromVariables[i]);
+#endif
+		}
+
+	}
+
+
 	/* Loop through each variable and perform the write check */
 	for (int i =10; i <90; i++)
 	{
@@ -268,12 +265,12 @@ uint16_t vShadowRAM_Init(void)
 	uint16_t usFlashStatus;
 
 	/* Write default values into eep_shadowRAM_t */
-	memcpy(eepromShadowVars, &eep_default_t, sizeof(eepromData_t));
-
+	memcpy(&eep_Variables_t, &eep_default_t, sizeof(eepromData_t));
+#if 0
 	/* Loop through each variable and perform the check*/
 	for (int i = 0; i < sizeof(eepromVariables) / sizeof(eepromVariables[0]); i++)
 	{
-		usFlashStatus = xEE_ReadVariable32bits((uint32_t)eepromVariables[i],eepromShadowVars[i]);
+		usFlashStatus = xEE_ReadVariable32bits((uint32_t)eepromVariables[i],eepromVariables[i]);
 		if (BSP_ERROR_NONE != usFlashStatus)
 		{
 #if(EMUL_DEBUG_ENABLE == 1)
@@ -286,12 +283,18 @@ uint16_t vShadowRAM_Init(void)
 		else
 		{
 #if(EMUL_DEBUG_ENABLE == 1)
-			printf("EERead Success:eepromVariables[%d] at :%p data :%ld\n\r",i,eepromVariables[i],*eepromShadowVars[i]);
+			printf("EERead Success:eepromVariables[%d] at :%p data :%ld\n\r",i,eepromVariables[i],*eepromVariables[i]);
 #endif
 		}
 	}
+#else
+	xShadowUpdate();
+#endif
 	return usFlashStatus;
 }
+
+
+
 /**************************************************************************************************
  * End Of File
 ***************************************************************************************************/

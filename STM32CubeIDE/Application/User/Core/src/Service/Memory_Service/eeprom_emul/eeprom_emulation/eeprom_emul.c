@@ -591,8 +591,9 @@ EE_Status prvReadVariable(uint32_t VirtAddress, EE_DATA_TYPE* pData)
     while ((pagestate == STATE_PAGE_ACTIVE) || (pagestate == STATE_PAGE_VALID) || (pagestate == STATE_PAGE_ERASING))
     {
 		/* Set counter index to last element position in the page */
-		ulCounter = (PAGE_SIZE - EE_ELEMENT_SIZE)- EMPTY_BYTES_FOR_PAGE;
-
+//		ulCounter = (PAGE_SIZE - EE_ELEMENT_SIZE)- EMPTY_BYTES_FOR_PAGE;
+    	/* Set counter index to last element written position in the active page */
+    	ulCounter =  ulAddressNextWrite;
 		/* Check each page address starting from end */
 		while (ulCounter >= PAGE_HEADER_SIZE)
 		{
@@ -1459,7 +1460,85 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 #endif
  return EE_OK;
 }
+ uint32_t xShadowUpdate(void)
+ {
+ 	uint32_t ulPage = 0U;
+ 	uint32_t ulPageAddress = 0U;
+ 	uint32_t ulCounter = PAGE_HEADER_SIZE ;
+ 	uint8_t ucReadAddressValue[4] = {0X00,0x00,0x00,0x00};
+ 	uint8_t ucDataValue[4] = {0x00};
+ 	uint32_t ulReadAddr = 0;
+ 	uint16_t usCRCRead = 0;
+ 	uint8_t ucCRC [2]= {0x00};
+ 	uint16_t usCRCCalculated = 0;
+ 	uint32_t ulData = 0;
+// 	uint8_t ucStatusArray[NB_OF_VARIABLES] = {0};
+// 	uint8_t ucFoundCounter=0;
 
+ 	 EE_State_type pagestate = STATE_PAGE_INVALID;
+
+ 	 /* Get active Page for read operation */
+ 	 ulPage = prvFindPage(FIND_READ_PAGE);
+
+ 	 /* Check if there is no active page */
+ 	 if (ulPage == EE_NO_PAGE_FOUND)
+ 	 {
+ 		return EE_ERROR_NOACTIVE_PAGE;
+ 	 }
+ 	 ulPageAddress = PAGE_ADDRESS(ulPage);
+ 	 pagestate = prvGetPageState(ulPageAddress);
+
+ 	 /* Search variable in active page and valid pages until erased page is found
+ 		or in erasing pages until erased page is found */
+// 	 while ((pagestate == STATE_PAGE_ACTIVE) || (pagestate == STATE_PAGE_VALID) || (pagestate == STATE_PAGE_ERASING))
+ 	if (pagestate == STATE_PAGE_ACTIVE)
+ 	 {
+ 		/* Set counter index to last element position in the page */
+ 		//ulCounter = (PAGE_SIZE - EE_ELEMENT_SIZE)- EMPTY_BYTES_FOR_PAGE;
+ 		// ulCounter=ulAddressNextWrite;
+
+ 		/* Check each page address starting from end */
+ 		while (ulCounter <= PAGE_SIZE - EMPTY_BYTES_FOR_PAGE)
+ 		{
+ 			/* Get the current location content to be compared with virtual address */
+ 			xFI_ReadDoubleWord(((ulPageAddress + ulCounter + EE_ADDRESS_OFFSET+EE_EMULATION_START_ADDR)-START_PAGE_ADDRESS), ucReadAddressValue);
+
+ 			ulReadAddr = (ucReadAddressValue[0]<<24|ucReadAddressValue[1]<<16|ucReadAddressValue[2]<<8|ucReadAddressValue[3]);
+ 			printf("ulReadAddr:0x%lx\n\r",ulReadAddr);
+
+ 			if (ulReadAddr != 0xFFFFFFFFU)
+ 			{
+
+ 				xFI_ReadDoubleWord(((ulPageAddress + ulCounter+EE_EMULATION_START_ADDR)-START_PAGE_ADDRESS), ucDataValue);
+
+ 				ulData = (ucDataValue[0]<<24|ucDataValue[1]<<16|ucDataValue[2]<<8|ucDataValue[3]);
+
+ 				usCRCCalculated = xCrc16BitPolinomial_1021(ucDataValue, sizeof(ucDataValue),0);
+
+ 				xFI_ReadDoubleWord(((ulPageAddress + ulCounter + EE_CRC_OFFSET+EE_EMULATION_START_ADDR)-START_PAGE_ADDRESS), ucCRC);
+
+ 				usCRCRead = (ucCRC[0]<<8|ucCRC[1]);
+
+ 				if (usCRCCalculated == usCRCRead)
+ 				{
+ 					printf("CRC Matched\n\r");
+ 					memcpy(ulReadAddr, ulData, sizeof(ulData));
+ 				}
+ 				else
+ 				{
+ 					return EE_READ_DATA_INVALID;
+ 				}
+ 			}
+			else
+			{
+//				printf("address not Matched\n\r");
+			}
+ 			/* Next address location */
+ 			ulCounter += EE_ELEMENT_SIZE;
+ 		}
+ 	 }
+ 	 return EE_OK;
+ }
 /**************************************************************************************************
  * End Of File
 ***************************************************************************************************/
