@@ -31,12 +31,12 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
  ***************************************************************************************************/
-#define configServiceRequestThreshold_Distance 5000
-#define configServiceRequestThreshold_Time     3 /*3 months*/
-#define DISTANCE_RESET_VALUE  100
-#define WAIT_TIME  15
-#define TIME_THRESHOLD  6
-#define  DISTANCE_THRESHOLD 5000
+#define configDISTANCE_RESET_VALUE  100
+#define configWAIT_TIME  15
+#define configTIME_THRESHOLD  6
+#define configDISTANCE_THRESHOLD 5000
+#define configLimitdays 30
+
 
 
 /**************************************************************************************************

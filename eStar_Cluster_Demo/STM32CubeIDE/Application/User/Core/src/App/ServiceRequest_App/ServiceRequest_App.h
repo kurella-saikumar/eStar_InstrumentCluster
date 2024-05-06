@@ -26,11 +26,13 @@
 /**************************************************************************************************
  * Include Project Specific Headers
 ***************************************************************************************************/
-
+#include "stdbool.h"
+#include "Indicator_app.h"
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
 ***************************************************************************************************/
 #define ServiceRequest_TestMacro 1
+#define TimeBasedServiceDemo 1
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES
 ***************************************************************************************************/
@@ -42,9 +44,9 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES
 ***************************************************************************************************/
-extern void prvServiceRequestTask(void)
+extern void vServiceRequestTask(void);
+extern void vServiceRequestTask_Init(void);
 void vGetSrvcReqStatus(IndicationStatus_t* pucSrvcReq_Indictr, bool* p_Warning_status_bool);
-extern void checkServiceRequest(uint32_t totalDistance, RTC_DateTypeDef xTime);
-void resetServiceFlags(void);
+void vRTCDemoApp(void);
 
 #endif /* SERVICEREQUEST_APP_H */

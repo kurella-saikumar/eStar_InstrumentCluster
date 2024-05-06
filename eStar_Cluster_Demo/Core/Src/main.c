@@ -42,6 +42,7 @@
 #include "clock_App.h"
 #include "CAN_App.h"
 #include "Indicator_App.h"
+#include "ServiceRequest_App.h"
 
 
 /* USER CODE END Includes */
@@ -257,16 +258,16 @@ const osThreadAttr_t CAN_AppTask_attributes = {
   .stack_size = sizeof(CAN_AppTaskBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
-/* Definitions for Indicators_App */
-osThreadId_t Indicators_AppHandle;
-uint32_t Indicators_AppBuffer[ 128 ];
-osStaticThreadDef_t Indicators_AppControlBlock;
-const osThreadAttr_t Indicators_App_attributes = {
-  .name = "Indicators_App",
-  .cb_mem = &Indicators_AppControlBlock,
-  .cb_size = sizeof(Indicators_AppControlBlock),
-  .stack_mem = &Indicators_AppBuffer[0],
-  .stack_size = sizeof(Indicators_AppBuffer),
+/* Definitions for ServiceIndicato */
+osThreadId_t ServiceIndicatoHandle;
+uint32_t ServiceIndicatoBuffer[ 128 ];
+osStaticThreadDef_t ServiceIndicatoControlBlock;
+const osThreadAttr_t ServiceIndicato_attributes = {
+  .name = "ServiceIndicato",
+  .cb_mem = &ServiceIndicatoControlBlock,
+  .cb_size = sizeof(ServiceIndicatoControlBlock),
+  .stack_mem = &ServiceIndicatoBuffer[0],
+  .stack_size = sizeof(ServiceIndicatoBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
 /* Definitions for Indicator_App */
@@ -330,7 +331,7 @@ void Tacho_Task(void *argument);
 void SwitchHandlerTask(void *argument);
 void GetClockTask(void *argument);
 void CAN_Task(void *argument);
-void IndicatorsApp_Task(void *argument);
+void ServiceIndicatorsApp_Task(void *argument);
 void IndicatorApp_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
@@ -414,6 +415,7 @@ int main(void)
   vFuelGuageTaskInit();
   VCAN_Init();
   vIndicatorsInit();
+  vServiceRequestTask_Init();
 
   if(HAL_TIM_IC_Start_IT(&htim1,TIM_CHANNEL_4)!=HAL_OK)
   {
@@ -487,8 +489,8 @@ int main(void)
   /* creation of CAN_AppTask */
   CAN_AppTaskHandle = osThreadNew(CAN_Task, NULL, &CAN_AppTask_attributes);
 
-  /* creation of Indicators_App */
-  Indicators_AppHandle = osThreadNew(IndicatorsApp_Task, NULL, &Indicators_App_attributes);
+  /* creation of ServiceIndicato */
+  ServiceIndicatoHandle = osThreadNew(ServiceIndicatorsApp_Task, NULL, &ServiceIndicato_attributes);
 
   /* creation of Indicator_App */
   Indicator_AppHandle = osThreadNew(IndicatorApp_Task, NULL, &Indicator_App_attributes);
@@ -1774,25 +1776,23 @@ void CAN_Task(void *argument)
   /* USER CODE END CAN_Task */
 }
 
-/* USER CODE BEGIN Header_IndicatorsApp_Task */
+/* USER CODE BEGIN Header_ServiceIndicatorsApp_Task */
 /**
-* @brief Function implementing the Indicators_App thread.
+* @brief Function implementing the ServiceIndicato thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_IndicatorsApp_Task */
-void IndicatorsApp_Task(void *argument)
+/* USER CODE END Header_ServiceIndicatorsApp_Task */
+void ServiceIndicatorsApp_Task(void *argument)
 {
-  /* USER CODE BEGIN IndicatorsApp_Task */
+  /* USER CODE BEGIN ServiceIndicatorsApp_Task */
   /* Infinite loop */
-	for(;;)
-	  {
-		vIndicator_App_Task();
-		indicator = xGetIndicatorstatus();
-	    osDelay(50);
-
-	  }
-  /* USER CODE END IndicatorsApp_Task */
+  for(;;)
+  {
+	  vServiceRequestTask();
+    osDelay(1000);
+  }
+  /* USER CODE END ServiceIndicatorsApp_Task */
 }
 
 /* USER CODE BEGIN Header_IndicatorApp_Task */
@@ -1808,8 +1808,8 @@ void IndicatorApp_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  prvServiceRequestTask();
-    osDelay(10000);
+	  vIndicator_App_Task();
+    osDelay(50);
   }
   /* USER CODE END IndicatorApp_Task */
 }
