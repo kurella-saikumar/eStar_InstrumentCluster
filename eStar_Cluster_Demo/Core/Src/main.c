@@ -42,6 +42,7 @@
 #include "clock_App.h"
 #include "CAN_App.h"
 #include "Indicator_App.h"
+#include "Task_ExeTime.h"
 
 
 /* USER CODE END Includes */
@@ -63,6 +64,7 @@ typedef StaticTask_t osStaticThreadDef_t;
 uint16_t usADCValue;
 uint32_t gl_BAT_MON_u32;
 IndicationStatus_t  indicator;
+//TaskRunTimeStat_t Tacho_Exe_measurement_var;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -90,6 +92,7 @@ OSPI_HandleTypeDef hospi2;
 RTC_HandleTypeDef hrtc;
 
 TIM_HandleTypeDef htim1;
+TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart3;
@@ -304,6 +307,7 @@ static void MX_USART3_UART_Init(void);
 static void MX_IWDG1_Init(void);
 static void MX_ADC3_Init(void);
 static void MX_FDCAN3_Init(void);
+static void MX_TIM2_Init(void);
 void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
 extern void videoTaskFunc(void *argument);
@@ -319,6 +323,8 @@ void SwitchHandlerTask(void *argument);
 void GetClockTask(void *argument);
 void CAN_Task(void *argument);
 void IndicatorApp_Task(void *argument);
+extern void Reset_Counters(void);
+//static void prvReset_Counters(TaskRunTimeStat_t *p_measurement_var_ptr);
 
 /* USER CODE BEGIN PFP */
 
@@ -390,6 +396,7 @@ int main(void)
   MX_IWDG1_Init();
   MX_ADC3_Init();
   MX_FDCAN3_Init();
+  MX_TIM2_Init();
   MX_TouchGFX_Init();
   /* Call PreOsInit function */
   MX_TouchGFX_PreOSInit();
@@ -415,6 +422,7 @@ int main(void)
 
   /* Init scheduler */
   osKernelInitialize();
+  HAL_TIM_Base_Start(&htim2);
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
@@ -558,7 +566,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB3CLKDivider = RCC_APB3_DIV2;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV2;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV16;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_APB2_DIV2;
   RCC_ClkInitStruct.APB4CLKDivider = RCC_APB4_DIV2;
 
@@ -1227,6 +1235,47 @@ static void MX_TIM1_Init(void)
 }
 
 /**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  /* USER CODE BEGIN TIM2_Init 0 */
+
+  /* USER CODE END TIM2_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM2_Init 1 */
+
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 33;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 4294967295;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_OnePulse_Init(&htim2, TIM_OPMODE_SINGLE) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM2_Init 2 */
+  //prvReset_Counters(&Tacho_Exe_measurement_var);
+  Reset_Counters();
+
+  /* USER CODE END TIM2_Init 2 */
+
+}
+
+/**
   * @brief TIM4 Initialization Function
   * @param None
   * @retval None
@@ -1693,7 +1742,7 @@ void Tacho_Task(void *argument)
   for(;;)
   {
 	  vTacho_App();
-    osDelay(1000);
+     //osDelay(1000);
   }
   /* USER CODE END Tacho_Task */
 }

@@ -1,0 +1,4 @@
+../Application/User/Core/src/App/Tachometer_App/Task_ExeTime.c:62:6:vReset_executionTimeStats	0	static
+../Application/User/Core/src/App/Tachometer_App/Task_ExeTime.c:83:6:Reset_Counters	0	static
+../Application/User/Core/src/App/Tachometer_App/Task_ExeTime.c:94:6:vBeginExecMeas	0	static
+../Application/User/Core/src/App/Tachometer_App/Task_ExeTime.c:114:6:vEndExecMeas	8	static

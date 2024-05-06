@@ -5,13 +5,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c 
+../Application/User/Core/src/App/Tachometer_App/DemoApplication.c \
+../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c \
+../Application/User/Core/src/App/Tachometer_App/Task_ExeTime.c 
 
 C_DEPS += \
-./Application/User/Core/src/App/Tachometer_App/Tachometer_App.d 
+./Application/User/Core/src/App/Tachometer_App/DemoApplication.d \
+./Application/User/Core/src/App/Tachometer_App/Tachometer_App.d \
+./Application/User/Core/src/App/Tachometer_App/Task_ExeTime.d 
 
 OBJS += \
-./Application/User/Core/src/App/Tachometer_App/Tachometer_App.o 
+./Application/User/Core/src/App/Tachometer_App/DemoApplication.o \
+./Application/User/Core/src/App/Tachometer_App/Tachometer_App.o \
+./Application/User/Core/src/App/Tachometer_App/Task_ExeTime.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +27,7 @@ Application/User/Core/src/App/Tachometer_App/%.o Application/User/Core/src/App/T
 clean: clean-Application-2f-User-2f-Core-2f-src-2f-App-2f-Tachometer_App
 
 clean-Application-2f-User-2f-Core-2f-src-2f-App-2f-Tachometer_App:
-	-$(RM) ./Application/User/Core/src/App/Tachometer_App/Tachometer_App.cyclo ./Application/User/Core/src/App/Tachometer_App/Tachometer_App.d ./Application/User/Core/src/App/Tachometer_App/Tachometer_App.o ./Application/User/Core/src/App/Tachometer_App/Tachometer_App.su
+	-$(RM) ./Application/User/Core/src/App/Tachometer_App/DemoApplication.cyclo ./Application/User/Core/src/App/Tachometer_App/DemoApplication.d ./Application/User/Core/src/App/Tachometer_App/DemoApplication.o ./Application/User/Core/src/App/Tachometer_App/DemoApplication.su ./Application/User/Core/src/App/Tachometer_App/Tachometer_App.cyclo ./Application/User/Core/src/App/Tachometer_App/Tachometer_App.d ./Application/User/Core/src/App/Tachometer_App/Tachometer_App.o ./Application/User/Core/src/App/Tachometer_App/Tachometer_App.su ./Application/User/Core/src/App/Tachometer_App/Task_ExeTime.cyclo ./Application/User/Core/src/App/Tachometer_App/Task_ExeTime.d ./Application/User/Core/src/App/Tachometer_App/Task_ExeTime.o ./Application/User/Core/src/App/Tachometer_App/Task_ExeTime.su
 
 .PHONY: clean-Application-2f-User-2f-Core-2f-src-2f-App-2f-Tachometer_App
 
