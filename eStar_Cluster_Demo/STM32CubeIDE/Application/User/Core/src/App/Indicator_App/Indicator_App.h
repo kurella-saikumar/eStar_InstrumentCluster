@@ -28,7 +28,7 @@ typedef union {
      } indicators;
      uint16_t all_indicators;
  } IndicationStatus_t;
- extern IndicationStatus_t IndicationStatus;
+extern IndicationStatus_t IndicationStatus;
 
 
 #endif /* APPLICATION_USER_CORE_SRC_APP_INDICATOR_APP_INDICATOR_APP_H_ */

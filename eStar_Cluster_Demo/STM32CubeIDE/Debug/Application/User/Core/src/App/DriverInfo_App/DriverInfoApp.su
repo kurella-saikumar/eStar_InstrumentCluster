@@ -1,0 +1,7 @@
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:90:10:vCalculateAVSInKmperhour	24	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:210:9:Convertintolitres	8	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:160:10:vCalculateAFEKmperLitre	40	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:231:10:vCalculateDTE	24	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:69:6:vCalculateAvsAfeRange	8	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:300:6:DisplayDTE	0	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:313:6:xGetInfostatus	4	static

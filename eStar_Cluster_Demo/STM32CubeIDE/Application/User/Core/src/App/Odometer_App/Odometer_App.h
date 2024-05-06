@@ -60,7 +60,7 @@ void vOdoInit(void);
 void vCalculateOdo(void);
 void vCalculateOdoInKm(void);
 void vCalculateOdoInMiles(void);
-//uint32_t xGetOdoReadings(vehicleDisplayMetrics_t* OdoUnits);
+uint32_t xGetOdoReadings(vehicleDisplayMetrics_t* OdoUnits);
 uint32_t vPulseCount(void);
 
 void vToggleOdoUnits(void);

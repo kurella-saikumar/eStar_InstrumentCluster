@@ -87,8 +87,9 @@
  * @return void
 */
 
-void vTachoInit(void)
+void vTacho_Init(void)
 {
+
 
 }
 /** 
@@ -193,10 +194,10 @@ void vTacho_App(void)
     }
     else
     {
-//    	 IndicationStatus_t Indication;
-//    	 bool status = false;
+   	 IndicationStatus_t Indication;
+	 bool status = false;
     	 vMeasureRPM();
-//    	 xGet_TachometerData(&Indication,&status);
+ 	 xGet_TachometerData(&Indication,&status);
     }
     
    

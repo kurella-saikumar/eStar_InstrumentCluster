@@ -1,4 +1,4 @@
-../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:90:6:vTachoInit	1
-../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:104:6:vMeasureRPM	3
-../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:148:10:xGet_TachometerData	2
-../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:180:6:vTacho_App	2
+../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:90:6:vTacho_Init	1
+../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:105:6:vMeasureRPM	3
+../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:149:10:xGet_TachometerData	2
+../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:181:6:vTacho_App	2

@@ -137,7 +137,7 @@ void vInitializeSpeedometer(void)
 void xLoadToEEPROM(void)
 {
 #if(SpeedoTestMacro == 1)
-   printf("Config parameters loaded to EEPROM...\r\n");
+   //printf("Config parameters loaded to EEPROM...\r\n");
 #endif
 }
  /**

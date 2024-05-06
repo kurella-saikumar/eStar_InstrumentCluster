@@ -35,7 +35,7 @@
 #define MAXIMUM_ENGINE_RPM 12000
 //#define ERROR_THRESHOLD_RPM  >12000 
 #define FIXED_PPR_VALUE 1
-#define TIME 1
+#define TIME 100
 
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES

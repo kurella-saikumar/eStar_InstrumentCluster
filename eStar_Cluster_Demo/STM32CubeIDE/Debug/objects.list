@@ -5,6 +5,7 @@
 "./Application/User/Core/stm32h7xx_it.o"
 "./Application/User/Core/syscalls.o"
 "./Application/User/Core/sysmem.o"
+"./Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.o"
 "./Application/User/Core/src/App/FuelGuage/FuelGuage_App.o"
 "./Application/User/Core/src/App/Odometer_App/Odometer_App.o"
 "./Application/User/Core/src/App/Speedometer_App/speedometer_App.o"

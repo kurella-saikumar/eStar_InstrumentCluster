@@ -118,7 +118,7 @@ void vOdoAlgorithm(void)
 
 	if(l_ignitionStatus_u8 == IgnOFF_mode)
     {
-#if(OdoTestMacro == 1)
+#if(OdoTestMacro == 0)
 		printf("Odometer Ignition: OFF\n\r");
 #endif
 		gl_distanceInKm_u32 = 0;
@@ -126,13 +126,13 @@ void vOdoAlgorithm(void)
     else
     {        
         vCalculateOdo();
-#if(OdoTestMacro == 1)
+#if(OdoTestMacro == 0)
         printf("A: %d\t", ( xGetTripA_OdoReading(&DisplayTripA_Units) ) );
         printf("B: %d\t", ( xGetTripB_OdoReading(&DisplayTripB_Units)));
 #endif
         vResetTripA_OdoReadings();
         vResetTripB_OdoReadings();
-#if(OdoTestMacro == 1)
+#if(OdoTestMacro == 0)
         printf("AR:%d\t",  gl_OdoValBeforeTripA_Reset_u32);
         printf("BR:%d\t",  gl_OdoValBeforeTripB_Reset_u32);
 #endif
@@ -179,14 +179,14 @@ void vCalculateOdoInKm(void)
      gl_Total_odo_u32 = (gl_OdoInEeprom_u32/10);
 #if(OdoTestMacro == 1)
      printf("odo: %ld\t", gl_Total_odo_u32);
-     printf("EEodo:%ld\t", gl_OdoInEeprom_u32);
+     //printf("EEodo:%ld\t", gl_OdoInEeprom_u32);
 #endif
 }
 void vCalculateOdoInMiles(void)
 {
     vCalculateOdoInKm();   
     fl_distanceInMiles_u32 =(gl_distanceInKm_u32 * gl_Km_to_Miles_dist_conv_factor_u32);
-#if(OdoTestMacro == 1)
+#if(OdoTestMacro == 0)
    // printf(" distanceInMiles:%ld\t\n\r: " ,fl_distanceInMiles_u32);
 #endif
 }
@@ -243,7 +243,7 @@ void xRetrive_LastStored_OdoVal_from_EEPROM(void)
 {
 	//Write EEPROM API here
 	// gl_Total_odo_u32 = ActualAPI();
-#if(OdoTestMacro == 1)
+#if(OdoTestMacro == 0)
 	//printf("Reading last stored Odo value from EEPROM\n");
 #endif
 }

@@ -36,6 +36,7 @@
 #include "Odometer_App.h"
 #include "speedometer_App.h"
 #include "Tachometer_App.h"
+#include "../../App/DriverInfo_App/DriverInfoApp.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -54,6 +55,7 @@ typedef StaticTask_t osStaticThreadDef_t;
 /* USER CODE BEGIN PD */
 uint16_t gl_ADC_Value_u16;
 uint32_t gl_BAT_MON_u32;
+//extern driverInfoModeStatus_t Infostatus;
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -210,6 +212,18 @@ const osThreadAttr_t TachoMeter_attributes = {
   .stack_size = sizeof(TachoMeterBuffer),
   .priority = (osPriority_t) osPriorityBelowNormal,
 };
+/* Definitions for DriverInfo */
+osThreadId_t DriverInfoHandle;
+uint32_t myTask12Buffer[ 128 ];
+osStaticThreadDef_t myTask12ControlBlock;
+const osThreadAttr_t DriverInfo_attributes = {
+  .name = "DriverInfo",
+  .cb_mem = &myTask12ControlBlock,
+  .cb_size = sizeof(myTask12ControlBlock),
+  .stack_mem = &myTask12Buffer[0],
+  .stack_size = sizeof(myTask12Buffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* USER CODE BEGIN PV */
 /**
   * @brief  Retargets the C library printf function to the USART.
@@ -255,6 +269,7 @@ void FuelGuageTask(void *argument);
 void Odo_Task(void *argument);
 void Speedo_Task(void *argument);
 void Tacho_Task(void *argument);
+void DriverInfoAppTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -331,6 +346,7 @@ int main(void)
   (void)Mcu_GetResetReason();
   State_Manager_init();
   vOdoInit();
+  vTacho_Init();
   vSpeedoInit();
   vFuelGuage_TaskInit();
 
@@ -396,6 +412,9 @@ int main(void)
 
   /* creation of TachoMeter */
   TachoMeterHandle = osThreadNew(Tacho_Task, NULL, &TachoMeter_attributes);
+
+  /* creation of DriverInfo */
+  DriverInfoHandle = osThreadNew(DriverInfoAppTask, NULL, &DriverInfo_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1411,13 +1430,14 @@ void WDG_SRVC_Task(void *argument)
   /* USER CODE BEGIN WDG_SRVC_Task */
   for(;;)
   {
-    osDelay(30000); //watchdog period
+	  osDelay(30000);//watchdog period
     //service or refresh or reload the watchdog here
     //printf("WDG_SRVC_Task\r\n");
     if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
     {
           Error_Handler();
     }
+    printf("WDG_SRVC_Task\r\n");
 
   }
   /* USER CODE END WDG_SRVC_Task */
@@ -1567,6 +1587,51 @@ void Tacho_Task(void *argument)
     osDelay(5000);
   }
   /* USER CODE END Tacho_Task */
+}
+
+/* USER CODE BEGIN Header_DriverInfoAppTask */
+/**
+* @brief Function implementing the DriverInfo thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_DriverInfoAppTask */
+void DriverInfoAppTask(void *argument)
+{
+  /* USER CODE BEGIN DriverInfoAppTask */
+//	uint16_t FAVS = 0;
+//	uint16_t FAFE = 0;
+	//uint16_t FDTE = 0;
+	uint16_t val1 = 0;
+	uint16_t val2 = 0;
+	uint16_t val3 = 0;
+//	uint16_t avs = 0;
+//	uint16_t afe = 0;
+//	uint16_t dte = 0;
+  /* Infinite loop */
+  for(;;)
+  {
+//	  FAVS = vCalculateAVSInKmperhour();
+//	  printf("FAVS:%d\r\n",FAVS);
+//	  FAFE = vCalculateAFEKmperLitre();
+//	  printf("FAFE:%d\r\n",FAFE);
+//	  FDTE = vCalculateDTE();
+//	  printf("FDTE:%d\n\r",FDTE);
+	  //printf("FAFE:\r\n");
+	  vCalculateAvsAfeRange();
+	  xGetInfostatus(&val1, &val2, &val3);
+	  //val1 = Infostatus.AverageVehicleSpeed;
+	  //val2 = Infostatus.AverageFuelEconomy;
+	  //val3 = Infostatus.DistanceToEmpty;
+//	  printf("val1:%d\t",Infostatus.AverageVehicleSpeed);
+//	  printf("val2:%d\t",Infostatus.AverageFuelEconomy);
+//	  printf("val3:%d\n",Infostatus.DistanceToEmpty);
+	  printf("avs:%d\t",val1);
+	  printf("afe:%d\t",val2);
+	  printf("dte1:%d\n\r",val3);
+    osDelay(5000);
+  }
+  /* USER CODE END DriverInfoAppTask */
 }
 
  /* MPU Configuration */
