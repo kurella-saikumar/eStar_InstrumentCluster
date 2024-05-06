@@ -11,6 +11,7 @@
 "./Application/User/Core/src/App/FuelGuage/FuelGuage_App.o"
 "./Application/User/Core/src/App/Indicator_App/Indicator_App.o"
 "./Application/User/Core/src/App/Odometer_App/Odometer_App.o"
+"./Application/User/Core/src/App/ServiceRequest_App/ServiceRequest_App.o"
 "./Application/User/Core/src/App/Speedometer_App/speedometer_App.o"
 "./Application/User/Core/src/App/Tachometer_App/DisplayBacklightBrightness.o"
 "./Application/User/Core/src/App/Tachometer_App/Tachometer_App.o"

@@ -101,7 +101,7 @@ void vGet_Clock(void)
     xRes = HAL_RTC_GetTime(&hrtc, &xTime, RTC_FORMAT_BIN);
     if(xRes != HAL_OK)
     {
-    	printf("HAL_RTC_GetTime failed: %d\r\n", xRes);
+    	//printf("HAL_RTC_GetTime failed: %d\r\n", xRes);
     }
     else
     {
@@ -110,7 +110,7 @@ void vGet_Clock(void)
     xRes = HAL_RTC_GetDate(&hrtc, &xDate, RTC_FORMAT_BIN);
     if(xRes != HAL_OK)
     {
-    	printf("HAL_RTC_GetDate failed: %d\r\n", xRes);
+    	//printf("HAL_RTC_GetDate failed: %d\r\n", xRes);
     }
     else
     {
