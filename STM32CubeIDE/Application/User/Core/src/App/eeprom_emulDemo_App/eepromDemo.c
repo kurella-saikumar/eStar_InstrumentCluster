@@ -30,7 +30,7 @@
 #include "main.h"
 #include "stdio.h"
 #include "string.h"
-#include "../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h"
+#include "stm32h735g_discovery_ospi.h"
 #include "eeprom_emul.h"
 #include "eeprom_emul_cfg.h"
 
@@ -102,9 +102,9 @@ const eepromData_t eep_default_t ={
 /**************************************************************************************************
  * DEFINE FILE SCOPE FUNCTION PROTOTYPES\n
 ***************************************************************************************************/
-uint16_t vShadowRAM_Init(void);
+
 uint16_t xES_WriteVariable(uint32_t VirtAddress, uint32_t Data,uint32_t *UpdateToShadowRAM);
-uint32_t xShadowUpdate(void);
+
 /**************************************************************************************************
  * FUNCTION DEFINITIONS
 ***************************************************************************************************/
@@ -222,12 +222,8 @@ void vEE_Demo(void)
 		}
 
 	}
-	/* De-initialize OSPI NOR Flash */
-//	BSP_OSPI_NOR_DeInit(0);
 
 }
-
-
 
 
 /**
@@ -250,49 +246,6 @@ uint16_t xES_WriteVariable(uint32_t VirtAddress, uint32_t Data,uint32_t *UpdateT
 		return BSP_ERROR_COMPONENT_FAILURE;
 	}
 }
-
-
-/**
-  * @brief  Initializes the shadowRAM with default values of variables
-  * 		and update with last saved values in eeprom.
-  * @param  None.
-  * @retval FlashStatus:
-  */
-extern EE_Status prvEE_Format(EE_Erase_type EraseType);
-
-uint16_t vShadowRAM_Init(void)
-{
-	uint16_t usFlashStatus;
-
-	/* Write default values into eep_shadowRAM_t */
-	memcpy(&eep_Variables_t, &eep_default_t, sizeof(eepromData_t));
-#if 0
-	/* Loop through each variable and perform the check*/
-	for (int i = 0; i < sizeof(eepromVariables) / sizeof(eepromVariables[0]); i++)
-	{
-		usFlashStatus = xEE_ReadVariable32bits((uint32_t)eepromVariables[i],eepromVariables[i]);
-		if (BSP_ERROR_NONE != usFlashStatus)
-		{
-#if(EMUL_DEBUG_ENABLE == 1)
-			printf("EERead Fail:\n\r");
-#endif
-			prvEE_Format(EE_FORCED_ERASE);
-			return usFlashStatus;
-			break;
-		}
-		else
-		{
-#if(EMUL_DEBUG_ENABLE == 1)
-			printf("EERead Success:eepromVariables[%d] at :%p data :%ld\n\r",i,eepromVariables[i],*eepromVariables[i]);
-#endif
-		}
-	}
-#else
-	xShadowUpdate();
-#endif
-	return usFlashStatus;
-}
-
 
 
 /**************************************************************************************************

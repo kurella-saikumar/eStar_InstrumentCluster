@@ -171,7 +171,7 @@ E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.i
 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-lock.o)
                               E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-findfp.o) (__retarget_lock_init_recursive)
 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-memcpy-stub.o)
-                              ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o (memcpy)
+                              ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o (memcpy)
 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-__atexit.o)
                               E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-atexit.o) (__register_exitproc)
 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-__call_atexit.o)
@@ -22943,76 +22943,76 @@ LOAD E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32c
                 0x08002138       0x16 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
                 0x08002138                xES_WriteVariable
  *fill*         0x0800214e        0x2 
- .text.vShadowRAM_Init
-                0x08002150       0x1c ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
-                0x08002150                vShadowRAM_Init
  .text.vEE_Demo
-                0x0800216c      0x118 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
-                0x0800216c                vEE_Demo
+                0x08002150      0x118 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
+                0x08002150                vEE_Demo
  .text.DebounceTask
-                0x08002284       0x70 ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
-                0x08002284                DebounceTask
+                0x08002268       0x70 ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
+                0x08002268                DebounceTask
  .text.get_debounce_status
-                0x080022f4        0xc ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
-                0x080022f4                get_debounce_status
+                0x080022d8        0xc ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
+                0x080022d8                get_debounce_status
  .text.vTriggeredEdge_Counter
-                0x08002300       0x2c ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
-                0x08002300                vTriggeredEdge_Counter
+                0x080022e4       0x2c ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
+                0x080022e4                vTriggeredEdge_Counter
  .text.xGetRollingPulseCount
-                0x0800232c       0x28 ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
-                0x0800232c                xGetRollingPulseCount
+                0x08002310       0x28 ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
+                0x08002310                xGetRollingPulseCount
  .text.HAL_TIM_IC_CaptureCallback
-                0x08002354       0x24 ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
-                0x08002354                HAL_TIM_IC_CaptureCallback
+                0x08002338       0x24 ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
+                0x08002338                HAL_TIM_IC_CaptureCallback
  .text.vDisable_OdoSpeedo_Channel_Interrupts
-                0x08002378       0x1c ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
-                0x08002378                vDisable_OdoSpeedo_Channel_Interrupts
+                0x0800235c       0x1c ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
+                0x0800235c                vDisable_OdoSpeedo_Channel_Interrupts
  .text.vEnable_OdoSpeedo_Channel_Interrupts
-                0x08002394       0x1c ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
-                0x08002394                vEnable_OdoSpeedo_Channel_Interrupts
+                0x08002378       0x1c ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
+                0x08002378                vEnable_OdoSpeedo_Channel_Interrupts
  .text.prvGetPageState
-                0x080023b0      0x1ec ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
-                0x080023b0                prvGetPageState
+                0x08002394      0x1ec ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x08002394                prvGetPageState
  .text.prvSetPageState
-                0x0800259c       0xbc ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
-                0x0800259c                prvSetPageState
+                0x08002580       0xbc ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x08002580                prvSetPageState
  .text.prvEE_CleanUp
-                0x08002658       0x3c ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
-                0x08002658                prvEE_CleanUp
+                0x0800263c       0x3c ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x0800263c                prvEE_CleanUp
  .text.prvVerifyPageFullyErased
-                0x08002694       0x7a ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
-                0x08002694                prvVerifyPageFullyErased
- *fill*         0x0800270e        0x2 
+                0x08002678       0x7a ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x08002678                prvVerifyPageFullyErased
+ *fill*         0x080026f2        0x2 
  .text.prvEE_Format
-                0x08002710       0x80 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
-                0x08002710                prvEE_Format
+                0x080026f4       0x80 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x080026f4                prvEE_Format
  .text.prvFindPage
-                0x08002790       0xd8 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
-                0x08002790                prvFindPage
+                0x08002774       0xd8 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x08002774                prvFindPage
  .text.prvReadVariable
-                0x08002868       0xdc ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
-                0x08002868                prvReadVariable
+                0x0800284c       0xdc ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x0800284c                prvReadVariable
  .text.xEE_ReadVariable32bits
-                0x08002944       0x20 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
-                0x08002944                xEE_ReadVariable32bits
+                0x08002928       0x20 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x08002928                xEE_ReadVariable32bits
  .text.prvVerifyPagesFullWriteVariable
-                0x08002964       0xc8 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
-                0x08002964                prvVerifyPagesFullWriteVariable
+                0x08002948       0xc8 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x08002948                prvVerifyPagesFullWriteVariable
  .text.prvPagesTransfer
-                0x08002a2c      0x1c8 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
-                0x08002a2c                prvPagesTransfer
+                0x08002a10      0x1c8 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x08002a10                prvPagesTransfer
  .text.prvWriteVariable
-                0x08002bf4       0x1e ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
-                0x08002bf4                prvWriteVariable
+                0x08002bd8       0x1e ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x08002bd8                prvWriteVariable
  .text.xEE_WriteVariable32bits
-                0x08002c12        0xe ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
-                0x08002c12                xEE_WriteVariable32bits
+                0x08002bf6        0xe ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x08002bf6                xEE_WriteVariable32bits
  .text.xEE_Init
-                0x08002c20      0x254 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
-                0x08002c20                xEE_Init
+                0x08002c04      0x254 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x08002c04                xEE_Init
  .text.xShadowUpdate
-                0x08002e74       0xa4 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
-                0x08002e74                xShadowUpdate
+                0x08002e58       0xa4 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x08002e58                xShadowUpdate
+ .text.vShadowRAM_Init
+                0x08002efc       0x1c ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x08002efc                vShadowRAM_Init
  .text.xFI_WriteDoubleWord
                 0x08002f18        0xa ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.o
                 0x08002f18                xFI_WriteDoubleWord
@@ -28768,7 +28768,7 @@ LOAD E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32c
 LOAD E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a
 LOAD E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+dp/hard\libgcc.a
 
-.debug_info     0x00000000    0xf2493
+.debug_info     0x00000000    0xf2585
  .debug_info    0x00000000      0x121 ./Application/User/Core/freertos.o
  .debug_info    0x00000121     0x5dd3 ./Application/User/Core/main.o
  .debug_info    0x00005ef4     0x3e9d ./Application/User/Core/stm32h7xx_hal_msp.o
@@ -28779,116 +28779,116 @@ LOAD E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32c
  .debug_info    0x0000c7ce      0x603 ./Application/User/Core/src/App/Odometer_App/Odometer_App.o
  .debug_info    0x0000cdd1      0x64f ./Application/User/Core/src/App/Speedometer_App/speedometer_App.o
  .debug_info    0x0000d420      0x3c4 ./Application/User/Core/src/App/Tachometer_App/Tachometer_App.o
- .debug_info    0x0000d7e4      0x724 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
- .debug_info    0x0000df08      0x29d ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
- .debug_info    0x0000e1a5      0x94a ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
- .debug_info    0x0000eaef     0x17e6 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
- .debug_info    0x000102d5      0x278 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.o
- .debug_info    0x0001054d      0x410 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
- .debug_info    0x0001095d      0x120 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.o
- .debug_info    0x00010a7d      0x172 ./Application/User/Core/src/Service/System_Service/checksum/checksum.o
- .debug_info    0x00010bef      0x2d5 ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
- .debug_info    0x00010ec4       0x98 ./Application/User/LIBJPEG/App/libjpeg.o
- .debug_info    0x00010f5c       0x30 ./Application/User/Startup/startup_stm32h735igkx.o
- .debug_info    0x00010f8c       0xc8 ./Application/User/TouchGFX/App/app_touchgfx.o
- .debug_info    0x00011054      0x82b ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_info    0x0001187f     0x1cb4 ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_info    0x00013533     0x18d6 ./Application/User/TouchGFX/target/TouchGFXGPIO.o
- .debug_info    0x00014e09     0x9234 ./Application/User/TouchGFX/target/TouchGFXHAL.o
- .debug_info    0x0001e03d      0x78a ./Application/User/TouchGFX/target/generated/OSWrappers.o
- .debug_info    0x0001e7c7     0x94ec ./Application/User/TouchGFX/target/generated/STM32DMA.o
- .debug_info    0x00027cb3     0x3f29 ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
- .debug_info    0x0002bbdc     0xdc5f ./Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o
- .debug_info    0x0003983b    0x12db9 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
- .debug_info    0x0004c5f4     0x1192 ./Application/User/generated/ApplicationFontProvider.o
- .debug_info    0x0004d786      0xcf9 ./Application/User/generated/BitmapDatabase.o
- .debug_info    0x0004e47f     0x2657 ./Application/User/generated/CachedFont.o
- .debug_info    0x00050ad6      0x1d4 ./Application/User/generated/Font_verdana_10_4bpp_0.o
- .debug_info    0x00050caa      0x1d4 ./Application/User/generated/Font_verdana_20_4bpp_0.o
- .debug_info    0x00050e7e      0x1d5 ./Application/User/generated/Font_verdana_40_4bpp_0.o
- .debug_info    0x00051053     0xb052 ./Application/User/generated/FrontendApplicationBase.o
- .debug_info    0x0005c0a5     0x3f66 ./Application/User/generated/GeneratedFont.o
- .debug_info    0x0006000b      0x6bb ./Application/User/generated/Kerning_verdana_10_4bpp.o
- .debug_info    0x000606c6      0x6bb ./Application/User/generated/Kerning_verdana_20_4bpp.o
- .debug_info    0x00060d81      0x6bb ./Application/User/generated/Kerning_verdana_40_4bpp.o
- .debug_info    0x0006143c      0x208 ./Application/User/generated/LanguageGb.o
- .debug_info    0x00061644     0x55e9 ./Application/User/generated/Screen1ViewBase.o
- .debug_info    0x00066c2d     0x1752 ./Application/User/generated/Table_verdana_10_4bpp.o
- .debug_info    0x0006837f     0x1752 ./Application/User/generated/Table_verdana_20_4bpp.o
- .debug_info    0x00069ad1     0x1754 ./Application/User/generated/Table_verdana_40_4bpp.o
- .debug_info    0x0006b225     0x3fb8 ./Application/User/generated/Texts.o
- .debug_info    0x0006f1dd     0x16fb ./Application/User/generated/TypedTextDatabase.o
- .debug_info    0x000708d8     0x193a ./Application/User/generated/VectorFontRendererBuffers.o
- .debug_info    0x00072212       0x5f ./Application/User/generated/image_fuel_Red.o
- .debug_info    0x00072271       0x61 ./Application/User/generated/image_image.o
- .debug_info    0x000722d2     0x3d83 ./Application/User/gui/FrontendApplication.o
- .debug_info    0x00076055     0x17b8 ./Application/User/gui/Model.o
- .debug_info    0x0007780d     0x4112 ./Application/User/gui/Screen1Presenter.o
- .debug_info    0x0007b91f     0x4048 ./Application/User/gui/Screen1View.o
- .debug_info    0x0007f967      0xd2f ./Drivers/BSP/Components/ft5336.o
- .debug_info    0x00080696     0x1d9d ./Drivers/BSP/Components/ft5336_reg.o
- .debug_info    0x00082433     0x22ad ./Drivers/BSP/Components/mx25lm51245g.o
- .debug_info    0x000846e0     0x1aaf ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o
- .debug_info    0x0008618f     0x3e31 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.o
- .debug_info    0x00089fc0     0x169a ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
- .debug_info    0x0008b65a      0xb5b ./Drivers/CMSIS/system_stm32h7xx.o
- .debug_info    0x0008c1b5     0x17e1 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o
- .debug_info    0x0008d996     0x3585 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc.o
- .debug_info    0x00090f1b     0x3593 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc_ex.o
- .debug_info    0x000944ae     0x1339 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o
- .debug_info    0x000957e7      0x5d7 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.o
- .debug_info    0x00095dbe      0x350 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.o
- .debug_info    0x0009610e     0x13cd ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma2d.o
- .debug_info    0x000974db      0xc98 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o
- .debug_info    0x00098173     0x3f18 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o
- .debug_info    0x0009c08b      0xdae ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o
- .debug_info    0x0009ce39     0x1451 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc.o
- .debug_info    0x0009e28a      0xdcf ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o
- .debug_info    0x0009f059     0x20a6 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ospi.o
- .debug_info    0x000a10ff      0xf29 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o
- .debug_info    0x000a2028     0x10a5 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o
- .debug_info    0x000a30cd     0x18e1 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o
- .debug_info    0x000a49ae     0x12bf ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc.o
- .debug_info    0x000a5c6d     0x43a7 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o
- .debug_info    0x000aa014     0x1d5a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o
- .debug_info    0x000abd6e     0x64de ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o
- .debug_info    0x000b224c     0x129e ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o
- .debug_info    0x000b34ea      0x29e ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_wwdg.o
- .debug_info    0x000b3788     0x56cd ./Middlewares/FreeRTOS/cmsis_os2.o
- .debug_info    0x000b8e55      0x603 ./Middlewares/FreeRTOS/heap_4.o
- .debug_info    0x000b9458      0x2c3 ./Middlewares/FreeRTOS/list.o
- .debug_info    0x000b971b      0x587 ./Middlewares/FreeRTOS/port.o
- .debug_info    0x000b9ca2     0x2a41 ./Middlewares/FreeRTOS/queue.o
- .debug_info    0x000bc6e3     0x3c95 ./Middlewares/FreeRTOS/tasks.o
- .debug_info    0x000c0378     0x2318 ./Middlewares/FreeRTOS/timers.o
- .debug_info    0x000c2690       0xd3 ./Middlewares/LibJPEG/jaricom.o
- .debug_info    0x000c2763     0x1441 ./Middlewares/LibJPEG/jcomapi.o
- .debug_info    0x000c3ba4     0x1b1c ./Middlewares/LibJPEG/jdapimin.o
- .debug_info    0x000c56c0     0x199f ./Middlewares/LibJPEG/jdapistd.o
- .debug_info    0x000c705f     0x2412 ./Middlewares/LibJPEG/jdarith.o
- .debug_info    0x000c9471     0x1c41 ./Middlewares/LibJPEG/jdatasrc.o
- .debug_info    0x000cb0b2     0x1ff3 ./Middlewares/LibJPEG/jdcoefct.o
- .debug_info    0x000cd0a5     0x207c ./Middlewares/LibJPEG/jdcolor.o
- .debug_info    0x000cf121     0x1e12 ./Middlewares/LibJPEG/jddctmgr.o
- .debug_info    0x000d0f33     0x2ed5 ./Middlewares/LibJPEG/jdhuff.o
- .debug_info    0x000d3e08     0x1c6e ./Middlewares/LibJPEG/jdinput.o
- .debug_info    0x000d5a76     0x1ed2 ./Middlewares/LibJPEG/jdmainct.o
- .debug_info    0x000d7948     0x302d ./Middlewares/LibJPEG/jdmarker.o
- .debug_info    0x000da975     0x1dd8 ./Middlewares/LibJPEG/jdmaster.o
- .debug_info    0x000dc74d     0x1af6 ./Middlewares/LibJPEG/jdmerge.o
- .debug_info    0x000de243     0x1b02 ./Middlewares/LibJPEG/jdpostct.o
- .debug_info    0x000dfd45     0x1db3 ./Middlewares/LibJPEG/jdsample.o
- .debug_info    0x000e1af8      0xa9a ./Middlewares/LibJPEG/jerror.o
- .debug_info    0x000e2592     0x158d ./Middlewares/LibJPEG/jidctflt.o
- .debug_info    0x000e3b1f     0x15b8 ./Middlewares/LibJPEG/jidctfst.o
- .debug_info    0x000e50d7     0x511c ./Middlewares/LibJPEG/jidctint.o
- .debug_info    0x000ea1f3     0x1cc2 ./Middlewares/LibJPEG/jmemmgr.o
- .debug_info    0x000ebeb5      0xb0b ./Middlewares/LibJPEG/jmemnobs.o
- .debug_info    0x000ec9c0     0x27c3 ./Middlewares/LibJPEG/jquant1.o
- .debug_info    0x000ef183     0x2eb5 ./Middlewares/LibJPEG/jquant2.o
- .debug_info    0x000f2038      0x45b ./Middlewares/LibJPEG/jutils.o
+ .debug_info    0x0000d7e4      0x6c6 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
+ .debug_info    0x0000deaa      0x29d ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
+ .debug_info    0x0000e147      0x94a ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
+ .debug_info    0x0000ea91     0x1936 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+ .debug_info    0x000103c7      0x278 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.o
+ .debug_info    0x0001063f      0x410 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
+ .debug_info    0x00010a4f      0x120 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.o
+ .debug_info    0x00010b6f      0x172 ./Application/User/Core/src/Service/System_Service/checksum/checksum.o
+ .debug_info    0x00010ce1      0x2d5 ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
+ .debug_info    0x00010fb6       0x98 ./Application/User/LIBJPEG/App/libjpeg.o
+ .debug_info    0x0001104e       0x30 ./Application/User/Startup/startup_stm32h735igkx.o
+ .debug_info    0x0001107e       0xc8 ./Application/User/TouchGFX/App/app_touchgfx.o
+ .debug_info    0x00011146      0x82b ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_info    0x00011971     0x1cb4 ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_info    0x00013625     0x18d6 ./Application/User/TouchGFX/target/TouchGFXGPIO.o
+ .debug_info    0x00014efb     0x9234 ./Application/User/TouchGFX/target/TouchGFXHAL.o
+ .debug_info    0x0001e12f      0x78a ./Application/User/TouchGFX/target/generated/OSWrappers.o
+ .debug_info    0x0001e8b9     0x94ec ./Application/User/TouchGFX/target/generated/STM32DMA.o
+ .debug_info    0x00027da5     0x3f29 ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
+ .debug_info    0x0002bcce     0xdc5f ./Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o
+ .debug_info    0x0003992d    0x12db9 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
+ .debug_info    0x0004c6e6     0x1192 ./Application/User/generated/ApplicationFontProvider.o
+ .debug_info    0x0004d878      0xcf9 ./Application/User/generated/BitmapDatabase.o
+ .debug_info    0x0004e571     0x2657 ./Application/User/generated/CachedFont.o
+ .debug_info    0x00050bc8      0x1d4 ./Application/User/generated/Font_verdana_10_4bpp_0.o
+ .debug_info    0x00050d9c      0x1d4 ./Application/User/generated/Font_verdana_20_4bpp_0.o
+ .debug_info    0x00050f70      0x1d5 ./Application/User/generated/Font_verdana_40_4bpp_0.o
+ .debug_info    0x00051145     0xb052 ./Application/User/generated/FrontendApplicationBase.o
+ .debug_info    0x0005c197     0x3f66 ./Application/User/generated/GeneratedFont.o
+ .debug_info    0x000600fd      0x6bb ./Application/User/generated/Kerning_verdana_10_4bpp.o
+ .debug_info    0x000607b8      0x6bb ./Application/User/generated/Kerning_verdana_20_4bpp.o
+ .debug_info    0x00060e73      0x6bb ./Application/User/generated/Kerning_verdana_40_4bpp.o
+ .debug_info    0x0006152e      0x208 ./Application/User/generated/LanguageGb.o
+ .debug_info    0x00061736     0x55e9 ./Application/User/generated/Screen1ViewBase.o
+ .debug_info    0x00066d1f     0x1752 ./Application/User/generated/Table_verdana_10_4bpp.o
+ .debug_info    0x00068471     0x1752 ./Application/User/generated/Table_verdana_20_4bpp.o
+ .debug_info    0x00069bc3     0x1754 ./Application/User/generated/Table_verdana_40_4bpp.o
+ .debug_info    0x0006b317     0x3fb8 ./Application/User/generated/Texts.o
+ .debug_info    0x0006f2cf     0x16fb ./Application/User/generated/TypedTextDatabase.o
+ .debug_info    0x000709ca     0x193a ./Application/User/generated/VectorFontRendererBuffers.o
+ .debug_info    0x00072304       0x5f ./Application/User/generated/image_fuel_Red.o
+ .debug_info    0x00072363       0x61 ./Application/User/generated/image_image.o
+ .debug_info    0x000723c4     0x3d83 ./Application/User/gui/FrontendApplication.o
+ .debug_info    0x00076147     0x17b8 ./Application/User/gui/Model.o
+ .debug_info    0x000778ff     0x4112 ./Application/User/gui/Screen1Presenter.o
+ .debug_info    0x0007ba11     0x4048 ./Application/User/gui/Screen1View.o
+ .debug_info    0x0007fa59      0xd2f ./Drivers/BSP/Components/ft5336.o
+ .debug_info    0x00080788     0x1d9d ./Drivers/BSP/Components/ft5336_reg.o
+ .debug_info    0x00082525     0x22ad ./Drivers/BSP/Components/mx25lm51245g.o
+ .debug_info    0x000847d2     0x1aaf ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o
+ .debug_info    0x00086281     0x3e31 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.o
+ .debug_info    0x0008a0b2     0x169a ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
+ .debug_info    0x0008b74c      0xb5b ./Drivers/CMSIS/system_stm32h7xx.o
+ .debug_info    0x0008c2a7     0x17e1 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o
+ .debug_info    0x0008da88     0x3585 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc.o
+ .debug_info    0x0009100d     0x3593 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc_ex.o
+ .debug_info    0x000945a0     0x1339 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o
+ .debug_info    0x000958d9      0x5d7 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.o
+ .debug_info    0x00095eb0      0x350 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.o
+ .debug_info    0x00096200     0x13cd ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma2d.o
+ .debug_info    0x000975cd      0xc98 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o
+ .debug_info    0x00098265     0x3f18 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o
+ .debug_info    0x0009c17d      0xdae ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o
+ .debug_info    0x0009cf2b     0x1451 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc.o
+ .debug_info    0x0009e37c      0xdcf ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o
+ .debug_info    0x0009f14b     0x20a6 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ospi.o
+ .debug_info    0x000a11f1      0xf29 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o
+ .debug_info    0x000a211a     0x10a5 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o
+ .debug_info    0x000a31bf     0x18e1 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o
+ .debug_info    0x000a4aa0     0x12bf ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc.o
+ .debug_info    0x000a5d5f     0x43a7 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o
+ .debug_info    0x000aa106     0x1d5a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o
+ .debug_info    0x000abe60     0x64de ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o
+ .debug_info    0x000b233e     0x129e ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o
+ .debug_info    0x000b35dc      0x29e ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_wwdg.o
+ .debug_info    0x000b387a     0x56cd ./Middlewares/FreeRTOS/cmsis_os2.o
+ .debug_info    0x000b8f47      0x603 ./Middlewares/FreeRTOS/heap_4.o
+ .debug_info    0x000b954a      0x2c3 ./Middlewares/FreeRTOS/list.o
+ .debug_info    0x000b980d      0x587 ./Middlewares/FreeRTOS/port.o
+ .debug_info    0x000b9d94     0x2a41 ./Middlewares/FreeRTOS/queue.o
+ .debug_info    0x000bc7d5     0x3c95 ./Middlewares/FreeRTOS/tasks.o
+ .debug_info    0x000c046a     0x2318 ./Middlewares/FreeRTOS/timers.o
+ .debug_info    0x000c2782       0xd3 ./Middlewares/LibJPEG/jaricom.o
+ .debug_info    0x000c2855     0x1441 ./Middlewares/LibJPEG/jcomapi.o
+ .debug_info    0x000c3c96     0x1b1c ./Middlewares/LibJPEG/jdapimin.o
+ .debug_info    0x000c57b2     0x199f ./Middlewares/LibJPEG/jdapistd.o
+ .debug_info    0x000c7151     0x2412 ./Middlewares/LibJPEG/jdarith.o
+ .debug_info    0x000c9563     0x1c41 ./Middlewares/LibJPEG/jdatasrc.o
+ .debug_info    0x000cb1a4     0x1ff3 ./Middlewares/LibJPEG/jdcoefct.o
+ .debug_info    0x000cd197     0x207c ./Middlewares/LibJPEG/jdcolor.o
+ .debug_info    0x000cf213     0x1e12 ./Middlewares/LibJPEG/jddctmgr.o
+ .debug_info    0x000d1025     0x2ed5 ./Middlewares/LibJPEG/jdhuff.o
+ .debug_info    0x000d3efa     0x1c6e ./Middlewares/LibJPEG/jdinput.o
+ .debug_info    0x000d5b68     0x1ed2 ./Middlewares/LibJPEG/jdmainct.o
+ .debug_info    0x000d7a3a     0x302d ./Middlewares/LibJPEG/jdmarker.o
+ .debug_info    0x000daa67     0x1dd8 ./Middlewares/LibJPEG/jdmaster.o
+ .debug_info    0x000dc83f     0x1af6 ./Middlewares/LibJPEG/jdmerge.o
+ .debug_info    0x000de335     0x1b02 ./Middlewares/LibJPEG/jdpostct.o
+ .debug_info    0x000dfe37     0x1db3 ./Middlewares/LibJPEG/jdsample.o
+ .debug_info    0x000e1bea      0xa9a ./Middlewares/LibJPEG/jerror.o
+ .debug_info    0x000e2684     0x158d ./Middlewares/LibJPEG/jidctflt.o
+ .debug_info    0x000e3c11     0x15b8 ./Middlewares/LibJPEG/jidctfst.o
+ .debug_info    0x000e51c9     0x511c ./Middlewares/LibJPEG/jidctint.o
+ .debug_info    0x000ea2e5     0x1cc2 ./Middlewares/LibJPEG/jmemmgr.o
+ .debug_info    0x000ebfa7      0xb0b ./Middlewares/LibJPEG/jmemnobs.o
+ .debug_info    0x000ecab2     0x27c3 ./Middlewares/LibJPEG/jquant1.o
+ .debug_info    0x000ef275     0x2eb5 ./Middlewares/LibJPEG/jquant2.o
+ .debug_info    0x000f212a      0x45b ./Middlewares/LibJPEG/jutils.o
 
-.debug_abbrev   0x00000000    0x1b1c0
+.debug_abbrev   0x00000000    0x1b1cd
  .debug_abbrev  0x00000000       0xc1 ./Application/User/Core/freertos.o
  .debug_abbrev  0x000000c1      0x49d ./Application/User/Core/main.o
  .debug_abbrev  0x0000055e      0x2e0 ./Application/User/Core/stm32h7xx_hal_msp.o
@@ -28899,114 +28899,114 @@ LOAD E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32c
  .debug_abbrev  0x00000f6e      0x212 ./Application/User/Core/src/App/Odometer_App/Odometer_App.o
  .debug_abbrev  0x00001180      0x242 ./Application/User/Core/src/App/Speedometer_App/speedometer_App.o
  .debug_abbrev  0x000013c2      0x1d6 ./Application/User/Core/src/App/Tachometer_App/Tachometer_App.o
- .debug_abbrev  0x00001598      0x25a ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
- .debug_abbrev  0x000017f2      0x167 ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
- .debug_abbrev  0x00001959      0x207 ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
- .debug_abbrev  0x00001b60      0x28c ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
- .debug_abbrev  0x00001dec       0xf3 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.o
- .debug_abbrev  0x00001edf      0x1c2 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
- .debug_abbrev  0x000020a1       0xc2 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.o
- .debug_abbrev  0x00002163       0x92 ./Application/User/Core/src/Service/System_Service/checksum/checksum.o
- .debug_abbrev  0x000021f5      0x177 ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
- .debug_abbrev  0x0000236c       0x45 ./Application/User/LIBJPEG/App/libjpeg.o
- .debug_abbrev  0x000023b1       0x24 ./Application/User/Startup/startup_stm32h735igkx.o
- .debug_abbrev  0x000023d5       0x91 ./Application/User/TouchGFX/App/app_touchgfx.o
- .debug_abbrev  0x00002466      0x3ca ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_abbrev  0x00002830      0x40a ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_abbrev  0x00002c3a      0x324 ./Application/User/TouchGFX/target/TouchGFXGPIO.o
- .debug_abbrev  0x00002f5e      0xd58 ./Application/User/TouchGFX/target/TouchGFXHAL.o
- .debug_abbrev  0x00003cb6      0x2be ./Application/User/TouchGFX/target/generated/OSWrappers.o
- .debug_abbrev  0x00003f74      0xd55 ./Application/User/TouchGFX/target/generated/STM32DMA.o
- .debug_abbrev  0x00004cc9      0x89c ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
- .debug_abbrev  0x00005565      0xf16 ./Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o
- .debug_abbrev  0x0000647b     0x12a3 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
- .debug_abbrev  0x0000771e      0x4aa ./Application/User/generated/ApplicationFontProvider.o
- .debug_abbrev  0x00007bc8      0x38e ./Application/User/generated/BitmapDatabase.o
- .debug_abbrev  0x00007f56      0x6c3 ./Application/User/generated/CachedFont.o
- .debug_abbrev  0x00008619       0xb4 ./Application/User/generated/Font_verdana_10_4bpp_0.o
- .debug_abbrev  0x000086cd       0xb4 ./Application/User/generated/Font_verdana_20_4bpp_0.o
- .debug_abbrev  0x00008781       0xb4 ./Application/User/generated/Font_verdana_40_4bpp_0.o
- .debug_abbrev  0x00008835      0xe43 ./Application/User/generated/FrontendApplicationBase.o
- .debug_abbrev  0x00009678      0x6e2 ./Application/User/generated/GeneratedFont.o
- .debug_abbrev  0x00009d5a      0x1cf ./Application/User/generated/Kerning_verdana_10_4bpp.o
- .debug_abbrev  0x00009f29      0x1cf ./Application/User/generated/Kerning_verdana_20_4bpp.o
- .debug_abbrev  0x0000a0f8      0x1cf ./Application/User/generated/Kerning_verdana_40_4bpp.o
- .debug_abbrev  0x0000a2c7       0xc6 ./Application/User/generated/LanguageGb.o
- .debug_abbrev  0x0000a38d      0xa14 ./Application/User/generated/Screen1ViewBase.o
- .debug_abbrev  0x0000ada1      0x51f ./Application/User/generated/Table_verdana_10_4bpp.o
- .debug_abbrev  0x0000b2c0      0x51f ./Application/User/generated/Table_verdana_20_4bpp.o
- .debug_abbrev  0x0000b7df      0x51f ./Application/User/generated/Table_verdana_40_4bpp.o
- .debug_abbrev  0x0000bcfe      0x986 ./Application/User/generated/Texts.o
- .debug_abbrev  0x0000c684      0x565 ./Application/User/generated/TypedTextDatabase.o
- .debug_abbrev  0x0000cbe9      0x4e4 ./Application/User/generated/VectorFontRendererBuffers.o
- .debug_abbrev  0x0000d0cd       0x4c ./Application/User/generated/image_fuel_Red.o
- .debug_abbrev  0x0000d119       0x4c ./Application/User/generated/image_image.o
- .debug_abbrev  0x0000d165      0x8eb ./Application/User/gui/FrontendApplication.o
- .debug_abbrev  0x0000da50      0x314 ./Application/User/gui/Model.o
- .debug_abbrev  0x0000dd64      0x8e1 ./Application/User/gui/Screen1Presenter.o
- .debug_abbrev  0x0000e645      0x8f2 ./Application/User/gui/Screen1View.o
- .debug_abbrev  0x0000ef37      0x37f ./Drivers/BSP/Components/ft5336.o
- .debug_abbrev  0x0000f2b6      0x1aa ./Drivers/BSP/Components/ft5336_reg.o
- .debug_abbrev  0x0000f460      0x263 ./Drivers/BSP/Components/mx25lm51245g.o
- .debug_abbrev  0x0000f6c3      0x451 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o
- .debug_abbrev  0x0000fb14      0x4b3 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.o
- .debug_abbrev  0x0000ffc7      0x407 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
- .debug_abbrev  0x000103ce      0x140 ./Drivers/CMSIS/system_stm32h7xx.o
- .debug_abbrev  0x0001050e      0x31e ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o
- .debug_abbrev  0x0001082c      0x3bb ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc.o
- .debug_abbrev  0x00010be7      0x45f ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc_ex.o
- .debug_abbrev  0x00011046      0x3a1 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o
- .debug_abbrev  0x000113e7      0x23f ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.o
- .debug_abbrev  0x00011626      0x16c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.o
- .debug_abbrev  0x00011792      0x29a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma2d.o
- .debug_abbrev  0x00011a2c      0x24e ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o
- .debug_abbrev  0x00011c7a      0x3ba ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o
- .debug_abbrev  0x00012034      0x1f9 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o
- .debug_abbrev  0x0001222d      0x298 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc.o
- .debug_abbrev  0x000124c5      0x2ab ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o
- .debug_abbrev  0x00012770      0x3b5 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ospi.o
- .debug_abbrev  0x00012b25      0x2f6 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o
- .debug_abbrev  0x00012e1b      0x303 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o
- .debug_abbrev  0x0001311e      0x312 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o
- .debug_abbrev  0x00013430      0x2c3 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc.o
- .debug_abbrev  0x000136f3      0x37f ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o
- .debug_abbrev  0x00013a72      0x2fe ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o
- .debug_abbrev  0x00013d70      0x48d ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o
- .debug_abbrev  0x000141fd      0x358 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o
- .debug_abbrev  0x00014555      0x1b6 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_wwdg.o
- .debug_abbrev  0x0001470b      0x636 ./Middlewares/FreeRTOS/cmsis_os2.o
- .debug_abbrev  0x00014d41      0x29f ./Middlewares/FreeRTOS/heap_4.o
- .debug_abbrev  0x00014fe0      0x10c ./Middlewares/FreeRTOS/list.o
- .debug_abbrev  0x000150ec      0x2b3 ./Middlewares/FreeRTOS/port.o
- .debug_abbrev  0x0001539f      0x4c7 ./Middlewares/FreeRTOS/queue.o
- .debug_abbrev  0x00015866      0x579 ./Middlewares/FreeRTOS/tasks.o
- .debug_abbrev  0x00015ddf      0x475 ./Middlewares/FreeRTOS/timers.o
- .debug_abbrev  0x00016254       0x79 ./Middlewares/LibJPEG/jaricom.o
- .debug_abbrev  0x000162cd      0x239 ./Middlewares/LibJPEG/jcomapi.o
- .debug_abbrev  0x00016506      0x36e ./Middlewares/LibJPEG/jdapimin.o
- .debug_abbrev  0x00016874      0x299 ./Middlewares/LibJPEG/jdapistd.o
- .debug_abbrev  0x00016b0d      0x358 ./Middlewares/LibJPEG/jdarith.o
- .debug_abbrev  0x00016e65      0x31e ./Middlewares/LibJPEG/jdatasrc.o
- .debug_abbrev  0x00017183      0x3fe ./Middlewares/LibJPEG/jdcoefct.o
- .debug_abbrev  0x00017581      0x39c ./Middlewares/LibJPEG/jdcolor.o
- .debug_abbrev  0x0001791d      0x2ed ./Middlewares/LibJPEG/jddctmgr.o
- .debug_abbrev  0x00017c0a      0x32c ./Middlewares/LibJPEG/jdhuff.o
- .debug_abbrev  0x00017f36      0x408 ./Middlewares/LibJPEG/jdinput.o
- .debug_abbrev  0x0001833e      0x362 ./Middlewares/LibJPEG/jdmainct.o
- .debug_abbrev  0x000186a0      0x495 ./Middlewares/LibJPEG/jdmarker.o
- .debug_abbrev  0x00018b35      0x402 ./Middlewares/LibJPEG/jdmaster.o
- .debug_abbrev  0x00018f37      0x34f ./Middlewares/LibJPEG/jdmerge.o
- .debug_abbrev  0x00019286      0x291 ./Middlewares/LibJPEG/jdpostct.o
- .debug_abbrev  0x00019517      0x320 ./Middlewares/LibJPEG/jdsample.o
- .debug_abbrev  0x00019837      0x264 ./Middlewares/LibJPEG/jerror.o
- .debug_abbrev  0x00019a9b      0x211 ./Middlewares/LibJPEG/jidctflt.o
- .debug_abbrev  0x00019cac      0x227 ./Middlewares/LibJPEG/jidctfst.o
- .debug_abbrev  0x00019ed3      0x2a0 ./Middlewares/LibJPEG/jidctint.o
- .debug_abbrev  0x0001a173      0x3de ./Middlewares/LibJPEG/jmemmgr.o
- .debug_abbrev  0x0001a551      0x270 ./Middlewares/LibJPEG/jmemnobs.o
- .debug_abbrev  0x0001a7c1      0x412 ./Middlewares/LibJPEG/jquant1.o
- .debug_abbrev  0x0001abd3      0x468 ./Middlewares/LibJPEG/jquant2.o
- .debug_abbrev  0x0001b03b      0x185 ./Middlewares/LibJPEG/jutils.o
+ .debug_abbrev  0x00001598      0x216 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
+ .debug_abbrev  0x000017ae      0x167 ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
+ .debug_abbrev  0x00001915      0x207 ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
+ .debug_abbrev  0x00001b1c      0x2dd ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+ .debug_abbrev  0x00001df9       0xf3 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.o
+ .debug_abbrev  0x00001eec      0x1c2 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
+ .debug_abbrev  0x000020ae       0xc2 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.o
+ .debug_abbrev  0x00002170       0x92 ./Application/User/Core/src/Service/System_Service/checksum/checksum.o
+ .debug_abbrev  0x00002202      0x177 ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
+ .debug_abbrev  0x00002379       0x45 ./Application/User/LIBJPEG/App/libjpeg.o
+ .debug_abbrev  0x000023be       0x24 ./Application/User/Startup/startup_stm32h735igkx.o
+ .debug_abbrev  0x000023e2       0x91 ./Application/User/TouchGFX/App/app_touchgfx.o
+ .debug_abbrev  0x00002473      0x3ca ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_abbrev  0x0000283d      0x40a ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_abbrev  0x00002c47      0x324 ./Application/User/TouchGFX/target/TouchGFXGPIO.o
+ .debug_abbrev  0x00002f6b      0xd58 ./Application/User/TouchGFX/target/TouchGFXHAL.o
+ .debug_abbrev  0x00003cc3      0x2be ./Application/User/TouchGFX/target/generated/OSWrappers.o
+ .debug_abbrev  0x00003f81      0xd55 ./Application/User/TouchGFX/target/generated/STM32DMA.o
+ .debug_abbrev  0x00004cd6      0x89c ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
+ .debug_abbrev  0x00005572      0xf16 ./Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o
+ .debug_abbrev  0x00006488     0x12a3 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
+ .debug_abbrev  0x0000772b      0x4aa ./Application/User/generated/ApplicationFontProvider.o
+ .debug_abbrev  0x00007bd5      0x38e ./Application/User/generated/BitmapDatabase.o
+ .debug_abbrev  0x00007f63      0x6c3 ./Application/User/generated/CachedFont.o
+ .debug_abbrev  0x00008626       0xb4 ./Application/User/generated/Font_verdana_10_4bpp_0.o
+ .debug_abbrev  0x000086da       0xb4 ./Application/User/generated/Font_verdana_20_4bpp_0.o
+ .debug_abbrev  0x0000878e       0xb4 ./Application/User/generated/Font_verdana_40_4bpp_0.o
+ .debug_abbrev  0x00008842      0xe43 ./Application/User/generated/FrontendApplicationBase.o
+ .debug_abbrev  0x00009685      0x6e2 ./Application/User/generated/GeneratedFont.o
+ .debug_abbrev  0x00009d67      0x1cf ./Application/User/generated/Kerning_verdana_10_4bpp.o
+ .debug_abbrev  0x00009f36      0x1cf ./Application/User/generated/Kerning_verdana_20_4bpp.o
+ .debug_abbrev  0x0000a105      0x1cf ./Application/User/generated/Kerning_verdana_40_4bpp.o
+ .debug_abbrev  0x0000a2d4       0xc6 ./Application/User/generated/LanguageGb.o
+ .debug_abbrev  0x0000a39a      0xa14 ./Application/User/generated/Screen1ViewBase.o
+ .debug_abbrev  0x0000adae      0x51f ./Application/User/generated/Table_verdana_10_4bpp.o
+ .debug_abbrev  0x0000b2cd      0x51f ./Application/User/generated/Table_verdana_20_4bpp.o
+ .debug_abbrev  0x0000b7ec      0x51f ./Application/User/generated/Table_verdana_40_4bpp.o
+ .debug_abbrev  0x0000bd0b      0x986 ./Application/User/generated/Texts.o
+ .debug_abbrev  0x0000c691      0x565 ./Application/User/generated/TypedTextDatabase.o
+ .debug_abbrev  0x0000cbf6      0x4e4 ./Application/User/generated/VectorFontRendererBuffers.o
+ .debug_abbrev  0x0000d0da       0x4c ./Application/User/generated/image_fuel_Red.o
+ .debug_abbrev  0x0000d126       0x4c ./Application/User/generated/image_image.o
+ .debug_abbrev  0x0000d172      0x8eb ./Application/User/gui/FrontendApplication.o
+ .debug_abbrev  0x0000da5d      0x314 ./Application/User/gui/Model.o
+ .debug_abbrev  0x0000dd71      0x8e1 ./Application/User/gui/Screen1Presenter.o
+ .debug_abbrev  0x0000e652      0x8f2 ./Application/User/gui/Screen1View.o
+ .debug_abbrev  0x0000ef44      0x37f ./Drivers/BSP/Components/ft5336.o
+ .debug_abbrev  0x0000f2c3      0x1aa ./Drivers/BSP/Components/ft5336_reg.o
+ .debug_abbrev  0x0000f46d      0x263 ./Drivers/BSP/Components/mx25lm51245g.o
+ .debug_abbrev  0x0000f6d0      0x451 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o
+ .debug_abbrev  0x0000fb21      0x4b3 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.o
+ .debug_abbrev  0x0000ffd4      0x407 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
+ .debug_abbrev  0x000103db      0x140 ./Drivers/CMSIS/system_stm32h7xx.o
+ .debug_abbrev  0x0001051b      0x31e ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o
+ .debug_abbrev  0x00010839      0x3bb ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc.o
+ .debug_abbrev  0x00010bf4      0x45f ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc_ex.o
+ .debug_abbrev  0x00011053      0x3a1 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o
+ .debug_abbrev  0x000113f4      0x23f ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.o
+ .debug_abbrev  0x00011633      0x16c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.o
+ .debug_abbrev  0x0001179f      0x29a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma2d.o
+ .debug_abbrev  0x00011a39      0x24e ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o
+ .debug_abbrev  0x00011c87      0x3ba ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o
+ .debug_abbrev  0x00012041      0x1f9 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o
+ .debug_abbrev  0x0001223a      0x298 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc.o
+ .debug_abbrev  0x000124d2      0x2ab ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o
+ .debug_abbrev  0x0001277d      0x3b5 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ospi.o
+ .debug_abbrev  0x00012b32      0x2f6 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o
+ .debug_abbrev  0x00012e28      0x303 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o
+ .debug_abbrev  0x0001312b      0x312 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o
+ .debug_abbrev  0x0001343d      0x2c3 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc.o
+ .debug_abbrev  0x00013700      0x37f ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o
+ .debug_abbrev  0x00013a7f      0x2fe ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o
+ .debug_abbrev  0x00013d7d      0x48d ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o
+ .debug_abbrev  0x0001420a      0x358 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o
+ .debug_abbrev  0x00014562      0x1b6 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_wwdg.o
+ .debug_abbrev  0x00014718      0x636 ./Middlewares/FreeRTOS/cmsis_os2.o
+ .debug_abbrev  0x00014d4e      0x29f ./Middlewares/FreeRTOS/heap_4.o
+ .debug_abbrev  0x00014fed      0x10c ./Middlewares/FreeRTOS/list.o
+ .debug_abbrev  0x000150f9      0x2b3 ./Middlewares/FreeRTOS/port.o
+ .debug_abbrev  0x000153ac      0x4c7 ./Middlewares/FreeRTOS/queue.o
+ .debug_abbrev  0x00015873      0x579 ./Middlewares/FreeRTOS/tasks.o
+ .debug_abbrev  0x00015dec      0x475 ./Middlewares/FreeRTOS/timers.o
+ .debug_abbrev  0x00016261       0x79 ./Middlewares/LibJPEG/jaricom.o
+ .debug_abbrev  0x000162da      0x239 ./Middlewares/LibJPEG/jcomapi.o
+ .debug_abbrev  0x00016513      0x36e ./Middlewares/LibJPEG/jdapimin.o
+ .debug_abbrev  0x00016881      0x299 ./Middlewares/LibJPEG/jdapistd.o
+ .debug_abbrev  0x00016b1a      0x358 ./Middlewares/LibJPEG/jdarith.o
+ .debug_abbrev  0x00016e72      0x31e ./Middlewares/LibJPEG/jdatasrc.o
+ .debug_abbrev  0x00017190      0x3fe ./Middlewares/LibJPEG/jdcoefct.o
+ .debug_abbrev  0x0001758e      0x39c ./Middlewares/LibJPEG/jdcolor.o
+ .debug_abbrev  0x0001792a      0x2ed ./Middlewares/LibJPEG/jddctmgr.o
+ .debug_abbrev  0x00017c17      0x32c ./Middlewares/LibJPEG/jdhuff.o
+ .debug_abbrev  0x00017f43      0x408 ./Middlewares/LibJPEG/jdinput.o
+ .debug_abbrev  0x0001834b      0x362 ./Middlewares/LibJPEG/jdmainct.o
+ .debug_abbrev  0x000186ad      0x495 ./Middlewares/LibJPEG/jdmarker.o
+ .debug_abbrev  0x00018b42      0x402 ./Middlewares/LibJPEG/jdmaster.o
+ .debug_abbrev  0x00018f44      0x34f ./Middlewares/LibJPEG/jdmerge.o
+ .debug_abbrev  0x00019293      0x291 ./Middlewares/LibJPEG/jdpostct.o
+ .debug_abbrev  0x00019524      0x320 ./Middlewares/LibJPEG/jdsample.o
+ .debug_abbrev  0x00019844      0x264 ./Middlewares/LibJPEG/jerror.o
+ .debug_abbrev  0x00019aa8      0x211 ./Middlewares/LibJPEG/jidctflt.o
+ .debug_abbrev  0x00019cb9      0x227 ./Middlewares/LibJPEG/jidctfst.o
+ .debug_abbrev  0x00019ee0      0x2a0 ./Middlewares/LibJPEG/jidctint.o
+ .debug_abbrev  0x0001a180      0x3de ./Middlewares/LibJPEG/jmemmgr.o
+ .debug_abbrev  0x0001a55e      0x270 ./Middlewares/LibJPEG/jmemnobs.o
+ .debug_abbrev  0x0001a7ce      0x412 ./Middlewares/LibJPEG/jquant1.o
+ .debug_abbrev  0x0001abe0      0x468 ./Middlewares/LibJPEG/jquant2.o
+ .debug_abbrev  0x0001b048      0x185 ./Middlewares/LibJPEG/jutils.o
 
 .debug_aranges  0x00000000     0x44d0
  .debug_aranges
@@ -29030,13 +29030,13 @@ LOAD E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32c
  .debug_aranges
                 0x000003c0       0x38 ./Application/User/Core/src/App/Tachometer_App/Tachometer_App.o
  .debug_aranges
-                0x000003f8       0x30 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
+                0x000003f8       0x28 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
  .debug_aranges
-                0x00000428       0x28 ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
+                0x00000420       0x28 ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
  .debug_aranges
-                0x00000450       0x40 ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
+                0x00000448       0x40 ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
  .debug_aranges
-                0x00000490       0x88 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x00000488       0x90 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
  .debug_aranges
                 0x00000518       0x30 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.o
  .debug_aranges
@@ -29269,13 +29269,13 @@ LOAD E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32c
  .debug_rnglists
                 0x00000440       0x25 ./Application/User/Core/src/App/Tachometer_App/Tachometer_App.o
  .debug_rnglists
-                0x00000465       0x99 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
+                0x00000465       0x93 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
  .debug_rnglists
-                0x000004fe       0x19 ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
+                0x000004f8       0x19 ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
  .debug_rnglists
-                0x00000517       0x2b ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
+                0x00000511       0x2b ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
  .debug_rnglists
-                0x00000542       0x85 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x0000053c       0x8b ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
  .debug_rnglists
                 0x000005c7       0x1f ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.o
  .debug_rnglists
@@ -29793,7 +29793,7 @@ LOAD E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32c
  .debug_macro   0x0004f685      0x362 ./Middlewares/LibJPEG/jquant2.o
  .debug_macro   0x0004f9e7      0x29d ./Middlewares/LibJPEG/jutils.o
 
-.debug_line     0x00000000    0xa4e1f
+.debug_line     0x00000000    0xa4df3
  .debug_line    0x00000000      0xcda ./Application/User/Core/freertos.o
  .debug_line    0x00000cda     0x20b4 ./Application/User/Core/main.o
  .debug_line    0x00002d8e     0x1663 ./Application/User/Core/stm32h7xx_hal_msp.o
@@ -29804,116 +29804,116 @@ LOAD E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32c
  .debug_line    0x00006fcd      0xd29 ./Application/User/Core/src/App/Odometer_App/Odometer_App.o
  .debug_line    0x00007cf6      0xd13 ./Application/User/Core/src/App/Speedometer_App/speedometer_App.o
  .debug_line    0x00008a09      0xab4 ./Application/User/Core/src/App/Tachometer_App/Tachometer_App.o
- .debug_line    0x000094bd     0x1039 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
- .debug_line    0x0000a4f6      0xd7f ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
- .debug_line    0x0000b275      0xd63 ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
- .debug_line    0x0000bfd8     0x1f5e ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
- .debug_line    0x0000df36      0xe88 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.o
- .debug_line    0x0000edbe      0xfa2 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
- .debug_line    0x0000fd60      0xa14 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.o
- .debug_line    0x00010774      0xc3e ./Application/User/Core/src/Service/System_Service/checksum/checksum.o
- .debug_line    0x000113b2      0x9e3 ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
- .debug_line    0x00011d95      0x92e ./Application/User/LIBJPEG/App/libjpeg.o
- .debug_line    0x000126c3       0x79 ./Application/User/Startup/startup_stm32h735igkx.o
- .debug_line    0x0001273c       0xd8 ./Application/User/TouchGFX/App/app_touchgfx.o
- .debug_line    0x00012814      0xffc ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_line    0x00013810     0x196f ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_line    0x0001517f     0x128f ./Application/User/TouchGFX/target/TouchGFXGPIO.o
- .debug_line    0x0001640e     0x1c79 ./Application/User/TouchGFX/target/TouchGFXHAL.o
- .debug_line    0x00018087     0x1010 ./Application/User/TouchGFX/target/generated/OSWrappers.o
- .debug_line    0x00019097     0x1d0c ./Application/User/TouchGFX/target/generated/STM32DMA.o
- .debug_line    0x0001ada3     0x17dd ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
- .debug_line    0x0001c580     0x212b ./Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o
- .debug_line    0x0001e6ab     0x3392 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
- .debug_line    0x00021a3d      0x923 ./Application/User/generated/ApplicationFontProvider.o
- .debug_line    0x00022360      0x7e1 ./Application/User/generated/BitmapDatabase.o
- .debug_line    0x00022b41      0xb87 ./Application/User/generated/CachedFont.o
- .debug_line    0x000236c8      0x72c ./Application/User/generated/Font_verdana_10_4bpp_0.o
- .debug_line    0x00023df4      0x72c ./Application/User/generated/Font_verdana_20_4bpp_0.o
- .debug_line    0x00024520      0x72c ./Application/User/generated/Font_verdana_40_4bpp_0.o
- .debug_line    0x00024c4c     0x1a86 ./Application/User/generated/FrontendApplicationBase.o
- .debug_line    0x000266d2     0x155d ./Application/User/generated/GeneratedFont.o
- .debug_line    0x00027c2f      0x79b ./Application/User/generated/Kerning_verdana_10_4bpp.o
- .debug_line    0x000283ca      0x79b ./Application/User/generated/Kerning_verdana_20_4bpp.o
- .debug_line    0x00028b65      0x79b ./Application/User/generated/Kerning_verdana_40_4bpp.o
- .debug_line    0x00029300      0x774 ./Application/User/generated/LanguageGb.o
- .debug_line    0x00029a74     0x19b6 ./Application/User/generated/Screen1ViewBase.o
- .debug_line    0x0002b42a      0x853 ./Application/User/generated/Table_verdana_10_4bpp.o
- .debug_line    0x0002bc7d      0x853 ./Application/User/generated/Table_verdana_20_4bpp.o
- .debug_line    0x0002c4d0      0x853 ./Application/User/generated/Table_verdana_40_4bpp.o
- .debug_line    0x0002cd23     0x12c2 ./Application/User/generated/Texts.o
- .debug_line    0x0002dfe5      0x946 ./Application/User/generated/TypedTextDatabase.o
- .debug_line    0x0002e92b      0x92f ./Application/User/generated/VectorFontRendererBuffers.o
- .debug_line    0x0002f25a       0xc5 ./Application/User/generated/image_fuel_Red.o
- .debug_line    0x0002f31f       0xc2 ./Application/User/generated/image_image.o
- .debug_line    0x0002f3e1     0x134b ./Application/User/gui/FrontendApplication.o
- .debug_line    0x0003072c     0x1120 ./Application/User/gui/Model.o
- .debug_line    0x0003184c     0x13a9 ./Application/User/gui/Screen1Presenter.o
- .debug_line    0x00032bf5     0x13cf ./Application/User/gui/Screen1View.o
- .debug_line    0x00033fc4      0xa41 ./Drivers/BSP/Components/ft5336.o
- .debug_line    0x00034a05     0x1141 ./Drivers/BSP/Components/ft5336_reg.o
- .debug_line    0x00035b46     0x2c3e ./Drivers/BSP/Components/mx25lm51245g.o
- .debug_line    0x00038784     0x113b ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o
- .debug_line    0x000398bf     0x1eb4 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.o
- .debug_line    0x0003b773     0x140e ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
- .debug_line    0x0003cb81      0xe02 ./Drivers/CMSIS/system_stm32h7xx.o
- .debug_line    0x0003d983     0x138b ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o
- .debug_line    0x0003ed0e     0x33b3 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc.o
- .debug_line    0x000420c1     0x2f8c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc_ex.o
- .debug_line    0x0004504d     0x122a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o
- .debug_line    0x00046277      0xf7f ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.o
- .debug_line    0x000471f6      0xcb9 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.o
- .debug_line    0x00047eaf     0x1e06 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma2d.o
- .debug_line    0x00049cb5     0x1155 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o
- .debug_line    0x0004ae0a     0x5f4c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o
- .debug_line    0x00050d56      0xf09 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o
- .debug_line    0x00051c5f     0x2636 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc.o
- .debug_line    0x00054295     0x1ca0 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o
- .debug_line    0x00055f35     0x23ba ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ospi.o
- .debug_line    0x000582ef     0x13df ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o
- .debug_line    0x000596ce     0x1b5c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o
- .debug_line    0x0005b22a     0x22be ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o
- .debug_line    0x0005d4e8     0x19d0 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc.o
- .debug_line    0x0005eeb8     0x525d ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o
- .debug_line    0x00064115     0x2476 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o
- .debug_line    0x0006658b     0x67ca ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o
- .debug_line    0x0006cd55     0x1651 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o
- .debug_line    0x0006e3a6      0xc88 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_wwdg.o
- .debug_line    0x0006f02e     0x3229 ./Middlewares/FreeRTOS/cmsis_os2.o
- .debug_line    0x00072257      0xd33 ./Middlewares/FreeRTOS/heap_4.o
- .debug_line    0x00072f8a      0x9ee ./Middlewares/FreeRTOS/list.o
- .debug_line    0x00073978      0xdb4 ./Middlewares/FreeRTOS/port.o
- .debug_line    0x0007472c     0x24e6 ./Middlewares/FreeRTOS/queue.o
- .debug_line    0x00076c12     0x32d1 ./Middlewares/FreeRTOS/tasks.o
- .debug_line    0x00079ee3     0x1455 ./Middlewares/FreeRTOS/timers.o
- .debug_line    0x0007b338      0x9a7 ./Middlewares/LibJPEG/jaricom.o
- .debug_line    0x0007bcdf      0xaab ./Middlewares/LibJPEG/jcomapi.o
- .debug_line    0x0007c78a      0xde4 ./Middlewares/LibJPEG/jdapimin.o
- .debug_line    0x0007d56e      0xd4b ./Middlewares/LibJPEG/jdapistd.o
- .debug_line    0x0007e2b9     0x17cb ./Middlewares/LibJPEG/jdarith.o
- .debug_line    0x0007fa84      0xc01 ./Middlewares/LibJPEG/jdatasrc.o
- .debug_line    0x00080685     0x185c ./Middlewares/LibJPEG/jdcoefct.o
- .debug_line    0x00081ee1     0x128d ./Middlewares/LibJPEG/jdcolor.o
- .debug_line    0x0008316e      0xcd1 ./Middlewares/LibJPEG/jddctmgr.o
- .debug_line    0x00083e3f     0x26b9 ./Middlewares/LibJPEG/jdhuff.o
- .debug_line    0x000864f8     0x11ea ./Middlewares/LibJPEG/jdinput.o
- .debug_line    0x000876e2      0xf79 ./Middlewares/LibJPEG/jdmainct.o
- .debug_line    0x0008865b     0x2181 ./Middlewares/LibJPEG/jdmarker.o
- .debug_line    0x0008a7dc     0x102b ./Middlewares/LibJPEG/jdmaster.o
- .debug_line    0x0008b807     0x1161 ./Middlewares/LibJPEG/jdmerge.o
- .debug_line    0x0008c968      0xc5d ./Middlewares/LibJPEG/jdpostct.o
- .debug_line    0x0008d5c5      0xe2d ./Middlewares/LibJPEG/jdsample.o
- .debug_line    0x0008e3f2      0xbd2 ./Middlewares/LibJPEG/jerror.o
- .debug_line    0x0008efc4      0xf7c ./Middlewares/LibJPEG/jidctflt.o
- .debug_line    0x0008ff40      0xdcf ./Middlewares/LibJPEG/jidctfst.o
- .debug_line    0x00090d0f     0xdf53 ./Middlewares/LibJPEG/jidctint.o
- .debug_line    0x0009ec62     0x178a ./Middlewares/LibJPEG/jmemmgr.o
- .debug_line    0x000a03ec      0xa61 ./Middlewares/LibJPEG/jmemnobs.o
- .debug_line    0x000a0e4d     0x17b4 ./Middlewares/LibJPEG/jquant1.o
- .debug_line    0x000a2601     0x1d88 ./Middlewares/LibJPEG/jquant2.o
- .debug_line    0x000a4389      0xa96 ./Middlewares/LibJPEG/jutils.o
+ .debug_line    0x000094bd      0xfd8 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
+ .debug_line    0x0000a495      0xd7f ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
+ .debug_line    0x0000b214      0xd63 ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
+ .debug_line    0x0000bf77     0x1f93 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+ .debug_line    0x0000df0a      0xe88 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.o
+ .debug_line    0x0000ed92      0xfa2 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
+ .debug_line    0x0000fd34      0xa14 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.o
+ .debug_line    0x00010748      0xc3e ./Application/User/Core/src/Service/System_Service/checksum/checksum.o
+ .debug_line    0x00011386      0x9e3 ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
+ .debug_line    0x00011d69      0x92e ./Application/User/LIBJPEG/App/libjpeg.o
+ .debug_line    0x00012697       0x79 ./Application/User/Startup/startup_stm32h735igkx.o
+ .debug_line    0x00012710       0xd8 ./Application/User/TouchGFX/App/app_touchgfx.o
+ .debug_line    0x000127e8      0xffc ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_line    0x000137e4     0x196f ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_line    0x00015153     0x128f ./Application/User/TouchGFX/target/TouchGFXGPIO.o
+ .debug_line    0x000163e2     0x1c79 ./Application/User/TouchGFX/target/TouchGFXHAL.o
+ .debug_line    0x0001805b     0x1010 ./Application/User/TouchGFX/target/generated/OSWrappers.o
+ .debug_line    0x0001906b     0x1d0c ./Application/User/TouchGFX/target/generated/STM32DMA.o
+ .debug_line    0x0001ad77     0x17dd ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
+ .debug_line    0x0001c554     0x212b ./Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o
+ .debug_line    0x0001e67f     0x3392 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
+ .debug_line    0x00021a11      0x923 ./Application/User/generated/ApplicationFontProvider.o
+ .debug_line    0x00022334      0x7e1 ./Application/User/generated/BitmapDatabase.o
+ .debug_line    0x00022b15      0xb87 ./Application/User/generated/CachedFont.o
+ .debug_line    0x0002369c      0x72c ./Application/User/generated/Font_verdana_10_4bpp_0.o
+ .debug_line    0x00023dc8      0x72c ./Application/User/generated/Font_verdana_20_4bpp_0.o
+ .debug_line    0x000244f4      0x72c ./Application/User/generated/Font_verdana_40_4bpp_0.o
+ .debug_line    0x00024c20     0x1a86 ./Application/User/generated/FrontendApplicationBase.o
+ .debug_line    0x000266a6     0x155d ./Application/User/generated/GeneratedFont.o
+ .debug_line    0x00027c03      0x79b ./Application/User/generated/Kerning_verdana_10_4bpp.o
+ .debug_line    0x0002839e      0x79b ./Application/User/generated/Kerning_verdana_20_4bpp.o
+ .debug_line    0x00028b39      0x79b ./Application/User/generated/Kerning_verdana_40_4bpp.o
+ .debug_line    0x000292d4      0x774 ./Application/User/generated/LanguageGb.o
+ .debug_line    0x00029a48     0x19b6 ./Application/User/generated/Screen1ViewBase.o
+ .debug_line    0x0002b3fe      0x853 ./Application/User/generated/Table_verdana_10_4bpp.o
+ .debug_line    0x0002bc51      0x853 ./Application/User/generated/Table_verdana_20_4bpp.o
+ .debug_line    0x0002c4a4      0x853 ./Application/User/generated/Table_verdana_40_4bpp.o
+ .debug_line    0x0002ccf7     0x12c2 ./Application/User/generated/Texts.o
+ .debug_line    0x0002dfb9      0x946 ./Application/User/generated/TypedTextDatabase.o
+ .debug_line    0x0002e8ff      0x92f ./Application/User/generated/VectorFontRendererBuffers.o
+ .debug_line    0x0002f22e       0xc5 ./Application/User/generated/image_fuel_Red.o
+ .debug_line    0x0002f2f3       0xc2 ./Application/User/generated/image_image.o
+ .debug_line    0x0002f3b5     0x134b ./Application/User/gui/FrontendApplication.o
+ .debug_line    0x00030700     0x1120 ./Application/User/gui/Model.o
+ .debug_line    0x00031820     0x13a9 ./Application/User/gui/Screen1Presenter.o
+ .debug_line    0x00032bc9     0x13cf ./Application/User/gui/Screen1View.o
+ .debug_line    0x00033f98      0xa41 ./Drivers/BSP/Components/ft5336.o
+ .debug_line    0x000349d9     0x1141 ./Drivers/BSP/Components/ft5336_reg.o
+ .debug_line    0x00035b1a     0x2c3e ./Drivers/BSP/Components/mx25lm51245g.o
+ .debug_line    0x00038758     0x113b ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o
+ .debug_line    0x00039893     0x1eb4 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.o
+ .debug_line    0x0003b747     0x140e ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
+ .debug_line    0x0003cb55      0xe02 ./Drivers/CMSIS/system_stm32h7xx.o
+ .debug_line    0x0003d957     0x138b ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o
+ .debug_line    0x0003ece2     0x33b3 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc.o
+ .debug_line    0x00042095     0x2f8c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc_ex.o
+ .debug_line    0x00045021     0x122a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o
+ .debug_line    0x0004624b      0xf7f ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.o
+ .debug_line    0x000471ca      0xcb9 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.o
+ .debug_line    0x00047e83     0x1e06 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma2d.o
+ .debug_line    0x00049c89     0x1155 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o
+ .debug_line    0x0004adde     0x5f4c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o
+ .debug_line    0x00050d2a      0xf09 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o
+ .debug_line    0x00051c33     0x2636 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc.o
+ .debug_line    0x00054269     0x1ca0 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o
+ .debug_line    0x00055f09     0x23ba ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ospi.o
+ .debug_line    0x000582c3     0x13df ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o
+ .debug_line    0x000596a2     0x1b5c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o
+ .debug_line    0x0005b1fe     0x22be ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o
+ .debug_line    0x0005d4bc     0x19d0 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc.o
+ .debug_line    0x0005ee8c     0x525d ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o
+ .debug_line    0x000640e9     0x2476 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o
+ .debug_line    0x0006655f     0x67ca ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o
+ .debug_line    0x0006cd29     0x1651 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o
+ .debug_line    0x0006e37a      0xc88 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_wwdg.o
+ .debug_line    0x0006f002     0x3229 ./Middlewares/FreeRTOS/cmsis_os2.o
+ .debug_line    0x0007222b      0xd33 ./Middlewares/FreeRTOS/heap_4.o
+ .debug_line    0x00072f5e      0x9ee ./Middlewares/FreeRTOS/list.o
+ .debug_line    0x0007394c      0xdb4 ./Middlewares/FreeRTOS/port.o
+ .debug_line    0x00074700     0x24e6 ./Middlewares/FreeRTOS/queue.o
+ .debug_line    0x00076be6     0x32d1 ./Middlewares/FreeRTOS/tasks.o
+ .debug_line    0x00079eb7     0x1455 ./Middlewares/FreeRTOS/timers.o
+ .debug_line    0x0007b30c      0x9a7 ./Middlewares/LibJPEG/jaricom.o
+ .debug_line    0x0007bcb3      0xaab ./Middlewares/LibJPEG/jcomapi.o
+ .debug_line    0x0007c75e      0xde4 ./Middlewares/LibJPEG/jdapimin.o
+ .debug_line    0x0007d542      0xd4b ./Middlewares/LibJPEG/jdapistd.o
+ .debug_line    0x0007e28d     0x17cb ./Middlewares/LibJPEG/jdarith.o
+ .debug_line    0x0007fa58      0xc01 ./Middlewares/LibJPEG/jdatasrc.o
+ .debug_line    0x00080659     0x185c ./Middlewares/LibJPEG/jdcoefct.o
+ .debug_line    0x00081eb5     0x128d ./Middlewares/LibJPEG/jdcolor.o
+ .debug_line    0x00083142      0xcd1 ./Middlewares/LibJPEG/jddctmgr.o
+ .debug_line    0x00083e13     0x26b9 ./Middlewares/LibJPEG/jdhuff.o
+ .debug_line    0x000864cc     0x11ea ./Middlewares/LibJPEG/jdinput.o
+ .debug_line    0x000876b6      0xf79 ./Middlewares/LibJPEG/jdmainct.o
+ .debug_line    0x0008862f     0x2181 ./Middlewares/LibJPEG/jdmarker.o
+ .debug_line    0x0008a7b0     0x102b ./Middlewares/LibJPEG/jdmaster.o
+ .debug_line    0x0008b7db     0x1161 ./Middlewares/LibJPEG/jdmerge.o
+ .debug_line    0x0008c93c      0xc5d ./Middlewares/LibJPEG/jdpostct.o
+ .debug_line    0x0008d599      0xe2d ./Middlewares/LibJPEG/jdsample.o
+ .debug_line    0x0008e3c6      0xbd2 ./Middlewares/LibJPEG/jerror.o
+ .debug_line    0x0008ef98      0xf7c ./Middlewares/LibJPEG/jidctflt.o
+ .debug_line    0x0008ff14      0xdcf ./Middlewares/LibJPEG/jidctfst.o
+ .debug_line    0x00090ce3     0xdf53 ./Middlewares/LibJPEG/jidctint.o
+ .debug_line    0x0009ec36     0x178a ./Middlewares/LibJPEG/jmemmgr.o
+ .debug_line    0x000a03c0      0xa61 ./Middlewares/LibJPEG/jmemnobs.o
+ .debug_line    0x000a0e21     0x17b4 ./Middlewares/LibJPEG/jquant1.o
+ .debug_line    0x000a25d5     0x1d88 ./Middlewares/LibJPEG/jquant2.o
+ .debug_line    0x000a435d      0xa96 ./Middlewares/LibJPEG/jutils.o
 
-.debug_str      0x00000000   0x1b47e5
+.debug_str      0x00000000   0x1b47e3
  .debug_str     0x00000000   0x170455 ./Application/User/Core/freertos.o
                              0x170b0c (size before relaxing)
  .debug_str     0x00170455     0x98b8 ./Application/User/Core/main.o
@@ -29934,221 +29934,221 @@ LOAD E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32c
                                0x8181 (size before relaxing)
  .debug_str     0x0017d1eb       0xde ./Application/User/Core/src/App/Tachometer_App/Tachometer_App.o
                                0x7d84 (size before relaxing)
- .debug_str     0x0017d2c9      0x559 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
-                             0x171dad (size before relaxing)
- .debug_str     0x0017d822      0x48c ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
+ .debug_str     0x0017d2c9      0x538 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
+                             0x171d79 (size before relaxing)
+ .debug_str     0x0017d801      0x48c ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
                              0x16d15e (size before relaxing)
- .debug_str     0x0017dcae      0x12a ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
+ .debug_str     0x0017dc8d      0x12a ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
                              0x16dac8 (size before relaxing)
- .debug_str     0x0017ddd8      0x72c ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
-                             0x1721b6 (size before relaxing)
- .debug_str     0x0017e504       0x8e ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.o
+ .debug_str     0x0017ddb7      0x74b ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                             0x1723e3 (size before relaxing)
+ .debug_str     0x0017e502       0x8e ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.o
                              0x171870 (size before relaxing)
- .debug_str     0x0017e592      0x398 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
+ .debug_str     0x0017e590      0x398 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
                              0x16d3fe (size before relaxing)
- .debug_str     0x0017e92a       0x59 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.o
+ .debug_str     0x0017e928       0x59 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.o
                                0x7b26 (size before relaxing)
- .debug_str     0x0017e983       0xd6 ./Application/User/Core/src/Service/System_Service/checksum/checksum.o
+ .debug_str     0x0017e981       0xd6 ./Application/User/Core/src/Service/System_Service/checksum/checksum.o
                              0x16cd81 (size before relaxing)
- .debug_str     0x0017ea59      0x1a7 ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
+ .debug_str     0x0017ea57      0x1a7 ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
                                0x76f8 (size before relaxing)
- .debug_str     0x0017ec00       0x3f ./Application/User/LIBJPEG/App/libjpeg.o
+ .debug_str     0x0017ebfe       0x3f ./Application/User/LIBJPEG/App/libjpeg.o
                                0xc992 (size before relaxing)
- .debug_str     0x0017ec3f       0x50 ./Application/User/Startup/startup_stm32h735igkx.o
+ .debug_str     0x0017ec3d       0x50 ./Application/User/Startup/startup_stm32h735igkx.o
                                  0x8c (size before relaxing)
- .debug_str     0x0017ec8f       0x85 ./Application/User/TouchGFX/App/app_touchgfx.o
+ .debug_str     0x0017ec8d       0x85 ./Application/User/TouchGFX/App/app_touchgfx.o
                                0x2f2b (size before relaxing)
- .debug_str     0x0017ed14     0x2c1a ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_str     0x0017ed12     0x2c1a ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
                                0x9766 (size before relaxing)
- .debug_str     0x0018192e     0x2c1f ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_str     0x0018192c     0x2c1f ./Application/User/TouchGFX/target/STM32TouchController.o
                              0x177fa7 (size before relaxing)
- .debug_str     0x0018454d      0x314 ./Application/User/TouchGFX/target/TouchGFXGPIO.o
+ .debug_str     0x0018454b      0x314 ./Application/User/TouchGFX/target/TouchGFXGPIO.o
                              0x16fdca (size before relaxing)
- .debug_str     0x00184861     0x8938 ./Application/User/TouchGFX/target/TouchGFXHAL.o
+ .debug_str     0x0018485f     0x8938 ./Application/User/TouchGFX/target/TouchGFXHAL.o
                              0x17e538 (size before relaxing)
- .debug_str     0x0018d199      0x151 ./Application/User/TouchGFX/target/generated/OSWrappers.o
+ .debug_str     0x0018d197      0x151 ./Application/User/TouchGFX/target/generated/OSWrappers.o
                                0x9a14 (size before relaxing)
- .debug_str     0x0018d2ea      0x853 ./Application/User/TouchGFX/target/generated/STM32DMA.o
+ .debug_str     0x0018d2e8      0x853 ./Application/User/TouchGFX/target/generated/STM32DMA.o
                              0x17a915 (size before relaxing)
- .debug_str     0x0018db3d     0x1a3e ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
+ .debug_str     0x0018db3b     0x1a3e ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
                               0x113f5 (size before relaxing)
- .debug_str     0x0018f57b     0x63d8 ./Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o
+ .debug_str     0x0018f579     0x63d8 ./Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o
                              0x180947 (size before relaxing)
- .debug_str     0x00195953     0x69a8 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
+ .debug_str     0x00195951     0x69a8 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
                              0x189bdc (size before relaxing)
- .debug_str     0x0019c2fb       0xcc ./Application/User/generated/ApplicationFontProvider.o
+ .debug_str     0x0019c2f9       0xcc ./Application/User/generated/ApplicationFontProvider.o
                                0x613d (size before relaxing)
- .debug_str     0x0019c3c7       0x6a ./Application/User/generated/BitmapDatabase.o
+ .debug_str     0x0019c3c5       0x6a ./Application/User/generated/BitmapDatabase.o
                                0x5f15 (size before relaxing)
- .debug_str     0x0019c431     0x1064 ./Application/User/generated/CachedFont.o
+ .debug_str     0x0019c42f     0x1064 ./Application/User/generated/CachedFont.o
                                0x72e2 (size before relaxing)
- .debug_str     0x0019d495       0x7c ./Application/User/generated/Font_verdana_10_4bpp_0.o
+ .debug_str     0x0019d493       0x7c ./Application/User/generated/Font_verdana_10_4bpp_0.o
                                0x4d8e (size before relaxing)
- .debug_str     0x0019d511       0x7c ./Application/User/generated/Font_verdana_20_4bpp_0.o
+ .debug_str     0x0019d50f       0x7c ./Application/User/generated/Font_verdana_20_4bpp_0.o
                                0x4d8e (size before relaxing)
- .debug_str     0x0019d58d       0x7c ./Application/User/generated/Font_verdana_40_4bpp_0.o
+ .debug_str     0x0019d58b       0x7c ./Application/User/generated/Font_verdana_40_4bpp_0.o
                                0x4d8e (size before relaxing)
- .debug_str     0x0019d609      0xdbd ./Application/User/generated/FrontendApplicationBase.o
+ .debug_str     0x0019d607      0xdbd ./Application/User/generated/FrontendApplicationBase.o
                               0x16f1b (size before relaxing)
- .debug_str     0x0019e3c6      0x7b1 ./Application/User/generated/GeneratedFont.o
+ .debug_str     0x0019e3c4      0x7b1 ./Application/User/generated/GeneratedFont.o
                                0xcc16 (size before relaxing)
- .debug_str     0x0019eb77       0x7a ./Application/User/generated/Kerning_verdana_10_4bpp.o
+ .debug_str     0x0019eb75       0x7a ./Application/User/generated/Kerning_verdana_10_4bpp.o
                                0x548f (size before relaxing)
- .debug_str     0x0019ebf1       0x7a ./Application/User/generated/Kerning_verdana_20_4bpp.o
+ .debug_str     0x0019ebef       0x7a ./Application/User/generated/Kerning_verdana_20_4bpp.o
                                0x548f (size before relaxing)
- .debug_str     0x0019ec6b       0x7a ./Application/User/generated/Kerning_verdana_40_4bpp.o
+ .debug_str     0x0019ec69       0x7a ./Application/User/generated/Kerning_verdana_40_4bpp.o
                                0x548f (size before relaxing)
- .debug_str     0x0019ece5       0x5f ./Application/User/generated/LanguageGb.o
+ .debug_str     0x0019ece3       0x5f ./Application/User/generated/LanguageGb.o
                                0x4eca (size before relaxing)
- .debug_str     0x0019ed44      0x234 ./Application/User/generated/Screen1ViewBase.o
+ .debug_str     0x0019ed42      0x234 ./Application/User/generated/Screen1ViewBase.o
                                0xeb85 (size before relaxing)
- .debug_str     0x0019ef78      0x13a ./Application/User/generated/Table_verdana_10_4bpp.o
+ .debug_str     0x0019ef76      0x13a ./Application/User/generated/Table_verdana_10_4bpp.o
                                0x6445 (size before relaxing)
- .debug_str     0x0019f0b2       0xc5 ./Application/User/generated/Table_verdana_20_4bpp.o
+ .debug_str     0x0019f0b0       0xc5 ./Application/User/generated/Table_verdana_20_4bpp.o
                                0x6445 (size before relaxing)
- .debug_str     0x0019f177       0xc5 ./Application/User/generated/Table_verdana_40_4bpp.o
+ .debug_str     0x0019f175       0xc5 ./Application/User/generated/Table_verdana_40_4bpp.o
                                0x6445 (size before relaxing)
- .debug_str     0x0019f23c      0x22f ./Application/User/generated/Texts.o
+ .debug_str     0x0019f23a      0x22f ./Application/User/generated/Texts.o
                                0xdefe (size before relaxing)
- .debug_str     0x0019f46b      0x11b ./Application/User/generated/TypedTextDatabase.o
+ .debug_str     0x0019f469      0x11b ./Application/User/generated/TypedTextDatabase.o
                                0x6775 (size before relaxing)
- .debug_str     0x0019f586       0x9c ./Application/User/generated/VectorFontRendererBuffers.o
+ .debug_str     0x0019f584       0x9c ./Application/User/generated/VectorFontRendererBuffers.o
                                0x6d00 (size before relaxing)
- .debug_str     0x0019f622       0x5a ./Application/User/generated/image_fuel_Red.o
+ .debug_str     0x0019f620       0x5a ./Application/User/generated/image_fuel_Red.o
                                0x382f (size before relaxing)
- .debug_str     0x0019f67c       0x57 ./Application/User/generated/image_image.o
+ .debug_str     0x0019f67a       0x57 ./Application/User/generated/image_image.o
                                0x3829 (size before relaxing)
- .debug_str     0x0019f6d3       0x8b ./Application/User/gui/FrontendApplication.o
+ .debug_str     0x0019f6d1       0x8b ./Application/User/gui/FrontendApplication.o
                                0xdf4f (size before relaxing)
- .debug_str     0x0019f75e       0x58 ./Application/User/gui/Model.o
+ .debug_str     0x0019f75c       0x58 ./Application/User/gui/Model.o
                              0x16fbf6 (size before relaxing)
- .debug_str     0x0019f7b6       0xb7 ./Application/User/gui/Screen1Presenter.o
+ .debug_str     0x0019f7b4       0xb7 ./Application/User/gui/Screen1Presenter.o
                                0xe538 (size before relaxing)
- .debug_str     0x0019f86d       0x6e ./Application/User/gui/Screen1View.o
+ .debug_str     0x0019f86b       0x6e ./Application/User/gui/Screen1View.o
                                0xe4b3 (size before relaxing)
- .debug_str     0x0019f8db      0x412 ./Drivers/BSP/Components/ft5336.o
+ .debug_str     0x0019f8d9      0x412 ./Drivers/BSP/Components/ft5336.o
                                0x6088 (size before relaxing)
- .debug_str     0x0019fced      0x3fc ./Drivers/BSP/Components/ft5336_reg.o
+ .debug_str     0x0019fceb      0x3fc ./Drivers/BSP/Components/ft5336_reg.o
                                0x5a96 (size before relaxing)
- .debug_str     0x001a00e9      0x58d ./Drivers/BSP/Components/mx25lm51245g.o
+ .debug_str     0x001a00e7      0x58d ./Drivers/BSP/Components/mx25lm51245g.o
                              0x16edc1 (size before relaxing)
- .debug_str     0x001a0676      0x9fc ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o
+ .debug_str     0x001a0674      0x9fc ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o
                              0x16e081 (size before relaxing)
- .debug_str     0x001a1072      0x63b ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.o
+ .debug_str     0x001a1070      0x63b ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.o
                              0x1720f1 (size before relaxing)
- .debug_str     0x001a16ad      0x2c7 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
+ .debug_str     0x001a16ab      0x2c7 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
                              0x16fe83 (size before relaxing)
- .debug_str     0x001a1974      0x1dc ./Drivers/CMSIS/system_stm32h7xx.o
+ .debug_str     0x001a1972      0x1dc ./Drivers/CMSIS/system_stm32h7xx.o
                              0x16cf01 (size before relaxing)
- .debug_str     0x001a1b50      0x8e3 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o
+ .debug_str     0x001a1b4e      0x8e3 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o
                              0x16df97 (size before relaxing)
- .debug_str     0x001a2433      0xcbe ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc.o
+ .debug_str     0x001a2431      0xcbe ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc.o
                              0x16df75 (size before relaxing)
- .debug_str     0x001a30f1      0x7fe ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc_ex.o
+ .debug_str     0x001a30ef      0x7fe ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc_ex.o
                              0x16de95 (size before relaxing)
- .debug_str     0x001a38ef      0x292 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o
+ .debug_str     0x001a38ed      0x292 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o
                              0x16d8b1 (size before relaxing)
- .debug_str     0x001a3b81       0xdf ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.o
+ .debug_str     0x001a3b7f       0xdf ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.o
                              0x16ccd9 (size before relaxing)
- .debug_str     0x001a3c60       0x8f ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.o
+ .debug_str     0x001a3c5e       0x8f ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.o
                              0x16cc7f (size before relaxing)
- .debug_str     0x001a3cef      0x3a2 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma2d.o
+ .debug_str     0x001a3ced      0x3a2 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma2d.o
                              0x16d30e (size before relaxing)
- .debug_str     0x001a4091       0xe4 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o
+ .debug_str     0x001a408f       0xe4 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o
                              0x16cf2f (size before relaxing)
- .debug_str     0x001a4175      0xdf7 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o
+ .debug_str     0x001a4173      0xdf7 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o
                              0x16dfc5 (size before relaxing)
- .debug_str     0x001a4f6c       0xde ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o
+ .debug_str     0x001a4f6a       0xde ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o
                              0x16d374 (size before relaxing)
- .debug_str     0x001a504a      0x419 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc.o
+ .debug_str     0x001a5048      0x419 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc.o
                              0x16d243 (size before relaxing)
- .debug_str     0x001a5463      0x4c6 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o
+ .debug_str     0x001a5461      0x4c6 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o
                              0x16d2aa (size before relaxing)
- .debug_str     0x001a5929      0x5dc ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ospi.o
+ .debug_str     0x001a5927      0x5dc ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ospi.o
                              0x16d984 (size before relaxing)
- .debug_str     0x001a5f05      0x5e5 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o
+ .debug_str     0x001a5f03      0x5e5 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o
                              0x16d337 (size before relaxing)
- .debug_str     0x001a64ea      0x1f5 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o
+ .debug_str     0x001a64e8      0x1f5 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o
                              0x16d2b2 (size before relaxing)
- .debug_str     0x001a66df      0x61c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o
+ .debug_str     0x001a66dd      0x61c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o
                              0x16d7ca (size before relaxing)
- .debug_str     0x001a6cfb      0x23f ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc.o
+ .debug_str     0x001a6cf9      0x23f ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc.o
                              0x16d0c8 (size before relaxing)
- .debug_str     0x001a6f3a      0xd3a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o
+ .debug_str     0x001a6f38      0xd3a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o
                              0x16e0b0 (size before relaxing)
- .debug_str     0x001a7c74      0x616 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o
+ .debug_str     0x001a7c72      0x616 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o
                              0x16da5d (size before relaxing)
- .debug_str     0x001a828a      0x9f6 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o
+ .debug_str     0x001a8288      0x9f6 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o
                              0x16de63 (size before relaxing)
- .debug_str     0x001a8c80      0x276 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o
+ .debug_str     0x001a8c7e      0x276 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o
                              0x16d412 (size before relaxing)
- .debug_str     0x001a8ef6       0x9e ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_wwdg.o
+ .debug_str     0x001a8ef4       0x9e ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_wwdg.o
                              0x16cb21 (size before relaxing)
- .debug_str     0x001a8f94     0x2de8 ./Middlewares/FreeRTOS/cmsis_os2.o
+ .debug_str     0x001a8f92     0x2de8 ./Middlewares/FreeRTOS/cmsis_os2.o
                              0x174ed7 (size before relaxing)
- .debug_str     0x001abd7c      0x3a7 ./Middlewares/FreeRTOS/heap_4.o
+ .debug_str     0x001abd7a      0x3a7 ./Middlewares/FreeRTOS/heap_4.o
                                0xb53f (size before relaxing)
- .debug_str     0x001ac123      0x148 ./Middlewares/FreeRTOS/list.o
+ .debug_str     0x001ac121      0x148 ./Middlewares/FreeRTOS/list.o
                                0xabfd (size before relaxing)
- .debug_str     0x001ac26b      0x844 ./Middlewares/FreeRTOS/port.o
+ .debug_str     0x001ac269      0x844 ./Middlewares/FreeRTOS/port.o
                                0xa3b5 (size before relaxing)
- .debug_str     0x001acaaf      0x835 ./Middlewares/FreeRTOS/queue.o
+ .debug_str     0x001acaad      0x835 ./Middlewares/FreeRTOS/queue.o
                                0xc74e (size before relaxing)
- .debug_str     0x001ad2e4     0x10a2 ./Middlewares/FreeRTOS/tasks.o
+ .debug_str     0x001ad2e2     0x10a2 ./Middlewares/FreeRTOS/tasks.o
                                0xd624 (size before relaxing)
- .debug_str     0x001ae386      0x5cc ./Middlewares/FreeRTOS/timers.o
+ .debug_str     0x001ae384      0x5cc ./Middlewares/FreeRTOS/timers.o
                                0xcf98 (size before relaxing)
- .debug_str     0x001ae952     0x1326 ./Middlewares/LibJPEG/jaricom.o
+ .debug_str     0x001ae950     0x1326 ./Middlewares/LibJPEG/jaricom.o
                                0xdedc (size before relaxing)
- .debug_str     0x001afc78      0x2c2 ./Middlewares/LibJPEG/jcomapi.o
+ .debug_str     0x001afc76      0x2c2 ./Middlewares/LibJPEG/jcomapi.o
                                0xecec (size before relaxing)
- .debug_str     0x001aff3a      0x9f5 ./Middlewares/LibJPEG/jdapimin.o
+ .debug_str     0x001aff38      0x9f5 ./Middlewares/LibJPEG/jdapimin.o
                                0xf6cb (size before relaxing)
- .debug_str     0x001b092f       0xe8 ./Middlewares/LibJPEG/jdapistd.o
+ .debug_str     0x001b092d       0xe8 ./Middlewares/LibJPEG/jdapistd.o
                                0xf640 (size before relaxing)
- .debug_str     0x001b0a17      0x1b3 ./Middlewares/LibJPEG/jdarith.o
+ .debug_str     0x001b0a15      0x1b3 ./Middlewares/LibJPEG/jdarith.o
                                0xf6f5 (size before relaxing)
- .debug_str     0x001b0bca      0x119 ./Middlewares/LibJPEG/jdatasrc.o
+ .debug_str     0x001b0bc8      0x119 ./Middlewares/LibJPEG/jdatasrc.o
                                0xf2c4 (size before relaxing)
- .debug_str     0x001b0ce3      0x2b6 ./Middlewares/LibJPEG/jdcoefct.o
+ .debug_str     0x001b0ce1      0x2b6 ./Middlewares/LibJPEG/jdcoefct.o
                                0xef50 (size before relaxing)
- .debug_str     0x001b0f99      0x2a2 ./Middlewares/LibJPEG/jdcolor.o
+ .debug_str     0x001b0f97      0x2a2 ./Middlewares/LibJPEG/jdcolor.o
                                0xf7d9 (size before relaxing)
- .debug_str     0x001b123b      0x46d ./Middlewares/LibJPEG/jddctmgr.o
+ .debug_str     0x001b1239      0x46d ./Middlewares/LibJPEG/jddctmgr.o
                                0xf9bf (size before relaxing)
- .debug_str     0x001b16a8      0xa1f ./Middlewares/LibJPEG/jdhuff.o
+ .debug_str     0x001b16a6      0xa1f ./Middlewares/LibJPEG/jdhuff.o
                               0x10054 (size before relaxing)
- .debug_str     0x001b20c7      0x179 ./Middlewares/LibJPEG/jdinput.o
+ .debug_str     0x001b20c5      0x179 ./Middlewares/LibJPEG/jdinput.o
                                0xf6d0 (size before relaxing)
- .debug_str     0x001b2240      0x22f ./Middlewares/LibJPEG/jdmainct.o
+ .debug_str     0x001b223e      0x22f ./Middlewares/LibJPEG/jdmainct.o
                                0xf762 (size before relaxing)
- .debug_str     0x001b246f      0x755 ./Middlewares/LibJPEG/jdmarker.o
+ .debug_str     0x001b246d      0x755 ./Middlewares/LibJPEG/jdmarker.o
                                0xfdbf (size before relaxing)
- .debug_str     0x001b2bc4      0x1bf ./Middlewares/LibJPEG/jdmaster.o
+ .debug_str     0x001b2bc2      0x1bf ./Middlewares/LibJPEG/jdmaster.o
                                0xf7d6 (size before relaxing)
- .debug_str     0x001b2d83      0x17a ./Middlewares/LibJPEG/jdmerge.o
+ .debug_str     0x001b2d81      0x17a ./Middlewares/LibJPEG/jdmerge.o
                                0xef08 (size before relaxing)
- .debug_str     0x001b2efd       0xf6 ./Middlewares/LibJPEG/jdpostct.o
+ .debug_str     0x001b2efb       0xf6 ./Middlewares/LibJPEG/jdpostct.o
                                0xf6b5 (size before relaxing)
- .debug_str     0x001b2ff3      0x186 ./Middlewares/LibJPEG/jdsample.o
+ .debug_str     0x001b2ff1      0x186 ./Middlewares/LibJPEG/jdsample.o
                                0xf778 (size before relaxing)
- .debug_str     0x001b3179      0x116 ./Middlewares/LibJPEG/jerror.o
+ .debug_str     0x001b3177      0x116 ./Middlewares/LibJPEG/jerror.o
                                0xe707 (size before relaxing)
- .debug_str     0x001b328f       0xe6 ./Middlewares/LibJPEG/jidctflt.o
+ .debug_str     0x001b328d       0xe6 ./Middlewares/LibJPEG/jidctflt.o
                                0xef07 (size before relaxing)
- .debug_str     0x001b3375      0x201 ./Middlewares/LibJPEG/jidctfst.o
+ .debug_str     0x001b3373      0x201 ./Middlewares/LibJPEG/jidctfst.o
                                0xf074 (size before relaxing)
- .debug_str     0x001b3576      0x296 ./Middlewares/LibJPEG/jidctint.o
+ .debug_str     0x001b3574      0x296 ./Middlewares/LibJPEG/jidctint.o
                                0xf2d4 (size before relaxing)
- .debug_str     0x001b380c      0x440 ./Middlewares/LibJPEG/jmemmgr.o
+ .debug_str     0x001b380a      0x440 ./Middlewares/LibJPEG/jmemmgr.o
                                0xeefb (size before relaxing)
- .debug_str     0x001b3c4c       0xa2 ./Middlewares/LibJPEG/jmemnobs.o
+ .debug_str     0x001b3c4a       0xa2 ./Middlewares/LibJPEG/jmemnobs.o
                                0xebc9 (size before relaxing)
- .debug_str     0x001b3cee      0x383 ./Middlewares/LibJPEG/jquant1.o
+ .debug_str     0x001b3cec      0x383 ./Middlewares/LibJPEG/jquant1.o
                                0xf935 (size before relaxing)
- .debug_str     0x001b4071      0x6a9 ./Middlewares/LibJPEG/jquant2.o
+ .debug_str     0x001b406f      0x6a9 ./Middlewares/LibJPEG/jquant2.o
                                0xfd32 (size before relaxing)
- .debug_str     0x001b471a       0xcb ./Middlewares/LibJPEG/jutils.o
+ .debug_str     0x001b4718       0xcb ./Middlewares/LibJPEG/jutils.o
                                0xe044 (size before relaxing)
 
 .comment        0x00000000       0xc2
@@ -30303,7 +30303,7 @@ LOAD E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32c
  .comment       0x000000c2       0x80 ../../Middlewares/ST/touchgfx/lib/core/cortex_m7/gcc\libtouchgfx-float-abi-hard.a(Gestures.o)
  .comment       0x000000c2       0x80 ../../Middlewares/ST/touchgfx/lib/core/cortex_m7/gcc\libtouchgfx-float-abi-hard.a(Canvas.o)
 
-.debug_frame    0x00000000     0xcb5c
+.debug_frame    0x00000000     0xcb60
  .debug_frame   0x00000000       0x20 ./Application/User/Core/freertos.o
  .debug_frame   0x00000020      0x174 ./Application/User/Core/main.o
  .debug_frame   0x00000194      0x23c ./Application/User/Core/stm32h7xx_hal_msp.o
@@ -30314,167 +30314,167 @@ LOAD E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32c
  .debug_frame   0x00000698      0x118 ./Application/User/Core/src/App/Odometer_App/Odometer_App.o
  .debug_frame   0x000007b0      0x100 ./Application/User/Core/src/App/Speedometer_App/speedometer_App.o
  .debug_frame   0x000008b0       0x74 ./Application/User/Core/src/App/Tachometer_App/Tachometer_App.o
- .debug_frame   0x00000924       0x70 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
- .debug_frame   0x00000994       0x3c ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
- .debug_frame   0x000009d0       0x88 ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
- .debug_frame   0x00000a58      0x21c ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
- .debug_frame   0x00000c74       0x40 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.o
- .debug_frame   0x00000cb4       0xc0 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
- .debug_frame   0x00000d74       0x68 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.o
- .debug_frame   0x00000ddc       0x2c ./Application/User/Core/src/Service/System_Service/checksum/checksum.o
- .debug_frame   0x00000e08       0x64 ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
- .debug_frame   0x00000e6c       0x20 ./Application/User/LIBJPEG/App/libjpeg.o
- .debug_frame   0x00000e8c       0x5c ./Application/User/TouchGFX/App/app_touchgfx.o
- .debug_frame   0x00000ee8       0xa0 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_frame   0x00000f88       0x70 ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_frame   0x00000ff8       0x74 ./Application/User/TouchGFX/target/TouchGFXGPIO.o
- .debug_frame   0x0000106c      0x200 ./Application/User/TouchGFX/target/TouchGFXHAL.o
- .debug_frame   0x0000126c       0xc4 ./Application/User/TouchGFX/target/generated/OSWrappers.o
- .debug_frame   0x00001330      0x1d8 ./Application/User/TouchGFX/target/generated/STM32DMA.o
- .debug_frame   0x00001508      0x274 ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
- .debug_frame   0x0000177c      0x230 ./Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o
- .debug_frame   0x000019ac      0x680 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
- .debug_frame   0x0000202c       0x50 ./Application/User/generated/ApplicationFontProvider.o
- .debug_frame   0x0000207c       0x30 ./Application/User/generated/BitmapDatabase.o
- .debug_frame   0x000020ac      0x158 ./Application/User/generated/CachedFont.o
- .debug_frame   0x00002204      0x204 ./Application/User/generated/FrontendApplicationBase.o
- .debug_frame   0x00002408      0x2bc ./Application/User/generated/GeneratedFont.o
- .debug_frame   0x000026c4      0x210 ./Application/User/generated/Screen1ViewBase.o
- .debug_frame   0x000028d4       0x40 ./Application/User/generated/Table_verdana_10_4bpp.o
- .debug_frame   0x00002914       0x40 ./Application/User/generated/Table_verdana_20_4bpp.o
- .debug_frame   0x00002954       0x40 ./Application/User/generated/Table_verdana_40_4bpp.o
- .debug_frame   0x00002994      0x1bc ./Application/User/generated/Texts.o
- .debug_frame   0x00002b50       0x80 ./Application/User/generated/TypedTextDatabase.o
- .debug_frame   0x00002bd0       0x28 ./Application/User/generated/VectorFontRendererBuffers.o
- .debug_frame   0x00002bf8       0xb4 ./Application/User/gui/FrontendApplication.o
- .debug_frame   0x00002cac       0x3c ./Application/User/gui/Model.o
- .debug_frame   0x00002ce8       0x98 ./Application/User/gui/Screen1Presenter.o
- .debug_frame   0x00002d80       0xb8 ./Application/User/gui/Screen1View.o
- .debug_frame   0x00002e38      0x150 ./Drivers/BSP/Components/ft5336.o
- .debug_frame   0x00002f88      0x5b4 ./Drivers/BSP/Components/ft5336_reg.o
- .debug_frame   0x0000353c      0x404 ./Drivers/BSP/Components/mx25lm51245g.o
- .debug_frame   0x00003940      0x108 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o
- .debug_frame   0x00003a48      0x360 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.o
- .debug_frame   0x00003da8      0x18c ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
- .debug_frame   0x00003f34       0x3c ./Drivers/CMSIS/system_stm32h7xx.o
- .debug_frame   0x00003f70      0x3d0 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o
- .debug_frame   0x00004340      0x34c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc.o
- .debug_frame   0x0000468c      0x3bc ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc_ex.o
- .debug_frame   0x00004a48      0x180 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o
- .debug_frame   0x00004bc8       0xf0 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.o
- .debug_frame   0x00004cb8       0x48 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.o
- .debug_frame   0x00004d00      0x328 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma2d.o
- .debug_frame   0x00005028       0xd4 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o
- .debug_frame   0x000050fc      0x914 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o
- .debug_frame   0x00005a10       0x90 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o
- .debug_frame   0x00005aa0      0x3a0 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc.o
- .debug_frame   0x00005e40      0x210 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o
- .debug_frame   0x00006050      0x440 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ospi.o
- .debug_frame   0x00006490      0x2e0 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o
- .debug_frame   0x00006770      0x16c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o
- .debug_frame   0x000068dc      0x28c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o
- .debug_frame   0x00006b68      0x230 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc.o
- .debug_frame   0x00006d98      0xa24 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o
- .debug_frame   0x000077bc      0x458 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o
- .debug_frame   0x00007c14      0x6dc ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o
- .debug_frame   0x000082f0      0x1a8 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o
- .debug_frame   0x00008498       0x70 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_wwdg.o
- .debug_frame   0x00008508      0x788 ./Middlewares/FreeRTOS/cmsis_os2.o
- .debug_frame   0x00008c90       0xc4 ./Middlewares/FreeRTOS/heap_4.o
- .debug_frame   0x00008d54       0x6c ./Middlewares/FreeRTOS/list.o
- .debug_frame   0x00008dc0      0x100 ./Middlewares/FreeRTOS/port.o
- .debug_frame   0x00008ec0      0x3f0 ./Middlewares/FreeRTOS/queue.o
- .debug_frame   0x000092b0      0x6d8 ./Middlewares/FreeRTOS/tasks.o
- .debug_frame   0x00009988      0x258 ./Middlewares/FreeRTOS/timers.o
- .debug_frame   0x00009be0       0x70 ./Middlewares/LibJPEG/jcomapi.o
- .debug_frame   0x00009c50       0xd0 ./Middlewares/LibJPEG/jdapimin.o
- .debug_frame   0x00009d20       0xd0 ./Middlewares/LibJPEG/jdapistd.o
- .debug_frame   0x00009df0      0x190 ./Middlewares/LibJPEG/jdarith.o
- .debug_frame   0x00009f80       0xcc ./Middlewares/LibJPEG/jdatasrc.o
- .debug_frame   0x0000a04c      0x14c ./Middlewares/LibJPEG/jdcoefct.o
- .debug_frame   0x0000a198      0x164 ./Middlewares/LibJPEG/jdcolor.o
- .debug_frame   0x0000a2fc       0x5c ./Middlewares/LibJPEG/jddctmgr.o
- .debug_frame   0x0000a358      0x20c ./Middlewares/LibJPEG/jdhuff.o
- .debug_frame   0x0000a564       0xb8 ./Middlewares/LibJPEG/jdinput.o
- .debug_frame   0x0000a61c       0xec ./Middlewares/LibJPEG/jdmainct.o
- .debug_frame   0x0000a708      0x23c ./Middlewares/LibJPEG/jdmarker.o
- .debug_frame   0x0000a944       0xc4 ./Middlewares/LibJPEG/jdmaster.o
- .debug_frame   0x0000aa08       0xe4 ./Middlewares/LibJPEG/jdmerge.o
- .debug_frame   0x0000aaec       0xd0 ./Middlewares/LibJPEG/jdpostct.o
- .debug_frame   0x0000abbc      0x10c ./Middlewares/LibJPEG/jdsample.o
- .debug_frame   0x0000acc8       0xb0 ./Middlewares/LibJPEG/jerror.o
- .debug_frame   0x0000ad78       0x40 ./Middlewares/LibJPEG/jidctflt.o
- .debug_frame   0x0000adb8       0x40 ./Middlewares/LibJPEG/jidctfst.o
- .debug_frame   0x0000adf8      0x5a8 ./Middlewares/LibJPEG/jidctint.o
- .debug_frame   0x0000b3a0      0x1ec ./Middlewares/LibJPEG/jmemmgr.o
- .debug_frame   0x0000b58c       0x90 ./Middlewares/LibJPEG/jmemnobs.o
- .debug_frame   0x0000b61c      0x1c8 ./Middlewares/LibJPEG/jquant1.o
- .debug_frame   0x0000b7e4      0x1a4 ./Middlewares/LibJPEG/jquant2.o
- .debug_frame   0x0000b988       0x5c ./Middlewares/LibJPEG/jutils.o
- .debug_frame   0x0000b9e4       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libstdc++_nano.a(atexit_arm.o)
- .debug_frame   0x0000ba04       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libstdc++_nano.a(del_ops.o)
- .debug_frame   0x0000ba24       0x40 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libstdc++_nano.a(guard.o)
- .debug_frame   0x0000ba64       0x40 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libstdc++_nano.a(pure.o)
- .debug_frame   0x0000baa4       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libstdc++_nano.a(del_op.o)
- .debug_frame   0x0000bac4       0xb0 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libstdc++_nano.a(eh_terminate.o)
- .debug_frame   0x0000bb74       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-wf_atan2.o)
- .debug_frame   0x0000bb94       0x38 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-wf_sqrt.o)
- .debug_frame   0x0000bbcc       0x58 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-sinf.o)
- .debug_frame   0x0000bc24       0x50 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-cosf.o)
- .debug_frame   0x0000bc74       0x98 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-math_errf.o)
- .debug_frame   0x0000bd0c       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-ef_sqrt.o)
- .debug_frame   0x0000bd2c       0x30 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-ef_atan2.o)
- .debug_frame   0x0000bd5c       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-sf_atan.o)
- .debug_frame   0x0000bd88       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-sf_fabs.o)
- .debug_frame   0x0000bda8       0x28 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-abort.o)
- .debug_frame   0x0000bdd0       0x40 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-assert.o)
- .debug_frame   0x0000be10       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-atexit.o)
- .debug_frame   0x0000be30       0x30 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-malloc.o)
- .debug_frame   0x0000be60       0x50 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-mallocr.o)
- .debug_frame   0x0000beb0       0x30 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-mlock.o)
- .debug_frame   0x0000bee0       0x28 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-cxa_atexit.o)
- .debug_frame   0x0000bf08      0x144 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-findfp.o)
- .debug_frame   0x0000c04c       0x64 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-fprintf.o)
- .debug_frame   0x0000c0b0       0x34 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-fwalk.o)
- .debug_frame   0x0000c0e4       0x6c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-printf.o)
- .debug_frame   0x0000c150       0x3c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-puts.o)
- .debug_frame   0x0000c18c       0x6c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-sprintf.o)
- .debug_frame   0x0000c1f8       0x88 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-stdio.o)
- .debug_frame   0x0000c280       0x40 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-wbuf.o)
- .debug_frame   0x0000c2c0       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-wsetup.o)
- .debug_frame   0x0000c2ec       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-memset.o)
- .debug_frame   0x0000c30c       0x28 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-strncmp.o)
- .debug_frame   0x0000c334       0xcc E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-signal.o)
- .debug_frame   0x0000c400       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-closer.o)
- .debug_frame   0x0000c42c       0x38 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-reent.o)
- .debug_frame   0x0000c464       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-lseekr.o)
- .debug_frame   0x0000c490       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-readr.o)
- .debug_frame   0x0000c4bc       0x3c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-signalr.o)
- .debug_frame   0x0000c4f8       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-sbrkr.o)
- .debug_frame   0x0000c524       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-writer.o)
- .debug_frame   0x0000c550       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-errno.o)
- .debug_frame   0x0000c570       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-init.o)
- .debug_frame   0x0000c59c       0xb0 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-lock.o)
- .debug_frame   0x0000c64c       0x28 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-memcpy-stub.o)
- .debug_frame   0x0000c674       0x34 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-__atexit.o)
- .debug_frame   0x0000c6a8       0x48 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-__call_atexit.o)
- .debug_frame   0x0000c6f0       0x38 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-freer.o)
- .debug_frame   0x0000c728       0x90 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-nano-svfprintf.o)
- .debug_frame   0x0000c7b8       0xa8 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-nano-vfprintf.o)
- .debug_frame   0x0000c860       0x60 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-nano-vfprintf_i.o)
- .debug_frame   0x0000c8c0       0x5c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-fflush.o)
- .debug_frame   0x0000c91c       0x58 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-makebuf.o)
- .debug_frame   0x0000c974       0x28 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-memmove.o)
- .debug_frame   0x0000c99c       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-fstatr.o)
- .debug_frame   0x0000c9c8       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-isattyr.o)
- .debug_frame   0x0000c9f4       0x3c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-reallocr.o)
- .debug_frame   0x0000ca30       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-msizer.o)
- .debug_frame   0x0000ca50       0xac E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+dp/hard\libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x0000cafc       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+dp/hard\libgcc.a(_aeabi_uldivmod.o)
- .debug_frame   0x0000cb28       0x34 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+dp/hard\libgcc.a(_udivmoddi4.o)
+ .debug_frame   0x00000924       0x58 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
+ .debug_frame   0x0000097c       0x3c ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
+ .debug_frame   0x000009b8       0x88 ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
+ .debug_frame   0x00000a40      0x238 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+ .debug_frame   0x00000c78       0x40 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.o
+ .debug_frame   0x00000cb8       0xc0 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
+ .debug_frame   0x00000d78       0x68 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.o
+ .debug_frame   0x00000de0       0x2c ./Application/User/Core/src/Service/System_Service/checksum/checksum.o
+ .debug_frame   0x00000e0c       0x64 ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
+ .debug_frame   0x00000e70       0x20 ./Application/User/LIBJPEG/App/libjpeg.o
+ .debug_frame   0x00000e90       0x5c ./Application/User/TouchGFX/App/app_touchgfx.o
+ .debug_frame   0x00000eec       0xa0 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_frame   0x00000f8c       0x70 ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_frame   0x00000ffc       0x74 ./Application/User/TouchGFX/target/TouchGFXGPIO.o
+ .debug_frame   0x00001070      0x200 ./Application/User/TouchGFX/target/TouchGFXHAL.o
+ .debug_frame   0x00001270       0xc4 ./Application/User/TouchGFX/target/generated/OSWrappers.o
+ .debug_frame   0x00001334      0x1d8 ./Application/User/TouchGFX/target/generated/STM32DMA.o
+ .debug_frame   0x0000150c      0x274 ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
+ .debug_frame   0x00001780      0x230 ./Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o
+ .debug_frame   0x000019b0      0x680 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
+ .debug_frame   0x00002030       0x50 ./Application/User/generated/ApplicationFontProvider.o
+ .debug_frame   0x00002080       0x30 ./Application/User/generated/BitmapDatabase.o
+ .debug_frame   0x000020b0      0x158 ./Application/User/generated/CachedFont.o
+ .debug_frame   0x00002208      0x204 ./Application/User/generated/FrontendApplicationBase.o
+ .debug_frame   0x0000240c      0x2bc ./Application/User/generated/GeneratedFont.o
+ .debug_frame   0x000026c8      0x210 ./Application/User/generated/Screen1ViewBase.o
+ .debug_frame   0x000028d8       0x40 ./Application/User/generated/Table_verdana_10_4bpp.o
+ .debug_frame   0x00002918       0x40 ./Application/User/generated/Table_verdana_20_4bpp.o
+ .debug_frame   0x00002958       0x40 ./Application/User/generated/Table_verdana_40_4bpp.o
+ .debug_frame   0x00002998      0x1bc ./Application/User/generated/Texts.o
+ .debug_frame   0x00002b54       0x80 ./Application/User/generated/TypedTextDatabase.o
+ .debug_frame   0x00002bd4       0x28 ./Application/User/generated/VectorFontRendererBuffers.o
+ .debug_frame   0x00002bfc       0xb4 ./Application/User/gui/FrontendApplication.o
+ .debug_frame   0x00002cb0       0x3c ./Application/User/gui/Model.o
+ .debug_frame   0x00002cec       0x98 ./Application/User/gui/Screen1Presenter.o
+ .debug_frame   0x00002d84       0xb8 ./Application/User/gui/Screen1View.o
+ .debug_frame   0x00002e3c      0x150 ./Drivers/BSP/Components/ft5336.o
+ .debug_frame   0x00002f8c      0x5b4 ./Drivers/BSP/Components/ft5336_reg.o
+ .debug_frame   0x00003540      0x404 ./Drivers/BSP/Components/mx25lm51245g.o
+ .debug_frame   0x00003944      0x108 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o
+ .debug_frame   0x00003a4c      0x360 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.o
+ .debug_frame   0x00003dac      0x18c ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
+ .debug_frame   0x00003f38       0x3c ./Drivers/CMSIS/system_stm32h7xx.o
+ .debug_frame   0x00003f74      0x3d0 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o
+ .debug_frame   0x00004344      0x34c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc.o
+ .debug_frame   0x00004690      0x3bc ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc_ex.o
+ .debug_frame   0x00004a4c      0x180 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o
+ .debug_frame   0x00004bcc       0xf0 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.o
+ .debug_frame   0x00004cbc       0x48 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.o
+ .debug_frame   0x00004d04      0x328 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma2d.o
+ .debug_frame   0x0000502c       0xd4 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o
+ .debug_frame   0x00005100      0x914 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o
+ .debug_frame   0x00005a14       0x90 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o
+ .debug_frame   0x00005aa4      0x3a0 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc.o
+ .debug_frame   0x00005e44      0x210 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o
+ .debug_frame   0x00006054      0x440 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ospi.o
+ .debug_frame   0x00006494      0x2e0 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o
+ .debug_frame   0x00006774      0x16c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o
+ .debug_frame   0x000068e0      0x28c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o
+ .debug_frame   0x00006b6c      0x230 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc.o
+ .debug_frame   0x00006d9c      0xa24 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o
+ .debug_frame   0x000077c0      0x458 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o
+ .debug_frame   0x00007c18      0x6dc ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o
+ .debug_frame   0x000082f4      0x1a8 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o
+ .debug_frame   0x0000849c       0x70 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_wwdg.o
+ .debug_frame   0x0000850c      0x788 ./Middlewares/FreeRTOS/cmsis_os2.o
+ .debug_frame   0x00008c94       0xc4 ./Middlewares/FreeRTOS/heap_4.o
+ .debug_frame   0x00008d58       0x6c ./Middlewares/FreeRTOS/list.o
+ .debug_frame   0x00008dc4      0x100 ./Middlewares/FreeRTOS/port.o
+ .debug_frame   0x00008ec4      0x3f0 ./Middlewares/FreeRTOS/queue.o
+ .debug_frame   0x000092b4      0x6d8 ./Middlewares/FreeRTOS/tasks.o
+ .debug_frame   0x0000998c      0x258 ./Middlewares/FreeRTOS/timers.o
+ .debug_frame   0x00009be4       0x70 ./Middlewares/LibJPEG/jcomapi.o
+ .debug_frame   0x00009c54       0xd0 ./Middlewares/LibJPEG/jdapimin.o
+ .debug_frame   0x00009d24       0xd0 ./Middlewares/LibJPEG/jdapistd.o
+ .debug_frame   0x00009df4      0x190 ./Middlewares/LibJPEG/jdarith.o
+ .debug_frame   0x00009f84       0xcc ./Middlewares/LibJPEG/jdatasrc.o
+ .debug_frame   0x0000a050      0x14c ./Middlewares/LibJPEG/jdcoefct.o
+ .debug_frame   0x0000a19c      0x164 ./Middlewares/LibJPEG/jdcolor.o
+ .debug_frame   0x0000a300       0x5c ./Middlewares/LibJPEG/jddctmgr.o
+ .debug_frame   0x0000a35c      0x20c ./Middlewares/LibJPEG/jdhuff.o
+ .debug_frame   0x0000a568       0xb8 ./Middlewares/LibJPEG/jdinput.o
+ .debug_frame   0x0000a620       0xec ./Middlewares/LibJPEG/jdmainct.o
+ .debug_frame   0x0000a70c      0x23c ./Middlewares/LibJPEG/jdmarker.o
+ .debug_frame   0x0000a948       0xc4 ./Middlewares/LibJPEG/jdmaster.o
+ .debug_frame   0x0000aa0c       0xe4 ./Middlewares/LibJPEG/jdmerge.o
+ .debug_frame   0x0000aaf0       0xd0 ./Middlewares/LibJPEG/jdpostct.o
+ .debug_frame   0x0000abc0      0x10c ./Middlewares/LibJPEG/jdsample.o
+ .debug_frame   0x0000accc       0xb0 ./Middlewares/LibJPEG/jerror.o
+ .debug_frame   0x0000ad7c       0x40 ./Middlewares/LibJPEG/jidctflt.o
+ .debug_frame   0x0000adbc       0x40 ./Middlewares/LibJPEG/jidctfst.o
+ .debug_frame   0x0000adfc      0x5a8 ./Middlewares/LibJPEG/jidctint.o
+ .debug_frame   0x0000b3a4      0x1ec ./Middlewares/LibJPEG/jmemmgr.o
+ .debug_frame   0x0000b590       0x90 ./Middlewares/LibJPEG/jmemnobs.o
+ .debug_frame   0x0000b620      0x1c8 ./Middlewares/LibJPEG/jquant1.o
+ .debug_frame   0x0000b7e8      0x1a4 ./Middlewares/LibJPEG/jquant2.o
+ .debug_frame   0x0000b98c       0x5c ./Middlewares/LibJPEG/jutils.o
+ .debug_frame   0x0000b9e8       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libstdc++_nano.a(atexit_arm.o)
+ .debug_frame   0x0000ba08       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libstdc++_nano.a(del_ops.o)
+ .debug_frame   0x0000ba28       0x40 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libstdc++_nano.a(guard.o)
+ .debug_frame   0x0000ba68       0x40 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libstdc++_nano.a(pure.o)
+ .debug_frame   0x0000baa8       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libstdc++_nano.a(del_op.o)
+ .debug_frame   0x0000bac8       0xb0 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libstdc++_nano.a(eh_terminate.o)
+ .debug_frame   0x0000bb78       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-wf_atan2.o)
+ .debug_frame   0x0000bb98       0x38 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-wf_sqrt.o)
+ .debug_frame   0x0000bbd0       0x58 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-sinf.o)
+ .debug_frame   0x0000bc28       0x50 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-cosf.o)
+ .debug_frame   0x0000bc78       0x98 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-math_errf.o)
+ .debug_frame   0x0000bd10       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-ef_sqrt.o)
+ .debug_frame   0x0000bd30       0x30 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-ef_atan2.o)
+ .debug_frame   0x0000bd60       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-sf_atan.o)
+ .debug_frame   0x0000bd8c       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libm.a(libm_a-sf_fabs.o)
+ .debug_frame   0x0000bdac       0x28 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-abort.o)
+ .debug_frame   0x0000bdd4       0x40 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-assert.o)
+ .debug_frame   0x0000be14       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-atexit.o)
+ .debug_frame   0x0000be34       0x30 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-malloc.o)
+ .debug_frame   0x0000be64       0x50 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-mallocr.o)
+ .debug_frame   0x0000beb4       0x30 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-mlock.o)
+ .debug_frame   0x0000bee4       0x28 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-cxa_atexit.o)
+ .debug_frame   0x0000bf0c      0x144 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-findfp.o)
+ .debug_frame   0x0000c050       0x64 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-fprintf.o)
+ .debug_frame   0x0000c0b4       0x34 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-fwalk.o)
+ .debug_frame   0x0000c0e8       0x6c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-printf.o)
+ .debug_frame   0x0000c154       0x3c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-puts.o)
+ .debug_frame   0x0000c190       0x6c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-sprintf.o)
+ .debug_frame   0x0000c1fc       0x88 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-stdio.o)
+ .debug_frame   0x0000c284       0x40 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-wbuf.o)
+ .debug_frame   0x0000c2c4       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-wsetup.o)
+ .debug_frame   0x0000c2f0       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-memset.o)
+ .debug_frame   0x0000c310       0x28 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-strncmp.o)
+ .debug_frame   0x0000c338       0xcc E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-signal.o)
+ .debug_frame   0x0000c404       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-closer.o)
+ .debug_frame   0x0000c430       0x38 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-reent.o)
+ .debug_frame   0x0000c468       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-lseekr.o)
+ .debug_frame   0x0000c494       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-readr.o)
+ .debug_frame   0x0000c4c0       0x3c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-signalr.o)
+ .debug_frame   0x0000c4fc       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-sbrkr.o)
+ .debug_frame   0x0000c528       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-writer.o)
+ .debug_frame   0x0000c554       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-errno.o)
+ .debug_frame   0x0000c574       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-init.o)
+ .debug_frame   0x0000c5a0       0xb0 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-lock.o)
+ .debug_frame   0x0000c650       0x28 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-memcpy-stub.o)
+ .debug_frame   0x0000c678       0x34 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-__atexit.o)
+ .debug_frame   0x0000c6ac       0x48 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-__call_atexit.o)
+ .debug_frame   0x0000c6f4       0x38 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-freer.o)
+ .debug_frame   0x0000c72c       0x90 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-nano-svfprintf.o)
+ .debug_frame   0x0000c7bc       0xa8 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-nano-vfprintf.o)
+ .debug_frame   0x0000c864       0x60 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-nano-vfprintf_i.o)
+ .debug_frame   0x0000c8c4       0x5c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-fflush.o)
+ .debug_frame   0x0000c920       0x58 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-makebuf.o)
+ .debug_frame   0x0000c978       0x28 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-memmove.o)
+ .debug_frame   0x0000c9a0       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-fstatr.o)
+ .debug_frame   0x0000c9cc       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-isattyr.o)
+ .debug_frame   0x0000c9f8       0x3c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-reallocr.o)
+ .debug_frame   0x0000ca34       0x20 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard\libc_nano.a(libc_a-msizer.o)
+ .debug_frame   0x0000ca54       0xac E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+dp/hard\libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x0000cb00       0x2c E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+dp/hard\libgcc.a(_aeabi_uldivmod.o)
+ .debug_frame   0x0000cb2c       0x34 E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+dp/hard\libgcc.a(_udivmoddi4.o)
 
 .debug_loclists
-                0x00000000    0x40cb9
+                0x00000000    0x40cb7
  .debug_loclists
                 0x00000000      0x1e7 ./Application/User/Core/main.o
  .debug_loclists
@@ -30498,185 +30498,185 @@ LOAD E:/INSTALLS/STM32/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32c
  .debug_loclists
                 0x00000a0c       0x52 ./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o
  .debug_loclists
-                0x00000a5e     0x1810 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
+                0x00000a5e     0x180e ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o
  .debug_loclists
-                0x0000226e       0x94 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.o
+                0x0000226c       0x94 ./Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.o
  .debug_loclists
-                0x00002302      0x131 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
+                0x00002300      0x131 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
  .debug_loclists
-                0x00002433       0xc1 ./Application/User/Core/src/Service/System_Service/checksum/checksum.o
+                0x00002431       0xc1 ./Application/User/Core/src/Service/System_Service/checksum/checksum.o
  .debug_loclists
-                0x000024f4       0x72 ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
+                0x000024f2       0x72 ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
  .debug_loclists
-                0x00002566       0x23 ./Application/User/TouchGFX/App/app_touchgfx.o
+                0x00002564       0x23 ./Application/User/TouchGFX/App/app_touchgfx.o
  .debug_loclists
-                0x00002589      0x117 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+                0x00002587      0x117 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
  .debug_loclists
-                0x000026a0       0xbb ./Application/User/TouchGFX/target/STM32TouchController.o
+                0x0000269e       0xbb ./Application/User/TouchGFX/target/STM32TouchController.o
  .debug_loclists
-                0x0000275b      0x148 ./Application/User/TouchGFX/target/TouchGFXGPIO.o
+                0x00002759      0x148 ./Application/User/TouchGFX/target/TouchGFXGPIO.o
  .debug_loclists
-                0x000028a3      0x517 ./Application/User/TouchGFX/target/TouchGFXHAL.o
+                0x000028a1      0x517 ./Application/User/TouchGFX/target/TouchGFXHAL.o
  .debug_loclists
-                0x00002dba       0x23 ./Application/User/TouchGFX/target/generated/OSWrappers.o
+                0x00002db8       0x23 ./Application/User/TouchGFX/target/generated/OSWrappers.o
  .debug_loclists
-                0x00002ddd      0x56f ./Application/User/TouchGFX/target/generated/STM32DMA.o
+                0x00002ddb      0x56f ./Application/User/TouchGFX/target/generated/STM32DMA.o
  .debug_loclists
-                0x0000334c      0xab0 ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
+                0x0000334a      0xab0 ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
  .debug_loclists
-                0x00003dfc      0x602 ./Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o
+                0x00003dfa      0x602 ./Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o
  .debug_loclists
-                0x000043fe     0x15f5 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
+                0x000043fc     0x15f5 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
  .debug_loclists
-                0x000059f3       0xee ./Application/User/generated/ApplicationFontProvider.o
+                0x000059f1       0xee ./Application/User/generated/ApplicationFontProvider.o
  .debug_loclists
-                0x00005ae1      0x2bc ./Application/User/generated/CachedFont.o
+                0x00005adf      0x2bc ./Application/User/generated/CachedFont.o
  .debug_loclists
-                0x00005d9d      0x458 ./Application/User/generated/FrontendApplicationBase.o
+                0x00005d9b      0x458 ./Application/User/generated/FrontendApplicationBase.o
  .debug_loclists
-                0x000061f5      0x97c ./Application/User/generated/GeneratedFont.o
+                0x000061f3      0x97c ./Application/User/generated/GeneratedFont.o
  .debug_loclists
-                0x00006b71      0x561 ./Application/User/generated/Screen1ViewBase.o
+                0x00006b6f      0x561 ./Application/User/generated/Screen1ViewBase.o
  .debug_loclists
-                0x000070d2       0x3c ./Application/User/generated/Table_verdana_10_4bpp.o
+                0x000070d0       0x3c ./Application/User/generated/Table_verdana_10_4bpp.o
  .debug_loclists
-                0x0000710e       0x3c ./Application/User/generated/Table_verdana_20_4bpp.o
+                0x0000710c       0x3c ./Application/User/generated/Table_verdana_20_4bpp.o
  .debug_loclists
-                0x0000714a       0x3c ./Application/User/generated/Table_verdana_40_4bpp.o
+                0x00007148       0x3c ./Application/User/generated/Table_verdana_40_4bpp.o
  .debug_loclists
-                0x00007186      0x344 ./Application/User/generated/Texts.o
+                0x00007184      0x344 ./Application/User/generated/Texts.o
  .debug_loclists
-                0x000074ca       0x98 ./Application/User/generated/TypedTextDatabase.o
+                0x000074c8       0x98 ./Application/User/generated/TypedTextDatabase.o
  .debug_loclists
-                0x00007562      0x1ab ./Application/User/gui/FrontendApplication.o
+                0x00007560      0x1ab ./Application/User/gui/FrontendApplication.o
  .debug_loclists
-                0x0000770d       0x2a ./Application/User/gui/Model.o
+                0x0000770b       0x2a ./Application/User/gui/Model.o
  .debug_loclists
-                0x00007737       0xa1 ./Application/User/gui/Screen1Presenter.o
+                0x00007735       0xa1 ./Application/User/gui/Screen1Presenter.o
  .debug_loclists
-                0x000077d8       0xbe ./Application/User/gui/Screen1View.o
+                0x000077d6       0xbe ./Application/User/gui/Screen1View.o
  .debug_loclists
-                0x00007896      0x40f ./Drivers/BSP/Components/ft5336.o
+                0x00007894      0x40f ./Drivers/BSP/Components/ft5336.o
  .debug_loclists
-                0x00007ca5      0xe9b ./Drivers/BSP/Components/ft5336_reg.o
+                0x00007ca3      0xe9b ./Drivers/BSP/Components/ft5336_reg.o
  .debug_loclists
-                0x00008b40      0x8c4 ./Drivers/BSP/Components/mx25lm51245g.o
+                0x00008b3e      0x8c4 ./Drivers/BSP/Components/mx25lm51245g.o
  .debug_loclists
-                0x00009404      0x752 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o
+                0x00009402      0x752 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o
  .debug_loclists
-                0x00009b56      0xd4b ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.o
+                0x00009b54      0xd4b ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.o
  .debug_loclists
-                0x0000a8a1      0x4ea ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
+                0x0000a89f      0x4ea ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
  .debug_loclists
-                0x0000ad8b      0x13c ./Drivers/CMSIS/system_stm32h7xx.o
+                0x0000ad89      0x13c ./Drivers/CMSIS/system_stm32h7xx.o
  .debug_loclists
-                0x0000aec7      0x24b ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o
+                0x0000aec5      0x24b ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o
  .debug_loclists
-                0x0000b112     0x1496 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc.o
+                0x0000b110     0x1496 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc.o
  .debug_loclists
-                0x0000c5a8     0x167c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc_ex.o
+                0x0000c5a6     0x167c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc_ex.o
  .debug_loclists
-                0x0000dc24      0x3cf ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o
+                0x0000dc22      0x3cf ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o
  .debug_loclists
-                0x0000dff3      0x301 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.o
+                0x0000dff1      0x301 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.o
  .debug_loclists
-                0x0000e2f4       0xbc ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.o
+                0x0000e2f2       0xbc ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.o
  .debug_loclists
-                0x0000e3b0     0x1bbb ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma2d.o
+                0x0000e3ae     0x1bbb ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma2d.o
  .debug_loclists
-                0x0000ff6b      0x230 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o
+                0x0000ff69      0x230 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o
  .debug_loclists
-                0x0001019b     0x2ef4 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o
+                0x00010199     0x2ef4 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o
  .debug_loclists
-                0x0001308f       0xf8 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o
+                0x0001308d       0xf8 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o
  .debug_loclists
-                0x00013187      0xc05 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc.o
+                0x00013185      0xc05 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc.o
  .debug_loclists
-                0x00013d8c      0x856 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o
+                0x00013d8a      0x856 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o
  .debug_loclists
-                0x000145e2      0xfa2 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ospi.o
+                0x000145e0      0xfa2 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ospi.o
  .debug_loclists
-                0x00015584      0x2ba ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o
+                0x00015582      0x2ba ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o
  .debug_loclists
-                0x0001583e      0x4da ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o
+                0x0001583c      0x4da ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o
  .debug_loclists
-                0x00015d18      0xce6 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o
+                0x00015d16      0xce6 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o
  .debug_loclists
-                0x000169fe      0x71a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc.o
+                0x000169fc      0x71a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc.o
  .debug_loclists
-                0x00017118     0x2c4c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o
+                0x00017116     0x2c4c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o
  .debug_loclists
-                0x00019d64      0xfd0 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o
+                0x00019d62      0xfd0 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o
  .debug_loclists
-                0x0001ad34     0x360f ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o
+                0x0001ad32     0x360f ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o
  .debug_loclists
-                0x0001e343      0x6e9 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o
+                0x0001e341      0x6e9 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o
  .debug_loclists
-                0x0001ea2c       0x5c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_wwdg.o
+                0x0001ea2a       0x5c ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_wwdg.o
  .debug_loclists
-                0x0001ea88     0x26d2 ./Middlewares/FreeRTOS/cmsis_os2.o
+                0x0001ea86     0x26d2 ./Middlewares/FreeRTOS/cmsis_os2.o
  .debug_loclists
-                0x0002115a      0x374 ./Middlewares/FreeRTOS/heap_4.o
+                0x00021158      0x374 ./Middlewares/FreeRTOS/heap_4.o
  .debug_loclists
-                0x000214ce       0x71 ./Middlewares/FreeRTOS/list.o
+                0x000214cc       0x71 ./Middlewares/FreeRTOS/list.o
  .debug_loclists
-                0x0002153f       0x71 ./Middlewares/FreeRTOS/port.o
+                0x0002153d       0x71 ./Middlewares/FreeRTOS/port.o
  .debug_loclists
-                0x000215b0     0x1054 ./Middlewares/FreeRTOS/queue.o
+                0x000215ae     0x1054 ./Middlewares/FreeRTOS/queue.o
  .debug_loclists
-                0x00022604     0x147c ./Middlewares/FreeRTOS/tasks.o
+                0x00022602     0x147c ./Middlewares/FreeRTOS/tasks.o
  .debug_loclists
-                0x00023a80      0x923 ./Middlewares/FreeRTOS/timers.o
+                0x00023a7e      0x923 ./Middlewares/FreeRTOS/timers.o
  .debug_loclists
-                0x000243a3       0x96 ./Middlewares/LibJPEG/jcomapi.o
+                0x000243a1       0x96 ./Middlewares/LibJPEG/jcomapi.o
  .debug_loclists
-                0x00024439      0x28a ./Middlewares/LibJPEG/jdapimin.o
+                0x00024437      0x28a ./Middlewares/LibJPEG/jdapimin.o
  .debug_loclists
-                0x000246c3      0x154 ./Middlewares/LibJPEG/jdapistd.o
+                0x000246c1      0x154 ./Middlewares/LibJPEG/jdapistd.o
  .debug_loclists
-                0x00024817      0xafa ./Middlewares/LibJPEG/jdarith.o
+                0x00024815      0xafa ./Middlewares/LibJPEG/jdarith.o
  .debug_loclists
-                0x00025311      0x16c ./Middlewares/LibJPEG/jdatasrc.o
+                0x0002530f      0x16c ./Middlewares/LibJPEG/jdatasrc.o
  .debug_loclists
-                0x0002547d      0xf48 ./Middlewares/LibJPEG/jdcoefct.o
+                0x0002547b      0xf48 ./Middlewares/LibJPEG/jdcoefct.o
  .debug_loclists
-                0x000263c5      0x8d6 ./Middlewares/LibJPEG/jdcolor.o
+                0x000263c3      0x8d6 ./Middlewares/LibJPEG/jdcolor.o
  .debug_loclists
-                0x00026c9b      0x291 ./Middlewares/LibJPEG/jddctmgr.o
+                0x00026c99      0x291 ./Middlewares/LibJPEG/jddctmgr.o
  .debug_loclists
-                0x00026f2c     0x1983 ./Middlewares/LibJPEG/jdhuff.o
+                0x00026f2a     0x1983 ./Middlewares/LibJPEG/jdhuff.o
  .debug_loclists
-                0x000288af      0x2d9 ./Middlewares/LibJPEG/jdinput.o
+                0x000288ad      0x2d9 ./Middlewares/LibJPEG/jdinput.o
  .debug_loclists
-                0x00028b88      0x776 ./Middlewares/LibJPEG/jdmainct.o
+                0x00028b86      0x776 ./Middlewares/LibJPEG/jdmainct.o
  .debug_loclists
-                0x000292fe     0x17f6 ./Middlewares/LibJPEG/jdmarker.o
+                0x000292fc     0x17f6 ./Middlewares/LibJPEG/jdmarker.o
  .debug_loclists
-                0x0002aaf4      0x2fd ./Middlewares/LibJPEG/jdmaster.o
+                0x0002aaf2      0x2fd ./Middlewares/LibJPEG/jdmaster.o
  .debug_loclists
-                0x0002adf1      0x96f ./Middlewares/LibJPEG/jdmerge.o
+                0x0002adef      0x96f ./Middlewares/LibJPEG/jdmerge.o
  .debug_loclists
-                0x0002b760      0x33f ./Middlewares/LibJPEG/jdpostct.o
+                0x0002b75e      0x33f ./Middlewares/LibJPEG/jdpostct.o
  .debug_loclists
-                0x0002ba9f      0x5a8 ./Middlewares/LibJPEG/jdsample.o
+                0x0002ba9d      0x5a8 ./Middlewares/LibJPEG/jdsample.o
  .debug_loclists
-                0x0002c047      0x1d6 ./Middlewares/LibJPEG/jerror.o
+                0x0002c045      0x1d6 ./Middlewares/LibJPEG/jerror.o
  .debug_loclists
-                0x0002c21d      0x5e5 ./Middlewares/LibJPEG/jidctflt.o
+                0x0002c21b      0x5e5 ./Middlewares/LibJPEG/jidctflt.o
  .debug_loclists
-                0x0002c802      0xaba ./Middlewares/LibJPEG/jidctfst.o
+                0x0002c800      0xaba ./Middlewares/LibJPEG/jidctfst.o
  .debug_loclists
-                0x0002d2bc     0xfe2a ./Middlewares/LibJPEG/jidctint.o
+                0x0002d2ba     0xfe2a ./Middlewares/LibJPEG/jidctint.o
  .debug_loclists
-                0x0003d0e6      0xbbd ./Middlewares/LibJPEG/jmemmgr.o
+                0x0003d0e4      0xbbd ./Middlewares/LibJPEG/jmemmgr.o
  .debug_loclists
-                0x0003dca3       0xf2 ./Middlewares/LibJPEG/jmemnobs.o
+                0x0003dca1       0xf2 ./Middlewares/LibJPEG/jmemnobs.o
  .debug_loclists
-                0x0003dd95      0xf69 ./Middlewares/LibJPEG/jquant1.o
+                0x0003dd93      0xf69 ./Middlewares/LibJPEG/jquant1.o
  .debug_loclists
-                0x0003ecfe     0x1e3a ./Middlewares/LibJPEG/jquant2.o
+                0x0003ecfc     0x1e3a ./Middlewares/LibJPEG/jquant2.o
  .debug_loclists
-                0x00040b38      0x181 ./Middlewares/LibJPEG/jutils.o
+                0x00040b36      0x181 ./Middlewares/LibJPEG/jutils.o
 
 .debug_line_str
                 0x00000000       0x70

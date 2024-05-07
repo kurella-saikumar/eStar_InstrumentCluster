@@ -79,8 +79,6 @@
  * DEFINE GLOBAL SCOPE TYPES
 ***************************************************************************************************/
 
-extern uint32_t *eepromVariables[];
-
 typedef struct
 {
     uint32_t eep_Total_Odometer;
@@ -108,7 +106,9 @@ typedef struct
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES\n
 ***************************************************************************************************/
-
+extern eepromData_t eep_Variables_t;
+extern const eepromData_t eep_default_t;
+extern uint32_t *eepromVariables[];
 
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES\n

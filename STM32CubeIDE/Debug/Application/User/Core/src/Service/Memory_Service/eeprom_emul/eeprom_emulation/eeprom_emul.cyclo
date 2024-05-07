@@ -12,3 +12,4 @@
 ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:212:11:xEE_WriteVariable32bits	2
 ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:1137:12:xEE_Init	32
 ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:1463:11:xShadowUpdate	6
+../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:1550:7:vShadowRAM_Init	1

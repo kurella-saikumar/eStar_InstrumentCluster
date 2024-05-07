@@ -1464,16 +1464,14 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
  {
  	uint32_t ulPage = 0U;
  	uint32_t ulPageAddress = 0U;
- 	uint32_t ulCounter = PAGE_HEADER_SIZE ;
- 	uint8_t ucReadAddressValue[4] = {0X00,0x00,0x00,0x00};
- 	uint8_t ucDataValue[4] = {0x00};
+ 	uint32_t ulCounter = 0U;
  	uint32_t ulReadAddr = 0;
- 	uint16_t usCRCRead = 0;
- 	uint8_t ucCRC [2]= {0x00};
- 	uint16_t usCRCCalculated = 0;
  	uint32_t ulData = 0;
-// 	uint8_t ucStatusArray[NB_OF_VARIABLES] = {0};
-// 	uint8_t ucFoundCounter=0;
+ 	uint8_t ucReadAddressValue[4] = {0X00};
+ 	uint8_t ucDataValue[4] = {0x00};
+ 	uint8_t ucCRC[2]= {0x00};
+ 	uint16_t usCRCRead = 0;
+ 	uint16_t usCRCCalculated = 0;
 
  	 EE_State_type pagestate = STATE_PAGE_INVALID;
 
@@ -1490,13 +1488,11 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 
  	 /* Search variable in active page and valid pages until erased page is found
  		or in erasing pages until erased page is found */
-// 	 while ((pagestate == STATE_PAGE_ACTIVE) || (pagestate == STATE_PAGE_VALID) || (pagestate == STATE_PAGE_ERASING))
- 	if (pagestate == STATE_PAGE_ACTIVE)
+
+ 	 if (pagestate == STATE_PAGE_ACTIVE)
  	 {
  		/* Set counter index to last element position in the page */
- 		//ulCounter = (PAGE_SIZE - EE_ELEMENT_SIZE)- EMPTY_BYTES_FOR_PAGE;
- 		// ulCounter=ulAddressNextWrite;
-
+ 		ulCounter = PAGE_HEADER_SIZE ;
  		/* Check each page address starting from end */
  		while (ulCounter <= PAGE_SIZE - EMPTY_BYTES_FOR_PAGE)
  		{
@@ -1504,8 +1500,9 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
  			xFI_ReadDoubleWord(((ulPageAddress + ulCounter + EE_ADDRESS_OFFSET+EE_EMULATION_START_ADDR)-START_PAGE_ADDRESS), ucReadAddressValue);
 
  			ulReadAddr = (ucReadAddressValue[0]<<24|ucReadAddressValue[1]<<16|ucReadAddressValue[2]<<8|ucReadAddressValue[3]);
+#if(EMUL_DEBUG_ENABLE == 1)
  			printf("ulReadAddr:0x%lx\n\r",ulReadAddr);
-
+#endif
  			if (ulReadAddr != 0xFFFFFFFFU)
  			{
 
@@ -1521,7 +1518,9 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 
  				if (usCRCCalculated == usCRCRead)
  				{
+#if(EMUL_DEBUG_ENABLE == 1)
  					printf("CRC Matched\n\r");
+#endif
  					memcpy(&ulReadAddr, &ulData, sizeof(ulData));
  				}
  				else
@@ -1531,7 +1530,7 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
  			}
 			else
 			{
-//				printf("address not Matched\n\r");
+				/*do nothing*/
 			}
  			/* Next address location */
  			ulCounter += EE_ELEMENT_SIZE;
@@ -1539,6 +1538,24 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
  	 }
  	 return EE_OK;
  }
+
+ /**
+   * @brief  Initializes the shadowRAM with default values of variables
+   * 		and update with last saved values in eeprom.
+   * @param  None.
+   * @retval None
+   */
+
+
+ void vShadowRAM_Init(void)
+ {
+ 	/* Write default values into eep_Variables_t */
+ 	memcpy(&eep_Variables_t, &eep_default_t, sizeof(eepromData_t));
+
+ 	xShadowUpdate();
+
+ }
+
 /**************************************************************************************************
  * End Of File
 ***************************************************************************************************/
