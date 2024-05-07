@@ -159,29 +159,18 @@ void vEE_Demo(void)
 
 	/* ShadowRAM initialization*/
 	vShadowRAM_Init();
+	/********** Read Back the shadow 20 variable's latest values *******/
 	/* Loop through each variable and perform the Read check */
 	for (int i = 0; i < sizeof(eepromVariables) / sizeof(eepromVariables[0]); i++)
 	{
-		uint16_t FlashStatus = xEE_ReadVariable32bits((uint32_t)eepromVariables[i], eepromVariables[i]);
-		if (BSP_ERROR_NONE != FlashStatus)
-		{
 #if(EMUL_DEBUG_ENABLE == 1)
-			printf("Read Fail:eepromVariables\n\r");
+		printf("ShadowRam Read: eepromVariables[%d] at :%p data :0x%lx\n\r",i,eepromVariables[i],*eepromVariables[i]);
 #endif
-			break;
-		}
-		else
-		{
-#if(EMUL_DEBUG_ENABLE == 1)
-			printf("Read Success:eepromVariables[%d] at :%p data :%ld\n\r",i,eepromVariables[i],*eepromVariables[i]);
-#endif
-		}
-
 	}
-
+	/********** Updating the eeprom with new values 10-89 (80) of 20 variables *******/
 
 	/* Loop through each variable and perform the write check */
-	for (int i =10; i <90; i++)
+	for (int i =10; i <30; i++)
 	{
 		for (int j = 0; j < sizeof(eepromVariables) / sizeof(eepromVariables[0]); j++)
 		{
@@ -189,7 +178,7 @@ void vEE_Demo(void)
 			if (BSP_ERROR_NONE == FlashStatus)
 			{
 #if(EMUL_DEBUG_ENABLE == 1)
-				printf("ESWrite Success:at %p, eepromVariables[%d]:%ld \n\r",eepromVariables[j],j,*eepromVariables[j]);
+				printf("ESWrite Success:at %p, eepromVariables[%d]:0x%lx \n\r",eepromVariables[j],j,*eepromVariables[j]);
 #endif
 			}
 			else
@@ -203,6 +192,7 @@ void vEE_Demo(void)
 		}
 
 	}
+	/********** Read Back the eeprom of 20 variables latest values *******/
 	/* Loop through each variable and perform the Read check */
 	for (int i = 0; i < sizeof(eepromVariables) / sizeof(eepromVariables[0]); i++)
 	{
@@ -217,7 +207,7 @@ void vEE_Demo(void)
 		else
 		{
 #if(EMUL_DEBUG_ENABLE == 1)
-			printf("Read Success:eepromVariables[%d] at :%p data :%ld\n\r",i,eepromVariables[i],*eepromVariables[i]);
+			printf("Read Success:eepromVariables[%d] at :%p data :0x%lx\n\r",i,eepromVariables[i],*eepromVariables[i]);
 #endif
 		}
 
@@ -225,27 +215,6 @@ void vEE_Demo(void)
 
 }
 
-
-/**
-  * @brief  Write Variables in EEPROM and ShadowRAM.
-  * @param  VirtAddress Variable name to be write
-  * @param  Data Data to be write
-  * @param  UpdateToShadowRAM update data into shadowRAM
-  * @retval Status of the operation of during EEPROM write
-  */
-
-uint16_t xES_WriteVariable(uint32_t VirtAddress, uint32_t Data,uint32_t *UpdateToShadowRAM)
-{
-	if (BSP_ERROR_NONE == xEE_WriteVariable32bits(VirtAddress, Data)) //Write into EEPROM
-	{
-		*UpdateToShadowRAM = Data;
-		return BSP_ERROR_NONE;
-	}
-	else
-	{
-		return BSP_ERROR_COMPONENT_FAILURE;
-	}
-}
 
 
 /**************************************************************************************************

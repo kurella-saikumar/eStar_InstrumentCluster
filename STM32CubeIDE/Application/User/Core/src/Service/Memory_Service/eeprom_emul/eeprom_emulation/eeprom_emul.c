@@ -1465,8 +1465,8 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
  	uint32_t ulPage = 0U;
  	uint32_t ulPageAddress = 0U;
  	uint32_t ulCounter = 0U;
- 	uint32_t ulReadAddr = 0;
- 	uint32_t ulData = 0;
+ 	volatile uint32_t ulReadAddr = 0;
+ 	volatile uint32_t ulData = 0;
  	uint8_t ucReadAddressValue[4] = {0X00};
  	uint8_t ucDataValue[4] = {0x00};
  	uint8_t ucCRC[2]= {0x00};
@@ -1500,9 +1500,7 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
  			xFI_ReadDoubleWord(((ulPageAddress + ulCounter + EE_ADDRESS_OFFSET+EE_EMULATION_START_ADDR)-START_PAGE_ADDRESS), ucReadAddressValue);
 
  			ulReadAddr = (ucReadAddressValue[0]<<24|ucReadAddressValue[1]<<16|ucReadAddressValue[2]<<8|ucReadAddressValue[3]);
-#if(EMUL_DEBUG_ENABLE == 1)
- 			printf("ulReadAddr:0x%lx\n\r",ulReadAddr);
-#endif
+
  			if (ulReadAddr != 0xFFFFFFFFU)
  			{
 
@@ -1519,9 +1517,9 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
  				if (usCRCCalculated == usCRCRead)
  				{
 #if(EMUL_DEBUG_ENABLE == 1)
- 					printf("CRC Matched\n\r");
+ 					printf("ulReadAddr = 0x%lx,ulData = 0x%lx\n\r",ulReadAddr,ulData);
 #endif
- 					memcpy(&ulReadAddr, &ulData, sizeof(ulData));
+ 					memcpy(ulReadAddr, &ulData, sizeof(ulData));
  				}
  				else
  				{
@@ -1556,6 +1554,26 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 
  }
 
+ /**
+   * @brief  Write Variables in EEPROM and ShadowRAM.
+   * @param  VirtAddress Variable name to be write
+   * @param  Data Data to be write
+   * @param  UpdateToShadowRAM update data into shadowRAM
+   * @retval Status of the operation of during EEPROM write
+   */
+
+ uint16_t xES_WriteVariable(uint32_t VirtAddress, uint32_t Data,uint32_t *UpdateToShadowRAM)
+ {
+ 	if (BSP_ERROR_NONE == xEE_WriteVariable32bits(VirtAddress, Data)) //Write into EEPROM
+ 	{
+ 		*UpdateToShadowRAM = Data;
+ 		return BSP_ERROR_NONE;
+ 	}
+ 	else
+ 	{
+ 		return BSP_ERROR_COMPONENT_FAILURE;
+ 	}
+ }
 /**************************************************************************************************
  * End Of File
 ***************************************************************************************************/
