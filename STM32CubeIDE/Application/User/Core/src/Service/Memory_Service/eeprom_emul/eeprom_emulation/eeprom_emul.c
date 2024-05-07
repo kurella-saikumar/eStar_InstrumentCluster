@@ -1522,7 +1522,7 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
  				if (usCRCCalculated == usCRCRead)
  				{
  					printf("CRC Matched\n\r");
- 					memcpy(ulReadAddr, ulData, sizeof(ulData));
+ 					memcpy(&ulReadAddr, &ulData, sizeof(ulData));
  				}
  				else
  				{
