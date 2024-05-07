@@ -437,6 +437,13 @@ void vServiceRequestTask(void)
 			 /**:Update last service point;*/
 			 ulLastServicePoint = ulTotalDistance;
 
+			 /**:Reset month count;*/
+			ucMonthcount=0;
+			/**:Update initial day;*/
+			ucInitialDay = ucCurrentDay;
+			/**:Update initial month;*/
+			ucInitialMonth = ucCurrentMonth;
+
 #if(ServiceRequest_TestMacro == 1)
 			 printf("DistanceServiceFlag reset is done \n");
 #endif
@@ -465,6 +472,9 @@ void vServiceRequestTask(void)
 			ucInitialDay = ucCurrentDay;
 			/**:Update initial month;*/
 			ucInitialMonth = ucCurrentMonth;
+
+			 /**:Update last service point;*/
+			ulLastServicePoint = ulTotalDistance;
 
 #if(ServiceRequest_TestMacro == 1)
 			printf("TimeServiceFlag reset is done \n");
@@ -495,7 +505,7 @@ void vGetSrvcReqStatus(IndicationStatus_t* pucSrvcReq_Indictr, bool* p_Warning_s
 		/**:Update fuel warning indicator;*/
 		pucSrvcReq_Indictr->indicators.service_reminder_indicator=1;
 #if(ServiceRequest_TestMacro == 1)
-		printf("indicattor:%d\n",pucSrvcReq_Indictr->indicators.service_reminder_indicator);
+		printf("indicator:%d\n",pucSrvcReq_Indictr->indicators.service_reminder_indicator);
 #endif
 
 	}
