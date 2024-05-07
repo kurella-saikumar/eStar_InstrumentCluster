@@ -44,6 +44,11 @@
 #include "Indicator_App.h"
 #include "stm32h7xx_hal_tim.h"
 #include "ServiceRequest_App.h"
+#include "Task_ExeTime.h"
+#include "safe_checks_Config.h"
+#include "safe_checks_freeRTOSConfig.h"
+#include "PeriodicityCheck.h"
+//#include "Stack_Usage.h"
 
 /* USER CODE END Includes */
 
@@ -65,6 +70,7 @@ uint16_t usADCValue;
 uint32_t gl_BAT_MON_u32;
 IndicationStatus_t indicator;
 uint32_t execTimeFault;
+uint32_t PeriodicityCheckErrorHook;
 
 
 /* USER CODE END PD */
@@ -94,6 +100,7 @@ OSPI_HandleTypeDef hospi2;
 RTC_HandleTypeDef hrtc;
 
 TIM_HandleTypeDef htim1;
+TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim4;
 
 UART_HandleTypeDef huart3;
@@ -291,6 +298,14 @@ const osThreadAttr_t ServiceIndicato_attributes = {
   * @param  None
   * @retval None
   */
+TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T01 = {
+	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
+    .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
+    .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(90000),   /**< Minimum periodicity for vTask_demo1 */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(110000)   /**< Maximum periodicity for vTask_demo1 */
+};
+
 PUTCHAR_PROTOTYPE
 {
   /* Place your implementation of fputc here */
@@ -307,7 +322,6 @@ void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 static void MPU_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_CRC_Init(void);
 static void MX_DMA2D_Init(void);
 static void MX_LTDC_Init(void);
 static void MX_OCTOSPI1_Init(void);
@@ -320,6 +334,8 @@ static void MX_USART3_UART_Init(void);
 static void MX_IWDG1_Init(void);
 static void MX_ADC3_Init(void);
 static void MX_FDCAN3_Init(void);
+static void MX_TIM2_Init(void);
+static void MX_CRC_Init(void);
 void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
 extern void videoTaskFunc(void *argument);
@@ -339,6 +355,8 @@ void ServiceIndicatorApp_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
 void vBacklightBrightness(void);
+void execTimeFault_cb1(TaskRunTimeStat_t *p_measurement_var_ptr);
+void vTask_demo1PeriodicityCheckErrorHook(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo);
 RTC_TimeTypeDef sTime;
 RTC_DateTypeDef sDate;
 HAL_StatusTypeDef res;
@@ -392,7 +410,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_CRC_Init();
   MX_DMA2D_Init();
   MX_LTDC_Init();
   MX_OCTOSPI1_Init();
@@ -406,6 +423,8 @@ int main(void)
   MX_IWDG1_Init();
   MX_ADC3_Init();
   MX_FDCAN3_Init();
+  MX_TIM2_Init();
+  MX_CRC_Init();
   MX_TouchGFX_Init();
   /* Call PreOsInit function */
   MX_TouchGFX_PreOSInit();
@@ -430,6 +449,7 @@ int main(void)
 	  Error_Handler();
   }
   vBacklightBrightness();
+  HAL_TIM_Base_Start(&htim2);
 
 
   /* USER CODE END 2 */
@@ -1167,10 +1187,10 @@ static void MX_RTC_Init(void)
 
   /** Enable the WakeUp
   */
-//  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
-//  {
-//    Error_Handler();
-//  }
+  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+  {
+    Error_Handler();
+  }
   /* USER CODE BEGIN RTC_Init 2 */
   if(HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR0) != 0x32F2)
   {
@@ -1247,6 +1267,45 @@ static void MX_TIM1_Init(void)
   /* USER CODE BEGIN TIM1_Init 2 */
 
   /* USER CODE END TIM1_Init 2 */
+
+}
+
+/**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  /* USER CODE BEGIN TIM2_Init 0 */
+
+  /* USER CODE END TIM2_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM2_Init 1 */
+
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 33;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 4294967295;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_OnePulse_Init(&htim2, TIM_OPMODE_SINGLE) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM2_Init 2 */
+
+  /* USER CODE END TIM2_Init 2 */
 
 }
 
@@ -1599,13 +1658,21 @@ void DigitalDebounce_Task(void *argument)
   /* USER CODE BEGIN DigitalDebounce_Task */
 //  static TaskRunTimeStat_t p_measurement_var_ptr;
 //  vReset_executionTimeStats(&p_measurement_var_ptr);
+	static TaskRunTimeStat_t p_measurement_var_ptr;
+	vReset_executionTimeStats(&p_measurement_var_ptr);
   /* Infinite loop */
   for(;;)
   {
-
-	DebounceTask();
-	vGet_Switch_DebouncedStatus();
-     osDelay(4);
+	  /**:To ensure periodicity monitoring of this task, vCheckPeriodicity shall be called from here in a loop;*/
+	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T01,vTask_demo1PeriodicityCheckErrorHook );
+//	  vStackMonitorDemonTask_Handler();
+	  vBeginExecMeas(&p_measurement_var_ptr);
+	  DebounceTask();
+      vGet_Switch_DebouncedStatus();
+	  //vTaskDelay(10);
+//	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(3000), execTimeFault_cb1);
+      HAL_Delay(100);
+	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(110000), execTimeFault_cb1);
 
 
   }
@@ -1618,6 +1685,51 @@ void DigitalDebounce_Task(void *argument)
 * @param argument: Not used
 * @retval None
 */
+void execTimeFault_cb1(TaskRunTimeStat_t *p_measurement_var_ptr)
+{
+
+	printf("execTimeFault\r\n");
+#if(UART_DEBUG == 1)
+	/** @startuml */ /** start */
+	/**: Buffer to hold cExecutionTime ;*/
+	char cExecutionTime[50];
+	sprintf(cExecutionTime,"Execution time: %lu\r\n",CONVERT_TIMER_COUNTS_TO_US(p_measurement_var_ptr->ulexecutionTime));
+
+	/**: Transmit the execTimeFault_cb status message via UART ;*/
+	while (HAL_UART_Transmit(&huart1, cExecutionTime, strlen(cExecutionTime), 30) != HAL_OK)
+	{
+		/**: You can add some error handling here if needed ;*/
+		break;
+	}
+	/** end*/ /** @enduml */
+#endif
+
+}
+
+void vTask_demo1PeriodicityCheckErrorHook(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
+{
+
+	printf("vTask_demo1PeriodicityCheckErrorHook\r\n");
+#if(UART_DEBUG == 1)
+	/** @startuml */ /** start */
+	/**: Buffer to hold FailStatus;*/
+	char ucBuffer[50];
+
+	/**: Periodicity Check status ;*/
+	snprintf(ucBuffer,sizeof(ucBuffer),"vTask_demo1PeriodicityCheckErrorHook\r\n");
+
+	/**: Transmit the Periodicity Check status message via UART;*/
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)ucBuffer, strlen(ucBuffer), 30) != HAL_OK)
+	{
+		/**: You can add some error handling here if needed;*/
+		break;
+	}
+	/** end*/ /** @enduml */
+#endif
+
+}
+
+
 /* USER CODE END Header_State_Machine_Task */
 void State_Machine_Task(void *argument)
 {

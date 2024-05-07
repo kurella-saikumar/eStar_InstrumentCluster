@@ -1,5 +1,5 @@
 Application/User/TouchGFX/target/TouchGFXHAL.o: \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/TouchGFXHAL.cpp \
+ D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/TouchGFXHAL.cpp \
  ../../TouchGFX/target/TouchGFXHAL.hpp \
  ../../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp \
@@ -82,6 +82,7 @@ Application/User/TouchGFX/target/TouchGFXHAL.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../../Core/Inc/FreeRTOSConfig.h \
+ ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/PlatformConfig/safe_checks_freeRTOSConfig.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
@@ -171,6 +172,7 @@ Application/User/TouchGFX/target/TouchGFXHAL.o: \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../../Core/Inc/FreeRTOSConfig.h:
+../../Core/Inc/../../STM32CubeIDE/Application/User/Core/PlatformConfig/safe_checks_freeRTOSConfig.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:

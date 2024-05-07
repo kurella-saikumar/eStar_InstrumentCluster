@@ -66,12 +66,12 @@
 		<link>
 			<name>Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_crc.c</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_crc.c</locationURI>
 		</link>
 		<link>
 			<name>Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.c</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_crc_ex.c</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_crc_ex.c</locationURI>
 		</link>
 		<link>
 			<name>Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma.c</name>

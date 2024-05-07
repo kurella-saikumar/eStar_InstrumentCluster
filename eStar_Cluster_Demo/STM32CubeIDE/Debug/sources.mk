@@ -58,7 +58,9 @@ Application/User/Core/src/Service/IO_HAL/Switch_Handler \
 Application/User/Core/src/Service/System_Service/BatteryVoltage_SmApp \
 Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp \
 Application/User/Core/src/Service/System_Service/IgnitionManager \
+Application/User/Core/src/Service/System_Service/PeriodicityCheck_safecheck \
 Application/User/Core/src/Service/System_Service/Switch_Interface \
+Application/User/Core/src/Service/System_Service/TimeExe_SafeChecks \
 Application/User/Core/src/Service/System_Service/stateManager \
 Application/User/LIBJPEG/App \
 Application/User/Startup \
