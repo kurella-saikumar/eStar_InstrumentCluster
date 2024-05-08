@@ -62,7 +62,7 @@
 #define PREVIOUS_PAGE(__PAGE__)  	(uint32_t)((((__PAGE__) - START_PAGE - 1U + PAGES_NUMBER) % PAGES_NUMBER) + START_PAGE) /*!< Get page index of previous page, among circular page list */
 #define FOLLOWING_PAGE(__PAGE__) 	(uint32_t)((((__PAGE__) - START_PAGE + 1U) % PAGES_NUMBER) + START_PAGE) /*!< Get page index of following page, among circular page list */
 #define START_PAGE             		PAGE(START_PAGE_ADDRESS)                         /*!< Page index of the 1st page used for EEPROM emul, in the bank */
-#define CALCULATED_END_ADDRESS		(EEPROM_START_ADDRESS + BANK_SIZE)          /*Calculated end address*/
+#define CALCULATED_END_ADDRESS		(EEPROM_START_ADDRESS +EE_EMULATION_START_ADDR+ BANK_SIZE)          /*Calculated end address*/
 #define PAGE_GROUP					PAGES_NUMBER / 2U		/* Page Group */
 /* Page state header */
 #define EE_PAGESTAT_ERASED      	(uint64_t)0xFFFFFFFFFFFFFFFFU  /*!< State saved in 1st,2nd,3rd,4th data type of page header */
