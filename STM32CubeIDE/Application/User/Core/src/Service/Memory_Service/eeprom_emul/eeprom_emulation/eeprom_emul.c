@@ -131,7 +131,7 @@ EE_Status prvEE_Format(EE_Erase_type EraseType)
    {
 		if (EraseType == EE_FORCED_ERASE)
 		{
-			if (xFI_PageErase(PAGE_ADDRESS(ulPage)-START_PAGE_ADDRESS)!= EE_OK)
+			if (xFI_PageErase(PAGE_ADDRESS(ulPage))!= EE_OK)
 			{
 				return EE_ERASE_ERROR;
 			}
@@ -254,13 +254,13 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 
   	/* Get page state information from page header (3 first elements) */
 
-	if(HAL_OK != xFI_ReadDoubleWord(((Address-START_PAGE_ADDRESS)), ucHeader_Receive_FirstWord))
+	if(HAL_OK != xFI_ReadDoubleWord(((Address)), ucHeader_Receive_FirstWord))
 	{
 		return HAL_ERROR;
 	}
 	ulHeader_Receive_FirstWord = (ucHeader_Receive_FirstWord[0]<<24|ucHeader_Receive_FirstWord[1]<<16|ucHeader_Receive_FirstWord[2]<<8|ucHeader_Receive_FirstWord[0]);
 
-	if(HAL_OK != xFI_ReadDoubleWord(((Address-START_PAGE_ADDRESS)+4U), ucHeader_Receive_SecondWord))
+	if(HAL_OK != xFI_ReadDoubleWord(((Address)+4U), ucHeader_Receive_SecondWord))
 	{
 		return HAL_ERROR;
 	}
@@ -270,13 +270,13 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 	status1 = ((uint64_t)ulHeader_Receive_SecondWord << 32) | ulHeader_Receive_FirstWord;
 
 
-	if (HAL_OK != xFI_ReadDoubleWord(((Address - START_PAGE_ADDRESS ) + EE_HEADER_ELEMENT_SIZE), ucHeader_Active_FirstWord))
+	if (HAL_OK != xFI_ReadDoubleWord(((Address  ) + EE_HEADER_ELEMENT_SIZE), ucHeader_Active_FirstWord))
 	{
 		return HAL_ERROR;
 	}
 	ulHeader_Active_FirstWord = (ucHeader_Active_FirstWord[0]<<24|ucHeader_Active_FirstWord[1]<<16|ucHeader_Active_FirstWord[2]<<8|ucHeader_Active_FirstWord[0]);
 
-	if(HAL_OK != xFI_ReadDoubleWord((((Address-START_PAGE_ADDRESS) + EE_HEADER_ELEMENT_SIZE)+4U), ucHeader_Active_SecondWord))
+	if(HAL_OK != xFI_ReadDoubleWord((((Address) + EE_HEADER_ELEMENT_SIZE)+4U), ucHeader_Active_SecondWord))
 	{
 		return HAL_ERROR;
 	}
@@ -286,14 +286,14 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 	status2 = ((uint64_t)ulHeader_Active_SecondWord << 32) | ulHeader_Active_FirstWord;
 
 
-	if(HAL_OK != xFI_ReadDoubleWord(((Address-START_PAGE_ADDRESS) + (EE_HEADER_ELEMENT_SIZE*2U)),ucHeader_Valid_FirstWord))
+	if(HAL_OK != xFI_ReadDoubleWord(((Address) + (EE_HEADER_ELEMENT_SIZE*2U)),ucHeader_Valid_FirstWord))
 	{
 		return HAL_ERROR;
 	}
 	ulHeader_Valid_FirstWord =(ucHeader_Valid_FirstWord[0]<<24|ucHeader_Valid_FirstWord[1]<<16|ucHeader_Valid_FirstWord[2]<<8|ucHeader_Valid_FirstWord[0]);
 
 
-	if(HAL_OK != xFI_ReadDoubleWord((((Address-START_PAGE_ADDRESS) + (EE_HEADER_ELEMENT_SIZE*2U))+4U),ucHeader_Valid_SecondWord))
+	if(HAL_OK != xFI_ReadDoubleWord((((Address) + (EE_HEADER_ELEMENT_SIZE*2U))+4U),ucHeader_Valid_SecondWord))
 	{
 		return HAL_ERROR;
 	}
@@ -303,13 +303,13 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 	status3 = ((uint64_t)ulHeader_Valid_SecondWord << 32) | ulHeader_Valid_FirstWord;
 
 
-	if(HAL_OK != xFI_ReadDoubleWord(((Address-START_PAGE_ADDRESS) + (EE_HEADER_ELEMENT_SIZE*3U)),ucHeader_Erasing_FirstWord))
+	if(HAL_OK != xFI_ReadDoubleWord(((Address) + (EE_HEADER_ELEMENT_SIZE*3U)),ucHeader_Erasing_FirstWord))
 	{
 		return HAL_ERROR;
 	}
 	ulHeader_Erasing_FirstWord = (ucHeader_Erasing_FirstWord[0]<<24|ucHeader_Erasing_FirstWord[1]<<16|ucHeader_Erasing_FirstWord[2]<<8|ucHeader_Erasing_FirstWord[0]);
 
-	if(HAL_OK != xFI_ReadDoubleWord((((Address-START_PAGE_ADDRESS) + (EE_HEADER_ELEMENT_SIZE*3U))+4U),ucHeader_Erasing_SecondWord))
+	if(HAL_OK != xFI_ReadDoubleWord((((Address) + (EE_HEADER_ELEMENT_SIZE*3U))+4U),ucHeader_Erasing_SecondWord))
 	{
 		return HAL_ERROR;
 	}
@@ -378,12 +378,12 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 			{
 			/* Set new Page status to STATE_PAGE_RECEIVE status */
 
-				if (xFI_WriteDoubleWord(((ulHeader1-START_PAGE_ADDRESS)), ucReceive)!= HAL_OK)
+				if (xFI_WriteDoubleWord(((ulHeader1)), ucReceive)!= HAL_OK)
 				{
 					return EE_WRITE_ERROR;
 				}
 
-				if (xFI_WriteDoubleWord(((ulHeader1-START_PAGE_ADDRESS)+EE_ADDRESS_OFFSET), ucReceive)!= HAL_OK)
+				if (xFI_WriteDoubleWord(((ulHeader1)+EE_ADDRESS_OFFSET), ucReceive)!= HAL_OK)
 				{
 				return EE_WRITE_ERROR;
 				}
@@ -394,12 +394,12 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 		case STATE_PAGE_ACTIVE:
 			{
 				/* Set new Page status to STATE_PAGE_ACTIVE status */
-				if (xFI_WriteDoubleWord(((ulHeader2-START_PAGE_ADDRESS)), ucActive)!= HAL_OK)
+				if (xFI_WriteDoubleWord(((ulHeader2)), ucActive)!= HAL_OK)
 				{
 					return EE_WRITE_ERROR;
 				}
 
-				if (xFI_WriteDoubleWord(((ulHeader2-START_PAGE_ADDRESS)+EE_ADDRESS_OFFSET), ucActive)!= HAL_OK)
+				if (xFI_WriteDoubleWord(((ulHeader2)+EE_ADDRESS_OFFSET), ucActive)!= HAL_OK)
 				{
 					return EE_WRITE_ERROR;
 				}
@@ -410,12 +410,12 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 		case STATE_PAGE_VALID:
 			{
 				/* Set new Page status to STATE_PAGE_VALID status */
-				if (xFI_WriteDoubleWord(((ulHeader3-START_PAGE_ADDRESS)), ucValid)!= HAL_OK)
+				if (xFI_WriteDoubleWord(((ulHeader3)), ucValid)!= HAL_OK)
 				{
 					return EE_WRITE_ERROR;
 				}
 				
-				if (xFI_WriteDoubleWord(((ulHeader3-START_PAGE_ADDRESS)+EE_ADDRESS_OFFSET), ucValid)!= HAL_OK)
+				if (xFI_WriteDoubleWord(((ulHeader3)+EE_ADDRESS_OFFSET), ucValid)!= HAL_OK)
 				{
 					return EE_WRITE_ERROR;
 				}
@@ -425,12 +425,12 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 		case STATE_PAGE_ERASING:
 			{
 				/* Set new Page status to STATE_PAGE_ERASING status */
-				if (xFI_WriteDoubleWord(((ulHeader4-START_PAGE_ADDRESS)), ucErasing)!= HAL_OK)
+				if (xFI_WriteDoubleWord(((ulHeader4)), ucErasing)!= HAL_OK)
 				{
 					return EE_WRITE_ERROR;
 				}
 
-				if (xFI_WriteDoubleWord(((ulHeader4-START_PAGE_ADDRESS)+EE_ADDRESS_OFFSET), ucErasing)!= HAL_OK)
+				if (xFI_WriteDoubleWord(((ulHeader4)+EE_ADDRESS_OFFSET), ucErasing)!= HAL_OK)
 				{
 					return EE_WRITE_ERROR;
 				}
@@ -486,7 +486,7 @@ EE_Status prvEE_CleanUp(void)
 			/* If erase operation fails, a Flash error code is returned */
 			for (ulPage = 0; ulPage < ((PAGES_NUMBER *PAGE_SIZE) / 2U); ulPage+=PAGE_SIZE)
 			{
-				if (xFI_PageErase(((PAGE_ADDRESS(ulFirstPage)+ulPage)-START_PAGE_ADDRESS))!= EE_OK)
+				if (xFI_PageErase(((PAGE_ADDRESS(ulFirstPage)+ulPage)))!= EE_OK)
 				{
 					return EE_ERASE_ERROR;
 				}
@@ -598,7 +598,7 @@ EE_Status prvReadVariable(uint32_t VirtAddress, EE_DATA_TYPE* pData)
 		while (ulCounter >= PAGE_HEADER_SIZE)
 		{
 			/* Get the current location content to be compared with virtual address */
-			slRet = xFI_ReadDoubleWord(((ulPageAddress + ulCounter + EE_ADDRESS_OFFSET) -START_PAGE_ADDRESS), ucReadAddressValue);
+			slRet = xFI_ReadDoubleWord(((ulPageAddress + ulCounter + EE_ADDRESS_OFFSET) ), ucReadAddressValue);
 			if(slRet != 0)
 			{
 				return slRet;
@@ -612,13 +612,13 @@ EE_Status prvReadVariable(uint32_t VirtAddress, EE_DATA_TYPE* pData)
 				{
 					/* Get content of variable value */
 
-					xFI_ReadDoubleWord(((ulPageAddress + ulCounter)-START_PAGE_ADDRESS), ucDataValue);
+					xFI_ReadDoubleWord(((ulPageAddress + ulCounter)), ucDataValue);
 
 					ulData = (ucDataValue[0]<<24|ucDataValue[1]<<16|ucDataValue[2]<<8|ucDataValue[3]);
 
 					usCRCCalculated = xCrc16BitPolinomial_1021(ucDataValue, sizeof(ucDataValue),0);
 
-					xFI_ReadDoubleWord(((ulPageAddress + ulCounter + EE_CRC_OFFSET)-START_PAGE_ADDRESS), ucCRC);
+					xFI_ReadDoubleWord(((ulPageAddress + ulCounter + EE_CRC_OFFSET)), ucCRC);
 
 					usCRCRead = (ucCRC[0]<<8|ucCRC[1]);
 
@@ -877,17 +877,17 @@ EE_Status prvVerifyPagesFullWriteVariable(uint32_t VirtAddress, EE_DATA_TYPE Dat
 
 	/* Program variable data, virtual address,and CRC*/
 	/* If program operation was failed, a Flash error code is returned */
-	if (xFI_WriteDoubleWord(((activepageaddress+ulAddressNextWrite) -START_PAGE_ADDRESS), ucDataArray)!= HAL_OK)
+	if (xFI_WriteDoubleWord(((activepageaddress+ulAddressNextWrite) ), ucDataArray)!= HAL_OK)
 	{
 		return HAL_ERROR;
 	}
 
-	if (xFI_WriteDoubleWord((((activepageaddress+ulAddressNextWrite)+EE_ADDRESS_OFFSET) -START_PAGE_ADDRESS), ucVirtAddressArray)!= HAL_OK)
+	if (xFI_WriteDoubleWord((((activepageaddress+ulAddressNextWrite)+EE_ADDRESS_OFFSET) ), ucVirtAddressArray)!= HAL_OK)
 	{
 		return HAL_ERROR;
 	}
 
-	if (xFI_WriteDoubleWord((((activepageaddress+ulAddressNextWrite)+EE_CRC_OFFSET) -START_PAGE_ADDRESS), ucCRCArray)!= HAL_OK)
+	if (xFI_WriteDoubleWord((((activepageaddress+ulAddressNextWrite)+EE_CRC_OFFSET) ), ucCRCArray)!= HAL_OK)
 	{
 		return HAL_ERROR;
 	}
@@ -1017,8 +1017,8 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 		for (ulVarIdx = PAGE_HEADER_SIZE; ulVarIdx < PAGE_SIZE; ulVarIdx += EE_ELEMENT_SIZE)
 		{
 			/* Get next element in receive page */
-			xFI_ReadDoubleWord(((PAGE_ADDRESS(ucCurrentActivePage)-START_PAGE_ADDRESS) + ulVarIdx), ucDataValue1);
-			xFI_ReadDoubleWord((((PAGE_ADDRESS(ucCurrentActivePage)-START_PAGE_ADDRESS) + ulVarIdx)+EE_ADDRESS_OFFSET),ucReadAddressValue );
+			xFI_ReadDoubleWord(((PAGE_ADDRESS(ucCurrentActivePage)) + ulVarIdx), ucDataValue1);
+			xFI_ReadDoubleWord((((PAGE_ADDRESS(ucCurrentActivePage)) + ulVarIdx)+EE_ADDRESS_OFFSET),ucReadAddressValue );
 
 
 			for (int i = 0; i < 4; i++)
@@ -1374,11 +1374,11 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 		uint8_t ucReadAddressValue[4]= {0x00};
 		uint8_t ucDataValue[4]= {0x00};
 
-		xFI_ReadDoubleWord(((PAGE_ADDRESS(ucCurrentActivePage)-START_PAGE_ADDRESS)  + ulVarIdx), ucDataValue);
+		xFI_ReadDoubleWord(((PAGE_ADDRESS(ucCurrentActivePage))  + ulVarIdx), ucDataValue);
 
 		ulDataValue = (ucDataValue[0]<<24|ucDataValue[1]<<16|ucDataValue[2]<<8|ucDataValue[3]);
 
-		xFI_ReadDoubleWord((((PAGE_ADDRESS(ucCurrentActivePage)-START_PAGE_ADDRESS) + ulVarIdx)+EE_ADDRESS_OFFSET),ucReadAddressValue );
+		xFI_ReadDoubleWord((((PAGE_ADDRESS(ucCurrentActivePage)) + ulVarIdx)+EE_ADDRESS_OFFSET),ucReadAddressValue );
 
 		ulReadAddressValue =(ucReadAddressValue[0]<<24|ucReadAddressValue[1]<<16|ucReadAddressValue[2]<<8|ucReadAddressValue[3]);
 
@@ -1439,7 +1439,7 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 		if (EraseType == EE_FORCED_ERASE )
 		{
 			/* Force page erase independently of its content */
-			if (xFI_PageErase((ulPageAddress-START_PAGE_ADDRESS))!= EE_OK)
+			if (xFI_PageErase((ulPageAddress))!= EE_OK)
 			{
 				return EE_ERASE_ERROR;
 			}
@@ -1450,7 +1450,7 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 			if (prvVerifyPageFullyErased(ulPageAddress, PAGE_SIZE) == EE_PAGE_NOTERASED)
 			{
 				/* Erase pages if not fully erased */
-				if (xFI_PageErase((ulPageAddress-START_PAGE_ADDRESS))!= EE_OK)
+				if (xFI_PageErase((ulPageAddress))!= EE_OK)
 				{
 					return EE_ERASE_ERROR;
 				}
@@ -1506,20 +1506,20 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
  		while (ulCounter <= PAGE_SIZE - EMPTY_BYTES_FOR_PAGE)
  		{
  			/* Get the current location content to be compared with virtual address */
- 			xFI_ReadDoubleWord(((ulPageAddress + ulCounter + EE_ADDRESS_OFFSET)-START_PAGE_ADDRESS), ucReadAddressValue);
+ 			xFI_ReadDoubleWord(((ulPageAddress + ulCounter + EE_ADDRESS_OFFSET)), ucReadAddressValue);
 
  			ulReadAddr = (ucReadAddressValue[0]<<24|ucReadAddressValue[1]<<16|ucReadAddressValue[2]<<8|ucReadAddressValue[3]);
 
  			if (ulReadAddr != 0xFFFFFFFFU)
  			{
 
- 				xFI_ReadDoubleWord(((ulPageAddress + ulCounter)-START_PAGE_ADDRESS), ucDataValue);
+ 				xFI_ReadDoubleWord(((ulPageAddress + ulCounter)), ucDataValue);
 
  				ulData = (ucDataValue[0]<<24|ucDataValue[1]<<16|ucDataValue[2]<<8|ucDataValue[3]);
 
  				usCRCCalculated = xCrc16BitPolinomial_1021(ucDataValue, sizeof(ucDataValue),0);
 
- 				xFI_ReadDoubleWord(((ulPageAddress + ulCounter + EE_CRC_OFFSET)-START_PAGE_ADDRESS), ucCRC);
+ 				xFI_ReadDoubleWord(((ulPageAddress + ulCounter + EE_CRC_OFFSET)), ucCRC);
 
  				usCRCRead = (ucCRC[0]<<8|ucCRC[1]);
 
