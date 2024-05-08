@@ -4,12 +4,14 @@
 #include <images/BitmapDatabase.hpp>
 #include <touchgfx/Bitmap.hpp>
 
-extern const unsigned char image_fuel_red[]; // BITMAP_FUEL_RED_ID = 0, Size: 24x20 pixels
-extern const unsigned char image_image[]; // BITMAP_IMAGE_ID = 1, Size: 480x272 pixels
-
+extern const unsigned char image_fuel_red_const[]; // BITMAP_FUEL_RED_ID = 0, Size: 24x20 pixels
+extern const unsigned char image_image_const[]; // BITMAP_IMAGE_ID = 1, Size: 480x272 pixels
+extern volatile unsigned char *HypRam_mem_addr;
+extern unsigned char ucImage_fuel_red_HypRAM[160*12];
+extern unsigned char ucImage_image_HypRam[(32640*12)];
 const touchgfx::Bitmap::BitmapData bitmap_database[] = {
-    { image_fuel_red, 0, 24, 20, 0, 19, 24, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 1, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
-    { image_image, 0, 480, 272, 0, 0, 480, ((uint8_t)touchgfx::Bitmap::RGB888) >> 3, 272, ((uint8_t)touchgfx::Bitmap::RGB888) & 0x7 }
+    { ucImage_fuel_red_HypRAM, 0, 24, 20, 0, 19, 24, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 1, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_image_HypRam, 0, 480, 272, 0, 0, 480, ((uint8_t)touchgfx::Bitmap::RGB888) >> 3, 272, ((uint8_t)touchgfx::Bitmap::RGB888) & 0x7 }
 };
 
 namespace BitmapDatabase

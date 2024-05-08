@@ -45,6 +45,9 @@
 #include "stm32h7xx_hal_tim.h"
 #include "ServiceRequest_App.h"
 
+
+#include <touchgfx/hal/Config.hpp>
+#include "eeprom_emul.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -339,6 +342,7 @@ void ServiceIndicatorApp_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
 void vBacklightBrightness(void);
+void Disp_imgDataHyperRAM_Init(void);
 RTC_TimeTypeDef sTime;
 RTC_DateTypeDef sDate;
 HAL_StatusTypeDef res;
@@ -346,7 +350,10 @@ HAL_StatusTypeDef res;
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+KEEP extern const unsigned char image_image_const[];
+KEEP extern const unsigned char image_fuel_red_const[];
+extern unsigned char ucImage_image_HypRam[(32640*12)];
+extern unsigned char ucImage_fuel_red_HypRAM[160*12];
 /* USER CODE END 0 */
 
 /**
@@ -403,7 +410,7 @@ int main(void)
   MX_ADC1_Init();
   MX_RTC_Init();
   MX_USART3_UART_Init();
-  MX_IWDG1_Init();
+//  MX_IWDG1_Init();
   MX_ADC3_Init();
   MX_FDCAN3_Init();
   MX_TouchGFX_Init();
@@ -431,6 +438,9 @@ int main(void)
   }
   vBacklightBrightness();
 
+  vEE_Demo();
+  Disp_imgDataHyperRAM_Init();
+  MX_IWDG1_Init();
 
   /* USER CODE END 2 */
 
@@ -1527,6 +1537,56 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	  printf("WAKEUP FROM EXTII\r\n");
  // HAL_PWR_DisableSleepOnExit();
 }
+
+
+
+
+
+void Disp_imgDataHyperRAM_Init(void)
+{
+	memset(ucImage_image_HypRam,0,(32640*12));
+	memset(ucImage_fuel_red_HypRAM,0,(160*12));
+#if 1
+	uint32_t Address1 = (uint32_t)(&image_image_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_image_HypRam, Address1, (32640*12)))
+	{
+		printf("Copy Fail-1\n\r");
+	}
+	else
+	{
+		printf("Copy Success1\n\r");
+	}
+	uint32_t Address2 = (uint32_t)(&image_fuel_red_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_image_HypRam, Address2, (160*12)))
+	{
+		printf("Copy Fail-2\n\r");
+	}
+	else
+	{
+		printf("Copy Success2\n\r");
+	}
+#else
+	memcpy(ucImage_image_HypRam,image_image_const,(32640*12));
+	if(memcmp(image_image_const,ucImage_image_HypRam,(32640*12))!=0)
+	{
+		printf("ucImage_image_HypRam,Verification Failed\n\r");
+	}
+	else
+	{
+		printf("ucImage_image_HypRam,Verification Passed\n\r");
+	}
+
+	memcpy(ucImage_fuel_red_HypRAM,image_fuel_red_const,(160*12));
+	if(memcmp(image_fuel_red_const,ucImage_fuel_red_HypRAM,(160*12))!=0)
+	{
+		printf("ucImage_fuel_red_HypRAM, Verification Failed\n\r");
+	}
+	else
+	{
+		printf("ucImage_fuel_red_HypRAM, Verification Passed\n\r");
+	}
+#endif
+}
 /* USER CODE END 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */
@@ -1858,7 +1918,7 @@ void MPU_Config(void)
 
   /* Disables the MPU */
   HAL_MPU_Disable();
-
+#if 0
   /** Initializes and configures the Region and the memory to be protected
   */
   MPU_InitStruct.Enable = MPU_REGION_ENABLE;
@@ -1872,6 +1932,36 @@ void MPU_Config(void)
   MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
   MPU_InitStruct.IsCacheable = MPU_ACCESS_NOT_CACHEABLE;
   MPU_InitStruct.IsBufferable = MPU_ACCESS_NOT_BUFFERABLE;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+
+  /* Configure the MPU attributes as WT for OCTOSPI1 */
+  MPU_InitStruct.Enable = MPU_REGION_ENABLE;
+  MPU_InitStruct.BaseAddress = OCTOSPI1_BASE;
+  MPU_InitStruct.Size = MPU_REGION_SIZE_64MB;
+  MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+  MPU_InitStruct.IsBufferable = MPU_ACCESS_BUFFERABLE;
+  MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
+  MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
+  MPU_InitStruct.Number = MPU_REGION_NUMBER1;
+  MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL1;
+  MPU_InitStruct.SubRegionDisable = 0x00;
+  MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+#endif
+  /* Configure the MPU attributes as WT for OCTOSPI2 */
+  MPU_InitStruct.Enable = MPU_REGION_ENABLE;
+  MPU_InitStruct.BaseAddress = OCTOSPI2_BASE;
+  MPU_InitStruct.Size = MPU_REGION_SIZE_128MB;
+  MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+  MPU_InitStruct.IsBufferable = MPU_ACCESS_BUFFERABLE;
+  MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
+  MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
+  MPU_InitStruct.Number = MPU_REGION_NUMBER1;
+  MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL1;
+  MPU_InitStruct.SubRegionDisable = 0x00;
+  MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
 
   HAL_MPU_ConfigRegion(&MPU_InitStruct);
   /* Enables the MPU */

@@ -23,16 +23,20 @@ RM := rm -rf
 -include Application/User/Startup/subdir.mk
 -include Application/User/LIBJPEG/App/subdir.mk
 -include Application/User/Core/src/Service/System_Service/stateManager/subdir.mk
+-include Application/User/Core/src/Service/System_Service/checksum/subdir.mk
 -include Application/User/Core/src/Service/System_Service/Switch_Interface/subdir.mk
 -include Application/User/Core/src/Service/System_Service/IgnitionManager/subdir.mk
 -include Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/subdir.mk
 -include Application/User/Core/src/Service/System_Service/BatteryVoltage_SmApp/subdir.mk
+-include Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/subdir.mk
+-include Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/Switch_Handler/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/Switch/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/ICU_middleware/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/DigitalDebounce/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/Damping_Filter/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/AnalogDebounce/subdir.mk
+-include Application/User/Core/src/App/eeprom_emulDemo_App/subdir.mk
 -include Application/User/Core/src/App/Tachometer_App/subdir.mk
 -include Application/User/Core/src/App/Speedometer_App/subdir.mk
 -include Application/User/Core/src/App/ServiceRequest_App/subdir.mk
@@ -118,8 +122,8 @@ all: main-build
 main-build: STM32H735G-DK.elf secondary-outputs
 
 # Tool invocations
-STM32H735G-DK.elf STM32H735G-DK.map: $(OBJS) $(USER_OBJS) D:\GitWork_Areas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\STM32H735IGKX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "STM32H735G-DK.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\GitWork_Areas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\STM32H735IGKX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32H735G-DK.map" -Wl,--gc-sections -static -L../../Middlewares/ST/touchgfx/lib/core/cortex_m7/gcc --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+STM32H735G-DK.elf STM32H735G-DK.map: $(OBJS) $(USER_OBJS) D:\GIT_WorkAreas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\STM32H735IGKX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "STM32H735G-DK.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\GIT_WorkAreas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\STM32H735IGKX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32H735G-DK.map" -Wl,--gc-sections -static -L../../Middlewares/ST/touchgfx/lib/core/cortex_m7/gcc --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

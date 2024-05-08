@@ -213,5 +213,13 @@ SECTIONS
 	*(Video_RGB_Buffer Video_RGB_Buffer.*)
     *(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
+    
+    *(image_fuel_red_buf image_fuel_red_buf.*)
+    *(.gnu.linkonce.r.*)
+    . = ALIGN(0x1);
+        
+    *(image_image_buf image_image_buf.*)
+    *(.gnu.linkonce.r.*)
+    . = ALIGN(0x1);
   } >HYPERRAM
 }
