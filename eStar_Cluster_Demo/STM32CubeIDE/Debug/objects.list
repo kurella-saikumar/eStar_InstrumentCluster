@@ -29,6 +29,7 @@
 "./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o"
 "./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.o"
 "./Application/User/Core/src/Service/System_Service/PeriodicityCheck_safecheck/PeriodicityCheck.o"
+"./Application/User/Core/src/Service/System_Service/StackUsage_SafeChecks/Stack_Usage.o"
 "./Application/User/Core/src/Service/System_Service/Switch_Interface/SwitchInf.o"
 "./Application/User/Core/src/Service/System_Service/TimeExe_SafeChecks/Task_ExeTime.o"
 "./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o"

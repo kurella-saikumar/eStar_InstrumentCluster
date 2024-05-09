@@ -2,8 +2,7 @@ Middlewares/FreeRTOS/port.o: \
  D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/port.c \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../../Core/Inc/FreeRTOSConfig.h \
- ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/PlatformConfig/safe_checks_freeRTOSConfig.h \
- ../../Core/Inc/main.h \
+ ../../Core/Inc/safe_checks_freeRTOSConfig.h ../../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -49,6 +48,9 @@ Middlewares/FreeRTOS/port.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
+ ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/StackUsage_SafeChecks/Stack_Usage.h \
+ D:\Govind_WorkSpace\Github_Workspace\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\safe_checks_Config.h \
+ ../../Core/Inc/main.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
@@ -58,7 +60,7 @@ Middlewares/FreeRTOS/port.o: \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../../Core/Inc/FreeRTOSConfig.h:
-../../Core/Inc/../../STM32CubeIDE/Application/User/Core/PlatformConfig/safe_checks_freeRTOSConfig.h:
+../../Core/Inc/safe_checks_freeRTOSConfig.h:
 ../../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:
@@ -105,6 +107,9 @@ Middlewares/FreeRTOS/port.o: \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
+../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/StackUsage_SafeChecks/Stack_Usage.h:
+D:\Govind_WorkSpace\Github_Workspace\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\safe_checks_Config.h:
+../../Core/Inc/main.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:

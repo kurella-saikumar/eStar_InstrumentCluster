@@ -88,7 +88,9 @@ Application/User/TouchGFX/target/STM32TouchController.o: \
  ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../../Core/Inc/FreeRTOSConfig.h \
- ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/PlatformConfig/safe_checks_freeRTOSConfig.h \
+ ../../Core/Inc/safe_checks_freeRTOSConfig.h ../../Core/Inc/main.h \
+ ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/StackUsage_SafeChecks/Stack_Usage.h \
+ D:\Govind_WorkSpace\Github_Workspace\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\safe_checks_Config.h \
  ../../Core/Inc/main.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
@@ -186,7 +188,10 @@ Application/User/TouchGFX/target/STM32TouchController.o: \
 ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../../Core/Inc/FreeRTOSConfig.h:
-../../Core/Inc/../../STM32CubeIDE/Application/User/Core/PlatformConfig/safe_checks_freeRTOSConfig.h:
+../../Core/Inc/safe_checks_freeRTOSConfig.h:
+../../Core/Inc/main.h:
+../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/StackUsage_SafeChecks/Stack_Usage.h:
+D:\Govind_WorkSpace\Github_Workspace\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\safe_checks_Config.h:
 ../../Core/Inc/main.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:

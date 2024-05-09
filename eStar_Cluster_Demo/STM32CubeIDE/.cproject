@@ -97,7 +97,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Application/User/Core/src/App/CAN_App}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/TimeExe_SafeChecks}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/PeriodicityCheck_safecheck}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/Stack_Usage_safecheck}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Application/User/Core/src/Service/System_Service/StackUsage_SafeChecks}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1702615917" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>

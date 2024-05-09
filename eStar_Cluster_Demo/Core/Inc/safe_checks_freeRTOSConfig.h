@@ -28,7 +28,7 @@
  * Include Project Specific Headers
 ***************************************************************************************************/
 #include "main.h"
-//#include "Stack_Usage.h"
+#include "../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/StackUsage_SafeChecks/Stack_Usage.h"
 //#include "Task_OverLoad_DeadLock.h"
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES

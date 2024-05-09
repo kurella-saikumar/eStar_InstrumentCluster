@@ -46,7 +46,6 @@
 /* USER CODE BEGIN Includes */
 /* Section where parameter definitions can be added (for instance, to override default ones in FreeRTOS.h) */
 
-#include "../../STM32CubeIDE/Application/User/Core/PlatformConfig/safe_checks_freeRTOSConfig.h"
 
 /* Section where include file can be added */
 /* USER CODE END Includes */
@@ -177,7 +176,7 @@ standard names. */
 #define traceTASK_SWITCHED_OUT() xTaskCallApplicationTaskHook( pxCurrentTCB, (void*)1 )
 #define traceTASK_SWITCHED_IN() xTaskCallApplicationTaskHook( pxCurrentTCB, (void*)0 )
 
-//#include "safe_checks_freeRTOSConfig.h"
+#include "safe_checks_freeRTOSConfig.h"
 /* USER CODE END Defines */
 
 #endif /* FREERTOS_CONFIG_H */

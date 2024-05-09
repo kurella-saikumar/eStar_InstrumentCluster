@@ -49,7 +49,9 @@ Application/User/Core/main.o: \
  ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../../Core/Inc/FreeRTOSConfig.h \
- ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/PlatformConfig/safe_checks_freeRTOSConfig.h \
+ ../../Core/Inc/safe_checks_freeRTOSConfig.h ../../Core/Inc/main.h \
+ ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/StackUsage_SafeChecks/Stack_Usage.h \
+ D:\Govind_WorkSpace\Github_Workspace\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\safe_checks_Config.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
@@ -94,7 +96,7 @@ Application/User/Core/main.o: \
  D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/ServiceRequest_App/ServiceRequest_App.h \
  D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_app.h \
  D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/TimeExe_SafeChecks/Task_ExeTime.h \
- D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/safe_checks_freeRTOSConfig.h \
+ ../../Core/Inc/safe_checks_freeRTOSConfig.h \
  D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/safe_checks_Config.h \
  D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/PeriodicityCheck_safecheck/PeriodicityCheck.h
 ../../Core/Inc/main.h:
@@ -146,7 +148,10 @@ Application/User/Core/main.o: \
 ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../../Core/Inc/FreeRTOSConfig.h:
-../../Core/Inc/../../STM32CubeIDE/Application/User/Core/PlatformConfig/safe_checks_freeRTOSConfig.h:
+../../Core/Inc/safe_checks_freeRTOSConfig.h:
+../../Core/Inc/main.h:
+../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/StackUsage_SafeChecks/Stack_Usage.h:
+D:\Govind_WorkSpace\Github_Workspace\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\safe_checks_Config.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
@@ -193,6 +198,6 @@ D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/
 D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/ServiceRequest_App/ServiceRequest_App.h:
 D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_app.h:
 D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/TimeExe_SafeChecks/Task_ExeTime.h:
-D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/safe_checks_freeRTOSConfig.h:
+../../Core/Inc/safe_checks_freeRTOSConfig.h:
 D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/safe_checks_Config.h:
 D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/PeriodicityCheck_safecheck/PeriodicityCheck.h:
