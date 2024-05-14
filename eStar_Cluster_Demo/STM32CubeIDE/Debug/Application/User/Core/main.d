@@ -98,7 +98,8 @@ Application/User/Core/main.o: \
  D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/TimeExe_SafeChecks/Task_ExeTime.h \
  ../../Core/Inc/safe_checks_freeRTOSConfig.h \
  D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/safe_checks_Config.h \
- D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/PeriodicityCheck_safecheck/PeriodicityCheck.h
+ D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/PeriodicityCheck_safecheck/PeriodicityCheck.h \
+ D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/StackUsage_SafeChecks/Stack_Usage.h
 ../../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:
@@ -201,3 +202,4 @@ D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/
 ../../Core/Inc/safe_checks_freeRTOSConfig.h:
 D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/safe_checks_Config.h:
 D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/PeriodicityCheck_safecheck/PeriodicityCheck.h:
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/StackUsage_SafeChecks/Stack_Usage.h:

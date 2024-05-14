@@ -113,7 +113,7 @@ void vEndExecMeas(TaskRunTimeStat_t *p_measurement_var_ptr,uint32_t ulmaxAllowed
 	/**:Execution time calculated by subtracting ulstart_Count from ulEnd_Count and multiplied with Timer_Resolution in Nanoseconds;*/
 	ul_execution_time = (p_measurement_var_ptr->ulEnd_Count - p_measurement_var_ptr->ulstart_Count);
 	p_measurement_var_ptr->ulexecutionTime = ul_execution_time;
-	printf("ul_execution_time: %ld\n", (unsigned long)ul_execution_time);
+	//printf("ul_execution_time: %ld\n", (unsigned long)ul_execution_time);
 
 
 	#ifdef COLLECT_ALL_EXECUTION_INFO

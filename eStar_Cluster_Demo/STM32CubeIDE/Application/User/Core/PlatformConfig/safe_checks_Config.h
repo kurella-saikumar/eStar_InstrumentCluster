@@ -42,14 +42,14 @@
 /**
  * @brief Maximum number of tasks that can be monitored.
  */
-#define MAX_TASK_MONITOR 5U
+#define MAX_TASK_MONITOR 12U
 
 /**
  * @brief Maximum stack usage threshold percentage.
  *
  * When monitoring tasks, this threshold is used to trigger a warning if the stack usage exceeds this percentage.
  */
-#define MAX_STACK_THRESHOLD_PCNT 70U
+#define MAX_STACK_THRESHOLD_PCNT 80U
 
 /**************************************************************************************************
  * EXECUTION METRICS COLLECTION CONFIGURATION PARAMETERS

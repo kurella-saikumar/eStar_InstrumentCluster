@@ -88,7 +88,7 @@ void vCheckPeriodicity(TaskPeriodicityCheck_t* xPeriodicityCheckTaskInfo,void (*
 
 		/**: Calculate the time difference between current and previous switch times;*/
 		uint32_t ulPeriodicityDiff = xPeriodicityCheckTaskInfo->ulCurrSwitchTime - xPeriodicityCheckTaskInfo->ulPrevSwitchTime;
-		printf("ulPeriodicityDiff: %ld\n", (unsigned long)ulPeriodicityDiff);
+		//printf("ulPeriodicityDiff: %ld\n", (unsigned long)ulPeriodicityDiff);
 
 		/**: Check if the periodicity difference lies within specified bounds;*/
 

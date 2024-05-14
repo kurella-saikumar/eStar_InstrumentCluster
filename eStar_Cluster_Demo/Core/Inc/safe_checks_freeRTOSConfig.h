@@ -54,9 +54,9 @@
 #define portGET_RUN_TIME_COUNTER_VALUE() (__HAL_TIM_GET_COUNTER(&htim2))
 
 
-//#define configRECORD_STACK_HIGH_ADDRESS 1
-//#define traceTASK_CREATE( pxNewTCB ) SafeRTOS_ntveStack_TraceTASK_CREATE(pxNewTCB)
-//#define traceTASK_DELETE(pxNewTCB) SafeRTOS_TraceTASK_DELETE(pxNewTCB)
+#define configRECORD_STACK_HIGH_ADDRESS 1
+#define traceTASK_CREATE( pxNewTCB ) SafeRTOS_ntveStack_TraceTASK_CREATE(pxNewTCB)
+#define traceTASK_DELETE(pxNewTCB) SafeRTOS_TraceTASK_DELETE(pxNewTCB)
 //
 //#define traceMOVED_TASK_TO_READY_STATE(pxNewTCB) vSafeChecksMovedTaskToReadyState(pxNewTCB)
 //#define traceTASK_SWITCHED_OUT vSafeChecksTaskSwitchedOut

@@ -48,7 +48,7 @@
 #include "safe_checks_Config.h"
 #include "safe_checks_freeRTOSConfig.h"
 #include "PeriodicityCheck.h"
-//#include "Stack_Usage.h"
+#include "Stack_Usage.h"
 
 /* USER CODE END Includes */
 
@@ -73,11 +73,12 @@ uint32_t execTimeFault;
 uint32_t PeriodicityCheckErrorHook;
 
 
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+#define UART_DEBUG 0
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -107,7 +108,7 @@ UART_HandleTypeDef huart3;
 
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
-uint32_t defaultTaskBuffer[ 128 ];
+uint32_t defaultTaskBuffer[ 256 ];
 osStaticThreadDef_t defaultTaskControlBlock;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
@@ -121,7 +122,7 @@ const osThreadAttr_t defaultTask_attributes = {
 osThreadId_t TouchGFXTaskHandle;
 const osThreadAttr_t TouchGFXTask_attributes = {
   .name = "TouchGFXTask",
-  .stack_size = 1024 * 4,
+  .stack_size = 4096 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for videoTask */
@@ -138,7 +139,7 @@ const osThreadAttr_t videoTask_attributes = {
 };
 /* Definitions for WatchdogService */
 osThreadId_t WatchdogServiceHandle;
-uint32_t WatchdogServiceBuffer[ 128 ];
+uint32_t WatchdogServiceBuffer[ 512 ];
 osStaticThreadDef_t WatchdogServiceControlBlock;
 const osThreadAttr_t WatchdogService_attributes = {
   .name = "WatchdogService",
@@ -150,7 +151,7 @@ const osThreadAttr_t WatchdogService_attributes = {
 };
 /* Definitions for DigitalDebounce */
 osThreadId_t DigitalDebounceHandle;
-uint32_t DigitalDebounceBuffer[ 128 ];
+uint32_t DigitalDebounceBuffer[ 1024 ];
 osStaticThreadDef_t DigitalDebounceControlBlock;
 const osThreadAttr_t DigitalDebounce_attributes = {
   .name = "DigitalDebounce",
@@ -174,7 +175,7 @@ const osThreadAttr_t State_Manager_attributes = {
 };
 /* Definitions for Analog_Debounce */
 osThreadId_t Analog_DebounceHandle;
-uint32_t Analog_DebounceBuffer[ 128 ];
+uint32_t Analog_DebounceBuffer[ 1024 ];
 osStaticThreadDef_t Analog_DebounceControlBlock;
 const osThreadAttr_t Analog_Debounce_attributes = {
   .name = "Analog_Debounce",
@@ -186,7 +187,7 @@ const osThreadAttr_t Analog_Debounce_attributes = {
 };
 /* Definitions for FuelGuage */
 osThreadId_t FuelGuageHandle;
-uint32_t FuelGuageBuffer[ 128 ];
+uint32_t FuelGuageBuffer[ 1024 ];
 osStaticThreadDef_t FuelGuageControlBlock;
 const osThreadAttr_t FuelGuage_attributes = {
   .name = "FuelGuage",
@@ -198,7 +199,7 @@ const osThreadAttr_t FuelGuage_attributes = {
 };
 /* Definitions for OdoMeter */
 osThreadId_t OdoMeterHandle;
-uint32_t OdoBuffer[ 128 ];
+uint32_t OdoBuffer[ 1024 ];
 osStaticThreadDef_t OdoControlBlock;
 const osThreadAttr_t OdoMeter_attributes = {
   .name = "OdoMeter",
@@ -210,7 +211,7 @@ const osThreadAttr_t OdoMeter_attributes = {
 };
 /* Definitions for SpeedoMeter */
 osThreadId_t SpeedoMeterHandle;
-uint32_t SpeedoBuffer[ 128 ];
+uint32_t SpeedoBuffer[ 1024 ];
 osStaticThreadDef_t SpeedoControlBlock;
 const osThreadAttr_t SpeedoMeter_attributes = {
   .name = "SpeedoMeter",
@@ -222,7 +223,7 @@ const osThreadAttr_t SpeedoMeter_attributes = {
 };
 /* Definitions for TachoMeter */
 osThreadId_t TachoMeterHandle;
-uint32_t TachoMeterBuffer[ 128 ];
+uint32_t TachoMeterBuffer[ 1024 ];
 osStaticThreadDef_t TachoMeterControlBlock;
 const osThreadAttr_t TachoMeter_attributes = {
   .name = "TachoMeter",
@@ -234,7 +235,7 @@ const osThreadAttr_t TachoMeter_attributes = {
 };
 /* Definitions for SwitchHandler */
 osThreadId_t SwitchHandlerHandle;
-uint32_t SwitchHandlerBuffer[ 128 ];
+uint32_t SwitchHandlerBuffer[ 512 ];
 osStaticThreadDef_t SwitchHandlerControlBlock;
 const osThreadAttr_t SwitchHandler_attributes = {
   .name = "SwitchHandler",
@@ -246,7 +247,7 @@ const osThreadAttr_t SwitchHandler_attributes = {
 };
 /* Definitions for GetClock */
 osThreadId_t GetClockHandle;
-uint32_t GetClockBuffer[ 128 ];
+uint32_t GetClockBuffer[ 256 ];
 osStaticThreadDef_t GetClockControlBlock;
 const osThreadAttr_t GetClock_attributes = {
   .name = "GetClock",
@@ -258,7 +259,7 @@ const osThreadAttr_t GetClock_attributes = {
 };
 /* Definitions for CAN_AppTask */
 osThreadId_t CAN_AppTaskHandle;
-uint32_t CAN_AppTaskBuffer[ 128 ];
+uint32_t CAN_AppTaskBuffer[ 256 ];
 osStaticThreadDef_t CAN_AppTaskControlBlock;
 const osThreadAttr_t CAN_AppTask_attributes = {
   .name = "CAN_AppTask",
@@ -270,7 +271,7 @@ const osThreadAttr_t CAN_AppTask_attributes = {
 };
 /* Definitions for Indicators_App */
 osThreadId_t Indicators_AppHandle;
-uint32_t Indicators_AppBuffer[ 128 ];
+uint32_t Indicators_AppBuffer[ 256 ];
 osStaticThreadDef_t Indicators_AppControlBlock;
 const osThreadAttr_t Indicators_App_attributes = {
   .name = "Indicators_App",
@@ -282,7 +283,7 @@ const osThreadAttr_t Indicators_App_attributes = {
 };
 /* Definitions for ServiceIndicato */
 osThreadId_t ServiceIndicatoHandle;
-uint32_t ServiceIndicatoBuffer[ 128 ];
+uint32_t ServiceIndicatoBuffer[ 512 ];
 osStaticThreadDef_t ServiceIndicatoControlBlock;
 const osThreadAttr_t ServiceIndicato_attributes = {
   .name = "ServiceIndicato",
@@ -305,6 +306,95 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T01 = {
     .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(90000),   /**< Minimum periodicity for vTask_demo1 */
     .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(110000)   /**< Maximum periodicity for vTask_demo1 */
 };
+
+TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T02 = {
+	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
+    .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
+    .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(27000),   /**< Minimum periodicity for vTask_demo1 */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(33000)   /**< Maximum periodicity for vTask_demo1 */
+};
+TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T03 = {
+	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
+    .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
+    .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(90000),  /**< Minimum periodicity for Analog_Debounce_Task */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(115000)   /**< Maximum periodicity for Analog_Debounce_Task */
+};
+
+TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T04 = {
+	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
+    .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
+    .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(90000),  /**< Minimum periodicity for FuelGuageTask */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(115000)   /**< Maximum periodicity for FuelGuageTask */
+};
+
+TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T05 = {
+	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
+    .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
+    .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(4500000),  /**< Minimum periodicity for Odo_Task */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(5500000)   /**< Maximum periodicity for Odo_Task */
+};
+
+TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T06 = {
+	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
+    .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
+    .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(4500000),  /**< Minimum periodicity for Speedo_Task */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(5500000)   /**< Maximum periodicity for Speedo_Task */
+};
+
+TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T07 = {
+	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
+    .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
+    .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(950000),  /**< Minimum periodicity for Tacho_Task */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(1500000)   /**< Maximum periodicity for Tacho_Task */
+};
+TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T08 = {
+	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
+    .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
+    .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(4500),  /**< Minimum periodicity for SwitchHandlerTask */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(5500)   /**< Maximum periodicity for SwitchHandlerTask */
+};
+
+TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T09 = {
+	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
+    .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
+    .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(450000),  /**< Minimum periodicity for GetClockTask */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(550000)   /**< Maximum periodicity for GetClockTask */
+};
+
+TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T10 = {
+	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
+    .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
+    .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(90000),  /**< Minimum periodicity for CAN_Task */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(110000)   /**< Maximum periodicity for CAN_Task */
+};
+
+TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T11 = {
+	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
+    .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
+    .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(45000),  /**< Minimum periodicity for IndicatorsApp_Task */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(55000)   /**< Maximum periodicity for IndicatorsApp_Task */
+};
+
+TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T12 = {
+	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
+    .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
+    .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(900000),  /**< Minimum periodicity for ServiceIndicatorApp_Task */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(1100000)   /**< Maximum periodicity for ServiceIndicatorApp_Task */
+};
+
+
+
 
 PUTCHAR_PROTOTYPE
 {
@@ -1602,6 +1692,7 @@ void StartDefaultTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
+	  vStackMonitorDemonTask_Handler();
 //	  res = HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
 //	  if(res == HAL_OK)
 //	  {
@@ -1663,17 +1754,22 @@ void DigitalDebounce_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
+#if 1
+	  printf("DigitalDebounce_Task\n\r");
 	  /**:To ensure periodicity monitoring of this task, vCheckPeriodicity shall be called from here in a loop;*/
 	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T01,vTask_demo1PeriodicityCheckErrorHook );
 //	  vStackMonitorDemonTask_Handler();
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  DebounceTask();
       vGet_Switch_DebouncedStatus();
-	  //vTaskDelay(10);
-//	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(3000), execTimeFault_cb1);
-      HAL_Delay(100);
+	  osDelay(100); //      HAL_Delay(100); //	  vTaskDelay(100);
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(110000), execTimeFault_cb1);
-
+#else
+//	  DebounceTask();
+//      vGet_Switch_DebouncedStatus();
+////	  vTaskDelay(100);
+	  osDelay(100);
+#endif
 
   }
   /* USER CODE END DigitalDebounce_Task */
@@ -1729,19 +1825,62 @@ void vTask_demo1PeriodicityCheckErrorHook(TaskPeriodicityCheck_t *xPeriodicityCh
 
 }
 
+void vApplicationStackUsageLimit(TaskHandle2_t xTask, const char *pcTaskName)
+{
 
+	printf("Task handle: %p, Task name: %s, exceeded stack usage limit\n",xTask,pcTaskName);
+
+#if(UART_DEBUG == 1)
+
+	/** @startuml */ /** start */
+	/**: Buffer to hold vApplicationStackUsageLimit stats;*/
+	char ucBuffer[50];
+	/**: Transmit the vApplicationStackUsageLimit stats message via UART;*/
+	snprintf(ucBuffer, sizeof(ucBuffer), "Task handle: %p, Task name: %s, exceeded stack usage limit\n",xTask,pcTaskName);
+
+	while ((HAL_UART_Transmit(&huart1, (uint8_t *)ucBuffer, strlen(ucBuffer), 30)) != HAL_OK)
+	{
+		/**:You can add some error handling here if needed;*/
+		break;
+	}
+	/** end*/ /** @enduml */
+#endif
+}
+void vMaxTaskRegisteredCallback(uint8_t registered_task_index)
+{
+#if(UART_DEBUG == 1)
+	/** @startuml */ /** start */
+	/**: Buffer to hold callbackHookMaxTaskRegistered index;*/
+	char ucBuffer[50];
+	/**: Transmit the callbackHookMaxTaskRegistered index message via UART;*/
+	snprintf(ucBuffer, sizeof(ucBuffer), "callbackHookMaxTaskRegistered: %d\n",registered_task_index);
+	while ((HAL_UART_Transmit(&huart1, (uint8_t *)ucBuffer, strlen(ucBuffer), 30)) != HAL_OK)
+	{
+		/**:You can add some error handling here if needed;*/
+		break;
+	}
+	/** end*/ /** @enduml */
+#endif
+}
 /* USER CODE END Header_State_Machine_Task */
 void State_Machine_Task(void *argument)
 {
   /* USER CODE BEGIN State_Machine_Task */
+	static TaskRunTimeStat_t p_measurement_var_ptr;
+	vReset_executionTimeStats(&p_measurement_var_ptr);
   /* Infinite loop */
   for(;;)
   {
+#if 0
+	  printf("State_Machine_Task\n\r");
+	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T02,vTask_demo1PeriodicityCheckErrorHook );
+	  vBeginExecMeas(&p_measurement_var_ptr);
 
-	//HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x4E20, RTC_WAKEUPCLOCK_RTCCLK_DIV16);
 	  State_Manager_task();
-	      osDelay(10);
-
+	  osDelay(30);
+	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(30100), execTimeFault_cb1);
+#endif
+	  osDelay(10);
   }
   /* USER CODE END State_Machine_Task */
 }
@@ -1756,10 +1895,16 @@ void State_Machine_Task(void *argument)
 void Analog_Debounce_Task(void *argument)
 {
   /* USER CODE BEGIN Analog_Debounce_Task */
- uint8_t Batt_state = 0 ;
+    uint8_t Batt_state = 0 ;
+ 	static TaskRunTimeStat_t p_measurement_var_ptr;
+ 	vReset_executionTimeStats(&p_measurement_var_ptr);
   /* Infinite loop */
   for(;;)
   {
+#if 1
+	  printf("Analog_Debounce_Task\n\r");
+	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T03,vTask_demo1PeriodicityCheckErrorHook );
+	  vBeginExecMeas(&p_measurement_var_ptr);
 	  HAL_ADC_Start(&hadc3); // start the adc
 	  HAL_ADC_PollForConversion(&hadc3, 100); // poll for conversion
 	  gl_BAT_MON_u32 = HAL_ADC_GetValue(&hadc3); // get the adc value
@@ -1771,6 +1916,9 @@ void Analog_Debounce_Task(void *argument)
 	  printf("Batt_state:%d\r\n",Batt_state);
 #endif
     osDelay(100);
+    vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(105000), execTimeFault_cb1);
+#endif
+    //osDelay(100);
   }
   /* USER CODE END Analog_Debounce_Task */
 }
@@ -1785,15 +1933,24 @@ void Analog_Debounce_Task(void *argument)
 void FuelGuageTask(void *argument)
 {
   /* USER CODE BEGIN FuelGuageTask */
+ 	static TaskRunTimeStat_t p_measurement_var_ptr;
+ 	vReset_executionTimeStats(&p_measurement_var_ptr);
   /* Infinite loop */
   for(;;)
   {
+#if 1
+      printf("FuelGuageTask\n\r");
+	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T04,vTask_demo1PeriodicityCheckErrorHook );
+	  vBeginExecMeas(&p_measurement_var_ptr);
 	  HAL_ADC_Start(&hadc1);
 	  HAL_ADC_PollForConversion(&hadc1, 1);
 	  usADCValue=(uint16_t)HAL_ADC_GetValue(&hadc1);
 	  //printf("ADC-%d\r\n",usADCValue);
 	  vFuelGuageTask();
-    osDelay(100);
+      osDelay(100);
+      vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(105000), execTimeFault_cb1);
+#endif
+      //osDelay(100);
   }
   /* USER CODE END FuelGuageTask */
 }
@@ -1808,11 +1965,20 @@ void FuelGuageTask(void *argument)
 void Odo_Task(void *argument)
 {
   /* USER CODE BEGIN Odo_Task */
+ 	static TaskRunTimeStat_t p_measurement_var_ptr;
+ 	vReset_executionTimeStats(&p_measurement_var_ptr);
   /* Infinite loop */
   for(;;)
   {
+#if 1
+	  printf("Odo_Task\n\r");
+	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T05,vTask_demo1PeriodicityCheckErrorHook );
+	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vOdoAlgorithm();
-    osDelay(5000);
+      osDelay(5000);
+      vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(5100000), execTimeFault_cb1);
+#endif
+      //osDelay(5000);
   }
   /* USER CODE END Odo_Task */
 }
@@ -1827,11 +1993,20 @@ void Odo_Task(void *argument)
 void Speedo_Task(void *argument)
 {
   /* USER CODE BEGIN Speedo_Task */
+ 	static TaskRunTimeStat_t p_measurement_var_ptr;
+ 	vReset_executionTimeStats(&p_measurement_var_ptr);
   /* Infinite loop */
   for(;;)
   {
+#if 1
+	  printf("Speedo_Task\n\r");
+	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T06,vTask_demo1PeriodicityCheckErrorHook );
+	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vSpeedoAlgorithm();
     osDelay(5000);
+    vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(5100000), execTimeFault_cb1);
+#endif
+    //osDelay(5000);
   }
   /* USER CODE END Speedo_Task */
 }
@@ -1846,11 +2021,20 @@ void Speedo_Task(void *argument)
 void Tacho_Task(void *argument)
 {
   /* USER CODE BEGIN Tacho_Task */
+ 	static TaskRunTimeStat_t p_measurement_var_ptr;
+ 	vReset_executionTimeStats(&p_measurement_var_ptr);
   /* Infinite loop */
   for(;;)
   {
+#if 1
+	  printf("Tacho_Task\n\r");
+	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T07,vTask_demo1PeriodicityCheckErrorHook );
+	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vTacho_App();
     osDelay(1000);
+    vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1100000), execTimeFault_cb1);
+#endif
+    //osDelay(1000);
   }
   /* USER CODE END Tacho_Task */
 }
@@ -1865,12 +2049,21 @@ void Tacho_Task(void *argument)
 void SwitchHandlerTask(void *argument)
 {
   /* USER CODE BEGIN SwitchHandlerTask */
+ 	static TaskRunTimeStat_t p_measurement_var_ptr;
+ 	vReset_executionTimeStats(&p_measurement_var_ptr);
   /* Infinite loop */
   for(;;)
   {
+#if 0
+	  printf("SwitchHandlerTask\n\r");
+	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T08,vTask_demo1PeriodicityCheckErrorHook );
+	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vSwitchHandlerTask();
 	  Switch_Task();
 	  vHandleModeResetActions();
+	  osDelay(5);
+	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(5500), execTimeFault_cb1);
+#endif
 	  osDelay(1);
   }
   /* USER CODE END SwitchHandlerTask */
@@ -1886,12 +2079,21 @@ void SwitchHandlerTask(void *argument)
 void GetClockTask(void *argument)
 {
   /* USER CODE BEGIN GetClockTask */
+ 	static TaskRunTimeStat_t p_measurement_var_ptr;
+ 	vReset_executionTimeStats(&p_measurement_var_ptr);
   /* Infinite loop */
   for(;;)
   {
+#if 1
+	  printf("GetClockTask\n\r");
+	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T09,vTask_demo1PeriodicityCheckErrorHook );
+	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vGet_Clock();
 	  vClockIncreament();
 	  osDelay(500);
+	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(520000), execTimeFault_cb1);
+#endif
+	  //osDelay(500);
   }
   /* USER CODE END GetClockTask */
 }
@@ -1906,12 +2108,21 @@ void GetClockTask(void *argument)
 void CAN_Task(void *argument)
 {
   /* USER CODE BEGIN CAN_Task */
+ 	static TaskRunTimeStat_t p_measurement_var_ptr;
+ 	vReset_executionTimeStats(&p_measurement_var_ptr);
   /* Infinite loop */
   for(;;)
   {
+#if 1
+	  printf("CAN_Task\n\r");
+	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T10,vTask_demo1PeriodicityCheckErrorHook );
+	  vBeginExecMeas(&p_measurement_var_ptr);
 //	vCANTransmit();
 //	vCANReceive();
-    osDelay(100);
+	osDelay(100);
+	vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(110000), execTimeFault_cb1);
+#endif
+	//osDelay(100);
   }
   /* USER CODE END CAN_Task */
 }
@@ -1926,9 +2137,15 @@ void CAN_Task(void *argument)
 void IndicatorsApp_Task(void *argument)
 {
   /* USER CODE BEGIN IndicatorsApp_Task */
+ 	static TaskRunTimeStat_t p_measurement_var_ptr;
+ 	vReset_executionTimeStats(&p_measurement_var_ptr);
   /* Infinite loop */
 	for(;;)
 	  {
+#if 0
+	 	printf("IndicatorsApp_Task\n\r");
+	   vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T11,vTask_demo1PeriodicityCheckErrorHook );
+	   vBeginExecMeas(&p_measurement_var_ptr);
 		vIndicator_App_Task();
 		indicator = xGetIndicatorstatus();
 		//printf("indicator=%lu\r\n",indicator);
@@ -1938,7 +2155,9 @@ void IndicatorsApp_Task(void *argument)
 		// or
 		//printf("Indicator_status: %x\r\n",  xGetIndicatorstatus());
 	    osDelay(50);
-
+	    vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(50000), execTimeFault_cb1);
+#endif
+	    osDelay(50);
 	  }
   /* USER CODE END IndicatorsApp_Task */
 }
@@ -1953,11 +2172,20 @@ void IndicatorsApp_Task(void *argument)
 void ServiceIndicatorApp_Task(void *argument)
 {
   /* USER CODE BEGIN ServiceIndicatorApp_Task */
+	static TaskRunTimeStat_t p_measurement_var_ptr;
+	vReset_executionTimeStats(&p_measurement_var_ptr);
   /* Infinite loop */
   for(;;)
   {
-	  vServiceRequestTask();
+#if 1
+	printf("ServiceIndicatorApp_Task\n\r");
+    vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T12,vTask_demo1PeriodicityCheckErrorHook );
+    vBeginExecMeas(&p_measurement_var_ptr);
+	vServiceRequestTask();
     osDelay(1000);
+    vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1100000), execTimeFault_cb1);
+#endif
+    //osDelay(1000);
   }
   /* USER CODE END ServiceIndicatorApp_Task */
 }
