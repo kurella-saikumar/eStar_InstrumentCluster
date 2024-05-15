@@ -410,7 +410,7 @@ int main(void)
   MX_ADC1_Init();
   MX_RTC_Init();
   MX_USART3_UART_Init();
-//  MX_IWDG1_Init();
+  MX_IWDG1_Init();
   MX_ADC3_Init();
   MX_FDCAN3_Init();
   MX_TouchGFX_Init();
@@ -440,7 +440,6 @@ int main(void)
 
   vEE_Demo();
   Disp_imgDataHyperRAM_Init();
-  MX_IWDG1_Init();
 
   /* USER CODE END 2 */
 
