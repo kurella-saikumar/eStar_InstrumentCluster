@@ -258,13 +258,13 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 	{
 		return HAL_ERROR;
 	}
-	ulHeader_Receive_FirstWord = (ucHeader_Receive_FirstWord[0]<<24|ucHeader_Receive_FirstWord[1]<<16|ucHeader_Receive_FirstWord[2]<<8|ucHeader_Receive_FirstWord[0]);
+	ulHeader_Receive_FirstWord = (ucHeader_Receive_FirstWord[0]<<24|ucHeader_Receive_FirstWord[1]<<16|ucHeader_Receive_FirstWord[2]<<8|ucHeader_Receive_FirstWord[3]);
 
 	if(HAL_OK != xFI_ReadDoubleWord(((Address)+4U), ucHeader_Receive_SecondWord))
 	{
 		return HAL_ERROR;
 	}
-	ulHeader_Receive_SecondWord = (ucHeader_Receive_SecondWord[0]<<24|ucHeader_Receive_SecondWord[1]<<16|ucHeader_Receive_SecondWord[2]<<8|ucHeader_Receive_SecondWord[0]);
+	ulHeader_Receive_SecondWord = (ucHeader_Receive_SecondWord[0]<<24|ucHeader_Receive_SecondWord[1]<<16|ucHeader_Receive_SecondWord[2]<<8|ucHeader_Receive_SecondWord[3]);
 
 	/* Combine the two 4bytes to form the Header element 8 byte(64-bit value)*/
 	status1 = ((uint64_t)ulHeader_Receive_SecondWord << 32) | ulHeader_Receive_FirstWord;
@@ -274,13 +274,13 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 	{
 		return HAL_ERROR;
 	}
-	ulHeader_Active_FirstWord = (ucHeader_Active_FirstWord[0]<<24|ucHeader_Active_FirstWord[1]<<16|ucHeader_Active_FirstWord[2]<<8|ucHeader_Active_FirstWord[0]);
+	ulHeader_Active_FirstWord = (ucHeader_Active_FirstWord[0]<<24|ucHeader_Active_FirstWord[1]<<16|ucHeader_Active_FirstWord[2]<<8|ucHeader_Active_FirstWord[3]);
 
 	if(HAL_OK != xFI_ReadDoubleWord((((Address) + EE_HEADER_ELEMENT_SIZE)+4U), ucHeader_Active_SecondWord))
 	{
 		return HAL_ERROR;
 	}
-	ulHeader_Active_SecondWord = (ucHeader_Active_SecondWord[0]<<24|ucHeader_Active_SecondWord[1]<<16|ucHeader_Active_SecondWord[2]<<8|ucHeader_Active_SecondWord[0]);
+	ulHeader_Active_SecondWord = (ucHeader_Active_SecondWord[0]<<24|ucHeader_Active_SecondWord[1]<<16|ucHeader_Active_SecondWord[2]<<8|ucHeader_Active_SecondWord[3]);
 
 	/* Combine the two 4bytes to form the Header element 8 byte(64-bit value)*/
 	status2 = ((uint64_t)ulHeader_Active_SecondWord << 32) | ulHeader_Active_FirstWord;
@@ -290,14 +290,14 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 	{
 		return HAL_ERROR;
 	}
-	ulHeader_Valid_FirstWord =(ucHeader_Valid_FirstWord[0]<<24|ucHeader_Valid_FirstWord[1]<<16|ucHeader_Valid_FirstWord[2]<<8|ucHeader_Valid_FirstWord[0]);
+	ulHeader_Valid_FirstWord =(ucHeader_Valid_FirstWord[0]<<24|ucHeader_Valid_FirstWord[1]<<16|ucHeader_Valid_FirstWord[2]<<8|ucHeader_Valid_FirstWord[3]);
 
 
 	if(HAL_OK != xFI_ReadDoubleWord((((Address) + (EE_HEADER_ELEMENT_SIZE*2U))+4U),ucHeader_Valid_SecondWord))
 	{
 		return HAL_ERROR;
 	}
-	ulHeader_Valid_SecondWord = (ucHeader_Valid_SecondWord[0]<<24|ucHeader_Valid_SecondWord[1]<<16|ucHeader_Valid_SecondWord[2]<<8|ucHeader_Valid_SecondWord[0]);
+	ulHeader_Valid_SecondWord = (ucHeader_Valid_SecondWord[0]<<24|ucHeader_Valid_SecondWord[1]<<16|ucHeader_Valid_SecondWord[2]<<8|ucHeader_Valid_SecondWord[3]);
 
 	/* Combine the two 4bytes to form the Header element 8 byte(64-bit value)*/
 	status3 = ((uint64_t)ulHeader_Valid_SecondWord << 32) | ulHeader_Valid_FirstWord;
@@ -307,13 +307,13 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 	{
 		return HAL_ERROR;
 	}
-	ulHeader_Erasing_FirstWord = (ucHeader_Erasing_FirstWord[0]<<24|ucHeader_Erasing_FirstWord[1]<<16|ucHeader_Erasing_FirstWord[2]<<8|ucHeader_Erasing_FirstWord[0]);
+	ulHeader_Erasing_FirstWord = (ucHeader_Erasing_FirstWord[0]<<24|ucHeader_Erasing_FirstWord[1]<<16|ucHeader_Erasing_FirstWord[2]<<8|ucHeader_Erasing_FirstWord[3]);
 
 	if(HAL_OK != xFI_ReadDoubleWord((((Address) + (EE_HEADER_ELEMENT_SIZE*3U))+4U),ucHeader_Erasing_SecondWord))
 	{
 		return HAL_ERROR;
 	}
-	ulHeader_Erasing_SecondWord = (ucHeader_Erasing_SecondWord[0]<<24|ucHeader_Erasing_SecondWord[1]<<16|ucHeader_Erasing_SecondWord[2]<<8|ucHeader_Erasing_SecondWord[0]);
+	ulHeader_Erasing_SecondWord = (ucHeader_Erasing_SecondWord[0]<<24|ucHeader_Erasing_SecondWord[1]<<16|ucHeader_Erasing_SecondWord[2]<<8|ucHeader_Erasing_SecondWord[3]);
 
 	/* Combine the two 4bytes to form the Header element 8 byte(64-bit value)*/
 	status4 = ((uint64_t)ulHeader_Erasing_SecondWord << 32) | ulHeader_Erasing_FirstWord;

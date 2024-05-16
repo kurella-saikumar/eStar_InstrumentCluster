@@ -1,4 +1,4 @@
-../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:232:16:prvGetPageState	128	static
+../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:232:16:prvGetPageState	72	static
 ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:358:12:prvSetPageState	32	static
 ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:454:11:prvEE_CleanUp	8	static
 ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:511:11:prvVerifyPageFullyErased	40	static
