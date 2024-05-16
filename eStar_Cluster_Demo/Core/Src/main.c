@@ -1755,11 +1755,22 @@ void FuelGuageTask(void *argument)
 void Odo_Task(void *argument)
 {
   /* USER CODE BEGIN Odo_Task */
+	vehicleDisplayMetrics_t xEE_OdoUnits;
   /* Infinite loop */
   for(;;)
   {
-	  vOdoAlgorithm();
-    osDelay(5000);
+	vOdoAlgorithm();
+	*eepromVariables[0] = xGetOdoReadings(&xEE_OdoUnits);
+	uint16_t FlashStatus= xES_WriteVariable(eepromVariables[0],*eepromVariables[0],eepromVariables[0]);
+	if (BSP_ERROR_NONE == FlashStatus)
+	{
+		printf("ESWrite Success:at %p, eepromVariables[0]:0x%lx \n\r",eepromVariables[0],*eepromVariables[0]);
+	}
+	else
+	{
+		printf("ESWrite Fail:eepromVariables\n\r");
+	}
+	osDelay(5000);
   }
   /* USER CODE END Odo_Task */
 }

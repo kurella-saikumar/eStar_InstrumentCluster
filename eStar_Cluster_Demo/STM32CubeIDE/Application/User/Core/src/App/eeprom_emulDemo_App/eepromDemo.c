@@ -168,7 +168,7 @@ void vEE_Demo(void)
 #endif
 	}
 	/********** Updating the eeprom with new values 10-89 (80) of 20 variables *******/
-
+#if 0
 	/* Loop through each variable and perform the write check */
 	for (int i =10; i <30; i++)
 	{
@@ -212,7 +212,7 @@ void vEE_Demo(void)
 		}
 
 	}
-
+#endif
 }
 
 
