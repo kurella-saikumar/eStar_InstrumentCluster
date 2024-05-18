@@ -31,8 +31,8 @@
  * Include Platform or Standard Headers
  ***************************************************************************************************/
 #include "Odometer_App.h"
-
-
+#include "eeprom_emul.h"
+#include "eeprom_emul_cfg.h"
 //#include "Odometer_App_cfg.h"
 
 
@@ -244,12 +244,50 @@ void xWrite_OdoVal_to_EEPROM(void)
 {
 	//Write EEPROM API here
 	//mprintf("ulOdoInEeprom: %ld\n", ulOdoInEeprom);
+	*eepromVariables[0] = ulOdoInEeprom;
+
+//	*eepromVariables[0] = xGetOdoReadings(&xEE_OdoUnits);
+	uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[0],*eepromVariables[0],eepromVariables[0]);
+	if (0 == FlashStatus)
+	{
+#if(EMUL_DEBUG_ENABLE == 0)
+		printf("ESWrite Success:at 0x%lx, eepromVariables[0]:0x%lx \n\r",eepromVariables[0],*eepromVariables[0]);
+//		printf("eepromVariables[0]: 0x%lx \n\r",*eepromVariables[0]);
+#endif
+	}
+	else
+	{
+#if(EMUL_DEBUG_ENABLE == 0)
+		printf("ESWrite Fail:eepromVariables\n\r");
+#endif
+	}
+#if 0
+	uint16_t FlashStatus2 = xEE_ReadVariable32bits((uint32_t)eepromVariables[0], eepromVariables[0]);
+	if (0 != FlashStatus2)
+	{
+#if(EMUL_DEBUG_ENABLE == 0)
+		printf("Read Fail:eepromVariables:%d\n\r",FlashStatus2);
+		printf("eepromVariables[0] at :0x%lx data :0x%lx\n\r",eepromVariables[0],*eepromVariables[0]);
+#endif
+	}
+	else
+	{
+#if(EMUL_DEBUG_ENABLE == 0)
+		printf("Read Success:eepromVariables[0] at :0x%lx data :0x%lx\n\r",eepromVariables[0],*eepromVariables[0]);
+#endif
+	}
+#endif
 }
 
 void xRetrive_LastStored_OdoVal_from_EEPROM(void)
 {
 	//Write EEPROM API here
 	// ulTotalOdo = ActualAPI();
+
+	ulOdoInEeprom = *eepromVariables[0];
+	printf("ulOdoInEeprom:0x%lx,eepromVariables[0]:0x%lx\n\r",ulOdoInEeprom,*eepromVariables[0]);
+	ulTotalOdo = (ulOdoInEeprom/10);
+
 #if(ODO_TEST_MACRO == 1)
 	//printf("Reading last stored Odo value from EEPROM\n");
 #endif

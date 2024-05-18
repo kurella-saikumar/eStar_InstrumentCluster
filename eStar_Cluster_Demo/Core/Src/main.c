@@ -897,7 +897,7 @@ static void MX_IWDG1_Init(void)
   /* USER CODE END IWDG1_Init 1 */
   hiwdg1.Instance = IWDG1;
   hiwdg1.Init.Prescaler = IWDG_PRESCALER_256;
-  hiwdg1.Init.Window = 400;
+  hiwdg1.Init.Window = 4095;//400;
   hiwdg1.Init.Reload = 4095;
   if (HAL_IWDG_Init(&hiwdg1) != HAL_OK)
   {
@@ -1044,7 +1044,7 @@ static void MX_OCTOSPI2_Init(void)
 {
 
   /* USER CODE BEGIN OCTOSPI2_Init 0 */
-  BSP_OSPI_RAM_Init_t ospi_ram_init;
+//  BSP_OSPI_RAM_Init_t ospi_ram_init;
   /* USER CODE END OCTOSPI2_Init 0 */
 
   OSPIM_CfgTypeDef sOspiManagerCfg = {0};
@@ -1703,7 +1703,7 @@ void State_Machine_Task(void *argument)
 void Analog_Debounce_Task(void *argument)
 {
   /* USER CODE BEGIN Analog_Debounce_Task */
- uint8_t Batt_state = 0 ;
+// uint8_t Batt_state = 0 ;
   /* Infinite loop */
   for(;;)
   {
@@ -1713,8 +1713,9 @@ void Analog_Debounce_Task(void *argument)
 	 // printf("gl_BAT_MON_u32:%ld\r\n",gl_BAT_MON_u32);
 	//  HAL_ADC_Stop(&hadc1); // stop adc
 	  analog_debounce_task();
-	  Batt_state = get_analog_debounce_state(0);
+
 #if(BATMON_TEST_MACRO == 1)
+	  Batt_state = get_analog_debounce_state(0);
 	  printf("Batt_state:%d\r\n",Batt_state);
 #endif
     osDelay(100);
@@ -1755,21 +1756,11 @@ void FuelGuageTask(void *argument)
 void Odo_Task(void *argument)
 {
   /* USER CODE BEGIN Odo_Task */
-	vehicleDisplayMetrics_t xEE_OdoUnits;
   /* Infinite loop */
   for(;;)
   {
 	vOdoAlgorithm();
-	*eepromVariables[0] = xGetOdoReadings(&xEE_OdoUnits);
-	uint16_t FlashStatus= xES_WriteVariable(eepromVariables[0],*eepromVariables[0],eepromVariables[0]);
-	if (BSP_ERROR_NONE == FlashStatus)
-	{
-		printf("ESWrite Success:at %p, eepromVariables[0]:0x%lx \n\r",eepromVariables[0],*eepromVariables[0]);
-	}
-	else
-	{
-		printf("ESWrite Fail:eepromVariables\n\r");
-	}
+	xWrite_OdoVal_to_EEPROM();
 	osDelay(5000);
   }
   /* USER CODE END Odo_Task */

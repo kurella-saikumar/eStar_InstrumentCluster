@@ -7,8 +7,8 @@
 ../Application/User/Core/src/App/Odometer_App/Odometer_App.c:206:10:xGetTripA_OdoReading	12	static
 ../Application/User/Core/src/App/Odometer_App/Odometer_App.c:237:6:vResetTripB_OdoReadings	0	static
 ../Application/User/Core/src/App/Odometer_App/Odometer_App.c:121:6:vOdoAlgorithm	8	static
-../Application/User/Core/src/App/Odometer_App/Odometer_App.c:243:6:xWrite_OdoVal_to_EEPROM	0	static
-../Application/User/Core/src/App/Odometer_App/Odometer_App.c:249:6:xRetrive_LastStored_OdoVal_from_EEPROM	0	static
-../Application/User/Core/src/App/Odometer_App/Odometer_App.c:258:10:xGetTripB_OdoReading	12	static
-../Application/User/Core/src/App/Odometer_App/Odometer_App.c:305:10:xGetOdoReadings	0	static
-../Application/User/Core/src/App/Odometer_App/Odometer_App.c:326:6:vToggleOdoUnits	0	static
+../Application/User/Core/src/App/Odometer_App/Odometer_App.c:243:6:xWrite_OdoVal_to_EEPROM	8	static
+../Application/User/Core/src/App/Odometer_App/Odometer_App.c:282:6:xRetrive_LastStored_OdoVal_from_EEPROM	8	static
+../Application/User/Core/src/App/Odometer_App/Odometer_App.c:296:10:xGetTripB_OdoReading	12	static
+../Application/User/Core/src/App/Odometer_App/Odometer_App.c:343:10:xGetOdoReadings	0	static
+../Application/User/Core/src/App/Odometer_App/Odometer_App.c:364:6:vToggleOdoUnits	0	static

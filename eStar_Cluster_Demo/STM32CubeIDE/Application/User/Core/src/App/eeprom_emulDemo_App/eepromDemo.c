@@ -143,16 +143,17 @@ void vEE_Demo(void)
 #endif
 	}
 
+//	prvEE_Format(EE_FORCED_ERASE);
 	/* Init Sequence */
 	if ( 0U != xEE_Init(EE_FORCED_ERASE))
 	{
-#if(EMUL_DEBUG_ENABLE == 0)
+#if(EMUL_DEBUG_ENABLE == 1)
 		printf("xEE_Init:Fail \n\r");
 #endif
 	}
 	else
 	{
-#if(EMUL_DEBUG_ENABLE == 0)
+#if(EMUL_DEBUG_ENABLE == 1)
 		printf("xEE_Init:Success \n\r");
 #endif
 	}
@@ -163,10 +164,11 @@ void vEE_Demo(void)
 	/* Loop through each variable and perform the Read check */
 	for (int i = 0; i < sizeof(eepromVariables) / sizeof(eepromVariables[0]); i++)
 	{
-#if(EMUL_DEBUG_ENABLE == 0)
+#if(EMUL_DEBUG_ENABLE == 1)
 		printf("ShadowRam Read: eepromVariables[%d] at :%p data :0x%lx\n\r",i,eepromVariables[i],*eepromVariables[i]);
 #endif
 	}
+	xRetrive_LastStored_OdoVal_from_EEPROM();
 	/********** Updating the eeprom with new values 10-89 (80) of 20 variables *******/
 #if 0
 	/* Loop through each variable and perform the write check */
