@@ -285,6 +285,18 @@ const osThreadAttr_t ServiceIndicato_attributes = {
   .stack_size = sizeof(ServiceIndicatoBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for Odometer_Test */
+osThreadId_t Odometer_TestHandle;
+uint32_t Odometer_Test_ABuffer[ 128 ];
+osStaticThreadDef_t Odometer_Test_AControlBlock;
+const osThreadAttr_t Odometer_Test_attributes = {
+  .name = "Odometer_Test",
+  .cb_mem = &Odometer_Test_AControlBlock,
+  .cb_size = sizeof(Odometer_Test_AControlBlock),
+  .stack_mem = &Odometer_Test_ABuffer[0],
+  .stack_size = sizeof(Odometer_Test_ABuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* USER CODE BEGIN PV */
 /**
   * @brief  Retargets the C library printf function to the USART.
@@ -336,6 +348,7 @@ void GetClockTask(void *argument);
 void CAN_Task(void *argument);
 void IndicatorsApp_Task(void *argument);
 void ServiceIndicatorApp_Task(void *argument);
+void Odometer_Test_App_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
 void vBacklightBrightness(void);
@@ -501,6 +514,9 @@ int main(void)
 
   /* creation of ServiceIndicato */
   ServiceIndicatoHandle = osThreadNew(ServiceIndicatorApp_Task, NULL, &ServiceIndicato_attributes);
+
+  /* creation of Odometer_Test */
+  Odometer_TestHandle = osThreadNew(Odometer_Test_App_Task, NULL, &Odometer_Test_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1167,10 +1183,10 @@ static void MX_RTC_Init(void)
 
   /** Enable the WakeUp
   */
-//  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
-//  {
-//    Error_Handler();
-//  }
+  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+  {
+    Error_Handler();
+  }
   /* USER CODE BEGIN RTC_Init 2 */
   if(HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR0) != 0x32F2)
   {
@@ -1848,6 +1864,31 @@ void ServiceIndicatorApp_Task(void *argument)
     osDelay(1000);
   }
   /* USER CODE END ServiceIndicatorApp_Task */
+}
+
+/* USER CODE BEGIN Header_Odometer_Test_App_Task */
+/**
+* @brief Function implementing the Odometer_Test thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_Odometer_Test_App_Task */
+void Odometer_Test_App_Task(void *argument)
+{
+  /* USER CODE BEGIN Odometer_Test_App_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+	  vehicleDisplayMetrics_t Test_Trip_Units = 0;
+	  vToggleOdoUnits();
+	  xGetTripA_OdoReading(&Test_Trip_Units);
+	  xGetTripB_OdoReading(&Test_Trip_Units);
+	  vResetTripA_OdoReadings();
+	  vResetTripB_OdoReadings();
+
+    osDelay(30000);
+  }
+  /* USER CODE END Odometer_Test_App_Task */
 }
 
  /* MPU Configuration */

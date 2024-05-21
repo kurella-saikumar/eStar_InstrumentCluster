@@ -125,11 +125,11 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 	{
 	case CLOCK_ENTRY:
 	{
-		printf("Clock Edit Mode Entry\n");
+//		printf("Clock Edit Mode Entry\n");
 		HAL_RTC_GetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
 		ulHours = xEditTime.Hours;
 		ulMinutes = xEditTime.Minutes;
-		printf("Hours:%02d,Minutes:%02d \n", ulHours, ulMinutes);
+//		printf("Hours:%02d,Minutes:%02d \n", ulHours, ulMinutes);
 	}
 	break;
 	case MODE_LONGPRESS:
@@ -152,11 +152,11 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 	break;
     case RESET_LONGPRESS_RELEASE:
         	ulContinousIncrement_flag = 0;
-        	printf("Long Press Release\n\r");
+//        	printf("Long Press Release\n\r");
         break;
     case RESET_LONGPRESS_HELD:
     	ulContinousIncrement_flag = 1;
-    	printf("Long Press Held\n\r");
+//    	printf("Long Press Held\n\r");
     break;
       case RESET_SHORTPRESS:
     	if (ulShiftingPosition == E_CLOCK_HOURS_POS)
@@ -195,9 +195,9 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 
 void vClock_exit(void)
 {
-	printf("Exit Param: H: %d\tM: %d\n", xEditTime.Hours, xEditTime.Minutes);
+//	printf("Exit Param: H: %d\tM: %d\n", xEditTime.Hours, xEditTime.Minutes);
 	HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
-	printf("Clock edit mode exit\n");
+//	printf("Clock edit mode exit\n");
 }
 
 void ContinousIncrement(void)
@@ -208,7 +208,7 @@ void ContinousIncrement(void)
 		xEditTime.Hours++;
 		// Ensure hours wrap around correctly
 		xEditTime.Hours %= 24;
-		printf("ContinousIncrement_Hours:%d",xEditTime.Hours);
+//		printf("ContinousIncrement_Hours:%d",xEditTime.Hours);
 	}
 	else if (ulShiftingPosition == E_CLOCK_MINS_POS)
 	{
@@ -223,7 +223,7 @@ void ContinousIncrement(void)
 			xEditTime.Hours++;
 				// Ensure hours wrap around correctly
 			xEditTime.Hours %= 24;
-			printf("ContinousIncrement_Minutes:%d",xEditTime.Minutes);
+//			printf("ContinousIncrement_Minutes:%d",xEditTime.Minutes);
 		}
 		else
 		{
@@ -244,7 +244,7 @@ void vClockIncreament(void)
 //		if (0 == xGetResetSwitch())
 //		{
 			ContinousIncrement();
-			printf("ContinousIncrement success\n\r");
+//			printf("ContinousIncrement success\n\r");
 //		}
 //		else
 //		{
