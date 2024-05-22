@@ -33,7 +33,7 @@
 #include "stm32h735g_discovery_ospi.h"
 #include "eeprom_emul.h"
 #include "eeprom_emul_cfg.h"
-
+#include "Odometer_App.h"
 /**************************************************************************************************
  * DEFINE FILE SCOPE MACROS
 ***************************************************************************************************/

@@ -1528,7 +1528,7 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 #if(EMUL_DEBUG_ENABLE == 1)
  					printf("ulReadAddr = 0x%lx,ulData = 0x%lx\n\r",ulReadAddr,ulData);
 #endif
- 					memcpy(ulReadAddr, &ulData, sizeof(ulData));
+ 					memcpy((void *)ulReadAddr,(const void *) &ulData, sizeof(ulData));
  				}
  				else
  				{
