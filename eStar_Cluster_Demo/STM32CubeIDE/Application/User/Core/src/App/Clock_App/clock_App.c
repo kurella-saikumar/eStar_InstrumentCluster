@@ -114,7 +114,7 @@ void vGet_Clock(void)
     }
     else
     {
-    	printf("Current date: %02d-%02d-%04d\n", xDate.Date, xDate.Month, xDate.Year);
+    	//printf("Current date: %02d-%02d-%04d\n", xDate.Date, xDate.Month, xDate.Year);
     }
 
 }

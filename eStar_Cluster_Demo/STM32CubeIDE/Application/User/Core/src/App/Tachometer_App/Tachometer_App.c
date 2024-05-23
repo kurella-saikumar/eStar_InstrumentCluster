@@ -57,7 +57,7 @@
 	uint32_t ulPresentCapture = 0;
 	int32_t slDeltaPulse = 0;
 	uint32_t ulFrequency = 0;
-	TaskRunTimeStat_t Tacho_Exe_measurement_var;
+
 
 
 
@@ -183,15 +183,15 @@ uint16_t xGet_TachometerData(IndicationStatus_t* Indication, bool *status)
  *
  * @return void
  */
-int var;
+//int var;
 void vTacho_App(void)
 {   
 
     uint8_t ucIgnitionStatus=0;
     ucIgnitionStatus = usIgnitionGetCurrentState();
 //   // printf("IgnitionStatus: %i\r\n", ignitionStatus);  debug purpose
-    vBeginExecMeas(&Tacho_Exe_measurement_var);
-#if 0
+   //
+#if 1
     if(ucIgnitionStatus == IgnOFF_mode)
       {
     	ulRpm = 0;
@@ -208,11 +208,11 @@ void vTacho_App(void)
 //    	 xGet_TachometerData(&Indication,&status);
     }
 #endif
-    vTaskDelay(1000);
-    vEndExecMeas(&Tacho_Exe_measurement_var,CONVERT_TIMER_COUNTS_TO_US(1000),execTimeFault_cb2);
+  //  osDelay(50);
+
     
 
-    var=0;
+   // var=0;
 }
 #endif	/* TACHOMETER_C */
 

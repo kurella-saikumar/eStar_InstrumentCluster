@@ -184,7 +184,7 @@ void HAL_FDCAN_TimeoutOccurredCallback(FDCAN_HandleTypeDef *xhfdcan)
 	if(FDCAN_IT_TIMEOUT_OCCURRED != 0)
 	{
 		RxTimeoutCounter++;
-		printf("%s", "Time out occurred\r\n");
+		//printf("%s", "Time out occurred\r\n");
 		if(HAL_FDCAN_ActivateNotification(&hfdcan3, FDCAN_IT_TIMEOUT_OCCURRED, 0) != HAL_OK)
 		{
 			Error_Handler();

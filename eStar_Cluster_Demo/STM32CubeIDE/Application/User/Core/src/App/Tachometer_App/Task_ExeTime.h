@@ -33,7 +33,7 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
 ***************************************************************************************************/
-#define RUN_TIME_COUNTS_FOR_1_USEC 2U
+#define RUN_TIME_COUNTS_FOR_1_USEC 1U
 /***************************************************************************//**
  * @brief Macro to convert microseconds to timer counts.
  * @param x Value in microseconds to convert.

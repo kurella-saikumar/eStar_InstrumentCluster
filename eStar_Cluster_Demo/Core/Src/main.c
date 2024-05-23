@@ -43,6 +43,7 @@
 #include "CAN_App.h"
 #include "Indicator_App.h"
 #include "Task_ExeTime.h"
+#include "DemoApplication.h"
 
 
 /* USER CODE END Includes */
@@ -323,8 +324,6 @@ void SwitchHandlerTask(void *argument);
 void GetClockTask(void *argument);
 void CAN_Task(void *argument);
 void IndicatorApp_Task(void *argument);
-extern void Reset_Counters(void);
-//static void prvReset_Counters(TaskRunTimeStat_t *p_measurement_var_ptr);
 
 /* USER CODE BEGIN PFP */
 
@@ -422,7 +421,6 @@ int main(void)
 
   /* Init scheduler */
   osKernelInitialize();
-  HAL_TIM_Base_Start(&htim2);
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
@@ -1402,6 +1400,9 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(LCD_DISP_GPIO_Port, LCD_DISP_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(PIN_Toggle_GPIO_Port, PIN_Toggle_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(VSYNC_FREQ_GPIO_Port, VSYNC_FREQ_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : Mode_switch_Pin */
@@ -1461,6 +1462,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LCD_DISP_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PIN_Toggle_Pin */
+  GPIO_InitStruct.Pin = PIN_Toggle_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(PIN_Toggle_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : VSYNC_FREQ_Pin */
   GPIO_InitStruct.Pin = VSYNC_FREQ_Pin;
@@ -1741,8 +1749,12 @@ void Tacho_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
+	  vBeginExecMeas(&Tacho_Exe_measurement_var);
 	  vTacho_App();
-     //osDelay(1000);
+	 // osDelay(2);
+	  vEndExecMeas(&Tacho_Exe_measurement_var,CONVERT_TIMER_COUNTS_TO_US(3000),execTimeFault_cb2);
+	  printf("Execution time= %ld\n",Tacho_Exe_measurement_var.ulexecutionTime);     //
+	  osDelay(1000);
   }
   /* USER CODE END Tacho_Task */
 }
@@ -1801,7 +1813,7 @@ void CAN_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-//	vCANTransmit();
+	//vCANTransmit();
 //	vCANReceive();
     osDelay(100);
   }
