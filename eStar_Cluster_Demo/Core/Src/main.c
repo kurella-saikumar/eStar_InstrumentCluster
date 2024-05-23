@@ -36,7 +36,17 @@
 #include "Odometer_App.h"
 #include "speedometer_App.h"
 #include "Tachometer_App.h"
-#include "../../App/DriverInfo_App/DriverInfoApp.h"
+//#include "../../App/DriverInfo_App/DriverInfoApp.h"
+#include "DriverInfoApp.h"
+#include "batterVoltage_SmHandler.h"
+#include "SwitchHandler_App.h"
+#include "SwitchInf.h"
+#include "clock_App.h"
+#include "CAN_App.h"
+#include "Indicator_App.h"
+#include "stm32h7xx_hal_tim.h"
+#include "ServiceRequest_App.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -53,9 +63,12 @@ typedef StaticTask_t osStaticThreadDef_t;
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-uint16_t gl_ADC_Value_u16;
+uint16_t usADCValue;
 uint32_t gl_BAT_MON_u32;
-//extern driverInfoModeStatus_t Infostatus;
+IndicationStatus_t indicator;
+uint32_t execTimeFault;
+
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -70,6 +83,8 @@ ADC_HandleTypeDef hadc3;
 CRC_HandleTypeDef hcrc;
 
 DMA2D_HandleTypeDef hdma2d;
+
+FDCAN_HandleTypeDef hfdcan3;
 
 IWDG_HandleTypeDef hiwdg1;
 
@@ -224,6 +239,66 @@ const osThreadAttr_t DriverInfo_attributes = {
   .stack_size = sizeof(myTask12Buffer),
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for SwitchHandler */
+osThreadId_t SwitchHandlerHandle;
+uint32_t SwitchHandlerBuffer[ 128 ];
+osStaticThreadDef_t SwitchHandlerControlBlock;
+const osThreadAttr_t SwitchHandler_attributes = {
+  .name = "SwitchHandler",
+  .cb_mem = &SwitchHandlerControlBlock,
+  .cb_size = sizeof(SwitchHandlerControlBlock),
+  .stack_mem = &SwitchHandlerBuffer[0],
+  .stack_size = sizeof(SwitchHandlerBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
+/* Definitions for GetClock */
+osThreadId_t GetClockHandle;
+uint32_t GetClockBuffer[ 128 ];
+osStaticThreadDef_t GetClockControlBlock;
+const osThreadAttr_t GetClock_attributes = {
+  .name = "GetClock",
+  .cb_mem = &GetClockControlBlock,
+  .cb_size = sizeof(GetClockControlBlock),
+  .stack_mem = &GetClockBuffer[0],
+  .stack_size = sizeof(GetClockBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
+/* Definitions for CAN_AppTask */
+osThreadId_t CAN_AppTaskHandle;
+uint32_t CAN_AppTaskBuffer[ 128 ];
+osStaticThreadDef_t CAN_AppTaskControlBlock;
+const osThreadAttr_t CAN_AppTask_attributes = {
+  .name = "CAN_AppTask",
+  .cb_mem = &CAN_AppTaskControlBlock,
+  .cb_size = sizeof(CAN_AppTaskControlBlock),
+  .stack_mem = &CAN_AppTaskBuffer[0],
+  .stack_size = sizeof(CAN_AppTaskBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
+/* Definitions for Indicators_App */
+osThreadId_t Indicators_AppHandle;
+uint32_t Indicators_AppBuffer[ 128 ];
+osStaticThreadDef_t Indicators_AppControlBlock;
+const osThreadAttr_t Indicators_App_attributes = {
+  .name = "Indicators_App",
+  .cb_mem = &Indicators_AppControlBlock,
+  .cb_size = sizeof(Indicators_AppControlBlock),
+  .stack_mem = &Indicators_AppBuffer[0],
+  .stack_size = sizeof(Indicators_AppBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
+/* Definitions for ServiceIndicato */
+osThreadId_t ServiceIndicatoHandle;
+uint32_t ServiceIndicatoBuffer[ 128 ];
+osStaticThreadDef_t ServiceIndicatoControlBlock;
+const osThreadAttr_t ServiceIndicato_attributes = {
+  .name = "ServiceIndicato",
+  .cb_mem = &ServiceIndicatoControlBlock,
+  .cb_size = sizeof(ServiceIndicatoControlBlock),
+  .stack_mem = &ServiceIndicatoBuffer[0],
+  .stack_size = sizeof(ServiceIndicatoBuffer),
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* USER CODE BEGIN PV */
 /**
   * @brief  Retargets the C library printf function to the USART.
@@ -258,6 +333,7 @@ static void MX_RTC_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_IWDG1_Init(void);
 static void MX_ADC3_Init(void);
+static void MX_FDCAN3_Init(void);
 void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
 extern void videoTaskFunc(void *argument);
@@ -270,9 +346,14 @@ void Odo_Task(void *argument);
 void Speedo_Task(void *argument);
 void Tacho_Task(void *argument);
 void DriverInfoAppTask(void *argument);
+void SwitchHandlerTask(void *argument);
+void GetClockTask(void *argument);
+void CAN_Task(void *argument);
+void IndicatorsApp_Task(void *argument);
+void ServiceIndicatorApp_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
-
+void vBacklightBrightness(void);
 RTC_TimeTypeDef sTime;
 RTC_DateTypeDef sDate;
 HAL_StatusTypeDef res;
@@ -339,6 +420,7 @@ int main(void)
   MX_USART3_UART_Init();
   MX_IWDG1_Init();
   MX_ADC3_Init();
+  MX_FDCAN3_Init();
   MX_TouchGFX_Init();
   /* Call PreOsInit function */
   MX_TouchGFX_PreOSInit();
@@ -346,9 +428,13 @@ int main(void)
   (void)Mcu_GetResetReason();
   State_Manager_init();
   vOdoInit();
-  vTacho_Init();
   vSpeedoInit();
-  vFuelGuage_TaskInit();
+  vTacho_Init();
+  clock_Init();
+  vFuelGuageTaskInit();
+  VCAN_Init();
+  vIndicatorsInit();
+  vServiceRequestTask_Init();
 
   if(HAL_TIM_IC_Start_IT(&htim1,TIM_CHANNEL_4)!=HAL_OK)
   {
@@ -358,6 +444,9 @@ int main(void)
   {
 	  Error_Handler();
   }
+  vBacklightBrightness();
+
+
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -415,6 +504,21 @@ int main(void)
 
   /* creation of DriverInfo */
   DriverInfoHandle = osThreadNew(DriverInfoAppTask, NULL, &DriverInfo_attributes);
+
+  /* creation of SwitchHandler */
+  SwitchHandlerHandle = osThreadNew(SwitchHandlerTask, NULL, &SwitchHandler_attributes);
+
+  /* creation of GetClock */
+  GetClockHandle = osThreadNew(GetClockTask, NULL, &GetClock_attributes);
+
+  /* creation of CAN_AppTask */
+  CAN_AppTaskHandle = osThreadNew(CAN_Task, NULL, &CAN_AppTask_attributes);
+
+  /* creation of Indicators_App */
+  Indicators_AppHandle = osThreadNew(IndicatorsApp_Task, NULL, &Indicators_App_attributes);
+
+  /* creation of ServiceIndicato */
+  ServiceIndicatoHandle = osThreadNew(ServiceIndicatorApp_Task, NULL, &ServiceIndicato_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -477,7 +581,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLM = 2;
   RCC_OscInitStruct.PLL.PLLN = 44;
   RCC_OscInitStruct.PLL.PLLP = 1;
-  RCC_OscInitStruct.PLL.PLLQ = 2;
+  RCC_OscInitStruct.PLL.PLLQ = 68;
   RCC_OscInitStruct.PLL.PLLR = 2;
   RCC_OscInitStruct.PLL.PLLRGE = RCC_PLL1VCIRANGE_3;
   RCC_OscInitStruct.PLL.PLLVCOSEL = RCC_PLL1VCOWIDE;
@@ -496,7 +600,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV2;
   RCC_ClkInitStruct.APB3CLKDivider = RCC_APB3_DIV2;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV2;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV16;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_APB2_DIV2;
   RCC_ClkInitStruct.APB4CLKDivider = RCC_APB4_DIV2;
 
@@ -729,6 +833,59 @@ static void MX_DMA2D_Init(void)
   /* USER CODE BEGIN DMA2D_Init 2 */
 
   /* USER CODE END DMA2D_Init 2 */
+
+}
+
+/**
+  * @brief FDCAN3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_FDCAN3_Init(void)
+{
+
+  /* USER CODE BEGIN FDCAN3_Init 0 */
+
+  /* USER CODE END FDCAN3_Init 0 */
+
+  /* USER CODE BEGIN FDCAN3_Init 1 */
+
+  /* USER CODE END FDCAN3_Init 1 */
+  hfdcan3.Instance = FDCAN3;
+  hfdcan3.Init.FrameFormat = FDCAN_FRAME_CLASSIC;
+  hfdcan3.Init.Mode = FDCAN_MODE_NORMAL;
+  hfdcan3.Init.AutoRetransmission = ENABLE;
+  hfdcan3.Init.TransmitPause = DISABLE;
+  hfdcan3.Init.ProtocolException = DISABLE;
+  hfdcan3.Init.NominalPrescaler = 2;
+  hfdcan3.Init.NominalSyncJumpWidth = 0x8;
+  hfdcan3.Init.NominalTimeSeg1 = 13;
+  hfdcan3.Init.NominalTimeSeg2 = 2;
+  hfdcan3.Init.DataPrescaler = 1;
+  hfdcan3.Init.DataSyncJumpWidth = 1;
+  hfdcan3.Init.DataTimeSeg1 = 0x1F;
+  hfdcan3.Init.DataTimeSeg2 = 0x8;
+  hfdcan3.Init.MessageRAMOffset = 0;
+  hfdcan3.Init.StdFiltersNbr = 1;
+  hfdcan3.Init.ExtFiltersNbr = 1;
+  hfdcan3.Init.RxFifo0ElmtsNbr = 1;
+  hfdcan3.Init.RxFifo0ElmtSize = FDCAN_DATA_BYTES_8;
+  hfdcan3.Init.RxFifo1ElmtsNbr = 1;
+  hfdcan3.Init.RxFifo1ElmtSize = FDCAN_DATA_BYTES_8;
+  hfdcan3.Init.RxBuffersNbr = 1;
+  hfdcan3.Init.RxBufferSize = FDCAN_DATA_BYTES_8;
+  hfdcan3.Init.TxEventsNbr = 1;
+  hfdcan3.Init.TxBuffersNbr = 1;
+  hfdcan3.Init.TxFifoQueueElmtsNbr = 2;
+  hfdcan3.Init.TxFifoQueueMode = FDCAN_TX_FIFO_OPERATION;
+  hfdcan3.Init.TxElmtSize = FDCAN_DATA_BYTES_8;
+  if (HAL_FDCAN_Init(&hfdcan3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN FDCAN3_Init 2 */
+
+  /* USER CODE END FDCAN3_Init 2 */
 
 }
 
@@ -1007,8 +1164,8 @@ static void MX_RTC_Init(void)
 
   /** Initialize RTC and set the Time and Date
   */
-  sTime.Hours = 0x8;
-  sTime.Minutes = 0x51;
+  sTime.Hours = 0x12;
+  sTime.Minutes = 0x30;
   sTime.Seconds = 0x20;
   sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
   sTime.StoreOperation = RTC_STOREOPERATION_RESET;
@@ -1017,8 +1174,8 @@ static void MX_RTC_Init(void)
     Error_Handler();
   }
   sDate.WeekDay = RTC_WEEKDAY_THURSDAY;
-  sDate.Month = RTC_MONTH_MARCH;
-  sDate.Date = 0x22;
+  sDate.Month = RTC_MONTH_APRIL;
+  sDate.Date = 0x10;
   sDate.Year = 0x24;
 
   if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
@@ -1123,6 +1280,7 @@ static void MX_TIM4_Init(void)
 
   /* USER CODE END TIM4_Init 0 */
 
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
   TIM_IC_InitTypeDef sConfigIC = {0};
 
@@ -1135,6 +1293,15 @@ static void MX_TIM4_Init(void)
   htim4.Init.Period = 65535;
   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim4, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
   if (HAL_TIM_IC_Init(&htim4) != HAL_OK)
   {
     Error_Handler();
@@ -1240,11 +1407,11 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(VSYNC_FREQ_GPIO_Port, VSYNC_FREQ_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : Mode_Pin */
-  GPIO_InitStruct.Pin = Mode_Pin;
+  /*Configure GPIO pin : Mode_switch_Pin */
+  GPIO_InitStruct.Pin = Mode_switch_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(Mode_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(Mode_switch_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : Switch_Fuel_Pin */
   GPIO_InitStruct.Pin = Switch_Fuel_Pin;
@@ -1259,25 +1426,17 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LCD_BL_CTRL_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : Reset_Pin */
-  GPIO_InitStruct.Pin = Reset_Pin;
+  /*Configure GPIO pin : Reset_switch_Pin */
+  GPIO_InitStruct.Pin = Reset_switch_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
-  HAL_GPIO_Init(Reset_GPIO_Port, &GPIO_InitStruct);
+  HAL_GPIO_Init(Reset_switch_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : EXTI_Pin */
   GPIO_InitStruct.Pin = EXTI_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(EXTI_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pin : PF6 */
-  GPIO_InitStruct.Pin = GPIO_PIN_6;
-  GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  GPIO_InitStruct.Alternate = GPIO_AF2_FDCAN3;
-  HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
 
   /*Configure GPIO pin : RENDER_TIME_Pin */
   GPIO_InitStruct.Pin = RENDER_TIME_Pin;
@@ -1379,7 +1538,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	  res = HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
 	  if(res == HAL_OK)
 	  {
-		  //printf("%02d:%02d:%02d \n", sTime.Hours, sTime.Minutes, sTime.Seconds);
+		  printf("%02d:%02d:%02d \n", sTime.Hours, sTime.Minutes, sTime.Seconds);
 	  }
 	  SystemClock_Config ();
 	  HAL_ResumeTick();
@@ -1424,20 +1583,23 @@ void StartDefaultTask(void *argument)
 * @param argument: Not used
 * @retval None
 */
+
+
+
 /* USER CODE END Header_WDG_SRVC_Task */
 void WDG_SRVC_Task(void *argument)
 {
   /* USER CODE BEGIN WDG_SRVC_Task */
+  /* Infinite loop */
   for(;;)
   {
-	  osDelay(30000);//watchdog period
-    //service or refresh or reload the watchdog here
-    //printf("WDG_SRVC_Task\r\n");
-    if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
-    {
-          Error_Handler();
-    }
-    printf("WDG_SRVC_Task\r\n");
+	    osDelay(30000); //watchdog period
+	    //service or refresh or reload the watchdog here
+	    printf("WDG_SRVC_Task\r\n");
+	    if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
+	    {
+	          Error_Handler();
+	    }
 
   }
   /* USER CODE END WDG_SRVC_Task */
@@ -1453,11 +1615,17 @@ void WDG_SRVC_Task(void *argument)
 void DigitalDebounce_Task(void *argument)
 {
   /* USER CODE BEGIN DigitalDebounce_Task */
+//  static TaskRunTimeStat_t p_measurement_var_ptr;
+//  vReset_executionTimeStats(&p_measurement_var_ptr);
   /* Infinite loop */
   for(;;)
   {
+
 	DebounceTask();
-    osDelay(4);
+	vGet_Switch_DebouncedStatus();
+     osDelay(4);
+
+
   }
   /* USER CODE END DigitalDebounce_Task */
 }
@@ -1475,9 +1643,11 @@ void State_Machine_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
+
 	//HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x4E20, RTC_WAKEUPCLOCK_RTCCLK_DIV16);
-	State_Manager_task();
-    osDelay(10);
+	  State_Manager_task();
+	      osDelay(10);
+
   }
   /* USER CODE END State_Machine_Task */
 }
@@ -1503,7 +1673,9 @@ void Analog_Debounce_Task(void *argument)
 	//  HAL_ADC_Stop(&hadc1); // stop adc
 	  analog_debounce_task();
 	  Batt_state = get_analog_debounce_state(0);
-	 // printf("Batt_state:%d\r\n",Batt_state);
+#if(BATMON_TEST_MACRO == 1)
+	  printf("Batt_state:%d\r\n",Batt_state);
+#endif
     osDelay(100);
   }
   /* USER CODE END Analog_Debounce_Task */
@@ -1524,9 +1696,9 @@ void FuelGuageTask(void *argument)
   {
 	  HAL_ADC_Start(&hadc1);
 	  HAL_ADC_PollForConversion(&hadc1, 1);
-	  gl_ADC_Value_u16=(uint16_t)HAL_ADC_GetValue(&hadc1);
-	  //printf("ADC-%d\r\n",gl_ADC_Value_u16);
-	  vFuelGuage_Task();
+	  usADCValue=(uint16_t)HAL_ADC_GetValue(&hadc1);
+	  //printf("ADC-%d\r\n",usADCValue);
+	  vFuelGuageTask();
     osDelay(100);
   }
   /* USER CODE END FuelGuageTask */
@@ -1584,10 +1756,118 @@ void Tacho_Task(void *argument)
   for(;;)
   {
 	  vTacho_App();
-    osDelay(5000);
+    osDelay(1000);
   }
   /* USER CODE END Tacho_Task */
 }
+
+/* USER CODE BEGIN Header_SwitchHandlerTask */
+/**
+* @brief Function implementing the SwitchHandler thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_SwitchHandlerTask */
+void SwitchHandlerTask(void *argument)
+{
+  /* USER CODE BEGIN SwitchHandlerTask */
+  /* Infinite loop */
+  for(;;)
+  {
+	  vSwitchHandlerTask();
+	  Switch_Task();
+	  vHandleModeResetActions();
+	  osDelay(1);
+  }
+  /* USER CODE END SwitchHandlerTask */
+}
+
+/* USER CODE BEGIN Header_GetClockTask */
+/**
+* @brief Function implementing the GetClock thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_GetClockTask */
+void GetClockTask(void *argument)
+{
+  /* USER CODE BEGIN GetClockTask */
+  /* Infinite loop */
+  for(;;)
+  {
+	  vGet_Clock();
+	  vClockIncreament();
+	  osDelay(500);
+  }
+  /* USER CODE END GetClockTask */
+}
+
+/* USER CODE BEGIN Header_CAN_Task */
+/**
+* @brief Function implementing the CAN_AppTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_CAN_Task */
+void CAN_Task(void *argument)
+{
+  /* USER CODE BEGIN CAN_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+//	vCANTransmit();
+//	vCANReceive();
+    osDelay(100);
+  }
+  /* USER CODE END CAN_Task */
+}
+
+/* USER CODE BEGIN Header_IndicatorsApp_Task */
+/**
+* @brief Function implementing the Indicators_App thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_IndicatorsApp_Task */
+void IndicatorsApp_Task(void *argument)
+{
+  /* USER CODE BEGIN IndicatorsApp_Task */
+  /* Infinite loop */
+	for(;;)
+	  {
+		vIndicator_App_Task();
+		indicator = xGetIndicatorstatus();
+		//printf("indicator=%lu\r\n",indicator);
+		//printf("Indicator_status: %x\r\n", indicator.Indicator_status); // Example: Print ReceivedData member
+
+		//printf("Right indicator: %x\r\n", indicator.Indicator_status);
+		// or
+		//printf("Indicator_status: %x\r\n",  xGetIndicatorstatus());
+	    osDelay(50);
+
+	  }
+  /* USER CODE END IndicatorsApp_Task */
+}
+
+/* USER CODE BEGIN Header_ServiceIndicatorApp_Task */
+/**
+* @brief Function implementing the ServiceIndicato thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_ServiceIndicatorApp_Task */
+void ServiceIndicatorApp_Task(void *argument)
+{
+  /* USER CODE BEGIN ServiceIndicatorApp_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+	  vServiceRequestTask();
+    osDelay(1000);
+  }
+  /* USER CODE END ServiceIndicatorApp_Task */
+}
+
 
 /* USER CODE BEGIN Header_DriverInfoAppTask */
 /**
@@ -1595,6 +1875,7 @@ void Tacho_Task(void *argument)
 * @param argument: Not used
 * @retval None
 */
+extern driverInfoModeStatus_t ModeStatus;
 /* USER CODE END Header_DriverInfoAppTask */
 void DriverInfoAppTask(void *argument)
 {
@@ -1602,9 +1883,7 @@ void DriverInfoAppTask(void *argument)
 //	uint16_t FAVS = 0;
 //	uint16_t FAFE = 0;
 	//uint16_t FDTE = 0;
-	uint16_t val1 = 0;
-	uint16_t val2 = 0;
-	uint16_t val3 = 0;
+	driverInfoModeStatus_t Infostatus;
 //	uint16_t avs = 0;
 //	uint16_t afe = 0;
 //	uint16_t dte = 0;
@@ -1618,17 +1897,19 @@ void DriverInfoAppTask(void *argument)
 //	  FDTE = vCalculateDTE();
 //	  printf("FDTE:%d\n\r",FDTE);
 	  //printf("FAFE:\r\n");
-	  vCalculateAvsAfeRange();
-	  xGetInfostatus(&val1, &val2, &val3);
-	  //val1 = Infostatus.AverageVehicleSpeed;
-	  //val2 = Infostatus.AverageFuelEconomy;
-	  //val3 = Infostatus.DistanceToEmpty;
-//	  printf("val1:%d\t",Infostatus.AverageVehicleSpeed);
-//	  printf("val2:%d\t",Infostatus.AverageFuelEconomy);
-//	  printf("val3:%d\n",Infostatus.DistanceToEmpty);
-	  printf("avs:%d\t",val1);
-	  printf("afe:%d\t",val2);
-	  printf("dte1:%d\n\r",val3);
+	  //vCalculateAvsAfeRange();
+
+	  vDriver_InfoTask();
+	  driverInfoModeStatus_t Infostatus = xGetInfostatus();
+
+	  printf("AVS:%d\t",Infostatus.AverageVehicleSpeed);
+	  printf("AFE_m:%d\t",Infostatus.AverageFuelEconomy);
+	  printf("DTE:%d\n\r",Infostatus.DistanceToEmpty);
+//	  printf("avs:%d\t",val1);
+//	  printf("afe:%d\t",val2);
+//	  printf("dte1:%d\n\r",val3);
+	  //vCalculateAvsAfeRange();
+	  //vDriver_InfoTask();
     osDelay(5000);
   }
   /* USER CODE END DriverInfoAppTask */

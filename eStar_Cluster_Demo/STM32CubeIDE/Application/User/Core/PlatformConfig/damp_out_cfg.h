@@ -54,7 +54,7 @@
  *  Declaration of  the three input levels
  */
 #define INPUT_POINTERS_LIST \
-&gl_Current_FuelLevel_u16,      /** Pointer to 16-bit value of the Input 1*/\
+&usCurrentFuelLevel,      /** Pointer to 16-bit value of the Input 1*/\
 /*&temp_inp_level,*/        /** Pointer to 16-bit value of the Input 2*/\
 /*&obstacle_inp_level,*/  /** Pointer to 16-bit value of the Input 3*/\
 
@@ -64,7 +64,7 @@
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES
 ***************************************************************************************************/
-extern uint16_t gl_Current_FuelLevel_u16;        /**extern variable to 16-bit value of the Input 1*/
+extern uint16_t usCurrentFuelLevel;        /**extern variable to 16-bit value of the Input 1*/
 /*extern uint16_t temp_inp_level;*/              /** extern variable to 16-bit value of the Input 2*/
 /*extern uint16_t obstacle_inp_level;*/          /** extern variable to 16-bit value of the Input 3*/
 

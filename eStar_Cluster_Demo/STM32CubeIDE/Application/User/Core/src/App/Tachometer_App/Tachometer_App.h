@@ -1,6 +1,6 @@
 /** \addtogroup TACHO_APP
  *  @{
- * @Tachometer.h
+ * @Tachometer_App.h
  *
  * @brief This file contains an example template of how the .h 
  *
@@ -33,7 +33,7 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
 ***************************************************************************************************/
-#define TachoTestMacro 0
+#define TACHO_TEST_MACRO 0
 
 
 /**************************************************************************************************

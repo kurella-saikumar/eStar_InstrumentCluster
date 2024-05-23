@@ -31,8 +31,6 @@
 #include "IGN_SmHandler.h"
 #include "IGN_SmHandler_cfg.h"
 #include "ICU_driver.h"
-#include "../../App/DriverInfo_App/DriverInfoApp.h"
-#include "Odometer_App_cfg.h"
 /**************************************************************************************************
  * DEFINE FILE SCOPE MACROS
 ***************************************************************************************************/
@@ -51,7 +49,7 @@ void vInIgnitionOffFunc(void);
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES
 ***************************************************************************************************/
- //extern vehicleDisplayMetrics_t units = 0;
+
 /**************************************************************************************************
  * DECLARE FILE SCOPE STATIC VARIABLES
 ***************************************************************************************************/
@@ -77,7 +75,6 @@ void vIgnitionONFunc(void)
 {
 	    printf("IGNON_STATE_OFF_TO_ON_ENTRY_Action\r\n");
 	    vEnable_OdoSpeedo_Channel_Interrupts();
-	    //xGetOdoReadings(&units);
 }
 
 /**

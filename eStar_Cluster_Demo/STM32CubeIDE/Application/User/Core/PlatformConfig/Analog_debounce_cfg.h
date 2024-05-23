@@ -74,9 +74,9 @@ If ADCFG_STRICT_RANGE is disabled (== 0), the out-of-range values would result i
 #define VBATT_LELVEL_3	3
 
 #define INPUT_1_THRESHOLDS {\
-	/*Thresholds For State 0 VBATT_LELVEL_0*/{1500/*RAMP_UP_ENTRY_THRESHOLD*/, 2048/*RAMP_DOWN_ENTRY_THRESHOLD*/, 10/*RAMP_UP_DEBOUNCE_COUNTER*/, 10/*RAMP_DOWN_DEBOUNCE_COUNTER*/}, \
-	/*Thresholds For State 1 VBATT_LELVEL_1*/{2100, 2730, 10, 10}, \
-	/*Thresholds For State 2 VBATT_LELVEL_2*/{2800, 3413, 10, 10}, \
+	/*Thresholds For State 0 VBATT_LELVEL_0*/{0/*RAMP_UP_ENTRY_THRESHOLD*/, 1700/*RAMP_DOWN_ENTRY_THRESHOLD*/, 10/*RAMP_UP_DEBOUNCE_COUNTER*/, 10/*RAMP_DOWN_DEBOUNCE_COUNTER*/}, \
+	/*Thresholds For State 1 VBATT_LELVEL_1*/{1800, 2200, 10, 10}, \
+	/*Thresholds For State 2 VBATT_LELVEL_2*/{2300, 3400, 10, 10}, \
     /*Thresholds For State 3 VBATT_LELVEL_3*/{3500, 4096, 10, 10}
 
 /**

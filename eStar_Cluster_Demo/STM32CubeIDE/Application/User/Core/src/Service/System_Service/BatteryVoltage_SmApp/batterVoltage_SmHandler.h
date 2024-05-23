@@ -38,7 +38,8 @@
 #define HIGH_VOLTAGE_STATE      SM_STATE_4
 
 
-#define BATTERVOLTAGE_MODE_SM_INDEX 1
+#define configBATTERVOLTAGE_MODE_SM_INDEX 1
+#define BATMON_TEST_MACRO 0
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES
 ***************************************************************************************************/
@@ -47,17 +48,19 @@
  * DECLARE GLOBAL VARIABLES
 ***************************************************************************************************/
 
-extern void HV_func(void);
-extern void NV_func(void);
-extern void LV_func(void);
-extern void ULV_func(void);
+extern void vHVFunc(void);
+extern void vNVFunc(void);
+extern void vLVFunc(void);
+extern void vULVFunc(void);
 
-extern void in_LV_func(void); 
-extern void in_NV_func(void);
-extern void in_HV_func(void);
-extern void in_ULV_func(void);
+extern void vInLVFunc(void); 
+extern void vInNVFunc(void);
+extern void vInHVFunc(void);
+extern void vInULVFunc(void);
 
 extern const transition_T gl_batteryMode_SM_t[];
+
+states_SM xbatteryvoltage_get_current_state(void);
 
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES

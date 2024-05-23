@@ -1,0 +1,8 @@
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:94:6:vModeButtonPressHandler	0	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:100:6:vResetButtonPressHandler	0	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:114:6:vSwitchHandlerTask	8	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:156:22:xGetClockMode	0	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:171:21:xGetModeButtonStatus	0	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:238:21:xGetResetButtonStatus	0	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:187:20:xClockSettingGetSetMode	8	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:255:6:vHandleModeResetActions	24	static

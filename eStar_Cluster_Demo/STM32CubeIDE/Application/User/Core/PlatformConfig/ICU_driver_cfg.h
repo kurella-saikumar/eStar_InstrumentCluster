@@ -1,7 +1,7 @@
 
 /** \addtogroup  
  *  @{
- * @file template.c
+ * @file ICU_driver_cfg.h
  *
  * @brief Template Source File
  *

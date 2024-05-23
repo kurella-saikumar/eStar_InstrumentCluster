@@ -23,18 +23,26 @@ RM := rm -rf
 -include Application/User/Startup/subdir.mk
 -include Application/User/LIBJPEG/App/subdir.mk
 -include Application/User/Core/src/Service/System_Service/stateManager/subdir.mk
+-include Application/User/Core/src/Service/System_Service/Switch_Interface/subdir.mk
 -include Application/User/Core/src/Service/System_Service/IgnitionManager/subdir.mk
 -include Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/subdir.mk
 -include Application/User/Core/src/Service/System_Service/BatteryVoltage_SmApp/subdir.mk
+-include Application/User/Core/src/Service/IO_HAL/Switch_Handler/subdir.mk
+-include Application/User/Core/src/Service/IO_HAL/Switch/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/ICU_middleware/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/DigitalDebounce/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/Damping_Filter/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/AnalogDebounce/subdir.mk
 -include Application/User/Core/src/App/Tachometer_App/subdir.mk
 -include Application/User/Core/src/App/Speedometer_App/subdir.mk
+-include Application/User/Core/src/App/ServiceRequest_App/subdir.mk
 -include Application/User/Core/src/App/Odometer_App/subdir.mk
+-include Application/User/Core/src/App/Indicator_App/subdir.mk
 -include Application/User/Core/src/App/FuelGuage/subdir.mk
 -include Application/User/Core/src/App/DriverInfo_App/subdir.mk
+-include Application/User/Core/src/App/DriverInfoApplication/subdir.mk
+-include Application/User/Core/src/App/Clock_App/subdir.mk
+-include Application/User/Core/src/App/CAN_App/subdir.mk
 -include Application/User/Core/subdir.mk
 -include objects.mk
 

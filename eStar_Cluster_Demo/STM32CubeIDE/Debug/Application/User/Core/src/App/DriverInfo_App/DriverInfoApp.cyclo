@@ -1,7 +1,7 @@
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:90:10:vCalculateAVSInKmperhour	2
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:210:9:Convertintolitres	2
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:160:10:vCalculateAFEKmperLitre	5
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:231:10:vCalculateDTE	6
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:69:6:vCalculateAvsAfeRange	2
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:300:6:DisplayDTE	2
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:313:6:xGetInfostatus	3
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:153:6:vCalculateAVSInKmperhour	2
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:254:9:Convertintolitres	2
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:202:6:vCalculateAFEKmperLitre	5
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:285:6:vCalculateDTE	6
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:123:6:vDriver_InfoTask	2
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:371:6:DisplayDTE	2
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:400:24:xGetInfostatus	2
