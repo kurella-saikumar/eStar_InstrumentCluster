@@ -59,7 +59,7 @@ void vInIgnitionOffFunc(void);
 /**************************************************************************************************
  * DEFINE FILE SCOPE STATIC FUNCTION PROTOTYPES
 ***************************************************************************************************/
-
+extern void Disp_imgDataHyperRAM_Init(void);
 /**************************************************************************************************
  * FUNCTION DEFINITIONS
 ***************************************************************************************************/
@@ -76,10 +76,9 @@ void vInIgnitionOffFunc(void);
 void vIgnitionONFunc(void)
 {
 	printf("IGNON_STATE_OFF_TO_ON_ENTRY_Action\r\n");
-	/* ShadowRAM initialization*/
-//	vShadowRAM_Init();
 	vEnable_OdoSpeedo_Channel_Interrupts();
-//	xRetrive_LastStored_OdoVal_from_EEPROM();
+	vEE_Demo();
+	Disp_imgDataHyperRAM_Init();
 }
 
 /**

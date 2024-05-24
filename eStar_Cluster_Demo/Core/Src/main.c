@@ -451,8 +451,8 @@ int main(void)
   }
   vBacklightBrightness();
 
-  vEE_Demo();
-  Disp_imgDataHyperRAM_Init();
+//  vEE_Demo();
+//  Disp_imgDataHyperRAM_Init();
 
   /* USER CODE END 2 */
 
@@ -525,7 +525,7 @@ int main(void)
   ServiceIndicatoHandle = osThreadNew(ServiceIndicatorApp_Task, NULL, &ServiceIndicato_attributes);
 
   /* creation of Odometer_Test */
-  Odometer_TestHandle = osThreadNew(Odometer_Test_App_Task, NULL, &Odometer_Test_attributes);
+//  Odometer_TestHandle = osThreadNew(Odometer_Test_App_Task, NULL, &Odometer_Test_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */

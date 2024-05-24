@@ -27,7 +27,7 @@
 ***************************************************************************************************/
 #include "stdio.h"
 #include "stdint.h"
-#include <stdio.h>
+
 
 /**************************************************************************************************
  * Include Project Specific Headers
@@ -40,8 +40,8 @@
 #include "SwitchInf.h"
 #include "stm32h7xx_hal.h"
 
-
-#include "../Clock_App/clock_App.h"
+#include "Odometer_App.h"
+#include "clock_App.h"
 /**************************************************************************************************
  * DEFINE FILE SCOPE MACROS
 ***************************************************************************************************/
@@ -259,12 +259,9 @@ void vHandleModeResetActions(void)
     // Check if both mode and reset buttons are short-pressed
     if (ucModeButtonEventStatus == SHORT_PRESS_RELEASED && ucResetButtonEventStatus == SHORT_PRESS_RELEASED)
     {
-        // Odometer Units Toggle
-        //ToggleOdometerUnits();
-        // Reset Button Status
-        
     	ucModeButtonEventStatus = 0xFF;
     	ucResetButtonEventStatus= 0xFF;
+    	vToggleOdoUnits();
 #if (SWITCH_HANDLER_MACRO == 1)
         printf("mode and reset short pressed - Odo Units toggle\r\n");
 #endif
@@ -285,8 +282,6 @@ void vHandleModeResetActions(void)
         {
            //Button_Push_Event_T mode_status = getModeButtonStatus();
         	xClockSettingGetSetMode();
-
-              
         }
         // Reset Mode Button Status
         ucModeButtonEventStatus = 0xFF;
@@ -299,20 +294,19 @@ void vHandleModeResetActions(void)
                     // Reset trip values based on current mode
                if (xGetDriverInforMenu() == TASK_TRIP_ODO_A ) 
                {
+            	   ucResetButtonEventStatus= 0xFF;
+            	   vResetTripA_OdoReadings();
 #if (SWITCH_HANDLER_MACRO == 1)
                    printf("Reset short press - Trip A Reset\r\n");
 #endif
-
-                   ucResetButtonEventStatus= 0xFF;
                }
                if( xGetDriverInforMenu() == TASK_TRIP_ODO_B)
                {
             	   ucResetButtonEventStatus= 0xFF;
+            	   vResetTripB_OdoReadings();
 #if (SWITCH_HANDLER_MACRO == 1)
                    printf("Reset short press - Trip B Reset\r\n");
 #endif
-
-
                }
              
          }
@@ -395,7 +389,6 @@ void vHandleModeResetActions(void)
 		{
     		xClockSettingGetSetMode();
 			//Button_Push_Event_T reset_status = getResetButtonStatus();
-
 			ucResetButtonEventStatus = 0xFF;
 		}
     }
