@@ -196,8 +196,9 @@ void vResetTripA_OdoReadings(void)
 {
     // Store the current value of l_Total_odo_u32 into l_Total_odo_u32_Before_TripA_u32_Reset
 	ulOdoValBeforeTripAReset = ulOdoInEeprom;
-	*eepromVariables[4] = ulOdoValBeforeTripAReset;
+
 	/*Write Odo value before Trip-A reset into the EEPROM*/
+	*eepromVariables[4] = ulOdoValBeforeTripAReset;
 	uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[4],*eepromVariables[4],eepromVariables[4]);
 	if (0 == FlashStatus)
 	{
@@ -227,13 +228,14 @@ uint16_t xGetTripA_OdoReading(vehicleDisplayMetrics_t *TripA_Units)
 
     	usDifference = usTripA - TripA_Max;
     	ulOdoValBeforeTripAReset = ulOdoInEeprom - usDifference;
-    	*eepromVariables[4]=ulOdoValBeforeTripAReset;
+
     	/*Write Odo value value into the EEPROM after Trip-A value reaching to it's max value*/
+    	*eepromVariables[4]=ulOdoValBeforeTripAReset;
     	uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[4],*eepromVariables[4],eepromVariables[4]);
     	if (0 == FlashStatus)
     	{
     #if(ODO_TEST_MACRO == 1)
-    		printf("ESWrite Success:at %ln, eepromVariables[4]:%ld \n\r",eepromVariables[4],*eepromVariables[4]);
+    		printf("ESWrite Success: EEVar[4]:%ld \n\r",*eepromVariables[4]);
     #endif
     	}
     	else
@@ -274,13 +276,14 @@ void vResetTripB_OdoReadings(void)
 {
     // Store the current value of total odometer value into variable (Total odo value before Trip B reset)
 	ulOdoValBeforeTripBReset = ulOdoInEeprom;
-	*eepromVariables[5] = ulOdoValBeforeTripBReset;
+
 	/*Write Odo value before Trip-B reset into the EEPROM*/
+	*eepromVariables[5] = ulOdoValBeforeTripBReset;
 	uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[5],*eepromVariables[5],eepromVariables[5]);
 	if (0 == FlashStatus)
 	{
 #if(ODO_TEST_MACRO == 1)
-		printf("ESWrite Success:at %ln, eepromVariables[5]:%ld \n\r",eepromVariables[5],*eepromVariables[5]);
+		printf("ESWrite Success: EEVar[5]:%ld \n\r",*eepromVariables[5]);
 #endif
 	}
 	else
@@ -303,13 +306,14 @@ uint16_t xGetTripB_OdoReading(vehicleDisplayMetrics_t *TripB_Units)
 
     	usDifferenceB = usTripB - TripB_Max;
     	ulOdoValBeforeTripBReset = ulOdoInEeprom - usDifferenceB;
-    	*eepromVariables[5] = ulOdoValBeforeTripBReset;
+
     	/*Write Odo value value into the EEPROM after Trip-A value reaching to it's max value*/
+    	*eepromVariables[5] = ulOdoValBeforeTripBReset;
     	uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[5],*eepromVariables[5],eepromVariables[5]);
     	if (0 == FlashStatus)
     	{
     #if(ODO_TEST_MACRO == 1)
-    		printf("ESWrite Success:at %ln, eepromVariables[5]:%ld \n\r",eepromVariables[5],*eepromVariables[5]);
+    		printf("ESWrite Success: EEVar[5]:%ld \n\r",*eepromVariables[5]);
     #endif
     	}
     	else
@@ -348,17 +352,14 @@ usTripB = ulOdoInEeprom -  ulOdoValBeforeTripBReset;
 
 void xWrite_OdoVal_to_EEPROM(void)
 {
-	//Write EEPROM API here
-	//mprintf("ulOdoInEeprom: %ld\n", ulOdoInEeprom);
+	/*Write odo value to EEPROM*/
+	//printf("ulOdoInEeprom: %ld\n", ulOdoInEeprom);
 	*eepromVariables[0] = ulOdoInEeprom;
-
-//	*eepromVariables[0] = xGetOdoReadings(&xEE_OdoUnits);
 	uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[0],*eepromVariables[0],eepromVariables[0]);
 	if (0 == FlashStatus)
 	{
 #if(EMUL_DEBUG_ENABLE == 0)
 		printf("ESWrite Success EEVar[0]:%ld \n\r",*eepromVariables[0]);
-//		printf("eepromVariables[0]: 0x%lx \n\r",*eepromVariables[0]);
 #endif
 	}
 	else
@@ -387,13 +388,13 @@ void xWrite_OdoVal_to_EEPROM(void)
 
 void xRetrive_LastStored_OdoVal_from_EEPROM(void)
 {
-	//Write EEPROM API here
+	/*Read odo value from EEPROM variable*/
 
 	ulOdoInEeprom = *eepromVariables[0];
 	ulOdoValBeforeTripAReset = *eepromVariables[4];
 	ulOdoValBeforeTripBReset = *eepromVariables[5];
-	printf("Retriving Odo data from EEPROM\n");
-	printf("ulOdoInEeprom:0x%lx,eepromVariables[0]:0x%lx\n\r",ulOdoInEeprom,*eepromVariables[0]);
+//	printf("Retriving Odo data from EEPROM\n");
+	printf("ulOdoInEeprom:%ld,eepromVariables[0]:%ld\n\r",ulOdoInEeprom,*eepromVariables[0]);
 	printf("ulOdoValBeforeTripAReset: %ld\n",ulOdoValBeforeTripAReset);
 	printf("ulOdoValBeforeTripBReset: %ld\n",ulOdoValBeforeTripBReset);
 	ulTotalOdo = (ulOdoInEeprom/10);

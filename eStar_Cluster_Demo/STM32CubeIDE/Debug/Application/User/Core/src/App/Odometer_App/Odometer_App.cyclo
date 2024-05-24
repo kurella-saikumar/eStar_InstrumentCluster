@@ -5,10 +5,10 @@
 ../Application/User/Core/src/App/Odometer_App/Odometer_App.c:135:6:vCalculateOdo	3
 ../Application/User/Core/src/App/Odometer_App/Odometer_App.c:118:6:vOdoAlgorithm	2
 ../Application/User/Core/src/App/Odometer_App/Odometer_App.c:195:6:vResetTripA_OdoReadings	2
-../Application/User/Core/src/App/Odometer_App/Odometer_App.c:220:10:xGetTripA_OdoReading	5
-../Application/User/Core/src/App/Odometer_App/Odometer_App.c:273:6:vResetTripB_OdoReadings	2
-../Application/User/Core/src/App/Odometer_App/Odometer_App.c:296:10:xGetTripB_OdoReading	5
-../Application/User/Core/src/App/Odometer_App/Odometer_App.c:349:6:xWrite_OdoVal_to_EEPROM	2
-../Application/User/Core/src/App/Odometer_App/Odometer_App.c:388:6:xRetrive_LastStored_OdoVal_from_EEPROM	1
-../Application/User/Core/src/App/Odometer_App/Odometer_App.c:416:10:xGetOdoReadings	2
-../Application/User/Core/src/App/Odometer_App/Odometer_App.c:443:6:vToggleOdoUnits	2
+../Application/User/Core/src/App/Odometer_App/Odometer_App.c:221:10:xGetTripA_OdoReading	5
+../Application/User/Core/src/App/Odometer_App/Odometer_App.c:275:6:vResetTripB_OdoReadings	2
+../Application/User/Core/src/App/Odometer_App/Odometer_App.c:299:10:xGetTripB_OdoReading	5
+../Application/User/Core/src/App/Odometer_App/Odometer_App.c:353:6:xWrite_OdoVal_to_EEPROM	2
+../Application/User/Core/src/App/Odometer_App/Odometer_App.c:389:6:xRetrive_LastStored_OdoVal_from_EEPROM	1
+../Application/User/Core/src/App/Odometer_App/Odometer_App.c:417:10:xGetOdoReadings	2
+../Application/User/Core/src/App/Odometer_App/Odometer_App.c:444:6:vToggleOdoUnits	2

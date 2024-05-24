@@ -1,7 +1,0 @@
-../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.c:138:6:vIgnitionOnEntryActionFunc	2
-../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.c:161:6:vIgnitionOffEntryActionFunc	2
-../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.c:184:6:vInIgnitionOnStateActionFunc	2
-../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.c:208:6:vInIgnitionOffStateActionFunc	2
-../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.c:96:9:ucIGNONTransCheckFunc	1
-../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.c:117:9:ucIGNOFFTransCheckFunc	1
-../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.c:231:10:usIgnitionGetCurrentState	1
