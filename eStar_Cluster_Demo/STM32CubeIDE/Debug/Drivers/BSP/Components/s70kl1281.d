@@ -1,6 +1,6 @@
 Drivers/BSP/Components/s70kl1281.o: \
- D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/s70kl1281/s70kl1281.c \
- D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/s70kl1281/s70kl1281.h \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/s70kl1281/s70kl1281.c \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/s70kl1281/s70kl1281.h \
  ../../Core/Inc/s70kl1281_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
@@ -47,7 +47,7 @@ Drivers/BSP/Components/s70kl1281.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/s70kl1281/s70kl1281.h:
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/s70kl1281/s70kl1281.h:
 ../../Core/Inc/s70kl1281_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:

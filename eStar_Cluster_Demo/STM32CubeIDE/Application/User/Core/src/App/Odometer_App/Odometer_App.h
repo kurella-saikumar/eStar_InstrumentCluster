@@ -42,15 +42,14 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
  ***************************************************************************************************/
+#define ODO_IN_KM 0U
+#define ODO_IN_MILES 1U
+
 #define ODO_TEST_MACRO 1
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES
  ***************************************************************************************************/
-typedef enum {
-    DEFAULT_ODO_UNITS,
-    ODO_IN_KM,
-    ODO_IN_MILES,
-} vehicleDisplayMetrics_t;
+
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES
  ***************************************************************************************************/
@@ -63,13 +62,13 @@ void vOdoInit(void);
 void vCalculateOdo(void);
 void vCalculateOdoInKm(void);
 void vCalculateOdoInMiles(void);
-uint32_t xGetOdoReadings(vehicleDisplayMetrics_t* OdoUnits);
+uint32_t xGetOdoReadings(uint8_t* OdoUnits);
 uint32_t vPulseCount(void);
 
 void vToggleOdoUnits(void);
-uint16_t xGetTripA_OdoReading(vehicleDisplayMetrics_t *TripA_Units);
+uint16_t xGetTripA_OdoReading(uint8_t *TripA_Units);
 void vResetTripA_OdoReadings(void);
-uint16_t xGetTripB_OdoReading(vehicleDisplayMetrics_t *TripB_Units);
+uint16_t xGetTripB_OdoReading(uint8_t *TripB_Units);
 void vResetTripB_OdoReadings(void);
 
 void xWrite_OdoVal_to_EEPROM(void);

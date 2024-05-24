@@ -1940,7 +1940,7 @@ void Odometer_Test_App_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  vehicleDisplayMetrics_t Test_Trip_Units = 0;
+	  uint8_t Test_Trip_Units = 0;
 	  vToggleOdoUnits();
 	  xGetTripA_OdoReading(&Test_Trip_Units);
 	  xGetTripB_OdoReading(&Test_Trip_Units);

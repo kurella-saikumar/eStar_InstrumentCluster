@@ -62,7 +62,6 @@ uint32_t ulTimeInSecs = 0;
 uint8_t ucSafeThresholdSpeedInKm = 0;
 uint32_t ulMaxVehicleSpeedInKm = 0;
 
-
 /**Miles configuration parameters*/
 uint8_t ucSafeThresholdSpeedInMiles = 0;
 uint32_t ulMaxVehicleSpeedInMiles = 0;
