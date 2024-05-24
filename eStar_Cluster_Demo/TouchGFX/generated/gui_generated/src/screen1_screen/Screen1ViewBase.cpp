@@ -4,6 +4,7 @@
 #include <gui_generated/screen1_screen/Screen1ViewBase.hpp>
 #include <touchgfx/Color.hpp>
 #include <images/BitmapDatabase.hpp>
+#include <texts/TextKeysAndLanguages.hpp>
 
 Screen1ViewBase::Screen1ViewBase()
 {
@@ -11,13 +12,203 @@ Screen1ViewBase::Screen1ViewBase()
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
-    image1.setXY(0, 0);
-    image1.setBitmap(touchgfx::Bitmap(BITMAP_IMAGE_ID));
+    BackGround.setXY(0, 0);
+    BackGround.setBitmap(touchgfx::Bitmap(BITMAP_BACKGROUND_ID));
+    add(BackGround);
+
+    image1.setXY(-1, 0);
+    image1.setBitmap(touchgfx::Bitmap(BITMAP_HMI_LAYOUT1_ID));
+    image1.setAlpha(104);
+    image1.setVisible(false);
     add(image1);
 
-    Low_Fuel.setXY(54, 241);
-    Low_Fuel.setBitmap(touchgfx::Bitmap(BITMAP_FUEL_RED_ID));
-    add(Low_Fuel);
+    ABS_Detection_w.setXY(224, 47);
+    ABS_Detection_w.setBitmap(touchgfx::Bitmap(BITMAP_ABS_DETECTION1_ID));
+    add(ABS_Detection_w);
+
+    ABS_Detection_r.setXY(224, 47);
+    ABS_Detection_r.setBitmap(touchgfx::Bitmap(BITMAP_ABS_DETECTION2_ID));
+    add(ABS_Detection_r);
+
+    LowBatteryIcon_w.setXY(174, 14);
+    LowBatteryIcon_w.setBitmap(touchgfx::Bitmap(BITMAP_LOWBATTERY1_ID));
+    add(LowBatteryIcon_w);
+
+    LowBatteryIcon_r.setXY(174, 14);
+    LowBatteryIcon_r.setBitmap(touchgfx::Bitmap(BITMAP_LOWBATTERY2_ID));
+    add(LowBatteryIcon_r);
+
+    DoorsIcon_w.setXY(126, 48);
+    DoorsIcon_w.setBitmap(touchgfx::Bitmap(BITMAP_DOORSWARNING1_ID));
+    add(DoorsIcon_w);
+
+    DoorsIcon_r.setXY(126, 48);
+    DoorsIcon_r.setBitmap(touchgfx::Bitmap(BITMAP_DOORSWARNING2_ID));
+    add(DoorsIcon_r);
+
+    EngineOIl_w.setXY(266, 14);
+    EngineOIl_w.setBitmap(touchgfx::Bitmap(BITMAP_ENGINEOIL1_ID));
+    add(EngineOIl_w);
+
+    EngineOIl_r.setXY(266, 14);
+    EngineOIl_r.setBitmap(touchgfx::Bitmap(BITMAP_ENGINEOIL2_ID));
+    add(EngineOIl_r);
+
+    Temperature_w.setXY(38, 48);
+    Temperature_w.setBitmap(touchgfx::Bitmap(BITMAP_TEMPICON1_ID));
+    add(Temperature_w);
+
+    Temperature_r.setXY(38, 48);
+    Temperature_r.setBitmap(touchgfx::Bitmap(BITMAP_TEMPICON2_ID));
+    add(Temperature_r);
+
+    FuelICon_w.setXY(406, 241);
+    FuelICon_w.setBitmap(touchgfx::Bitmap(BITMAP_CLUSTERICONS1_ID));
+    add(FuelICon_w);
+
+    FuelIcon_r.setXY(406, 241);
+    FuelIcon_r.setBitmap(touchgfx::Bitmap(BITMAP_CLUSTERICONS2_ID));
+    add(FuelIcon_r);
+
+    HighBeam_w.setXY(355, 15);
+    HighBeam_w.setBitmap(touchgfx::Bitmap(BITMAP_HIGHBEAM1_ID));
+    add(HighBeam_w);
+
+    HighBeam_r.setXY(355, 15);
+    HighBeam_r.setBitmap(touchgfx::Bitmap(BITMAP_HIGHBEAM2_ID));
+    add(HighBeam_r);
+
+    LeftIndicator_w.setXY(99, 147);
+    LeftIndicator_w.setBitmap(touchgfx::Bitmap(BITMAP_LEFTINDICATOR1_ID));
+    add(LeftIndicator_w);
+
+    LeftIndicator_r.setXY(99, 147);
+    LeftIndicator_r.setBitmap(touchgfx::Bitmap(BITMAP_LEFTINDICATOR2_ID));
+    add(LeftIndicator_r);
+
+    LowBeam_w.setXY(79, 15);
+    LowBeam_w.setBitmap(touchgfx::Bitmap(BITMAP_LOWBEAM1_ID));
+    add(LowBeam_w);
+
+    LowBeam_r.setXY(79, 15);
+    LowBeam_r.setBitmap(touchgfx::Bitmap(BITMAP_LOWBEAM2_ID));
+    add(LowBeam_r);
+
+    RightIndicator_w.setXY(356, 146);
+    RightIndicator_w.setBitmap(touchgfx::Bitmap(BITMAP_RIGHTINDICATOR1_ID));
+    add(RightIndicator_w);
+
+    RightIndicator_r.setXY(356, 146);
+    RightIndicator_r.setBitmap(touchgfx::Bitmap(BITMAP_RIGHTINDICATOR2_ID));
+    add(RightIndicator_r);
+
+    RPMIcon_w.setXY(50, 241);
+    RPMIcon_w.setBitmap(touchgfx::Bitmap(BITMAP_RPMICON1_ID));
+    add(RPMIcon_w);
+
+    RPMIcon_r.setXY(50, 241);
+    RPMIcon_r.setBitmap(touchgfx::Bitmap(BITMAP_RPMICON2_ID));
+    add(RPMIcon_r);
+
+    FuelBarAnimation.setXY(342, 100);
+    FuelBarAnimation.setBitmaps(BITMAP_FUELBAR01_ID, BITMAP_FUELBAR10_ID);
+    FuelBarAnimation.setUpdateTicksInterval(1);
+    add(FuelBarAnimation);
+
+    Speed_Ta.setXY(158, 88);
+    Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    Speed_Ta.setLinespacing(0);
+    Unicode::snprintf(Speed_TaBuffer, SPEED_TA_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_MEO5).getText());
+    Speed_Ta.setWildcard(Speed_TaBuffer);
+    Speed_Ta.resizeToCurrentText();
+    Speed_Ta.setTypedText(touchgfx::TypedText(T___SINGLEUSE_VG2X));
+    add(Speed_Ta);
+
+    KMPH_MPH.setXY(290, 166);
+    KMPH_MPH.setColor(touchgfx::Color::getColorFromRGB(255, 247, 247));
+    KMPH_MPH.setLinespacing(0);
+    Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_ZEGA).getText());
+    KMPH_MPH.setWildcard(KMPH_MPHBuffer);
+    KMPH_MPH.resizeToCurrentText();
+    KMPH_MPH.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DKL2));
+    add(KMPH_MPH);
+
+    KMPH_MPH_ODO.setXY(278, 213);
+    KMPH_MPH_ODO.setColor(touchgfx::Color::getColorFromRGB(255, 247, 247));
+    KMPH_MPH_ODO.setLinespacing(0);
+    KMPH_MPH_ODO.setWildcard(touchgfx::TypedText(T___SINGLEUSE_947A).getText());
+    KMPH_MPH_ODO.resizeToCurrentText();
+    KMPH_MPH_ODO.setTypedText(touchgfx::TypedText(T___SINGLEUSE_VE6R));
+    add(KMPH_MPH_ODO);
+
+    KMPH_MPH_DTE.setXY(258, 244);
+    KMPH_MPH_DTE.setColor(touchgfx::Color::getColorFromRGB(255, 247, 247));
+    KMPH_MPH_DTE.setLinespacing(0);
+    KMPH_MPH_DTE.setWildcard(touchgfx::TypedText(T___SINGLEUSE_CK36).getText());
+    KMPH_MPH_DTE.resizeToCurrentText();
+    KMPH_MPH_DTE.setTypedText(touchgfx::TypedText(T___SINGLEUSE_EPWF));
+    add(KMPH_MPH_DTE);
+
+    ODOReadings.setXY(174, 192);
+    ODOReadings.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    ODOReadings.setLinespacing(0);
+    Unicode::snprintf(ODOReadingsBuffer, ODOREADINGS_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_1I4V).getText());
+    ODOReadings.setWildcard(ODOReadingsBuffer);
+    ODOReadings.resizeToCurrentText();
+    ODOReadings.setTypedText(touchgfx::TypedText(T___SINGLEUSE_7ZNN));
+    add(ODOReadings);
+
+    DriverInfo.setXY(215, 236);
+    DriverInfo.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    DriverInfo.setLinespacing(0);
+    DriverInfo.setWildcard(touchgfx::TypedText(T___SINGLEUSE_69GV).getText());
+    DriverInfo.resizeToCurrentText();
+    DriverInfo.setTypedText(touchgfx::TypedText(T___SINGLEUSE_0GI1));
+    add(DriverInfo);
+
+    DriverInfo_Data.setXY(180, 244);
+    DriverInfo_Data.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    DriverInfo_Data.setLinespacing(0);
+    DriverInfo_Data.setWildcard(touchgfx::TypedText(T___SINGLEUSE_M7CG).getText());
+    DriverInfo_Data.resizeToCurrentText();
+    DriverInfo_Data.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GG4S));
+    add(DriverInfo_Data);
+
+    Clock_HR.setXY(395, 14);
+    Clock_HR.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    Clock_HR.setLinespacing(0);
+    Clock_HR.setWildcard(touchgfx::TypedText(T___SINGLEUSE_T3J1).getText());
+    Clock_HR.resizeToCurrentText();
+    Clock_HR.setTypedText(touchgfx::TypedText(T___SINGLEUSE_8JLD));
+    add(Clock_HR);
+
+    Clock_MIN.setXY(418, 14);
+    Clock_MIN.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    Clock_MIN.setLinespacing(0);
+    Clock_MIN.setWildcard(touchgfx::TypedText(T___SINGLEUSE_X2EZ).getText());
+    Clock_MIN.resizeToCurrentText();
+    Clock_MIN.setTypedText(touchgfx::TypedText(T___SINGLEUSE_SWRW));
+    add(Clock_MIN);
+
+    Semicolon.setXY(413, 15);
+    Semicolon.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    Semicolon.setLinespacing(0);
+    Semicolon.setWildcard(touchgfx::TypedText(T___SINGLEUSE_AS99).getText());
+    Semicolon.resizeToCurrentText();
+    Semicolon.setTypedText(touchgfx::TypedText(T___SINGLEUSE_D0FJ));
+    add(Semicolon);
+
+    AM_PM.setXY(436, 20);
+    AM_PM.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    AM_PM.setLinespacing(0);
+    AM_PM.setWildcard(touchgfx::TypedText(T___SINGLEUSE_9DYF).getText());
+    AM_PM.resizeToCurrentText();
+    AM_PM.setTypedText(touchgfx::TypedText(T___SINGLEUSE_A8BG));
+    add(AM_PM);
+
+    RPMBars.setXY(10, 100);
+    RPMBars.setBitmap(touchgfx::Bitmap(BITMAP_RPMBAR_ID));
+    add(RPMBars);
 }
 
 Screen1ViewBase::~Screen1ViewBase()

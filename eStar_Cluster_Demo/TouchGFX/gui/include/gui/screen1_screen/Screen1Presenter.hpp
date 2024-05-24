@@ -25,9 +25,11 @@ public:
      */
     virtual void deactivate();
 
-    virtual ~Screen1Presenter() {}
+    virtual void notifyCounterChanged(uint16_t newCounter);
+    virtual void notifyOdoDataChanged(uint16_t newodoData);
+   // virtual void notifyFuelCounter(int newFuelCount);
 
-    virtual void setLight (bool state);
+    virtual ~Screen1Presenter() {}
 
 private:
     Screen1Presenter();

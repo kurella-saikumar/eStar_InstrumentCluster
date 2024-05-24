@@ -1,7 +1,12 @@
 #ifndef MODEL_HPP
 #define MODEL_HPP
 
+#include <cstdint>
+
 class ModelListener;
+
+void simulateButtonPress();
+void simulateButtonRelease();
 
 class Model
 {
@@ -12,11 +17,18 @@ public:
     {
         modelListener = listener;
     }
-
     void tick();
+    void SpeedData();
+    void OdoData();
+
+    //void FuelData();
 protected:
     ModelListener* modelListener;
-    bool Button_State;
+    uint16_t counter;
+    //uint16_t FuelCounter;
+    uint16_t TickCount;
+    uint16_t speedcounter;
+    uint16_t odometer ;
 };
 
 #endif // MODEL_HPP

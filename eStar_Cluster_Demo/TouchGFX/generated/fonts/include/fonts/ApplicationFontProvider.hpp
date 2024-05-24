@@ -13,17 +13,29 @@ class FlashDataReader;
 
 struct Typography
 {
-    static const touchgfx::FontId DEFAULT = 0;
-    static const touchgfx::FontId LARGE = 1;
-    static const touchgfx::FontId SMALL = 2;
+    static const touchgfx::FontId SPEED = 0;
+    static const touchgfx::FontId KMPH = 1;
+    static const touchgfx::FontId ODO = 2;
+    static const touchgfx::FontId DRIVERINFO = 3;
+    static const touchgfx::FontId AM_PM = 4;
+    static const touchgfx::FontId CLOCK_HR = 5;
+    static const touchgfx::FontId CLOCK_MIN = 6;
+    static const touchgfx::FontId SEMICOLON = 7;
+    static const touchgfx::FontId DRIVRINFO_DATA = 8;
 };
 
 struct TypographyFontIndex
 {
-    static const touchgfx::FontId DEFAULT = 0; // verdana_20_4bpp
-    static const touchgfx::FontId LARGE = 1;   // verdana_40_4bpp
-    static const touchgfx::FontId SMALL = 2;   // verdana_10_4bpp
-    static const uint16_t NUMBER_OF_FONTS = 3;
+    static const touchgfx::FontId SPEED = 0;          // Technology_BoldItalic_96_4bpp
+    static const touchgfx::FontId KMPH = 1;           // Technology_Bold_14_4bpp
+    static const touchgfx::FontId ODO = 2;            // Technology_BoldItalic_36_4bpp
+    static const touchgfx::FontId DRIVERINFO = 3;     // Technology_BoldItalic_24_4bpp
+    static const touchgfx::FontId AM_PM = 1;          // Technology_Bold_14_4bpp
+    static const touchgfx::FontId CLOCK_HR = 4;       // Technology_Bold_20_4bpp
+    static const touchgfx::FontId CLOCK_MIN = 4;      // Technology_Bold_20_4bpp
+    static const touchgfx::FontId SEMICOLON = 5;      // Technology_Bold_24_4bpp
+    static const touchgfx::FontId DRIVRINFO_DATA = 6; // Technology_14_4bpp
+    static const uint16_t NUMBER_OF_FONTS = 7;
 };
 
 class ApplicationFontProvider : public touchgfx::FontProvider
