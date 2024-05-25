@@ -329,7 +329,7 @@ void vHandleModeResetActions(void)
     else if (ucModeButtonEventStatus == LONG_PRESS_HELD && ucResetButtonEventStatus == LONG_PRESS_HELD)
     {
 
-//    	printf("clock:%d\r\n",eclockMode);
+    	//printf("clock:%d\r\n",eclockMode);
         clockSettingRunMode(CLOCK_ENTRY);
         
         if (eClockMode == CLOCK_MODE_INACTIVE)

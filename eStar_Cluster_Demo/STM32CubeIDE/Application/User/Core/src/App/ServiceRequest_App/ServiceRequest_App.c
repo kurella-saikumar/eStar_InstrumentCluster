@@ -379,7 +379,7 @@ void vServiceRequestTask(void)
 #endif
 
 #if(ServiceRequest_TestMacro == 1)
-    printf("TotalDistance-%ld\t, LastServicePoint-%ld\n",ulTotalDistance,ulLastServicePoint);
+    //printf("TotalDistance-%ld\t, LastServicePoint-%ld\n",ulTotalDistance,ulLastServicePoint);
 #endif
 
     /**Check if the distance traveled since last service exceeds the threshold*/
@@ -546,7 +546,7 @@ void vRTCDemoApp(void)
     ucDaycount++;
 
 #if (ServiceRequest_TestMacro == 1)
-    printf("Month: %s\t Day: %d\n", montharray[xservice.month], xservice.date);
+    //printf("Month: %s\t Day: %d\n", montharray[xservice.month], xservice.date);
 #endif
 }
 

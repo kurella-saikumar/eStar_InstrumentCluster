@@ -37,7 +37,7 @@
  * DEFINE GLOBAL SCOPE TYPES
 ***************************************************************************************************/
 
-#define IGN_MANAGER_DEFAULT_STATE IgnON_mode
+#define IGN_MANAGER_DEFAULT_STATE IgnOFF_mode
 
 /*
 *the defined macro "IGNON_ACTION_FUNC" that expands to IGNON_func().

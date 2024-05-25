@@ -108,7 +108,7 @@ UART_HandleTypeDef huart3;
 
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
-uint32_t defaultTaskBuffer[ 256 ];
+uint32_t defaultTaskBuffer[ 128 ];
 osStaticThreadDef_t defaultTaskControlBlock;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
@@ -127,7 +127,7 @@ const osThreadAttr_t TouchGFXTask_attributes = {
 };
 /* Definitions for videoTask */
 osThreadId_t videoTaskHandle;
-uint32_t videoTaskBuffer[ 1024 ];
+uint32_t videoTaskBuffer[ 2048 ];
 osStaticThreadDef_t videoTaskControlBlock;
 const osThreadAttr_t videoTask_attributes = {
   .name = "videoTask",
@@ -151,7 +151,7 @@ const osThreadAttr_t WatchdogService_attributes = {
 };
 /* Definitions for DigitalDebounce */
 osThreadId_t DigitalDebounceHandle;
-uint32_t DigitalDebounceBuffer[ 1024 ];
+uint32_t DigitalDebounceBuffer[ 256 ];
 osStaticThreadDef_t DigitalDebounceControlBlock;
 const osThreadAttr_t DigitalDebounce_attributes = {
   .name = "DigitalDebounce",
@@ -159,7 +159,7 @@ const osThreadAttr_t DigitalDebounce_attributes = {
   .cb_size = sizeof(DigitalDebounceControlBlock),
   .stack_mem = &DigitalDebounceBuffer[0],
   .stack_size = sizeof(DigitalDebounceBuffer),
-  .priority = (osPriority_t) osPriorityNormal1,
+  .priority = (osPriority_t) osPriorityNormal3,
 };
 /* Definitions for State_Manager */
 osThreadId_t State_ManagerHandle;
@@ -171,11 +171,11 @@ const osThreadAttr_t State_Manager_attributes = {
   .cb_size = sizeof(State_ManagerControlBlock),
   .stack_mem = &State_ManagerBuffer[0],
   .stack_size = sizeof(State_ManagerBuffer),
-  .priority = (osPriority_t) osPriorityHigh,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for Analog_Debounce */
 osThreadId_t Analog_DebounceHandle;
-uint32_t Analog_DebounceBuffer[ 1024 ];
+uint32_t Analog_DebounceBuffer[ 512 ];
 osStaticThreadDef_t Analog_DebounceControlBlock;
 const osThreadAttr_t Analog_Debounce_attributes = {
   .name = "Analog_Debounce",
@@ -199,7 +199,7 @@ const osThreadAttr_t FuelGuage_attributes = {
 };
 /* Definitions for OdoMeter */
 osThreadId_t OdoMeterHandle;
-uint32_t OdoBuffer[ 1024 ];
+uint32_t OdoBuffer[ 128 ];
 osStaticThreadDef_t OdoControlBlock;
 const osThreadAttr_t OdoMeter_attributes = {
   .name = "OdoMeter",
@@ -207,11 +207,11 @@ const osThreadAttr_t OdoMeter_attributes = {
   .cb_size = sizeof(OdoControlBlock),
   .stack_mem = &OdoBuffer[0],
   .stack_size = sizeof(OdoBuffer),
-  .priority = (osPriority_t) osPriorityBelowNormal,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for SpeedoMeter */
 osThreadId_t SpeedoMeterHandle;
-uint32_t SpeedoBuffer[ 1024 ];
+uint32_t SpeedoBuffer[ 128 ];
 osStaticThreadDef_t SpeedoControlBlock;
 const osThreadAttr_t SpeedoMeter_attributes = {
   .name = "SpeedoMeter",
@@ -223,7 +223,7 @@ const osThreadAttr_t SpeedoMeter_attributes = {
 };
 /* Definitions for TachoMeter */
 osThreadId_t TachoMeterHandle;
-uint32_t TachoMeterBuffer[ 1024 ];
+uint32_t TachoMeterBuffer[ 256 ];
 osStaticThreadDef_t TachoMeterControlBlock;
 const osThreadAttr_t TachoMeter_attributes = {
   .name = "TachoMeter",
@@ -235,7 +235,7 @@ const osThreadAttr_t TachoMeter_attributes = {
 };
 /* Definitions for SwitchHandler */
 osThreadId_t SwitchHandlerHandle;
-uint32_t SwitchHandlerBuffer[ 512 ];
+uint32_t SwitchHandlerBuffer[ 256 ];
 osStaticThreadDef_t SwitchHandlerControlBlock;
 const osThreadAttr_t SwitchHandler_attributes = {
   .name = "SwitchHandler",
@@ -243,11 +243,11 @@ const osThreadAttr_t SwitchHandler_attributes = {
   .cb_size = sizeof(SwitchHandlerControlBlock),
   .stack_mem = &SwitchHandlerBuffer[0],
   .stack_size = sizeof(SwitchHandlerBuffer),
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for GetClock */
 osThreadId_t GetClockHandle;
-uint32_t GetClockBuffer[ 256 ];
+uint32_t GetClockBuffer[ 128 ];
 osStaticThreadDef_t GetClockControlBlock;
 const osThreadAttr_t GetClock_attributes = {
   .name = "GetClock",
@@ -259,7 +259,7 @@ const osThreadAttr_t GetClock_attributes = {
 };
 /* Definitions for CAN_AppTask */
 osThreadId_t CAN_AppTaskHandle;
-uint32_t CAN_AppTaskBuffer[ 256 ];
+uint32_t CAN_AppTaskBuffer[ 128 ];
 osStaticThreadDef_t CAN_AppTaskControlBlock;
 const osThreadAttr_t CAN_AppTask_attributes = {
   .name = "CAN_AppTask",
@@ -271,7 +271,7 @@ const osThreadAttr_t CAN_AppTask_attributes = {
 };
 /* Definitions for Indicators_App */
 osThreadId_t Indicators_AppHandle;
-uint32_t Indicators_AppBuffer[ 256 ];
+uint32_t Indicators_AppBuffer[ 128 ];
 osStaticThreadDef_t Indicators_AppControlBlock;
 const osThreadAttr_t Indicators_App_attributes = {
   .name = "Indicators_App",
@@ -279,11 +279,11 @@ const osThreadAttr_t Indicators_App_attributes = {
   .cb_size = sizeof(Indicators_AppControlBlock),
   .stack_mem = &Indicators_AppBuffer[0],
   .stack_size = sizeof(Indicators_AppBuffer),
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for ServiceIndicato */
 osThreadId_t ServiceIndicatoHandle;
-uint32_t ServiceIndicatoBuffer[ 512 ];
+uint32_t ServiceIndicatoBuffer[ 128 ];
 osStaticThreadDef_t ServiceIndicatoControlBlock;
 const osThreadAttr_t ServiceIndicato_attributes = {
   .name = "ServiceIndicato",
@@ -303,16 +303,16 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T01 = {
 	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
     .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
     .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
-    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(90000),   /**< Minimum periodicity for vTask_demo1 */
-    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(110000)   /**< Maximum periodicity for vTask_demo1 */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(4000),   /**< Minimum periodicity for vTask_demo1 */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(7000)   /**< Maximum periodicity for vTask_demo1 */
 };
 
 TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T02 = {
 	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
     .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
     .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
-    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(27000),   /**< Minimum periodicity for vTask_demo1 */
-    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(33000)   /**< Maximum periodicity for vTask_demo1 */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(40000),   /**< Minimum periodicity for State_Machine_Task */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(60000)   /**< Maximum periodicity for State_Machine_Task */
 };
 TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T03 = {
 	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
@@ -334,8 +334,8 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T05 = {
 	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
     .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
     .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
-    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(4500000),  /**< Minimum periodicity for Odo_Task */
-    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(5500000)   /**< Maximum periodicity for Odo_Task */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(4500000),//(4500000),  /**< Minimum periodicity for Odo_Task */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(5500000),//(5500000)   /**< Maximum periodicity for Odo_Task */
 };
 
 TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T06 = {
@@ -357,8 +357,8 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T08 = {
 	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
     .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
     .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
-    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(4500),  /**< Minimum periodicity for SwitchHandlerTask */
-    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(5500)   /**< Maximum periodicity for SwitchHandlerTask */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(40000),  /**< Minimum periodicity for SwitchHandlerTask */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(60000)   /**< Maximum periodicity for SwitchHandlerTask */
 };
 
 TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T09 = {
@@ -373,16 +373,16 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T10 = {
 	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
     .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
     .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
-    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(90000),  /**< Minimum periodicity for CAN_Task */
-    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(110000)   /**< Maximum periodicity for CAN_Task */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(95000),  /**< Minimum periodicity for CAN_Task */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(115000)   /**< Maximum periodicity for CAN_Task */
 };
 
 TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T11 = {
 	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
     .ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
     .ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
-    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(45000),  /**< Minimum periodicity for IndicatorsApp_Task */
-    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(55000)   /**< Maximum periodicity for IndicatorsApp_Task */
+    .ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(40000),  /**< Minimum periodicity for IndicatorsApp_Task */
+    .ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(60000)   /**< Maximum periodicity for IndicatorsApp_Task */
 };
 
 TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T12 = {
@@ -446,7 +446,10 @@ void ServiceIndicatorApp_Task(void *argument);
 /* USER CODE BEGIN PFP */
 void vBacklightBrightness(void);
 void execTimeFault_cb1(TaskRunTimeStat_t *p_measurement_var_ptr);
+void execTimeFault_cb2(TaskRunTimeStat_t *p_measurement_var_ptr);
+void execTimeFault_cb3(TaskRunTimeStat_t *p_measurement_var_ptr);
 void vTask_demo1PeriodicityCheckErrorHook(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo);
+void vTask_demo1PeriodicityCheckErrorHook1(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo);
 RTC_TimeTypeDef sTime;
 RTC_DateTypeDef sDate;
 HAL_StatusTypeDef res;
@@ -618,6 +621,7 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_EVENTS */
   /* add events, ... */
+
   /* USER CODE END RTOS_EVENTS */
 
   /* Start scheduler */
@@ -1527,13 +1531,22 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOF_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_7|MCU_ACTIVE_Pin|FRAME_RATE_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOG, LCD_BL_CTRL_Pin|RENDER_TIME_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, MCU_ACTIVE_Pin|FRAME_RATE_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOF, GPIO_PIN_9, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0|GPIO_PIN_2, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LCD_DISP_GPIO_Port, LCD_DISP_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOH, GPIO_PIN_2, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(VSYNC_FREQ_GPIO_Port, VSYNC_FREQ_Pin, GPIO_PIN_RESET);
@@ -1543,6 +1556,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(Mode_switch_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PB7 */
+  GPIO_InitStruct.Pin = GPIO_PIN_7;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : Switch_Fuel_Pin */
   GPIO_InitStruct.Pin = Switch_Fuel_Pin;
@@ -1582,6 +1602,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(Ignition_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : PF9 */
+  GPIO_InitStruct.Pin = GPIO_PIN_9;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+
   /*Configure GPIO pins : MCU_ACTIVE_Pin FRAME_RATE_Pin */
   GPIO_InitStruct.Pin = MCU_ACTIVE_Pin|FRAME_RATE_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
@@ -1589,12 +1616,26 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+  /*Configure GPIO pins : PC0 PC2 */
+  GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_2;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
   /*Configure GPIO pin : LCD_DISP_Pin */
   GPIO_InitStruct.Pin = LCD_DISP_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(LCD_DISP_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : PH2 */
+  GPIO_InitStruct.Pin = GPIO_PIN_2;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOH, &GPIO_InitStruct);
 
   /*Configure GPIO pin : VSYNC_FREQ_Pin */
   GPIO_InitStruct.Pin = VSYNC_FREQ_Pin;
@@ -1716,63 +1757,23 @@ void StartDefaultTask(void *argument)
 * @retval None
 */
 
-
-
-/* USER CODE END Header_WDG_SRVC_Task */
-void WDG_SRVC_Task(void *argument)
+void execTimeFault_cb1(TaskRunTimeStat_t *p_measurement_var_ptr)
 {
-  /* USER CODE BEGIN WDG_SRVC_Task */
-  /* Infinite loop */
-  for(;;)
-  {
-	    osDelay(30000); //watchdog period
-	    //service or refresh or reload the watchdog here
-	    printf("WDG_SRVC_Task\r\n");
-	    if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
-	    {
-	          Error_Handler();
-	    }
+	printf("DigitalDebounce_Task execTimeFault\r\n");
+#if(UART_DEBUG == 1)
+	/** @startuml */ /** start */
+	/**: Buffer to hold cExecutionTime ;*/
+	char cExecutionTime[50];
+	sprintf(cExecutionTime,"Execution time: %lu\r\n",CONVERT_TIMER_COUNTS_TO_US(p_measurement_var_ptr->ulexecutionTime));
 
-  }
-  /* USER CODE END WDG_SRVC_Task */
-}
-
-/* USER CODE BEGIN Header_DigitalDebounce_Task */
-/**
-* @brief Function implementing the DigitalDebounce thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_DigitalDebounce_Task */
-void DigitalDebounce_Task(void *argument)
-{
-  /* USER CODE BEGIN DigitalDebounce_Task */
-//  static TaskRunTimeStat_t p_measurement_var_ptr;
-//  vReset_executionTimeStats(&p_measurement_var_ptr);
-	static TaskRunTimeStat_t p_measurement_var_ptr;
-	vReset_executionTimeStats(&p_measurement_var_ptr);
-  /* Infinite loop */
-  for(;;)
-  {
-#if 1
-	  printf("DigitalDebounce_Task\n\r");
-	  /**:To ensure periodicity monitoring of this task, vCheckPeriodicity shall be called from here in a loop;*/
-	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T01,vTask_demo1PeriodicityCheckErrorHook );
-//	  vStackMonitorDemonTask_Handler();
-	  vBeginExecMeas(&p_measurement_var_ptr);
-	  DebounceTask();
-      vGet_Switch_DebouncedStatus();
-	  osDelay(100); //      HAL_Delay(100); //	  vTaskDelay(100);
-	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(110000), execTimeFault_cb1);
-#else
-//	  DebounceTask();
-//      vGet_Switch_DebouncedStatus();
-////	  vTaskDelay(100);
-	  osDelay(100);
+	/**: Transmit the execTimeFault_cb status message via UART ;*/
+	while (HAL_UART_Transmit(&huart1, cExecutionTime, strlen(cExecutionTime), 30) != HAL_OK)
+	{
+		/**: You can add some error handling here if needed ;*/
+		break;
+	}
+	/** end*/ /** @enduml */
 #endif
-
-  }
-  /* USER CODE END DigitalDebounce_Task */
 }
 
 /* USER CODE BEGIN Header_State_Machine_Task */
@@ -1781,10 +1782,10 @@ void DigitalDebounce_Task(void *argument)
 * @param argument: Not used
 * @retval None
 */
-void execTimeFault_cb1(TaskRunTimeStat_t *p_measurement_var_ptr)
+void execTimeFault_cb2(TaskRunTimeStat_t *p_measurement_var_ptr)
 {
-
-	printf("execTimeFault\r\n");
+	//HAL_GPIO_WritePin(GPIOH, GPIO_PIN_2,GPIO_PIN_RESET);
+	printf("State_Machine_Task execTimeFault\r\n");
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold cExecutionTime ;*/
@@ -1804,9 +1805,11 @@ void execTimeFault_cb1(TaskRunTimeStat_t *p_measurement_var_ptr)
 
 void vTask_demo1PeriodicityCheckErrorHook(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
+	//HAL_GPIO_WritePin(GPIOH, GPIO_PIN_2,GPIO_PIN_RESET);
+	printf("DigitalDebounce_Task Failed\r\n");
 
-	printf("vTask_demo1PeriodicityCheckErrorHook\r\n");
 #if(UART_DEBUG == 1)
+	printf("vTask_demo1PeriodicityCheckErrorHook\r\n");
 	/** @startuml */ /** start */
 	/**: Buffer to hold FailStatus;*/
 	char ucBuffer[50];
@@ -1825,6 +1828,54 @@ void vTask_demo1PeriodicityCheckErrorHook(TaskPeriodicityCheck_t *xPeriodicityCh
 
 }
 
+void vTask_demo1PeriodicityCheckErrorHook1(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
+{
+	//HAL_GPIO_WritePin(GPIOH, GPIO_PIN_2,GPIO_PIN_RESET);
+	printf("state_machine Task Failed\r\n");
+
+#if(UART_DEBUG == 1)
+	printf("vTask_demo1PeriodicityCheckErrorHook\r\n");
+	/** @startuml */ /** start */
+	/**: Buffer to hold FailStatus;*/
+	char ucBuffer[50];
+
+	/**: Periodicity Check status ;*/
+	snprintf(ucBuffer,sizeof(ucBuffer),"vTask_demo1PeriodicityCheckErrorHook\r\n");
+
+	/**: Transmit the Periodicity Check status message via UART;*/
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)ucBuffer, strlen(ucBuffer), 30) != HAL_OK)
+	{
+		/**: You can add some error handling here if needed;*/
+		break;
+	}
+	/** end*/ /** @enduml */
+#endif
+
+}
+void vTask_demo1PeriodicityCheckErrorHookcan(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
+{
+	//HAL_GPIO_WritePin(GPIOH, GPIO_PIN_2,GPIO_PIN_RESET);
+	printf("CAN_Task Failed\r\n");
+
+#if(UART_DEBUG == 1)
+	printf("vTask_demo1PeriodicityCheckErrorHook\r\n");
+	/** @startuml */ /** start */
+	/**: Buffer to hold FailStatus;*/
+	char ucBuffer[50];
+
+	/**: Periodicity Check status ;*/
+	snprintf(ucBuffer,sizeof(ucBuffer),"vTask_demo1PeriodicityCheckErrorHook\r\n");
+
+	/**: Transmit the Periodicity Check status message via UART;*/
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)ucBuffer, strlen(ucBuffer), 30) != HAL_OK)
+	{
+		/**: You can add some error handling here if needed;*/
+		break;
+	}
+	/** end*/ /** @enduml */
+#endif
+
+}
 void vApplicationStackUsageLimit(TaskHandle2_t xTask, const char *pcTaskName)
 {
 
@@ -1862,6 +1913,107 @@ void vMaxTaskRegisteredCallback(uint8_t registered_task_index)
 	/** end*/ /** @enduml */
 #endif
 }
+
+void execTimeFault_cb3(TaskRunTimeStat_t *p_measurement_var_ptr)
+{
+	//HAL_GPIO_WritePin(GPIOH, GPIO_PIN_2,GPIO_PIN_RESET);
+	printf("CAN_Task execTimeFault\r\n");
+#if(UART_DEBUG == 1)
+	/** @startuml */ /** start */
+	/**: Buffer to hold cExecutionTime ;*/
+	char cExecutionTime[50];
+	sprintf(cExecutionTime,"Execution time: %lu\r\n",CONVERT_TIMER_COUNTS_TO_US(p_measurement_var_ptr->ulexecutionTime));
+
+	/**: Transmit the execTimeFault_cb status message via UART ;*/
+	while (HAL_UART_Transmit(&huart1, cExecutionTime, strlen(cExecutionTime), 30) != HAL_OK)
+	{
+		/**: You can add some error handling here if needed ;*/
+		break;
+	}
+	/** end*/ /** @enduml */
+#endif
+
+}
+void vTask_demo1PeriodicityCheckErrorHook3(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
+{
+	//HAL_GPIO_WritePin(GPIOH, GPIO_PIN_2,GPIO_PIN_RESET);
+	printf("Clock_Task_Periodicity Failed\r\n");
+
+#if(UART_DEBUG == 1)
+	printf("vTask_demo1PeriodicityCheckErrorHook\r\n");
+	/** @startuml */ /** start */
+	/**: Buffer to hold FailStatus;*/
+	char ucBuffer[50];
+
+	/**: Periodicity Check status ;*/
+	snprintf(ucBuffer,sizeof(ucBuffer),"vTask_demo1PeriodicityCheckErrorHook\r\n");
+
+	/**: Transmit the Periodicity Check status message via UART;*/
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)ucBuffer, strlen(ucBuffer), 30) != HAL_OK)
+	{
+		/**: You can add some error handling here if needed;*/
+		break;
+	}
+	/** end*/ /** @enduml */
+#endif
+
+}
+
+/* USER CODE END Header_WDG_SRVC_Task */
+void WDG_SRVC_Task(void *argument)
+{
+  /* USER CODE BEGIN WDG_SRVC_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+	    osDelay(30000); //watchdog period
+	    //service or refresh or reload the watchdog here
+	    printf("WDG_SRVC_Task\r\n");
+	    if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
+	    {
+	          Error_Handler();
+	    }
+
+  }
+  /* USER CODE END WDG_SRVC_Task */
+}
+
+/* USER CODE BEGIN Header_DigitalDebounce_Task */
+/**
+* @brief Function implementing the DigitalDebounce thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_DigitalDebounce_Task */
+void DigitalDebounce_Task(void *argument)
+{
+  /* USER CODE BEGIN DigitalDebounce_Task */
+	static TaskRunTimeStat_t p_measurement_var_ptr;
+	vReset_executionTimeStats(&p_measurement_var_ptr);
+  /* Infinite loop */
+  for(;;)
+  {
+	  //printf("DigitalDebounce_Task\r\n");
+	  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
+	  HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
+	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T01,vTask_demo1PeriodicityCheckErrorHook );
+	  vBeginExecMeas(&p_measurement_var_ptr);
+	  DebounceTask();
+      vGet_Switch_DebouncedStatus();
+	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb1);
+	  osDelay(5);
+  }
+  /* USER CODE END DigitalDebounce_Task */
+}
+
+
+/* USER CODE BEGIN Header_State_Machine_Task */
+/**
+* @brief Function implementing the State_Manager thread.
+* @param argument: Not used
+* @retval None
+*/
+
 /* USER CODE END Header_State_Machine_Task */
 void State_Machine_Task(void *argument)
 {
@@ -1871,16 +2023,14 @@ void State_Machine_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-#if 0
-	  printf("State_Machine_Task\n\r");
-	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T02,vTask_demo1PeriodicityCheckErrorHook );
+	  //printf("State_Manager_task\r\n");
+	  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
+	  HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_2);
+	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T02,vTask_demo1PeriodicityCheckErrorHook1);
 	  vBeginExecMeas(&p_measurement_var_ptr);
-
 	  State_Manager_task();
-	  osDelay(30);
-	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(30100), execTimeFault_cb1);
-#endif
-	  osDelay(10);
+	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(6000), execTimeFault_cb2);
+	  osDelay(50);
   }
   /* USER CODE END State_Machine_Task */
 }
@@ -1902,7 +2052,7 @@ void Analog_Debounce_Task(void *argument)
   for(;;)
   {
 #if 1
-	  printf("Analog_Debounce_Task\n\r");
+	  //printf("Analog_Debounce_Task\n\r");
 	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T03,vTask_demo1PeriodicityCheckErrorHook );
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  HAL_ADC_Start(&hadc3); // start the adc
@@ -1915,10 +2065,9 @@ void Analog_Debounce_Task(void *argument)
 #if(BATMON_TEST_MACRO == 1)
 	  printf("Batt_state:%d\r\n",Batt_state);
 #endif
-    osDelay(100);
-    vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(105000), execTimeFault_cb1);
+    vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(3000), execTimeFault_cb1);
 #endif
-    //osDelay(100);
+    osDelay(100);
   }
   /* USER CODE END Analog_Debounce_Task */
 }
@@ -1938,19 +2087,16 @@ void FuelGuageTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-#if 1
-      printf("FuelGuageTask\n\r");
+      //printf("FuelGuageTask\n\r");
 	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T04,vTask_demo1PeriodicityCheckErrorHook );
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  HAL_ADC_Start(&hadc1);
 	  HAL_ADC_PollForConversion(&hadc1, 1);
 	  usADCValue=(uint16_t)HAL_ADC_GetValue(&hadc1);
-	  //printf("ADC-%d\r\n",usADCValue);
 	  vFuelGuageTask();
+      vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb1);
       osDelay(100);
-      vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(105000), execTimeFault_cb1);
-#endif
-      //osDelay(100);
+
   }
   /* USER CODE END FuelGuageTask */
 }
@@ -1970,15 +2116,16 @@ void Odo_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-#if 1
-	  printf("Odo_Task\n\r");
+	  //printf("Odo_Task\n\r");
+	  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
+	  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0);
 	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T05,vTask_demo1PeriodicityCheckErrorHook );
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vOdoAlgorithm();
+      vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(3500), execTimeFault_cb1);
       osDelay(5000);
-      vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(5100000), execTimeFault_cb1);
-#endif
-      //osDelay(5000);
+
+
   }
   /* USER CODE END Odo_Task */
 }
@@ -1998,15 +2145,14 @@ void Speedo_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-#if 1
-	  printf("Speedo_Task\n\r");
+
+	  //printf("Speedo_Task\n\r");
 	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T06,vTask_demo1PeriodicityCheckErrorHook );
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vSpeedoAlgorithm();
+    vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb1);
     osDelay(5000);
-    vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(5100000), execTimeFault_cb1);
-#endif
-    //osDelay(5000);
+
   }
   /* USER CODE END Speedo_Task */
 }
@@ -2026,15 +2172,12 @@ void Tacho_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-#if 1
-	  printf("Tacho_Task\n\r");
+	  //printf("Tacho_Task\n\r");
 	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T07,vTask_demo1PeriodicityCheckErrorHook );
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vTacho_App();
+    vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb1);
     osDelay(1000);
-    vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1100000), execTimeFault_cb1);
-#endif
-    //osDelay(1000);
   }
   /* USER CODE END Tacho_Task */
 }
@@ -2051,20 +2194,23 @@ void SwitchHandlerTask(void *argument)
   /* USER CODE BEGIN SwitchHandlerTask */
  	static TaskRunTimeStat_t p_measurement_var_ptr;
  	vReset_executionTimeStats(&p_measurement_var_ptr);
+
+	//HAL_GPIO_WritePin(GPIOH, GPIO_PIN_2, GPIO_PIN_RESET);
+
   /* Infinite loop */
   for(;;)
   {
-#if 0
-	  printf("SwitchHandlerTask\n\r");
+//	  printf("SwitchHandlerTask\n\r");
+	  //taskENTER_CRITICAL();
+//	  HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_2);
 	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T08,vTask_demo1PeriodicityCheckErrorHook );
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vSwitchHandlerTask();
 	  Switch_Task();
 	  vHandleModeResetActions();
-	  osDelay(5);
-	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(5500), execTimeFault_cb1);
-#endif
-	  osDelay(1);
+	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(5000), execTimeFault_cb3);
+	  osDelay(50);
+
   }
   /* USER CODE END SwitchHandlerTask */
 }
@@ -2074,7 +2220,9 @@ void SwitchHandlerTask(void *argument)
 * @brief Function implementing the GetClock thread.
 * @param argument: Not used
 * @retval None
+*
 */
+
 /* USER CODE END Header_GetClockTask */
 void GetClockTask(void *argument)
 {
@@ -2085,13 +2233,15 @@ void GetClockTask(void *argument)
   for(;;)
   {
 #if 1
-	  printf("GetClockTask\n\r");
-	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T09,vTask_demo1PeriodicityCheckErrorHook );
+	  //printf("GetClockTask\n\r");
+//	  HAL_GPIO_WritePin(GPIOH, GPIO_PIN_2,GPIO_PIN_RESET);
+	  //HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_2);
+	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T09,vTask_demo1PeriodicityCheckErrorHook3 );
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vGet_Clock();
 	  vClockIncreament();
+	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb1);
 	  osDelay(500);
-	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(520000), execTimeFault_cb1);
 #endif
 	  //osDelay(500);
   }
@@ -2113,16 +2263,16 @@ void CAN_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-#if 1
-	  printf("CAN_Task\n\r");
-	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T10,vTask_demo1PeriodicityCheckErrorHook );
-	  vBeginExecMeas(&p_measurement_var_ptr);
+
+   //printf("CAN_Task\n\r");
+	  HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_2);
+	vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T10,vTask_demo1PeriodicityCheckErrorHookcan );
+	vBeginExecMeas(&p_measurement_var_ptr);
 //	vCANTransmit();
 //	vCANReceive();
+	vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb3);
 	osDelay(100);
-	vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(110000), execTimeFault_cb1);
-#endif
-	//osDelay(100);
+
   }
   /* USER CODE END CAN_Task */
 }
@@ -2142,22 +2292,17 @@ void IndicatorsApp_Task(void *argument)
   /* Infinite loop */
 	for(;;)
 	  {
-#if 0
-	 	printf("IndicatorsApp_Task\n\r");
+#if 1
+		//HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
+	 	//printf("IndicatorsApp_Task\n\r");
 	   vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T11,vTask_demo1PeriodicityCheckErrorHook );
 	   vBeginExecMeas(&p_measurement_var_ptr);
 		vIndicator_App_Task();
 		indicator = xGetIndicatorstatus();
-		//printf("indicator=%lu\r\n",indicator);
-		//printf("Indicator_status: %x\r\n", indicator.Indicator_status); // Example: Print ReceivedData member
-
-		//printf("Right indicator: %x\r\n", indicator.Indicator_status);
-		// or
-		//printf("Indicator_status: %x\r\n",  xGetIndicatorstatus());
+	    vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb1);
 	    osDelay(50);
-	    vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(50000), execTimeFault_cb1);
 #endif
-	    osDelay(50);
+	    //osDelay(50);
 	  }
   /* USER CODE END IndicatorsApp_Task */
 }
@@ -2178,7 +2323,7 @@ void ServiceIndicatorApp_Task(void *argument)
   for(;;)
   {
 #if 1
-	printf("ServiceIndicatorApp_Task\n\r");
+	//printf("ServiceIndicatorApp_Task\n\r");
     vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T12,vTask_demo1PeriodicityCheckErrorHook );
     vBeginExecMeas(&p_measurement_var_ptr);
 	vServiceRequestTask();

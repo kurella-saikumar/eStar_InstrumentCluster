@@ -111,42 +111,42 @@ void vEndExecMeas(TaskRunTimeStat_t *p_measurement_var_ptr,uint32_t ulmaxAllowed
 	p_measurement_var_ptr->ulEnd_Count = portGET_RUN_TIME_COUNTER_VALUE();
 
 	/**:Execution time calculated by subtracting ulstart_Count from ulEnd_Count and multiplied with Timer_Resolution in Nanoseconds;*/
-	ul_execution_time = (p_measurement_var_ptr->ulEnd_Count - p_measurement_var_ptr->ulstart_Count);
-	p_measurement_var_ptr->ulexecutionTime = ul_execution_time;
-	//printf("ul_execution_time: %ld\n", (unsigned long)ul_execution_time);
+	p_measurement_var_ptr->ulexecutionTime = (p_measurement_var_ptr->ulEnd_Count - p_measurement_var_ptr->ulstart_Count);
+	//p_measurement_var_ptr->ulexecutionTime = ul_execution_time;
+	//printf("ul_execution_time: %ld\n", ul_execution_time);
 
 
-	#ifdef COLLECT_ALL_EXECUTION_INFO
-		/**if(P_measurement_var_ptr->ustask_Counter does not match to current ustask_Counter) then(true)*/
+/*	#ifdef COLLECT_ALL_EXECUTION_INFO
+//		*if(P_measurement_var_ptr->ustask_Counter does not match to current ustask_Counter) then(true)
 		 if(p_measurement_var_ptr->ustask_Counter != MAX_CYCLE_Avg_EXEC)
 		 {
-			/**:increments the task counter in the structure by one;*/
+			*:increments the task counter in the structure by one;
 			p_measurement_var_ptr->ustask_Counter++;
 		 }
-		/**endif*/
-		/**if(ul_execution_time greater than max_time) then(true)*/
+		*endif
+		*if(ul_execution_time greater than max_time) then(true)
 		if(ul_execution_time > p_measurement_var_ptr->ulmaxTime)
 		{
-			/**:ul_execution_time is assigned to ulmaxTime;*/
+			*:ul_execution_time is assigned to ulmaxTime;
 			p_measurement_var_ptr->ulmaxTime = ul_execution_time;
 		}
 		else
 		{
-			/**nothing to do*/
+			*nothing to do
 		}
-		/**if(ul_execution_time less than ulminTime) then (true)*/
+		*if(ul_execution_time less than ulminTime) then (true)
 		if(ul_execution_time < p_measurement_var_ptr->ulminTime)
 		{
-			/**:ul_execution_time is assigned to ulminTime;*/
+			*:ul_execution_time is assigned to ulminTime;
 			p_measurement_var_ptr->ulminTime = ul_execution_time;
-		}/**endif*/
+		}*endif
 		else
 		{
-			/**nothing to do*/
+			*nothing to do
 		}
 		p_measurement_var_ptr->ulAvg = ((p_measurement_var_ptr->ulAvg * (p_measurement_var_ptr->ustask_Counter -1U))+(ul_execution_time))/p_measurement_var_ptr->ustask_Counter;
 	#endif
-
+	printf("ulmaxAllowedTime : %ld\n",ulmaxAllowedTime);*/
 	if (p_measurement_var_ptr->ulexecutionTime > ulmaxAllowedTime)
 	{
 		/**If the measurement is out of range, trigger the out-of-range callback*/
