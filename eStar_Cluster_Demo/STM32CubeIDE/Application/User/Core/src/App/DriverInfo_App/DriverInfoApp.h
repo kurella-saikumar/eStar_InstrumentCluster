@@ -52,15 +52,22 @@ typedef struct{
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES\n
 ***************************************************************************************************/
+#if 1
 void vDriver_InfoTask(void);
 void vCalculateAVSInKmperhour(void);
 void vCalculateAFEKmperLitre(void);
+uint8_t prvFuelSimulation(void);
 void vCalculateDTE(void);
 uint8_t Convertintolitres(uint8_t ucFuel_ConsumedinPer);
 driverInfoModeStatus_t xGetInfostatus(void);
+#endif
 
-
-
+#if 0
+uint8_t prvFuelSimulation(void);
+int convert_FuelPercentageToLitres(int);
+int calculateAFE(void);
+int calculateDTE(void);
+#endif
 
 #endif /* APPLICATION_USER_CORE_SRC_APP_DRIVERINFO_APP_DRIVERINFOAPP_H_ */
 

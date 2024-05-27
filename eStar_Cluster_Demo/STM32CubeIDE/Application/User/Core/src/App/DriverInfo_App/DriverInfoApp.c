@@ -21,9 +21,7 @@
 /**************************************************************************************************
  * Include Platform or Standard Headers
 ***************************************************************************************************/
-
 #include "DriverInfoApp.h"
-
 /**************************************************************************************************
  * Include Project Specific Headers
 ***************************************************************************************************/
@@ -34,7 +32,6 @@
 #include "IGN_SmHandler.h"
 #include "FuelGuage_App.h"
 #include "Indicator_App.h"
-
 /**************************************************************************************************
  * DEFINE FILE SCOPE MACROS
 ***************************************************************************************************/
@@ -47,6 +44,7 @@
  * DECLARE GLOBAL VARIABLES\n
 ***************************************************************************************************/
 
+#if 1
 uint32_t ucDistance1 = 0;
 uint32_t ucDistance2 = 0;
 uint8_t ucInitialValue = 0;
@@ -205,7 +203,7 @@ void vCalculateAFEKmperLitre(void)
 	static uint8_t uccount = 0;
 	static uint8_t ucFuelValinLitres = 0;
 	ucFinalFuelValue = xGetFuelLevel(&warningindicator, &warningstatus);
-#if 0
+#if 1
 	ucFinalFuelValue = prvFuelSimulation(); /*Testing purpose*/
 #endif
 	ulFinalDistance = xGetOdoReadings(&units);
@@ -231,7 +229,7 @@ void vCalculateAFEKmperLitre(void)
 				//To provide the AFE value for display, they need to place the decimal point before the last digit.
 				ModeStatus.AverageFuelEconomy = (uint16_t)((ucDeltaDistance *10) / (ucFuelValinLitres));
 				usvar2 = ModeStatus.AverageFuelEconomy;
-				printf("AFE_d:%d\t",usvar2);
+				//printf("AFE_d:%d\t",usvar2);
 			}
 		}
 		else
@@ -282,72 +280,48 @@ uint16_t dte;
  *
  * @return Void.
  */
+uint8_t simulatedFuel = 100;
 void vCalculateDTE(void)
 {
     static uint8_t uccount1 = 0;
-    usAverageFuelEconomy1 = usvar2;
+//    usAverageFuelEconomy1 = usvar2;
+
     ucFuellevel = xGetFuelLevel(&warningindicator, &warningstatus);
-    //ucFuellevel = simulatedFuel; /*Testing Pupose*/
-#if(DRIVERINFO_TEST_MACRO == 1)
-//    printf("AFE_in:%d\t", usAverageFuelEconomy1);
-//    printf("FL:%d\t",ucFuellevel);
-#endif
+    ucFuellevel = simulatedFuel; /*Testing Pupose*/
+    printf("F:%d\t D:%d\t",ucFuellevel, ucDeltaDistance);
     usactual_DTE = (ucFuellevel * 40  * ucDeltaDistance * 100 )/ (100 *  40);
 	//usMaxThresholdDTE = fueltankcapacity * usAverageFuelEconomy1;
-    if(uccount1 == 1 )
-    {
 
+    if(uccount1 >= 1 )
+    {
+    	uccount1 = 0;
     	if(usactual_DTE <= usdisplayed_DTE)
     	{
     		usTotal_DTE = usdisplayed_DTE - usactual_DTE;
-#if(DRIVERINFO_TEST_MACRO == 1)
-    		//printf("a:%d,d:%d\t",usactual_DTE,usdisplayed_DTE);
-#endif
-
     	}
     	else
     	{
     		usTotal_DTE = usactual_DTE - usdisplayed_DTE;
-#if(DRIVERINFO_TEST_MACRO == 1)
-    		//printf("a1:%d,d1:%d\t",usactual_DTE,usdisplayed_DTE);
-#endif
-
     	}
-    	usdisplayed_DTE = usactual_DTE;
-#if(DRIVERINFO_TEST_MACRO == 1)
-//		printf("DDTE:%d\t", usdisplayed_DTE);
-//		printf("TDTE:%d\t",usTotal_DTE);
-#endif
+
 		if(usactual_DTE >= usMaxThresholdDTE)
 		{
 			usactual_DTE = usMaxThresholdDTE;
-#if(DRIVERINFO_TEST_MACRO == 1)
-//			printf("displayed_DTE:%d\t",usdisplayed_DTE);
-#endif
 		}
-
 		if(usTotal_DTE < MIN_DISPLAYED_DTE)
 		{
 			usdisplayed_DTE = usdisplayed_DTE - 1;
-#if(DRIVERINFO_TEST_MACRO == 1)
-//			printf("displayed_DTE0:%d\t",usdisplayed_DTE);
-#endif
 		}
 		else if (usTotal_DTE > MAX_DISPLAYED_DTE)
 		{
 			usdisplayed_DTE = usactual_DTE;
-#if(DRIVERINFO_TEST_MACRO == 1)
-			//printf("displayed_DTE1:%d\t",usdisplayed_DTE);
-#endif
 		}
 		else if (usTotal_DTE >= MIN_DISPLAYED_DTE && usTotal_DTE <= MAX_DISPLAYED_DTE)
 		{
 			usdisplayed_DTE = usdisplayed_DTE - 2;
-			//printf("displayed_DTE2:%d\t",usdisplayed_DTE);
 		}
 		else
 		{
-
 		}
 
     }
@@ -355,11 +329,8 @@ void vCalculateDTE(void)
     {
     	uccount1++;
     }
+	usdisplayed_DTE = usactual_DTE;
     ModeStatus.DistanceToEmpty = usdisplayed_DTE;
-#if(DRIVERINFO_TEST_MACRO == 1)
-    dte = ModeStatus.DistanceToEmpty;
-//    printf("DTE:%d\n\r",dte);
-#endif
 }
 /**
  * @brief Speed calculation algorithm
@@ -411,10 +382,11 @@ driverInfoModeStatus_t xGetInfostatus(void)
 	return ModeStatus;
 }
 /*For testing purpose ,we can vary the fuellevel through this API*/
-#if 0
+#if 1
+//int simulatedFuel = 0;
 uint8_t prvFuelSimulation(void)
 {
-	simulatedFuel--;
+	simulatedFuel = simulatedFuel - 10;
 
 	if(simulatedFuel <= 0)
 		simulatedFuel = 100;
@@ -423,6 +395,105 @@ uint8_t prvFuelSimulation(void)
 }
 #endif
 
+#endif
+
+
+
+#if 0
+vehicleDisplayMetrics_t units = 0;
+bool warningstatus = 0;
+IndicationStatus_t warningindicator;
+
+uint8_t fuelTankCapacity = 40;
+int initialDistance = 0;
+int finalDistance = 0;
+int deltaDistance = 20;
+
+int initialFuelPercentage = 0;
+int finalFuelPercentage = 0;
+int deltaFuelInPercentage = 0;
+int deltaFuelInLitres = 0;
+
+int fuelRemainingInPercentage = 0;
+int fuelRemainingInLitres = 0;
+
+int AFE = 0;
+int DTE = 0;
+
+int simulatedFuel = 100;
+
+//uint8_t xGetOdoReadings(){
+//	SimulatedOdo = SumulatedOdo + 20;
+//
+//	if(SimulatedOdo >= 0)
+//		SimulatedOdo = 30000;
+//
+//	return SimulatedOdo;
+//
+//}
+uint8_t xGetOdoReadings(void)
+{
+	uint8_t OdoArray[30] = {20,40,60,80,100,120,140,160,180,200,220,240,260,280,300,320,340,360,380,400};
+	static uint8_t Odo = 0;
+	uint8_t Final = 0;
+		Final = OdoArray[Odo];
+		Odo++;
+	return Final;
+}
+
+uint8_t prvFuelSimulation(void)
+{
+	simulatedFuel = simulatedFuel-10;
+
+	if(simulatedFuel <= 0)
+		simulatedFuel = 100;
+
+	return simulatedFuel;
+}
+
+int convert_FuelPercentageToLitres(int fuelPercentage)
+{
+    int fuelInLitres = 0;
+    fuelInLitres = (fuelTankCapacity * fuelPercentage) / 100;
+
+    return fuelInLitres;
+}
+
+int calculateAFE(void)
+{
+	finalDistance = xGetOdoReadings(&units);
+	deltaDistance = finalDistance - initialDistance;
+
+	finalFuelPercentage = xGetFuelLevel(&warningindicator, &warningstatus);
+	finalFuelPercentage = prvFuelSimulation();
+
+	if(finalFuelPercentage > initialFuelPercentage)
+		deltaFuelInPercentage = finalFuelPercentage - initialFuelPercentage;
+	else
+		deltaFuelInPercentage = initialFuelPercentage - finalFuelPercentage;
+
+    deltaFuelInLitres = convert_FuelPercentageToLitres(deltaFuelInPercentage);
+
+    printf("Distance: %d\n\r", deltaDistance);
+    printf("Fuel: %d\n\r", deltaFuelInLitres);
+    AFE = deltaDistance / deltaFuelInLitres;
+
+    initialDistance = finalDistance;
+    initialFuelPercentage = finalFuelPercentage;
+    return AFE;
+}
+
+int calculateDTE(void)
+{
+    fuelRemainingInPercentage = xGetFuelLevel(&warningindicator, &warningstatus);
+    fuelRemainingInLitres = convert_FuelPercentageToLitres(fuelRemainingInPercentage);
+    fuelRemainingInLitres = finalFuelPercentage;
+
+    printf("Fuel: %d\n\r", fuelRemainingInLitres);
+    DTE = fuelRemainingInLitres * AFE;
+    return DTE;
+}
+#endif
 
 /**************************************************************************************************
  * End Of File

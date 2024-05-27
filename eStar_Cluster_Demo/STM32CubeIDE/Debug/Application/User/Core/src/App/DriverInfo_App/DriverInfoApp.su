@@ -1,7 +1,8 @@
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:153:6:vCalculateAVSInKmperhour	16	static
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:254:9:Convertintolitres	8	static
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:202:6:vCalculateAFEKmperLitre	32	static
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:285:6:vCalculateDTE	8	static
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:123:6:vDriver_InfoTask	8	static
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:371:6:DisplayDTE	0	static
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:400:24:xGetInfostatus	16	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:151:6:vCalculateAVSInKmperhour	16	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:252:9:Convertintolitres	8	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:284:6:vCalculateDTE	16	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:342:6:DisplayDTE	0	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:371:24:xGetInfostatus	16	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:387:9:prvFuelSimulation	0	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:200:6:vCalculateAFEKmperLitre	32	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:121:6:vDriver_InfoTask	8	static

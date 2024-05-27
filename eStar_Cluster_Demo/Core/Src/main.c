@@ -1875,7 +1875,7 @@ void ServiceIndicatorApp_Task(void *argument)
 * @param argument: Not used
 * @retval None
 */
-extern driverInfoModeStatus_t ModeStatus;
+//extern driverInfoModeStatus_t ModeStatus;
 /* USER CODE END Header_DriverInfoAppTask */
 void DriverInfoAppTask(void *argument)
 {
@@ -1902,14 +1902,18 @@ void DriverInfoAppTask(void *argument)
 	  vDriver_InfoTask();
 	  driverInfoModeStatus_t Infostatus = xGetInfostatus();
 
-	  printf("AVS:%d\t",Infostatus.AverageVehicleSpeed);
-	  printf("AFE_m:%d\t",Infostatus.AverageFuelEconomy);
+	 // printf("AVS:%d\t",Infostatus.AverageVehicleSpeed);
+	  //printf("AFE_m:%d\t",Infostatus.AverageFuelEconomy);
 	  printf("DTE:%d\n\r",Infostatus.DistanceToEmpty);
 //	  printf("avs:%d\t",val1);
 //	  printf("afe:%d\t",val2);
 //	  printf("dte1:%d\n\r",val3);
 	  //vCalculateAvsAfeRange();
 	  //vDriver_InfoTask();
+
+	  //printf("AFE: %d\n\r", calculateAFE());
+	  //printf("DTE: %d\n\r\n\r", calculateDTE());
+
     osDelay(5000);
   }
   /* USER CODE END DriverInfoAppTask */
