@@ -511,39 +511,27 @@ EE_Status prvEE_CleanUp(void)
 EE_Status prvVerifyPageFullyErased(uint32_t Address, uint32_t PageSize)
 {
   EE_Status readstatus = EE_PAGE_ERASED;
-  uint32_t ulCounter = 0U;
-  uint64_t addressvalue =0U;
-  uint8_t ucReadAddressValue[4]={0};
-  uint8_t ucDataValue[4]={0};
+  uint16_t usCounter = 0U;
+  uint32_t ulReadData =0U;
+  uint8_t ucData[4]={0};
 
 
   /* Check each element in the page */
-  while (ulCounter < PageSize)
+	while (usCounter < PageSize)
 	{
+		xFI_ReadDoubleWord((Address + usCounter), ucData);
 
-		xFI_ReadDoubleWord((Address+ulCounter), ucDataValue);
-		xFI_ReadDoubleWord(((Address+ulCounter)+EE_ADDRESS_OFFSET), ucReadAddressValue);
+		ulReadData = ucData[0] << 8 | ucData[1] << 16 | ucData[2] << 24 | ucData[3];
 
-		for (int i = 0; i < 4; i++)
-		{
-			addressvalue <<= 8; // Shift the existing bits to the left by 8 bits
-			addressvalue |= ucDataValue[i]; // Add the byte from DataValue
-		}
-
-		for (int i = 0; i < 4; i++)
-		{
-			addressvalue <<= 8; // Shift the existing bits to the left by 8 bits
-			addressvalue |= ucReadAddressValue[i]; // Add the byte from ReadAddressValue
-		}
-
-		if (addressvalue!= EE_PAGESTAT_ERASED)
+		if (ulReadData!= EE_NO_DATA_FOUND)
 		{
 			/* In case one element is not erased, reset readstatus flag */
 			readstatus = EE_PAGE_NOTERASED;
 		}
-			/* Next address location */
-		ulCounter = ulCounter + EE_ELEMENT_SIZE;
- 	}
+
+		/* Next address - Double word Location */
+		usCounter = usCounter + 4;
+	}
 
   /* Return readstatus value */
   return readstatus;
