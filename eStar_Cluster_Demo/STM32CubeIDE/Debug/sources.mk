@@ -61,6 +61,7 @@ Application/User/Core/src/Service/System_Service/IgnitionManager \
 Application/User/Core/src/Service/System_Service/PeriodicityCheck_safecheck \
 Application/User/Core/src/Service/System_Service/StackUsage_SafeChecks \
 Application/User/Core/src/Service/System_Service/Switch_Interface \
+Application/User/Core/src/Service/System_Service/Task_Overload_DeadLock \
 Application/User/Core/src/Service/System_Service/TimeExe_SafeChecks \
 Application/User/Core/src/Service/System_Service/stateManager \
 Application/User/LIBJPEG/App \

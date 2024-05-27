@@ -1,11 +1,8 @@
-Middlewares/LibJPEG/jfdctflt.o: \
- D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jfdctflt.c \
- ../../Middlewares/Third_Party/LibJPEG/include/jinclude.h \
- ../../LIBJPEG/Target/jconfig.h ../../LIBJPEG/Target/jdata_conf.h \
- ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
- ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
- ../../Core/Inc/FreeRTOSConfig.h \
- ../../Core/Inc/safe_checks_freeRTOSConfig.h ../../Core/Inc/main.h \
+Application/User/Core/src/Service/System_Service/Task_Overload_DeadLock/Task_OverLoad_DeadLock.o: \
+ ../Application/User/Core/src/Service/System_Service/Task_Overload_DeadLock/Task_OverLoad_DeadLock.c \
+ ../Application/User/Core/src/Service/System_Service/Task_Overload_DeadLock/Task_OverLoad_DeadLock.h \
+ D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/safe_checks_Config.h \
+ ../../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -51,29 +48,20 @@ Middlewares/LibJPEG/jfdctflt.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
+ ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
+ ../../Core/Inc/FreeRTOSConfig.h \
+ ../../Core/Inc/safe_checks_freeRTOSConfig.h ../../Core/Inc/main.h \
  ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/StackUsage_SafeChecks/Stack_Usage.h \
  D:\Govind_WorkSpace\Github_Workspace\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\safe_checks_Config.h \
- ../../Core/Inc/main.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
- ../../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
- ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
- ../../Middlewares/Third_Party/LibJPEG/include/jpeglib.h \
- ../../LIBJPEG/Target/jmorecfg.h \
- ../../Middlewares/Third_Party/LibJPEG/include/jpegint.h \
- ../../Middlewares/Third_Party/LibJPEG/include/jerror.h \
- ../../Middlewares/Third_Party/LibJPEG/include/jdct.h
-../../Middlewares/Third_Party/LibJPEG/include/jinclude.h:
-../../LIBJPEG/Target/jconfig.h:
-../../LIBJPEG/Target/jdata_conf.h:
-../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h:
-../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
-../../Core/Inc/FreeRTOSConfig.h:
-../../Core/Inc/safe_checks_freeRTOSConfig.h:
+ ../../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+../Application/User/Core/src/Service/System_Service/Task_Overload_DeadLock/Task_OverLoad_DeadLock.h:
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/safe_checks_Config.h:
 ../../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:
@@ -120,9 +108,12 @@ Middlewares/LibJPEG/jfdctflt.o: \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
+../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
+../../Core/Inc/FreeRTOSConfig.h:
+../../Core/Inc/safe_checks_freeRTOSConfig.h:
+../../Core/Inc/main.h:
 ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/StackUsage_SafeChecks/Stack_Usage.h:
 D:\Govind_WorkSpace\Github_Workspace\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\safe_checks_Config.h:
-../../Core/Inc/main.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
@@ -130,9 +121,3 @@ D:\Govind_WorkSpace\Github_Workspace\eSTAR_InstrumentCluster\eStar_Cluster_Demo\
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
-../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
-../../Middlewares/Third_Party/LibJPEG/include/jpeglib.h:
-../../LIBJPEG/Target/jmorecfg.h:
-../../Middlewares/Third_Party/LibJPEG/include/jpegint.h:
-../../Middlewares/Third_Party/LibJPEG/include/jerror.h:
-../../Middlewares/Third_Party/LibJPEG/include/jdct.h:

@@ -49,6 +49,7 @@
 #include "safe_checks_freeRTOSConfig.h"
 #include "PeriodicityCheck.h"
 #include "Stack_Usage.h"
+#include "Task_OverLoad_DeadLock.h"
 
 /* USER CODE END Includes */
 
@@ -187,7 +188,7 @@ const osThreadAttr_t Analog_Debounce_attributes = {
 };
 /* Definitions for FuelGuage */
 osThreadId_t FuelGuageHandle;
-uint32_t FuelGuageBuffer[ 1024 ];
+uint32_t FuelGuageBuffer[ 256 ];
 osStaticThreadDef_t FuelGuageControlBlock;
 const osThreadAttr_t FuelGuage_attributes = {
   .name = "FuelGuage",
@@ -279,7 +280,7 @@ const osThreadAttr_t Indicators_App_attributes = {
   .cb_size = sizeof(Indicators_AppControlBlock),
   .stack_mem = &Indicators_AppBuffer[0],
   .stack_size = sizeof(Indicators_AppBuffer),
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityLow,
 };
 /* Definitions for ServiceIndicato */
 osThreadId_t ServiceIndicatoHandle;
@@ -1776,6 +1777,53 @@ void execTimeFault_cb1(TaskRunTimeStat_t *p_measurement_var_ptr)
 #endif
 }
 
+/* USER CODE END Header_WDG_SRVC_Task */
+void WDG_SRVC_Task(void *argument)
+{
+  /* USER CODE BEGIN WDG_SRVC_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+	    osDelay(30000); //watchdog period
+	    //service or refresh or reload the watchdog here
+	    printf("WDG_SRVC_Task\r\n");
+	    if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
+	    {
+	          Error_Handler();
+	    }
+
+  }
+  /* USER CODE END WDG_SRVC_Task */
+}
+
+/* USER CODE BEGIN Header_DigitalDebounce_Task */
+/**
+* @brief Function implementing the DigitalDebounce thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_DigitalDebounce_Task */
+void DigitalDebounce_Task(void *argument)
+{
+  /* USER CODE BEGIN DigitalDebounce_Task */
+	static TaskRunTimeStat_t p_measurement_var_ptr;
+	vReset_executionTimeStats(&p_measurement_var_ptr);
+  /* Infinite loop */
+  for(;;)
+  {
+	  //printf("DigitalDebounce_Task\r\n");
+	  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
+	  HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
+	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T01,vTask_demo1PeriodicityCheckErrorHook );
+	  vBeginExecMeas(&p_measurement_var_ptr);
+	  DebounceTask();
+      vGet_Switch_DebouncedStatus();
+	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb1);
+	  osDelay(5);
+  }
+  /* USER CODE END DigitalDebounce_Task */
+}
+
 /* USER CODE BEGIN Header_State_Machine_Task */
 /**
 * @brief Function implementing the State_Manager thread.
@@ -1959,52 +2007,6 @@ void vTask_demo1PeriodicityCheckErrorHook3(TaskPeriodicityCheck_t *xPeriodicityC
 
 }
 
-/* USER CODE END Header_WDG_SRVC_Task */
-void WDG_SRVC_Task(void *argument)
-{
-  /* USER CODE BEGIN WDG_SRVC_Task */
-  /* Infinite loop */
-  for(;;)
-  {
-	    osDelay(30000); //watchdog period
-	    //service or refresh or reload the watchdog here
-	    printf("WDG_SRVC_Task\r\n");
-	    if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
-	    {
-	          Error_Handler();
-	    }
-
-  }
-  /* USER CODE END WDG_SRVC_Task */
-}
-
-/* USER CODE BEGIN Header_DigitalDebounce_Task */
-/**
-* @brief Function implementing the DigitalDebounce thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_DigitalDebounce_Task */
-void DigitalDebounce_Task(void *argument)
-{
-  /* USER CODE BEGIN DigitalDebounce_Task */
-	static TaskRunTimeStat_t p_measurement_var_ptr;
-	vReset_executionTimeStats(&p_measurement_var_ptr);
-  /* Infinite loop */
-  for(;;)
-  {
-	  //printf("DigitalDebounce_Task\r\n");
-	  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
-	  HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
-	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T01,vTask_demo1PeriodicityCheckErrorHook );
-	  vBeginExecMeas(&p_measurement_var_ptr);
-	  DebounceTask();
-      vGet_Switch_DebouncedStatus();
-	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb1);
-	  osDelay(5);
-  }
-  /* USER CODE END DigitalDebounce_Task */
-}
 
 
 /* USER CODE BEGIN Header_State_Machine_Task */
@@ -2029,7 +2031,7 @@ void State_Machine_Task(void *argument)
 	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T02,vTask_demo1PeriodicityCheckErrorHook1);
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  State_Manager_task();
-	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(6000), execTimeFault_cb2);
+	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(2000), execTimeFault_cb2);
 	  osDelay(50);
   }
   /* USER CODE END State_Machine_Task */
@@ -2232,7 +2234,6 @@ void GetClockTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-#if 1
 	  //printf("GetClockTask\n\r");
 //	  HAL_GPIO_WritePin(GPIOH, GPIO_PIN_2,GPIO_PIN_RESET);
 	  //HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_2);
@@ -2242,7 +2243,6 @@ void GetClockTask(void *argument)
 	  vClockIncreament();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb1);
 	  osDelay(500);
-#endif
 	  //osDelay(500);
   }
   /* USER CODE END GetClockTask */
@@ -2292,7 +2292,6 @@ void IndicatorsApp_Task(void *argument)
   /* Infinite loop */
 	for(;;)
 	  {
-#if 1
 		//HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
 	 	//printf("IndicatorsApp_Task\n\r");
 	   vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T11,vTask_demo1PeriodicityCheckErrorHook );
@@ -2301,7 +2300,6 @@ void IndicatorsApp_Task(void *argument)
 		indicator = xGetIndicatorstatus();
 	    vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb1);
 	    osDelay(50);
-#endif
 	    //osDelay(50);
 	  }
   /* USER CODE END IndicatorsApp_Task */
@@ -2322,14 +2320,12 @@ void ServiceIndicatorApp_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-#if 1
 	//printf("ServiceIndicatorApp_Task\n\r");
     vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T12,vTask_demo1PeriodicityCheckErrorHook );
     vBeginExecMeas(&p_measurement_var_ptr);
 	vServiceRequestTask();
     osDelay(1000);
     vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1100000), execTimeFault_cb1);
-#endif
     //osDelay(1000);
   }
   /* USER CODE END ServiceIndicatorApp_Task */

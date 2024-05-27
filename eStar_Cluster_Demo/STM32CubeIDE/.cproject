@@ -98,6 +98,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/TimeExe_SafeChecks}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/PeriodicityCheck_safecheck}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Application/User/Core/src/Service/System_Service/StackUsage_SafeChecks}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/Task_Overload_DeadLock}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1702615917" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>

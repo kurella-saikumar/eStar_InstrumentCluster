@@ -26,7 +26,7 @@
 ***************************************************************************************************/
 #include "smHandler.h"
 #include "smHandler_cfg.h"
-
+#include "stm32h7xx_hal.h"
 /**************************************************************************************************
  * DEFINE FILE SCOPE MACROS
 ***************************************************************************************************/
@@ -123,6 +123,7 @@ void State_Manager_task(void)
 		   /** while('in_state' of the transition != SM_STATE_INVALID ) is (Yes / Not the End of the Transitions list) */
 		   while(SM_STATE_INVALID != fl_trans_list_sm[fl_trans_index_u8].in_state_u16)
 		   {
+				  HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_2);
 			   /** if(state machine's active state is listed in the 'in_states' of the transition ?) then (TRUE/);*/
 			   if((fl_active_state_u16 & fl_trans_list_sm[fl_trans_index_u8].in_state_u16) != 0)
 			   {

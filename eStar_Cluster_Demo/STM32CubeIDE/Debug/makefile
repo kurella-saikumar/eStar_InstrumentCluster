@@ -24,6 +24,7 @@ RM := rm -rf
 -include Application/User/LIBJPEG/App/subdir.mk
 -include Application/User/Core/src/Service/System_Service/stateManager/subdir.mk
 -include Application/User/Core/src/Service/System_Service/TimeExe_SafeChecks/subdir.mk
+-include Application/User/Core/src/Service/System_Service/Task_Overload_DeadLock/subdir.mk
 -include Application/User/Core/src/Service/System_Service/Switch_Interface/subdir.mk
 -include Application/User/Core/src/Service/System_Service/StackUsage_SafeChecks/subdir.mk
 -include Application/User/Core/src/Service/System_Service/PeriodicityCheck_safecheck/subdir.mk
