@@ -1759,8 +1759,8 @@ void Odo_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	vOdoAlgorithm();
-	xWrite_OdoVal_to_EEPROM();
+//	vOdoAlgorithm();
+//	xWrite_OdoVal_to_EEPROM();
 	osDelay(5000);
   }
   /* USER CODE END Odo_Task */

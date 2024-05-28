@@ -168,9 +168,9 @@ void vEE_Demo(void)
 		printf("ShadowRam Read: eepromVariables[%d] at :%p data :0x%lx\n\r",i,eepromVariables[i],*eepromVariables[i]);
 #endif
 	}
-	xRetrive_LastStored_OdoVal_from_EEPROM();
+//	xRetrive_LastStored_OdoVal_from_EEPROM();
 	/********** Updating the eeprom with new values 10-89 (80) of 20 variables *******/
-#if 0
+#if 1
 	/* Loop through each variable and perform the write check */
 	for (int i =10; i <30; i++)
 	{
@@ -185,8 +185,8 @@ void vEE_Demo(void)
 			}
 			else
 			{
-#if(EMUL_DEBUG_ENABLE == 1)
-				printf("ESWrite Fail:eepromVariables\n\r");
+#if(EMUL_DEBUG_ENABLE == 0)
+				printf("ESW_F:\n\r");
 #endif
 				break;
 				//return FlashStatus;
@@ -201,8 +201,8 @@ void vEE_Demo(void)
 		uint16_t FlashStatus = xEE_ReadVariable32bits((uint32_t)eepromVariables[i], eepromVariables[i]);
 		if (BSP_ERROR_NONE != FlashStatus)
 		{
-#if(EMUL_DEBUG_ENABLE == 1)
-			printf("Read Fail:eepromVariables\n\r");
+#if(EMUL_DEBUG_ENABLE == 0)
+			printf("ESR_F:%ld\n",FlashStatus);
 #endif
 			break;
 		}

@@ -1,11 +1,11 @@
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1598:6:StartDefaultTask	1
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1756:6:Odo_Task	1
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1855:6:CAN_Task	1
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1631:6:WDG_SRVC_Task	1
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1656:6:DigitalDebounce_Task	1
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1681:6:State_Machine_Task	1
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1703:6:Analog_Debounce_Task	1
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1733:6:FuelGuageTask	1
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1756:6:Odo_Task	1
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1776:6:Speedo_Task	1
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1795:6:Tacho_Task	1
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1814:6:SwitchHandlerTask	1
