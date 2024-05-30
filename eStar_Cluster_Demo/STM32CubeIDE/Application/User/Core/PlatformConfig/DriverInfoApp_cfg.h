@@ -16,6 +16,14 @@
 #define MAX_DISPLAYED_DTE 20
 #define IDLE_VEHICLE_MILEAGE 20
 #define usMaxThresholdDTE  fueltankcapacity * IDLE_VEHICLE_MILEAGE
+//Manufacturer-provided value
+#define DEFAULT_AFE 15.0
+// Initial fuel level in Percentages
+#define FINAL_FUEL_PERCENTAGE 100
+// Initial fuel level in liters
+#define FINAL_FUEL_LEVEL 40.0
+
+
 
 
 #endif /* APPLICATION_USER_CORE_SRC_APP_DRIVERINFO_APP_DRIVERINFOAPP_CFG_H_ */

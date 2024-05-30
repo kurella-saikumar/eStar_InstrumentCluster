@@ -12,7 +12,7 @@ D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1771
 D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1792:6:GetClockTask	8	static
 D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1832:6:IndicatorsApp_Task	8	static
 D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1859:6:ServiceIndicatorApp_Task	8	static
-D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1880:6:DriverInfoAppTask	16	static
+D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1880:6:DriverInfoAppTask	8	static
 D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:308:1:__io_putchar	16	static
 D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:551:6:SystemClock_Config	120	static
 D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:617:6:PeriphCommonClock_Config	192	static
