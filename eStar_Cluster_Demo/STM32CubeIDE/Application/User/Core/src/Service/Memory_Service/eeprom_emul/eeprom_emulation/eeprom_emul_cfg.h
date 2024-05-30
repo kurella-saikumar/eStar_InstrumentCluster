@@ -73,7 +73,7 @@
 #define LAST_SERVICED_TIMESTAMP					(uint32_t)(0x000A)
 #define LAST_SERVICED_DISTANCE					(uint32_t)(0x000A)
 
-#define EMUL_DEBUG_ENABLE  (0U)
+#define EMUL_DEBUG_ENABLE  (1U)
 
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES

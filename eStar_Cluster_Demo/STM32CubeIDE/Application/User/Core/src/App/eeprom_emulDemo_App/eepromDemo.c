@@ -104,7 +104,6 @@ const eepromData_t eep_default_t ={
 ***************************************************************************************************/
 
 uint16_t xES_WriteVariable(uint32_t VirtAddress, uint32_t Data,uint32_t *UpdateToShadowRAM);
-
 /**************************************************************************************************
  * FUNCTION DEFINITIONS
 ***************************************************************************************************/
@@ -132,7 +131,6 @@ void vEE_Demo(void)
 #if(EMUL_DEBUG_ENABLE == 1)
 		printf("BSP_OSPI_NOR_Init:Fail \n\r");
 #endif
-
 	}
 
 	/* Read the current status of the OSPI memory */
@@ -143,7 +141,7 @@ void vEE_Demo(void)
 #endif
 	}
 
-//	prvEE_Format(EE_FORCED_ERASE);
+//	prvEE_Format(EE_FORCED_ERASE); // EE_CONDITIONAL_ERASE
 	/* Init Sequence */
 	if ( 0U != xEE_Init(EE_FORCED_ERASE))
 	{
@@ -154,7 +152,7 @@ void vEE_Demo(void)
 	else
 	{
 #if(EMUL_DEBUG_ENABLE == 1)
-		printf("xEE_Init:Success \n\r");
+//		printf("xEE_Init:Success \n\r");
 #endif
 	}
 
@@ -165,14 +163,12 @@ void vEE_Demo(void)
 	for (int i = 0; i < sizeof(eepromVariables) / sizeof(eepromVariables[0]); i++)
 	{
 #if(EMUL_DEBUG_ENABLE == 1)
-		printf("ShadowRam Read: eepromVariables[%d] at :%p data :0x%lx\n\r",i,eepromVariables[i],*eepromVariables[i]);
+//		printf("ShadowRam Read: eepromVariables[%d] at :%p data :0x%lx\n\r",i,eepromVariables[i],*eepromVariables[i]);
 #endif
 	}
 //	xRetrive_LastStored_OdoVal_from_EEPROM();
-	/********** Updating the eeprom with new values 10-89 (80) of 20 variables *******/
-#if 1
 	/* Loop through each variable and perform the write check */
-	for (int i =10; i <30; i++)
+	for (uint32_t i = 0 ; i <= 2000; i = i+20)
 	{
 		for (int j = 0; j < sizeof(eepromVariables) / sizeof(eepromVariables[0]); j++)
 		{
@@ -180,43 +176,19 @@ void vEE_Demo(void)
 			if (BSP_ERROR_NONE == FlashStatus)
 			{
 #if(EMUL_DEBUG_ENABLE == 1)
-				printf("ESWrite Success:at %p, eepromVariables[%d]:0x%lx \n\r",eepromVariables[j],j,*eepromVariables[j]);
+//				printf("ESW_S:at %p,[%d]:%ld \n\r",eepromVariables[j],j,*eepromVariables[j]);
 #endif
 			}
 			else
 			{
-#if(EMUL_DEBUG_ENABLE == 0)
+#if(EMUL_DEBUG_ENABLE == 1)
 				printf("ESW_F:\n\r");
 #endif
-				break;
-				//return FlashStatus;
 			}
 		}
-
 	}
-	/********** Read Back the eeprom of 20 variables latest values *******/
-	/* Loop through each variable and perform the Read check */
-	for (int i = 0; i < sizeof(eepromVariables) / sizeof(eepromVariables[0]); i++)
-	{
-		uint16_t FlashStatus = xEE_ReadVariable32bits((uint32_t)eepromVariables[i], eepromVariables[i]);
-		if (BSP_ERROR_NONE != FlashStatus)
-		{
-#if(EMUL_DEBUG_ENABLE == 0)
-			printf("ESR_F:%ld\n",FlashStatus);
-#endif
-			break;
-		}
-		else
-		{
-#if(EMUL_DEBUG_ENABLE == 1)
-			printf("Read Success:eepromVariables[%d] at :%p data :0x%lx\n\r",i,eepromVariables[i],*eepromVariables[i]);
-#endif
-		}
-
-	}
-#endif
+	xShadowUpdate(1);
 }
-
 
 
 /**************************************************************************************************

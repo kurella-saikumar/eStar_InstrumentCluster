@@ -86,7 +86,8 @@
 #define EE_MASK_FULL            	(uint64_t)0xFFFFFFFFFFFFFFFFU
 #define EE_NO_PAGE_FOUND      		(uint32_t)0xFFFFFFFFU
 #define EE_NO_DATA_FOUND			(uint32_t)0xFFFFFFFFU
-#define EE_DATA_SIZE				4U
+#define EE_WORD_SIZE				2U
+#define EE_DOUBLE_WORD_SIZE			(EE_WORD_SIZE *2U)
 #define EE_ADDRESS_OFFSET			4U
 #define EE_CRC_OFFSET				8U
 /* Macros to manipulate elements */
@@ -151,7 +152,7 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data);
 extern uint16_t xES_WriteVariable(uint32_t VirtAddress, uint32_t Data,uint32_t *UpdateToShadowRAM);
 extern void vShadowRAM_Init(void);
 extern void vEE_Demo(void);
-
+uint32_t xShadowUpdate(uint8_t ShadowPOP_flag);
 #endif /* __EEPROM_H */
 
 /**************************************************************************************************

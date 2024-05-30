@@ -512,25 +512,26 @@ EE_Status prvVerifyPageFullyErased(uint32_t Address, uint32_t PageSize)
 {
   EE_Status readstatus = EE_PAGE_ERASED;
   uint16_t usCounter = 0U;
-  uint32_t ulReadData =0U;
-  uint8_t ucData[4]={0};
+  uint64_t ulReadData =0U;
+  uint8_t ucData[8]={0};
 
 
   /* Check each element in the page */
 	while (usCounter < PageSize)
 	{
 		xFI_ReadDoubleWord((Address + usCounter), ucData);
+		xFI_ReadDoubleWord((Address + usCounter + 4 ), &ucData[4]);
 
-		ulReadData = ucData[0] << 8 | ucData[1] << 16 | ucData[2] << 24 | ucData[3];
-
-		if (ulReadData!= EE_NO_DATA_FOUND)
+		ulReadData = (uint64_t)(ucData[0] << 56 | ucData[1] << 48 | ucData[2] << 40 | ucData[3] << 32 |
+					 ucData[4] << 24 | ucData[5] << 16 | ucData[6] << 8  | ucData[7]);
+		if (ulReadData!= EE_PAGESTAT_ERASED)
 		{
 			/* In case one element is not erased, reset readstatus flag */
 			readstatus = EE_PAGE_NOTERASED;
 		}
 
 		/* Next address - Double word Location */
-		usCounter = usCounter + 4;
+		usCounter = usCounter + 8;
 	}
 
   /* Return readstatus value */
@@ -599,14 +600,13 @@ EE_Status prvReadVariable(uint32_t VirtAddress, EE_DATA_TYPE* pData)
 				if (ulReadAddr == VirtAddress)
 				{
 					/* Get content of variable value */
-
 					xFI_ReadDoubleWord(((ulPageAddress + ulCounter)), ucDataValue);
 
 					ulData = (ucDataValue[0]<<24|ucDataValue[1]<<16|ucDataValue[2]<<8|ucDataValue[3]);
 
 					usCRCCalculated = xCrc16BitPolinomial_1021(ucDataValue, sizeof(ucDataValue),0);
 
-					xFI_ReadDoubleWord(((ulPageAddress + ulCounter + EE_CRC_OFFSET)), ucCRC);
+					xFI_ReadSingleWord(((ulPageAddress + ulCounter + EE_CRC_OFFSET)), ucCRC);
 
 					usCRCRead = (ucCRC[0]<<8|ucCRC[1]);
 
@@ -706,7 +706,7 @@ uint32_t prvFindPage(EE_Find_type Operation)
 				{
 					/* Return current Active page */
 #if(EMUL_DEBUG_ENABLE == 1)
-					printf("Writing in %ld Page (Current)\n\r", ulCurrentPage);
+//					printf("Writing in %ld Page (Current)\n\r", ulCurrentPage);
 #endif
 					return ulCurrentPage;
 				}
@@ -714,7 +714,7 @@ uint32_t prvFindPage(EE_Find_type Operation)
 				/* No more space in current active page */
 				{
 #if(EMUL_DEBUG_ENABLE == 1)
-					printf("Writing in %ld Page (Following) \n\r", ulFollowingPage);
+//					printf("Writing in %ld Page (Following) \n\r", ulFollowingPage);
 #endif
 					/* Check if following page is erasing state */
 					if (followingpagestatus == STATE_PAGE_ERASING)
@@ -838,8 +838,7 @@ EE_Status prvVerifyPagesFullWriteVariable(uint32_t VirtAddress, EE_DATA_TYPE Dat
 {
 	uint16_t usCRC = 0;
 	uint8_t  ucDataArray[4]={Data >> 24,Data >> 16,Data >> 8,Data};
-	uint8_t  ucVirtAddressArray[4]={VirtAddress >> 24,VirtAddress >> 16,VirtAddress >> 8,VirtAddress};
-
+    uint8_t  ucVirtAddressArray[4]={VirtAddress >> 24,VirtAddress >> 16,VirtAddress >> 8,VirtAddress};
 	/* Check if pages are full, i.e. max number of written elements achieved */
 	if (usNbWrittenElements >= NB_MAX_WRITTEN_ELEMENTS)
 	{
@@ -869,15 +868,33 @@ EE_Status prvVerifyPagesFullWriteVariable(uint32_t VirtAddress, EE_DATA_TYPE Dat
 	{
 		return HAL_ERROR;
 	}
+	else
+	{
+#if(EMUL_DEBUG_ENABLE == 1)
+		printf("ESW_S:Data = 0x%lx,\t",Data);
+#endif
+	}
 
 	if (xFI_WriteDoubleWord((((activepageaddress+ulAddressNextWrite)+EE_ADDRESS_OFFSET) ), ucVirtAddressArray)!= HAL_OK)
 	{
 		return HAL_ERROR;
 	}
+	else
+	{
+#if(EMUL_DEBUG_ENABLE == 1)
+		printf("VAdr = 0x%lx,\t",VirtAddress);
+#endif
+	}
 
-	if (xFI_WriteDoubleWord((((activepageaddress+ulAddressNextWrite)+EE_CRC_OFFSET) ), ucCRCArray)!= HAL_OK)
+	if (xFI_WriteSingleWord((((activepageaddress+ulAddressNextWrite)+EE_CRC_OFFSET) ), ucCRCArray)!= HAL_OK)
 	{
 		return HAL_ERROR;
+	}
+	else
+	{
+#if(EMUL_DEBUG_ENABLE == 1)
+		printf("CRC = 0x%x\n",usCRC);
+#endif
 	}
 
 	/* Increment global variables relative to write operation done*/
@@ -1135,17 +1152,7 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 	uint32_t ulFirstValidPage = 0U;
 
 	EE_State_Reliability pagestate = STATE_RELIABLE;
-#if(EMUL_DEBUG_ENABLE == 1)
-	printf("PAGES_NUMBER:%d\n\r",PAGES_NUMBER);
-//	printf("START_PAGE_ADDRESS:0x%lx\n\r",START_PAGE_ADDRESS);
-//	printf("BANK_SIZE:0x%lx\n\r",BANK_SIZE);
-//	printf("PAGE(0):0x%lx\n\r",PAGE(0));
-//	printf("PAGE_ADDRESS(0):0x%lx\n\r",PAGE_ADDRESS(0));
-//	printf("PREVIOUS_PAGE(0):0x%lx\n\r",PREVIOUS_PAGE(0));
-//	printf("FOLLOWING_PAGE(0):0x%lx\n\r",FOLLOWING_PAGE(0));
-//	printf("START_PAGE:0x%lx\n\r",START_PAGE);
-//	printf("CALCULATED_END_ADDRESS:0x%lx\n\r",CALCULATED_END_ADDRESS);
-#endif
+
 	/* check the flash end address with calculated end address for required variables*/
 	if (CALCULATED_END_ADDRESS >= FLASH_END_ADDR)
 	{
@@ -1457,7 +1464,8 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 #endif
  return EE_OK;
 }
- uint32_t xShadowUpdate(void)
+// uint32_t xShadowUpdate(void)
+ uint32_t xShadowUpdate(uint8_t ShadowPOP_flag)
  {
  	uint32_t ulPage = 0U;
  	uint32_t ulPageAddress = 0U;
@@ -1507,16 +1515,22 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 
  				usCRCCalculated = xCrc16BitPolinomial_1021(ucDataValue, sizeof(ucDataValue),0);
 
- 				xFI_ReadDoubleWord(((ulPageAddress + ulCounter + EE_CRC_OFFSET)), ucCRC);
+ 				xFI_ReadSingleWord(((ulPageAddress + ulCounter + EE_CRC_OFFSET)), ucCRC);
 
  				usCRCRead = (ucCRC[0]<<8|ucCRC[1]);
 
  				if (usCRCCalculated == usCRCRead)
  				{
+ 					if(ShadowPOP_flag == 1)
+ 					{
 #if(EMUL_DEBUG_ENABLE == 1)
- 					printf("ulReadAddr = 0x%lx,ulData = 0x%lx\n\r",ulReadAddr,ulData);
+ 						printf("ESR_S:Data = 0x%lx\t,VAdr = 0x%lx\t,CRC= 0x%x\n",ulData,ulReadAddr,usCRCRead);
 #endif
- 					memcpy((void *)ulReadAddr,(const void *) &ulData, sizeof(ulData));
+ 					}
+ 					else
+ 					{
+ 						memcpy((void *)ulReadAddr,(const void *) &ulData, sizeof(ulData));
+ 					}
  				}
  				else
  				{
@@ -1547,7 +1561,7 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
  	/* Write default values into eep_Variables_t */
  	memcpy(&eep_Variables_t, &eep_default_t, sizeof(eepromData_t));
 
- 	xShadowUpdate();
+ 	xShadowUpdate(0);
 
  }
 

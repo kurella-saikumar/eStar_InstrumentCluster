@@ -1,7 +1,6 @@
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1598:6:StartDefaultTask	8	static
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1756:6:Odo_Task	8	static
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1855:6:CAN_Task	8	static
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1631:6:WDG_SRVC_Task	8	static
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1656:6:DigitalDebounce_Task	8	static
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1681:6:State_Machine_Task	8	static
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1703:6:Analog_Debounce_Task	8	static
@@ -19,5 +18,6 @@ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:363:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1512:6:HAL_RTCEx_WakeUpTimerEventCallback	128	static
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1525:6:HAL_GPIO_EXTI_Callback	8	static
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1544:6:Disp_imgDataHyperRAM_Init	8	static
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1631:6:WDG_SRVC_Task	8	static
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1981:6:HAL_TIM_PeriodElapsedCallback	0	static
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1998:6:Error_Handler	0	static

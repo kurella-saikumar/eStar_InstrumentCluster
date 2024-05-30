@@ -71,7 +71,43 @@ int32_t xFI_WriteDoubleWord(uint32_t Address, uint8_t *Data)
 #if(EMUL_DEBUG_ENABLE == 1)
 //	printf("Write Address at 0x%lx \n\r", Address);
 #endif
-  return BSP_OSPI_NOR_Write(BSP_INSTANCE, Data, Address, EE_DATA_SIZE);
+  return BSP_OSPI_NOR_Write(BSP_INSTANCE, Data, Address, EE_DOUBLE_WORD_SIZE);
+}
+
+
+
+/**
+  * @brief  Write a single word at the given address in Flash
+  * @param  Address Where to write
+  * @param  Data What to write
+  * @retval EE_Status
+  *           - EE_OK: on success
+  *           - EE_WRITE_ERROR: if an error occurs
+  */
+int32_t xFI_WriteSingleWord(uint32_t Address, uint8_t *Data)
+{
+#if(EMUL_DEBUG_ENABLE == 1)
+//	printf("Write Address at 0x%lx \n\r", Address);
+#endif
+  return BSP_OSPI_NOR_Write(BSP_INSTANCE, Data, Address, EE_WORD_SIZE);
+}
+
+
+
+/**
+  * @brief  Write a single byte at the given address in Flash
+  * @param  Address Where to write
+  * @param  Data What to write
+  * @retval EE_Status
+  *           - EE_OK: on success
+  *           - EE_WRITE_ERROR: if an error occurs
+  */
+int32_t xFI_WriteByte(uint32_t Address, uint8_t *Data)
+{
+#if(EMUL_DEBUG_ENABLE == 1)
+//	printf("Write Address at 0x%lx \n\r", Address);
+#endif
+  return BSP_OSPI_NOR_Write(BSP_INSTANCE, Data, Address, 1);
 }
 
 
@@ -82,16 +118,48 @@ int32_t xFI_WriteDoubleWord(uint32_t Address, uint8_t *Data)
   * @param  Data What to read
   * @retval EE_Status
   *           - EE_OK: on success
-  *           - EE_WRITE_ERROR: if an error occurs
+  *           - EE_READ_ERROR: if an error occurs
   */
 int32_t xFI_ReadDoubleWord(uint32_t Address,  uint8_t *Data)
 {
 #if(EMUL_DEBUG_ENABLE == 1)
 //	printf("Read Address at 0x%lx \n\r", Address);
 #endif
-	return BSP_OSPI_NOR_Read(BSP_INSTANCE,Data, Address, EE_DATA_SIZE);
+	return BSP_OSPI_NOR_Read(BSP_INSTANCE,Data, Address, EE_DOUBLE_WORD_SIZE);
 }
 
+
+/**
+  * @brief  Read a single word at the given address in Flash
+  * @param  Address Where to read
+  * @param  Data What to read
+  * @retval EE_Status
+  *           - EE_OK: on success
+  *           - EE_READ_ERROR: if an error occurs
+  */
+int32_t xFI_ReadSingleWord(uint32_t Address,  uint8_t *Data)
+{
+#if(EMUL_DEBUG_ENABLE == 1)
+//	printf("Read Address at 0x%lx \n\r", Address);
+#endif
+	return BSP_OSPI_NOR_Read(BSP_INSTANCE,Data, Address, EE_WORD_SIZE);
+}
+
+/**
+  * @brief  Read a single byte at the given address in Flash
+  * @param  Address Where to read
+  * @param  Data What to read
+  * @retval EE_Status
+  *           - EE_OK: on success
+  *           - EE_READ_ERROR: if an error occurs
+  */
+int32_t xFI_ReadByte(uint32_t Address,  uint8_t *Data)
+{
+#if(EMUL_DEBUG_ENABLE == 1)
+//	printf("Read Address at 0x%lx \n\r", Address);
+#endif
+	return BSP_OSPI_NOR_Read(BSP_INSTANCE,Data, Address, 1);
+}
 
 
 /**
@@ -99,12 +167,13 @@ int32_t xFI_ReadDoubleWord(uint32_t Address,  uint8_t *Data)
 	  * @param  Address Page erase start address
 	  * @retval EE_Status
 	  *           - EE_OK: on success
-	  *           - EE_WRITE_ERROR: if an error occurs
+	  *           - EE_ERROR: if an error occurs
 	  */
 int32_t xFI_PageErase(uint32_t Address)
 {
   return BSP_OSPI_NOR_Erase_Block(BSP_INSTANCE, Address, BSP_OSPI_NOR_ERASE_4K);
 }
+
 
 /**************************************************************************************************
  * End Of File
