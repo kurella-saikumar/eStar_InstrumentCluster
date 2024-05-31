@@ -168,9 +168,10 @@ void vEE_Demo(void)
 	}
 //	xRetrive_LastStored_OdoVal_from_EEPROM();
 	/* Loop through each variable and perform the write check */
-	for (uint32_t i = 0 ; i <= 2000; i = i+20)
+	for (uint32_t i = 0 ; i <= 0xFFFFFFFF; i = i+2)
 	{
-		for (int j = 0; j < sizeof(eepromVariables) / sizeof(eepromVariables[0]); j++)
+//		for (int j = 0; j < sizeof(eepromVariables) / sizeof(eepromVariables[0]); j++)
+		for (int j = 0; j < 2; j++)
 		{
 			uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[j],(uint32_t)(i),eepromVariables[j]);
 			if (BSP_ERROR_NONE == FlashStatus)

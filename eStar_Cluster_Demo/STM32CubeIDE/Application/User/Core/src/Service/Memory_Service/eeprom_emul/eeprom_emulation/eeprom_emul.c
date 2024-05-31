@@ -901,9 +901,9 @@ EE_Status prvVerifyPagesFullWriteVariable(uint32_t VirtAddress, EE_DATA_TYPE Dat
 	ulAddressNextWrite += EE_ELEMENT_SIZE;
 	usNbWrittenElements++;
 #if(EMUL_DEBUG_ENABLE == 1)
-	printf( "usNbWrittenElements=%d\n\r",usNbWrittenElements);
-	printf( "ucCurrentActivePage=%d\n\r",ucCurrentActivePage);
-	printf( "ulAddressNextWrite=%lu\n\r",ulAddressNextWrite);
+//	printf( "usNbWrittenElements=%d\n\r",usNbWrittenElements);
+//	printf( "ucCurrentActivePage=%d\n\r",ucCurrentActivePage);
+//	printf( "ulAddressNextWrite=%lu\n\r",ulAddressNextWrite);
 #endif
 	return EE_OK;
 }
@@ -1457,10 +1457,9 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 		ulPageAddress = PAGE_ADDRESS(ulPage);
     }
 #if(EMUL_DEBUG_ENABLE == 1)
-
-	printf( "usNbWrittenElements=%d\n\r",usNbWrittenElements);
-	printf( "ucCurrentActivePage=%d\n\r",ucCurrentActivePage);
-	printf( "ulAddressNextWrite=%lu\n\r",ulAddressNextWrite);
+//	printf( "usNbWrittenElements=%d\n\r",usNbWrittenElements);
+//	printf( "ucCurrentActivePage=%d\n\r",ucCurrentActivePage);
+//	printf( "ulAddressNextWrite=%lu\n\r",ulAddressNextWrite);
 #endif
  return EE_OK;
 }
