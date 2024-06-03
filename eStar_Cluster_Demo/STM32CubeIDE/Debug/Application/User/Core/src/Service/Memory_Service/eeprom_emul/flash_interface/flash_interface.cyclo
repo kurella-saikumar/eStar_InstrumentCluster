@@ -1,0 +1,7 @@
+../Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.c:69:9:xFI_WriteDoubleWord	1
+../Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.c:87:9:xFI_WriteSingleWord	1
+../Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.c:105:9:xFI_WriteByte	1
+../Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.c:123:9:xFI_ReadDoubleWord	1
+../Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.c:140:9:xFI_ReadSingleWord	1
+../Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.c:156:9:xFI_ReadByte	1
+../Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.c:172:9:xFI_PageErase	1

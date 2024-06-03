@@ -58,14 +58,17 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define Mode_Pin GPIO_PIN_3
-#define Mode_GPIO_Port GPIOE
+#define Mode_switch_Pin GPIO_PIN_3
+#define Mode_switch_GPIO_Port GPIOE
 #define Switch_Fuel_Pin GPIO_PIN_13
 #define Switch_Fuel_GPIO_Port GPIOC
 #define LCD_BL_CTRL_Pin GPIO_PIN_15
 #define LCD_BL_CTRL_GPIO_Port GPIOG
-#define Reset_Pin GPIO_PIN_5
-#define Reset_GPIO_Port GPIOG
+#define Reset_switch_Pin GPIO_PIN_5
+#define Reset_switch_GPIO_Port GPIOG
+#define EXTI_Pin GPIO_PIN_4
+#define EXTI_GPIO_Port GPIOG
+#define EXTI_EXTI_IRQn EXTI4_IRQn
 #define RENDER_TIME_Pin GPIO_PIN_3
 #define RENDER_TIME_GPIO_Port GPIOG
 #define Ignition_Pin GPIO_PIN_8
@@ -80,8 +83,8 @@ void Error_Handler(void);
 #define LCD_DISP_GPIO_Port GPIOD
 #define VSYNC_FREQ_Pin GPIO_PIN_0
 #define VSYNC_FREQ_GPIO_Port GPIOA
-#define BatteryVoltage_Pin GPIO_PIN_1
-#define BatteryVoltage_GPIO_Port GPIOA
+#define FuelGuage_Pin GPIO_PIN_0
+#define FuelGuage_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 

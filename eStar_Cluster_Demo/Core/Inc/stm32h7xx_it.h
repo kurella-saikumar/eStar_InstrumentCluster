@@ -53,10 +53,15 @@ void MemManage_Handler(void);
 void BusFault_Handler(void);
 void UsageFault_Handler(void);
 void DebugMon_Handler(void);
+void RTC_WKUP_IRQHandler(void);
+void EXTI4_IRQHandler(void);
+void TIM1_CC_IRQHandler(void);
 void TIM4_IRQHandler(void);
 void TIM6_DAC_IRQHandler(void);
 void LTDC_IRQHandler(void);
 void DMA2D_IRQHandler(void);
+void FDCAN3_IT0_IRQHandler(void);
+void FDCAN3_IT1_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */

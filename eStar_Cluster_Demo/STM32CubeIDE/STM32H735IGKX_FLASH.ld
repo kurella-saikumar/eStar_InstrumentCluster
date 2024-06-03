@@ -213,5 +213,145 @@ SECTIONS
 	*(Video_RGB_Buffer Video_RGB_Buffer.*)
     *(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
+        
+    *(image_abs_detection1_buf image_abs_detection1_buf.*)
+    *(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+	*(image_abs_detection2_buf image_abs_detection2_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_background_buf image_background_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_clustericons1_buf image_clustericons1_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_clustericons2_buf image_clustericons2_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_doorswarning1_buf image_doorswarning1_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_doorswarning2_buf image_doorswarning2_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_engineoil1_buf image_engineoil1_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_engineoil2_buf image_engineoil2_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_fuelbar01_buf image_fuelbar01_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_fuelbar02_buf image_fuelbar02_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_fuelbar03_buf image_fuelbar03_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_fuelbar04_buf image_fuelbar04_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_fuelbar05_buf image_fuelbar05_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_fuelbar06_buf image_fuelbar06_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_fuelbar07_buf image_fuelbar07_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_fuelbar08_buf image_fuelbar08_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_fuelbar09_buf image_fuelbar09_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_fuelbar10_buf image_fuelbar10_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_highbeam1_buf image_highbeam1_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_highbeam2_buf image_highbeam2_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_hmi_layout1_buf image_hmi_layout1_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_leftindicator1_buf image_leftindicator1_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_leftindicator2_buf image_leftindicator2_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_lowbattery1_buf image_lowbattery1_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_lowbattery2_buf image_lowbattery2_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_lowbeam1_buf image_lowbeam1_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_lowbeam2_buf image_lowbeam2_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_rightindicator1_buf image_rightindicator1_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_rightindicator2_buf image_rightindicator2_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_rpmbar_buf image_rpmbar_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_rpmicon1_buf image_rpmicon1_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_rpmicon2_buf image_rpmicon2_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_tempicon1_buf image_tempicon1_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_tempicon2_buf image_tempicon2_buf.*)
+    *(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
   } >HYPERRAM
 }

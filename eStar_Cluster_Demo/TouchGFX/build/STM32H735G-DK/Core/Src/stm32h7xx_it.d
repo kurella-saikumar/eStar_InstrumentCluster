@@ -23,6 +23,7 @@ TouchGFX/build/STM32H735G-DK/Core/Src/stm32h7xx_it.o: \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h \
+ Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_fdcan.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h \
@@ -30,6 +31,7 @@ TouchGFX/build/STM32H735G-DK/Core/Src/stm32h7xx_it.o: \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c_ex.h \
+ Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_iwdg.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_ltdc.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_ltdc_ex.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_ospi.h \
@@ -41,7 +43,6 @@ TouchGFX/build/STM32H735G-DK/Core/Src/stm32h7xx_it.o: \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_wwdg.h \
  Core/Inc/stm32h7xx_it.h
 
 Core/Inc/main.h:
@@ -96,6 +97,8 @@ Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_ll_adc.h:
 
 Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_adc_ex.h:
 
+Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_fdcan.h:
+
 Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc.h:
 
 Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_crc_ex.h:
@@ -109,6 +112,8 @@ Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_hsem.h:
 Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c.h:
 
 Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c_ex.h:
+
+Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_iwdg.h:
 
 Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_ltdc.h:
 
@@ -131,7 +136,5 @@ Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 
 Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
-
-Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_wwdg.h:
 
 Core/Inc/stm32h7xx_it.h:

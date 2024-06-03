@@ -329,7 +329,9 @@
             },
             "AutoSize": true,
             "Wildcard1": {
-              "TextId": "__SingleUse_1I4V"
+              "TextId": "__SingleUse_1I4V",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -456,17 +458,7 @@
             "RelativeFilename": "AnimationImages\\RPM\\RPMBar.png"
           }
         ],
-        "Interactions": [
-          {
-            "InteractionName": "Interaction1",
-            "Trigger": {
-              "Type": "TriggerNone"
-            },
-            "Action": {
-              "Type": "ActionNone"
-            }
-          }
-        ]
+        "Interactions": []
       }
     ],
     "CustomContainerDefinitions": [],

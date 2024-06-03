@@ -152,7 +152,8 @@ Screen1ViewBase::Screen1ViewBase()
     ODOReadings.setXY(174, 192);
     ODOReadings.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     ODOReadings.setLinespacing(0);
-    ODOReadings.setWildcard(touchgfx::TypedText(T___SINGLEUSE_1I4V).getText());
+    Unicode::snprintf(ODOReadingsBuffer, ODOREADINGS_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_1I4V).getText());
+    ODOReadings.setWildcard(ODOReadingsBuffer);
     ODOReadings.resizeToCurrentText();
     ODOReadings.setTypedText(touchgfx::TypedText(T___SINGLEUSE_7ZNN));
     add(ODOReadings);

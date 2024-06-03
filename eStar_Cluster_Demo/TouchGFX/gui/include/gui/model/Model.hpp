@@ -5,6 +5,9 @@
 
 class ModelListener;
 
+void simulateButtonPress();
+void simulateButtonRelease();
+
 class Model
 {
 public:
@@ -16,12 +19,16 @@ public:
     }
     void tick();
     void SpeedData();
+    void OdoData();
+
     //void FuelData();
 protected:
     ModelListener* modelListener;
     uint16_t counter;
     //uint16_t FuelCounter;
     uint16_t TickCount;
+    uint16_t speedcounter;
+    uint16_t odometer ;
 };
 
 #endif // MODEL_HPP
