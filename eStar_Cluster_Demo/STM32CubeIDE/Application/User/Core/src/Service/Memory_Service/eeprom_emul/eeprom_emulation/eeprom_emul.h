@@ -152,7 +152,7 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data);
 extern uint16_t xES_WriteVariable(uint32_t VirtAddress, uint32_t Data,uint32_t *UpdateToShadowRAM);
 extern void vShadowRAM_Init(void);
 extern void vEE_Demo(void);
-uint32_t xShadowUpdate(uint8_t ShadowPOP_flag);
+uint32_t xShadowUpdate(void);
 #endif /* __EEPROM_H */
 
 /**************************************************************************************************

@@ -1463,8 +1463,7 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 #endif
  return EE_OK;
 }
-// uint32_t xShadowUpdate(void)
- uint32_t xShadowUpdate(uint8_t ShadowPOP_flag)
+ uint32_t xShadowUpdate(void)
  {
  	uint32_t ulPage = 0U;
  	uint32_t ulPageAddress = 0U;
@@ -1520,16 +1519,10 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 
  				if (usCRCCalculated == usCRCRead)
  				{
- 					if(ShadowPOP_flag == 1)
- 					{
 #if(EMUL_DEBUG_ENABLE == 1)
- 						printf("ESR_S:Data = 0x%lx\t,VAdr = 0x%lx\t,CRC= 0x%x\n",ulData,ulReadAddr,usCRCRead);
+					printf("ESR_S:Data = 0x%lx\t,VAdr = 0x%lx\t,CRC= 0x%x\n",ulData,ulReadAddr,usCRCRead);
 #endif
- 					}
- 					else
- 					{
- 						memcpy((void *)ulReadAddr,(const void *) &ulData, sizeof(ulData));
- 					}
+					memcpy((void *)ulReadAddr,(const void *) &ulData, sizeof(ulData));
  				}
  				else
  				{
@@ -1560,7 +1553,7 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
  	/* Write default values into eep_Variables_t */
  	memcpy(&eep_Variables_t, &eep_default_t, sizeof(eepromData_t));
 
- 	xShadowUpdate(0);
+ 	xShadowUpdate();
 
  }
 

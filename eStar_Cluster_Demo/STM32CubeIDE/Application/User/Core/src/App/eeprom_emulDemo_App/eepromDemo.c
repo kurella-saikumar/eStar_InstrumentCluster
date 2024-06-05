@@ -188,7 +188,6 @@ void vEE_Demo(void)
 			}
 		}
 	}
-	xShadowUpdate(1);
 }
 
 
