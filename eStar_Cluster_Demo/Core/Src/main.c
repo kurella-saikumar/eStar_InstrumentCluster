@@ -200,7 +200,7 @@ const osThreadAttr_t FuelGuage_attributes = {
 };
 /* Definitions for OdoMeter */
 osThreadId_t OdoMeterHandle;
-uint32_t OdoBuffer[ 128 ];
+uint32_t OdoBuffer[ 256 ];
 osStaticThreadDef_t OdoControlBlock;
 const osThreadAttr_t OdoMeter_attributes = {
   .name = "OdoMeter",
@@ -212,7 +212,7 @@ const osThreadAttr_t OdoMeter_attributes = {
 };
 /* Definitions for SpeedoMeter */
 osThreadId_t SpeedoMeterHandle;
-uint32_t SpeedoBuffer[ 128 ];
+uint32_t SpeedoBuffer[ 256 ];
 osStaticThreadDef_t SpeedoControlBlock;
 const osThreadAttr_t SpeedoMeter_attributes = {
   .name = "SpeedoMeter",
@@ -256,7 +256,7 @@ const osThreadAttr_t GetClock_attributes = {
   .cb_size = sizeof(GetClockControlBlock),
   .stack_mem = &GetClockBuffer[0],
   .stack_size = sizeof(GetClockBuffer),
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityLow1,
 };
 /* Definitions for CAN_AppTask */
 osThreadId_t CAN_AppTaskHandle;
@@ -268,7 +268,7 @@ const osThreadAttr_t CAN_AppTask_attributes = {
   .cb_size = sizeof(CAN_AppTaskControlBlock),
   .stack_mem = &CAN_AppTaskBuffer[0],
   .stack_size = sizeof(CAN_AppTaskBuffer),
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityLow1,
 };
 /* Definitions for Indicators_App */
 osThreadId_t Indicators_AppHandle;
@@ -280,7 +280,7 @@ const osThreadAttr_t Indicators_App_attributes = {
   .cb_size = sizeof(Indicators_AppControlBlock),
   .stack_mem = &Indicators_AppBuffer[0],
   .stack_size = sizeof(Indicators_AppBuffer),
-  .priority = (osPriority_t) osPriorityLow,
+  .priority = (osPriority_t) osPriorityLow1,
 };
 /* Definitions for ServiceIndicato */
 osThreadId_t ServiceIndicatoHandle;
@@ -292,6 +292,18 @@ const osThreadAttr_t ServiceIndicato_attributes = {
   .cb_size = sizeof(ServiceIndicatoControlBlock),
   .stack_mem = &ServiceIndicatoBuffer[0],
   .stack_size = sizeof(ServiceIndicatoBuffer),
+  .priority = (osPriority_t) osPriorityLow1,
+};
+/* Definitions for deadlockTest */
+osThreadId_t deadlockTestHandle;
+uint32_t deadlockTestBuffer[ 128 ];
+osStaticThreadDef_t deadlockTestControlBlock;
+const osThreadAttr_t deadlockTest_attributes = {
+  .name = "deadlockTest",
+  .cb_mem = &deadlockTestControlBlock,
+  .cb_size = sizeof(deadlockTestControlBlock),
+  .stack_mem = &deadlockTestBuffer[0],
+  .stack_size = sizeof(deadlockTestBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
 /* USER CODE BEGIN PV */
@@ -443,6 +455,7 @@ void GetClockTask(void *argument);
 void CAN_Task(void *argument);
 void IndicatorsApp_Task(void *argument);
 void ServiceIndicatorApp_Task(void *argument);
+void deadlockTest_task(void *argument);
 
 /* USER CODE BEGIN PFP */
 void vBacklightBrightness(void);
@@ -451,6 +464,18 @@ void execTimeFault_cb2(TaskRunTimeStat_t *p_measurement_var_ptr);
 void execTimeFault_cb3(TaskRunTimeStat_t *p_measurement_var_ptr);
 void vTask_demo1PeriodicityCheckErrorHook(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo);
 void vTask_demo1PeriodicityCheckErrorHook1(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo);
+void SwitchErrorHook1(uint8_t reason);
+void SwitchErrorHook2(uint8_t reason);
+void SwitchErrorHook3(uint8_t reason);
+void SwitchErrorHook4(uint8_t reason);
+void SwitchErrorHook5(uint8_t reason);
+void SwitchErrorHook6(uint8_t reason);
+void SwitchErrorHook7(uint8_t reason);
+void SwitchErrorHook8(uint8_t reason);
+void SwitchErrorHook9(uint8_t reason);
+void SwitchErrorHook10(uint8_t reason);
+void SwitchErrorHook11(uint8_t reason);
+void SwitchErrorHook12(uint8_t reason);
 RTC_TimeTypeDef sTime;
 RTC_DateTypeDef sDate;
 HAL_StatusTypeDef res;
@@ -615,6 +640,9 @@ int main(void)
 
   /* creation of ServiceIndicato */
   ServiceIndicatoHandle = osThreadNew(ServiceIndicatorApp_Task, NULL, &ServiceIndicato_attributes);
+
+  /* creation of deadlockTest */
+  deadlockTestHandle = osThreadNew(deadlockTest_task, NULL, &deadlockTest_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1282,10 +1310,10 @@ static void MX_RTC_Init(void)
 
   /** Enable the WakeUp
   */
-  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
-  {
-    Error_Handler();
-  }
+//  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
   /* USER CODE BEGIN RTC_Init 2 */
   if(HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR0) != 0x32F2)
   {
@@ -1734,6 +1762,7 @@ void StartDefaultTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
+	  //vCheckTaskDeadlock();
 	  vStackMonitorDemonTask_Handler();
 //	  res = HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
 //	  if(res == HAL_OK)
@@ -1808,14 +1837,19 @@ void DigitalDebounce_Task(void *argument)
   /* USER CODE BEGIN DigitalDebounce_Task */
 	static TaskRunTimeStat_t p_measurement_var_ptr;
 	vReset_executionTimeStats(&p_measurement_var_ptr);
+
+	TaskHandle3_t xTaskHandler;
+	xTaskHandler = xTaskGetCurrentTaskHandle();
+	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,4000,SwitchErrorHook1 );
   /* Infinite loop */
   for(;;)
   {
 	  //printf("DigitalDebounce_Task\r\n");
-	  HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
-	  HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
+	  //HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_7);
+	  //HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
 	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T01,vTask_demo1PeriodicityCheckErrorHook );
 	  vBeginExecMeas(&p_measurement_var_ptr);
+	  //vCheckTaskDeadlock();
 	  DebounceTask();
       vGet_Switch_DebouncedStatus();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb1);
@@ -2006,8 +2040,215 @@ void vTask_demo1PeriodicityCheckErrorHook3(TaskPeriodicityCheck_t *xPeriodicityC
 #endif
 
 }
+void SwitchErrorHook1(uint8_t reason)
+{
+	printf("task1 hook- reason:%d \r\n",reason);
+#if(UART_DEBUG == 1)
+	/* Buffer to hold checksum status */
+	char cStatusBuffer[50];
+	/* Construct the checksum status message */
+	sprintf(cStatusBuffer,"task3 hook, reason:%d \r\n",reason);
+	/* Transmit the checksum status message via UART */
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)cStatusBuffer, strlen(cStatusBuffer), 30) != HAL_OK)
+	{
+		/* You can add some error handling here if needed */
+		break;
+	}
+#endif
+}
+void SwitchErrorHook2(uint8_t reason)
+{
+	printf("task2 hook- reason:%d \r\n",reason);
+#if(UART_DEBUG == 1)
+	/* Buffer to hold checksum status */
+	char cStatusBuffer[50];
+	/* Construct the checksum status message */
+	sprintf(cStatusBuffer,"task3 hook, reason:%d \r\n",reason);
+	/* Transmit the checksum status message via UART */
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)cStatusBuffer, strlen(cStatusBuffer), 30) != HAL_OK)
+	{
+		/* You can add some error handling here if needed */
+		break;
+	}
+#endif
+}
+void SwitchErrorHook3(uint8_t reason)
+{
+	printf("task3 hook- reason:%d \r\n",reason);
+#if(UART_DEBUG == 1)
+	/* Buffer to hold checksum status */
+	char cStatusBuffer[50];
+	/* Construct the checksum status message */
+	sprintf(cStatusBuffer,"task3 hook, reason:%d \r\n",reason);
+	/* Transmit the checksum status message via UART */
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)cStatusBuffer, strlen(cStatusBuffer), 30) != HAL_OK)
+	{
+		/* You can add some error handling here if needed */
+		break;
+	}
+#endif
+}
+void SwitchErrorHook4(uint8_t reason)
+{
+	printf("task4 hook- reason:%d \r\n",reason);
+#if(UART_DEBUG == 1)
+	/* Buffer to hold checksum status */
+	char cStatusBuffer[50];
+	/* Construct the checksum status message */
+	sprintf(cStatusBuffer,"task3 hook, reason:%d \r\n",reason);
+	/* Transmit the checksum status message via UART */
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)cStatusBuffer, strlen(cStatusBuffer), 30) != HAL_OK)
+	{
+		/* You can add some error handling here if needed */
+		break;
+	}
+#endif
+}
+void SwitchErrorHook5(uint8_t reason)
+{
+	printf("task5 hook- reason:%d \r\n",reason);
+#if(UART_DEBUG == 1)
+	/* Buffer to hold checksum status */
+	char cStatusBuffer[50];
+	/* Construct the checksum status message */
+	sprintf(cStatusBuffer,"task3 hook, reason:%d \r\n",reason);
+	/* Transmit the checksum status message via UART */
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)cStatusBuffer, strlen(cStatusBuffer), 30) != HAL_OK)
+	{
+		/* You can add some error handling here if needed */
+		break;
+	}
+#endif
+}
+void SwitchErrorHook6(uint8_t reason)
+{
+	printf("task6 hook- reason:%d \r\n",reason);
+#if(UART_DEBUG == 1)
+	/* Buffer to hold checksum status */
+	char cStatusBuffer[50];
+	/* Construct the checksum status message */
+	sprintf(cStatusBuffer,"task3 hook, reason:%d \r\n",reason);
+	/* Transmit the checksum status message via UART */
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)cStatusBuffer, strlen(cStatusBuffer), 30) != HAL_OK)
+	{
+		/* You can add some error handling here if needed */
+		break;
+	}
+#endif
+}
+void SwitchErrorHook7(uint8_t reason)
+{
+	printf("task7 hook- reason:%d \r\n",reason);
+#if(UART_DEBUG == 1)
+	/* Buffer to hold checksum status */
+	char cStatusBuffer[50];
+	/* Construct the checksum status message */
+	sprintf(cStatusBuffer,"task3 hook, reason:%d \r\n",reason);
+	/* Transmit the checksum status message via UART */
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)cStatusBuffer, strlen(cStatusBuffer), 30) != HAL_OK)
+	{
+		/* You can add some error handling here if needed */
+		break;
+	}
+#endif
+}
+void SwitchErrorHook8(uint8_t reason)
+{
+	printf("task8 hook- reason:%d \r\n",reason);
+#if(UART_DEBUG == 1)
+	/* Buffer to hold checksum status */
+	char cStatusBuffer[50];
+	/* Construct the checksum status message */
+	sprintf(cStatusBuffer,"task3 hook, reason:%d \r\n",reason);
+	/* Transmit the checksum status message via UART */
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)cStatusBuffer, strlen(cStatusBuffer), 30) != HAL_OK)
+	{
+		/* You can add some error handling here if needed */
+		break;
+	}
+#endif
+}
+void SwitchErrorHook9(uint8_t reason)
+{
+	printf("task9 hook- reason:%d \r\n",reason);
+#if(UART_DEBUG == 1)
+	/* Buffer to hold checksum status */
+	char cStatusBuffer[50];
+	/* Construct the checksum status message */
+	sprintf(cStatusBuffer,"task3 hook, reason:%d \r\n",reason);
+	/* Transmit the checksum status message via UART */
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)cStatusBuffer, strlen(cStatusBuffer), 30) != HAL_OK)
+	{
+		/* You can add some error handling here if needed */
+		break;
+	}
+#endif
+}
+void SwitchErrorHook10(uint8_t reason)
+{
+	printf("task10 hook- reason:%d \r\n",reason);
+#if(UART_DEBUG == 1)
+	/* Buffer to hold checksum status */
+	char cStatusBuffer[50];
+	/* Construct the checksum status message */
+	sprintf(cStatusBuffer,"task3 hook, reason:%d \r\n",reason);
+	/* Transmit the checksum status message via UART */
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)cStatusBuffer, strlen(cStatusBuffer), 30) != HAL_OK)
+	{
+		/* You can add some error handling here if needed */
+		break;
+	}
+#endif
+}
+void SwitchErrorHook11(uint8_t reason)
+{
+	printf("task11 hook- reason:%d \r\n",reason);
+#if(UART_DEBUG == 1)
+	/* Buffer to hold checksum status */
+	char cStatusBuffer[50];
+	/* Construct the checksum status message */
+	sprintf(cStatusBuffer,"task3 hook, reason:%d \r\n",reason);
+	/* Transmit the checksum status message via UART */
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)cStatusBuffer, strlen(cStatusBuffer), 30) != HAL_OK)
+	{
+		/* You can add some error handling here if needed */
+		break;
+	}
+#endif
+}
+void SwitchErrorHook12(uint8_t reason)
+{
+	printf("task12 hook- reason:%d \r\n",reason);
+#if(UART_DEBUG == 1)
+	/* Buffer to hold checksum status */
+	char cStatusBuffer[50];
+	/* Construct the checksum status message */
+	sprintf(cStatusBuffer,"task3 hook, reason:%d \r\n",reason);
+	/* Transmit the checksum status message via UART */
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)cStatusBuffer, strlen(cStatusBuffer), 30) != HAL_OK)
+	{
+		/* You can add some error handling here if needed */
+		break;
+	}
+#endif
+}
 
-
+void SwitchErrorHook13(uint8_t reason)
+{
+	printf("task13 hook- reason:%d \r\n",reason);
+#if(UART_DEBUG == 1)
+	/* Buffer to hold checksum status */
+	char cStatusBuffer[50];
+	/* Construct the checksum status message */
+	sprintf(cStatusBuffer,"task3 hook, reason:%d \r\n",reason);
+	/* Transmit the checksum status message via UART */
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)cStatusBuffer, strlen(cStatusBuffer), 30) != HAL_OK)
+	{
+		/* You can add some error handling here if needed */
+		break;
+	}
+#endif
+}
 
 /* USER CODE BEGIN Header_State_Machine_Task */
 /**
@@ -2022,6 +2263,10 @@ void State_Machine_Task(void *argument)
   /* USER CODE BEGIN State_Machine_Task */
 	static TaskRunTimeStat_t p_measurement_var_ptr;
 	vReset_executionTimeStats(&p_measurement_var_ptr);
+
+	TaskHandle3_t xTaskHandler;
+	xTaskHandler = xTaskGetCurrentTaskHandle();
+	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook2 );
   /* Infinite loop */
   for(;;)
   {
@@ -2030,6 +2275,7 @@ void State_Machine_Task(void *argument)
 	  HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_2);
 	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T02,vTask_demo1PeriodicityCheckErrorHook1);
 	  vBeginExecMeas(&p_measurement_var_ptr);
+	  //vCheckTaskDeadlock();
 	  State_Manager_task();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(2000), execTimeFault_cb2);
 	  osDelay(50);
@@ -2050,6 +2296,10 @@ void Analog_Debounce_Task(void *argument)
     uint8_t Batt_state = 0 ;
  	static TaskRunTimeStat_t p_measurement_var_ptr;
  	vReset_executionTimeStats(&p_measurement_var_ptr);
+
+ 	TaskHandle3_t xTaskHandler;
+ 	xTaskHandler = xTaskGetCurrentTaskHandle();
+ 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook3 );
   /* Infinite loop */
   for(;;)
   {
@@ -2062,6 +2312,7 @@ void Analog_Debounce_Task(void *argument)
 	  gl_BAT_MON_u32 = HAL_ADC_GetValue(&hadc3); // get the adc value
 	 // printf("gl_BAT_MON_u32:%ld\r\n",gl_BAT_MON_u32);
 	//  HAL_ADC_Stop(&hadc1); // stop adc
+	  //vCheckTaskDeadlock();
 	  analog_debounce_task();
 	  Batt_state = get_analog_debounce_state(0);
 #if(BATMON_TEST_MACRO == 1)
@@ -2086,6 +2337,10 @@ void FuelGuageTask(void *argument)
   /* USER CODE BEGIN FuelGuageTask */
  	static TaskRunTimeStat_t p_measurement_var_ptr;
  	vReset_executionTimeStats(&p_measurement_var_ptr);
+
+ 	TaskHandle3_t xTaskHandler;
+ 	xTaskHandler = xTaskGetCurrentTaskHandle();
+ 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook4 );
   /* Infinite loop */
   for(;;)
   {
@@ -2095,6 +2350,7 @@ void FuelGuageTask(void *argument)
 	  HAL_ADC_Start(&hadc1);
 	  HAL_ADC_PollForConversion(&hadc1, 1);
 	  usADCValue=(uint16_t)HAL_ADC_GetValue(&hadc1);
+	  //vCheckTaskDeadlock();
 	  vFuelGuageTask();
       vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb1);
       osDelay(100);
@@ -2115,6 +2371,10 @@ void Odo_Task(void *argument)
   /* USER CODE BEGIN Odo_Task */
  	static TaskRunTimeStat_t p_measurement_var_ptr;
  	vReset_executionTimeStats(&p_measurement_var_ptr);
+
+ 	TaskHandle3_t xTaskHandler;
+ 	xTaskHandler = xTaskGetCurrentTaskHandle();
+ 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,5500,SwitchErrorHook5 );
   /* Infinite loop */
   for(;;)
   {
@@ -2123,6 +2383,7 @@ void Odo_Task(void *argument)
 	  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0);
 	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T05,vTask_demo1PeriodicityCheckErrorHook );
 	  vBeginExecMeas(&p_measurement_var_ptr);
+	  //vCheckTaskDeadlock();
 	  vOdoAlgorithm();
       vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(3500), execTimeFault_cb1);
       osDelay(5000);
@@ -2144,6 +2405,10 @@ void Speedo_Task(void *argument)
   /* USER CODE BEGIN Speedo_Task */
  	static TaskRunTimeStat_t p_measurement_var_ptr;
  	vReset_executionTimeStats(&p_measurement_var_ptr);
+
+ 	TaskHandle3_t xTaskHandler;
+ 	xTaskHandler = xTaskGetCurrentTaskHandle();
+ 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,5500,SwitchErrorHook6 );
   /* Infinite loop */
   for(;;)
   {
@@ -2151,8 +2416,9 @@ void Speedo_Task(void *argument)
 	  //printf("Speedo_Task\n\r");
 	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T06,vTask_demo1PeriodicityCheckErrorHook );
 	  vBeginExecMeas(&p_measurement_var_ptr);
+	  //vCheckTaskDeadlock();
 	  vSpeedoAlgorithm();
-    vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb1);
+    vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(5000), execTimeFault_cb1);
     osDelay(5000);
 
   }
@@ -2171,12 +2437,17 @@ void Tacho_Task(void *argument)
   /* USER CODE BEGIN Tacho_Task */
  	static TaskRunTimeStat_t p_measurement_var_ptr;
  	vReset_executionTimeStats(&p_measurement_var_ptr);
+
+ 	TaskHandle3_t xTaskHandler;
+ 	xTaskHandler = xTaskGetCurrentTaskHandle();
+ 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook7 );
   /* Infinite loop */
   for(;;)
   {
 	  //printf("Tacho_Task\n\r");
 	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T07,vTask_demo1PeriodicityCheckErrorHook );
 	  vBeginExecMeas(&p_measurement_var_ptr);
+	  //vCheckTaskDeadlock();
 	  vTacho_App();
     vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb1);
     osDelay(1000);
@@ -2197,6 +2468,10 @@ void SwitchHandlerTask(void *argument)
  	static TaskRunTimeStat_t p_measurement_var_ptr;
  	vReset_executionTimeStats(&p_measurement_var_ptr);
 
+ 	TaskHandle3_t xTaskHandler;
+ 	xTaskHandler = xTaskGetCurrentTaskHandle();
+ 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook8 );
+
 	//HAL_GPIO_WritePin(GPIOH, GPIO_PIN_2, GPIO_PIN_RESET);
 
   /* Infinite loop */
@@ -2207,6 +2482,7 @@ void SwitchHandlerTask(void *argument)
 //	  HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_2);
 	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T08,vTask_demo1PeriodicityCheckErrorHook );
 	  vBeginExecMeas(&p_measurement_var_ptr);
+	  //vCheckTaskDeadlock();
 	  vSwitchHandlerTask();
 	  Switch_Task();
 	  vHandleModeResetActions();
@@ -2231,6 +2507,10 @@ void GetClockTask(void *argument)
   /* USER CODE BEGIN GetClockTask */
  	static TaskRunTimeStat_t p_measurement_var_ptr;
  	vReset_executionTimeStats(&p_measurement_var_ptr);
+
+ 	TaskHandle3_t xTaskHandler;
+ 	xTaskHandler = xTaskGetCurrentTaskHandle();
+ 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook9 );
   /* Infinite loop */
   for(;;)
   {
@@ -2239,6 +2519,7 @@ void GetClockTask(void *argument)
 	  //HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_2);
 	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T09,vTask_demo1PeriodicityCheckErrorHook3 );
 	  vBeginExecMeas(&p_measurement_var_ptr);
+	  //vCheckTaskDeadlock();
 	  vGet_Clock();
 	  vClockIncreament();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb1);
@@ -2260,6 +2541,10 @@ void CAN_Task(void *argument)
   /* USER CODE BEGIN CAN_Task */
  	static TaskRunTimeStat_t p_measurement_var_ptr;
  	vReset_executionTimeStats(&p_measurement_var_ptr);
+
+ 	TaskHandle3_t xTaskHandler;
+ 	xTaskHandler = xTaskGetCurrentTaskHandle();
+ 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook10 );
   /* Infinite loop */
   for(;;)
   {
@@ -2268,6 +2553,7 @@ void CAN_Task(void *argument)
 	  HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_2);
 	vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T10,vTask_demo1PeriodicityCheckErrorHookcan );
 	vBeginExecMeas(&p_measurement_var_ptr);
+	//vCheckTaskDeadlock();
 //	vCANTransmit();
 //	vCANReceive();
 	vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb3);
@@ -2289,6 +2575,10 @@ void IndicatorsApp_Task(void *argument)
   /* USER CODE BEGIN IndicatorsApp_Task */
  	static TaskRunTimeStat_t p_measurement_var_ptr;
  	vReset_executionTimeStats(&p_measurement_var_ptr);
+
+ 	TaskHandle3_t xTaskHandler;
+ 	xTaskHandler = xTaskGetCurrentTaskHandle();
+ 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook11 );
   /* Infinite loop */
 	for(;;)
 	  {
@@ -2296,6 +2586,7 @@ void IndicatorsApp_Task(void *argument)
 	 	//printf("IndicatorsApp_Task\n\r");
 	   vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T11,vTask_demo1PeriodicityCheckErrorHook );
 	   vBeginExecMeas(&p_measurement_var_ptr);
+	   //vCheckTaskDeadlock();
 		vIndicator_App_Task();
 		indicator = xGetIndicatorstatus();
 	    vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb1);
@@ -2317,18 +2608,45 @@ void ServiceIndicatorApp_Task(void *argument)
   /* USER CODE BEGIN ServiceIndicatorApp_Task */
 	static TaskRunTimeStat_t p_measurement_var_ptr;
 	vReset_executionTimeStats(&p_measurement_var_ptr);
+
+	TaskHandle3_t xTaskHandler;
+	xTaskHandler = xTaskGetCurrentTaskHandle();
+	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook12 );
   /* Infinite loop */
   for(;;)
   {
 	//printf("ServiceIndicatorApp_Task\n\r");
     vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T12,vTask_demo1PeriodicityCheckErrorHook );
     vBeginExecMeas(&p_measurement_var_ptr);
+    //vCheckTaskDeadlock();
 	vServiceRequestTask();
     osDelay(1000);
     vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1100000), execTimeFault_cb1);
     //osDelay(1000);
   }
   /* USER CODE END ServiceIndicatorApp_Task */
+}
+
+/* USER CODE BEGIN Header_deadlockTest_task */
+/**
+* @brief Function implementing the deadlockTest thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_deadlockTest_task */
+void deadlockTest_task(void *argument)
+{
+  /* USER CODE BEGIN deadlockTest_task */
+	TaskHandle3_t xTaskHandler;
+	xTaskHandler = xTaskGetCurrentTaskHandle();
+	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook13 );
+  /* Infinite loop */
+  for(;;)
+  {
+	  vCheckTaskDeadlock();
+    osDelay(1000);
+  }
+  /* USER CODE END deadlockTest_task */
 }
 
  /* MPU Configuration */

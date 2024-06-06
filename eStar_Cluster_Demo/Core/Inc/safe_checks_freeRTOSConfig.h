@@ -58,8 +58,8 @@
 #define traceTASK_CREATE( pxNewTCB ) SafeRTOS_ntveStack_TraceTASK_CREATE(pxNewTCB)
 #define traceTASK_DELETE(pxNewTCB) SafeRTOS_TraceTASK_DELETE(pxNewTCB)
 //
-//#define traceMOVED_TASK_TO_READY_STATE(pxNewTCB) vSafeChecksMovedTaskToReadyState(pxNewTCB)
-//#define traceTASK_SWITCHED_OUT vSafeChecksTaskSwitchedOut
+#define traceMOVED_TASK_TO_READY_STATE(pxNewTCB) vSafeChecksMovedTaskToReadyState(pxNewTCB)
+#define traceTASK_SWITCHED_OUT vSafeChecksTaskSwitchedOut
 
 #endif /* SAFE_CHECKS_FREERTOSCONFIG_H */
 /**************************************************************************************************
