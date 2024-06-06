@@ -43,10 +43,11 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES\n
 ***************************************************************************************************/
-
+int32_t xFI_Write(uint32_t Address, uint8_t *Data, uint32_t size);
 int32_t xFI_WriteDoubleWord(uint32_t Address, uint8_t *Data);
 int32_t xFI_WriteSingleWord(uint32_t Address, uint8_t *Data);
 int32_t xFI_WriteByte(uint32_t Address, uint8_t *Data);
+int32_t xFI_Read(uint32_t Address,  uint8_t *Data, uint32_t size);
 int32_t xFI_ReadDoubleWord(uint32_t Address,  uint8_t *Data);
 int32_t xFI_ReadSingleWord(uint32_t Address,  uint8_t *Data);
 int32_t xFI_ReadByte(uint32_t Address,  uint8_t *Data);
