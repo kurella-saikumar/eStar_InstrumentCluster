@@ -168,7 +168,7 @@ void vEE_Demo(void)
 	}
 //	xRetrive_LastStored_OdoVal_from_EEPROM();
 	/* Loop through each variable and perform the write check */
-	for (uint32_t i = 0 ; i <= 0x20; i = i+2)
+	for (uint32_t i = 0 ; i <= 0xFFFF; i = i+2)
 	{
 //		for (int j = 0; j < sizeof(eepromVariables) / sizeof(eepromVariables[0]); j++)
 		for (int j = 0; j < 20; j++)
@@ -183,7 +183,7 @@ void vEE_Demo(void)
 			else
 			{
 #if(EMUL_DEBUG_ENABLE == 1)
-				printf("ESW_F:%ld\n\r",FlashStatus);
+				printf("ESW_F:0x%x\n\r",FlashStatus);
 #endif
 			}
 		}

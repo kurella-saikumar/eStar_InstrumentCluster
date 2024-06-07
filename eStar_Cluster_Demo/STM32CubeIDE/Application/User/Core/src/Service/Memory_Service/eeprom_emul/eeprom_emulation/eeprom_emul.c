@@ -490,19 +490,19 @@ EE_Status prvReadVariable(uint32_t VirtAddress, EE_DATA_TYPE* pData)
 			/* Get the current location content to be compared with virtual address */
 			xFI_Read(ulPageAddress + ulCounter,ucReadData,EE_ELEMENT_SIZE);
 
-			ulReadAddr = (ucReadData[0]|ucReadData[1]<<8|ucReadData[2]<<16|ucReadData[3]<<24);
-
+//			ulReadAddr = (ucReadData[0]|ucReadData[1]<<8|ucReadData[2]<<16|ucReadData[3]<<24);
+			ulReadAddr = (ucReadData[0]<<24|ucReadData[1]<<16|ucReadData[2]<<8|ucReadData[3]);
  			if (ulReadAddr != 0xFFFFFFFFU)
  			{
 				/* Compare the read address with the virtual address */
 				if (ulReadAddr == VirtAddress)
 				{
 					/* Get content of variable value */
-					ulData = (ucReadData[4]|ucReadData[5]<<8|ucReadData[6]<<16|ucReadData[7]<<24);
+					ulData = (ucReadData[4]<<24|ucReadData[5]<<16|ucReadData[6]<<8|ucReadData[7]);
 
-					usCRCCalculated = xCrc16BitPolinomial_1021(ucReadData,4,0);
+					usCRCCalculated = xCrc16BitPolinomial_1021(&ucReadData[4],4,0);
 
-					usCRCRead = (ucReadData[8]|ucReadData[9]<<8);
+					usCRCRead = (ucReadData[8]<<8|ucReadData[9]);
 
 					if (usCRCCalculated == usCRCRead)
 					{
@@ -750,7 +750,7 @@ EE_Status prvVerifyPagesFullWriteVariable(uint32_t VirtAddress, EE_DATA_TYPE Dat
 	activepageaddress = PAGE_ADDRESS(activepage);
 
 	uint8_t ucDataArray[EE_ELEMENT_SIZE] = {0x00};
-
+#if 0
 	ucDataArray[0] = VirtAddress & 0xFF;        // Least significant byte
 	ucDataArray[1] = (VirtAddress >> 8) & 0xFF;
 	ucDataArray[2] = (VirtAddress >> 16) & 0xFF;
@@ -766,6 +766,27 @@ EE_Status prvVerifyPagesFullWriteVariable(uint32_t VirtAddress, EE_DATA_TYPE Dat
 
 	ucDataArray[8] = usCRC & 0xFF;
 	ucDataArray[9] = (usCRC >> 8) & 0xFF;        // Most significant byte
+	for(int k=0;k<10;k++)
+	{
+		printf("eepwr_Data[%d]=%d\n",k,ucDataArray[k]);
+	}
+#else
+	ucDataArray[0] = (VirtAddress >> 24) & 0xFF,        // Least significant byte
+	ucDataArray[1] = (VirtAddress >> 16) & 0xFF;
+	ucDataArray[2] = (VirtAddress >> 8) & 0xFF;
+	ucDataArray[3] = VirtAddress & 0xFF;
+	ucDataArray[4] = (Data >> 24) & 0xFF;
+	ucDataArray[5] = (Data >> 16) & 0xFF;
+	ucDataArray[6] = (Data >> 8) & 0xFF;
+	ucDataArray[7] = Data & 0xFF;
+
+	/*calculate CRC */
+	uint16_t usCRC = 0;
+	usCRC = xCrc16BitPolinomial_1021(&ucDataArray[4],4,0);
+
+	ucDataArray[8] = (usCRC >> 8) & 0xFF;
+	ucDataArray[9] =  usCRC & 0xFF;       // Most significant byte
+#endif
 
 	/* Program variable data, virtual address,and CRC*/
 	/* If program operation was failed, a Flash error code is returned */
@@ -1370,13 +1391,13 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 
 			xFI_Read(ulPageAddress + ulCounter,ucReadData,EE_ELEMENT_SIZE);
 
-			ulReadAddr = (ucReadData[0]|ucReadData[1]<<8|ucReadData[2]<<16|ucReadData[3]<<24);
+			ulReadAddr = (ucReadData[0]<<24|ucReadData[1]<<16|ucReadData[2]<<8|ucReadData[3]);
  			if (ulReadAddr != 0xFFFFFFFFU)
  			{
-				ulData = (ucReadData[4]|ucReadData[5]<<8|ucReadData[6]<<16|ucReadData[7]<<24);
+				ulData = (ucReadData[4]<<24|ucReadData[5]<<16|ucReadData[6]<<8|ucReadData[7]);
  				usCRCCalculated = xCrc16BitPolinomial_1021(&ucReadData[4],4,0);
 
- 				usCRCRead = (ucReadData[8]|ucReadData[9]<<8);
+ 				usCRCRead = (ucReadData[8]<<8|ucReadData[9]);
  				if (usCRCCalculated == usCRCRead)
  				{
 					memcpy((void *)ulReadAddr,(const void *) &ulData, sizeof(ulData));
