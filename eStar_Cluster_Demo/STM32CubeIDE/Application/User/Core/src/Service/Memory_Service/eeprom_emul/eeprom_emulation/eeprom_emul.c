@@ -238,7 +238,7 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 	{
 		if(HAL_OK == xFI_Read(Address, &ucHeader_Data[i][0],EE_HEADER_ELEMENT_SIZE))
 		{
-			for (int j = 0; j < EE_HEADER_ELEMENT_SIZE; j++)
+			for (int j = (EE_HEADER_ELEMENT_SIZE-1); j >=0 ; j--)
 			{
 				status[i] |= ((uint64_t)ucHeader_Data[i][j]<< (8 * j)); // Add the byte from DataValue
 			}
@@ -427,7 +427,7 @@ EE_Status prvVerifyPageFullyErased(uint32_t Address, uint32_t PageSize)
 
         // Extract 64-bit data from the 8-byte array in little-endian format using a for loop
         ulReadData = 0;
-        for (int i = 0; i < 8; i++)
+        for (int i = (EE_HEADER_ELEMENT_SIZE-1); i >=0; i--)
         {
             ulReadData |= ((uint64_t)ucData[i] << (8 * i));
         }
@@ -923,11 +923,11 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 			/* Get next element in receive page */
 			xFI_Read(((PAGE_ADDRESS(ucCurrentActivePage)) + ulVarIdx), ucReadData,EE_ELEMENT_SIZE);
 
-			for (int i = 0; i < 8; i++)
+			for (int i = (EE_HEADER_ELEMENT_SIZE-1); i >=0; i--)
 			{
 				addressvalue |= ((uint64_t)ucReadData[i]<< (8 * i)); // Add the byte from DataValue
 			}
-			uint16_t usCRCBytes = (ucReadData[8]|ucReadData[9]<<8);
+			uint16_t usCRCBytes = (ucReadData[8]<<8|ucReadData[9]);
 
 			if ((addressvalue != EE_PAGESTAT_ERASED)&&(usCRCBytes != 0xFFFFU))
 			{
@@ -1261,13 +1261,19 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 		uint8_t ucReadData[EE_ELEMENT_SIZE]= {0x00};
 
 		xFI_Read(((PAGE_ADDRESS(ucCurrentActivePage))  + ulVarIdx), ucReadData,EE_ELEMENT_SIZE);
-
+#if 0
 		ulDataValue = (ucReadData[0]|ucReadData[1]<<8|ucReadData[2]<<16|ucReadData[3]<<24);
 
 		ulReadAddressValue =(ucReadData[4]|ucReadData[5]<<8|ucReadData[6]<<16|ucReadData[7]<<24);
 
 		usCRC = (ucReadData[8]|ucReadData[9]<<8);
+#else
+		ulDataValue = (ucReadData[0]<<24|ucReadData[1]<<16|ucReadData[2]<<8|ucReadData[3]);
 
+		ulReadAddressValue =(ucReadData[4]<<24|ucReadData[5]<<16|ucReadData[6]<<8|ucReadData[7]);
+
+		usCRC = (ucReadData[8]<<8|ucReadData[9]);
+#endif
 		if ((ulDataValue != EE_NO_DATA_FOUND) && (ulReadAddressValue != EE_NO_DATA_FOUND) &&(usCRC != 0xFFFFU))
 		{
 			/* Then increment usNbWrittenElements and ulAddressNextWrite */
