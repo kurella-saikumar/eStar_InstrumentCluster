@@ -16,13 +16,13 @@
 /**************************************************************************************************
  * Include Project Specific Headers
  ***************************************************************************************************/
-#include "speedometer_App_cfg.h"
 #include "../ICU_middleware/ICU_driver.h"
+#include "speedometer_App_cfg.h"
 #include "Indicator_App.h"
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
  ***************************************************************************************************/
-#define SPEEDO_TEST_MACRO 0
+#define SPEEDO_TEST_MACRO 1
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES
  ***************************************************************************************************/
@@ -47,6 +47,7 @@ uint32_t vPulseDeltaCounter(void);
 void vCalculateSpeed(void);
 void vCalculateSpeedInKm(void);
 void vCalculateSpeedInMiles(void);
+void vValidateSpeed(void);
 
 bool xSafeSpeedCheck(void);
 void vCustomizeSpeedUnits(void);

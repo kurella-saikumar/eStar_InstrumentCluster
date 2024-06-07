@@ -1780,7 +1780,7 @@ void Speedo_Task(void *argument)
   for(;;)
   {
 	  vSpeedoAlgorithm();
-    osDelay(5000);
+    osDelay(configSPEEDO_ALGO_CALL_FREQ_IN_MS);
   }
   /* USER CODE END Speedo_Task */
 }

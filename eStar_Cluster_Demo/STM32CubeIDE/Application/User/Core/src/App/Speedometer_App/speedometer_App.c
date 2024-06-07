@@ -26,7 +26,6 @@
 #ifndef SPEEDOMETER_C
 #define	SPEEDOMETER_C
 
-
 /**************************************************************************************************
  * Include Platform or Standard Headers
  ***************************************************************************************************/
@@ -35,8 +34,8 @@
  * Include Project Specific Headers
  ***************************************************************************************************/
 #include "speedometer_App.h"
-//#include "../Speedometer_App_test/speedometer_App_Test.h"
 #include "IGN_SmHandler.h"
+//#include "../Speedometer_App_test/speedometer_App_Test.h"
 /**************************************************************************************************
  * DEFINE FILE SCOPE MACROS
  ***************************************************************************************************/
@@ -75,11 +74,13 @@ uint32_t ulCurrentReceivedPulses = 0;
 uint32_t ulPreviousReceivedPulses = 0;
 
 /**km variables*/
+uint8_t ucPulsesPerMeter = 0;
 uint32_t ulDistanceInMts = 0;
 uint32_t ulPulse100mCountRatio = 0;
 uint32_t ulReceivedPulses = 0;
 uint32_t ulDistanceInKm = 0;
 uint32_t ulTimeInHr = 0;
+uint32_t ulSpeedInMtsPerSec = 0;
 uint32_t ulSpeedInKm = 0;
 
 /**miles variables*/
@@ -112,8 +113,11 @@ void vSpeedoInit(void)
     defaultSpeedoUnits = SPEED_IN_KMPH;
     speedoUnits = defaultSpeedoUnits;
     vInitializeSpeedometer();
-    //printf("Speedometer initialization...\r\n");
     xLoadToEEPROM();
+
+#if(SPEEDO_TEST_MACRO == 1)
+    printf("Speedometer initialization...\r\n");
+#endif
 }
 
 void vInitializeSpeedometer(void)
@@ -122,6 +126,7 @@ void vInitializeSpeedometer(void)
 	ulMtsToKmDistConvFactorSpeed = configMTS_TO_KM_DIST_CONV_FACTOR;
 	ulSecToHrTimeConvFactor = configSEC_TO_HR_TIME_CONV_FACTOR;
 	ulPulseMultiFactorSpeed = configPULSE_MULTI_FACTOR;
+	ucPulsesPerMeter = configPULSES_PER_1_METER;
 	ulPulsesPer100MetersSpeed = configPULSES_PER_100_METERS;
 	ulTimeInSecs = configTIME_IN_SECS;
 	ucSafeThresholdSpeedInKm = configSAFE_THRESHOLD_VEH_SPEED_IN_KM;
@@ -184,22 +189,19 @@ void vCalculateSpeed(void)
 void vCalculateSpeedInKm(void)
 {
 	ulReceivedPulses = vPulseDeltaCounter();
-    
-	ulPulse100mCountRatio = (ulReceivedPulses / ulPulsesPer100MetersSpeed);
+	ulDistanceInMts = (ulReceivedPulses / ucPulsesPerMeter );
+	ulSpeedInMtsPerSec = ( (ulDistanceInMts * configMILLI_SEC_TO_SECS_CONV_FACTOR) / configSPEEDO_ALGO_CALL_FREQ_IN_MS );
+	ulSpeedInKm = ((ulSpeedInMtsPerSec * configSEC_TO_HR_TIME_CONV_FACTOR) / configMTS_TO_KM_DIST_CONV_FACTOR );
+	vValidateSpeed();
 
-	ulDistanceInMts = ulPulse100mCountRatio * ulPulseMultiFactorSpeed;
-    
-	ulDistanceInKm = ( ulDistanceInMts * ulMtsToKmDistConvFactorSpeed );
-	ulTimeInHr = ulTimeInSecs * ulSecToHrTimeConvFactor;
-            
-	ulSpeedInKm = ( ulDistanceInKm / ulTimeInHr);
 #if(SPEEDO_TEST_MACRO == 1)
     /**Debug purpose*/
-    printf("Sd: %ld\t",ulReceivedPulses);
-    printf("dm: %ld\tdK: %ld\ttH: %lu\t", ulDistanceInMts, ulDistanceInKm, ulTimeInHr);
-    printf("sK: %ld\t", ulSpeedInKm);
-    printf("dU: %d\t", speedoUnits);
-    printf("dI: %d\t\n\n\r", xSafeSpeedCheck());
+    printf("dP: %ld\t",ulReceivedPulses);
+    printf("dm: %ld\tm/s: %ld\tk/h: %ld\t", ulDistanceInMts, ulSpeedInMtsPerSec, ulSpeedInKm);
+//    printf("sK: %ld\t", ulSpeedInKm);
+//    printf("dU: %d\t", speedoUnits);
+//    printf("dI: %d\t\n", xSafeSpeedCheck());
+    printf("\n");
 #endif
 }
 
@@ -208,6 +210,18 @@ void vCalculateSpeedInMiles(void)
     vCalculateSpeedInKm();
     ulspeedInMiles = ( (ulSpeedInKm * ucKmToMilesSpeedMultiFactor) / ucKmToMilesDivisionFactor );
     //printf("sM: %d\t", ulspeedInMiles);   //Debug purpose
+}
+
+void vValidateSpeed(void)
+{
+	if(ulSpeedInKm > configMAX_VEH_SPEED_IN_KM)
+	{
+		ulSpeedInKm = configSPEED_ERROR;
+#if(SPEEDO_TEST_MACRO == 1)
+		printf("Error in Speed\n");
+#endif
+	}
+
 }
 
 uint32_t vPulseDeltaCounter(void)
@@ -310,7 +324,6 @@ uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStat
 		{
 			return ulspeedInMiles;
 		}
- return 0;
 }
 
 #endif	/* SPEEDOMETER_C */

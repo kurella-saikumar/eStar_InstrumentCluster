@@ -346,13 +346,13 @@ void xWrite_OdoVal_to_EEPROM(void)
 	uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[0],*eepromVariables[0],eepromVariables[0]);
 	if (0 == FlashStatus)
 	{
-#if(EMUL_DEBUG_ENABLE == 0)
+#if(EMUL_DEBUG_ENABLE == 1)
 		printf("ESW_S EE[0]:%ld\n\r",*eepromVariables[0]);
 #endif
 	}
 	else
 	{
-#if(EMUL_DEBUG_ENABLE == 0)
+#if(EMUL_DEBUG_ENABLE == 1)
 		printf("ESW_F\n\r");
 #endif
 	}

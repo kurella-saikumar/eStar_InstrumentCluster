@@ -1,5 +1,5 @@
 Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o: \
- D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/TouchGFXConfiguration.cpp \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/TouchGFXConfiguration.cpp \
  ../../TouchGFX/generated/texts/include/texts/TypedTextDatabase.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp \
