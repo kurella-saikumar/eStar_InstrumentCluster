@@ -231,6 +231,7 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 
  EE_State_type prvGetPageState(uint32_t Address)
 {
+#if 0
 	uint8_t ucHeader_Data[4][EE_HEADER_ELEMENT_SIZE]={0x00};
 	EE_ELEMENT_TYPE status[4]={0x00};
 	/* Get next element in receive page */
@@ -249,7 +250,26 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 		}
 		Address = Address + EE_HEADER_ELEMENT_SIZE;
 	}
-		/* Return erasing status, if element4 is not EE_PAGESTAT_ERASED value */
+#else
+    uint8_t ucHeader_Data[4][EE_HEADER_ELEMENT_SIZE] = {0x00};
+    EE_ELEMENT_TYPE status[4] = {0x00};
+
+    // Read the specified number of header elements
+    if (HAL_OK != xFI_Read(Address, &ucHeader_Data[0][0], 4 * EE_HEADER_ELEMENT_SIZE))
+    {
+        return HAL_ERROR;
+    }
+
+    // Process the data to determine page state
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = (EE_HEADER_ELEMENT_SIZE - 1); j >= 0; j--)
+        {
+            status[i] |= ((uint64_t)ucHeader_Data[i][j] << (8 * j));
+        }
+    }
+#endif
+    /* Return erasing status, if element4 is not EE_PAGESTAT_ERASED value */
 	if (status[3] != EE_PAGESTAT_ERASED)
 	{
 		return STATE_PAGE_ERASING;
@@ -1457,7 +1477,7 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 	if(*UpdateToShadowRAM != Data)
 	{
 #if(EMUL_DEBUG_ENABLE == 1)
-		printf("SHRAM:%ld,Data:%ld\n",*UpdateToShadowRAM,Data);
+//		printf("SHRAM:%ld,Data:%ld\n",*UpdateToShadowRAM,Data);
 #endif
 		if (BSP_ERROR_NONE == xEE_WriteVariable32bits(VirtAddress, Data)) //Write into EEPROM
 		{
