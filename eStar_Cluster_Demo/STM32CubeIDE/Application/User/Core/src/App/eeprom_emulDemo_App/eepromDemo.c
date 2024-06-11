@@ -157,7 +157,7 @@ void vEE_Demo(void)
 	}
 
 	/* ShadowRAM initialization*/
-	vShadowRAM_Init();
+//	vShadowRAM_Init();
 	/********** Read Back the shadow 20 variable's latest values *******/
 	/* Loop through each variable and perform the Read check */
 	for (int i = 0; i < sizeof(eepromVariables) / sizeof(eepromVariables[0]); i++)

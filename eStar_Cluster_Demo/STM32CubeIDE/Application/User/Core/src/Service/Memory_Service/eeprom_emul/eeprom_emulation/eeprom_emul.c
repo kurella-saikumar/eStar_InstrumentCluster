@@ -771,10 +771,6 @@ EE_Status prvVerifyPagesFullWriteVariable(uint32_t VirtAddress, EE_DATA_TYPE Dat
 	{
 		return HAL_ERROR;
 	}
-	else
-	{
-//		printf("xFIW_S:\n");
-	}
 	/* Increment global variables relative to write operation done*/
 	ulAddressNextWrite += EE_ELEMENT_SIZE;
 	usNbWrittenElements++;
@@ -1007,317 +1003,264 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
   *         - FLASH_COMPLETE: on success
   */
 
- EE_Status xEE_Init(EE_Erase_type EraseType)
+EE_Status xEE_Init(EE_Erase_type EraseType)
 {
-	EE_State_type pagestatus = STATE_PAGE_INVALID;
-	uint32_t ulPage = 0U;
-	uint32_t ulPageAddress = 0U;
-	uint32_t ulVarIdx = 0U;
-	uint32_t ulNbActivePage = 0U;
-	uint32_t ulNbActiveReceivePage = 0U;
-	uint32_t ulNbValidPage = 0U;
-	uint32_t ulLastValidPage = 0U;
-	uint32_t ulFirstValidPage = 0U;
+    EE_State_type pagestatus = STATE_PAGE_INVALID;
+    uint32_t ulPage = 0U;
+    uint32_t ulPageAddress = 0U;
+    uint32_t ulVarIdx = 0U;
+    uint32_t ulNbActivePage = 0U;
+    uint32_t ulNbActiveReceivePage = 0U;
+    uint32_t ulNbValidPage = 0U;
+    uint32_t ulLastValidPage = 0U;
+    uint32_t ulFirstValidPage = 0U;
+    EE_State_Reliability pagestate = STATE_RELIABLE;
 
-	EE_State_Reliability pagestate = STATE_RELIABLE;
+    // Cache page states
+    EE_State_type pageStates[PAGES_NUMBER];
+    for (ulPage = START_PAGE; ulPage < (START_PAGE + PAGES_NUMBER); ulPage++)
+    {
+        ulPageAddress = PAGE_ADDRESS(ulPage);
+        pageStates[ulPage - START_PAGE] = prvGetPageState(ulPageAddress);
+    }
 
-	/* check the flash end address with calculated end address for required variables*/
-	if (CALCULATED_END_ADDRESS >= FLASH_END_ADDR)
-	{
-		return EE_MEMORY_NOT_SUFFICIENT;
-	}
+    // Check the flash end address with calculated end address for required variables
+    if (CALCULATED_END_ADDRESS >= FLASH_END_ADDR)
+    {
+        return EE_MEMORY_NOT_SUFFICIENT;
+    }
 
-	/***************************************************************************/
-	/* Step 1: Handle case of reset during transfer with no receive page       */
-	/*         present, by setting missing receive page state                  */
-	/***************************************************************************/
+    /***************************************************************************/
+    /* Step 1: Handle case of reset during transfer with no receive page       */
+    /*         present, by setting missing receive page state                  */
+    /***************************************************************************/
 
-	/* Check if no active page and no receive page present */
-	/* Browse all pages */
-	for (ulPage = START_PAGE; ulPage < (START_PAGE + PAGES_NUMBER); ulPage++)
-	{
-		ulPageAddress = PAGE_ADDRESS(ulPage);
-		pagestatus = prvGetPageState(ulPageAddress);
+    for (ulPage = START_PAGE; ulPage < (START_PAGE + PAGES_NUMBER); ulPage++)
+    {
+        pagestatus = pageStates[ulPage - START_PAGE];
 
-		/* Search for active and receive page */
-		if ((pagestatus == STATE_PAGE_ACTIVE) || (pagestatus == STATE_PAGE_RECEIVE))
-		{
-			ulNbActiveReceivePage++;
-		}
-		/* Keep index of first valid page, and last valid page */
-		else if (pagestatus == STATE_PAGE_VALID)
-		{
-			if (ulNbValidPage == 0U)
-			{
-				ulFirstValidPage = ulPage;
-			}
-			ulLastValidPage = ulPage;
-			ulNbValidPage++;
-		}
-	}
+        if ((pagestatus == STATE_PAGE_ACTIVE) || (pagestatus == STATE_PAGE_RECEIVE))
+        {
+            ulNbActiveReceivePage++;
+        }
+        else if (pagestatus == STATE_PAGE_VALID)
+        {
+            if (ulNbValidPage == 0U)
+            {
+                ulFirstValidPage = ulPage;
+            }
+            ulLastValidPage = ulPage;
+            ulNbValidPage++;
+        }
+    }
 
-	/* Check if no active and no receive page have been detected */
-	if (ulNbActiveReceivePage == 0U)
-	{
-		/* Check if valid pages have been detected */
-		if (ulNbValidPage > 0U)
-		{
-			/* Check state of page just before first valid page.
-			If it is erasing page, then page after last valid page shall be set
-			to receiving state */
-			if (prvGetPageState(PAGE_ADDRESS(PREVIOUS_PAGE(ulFirstValidPage))) == STATE_PAGE_ERASING)
-			{
-				if (prvSetPageState(FOLLOWING_PAGE(ulLastValidPage), STATE_PAGE_RECEIVE) != EE_OK)
-				{
-					return EE_WRITE_ERROR;
-				}
-			}
-		}
-		/* Format flash pages used for eeprom emulation in case no active, no receive, no valid pages are found */
-		else
-		{
-			return prvEE_Format(EE_FORCED_ERASE);
-		}
-	}
+    if (ulNbActiveReceivePage == 0U)
+    {
+        if (ulNbValidPage > 0U)
+        {
+            if (pageStates[PREVIOUS_PAGE(ulFirstValidPage) - START_PAGE] == STATE_PAGE_ERASING)
+            {
+                if (prvSetPageState(FOLLOWING_PAGE(ulLastValidPage), STATE_PAGE_RECEIVE) != EE_OK)
+                {
+                    return EE_WRITE_ERROR;
+                }
+            }
+        }
+        else
+        {
+            return prvEE_Format(EE_FORCED_ERASE);
+        }
+    }
 
-	/*********************************************************************/
-	/* Step 2: Handle case of reset during transfer, by performing       */
-	/*         transfer recovery                                         */
-	/*********************************************************************/
+    /*********************************************************************/
+    /* Step 2: Handle case of reset during transfer, by performing       */
+    /*         transfer recovery                                         */
+    /*********************************************************************/
 
-	/* Browse all pages */
-	for (ulPage = START_PAGE; ulPage < (START_PAGE + PAGES_NUMBER); ulPage++)
-	{
-		ulPageAddress = PAGE_ADDRESS(ulPage);
-		pagestatus = prvGetPageState(ulPageAddress);
+    for (ulPage = START_PAGE; ulPage < (START_PAGE + PAGES_NUMBER); ulPage++)
+    {
+        pagestatus = pageStates[ulPage - START_PAGE];
 
-		/* Check if there is receive page, meaning transfer has been interrupted */
-		if (pagestatus == STATE_PAGE_RECEIVE)
-		{
-			/* Verify that receive page is a true one, not a corrupted page state */
-			/* Check if page is not the first page of a bloc */
-			if ((ulPage != START_PAGE) && (ulPage != (uint32_t)(START_PAGE + PAGE_GROUP)))
-			{
-				/* Check that previous page is valid state */
-				if (prvGetPageState(PAGE_ADDRESS(PREVIOUS_PAGE(ulPage))) == STATE_PAGE_VALID)
-				{
-					/* The receive page is a true receive page */
-					pagestate = STATE_RELIABLE;
-				}
-				else /* Previous page is not valid state */
-				{
-					/* The receive page is false receive page due to header corruption */
-					pagestate = STATE_CORRUPTED;
-				}
-			}
-			else /* The receive page is the first page of a bloc */
-			{
-				/* Check that following page is erased state */
-				if (prvGetPageState(PAGE_ADDRESS(FOLLOWING_PAGE(ulPage))) == STATE_PAGE_ERASED)
-				{
-					/* The receive page is a true receive page */
-					pagestate = STATE_RELIABLE;
-				}
-				else /* Following page is not erased state */
-				{
-					/* The receive page is false receive page due to header corruption */
-					pagestate = STATE_CORRUPTED;
-				}
-			}
+        if (pagestatus == STATE_PAGE_RECEIVE)
+        {
+            if ((ulPage != START_PAGE) && (ulPage != (uint32_t)(START_PAGE + PAGE_GROUP)))
+            {
+                if (pageStates[PREVIOUS_PAGE(ulPage) - START_PAGE] == STATE_PAGE_VALID)
+                {
+                    pagestate = STATE_RELIABLE;
+                }
+                else
+                {
+                    pagestate = STATE_CORRUPTED;
+                }
+            }
+            else
+            {
+                if (pageStates[FOLLOWING_PAGE(ulPage) - START_PAGE] == STATE_PAGE_ERASED)
+                {
+                    pagestate = STATE_RELIABLE;
+                }
+                else
+                {
+                    pagestate = STATE_CORRUPTED;
+                }
+            }
 
-			/* If the receive page is a true receive page, resume pages transfer */
-			if (pagestate == STATE_RELIABLE)
-			{
-				/* Initialize current active page */
-				ucCurrentActivePage = ulPage;
+            if (pagestate == STATE_RELIABLE)
+            {
+                ucCurrentActivePage = ulPage;
+                if (prvPagesTransfer(0U, 0U, EE_TRANSFER_RECOVER) != EE_CLEANUP_REQUIRED)
+                {
+                    return EE_TRANSFER_ERROR;
+                }
+                break;
+            }
+        }
+    }
 
-				/* Resume the interrupted page transfer, using dummy new data */
-				if (prvPagesTransfer (0U, 0U, EE_TRANSFER_RECOVER) != EE_CLEANUP_REQUIRED)
-				{
-					return EE_TRANSFER_ERROR;
-				}
-				/* transfer recovery is done, then stop searching receive page */
-				break;
-			}
-		}
-	}
+    /*********************************************************************/
+    /* Step 3: Verify presence of one unique active page                 */
+    /*         If more than one active page, raise error                 */
+    /*         If no active page present, set missing active page        */
+    /*********************************************************************/
 
-	/*********************************************************************/
-	/* Step 3: Verify presence of one unique active page                 */
-	/*         If more than one active page, raise error                 */
-	/*         If no active page present, set missing active page        */
-	/*********************************************************************/
+    ulNbActivePage = 0U;
+    for (ulPage = START_PAGE; ulPage < (START_PAGE + PAGES_NUMBER); ulPage++)
+    {
+        pagestatus = pageStates[ulPage - START_PAGE];
 
-	/* Browse all pages to search for active pages */
-	ulNbActivePage = 0U;
-	for (ulPage = START_PAGE; ulPage < (START_PAGE + PAGES_NUMBER); ulPage++)
-	{
-	    ulPageAddress = PAGE_ADDRESS(ulPage);
-	    pagestatus = prvGetPageState(ulPageAddress);
+        if (pagestatus == STATE_PAGE_ACTIVE) {
+            if ((ulPage != START_PAGE) && (ulPage != (uint32_t)(START_PAGE + PAGE_GROUP)))
+            {
+                if (pageStates[PREVIOUS_PAGE(ulPage) - START_PAGE] == STATE_PAGE_VALID)
+                {
+                    pagestate = STATE_RELIABLE;
+                }
+                else
+                {
+                    pagestate = STATE_CORRUPTED;
+                }
+            }
+            else
+            {
+                if (pageStates[FOLLOWING_PAGE(ulPage) - START_PAGE] == STATE_PAGE_ERASED)
+                {
+                    pagestate = STATE_RELIABLE;
+                }
+                else
+                {
+                    pagestate = STATE_CORRUPTED;
+                }
+            }
 
-	    /* Search for active page */
-	    if (pagestatus == STATE_PAGE_ACTIVE)
-	    {
-			/* Verify that active page is a true one, not a corrupted page state */
-			/* Check if page is not the first page of a bloc */
-			if ((ulPage != START_PAGE) && (ulPage != (uint32_t)(START_PAGE + PAGE_GROUP)))
-			{
-				/* Check that previous page is valid state */
-				if (prvGetPageState(PAGE_ADDRESS(PREVIOUS_PAGE(ulPage))) == STATE_PAGE_VALID)
-				{
-					/* The active page is a true active page */
-					pagestate = STATE_RELIABLE;
-				}
-				else /* Previous page is not valid state */
-				{
-					/* The active page is false active page due to header corruption */
-					pagestate = STATE_CORRUPTED;
-				}
-	      	}
-			else /* The active page is the first page of a bloc */
-			{
-				/* Check that following page is erased state */
-				if (prvGetPageState(PAGE_ADDRESS(FOLLOWING_PAGE(ulPage))) == STATE_PAGE_ERASED)
-				{
-					/* The active page is a true active page */
-					pagestate = STATE_RELIABLE;
-				}
-				else /* Following page is not erased state */
-				{
-					/* The active page is false active page due to header corruption */
-					pagestate = STATE_CORRUPTED;
-				}
-			}
+            if (pagestate == STATE_RELIABLE)
+            {
+                if (ulNbActivePage == 0U)
+                {
+                    ucCurrentActivePage = ulPage;
+                    ulNbActivePage++;
+                }
+                else
+                {
+                    return EE_INVALID_PAGE_SEQUENCE;
+                }
+            }
+        }
+        else if (pagestatus == STATE_PAGE_VALID)
+        {
+            ulLastValidPage = ulPage;
+        }
+    }
 
-			/* If the active page is a true active page, initialize global variables */
-			if (pagestate == STATE_RELIABLE)
-			{
-				if (ulNbActivePage == 0U)
-				{
-					ucCurrentActivePage = ulPage;
-					ulNbActivePage++;
-				}
-				else
-				{
-					/* Error: More than one reliable active page is present */
-					return EE_INVALID_PAGE_SEQUENCE;
-				}
-			}
-	    }
-	    /* Keep index of last valid page, will be required in case no active page is found */
-	    else if (pagestatus == STATE_PAGE_VALID)
-	    {
-			ulLastValidPage = ulPage;
-	    }
-	}
+    if (ulNbActivePage == 0U)
+    {
+        ucCurrentActivePage = FOLLOWING_PAGE(ulLastValidPage);
+        if (prvSetPageState(ucCurrentActivePage, STATE_PAGE_ACTIVE) != EE_OK)
+        {
+            return EE_WRITE_ERROR;
+        }
+    }
 
-	/* In case no active page is found, set page after last valid page to active state */
-	if (ulNbActivePage == 0U)
-	{
-		ucCurrentActivePage = FOLLOWING_PAGE(ulLastValidPage);
-		if (prvSetPageState(ucCurrentActivePage, STATE_PAGE_ACTIVE) != EE_OK)
-		{
-			return EE_WRITE_ERROR;
-		}
-	}
+    /*********************************************************************/
+    /* Step 4: Initialize eeprom emulation global variables relative     */
+    /*         to active page                                            */
+    /*********************************************************************/
 
+    usNbWrittenElements = 0U;
+    ulAddressNextWrite = PAGE_HEADER_SIZE;
+    for (ulVarIdx = PAGE_HEADER_SIZE; ulVarIdx < (PAGE_SIZE); ulVarIdx += EE_ELEMENT_SIZE)
+    {
+        uint32_t ulDataValue;
+        uint32_t ulReadAddressValue;
+        uint16_t usCRC;
+        uint8_t ucReadData[EE_ELEMENT_SIZE] = {0x00};
 
-	/*********************************************************************/
-	/* Step 4: Initialize eeprom emulation global variables relative     */
-	/*         to active page                                            */
-	/*********************************************************************/
+        xFI_Read(((PAGE_ADDRESS(ucCurrentActivePage)) + ulVarIdx), ucReadData, EE_ELEMENT_SIZE);
 
-	/* Initialize global variables, with elements detected in active page */
-	usNbWrittenElements = 0U;
-	ulAddressNextWrite = PAGE_HEADER_SIZE;
-	for (ulVarIdx = PAGE_HEADER_SIZE; ulVarIdx < (PAGE_SIZE); ulVarIdx += EE_ELEMENT_SIZE)
-	{
-		uint32_t ulDataValue;
-		uint32_t ulReadAddressValue;
-		uint16_t usCRC;
-		uint8_t ucReadData[EE_ELEMENT_SIZE]= {0x00};
+        ulDataValue = (ucReadData[0] << 24 | ucReadData[1] << 16 | ucReadData[2] << 8 | ucReadData[3]);
+        ulReadAddressValue = (ucReadData[4] << 24 | ucReadData[5] << 16 | ucReadData[6] << 8 | ucReadData[7]);
+        usCRC = (ucReadData[8] << 8 | ucReadData[9]);
 
-		xFI_Read(((PAGE_ADDRESS(ucCurrentActivePage))  + ulVarIdx), ucReadData,EE_ELEMENT_SIZE);
+        if ((ulDataValue != EE_NO_DATA_FOUND) && (ulReadAddressValue != EE_NO_DATA_FOUND) && (usCRC != 0xFFFFU))
+        {
+            usNbWrittenElements++;
+            ulAddressNextWrite += EE_ELEMENT_SIZE;
+        }
+        else
+        {
+            break;
+        }
+    }
 
-		ulDataValue = (ucReadData[0]<<24|ucReadData[1]<<16|ucReadData[2]<<8|ucReadData[3]);
+    /*********************************************************************/
+    /* Step 5: Finalize eeprom emulation global variables relative       */
+    /*         to valid pages, and check consistency of pages sequence   */
+    /*********************************************************************/
 
-		ulReadAddressValue =(ucReadData[4]<<24|ucReadData[5]<<16|ucReadData[6]<<8|ucReadData[7]);
+    ulPage = ucCurrentActivePage;
+    ulFirstValidPage = ucCurrentActivePage;
+    while ((ulPage != START_PAGE) && (ulPage != (uint32_t)(START_PAGE + PAGE_GROUP)))
+    {
+        ulPage = PREVIOUS_PAGE(ulPage);
+        pagestatus = pageStates[ulPage - START_PAGE];
 
-		usCRC = (ucReadData[8]<<8|ucReadData[9]);
+        if (pagestatus == STATE_PAGE_VALID)
+        {
+            usNbWrittenElements += NB_MAX_ELEMENTS_BY_PAGE;
+            ulFirstValidPage = ulPage;
+        }
+        else
+        {
+            return EE_INVALID_PAGE_SEQUENCE;
+        }
+    }
 
-		if ((ulDataValue != EE_NO_DATA_FOUND) && (ulReadAddressValue != EE_NO_DATA_FOUND) &&(usCRC != 0xFFFFU))
-		{
-			/* Then increment usNbWrittenElements and ulAddressNextWrite */
-			usNbWrittenElements++;
-			ulAddressNextWrite += EE_ELEMENT_SIZE;
-		}
-		else /* no more element in the page */
-		{
-			break;
-		}
-	}
-	/*********************************************************************/
-	/* Step 5: Finalize eeprom emulation global variables relative       */
-	/*         to valid pages, and check consistency of pages sequence   */
-	/*********************************************************************/
+    /*********************************************************************/
+    /* Step 6: Ensure empty pages are erased                             */
+    /*********************************************************************/
 
-	/* Check consistency of pages sequence: one active page, optionnally some valid pages before */
-	/* Update global variable usNbWrittenElements if valid pages are found */
-	ulPage = ucCurrentActivePage;
-	ulFirstValidPage = ucCurrentActivePage;
-	while ((ulPage != START_PAGE) && (ulPage != (uint32_t)(START_PAGE + PAGE_GROUP)))
-	{
-		/* Decrement page index among circular pages list */
-		ulPage = PREVIOUS_PAGE(ulPage);
-		pagestatus = prvGetPageState(PAGE_ADDRESS(ulPage));
-
-		/* Check if page is valid state */
-		if (pagestatus == STATE_PAGE_VALID)
-		{
-			/* Update usNbWrittenElements with number of elements in full page */
-			usNbWrittenElements += NB_MAX_ELEMENTS_BY_PAGE;
-
-			/* Keep index of first valid page */
-			ulFirstValidPage = ulPage;
-		}
-		else
-		{
-			/* Error: Pages sequence is not consistent */
-			return EE_INVALID_PAGE_SEQUENCE;
-		}
-	}
-
-	/*********************************************************************/
-	/* Step 6: Ensure empty pages are erased                             */
-	/*********************************************************************/
-
-    /* Ensure all pages after active page, until first valid page, are erased */
     ulPage = FOLLOWING_PAGE(ucCurrentActivePage);
     ulPageAddress = PAGE_ADDRESS(ulPage);
 
     while (ulPage != ulFirstValidPage)
     {
-		/* Check if page erase has to be forced unconditionally (default case) */
-		if (EraseType == EE_FORCED_ERASE )
-		{
-			/* Force page erase independently of its content */
-			if (xFI_PageErase((ulPageAddress))!= EE_OK)
-			{
-				return EE_ERASE_ERROR;
-			}
-		}
-		else /* EraseType == EE_CONDITIONAL_ERASE */
-		{
-			/* Check if page is fully erased */
-			if (prvVerifyPageFullyErased(ulPageAddress, PAGE_SIZE) == EE_PAGE_NOTERASED)
-			{
-				/* Erase pages if not fully erased */
-				if (xFI_PageErase((ulPageAddress))!= EE_OK)
-				{
-					return EE_ERASE_ERROR;
-				}
-			}
-		}
+        if (EraseType == EE_FORCED_ERASE)
+        {
+            if (xFI_PageErase((ulPageAddress)) != EE_OK)
+            {
+                return EE_ERASE_ERROR;
+            }
+        }
+        else
+        {
+            if (prvVerifyPageFullyErased(ulPageAddress, PAGE_SIZE) == EE_PAGE_NOTERASED)
+            {
+                if (xFI_PageErase((ulPageAddress)) != EE_OK)
+                {
+                    return EE_ERASE_ERROR;
+                }
+            }
+        }
 
 		/* Increment page index among circular pages list, to get first page to erased */
 		ulPage = FOLLOWING_PAGE(ulPage);
@@ -1328,9 +1271,11 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 //	printf( "ucCurrentActivePage=%d\n\r",ucCurrentActivePage);
 //	printf( "ulAddressNextWrite=%lu\n\r",ulAddressNextWrite);
 #endif
- return EE_OK;
+    vShadowRAM_Init();
+    return EE_OK;
+
 }
- uint32_t xShadowUpdate(void)
+uint32_t xShadowUpdate(void)
  {
  	uint32_t ulPage = 0U;
  	uint32_t ulPageAddress = 0U;
