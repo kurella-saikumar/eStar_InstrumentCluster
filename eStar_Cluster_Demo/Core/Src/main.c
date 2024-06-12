@@ -371,7 +371,6 @@ KEEP extern const unsigned char image_fuelbar09_const[];
 KEEP extern const unsigned char image_fuelbar10_const[];
 KEEP extern const unsigned char image_highbeam1_const[];
 KEEP extern const unsigned char image_highbeam2_const[];
-KEEP extern const unsigned char image_hmi_layout1_const[];
 KEEP extern const unsigned char image_leftindicator1_const[];
 KEEP extern const unsigned char image_leftindicator2_const[];
 KEEP extern const unsigned char image_lowbattery1_const[];
@@ -387,8 +386,8 @@ KEEP extern const unsigned char image_tempicon1_const[];
 KEEP extern const unsigned char image_tempicon2_const[];
 
 #if 1
-extern unsigned char ucImage_abs_detection1_HypRAM[20*22];
-extern unsigned char ucImage_abs_detection2_HypRAM[20*22];
+extern unsigned char ucImage_abs_detection1_HypRAM[24*20];
+extern unsigned char ucImage_abs_detection2_HypRAM[24*20];
 extern unsigned char ucImage_background_HypRAM[480*272];
 extern unsigned char ucImage_clustericons1_HypRAM[24*20];
 extern unsigned char ucImage_clustericons2_HypRAM[24*20];
@@ -408,7 +407,6 @@ extern unsigned char ucImage_fuelbar09_HypRAM[128*128];
 extern unsigned char ucImage_fuelbar10_HypRAM[128*128];
 extern unsigned char ucImage_highbeam1_HypRAM[24*20];
 extern unsigned char ucImage_highbeam2_HypRAM[24*20];
-extern unsigned char ucImage_hmi_layout1_HypRAM[480*272];
 extern unsigned char ucImage_leftindicator1_HypRAM[24*20];
 extern unsigned char ucImage_leftindicator2_HypRAM[24*20];
 extern unsigned char ucImage_lowbattery1_HypRAM[24*20];
@@ -1615,8 +1613,8 @@ void Disp_imgDataHyperRAM_Init(void)
 {
 
 
-	memset(ucImage_abs_detection1_HypRAM, 0 ,(20*22));
-	memset(ucImage_abs_detection2_HypRAM, 0 ,(20*22));
+	memset(ucImage_abs_detection1_HypRAM, 0 ,(24*20));
+	memset(ucImage_abs_detection2_HypRAM, 0 ,(24*20));
 	memset(ucImage_background_HypRAM, 0 ,(480*272));
 	memset(ucImage_clustericons1_HypRAM, 0 ,(24*20));
 	memset(ucImage_clustericons2_HypRAM, 0 ,(24*20));
@@ -1636,7 +1634,6 @@ void Disp_imgDataHyperRAM_Init(void)
 	memset(ucImage_fuelbar10_HypRAM, 0 ,(128*128));
 	memset(ucImage_highbeam1_HypRAM, 0 ,(24*20));
 	memset(ucImage_highbeam2_HypRAM, 0 ,(24*20));
-	memset(ucImage_hmi_layout1_HypRAM, 0 ,(480*272));
 	memset(ucImage_leftindicator1_HypRAM, 0 ,(24*20));
 	memset(ucImage_leftindicator2_HypRAM, 0 ,(24*20));
 	memset(ucImage_lowbattery1_HypRAM, 0 ,(24*20));
@@ -1653,7 +1650,7 @@ void Disp_imgDataHyperRAM_Init(void)
 
 #if 1
 	uint32_t Address1= (uint32_t )(&image_abs_detection1_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_abs_detection1_HypRAM,Address1,(20*22*4)))
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_abs_detection1_HypRAM,Address1,(24*20*4)))
 	{
 		printf("Copy Fail-1\n\r");
 	}
@@ -1663,7 +1660,7 @@ void Disp_imgDataHyperRAM_Init(void)
 	}
 
 	uint32_t Address2= (uint32_t )(&image_abs_detection2_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_abs_detection2_HypRAM,Address2,(20*22*4)))
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_abs_detection2_HypRAM,Address2,(24*20*4)))
 	{
 		printf("Copy Fail-2\n\r");
 	}
@@ -1860,15 +1857,6 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success21\n\r");
 	}
 
-	uint32_t Address22= (uint32_t )(&image_hmi_layout1_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_hmi_layout1_HypRAM,Address22,(480*272*4)))
-	{
-		printf("Copy Fail-22\n\r");
-	}
-	else
-	{
-		printf("Copy Success22\n\r");
-	}
 
 	uint32_t Address23= (uint32_t )(&image_leftindicator1_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_leftindicator1_HypRAM,Address23,(24*20*4)))
@@ -2196,7 +2184,7 @@ void Speedo_Task(void *argument)
   for(;;)
   {
 	  vSpeedoAlgorithm();
-    osDelay(5000);
+    osDelay(configSPEEDO_ALGO_CALL_FREQ_IN_MS);
   }
   /* USER CODE END Speedo_Task */
 }

@@ -25,7 +25,6 @@ extern const unsigned char image_fuelbar09_const[]; // BITMAP_FUELBAR09_ID = 17,
 extern const unsigned char image_fuelbar10_const[]; // BITMAP_FUELBAR10_ID = 18, Size: 128x128 pixels
 extern const unsigned char image_highbeam1_const[]; // BITMAP_HIGHBEAM1_ID = 19, Size: 24x20 pixels
 extern const unsigned char image_highbeam2_const[]; // BITMAP_HIGHBEAM2_ID = 20, Size: 24x20 pixels
-extern const unsigned char image_hmi_layout1_const[]; // BITMAP_HMI_LAYOUT1_ID = 21, Size: 480x272 pixels
 extern const unsigned char image_leftindicator1_const[]; // BITMAP_LEFTINDICATOR1_ID = 22, Size: 24x20 pixels
 extern const unsigned char image_leftindicator2_const[]; // BITMAP_LEFTINDICATOR2_ID = 23, Size: 24x20 pixels
 extern const unsigned char image_lowbattery1_const[]; // BITMAP_LOWBATTERY1_ID = 24, Size: 24x20 pixels
@@ -40,8 +39,8 @@ extern const unsigned char image_rpmicon2_const[]; // BITMAP_RPMICON2_ID = 32, S
 extern const unsigned char image_tempicon1_const[]; // BITMAP_TEMPICON1_ID = 33, Size: 24x20 pixels
 extern const unsigned char image_tempicon2_const[]; // BITMAP_TEMPICON2_ID = 34, Size: 24x20 pixels
 
-extern unsigned char ucImage_abs_detection1_HypRAM[20*22];
-extern unsigned char ucImage_abs_detection2_HypRAM[20*22];
+extern unsigned char ucImage_abs_detection1_HypRAM[24*20];
+extern unsigned char ucImage_abs_detection2_HypRAM[24*20];
 extern unsigned char ucImage_background_HypRAM[480*272];
 extern unsigned char ucImage_clustericons1_HypRAM[24*20];
 extern unsigned char ucImage_clustericons2_HypRAM[24*20];
@@ -61,7 +60,6 @@ extern unsigned char ucImage_fuelbar09_HypRAM[128*128];
 extern unsigned char ucImage_fuelbar10_HypRAM[128*128];
 extern unsigned char ucImage_highbeam1_HypRAM[24*20];
 extern unsigned char ucImage_highbeam2_HypRAM[24*20];
-extern unsigned char ucImage_hmi_layout1_HypRAM[480*272];
 extern unsigned char ucImage_leftindicator1_HypRAM[24*20];
 extern unsigned char ucImage_leftindicator2_HypRAM[24*20];
 extern unsigned char ucImage_lowbattery1_HypRAM[24*20];
@@ -100,7 +98,6 @@ const touchgfx::Bitmap::BitmapData bitmap_database[] = {
     { ucImage_fuelbar10_HypRAM, 0, 128, 128, 31, 117, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_highbeam1_HypRAM, 0, 24, 20, 8, 1, 2, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 18, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_highbeam2_HypRAM, 0, 24, 20, 8, 1, 2, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 18, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
-    { ucImage_hmi_layout1_HypRAM, 0, 480, 272, 0, 0, 480, ((uint8_t)touchgfx::Bitmap::RGB888) >> 3, 272, ((uint8_t)touchgfx::Bitmap::RGB888) & 0x7 },
     { ucImage_leftindicator1_HypRAM, 0, 24, 20, 10, 5, 14, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_leftindicator2_HypRAM, 0, 24, 20, 10, 5, 14, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_lowbattery1_HypRAM, 0, 24, 20, 2, 5, 20, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 2, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },

@@ -49,8 +49,10 @@
  * DECLARE GLOBAL VARIABLES
  ***************************************************************************************************/
 /**Speedometer configuration parameters*/
-speedDisplayMetrics_t defaultSpeedoUnits = 0;
-speedDisplayMetrics_t speedoUnits = 0;
+speedDisplayMetrics_t defaultSpeedoUnits = SPEED_IN_KMPH;
+speedDisplayMetrics_t speedoUnits = SPEED_IN_KMPH;
+
+
 bool safeSpeedLimitExceededFlag = 0;
 
 /**Km configuration parameters*/
@@ -85,7 +87,6 @@ uint32_t ulSpeedInKm = 0;
 /**miles variables*/
 uint32_t ulspeedInMiles = 0;
 
-//IndicationStatus_t IndicationStatus;
 /**************************************************************************************************
  * DECLARE FILE SCOPE STATIC VARIABLES
  ***************************************************************************************************/
@@ -314,4 +315,3 @@ uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStat
 }
 
 #endif	/* SPEEDOMETER_C */
-

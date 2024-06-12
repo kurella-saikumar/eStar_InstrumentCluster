@@ -16,12 +16,6 @@ Screen1ViewBase::Screen1ViewBase()
     BackGround.setBitmap(touchgfx::Bitmap(BITMAP_BACKGROUND_ID));
     add(BackGround);
 
-    image1.setXY(-1, 0);
-    image1.setBitmap(touchgfx::Bitmap(BITMAP_HMI_LAYOUT1_ID));
-    image1.setAlpha(104);
-    image1.setVisible(false);
-    add(image1);
-
     ABS_Detection_w.setXY(224, 47);
     ABS_Detection_w.setBitmap(touchgfx::Bitmap(BITMAP_ABS_DETECTION1_ID));
     add(ABS_Detection_w);

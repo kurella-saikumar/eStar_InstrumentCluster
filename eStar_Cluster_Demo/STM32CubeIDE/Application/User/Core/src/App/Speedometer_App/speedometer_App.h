@@ -16,13 +16,16 @@
 /**************************************************************************************************
  * Include Project Specific Headers
  ***************************************************************************************************/
-#include "speedometer_App_cfg.h"
-#include "../ICU_middleware/ICU_driver.h"
-#include "Indicator_App.h"
+//#include "speedometer_App_cfg.h"
+#include "../../../../Core/PlatformConfig/speedometer_App_cfg.h"
+#include "../../Service/IO_HAL/ICU_middleware/ICU_driver.h"
+#include "../Indicator_App/Indicator_App.h"
+//#include "../ICU_middleware/ICU_driver.h"
+//#include "Indicator_App.h"
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
  ***************************************************************************************************/
-#define SPEEDO_TEST_MACRO 0
+#define SPEEDO_TEST_MACRO 1
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES
  ***************************************************************************************************/
@@ -30,6 +33,10 @@ typedef enum {
     SPEED_IN_KMPH,
     SPEED_IN_MPH,
 } speedDisplayMetrics_t;
+
+
+
+extern IndicationStatus_t speedStatus;
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES
  ***************************************************************************************************/
@@ -40,7 +47,8 @@ typedef enum {
 void vSpeedoInit(void);
 void vInitializeSpeedometer(void);
 void xLoadToEEPROM(void);
-uint32_t xGetSpeedValue(speedDisplayMetrics_t*, IndicationStatus_t*);
+//uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStatus_t *speedStatus);
+
 void vSpeedoAlgorithm(void);
 uint32_t vPulseDeltaCounter(void);
 
@@ -51,5 +59,14 @@ void vCalculateSpeedInMiles(void);
 bool xSafeSpeedCheck(void);
 void vCustomizeSpeedUnits(void);
 
-#endif	/* SPEEDOMETER_H */
+#ifdef __cplusplus
+extern "C" {
+#endif
 
+uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStatus_t *speedStatus);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif	/* SPEEDOMETER_H */

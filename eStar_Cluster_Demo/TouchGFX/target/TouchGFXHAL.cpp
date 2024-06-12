@@ -32,10 +32,10 @@ using namespace touchgfx;
 
 
 LOCATION_PRAGMA_NOLOAD("image_abs_detection1_buf")
-uint32_t ucImage_abs_detection1_HypRAM[20*22]  LOCATION_ATTRIBUTE_NOLOAD("image_abs_detection1_buf");
+uint32_t ucImage_abs_detection1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_abs_detection1_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_abs_detection2_buf")
-uint32_t ucImage_abs_detection2_HypRAM[20*22]  LOCATION_ATTRIBUTE_NOLOAD("image_abs_detection2_buf");
+uint32_t ucImage_abs_detection2_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_abs_detection2_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_background_buf")
 uint32_t ucImage_background_HypRAM[480*272]  LOCATION_ATTRIBUTE_NOLOAD("image_background_buf");
@@ -93,9 +93,6 @@ uint32_t ucImage_highbeam1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_highb
 
 LOCATION_PRAGMA_NOLOAD("image_highbeam2_buf")
 uint32_t ucImage_highbeam2_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_highbeam2_buf");
-
-LOCATION_PRAGMA_NOLOAD("image_hmi_layout1_buf")
-uint32_t ucImage_hmi_layout1_HypRAM[480*272]  LOCATION_ATTRIBUTE_NOLOAD("image_hmi_layout1_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_leftindicator1_buf")
 uint32_t ucImage_leftindicator1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_leftindicator1_buf");

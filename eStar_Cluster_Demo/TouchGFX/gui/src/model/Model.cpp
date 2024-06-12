@@ -1,8 +1,23 @@
 #include <gui/model/Model.hpp>
 #include <gui/model/ModelListener.hpp>
 
+#include "../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App.h"
+//#include <../Core/src/App/Speedometer_App/speedometer_App.h>
+//#include "../Application/User/Core/src/App/Speedometer_App/speedometer_App.h"
+//#include <../Core/src/App/Speedometer_App/speedometer_App.h>
+//#include <../Core/src/App/Indicator_App/Indicator_App.h>
+//#include "../User/Core/src/App/Speedometer_App/speedometer_App.h"
+
+
 bool isButtonPressed = false;
 static uint32_t ulOdoCounter = 0;
+
+speedDisplayMetrics_t speedMetrics;
+
+IndicationStatus_t speedStatus;
+
+//extern uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStatus_t *speedStatus);
+
 // Function to simulate button press
 void simulateButtonPress() {
     isButtonPressed = true;
@@ -42,6 +57,23 @@ void Model::tick()
 	}
 }
 #endif
+
+
+
+
+void Model::SpeedData()
+{
+//	counter = xGetSpeedValue(speedMetrics, speedStatus);
+
+	//counter =xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStatus_t *speedStatus);
+
+	if(modelListener !=0)
+	{
+		modelListener->notifyCounterChanged(xGetSpeedValue(&speedMetrics, &speedStatus));
+	}
+}
+
+#if 0
 void Model::SpeedData()
 {
 	if(counter < 220)
@@ -66,6 +98,11 @@ void Model::SpeedData()
 		modelListener->notifyCounterChanged(counter);
 	}
 }
+
+#endif
+
+
+
 
 void Model::OdoData()
 {
@@ -100,6 +137,52 @@ void Model::OdoData()
         modelListener->notifyOdoDataChanged(odometer);
     }
 }
+
+
+
+//void SpeedData()
+//{
+//    speedDisplayMetrics_t speedMetrics; // Example initialization
+//    IndicationStatus_t speedStatus;     // Example initialization
+//
+//    uint32_t speedValue = xGetSpeedValue(&speedMetrics, &speedStatus);
+//}
+
+
+
+
+
+
+
+//void xGetSpeedValue()
+//{
+//	uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStatus_t *speedStatus);
+//}
+#if 0
+uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStatus_t *speedStatus)
+{
+    *speedDisplayUnits = speedoUnits;
+
+    if(xSafeSpeedCheck())
+    {
+    	speedStatus->indicators.over_speed_indicator = 1;
+
+//    printf("dU: %d\t", speedDisplayUnits);   //Debug purpose
+//    printf("dI: %d\t", speedStatus);   //Debug purpose
+    }
+
+		if(speedoUnits == SPEED_IN_KMPH)
+		{
+			return ulSpeedInKm;
+		}
+		else if(speedoUnits == SPEED_IN_MPH)
+		{
+			return ulspeedInMiles;
+		}
+ return 0;
+}
+#endif
+
 
 #if 0
 void Model::FuelData()

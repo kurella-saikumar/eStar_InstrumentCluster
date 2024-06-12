@@ -24,7 +24,7 @@ public:
     //void FuelData();
 protected:
     ModelListener* modelListener;
-    uint16_t counter;
+    uint32_t counter;
     //uint16_t FuelCounter;
     uint16_t TickCount;
     uint16_t speedcounter;
