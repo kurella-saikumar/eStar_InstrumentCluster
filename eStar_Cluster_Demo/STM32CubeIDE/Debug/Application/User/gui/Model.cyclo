@@ -3,4 +3,4 @@ D:/eSTARgit/GitHub/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/m
 D:/eSTARgit/GitHub/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:16:1:Model::Model()	1
 D:/eSTARgit/GitHub/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:45:6:void Model::SpeedData()	4
 D:/eSTARgit/GitHub/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:70:6:void Model::OdoData()	4
-D:/eSTARgit/GitHub/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:22:6:void Model::tick()	3
+D:/eSTARgit/GitHub/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:22:6:void Model::tick()	2

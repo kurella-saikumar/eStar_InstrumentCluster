@@ -10,7 +10,7 @@ void simulateButtonPress() {
 
 // Function to simulate button release
 void simulateButtonRelease() {
-    isButtonPressed = false;
+   // isButtonPressed = false;
 }
 
 Model::Model() : modelListener(0),counter(0),TickCount(0),speedcounter(0),odometer(0)
