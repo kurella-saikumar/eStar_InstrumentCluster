@@ -1,2 +1,2 @@
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/system_stm32h7xx.c:140:6:SystemInit	0	static
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/system_stm32h7xx.c:311:6:SystemCoreClockUpdate	12	static
+D:/eSTARgit/GitHub/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/system_stm32h7xx.c:140:6:SystemInit	0	static
+D:/eSTARgit/GitHub/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/system_stm32h7xx.c:311:6:SystemCoreClockUpdate	12	static

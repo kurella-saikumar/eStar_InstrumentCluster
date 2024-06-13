@@ -5,7 +5,7 @@ bool isButtonPressed = false;
 static uint32_t ulOdoCounter = 0;
 // Function to simulate button press
 void simulateButtonPress() {
-    isButtonPressed = true;
+    //isButtonPressed = true;
 }
 
 // Function to simulate button release
