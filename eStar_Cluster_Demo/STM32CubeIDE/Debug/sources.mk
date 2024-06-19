@@ -58,7 +58,11 @@ Application/User/Core/src/Service/IO_HAL/Switch_Handler \
 Application/User/Core/src/Service/System_Service/BatteryVoltage_SmApp \
 Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp \
 Application/User/Core/src/Service/System_Service/IgnitionManager \
+Application/User/Core/src/Service/System_Service/PeriodicityCheck \
+Application/User/Core/src/Service/System_Service/Stack_Usage \
 Application/User/Core/src/Service/System_Service/Switch_Interface \
+Application/User/Core/src/Service/System_Service/Task_ExeTime \
+Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock \
 Application/User/Core/src/Service/System_Service/stateManager \
 Application/User/LIBJPEG/App \
 Application/User/Startup \

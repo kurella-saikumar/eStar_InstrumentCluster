@@ -44,6 +44,9 @@
  *----------------------------------------------------------*/
 
 /* USER CODE BEGIN Includes */
+/* Section where parameter definitions can be added (for instance, to override default ones in FreeRTOS.h) */
+
+
 /* Section where include file can be added */
 /* USER CODE END Includes */
 
@@ -170,8 +173,10 @@ standard names. */
 /* USER CODE BEGIN Defines */
 /* Section where parameter definitions can be added (for instance, to override default ones in FreeRTOS.h) */
 // To measure mcu load by measure time used in the dummy idle task
-#define traceTASK_SWITCHED_OUT() xTaskCallApplicationTaskHook( pxCurrentTCB, (void*)1 )
-#define traceTASK_SWITCHED_IN() xTaskCallApplicationTaskHook( pxCurrentTCB, (void*)0 )
+//#define traceTASK_SWITCHED_OUT() xTaskCallApplicationTaskHook( pxCurrentTCB, (void*)1 )
+//#define traceTASK_SWITCHED_IN() xTaskCallApplicationTaskHook( pxCurrentTCB, (void*)0 )
+
+#include "safe_checks_freeRTOSConfig.h"
 /* USER CODE END Defines */
 
 #endif /* FREERTOS_CONFIG_H */
