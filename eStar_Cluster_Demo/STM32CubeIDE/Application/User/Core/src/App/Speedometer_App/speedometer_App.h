@@ -34,27 +34,25 @@ typedef enum {
     SPEED_IN_MPH,
 } speedDisplayMetrics_t;
 
-
-
 extern IndicationStatus_t speedStatus;
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES
  ***************************************************************************************************/
 
 /**************************************************************************************************
- * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES
+  * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES
  ***************************************************************************************************/
 void vSpeedoInit(void);
 void vInitializeSpeedometer(void);
 void xLoadToEEPROM(void);
-//uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStatus_t *speedStatus);
-
+//uint32_t xGetSpeedValue(speedDisplayMetrics_t*, IndicationStatus_t*);
 void vSpeedoAlgorithm(void);
 uint32_t vPulseDeltaCounter(void);
 
 void vCalculateSpeed(void);
 void vCalculateSpeedInKm(void);
 void vCalculateSpeedInMiles(void);
+void vValidateSpeed(void);
 
 bool xSafeSpeedCheck(void);
 void vCustomizeSpeedUnits(void);

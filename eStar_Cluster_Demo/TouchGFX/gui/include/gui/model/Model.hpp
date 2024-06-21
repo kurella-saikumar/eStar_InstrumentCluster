@@ -24,11 +24,11 @@ public:
     //void FuelData();
 protected:
     ModelListener* modelListener;
-    uint32_t counter;
+    uint16_t counter;
     //uint16_t FuelCounter;
     uint16_t TickCount;
     uint16_t speedcounter;
-    uint16_t odometer ;
+    uint32_t odometer ;
 };
 
 #endif // MODEL_HPP

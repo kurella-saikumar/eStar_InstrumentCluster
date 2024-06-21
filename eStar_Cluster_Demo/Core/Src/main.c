@@ -2163,7 +2163,7 @@ void Odo_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-//	vOdoAlgorithm();
+	vOdoAlgorithm();
 //	xWrite_OdoVal_to_EEPROM();
 	osDelay(5000);
   }
@@ -2319,7 +2319,7 @@ void ServiceIndicatorApp_Task(void *argument)
 
 void MPU_Config(void)
 {
-  MPU_Region_InitTypeDef MPU_InitStruct = {0};
+ MPU_Region_InitTypeDef MPU_InitStruct = {0};
 
   /* Disables the MPU */
   HAL_MPU_Disable();

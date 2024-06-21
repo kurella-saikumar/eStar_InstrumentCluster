@@ -49,9 +49,9 @@ Application/User/Core/src/App/ServiceRequest_App/ServiceRequest_App.o: \
  ../Application/User/Core/src/App/ServiceRequest_App/ServiceRequest_App.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_app.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h \
- D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/Odometer_App_cfg.h \
- D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/../ICU_middleware/ICU_driver.h \
- D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/../ICU_middleware/../../../../PlatformConfig/ICU_driver_cfg.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/ICU_driver.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/../../../../PlatformConfig/ICU_driver_cfg.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../../PlatformConfig/Odometer_App_cfg.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/ServiceRequest_App_Cfg.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_App.h
 ../../Core/Inc/main.h:
@@ -103,8 +103,8 @@ Application/User/Core/src/App/ServiceRequest_App/ServiceRequest_App.o: \
 ../Application/User/Core/src/App/ServiceRequest_App/ServiceRequest_App.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_app.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h:
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/Odometer_App_cfg.h:
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/../ICU_middleware/ICU_driver.h:
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/DigitalDebounce/../ICU_middleware/../../../../PlatformConfig/ICU_driver_cfg.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/ICU_driver.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/../../../../PlatformConfig/ICU_driver_cfg.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../../PlatformConfig/Odometer_App_cfg.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/ServiceRequest_App_Cfg.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_App.h:

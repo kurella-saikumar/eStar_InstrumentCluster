@@ -10,5 +10,5 @@
 ../Application/User/Core/src/App/Odometer_App/Odometer_App.c:287:10:xGetTripB_OdoReading	24	static
 ../Application/User/Core/src/App/Odometer_App/Odometer_App.c:341:6:xWrite_OdoVal_to_EEPROM	8	static
 ../Application/User/Core/src/App/Odometer_App/Odometer_App.c:377:6:xRetrive_LastStored_OdoVal_from_EEPROM	16	static
-../Application/User/Core/src/App/Odometer_App/Odometer_App.c:403:10:xGetOdoReadings	0	static
-../Application/User/Core/src/App/Odometer_App/Odometer_App.c:437:6:vToggleOdoUnits	0	static
+../Application/User/Core/src/App/Odometer_App/Odometer_App.c:403:10:xGetOdoReadings	8	static
+../Application/User/Core/src/App/Odometer_App/Odometer_App.c:438:6:vToggleOdoUnits	0	static

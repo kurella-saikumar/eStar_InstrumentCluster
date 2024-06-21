@@ -6,7 +6,10 @@ Application/User/gui/Model.o: \
  ../../Core/Inc/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../../../../Core/PlatformConfig/speedometer_App_cfg.h \
  ../../Core/Inc/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../../Service/IO_HAL/ICU_middleware/ICU_driver.h \
  D:\GIT_WorkAreas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\ICU_driver_cfg.h \
- ../../Core/Inc/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../Indicator_App/Indicator_App.h
+ ../../Core/Inc/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../Indicator_App/Indicator_App.h \
+ ../../Core/Inc/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h \
+ ../../Core/Inc/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/ICU_driver.h \
+ ../../Core/Inc/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../../PlatformConfig/Odometer_App_cfg.h
 ../../TouchGFX/gui/include/gui/model/Model.hpp:
 ../../TouchGFX/gui/include/gui/model/ModelListener.hpp:
 ../../Core/Inc/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App.h:
@@ -14,3 +17,6 @@ Application/User/gui/Model.o: \
 ../../Core/Inc/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../../Service/IO_HAL/ICU_middleware/ICU_driver.h:
 D:\GIT_WorkAreas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\ICU_driver_cfg.h:
 ../../Core/Inc/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../Indicator_App/Indicator_App.h:
+../../Core/Inc/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h:
+../../Core/Inc/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/ICU_driver.h:
+../../Core/Inc/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../../PlatformConfig/Odometer_App_cfg.h:

@@ -94,7 +94,7 @@ void Screen1View::KMPHtoMPH(int newCounter)
 		KMPH_MPH.invalidate();
 	}
 }
-void Screen1View::OdoDataUpdate(uint16_t newodoData)
+void Screen1View::OdoDataUpdate(uint32_t newodoData)
 {
 	Unicode::snprintf(ODOReadingsBuffer, ODOREADINGS_SIZE, "%u", newodoData);
 

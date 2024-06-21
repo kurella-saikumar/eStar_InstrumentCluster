@@ -40,16 +40,19 @@
  * DEFINE GLOBAL SCOPE MACROS
  ***************************************************************************************************/
 /**Vehicle specific configurations*/
-#define configPULSES_PER_100_METERS               1
+#define configPULSES_PER_1_METER				    5
+#define configPULSES_PER_100_METERS               500
 #define configMAX_VEH_SPEED_IN_KM                 200
 #define configMAX_VEH_SPEED_IN_MILES              125
+#define configSPEED_ERROR						  999
 
 /**Industry standard configurations*/
 #define configMTS_TO_KM_DIST_CONV_FACTOR          1000
+#define configMILLI_SEC_TO_SECS_CONV_FACTOR		  1000
 #define configSEC_TO_HR_TIME_CONV_FACTOR          3600
 
 /**Speedometer configurations*/
-#define configSPEEDO_ALGO_CALL_FREQ_IN_MS			5000
+#define configSPEEDO_ALGO_CALL_FREQ_IN_MS		   250
 
 /**Km configuration parameters*/
 #define configPULSE_MULTI_FACTOR                  100

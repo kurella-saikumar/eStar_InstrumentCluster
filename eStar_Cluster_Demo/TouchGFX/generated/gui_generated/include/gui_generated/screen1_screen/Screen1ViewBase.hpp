@@ -73,7 +73,7 @@ protected:
     touchgfx::Unicode::UnicodeChar Speed_TaBuffer[SPEED_TA_SIZE];
     static const uint16_t KMPH_MPH_SIZE = 5;
     touchgfx::Unicode::UnicodeChar KMPH_MPHBuffer[KMPH_MPH_SIZE];
-    static const uint16_t ODOREADINGS_SIZE = 10;
+    static const uint16_t ODOREADINGS_SIZE = 12;
     touchgfx::Unicode::UnicodeChar ODOReadingsBuffer[ODOREADINGS_SIZE];
 
 private:

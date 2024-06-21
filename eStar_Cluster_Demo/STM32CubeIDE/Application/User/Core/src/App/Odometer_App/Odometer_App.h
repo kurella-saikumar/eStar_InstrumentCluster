@@ -36,9 +36,10 @@
 /**************************************************************************************************
  * Include Project Specific Headers
  ***************************************************************************************************/
-#include "Odometer_App_cfg.h"
-#include "../ICU_middleware/ICU_driver.h"
-
+//#include "Odometer_App_cfg.h"
+//#include "../ICU_middleware/ICU_driver.h"
+#include "../../Service/IO_HAL/ICU_middleware/ICU_driver.h"
+#include "../../../PlatformConfig/Odometer_App_cfg.h"
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
  ***************************************************************************************************/
@@ -62,7 +63,7 @@ void vOdoInit(void);
 void vCalculateOdo(void);
 void vCalculateOdoInKm(void);
 void vCalculateOdoInMiles(void);
-uint32_t xGetOdoReadings(uint8_t* OdoUnits);
+//uint32_t xGetOdoReadings(uint8_t* OdoUnits);
 uint32_t vPulseCount(void);
 
 void vToggleOdoUnits(void);
@@ -74,6 +75,16 @@ void vResetTripB_OdoReadings(void);
 void xWrite_OdoVal_to_EEPROM(void);
 void xRetrive_LastStored_OdoVal_from_EEPROM(void);
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+uint32_t xGetOdoReadings(uint8_t* OdoUnits);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif	/* ODOMETER_H */
 

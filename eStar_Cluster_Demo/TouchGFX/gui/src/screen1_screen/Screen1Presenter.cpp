@@ -26,7 +26,7 @@ void Screen1Presenter::notifyCounterChanged(uint16_t newCounter)
 
 }
 
-void Screen1Presenter::notifyOdoDataChanged(uint16_t newodoData)
+void Screen1Presenter::notifyOdoDataChanged(uint32_t newodoData)
 {
 	view.OdoDataUpdate(newodoData);
 }

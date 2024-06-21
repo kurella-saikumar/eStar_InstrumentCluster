@@ -2,6 +2,7 @@
 #include <gui/model/ModelListener.hpp>
 
 #include "../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App.h"
+#include "../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h"
 //#include <../Core/src/App/Speedometer_App/speedometer_App.h>
 //#include "../Application/User/Core/src/App/Speedometer_App/speedometer_App.h"
 //#include <../Core/src/App/Speedometer_App/speedometer_App.h>
@@ -11,6 +12,9 @@
 
 bool isButtonPressed = false;
 static uint32_t ulOdoCounter = 0;
+
+uint8_t odoUnits[4];  // Assuming the function returns an array of 4 uint8_t
+
 
 speedDisplayMetrics_t speedMetrics;
 
@@ -73,6 +77,20 @@ void Model::SpeedData()
 	}
 }
 
+
+void Model::OdoData()
+{
+	odometer = xGetOdoReadings(odoUnits);
+
+   // Notify listener about odometer data change
+   if (modelListener != nullptr)
+   {
+       modelListener->notifyOdoDataChanged(odometer);
+   }
+}
+
+
+
 #if 0
 void Model::SpeedData()
 {
@@ -103,7 +121,7 @@ void Model::SpeedData()
 
 
 
-
+#if 0
 void Model::OdoData()
 {
     // Define a constant value representing the distance covered per tick
@@ -137,8 +155,7 @@ void Model::OdoData()
         modelListener->notifyOdoDataChanged(odometer);
     }
 }
-
-
+#endif
 
 //void SpeedData()
 //{

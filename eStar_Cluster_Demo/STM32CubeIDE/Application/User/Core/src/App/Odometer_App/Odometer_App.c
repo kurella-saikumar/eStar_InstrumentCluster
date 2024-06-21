@@ -412,6 +412,7 @@ uint32_t xGetOdoReadings(uint8_t* OdoUnits)
     	   xOdoValue = MAX_ODO_VALUE_IN_KM;
        else
     	   xOdoValue = ulOdoInKm;
+       printf("Odo value=%ld\n", xOdoValue);
     }
     else
     {
