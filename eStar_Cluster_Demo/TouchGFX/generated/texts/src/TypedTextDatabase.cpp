@@ -5,21 +5,21 @@
 #include <fonts/GeneratedFont.hpp>
 #include <texts/TypedTextDatabase.hpp>
 
-extern touchgfx::GeneratedFont& getFont_Technology_BoldItalic_96_4bpp();
-extern touchgfx::GeneratedFont& getFont_Technology_Bold_14_4bpp();
-extern touchgfx::GeneratedFont& getFont_Technology_BoldItalic_36_4bpp();
-extern touchgfx::GeneratedFont& getFont_Technology_BoldItalic_24_4bpp();
-extern touchgfx::GeneratedFont& getFont_Technology_Bold_20_4bpp();
+extern touchgfx::GeneratedFont& getFont_Technology_Bold_96_4bpp();
+extern touchgfx::GeneratedFont& getFont_Technology_Bold_17_4bpp();
+extern touchgfx::GeneratedFont& getFont_Technology_Bold_36_4bpp();
 extern touchgfx::GeneratedFont& getFont_Technology_Bold_24_4bpp();
+extern touchgfx::GeneratedFont& getFont_Technology_Bold_14_4bpp();
+extern touchgfx::GeneratedFont& getFont_Technology_Bold_20_4bpp();
 extern touchgfx::GeneratedFont& getFont_Technology_14_4bpp();
 
 const touchgfx::Font* touchgfx_fonts[] = {
-    &(getFont_Technology_BoldItalic_96_4bpp()),
-    &(getFont_Technology_Bold_14_4bpp()),
-    &(getFont_Technology_BoldItalic_36_4bpp()),
-    &(getFont_Technology_BoldItalic_24_4bpp()),
-    &(getFont_Technology_Bold_20_4bpp()),
+    &(getFont_Technology_Bold_96_4bpp()),
+    &(getFont_Technology_Bold_17_4bpp()),
+    &(getFont_Technology_Bold_36_4bpp()),
     &(getFont_Technology_Bold_24_4bpp()),
+    &(getFont_Technology_Bold_14_4bpp()),
+    &(getFont_Technology_Bold_20_4bpp()),
     &(getFont_Technology_14_4bpp())
 };
 
@@ -28,26 +28,26 @@ extern const touchgfx::TypedText::TypedTextData* const typedTextDatabaseArray[];
 
 TEXT_LOCATION_FLASH_PRAGMA
 const touchgfx::TypedText::TypedTextData typedText_database_DEFAULT[] TEXT_LOCATION_FLASH_ATTRIBUTE = {
-    { 1, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
-    { 1, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
     { 4, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
     { 4, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
-    { 4, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
-    { 4, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
-    { 4, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
-    { 4, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
+    { 5, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
+    { 5, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
+    { 5, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
+    { 5, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
+    { 5, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
+    { 5, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
     { 6, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
     { 6, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR },
     { 1, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
-    { 1, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR },
+    { 1, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
     { 3, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
     { 3, touchgfx::RIGHT, touchgfx::TEXT_DIRECTION_LTR },
     { 1, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
-    { 1, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR },
+    { 1, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
     { 2, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
     { 2, touchgfx::RIGHT, touchgfx::TEXT_DIRECTION_LTR },
     { 1, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
-    { 1, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR },
+    { 1, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
     { 0, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
     { 0, touchgfx::RIGHT, touchgfx::TEXT_DIRECTION_LTR }
 };
@@ -86,22 +86,22 @@ void resetFont(touchgfx::FontId fontId)
     switch (fontId)
     {
     case 0:
-        touchgfx_fonts[0] = &(getFont_Technology_BoldItalic_96_4bpp());
+        touchgfx_fonts[0] = &(getFont_Technology_Bold_96_4bpp());
         break;
     case 1:
-        touchgfx_fonts[1] = &(getFont_Technology_Bold_14_4bpp());
+        touchgfx_fonts[1] = &(getFont_Technology_Bold_17_4bpp());
         break;
     case 2:
-        touchgfx_fonts[2] = &(getFont_Technology_BoldItalic_36_4bpp());
+        touchgfx_fonts[2] = &(getFont_Technology_Bold_36_4bpp());
         break;
     case 3:
-        touchgfx_fonts[3] = &(getFont_Technology_BoldItalic_24_4bpp());
+        touchgfx_fonts[3] = &(getFont_Technology_Bold_24_4bpp());
         break;
     case 4:
-        touchgfx_fonts[4] = &(getFont_Technology_Bold_20_4bpp());
+        touchgfx_fonts[4] = &(getFont_Technology_Bold_14_4bpp());
         break;
     case 5:
-        touchgfx_fonts[5] = &(getFont_Technology_Bold_24_4bpp());
+        touchgfx_fonts[5] = &(getFont_Technology_Bold_20_4bpp());
         break;
     case 6:
         touchgfx_fonts[6] = &(getFont_Technology_14_4bpp());

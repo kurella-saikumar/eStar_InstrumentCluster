@@ -10,29 +10,29 @@ touchgfx::Font* ApplicationFontProvider::getFont(touchgfx::FontId typography)
     switch (typography)
     {
     case Typography::SPEED:
-        // Technology_BoldItalic_96_4bpp
+        // Technology_Bold_96_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[0]);
     case Typography::KMPH:
-        // Technology_Bold_14_4bpp
+        // Technology_Bold_17_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[1]);
     case Typography::ODO:
-        // Technology_BoldItalic_36_4bpp
+        // Technology_Bold_36_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[2]);
     case Typography::DRIVERINFO:
-        // Technology_BoldItalic_24_4bpp
+        // Technology_Bold_24_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[3]);
     case Typography::AM_PM:
         // Technology_Bold_14_4bpp
-        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[1]);
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[4]);
     case Typography::CLOCK_HR:
         // Technology_Bold_20_4bpp
-        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[4]);
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[5]);
     case Typography::CLOCK_MIN:
         // Technology_Bold_20_4bpp
-        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[4]);
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[5]);
     case Typography::SEMICOLON:
         // Technology_Bold_24_4bpp
-        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[5]);
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[3]);
     case Typography::DRIVRINFO_DATA:
         // Technology_14_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[6]);

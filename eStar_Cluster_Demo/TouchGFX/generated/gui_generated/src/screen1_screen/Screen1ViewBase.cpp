@@ -127,7 +127,7 @@ Screen1ViewBase::Screen1ViewBase()
     KMPH_MPH.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DKL2));
     add(KMPH_MPH);
 
-    KMPH_MPH_ODO.setXY(278, 213);
+    KMPH_MPH_ODO.setXY(290, 214);
     KMPH_MPH_ODO.setColor(touchgfx::Color::getColorFromRGB(255, 247, 247));
     KMPH_MPH_ODO.setLinespacing(0);
     KMPH_MPH_ODO.setWildcard(touchgfx::TypedText(T___SINGLEUSE_947A).getText());
@@ -135,7 +135,7 @@ Screen1ViewBase::Screen1ViewBase()
     KMPH_MPH_ODO.setTypedText(touchgfx::TypedText(T___SINGLEUSE_VE6R));
     add(KMPH_MPH_ODO);
 
-    KMPH_MPH_DTE.setXY(258, 244);
+    KMPH_MPH_DTE.setXY(258, 241);
     KMPH_MPH_DTE.setColor(touchgfx::Color::getColorFromRGB(255, 247, 247));
     KMPH_MPH_DTE.setLinespacing(0);
     KMPH_MPH_DTE.setWildcard(touchgfx::TypedText(T___SINGLEUSE_CK36).getText());
@@ -143,7 +143,7 @@ Screen1ViewBase::Screen1ViewBase()
     KMPH_MPH_DTE.setTypedText(touchgfx::TypedText(T___SINGLEUSE_EPWF));
     add(KMPH_MPH_DTE);
 
-    ODOReadings.setXY(174, 192);
+    ODOReadings.setXY(191, 195);
     ODOReadings.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     ODOReadings.setLinespacing(0);
     Unicode::snprintf(ODOReadingsBuffer, ODOREADINGS_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_1I4V).getText());

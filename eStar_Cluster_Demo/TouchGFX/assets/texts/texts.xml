@@ -37,9 +37,9 @@
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_CK36" Alignment="Left" TypographyId="KMPH">
-        <Translation Language="GB">KMPH</Translation>
+        <Translation Language="GB">KM</Translation>
       </Text>
-      <Text Id="__SingleUse_EPWF" Alignment="Center" TypographyId="KMPH">
+      <Text Id="__SingleUse_EPWF" Alignment="Left" TypographyId="KMPH">
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_69GV" Alignment="Left" TypographyId="DriverInfo">
@@ -49,9 +49,9 @@
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_947A" Alignment="Left" TypographyId="KMPH">
-        <Translation Language="GB">KMPH</Translation>
+        <Translation Language="GB">KM</Translation>
       </Text>
-      <Text Id="__SingleUse_VE6R" Alignment="Center" TypographyId="KMPH">
+      <Text Id="__SingleUse_VE6R" Alignment="Left" TypographyId="KMPH">
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_1I4V" Alignment="Left" TypographyId="Odo">
@@ -63,7 +63,7 @@
       <Text Id="__SingleUse_ZEGA" Alignment="Left" TypographyId="KMPH">
         <Translation Language="GB">KMPH</Translation>
       </Text>
-      <Text Id="__SingleUse_DKL2" Alignment="Center" TypographyId="KMPH">
+      <Text Id="__SingleUse_DKL2" Alignment="Left" TypographyId="KMPH">
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_MEO5" Alignment="Left" TypographyId="Speed">
@@ -75,10 +75,10 @@
     </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Speed" Font="Technology-BoldItalic.ttf" Size="96" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
-    <Typography Id="KMPH" Font="Technology-Bold.ttf" Size="14" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="A-Z,a-z" />
-    <Typography Id="Odo" Font="Technology-BoldItalic.ttf" Size="36" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
-    <Typography Id="DriverInfo" Font="Technology-BoldItalic.ttf" Size="24" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="Speed" Font="Technology-Bold.ttf" Size="96" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="KMPH" Font="Technology-Bold.ttf" Size="17" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="A-Z,a-z" />
+    <Typography Id="Odo" Font="Technology-Bold.ttf" Size="36" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="DriverInfo" Font="Technology-Bold.ttf" Size="24" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
     <Typography Id="AM_PM" Font="Technology-Bold.ttf" Size="14" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="A-Z" />
     <Typography Id="Clock_hr" Font="Technology-Bold.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
     <Typography Id="Clock_min" Font="Technology-Bold.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />

@@ -4,7 +4,17 @@
 
 FONT_TABLE_LOCATION_FLASH_PRAGMA
 KEEP extern const touchgfx::GlyphNode glyphs_Technology_Bold_24_4bpp[] FONT_TABLE_LOCATION_FLASH_ATTRIBUTE = {
-    {     0, 0x003F,   9,  17,  17,   0,  10,   0,   0, 0x00 } // question
+    {     0, 0x0030,  10,  17,  17,   0,  11,   0,   0, 0x00 }, // zero
+    {    85, 0x0031,   3,  17,  17,   0,   3,   0,   0, 0x00 }, // one
+    {   119, 0x0032,  10,  17,  17,   0,  11,   0,   0, 0x00 }, // two
+    {   204, 0x0033,  10,  17,  17,   0,  10,   0,   0, 0x00 }, // three
+    {   289, 0x0034,  10,  18,  17,   0,  10,   0,   0, 0x00 }, // four
+    {   379, 0x0035,  10,  17,  17,   0,  11,   0,   0, 0x00 }, // five
+    {   464, 0x0036,  10,  17,  17,   0,  11,   0,   0, 0x00 }, // six
+    {   549, 0x0037,   9,  17,  17,   0,  10,   0,   0, 0x00 }, // seven
+    {   634, 0x0038,  10,  17,  17,   0,  11,   0,   0, 0x00 }, // eight
+    {   719, 0x0039,  10,  17,  17,   0,  11,   0,   0, 0x00 }, // nine
+    {   804, 0x003F,   9,  17,  17,   0,  10,   0,   0, 0x00 }  // question
 };
 
 // Technology_Bold_24_4bpp
@@ -22,6 +32,6 @@ touchgfx::GeneratedFont& getFont_Technology_Bold_24_4bpp();
 
 touchgfx::GeneratedFont& getFont_Technology_Bold_24_4bpp()
 {
-    static touchgfx::GeneratedFont Technology_Bold_24_4bpp(glyphs_Technology_Bold_24_4bpp, 1, 24, 24, 0, 0, 4, 1, 0, 0, unicodes_Technology_Bold_24_4bpp, kerning_Technology_Bold_24_4bpp, 63, 0, 0, 0);
+    static touchgfx::GeneratedFont Technology_Bold_24_4bpp(glyphs_Technology_Bold_24_4bpp, 11, 25, 24, 0, 0, 4, 1, 0, 0, unicodes_Technology_Bold_24_4bpp, kerning_Technology_Bold_24_4bpp, 63, 0, 0, 0);
     return Technology_Bold_24_4bpp;
 }
