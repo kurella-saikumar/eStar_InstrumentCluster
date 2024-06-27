@@ -112,27 +112,34 @@ void Screen1View::FuelGauageAnimation(uint16_t newFuelCount)
 	 }
 	 FuelBarAnimation.setBitmaps(barImageIds[0], barImageIds[9]);
 
-	 int imageIndex = 10 -(newFuelCount/10);
+	 if (newFuelCount<100)
+	 {
+		int imageIndex = 9 -(newFuelCount/10);
 
-	// Set the current image for the animation
-	FuelBarAnimation.setBitmaps(barImageIds[imageIndex], barImageIds[imageIndex]);
+		// Set the current image for the animation
+		FuelBarAnimation.setBitmaps(barImageIds[imageIndex], barImageIds[imageIndex]);
 
-	if(newFuelCount < 10)
-	{
-		tickCounter++;
-		if (tickCounter >=1)  // Adjust this value to control blink frequency
+		if(newFuelCount < 10)
 		{
-			FuelIcon_r.setVisible(!FuelIcon_r.isVisible());
+			tickCounter++;
+			if (tickCounter >=1)  // Adjust this value to control blink frequency
+			{
+				FuelIcon_r.setVisible(!FuelIcon_r.isVisible());
+				FuelIcon_r.invalidate();
+				tickCounter = 0;
+			}
+		}
+		else
+		{
+			FuelIcon_r.setVisible(false);
 			FuelIcon_r.invalidate();
-			tickCounter = 0;
 		}
 
-	}
-	else
-	{
-		FuelIcon_r.setVisible(false);
-		FuelIcon_r.invalidate();
-	}
-
-	FuelBarAnimation.invalidate();
+		FuelBarAnimation.invalidate();
+	 }
+	 else
+	 {
+		 FuelBarAnimation.setBitmaps(barImageIds[0], barImageIds[0]);
+		 FuelBarAnimation.invalidate();
+	 }
 }
