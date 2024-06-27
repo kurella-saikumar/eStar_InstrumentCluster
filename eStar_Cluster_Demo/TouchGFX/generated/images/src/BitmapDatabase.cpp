@@ -23,6 +23,8 @@ extern const unsigned char image_fuelbar07_const[]; // BITMAP_FUELBAR07_ID = 15,
 extern const unsigned char image_fuelbar08_const[]; // BITMAP_FUELBAR08_ID = 16, Size: 128x128 pixels
 extern const unsigned char image_fuelbar09_const[]; // BITMAP_FUELBAR09_ID = 17, Size: 128x128 pixels
 extern const unsigned char image_fuelbar10_const[]; // BITMAP_FUELBAR10_ID = 18, Size: 128x128 pixels
+extern const unsigned char image_high_beam_const[]; // BITMAP_HIGH_BEAM_ID = 19, Size: 512x512 pixels
+extern const unsigned char image_high_beam_1_const[]; // BITMAP_HIGH_BEAM_1_ID = 20, Size: 512x512 pixels
 extern const unsigned char image_highbeam1_const[]; // BITMAP_HIGHBEAM1_ID = 19, Size: 24x20 pixels
 extern const unsigned char image_highbeam2_const[]; // BITMAP_HIGHBEAM2_ID = 20, Size: 24x20 pixels
 extern const unsigned char image_leftindicator1_const[]; // BITMAP_LEFTINDICATOR1_ID = 22, Size: 24x20 pixels
@@ -58,6 +60,8 @@ extern unsigned char ucImage_fuelbar07_HypRAM[128*128];
 extern unsigned char ucImage_fuelbar08_HypRAM[128*128];
 extern unsigned char ucImage_fuelbar09_HypRAM[128*128];
 extern unsigned char ucImage_fuelbar10_HypRAM[128*128];
+extern unsigned char ucImage_high_beam_HypRAM[64*64];
+extern unsigned char ucImage_high_beam_1_HypRAM[50*50];
 extern unsigned char ucImage_highbeam1_HypRAM[24*20];
 extern unsigned char ucImage_highbeam2_HypRAM[24*20];
 extern unsigned char ucImage_leftindicator1_HypRAM[24*20];
@@ -96,6 +100,8 @@ const touchgfx::Bitmap::BitmapData bitmap_database[] = {
     { ucImage_fuelbar08_HypRAM, 0, 128, 128, 31, 117, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_fuelbar09_HypRAM, 0, 128, 128, 31, 117, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_fuelbar10_HypRAM, 0, 128, 128, 31, 117, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_high_beam_HypRAM, 0, 64, 64, 2, 14, 18, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 4, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_high_beam_1_HypRAM, 0, 50, 50, 2, 11, 13, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 3, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_highbeam1_HypRAM, 0, 24, 20, 8, 1, 2, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 18, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_highbeam2_HypRAM, 0, 24, 20, 8, 1, 2, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 18, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_leftindicator1_HypRAM, 0, 24, 20, 10, 5, 14, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },

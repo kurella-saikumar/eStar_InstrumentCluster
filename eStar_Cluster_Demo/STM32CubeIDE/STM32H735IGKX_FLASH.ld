@@ -290,6 +290,14 @@ SECTIONS
 	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
     
+     *(image_high_beam_buf image_high_beam_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_high_beam_1_buf image_high_beam_1_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
     *(image_highbeam1_buf image_highbeam1_buf.*)
 	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);

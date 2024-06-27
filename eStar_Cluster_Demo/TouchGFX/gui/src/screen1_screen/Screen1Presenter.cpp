@@ -19,10 +19,10 @@ void Screen1Presenter::deactivate()
 
 void Screen1Presenter::notifyCounterChanged(uint16_t newCounter)
 {
-	view.FuelbarWarningIcon(newCounter);
+	//view.FuelbarWarningIcon(newCounter);
 	view.UpdateCount(newCounter);
 	view.KMPHtoMPH(newCounter);
-	view.FuelGauageAnimation(newCounter);
+	//view.FuelGauageAnimation(newCounter);
 
 }
 
@@ -30,9 +30,9 @@ void Screen1Presenter::notifyOdoDataChanged(uint32_t newodoData)
 {
 	view.OdoDataUpdate(newodoData);
 }
-#if 0
-void Screen1Presenter::notifyFuelCounter(int newFuelCount)
+
+void Screen1Presenter::notifyFuelCounter(uint16_t newFuelCount)
 {
 	view.FuelGauageAnimation(newFuelCount);
 }
-#endif
+

@@ -11,6 +11,7 @@
 #include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/widgets/AnimatedImage.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/widgets/ScalableImage.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -27,9 +28,8 @@ protected:
     /*
      * Member Declarations
      */
-    touchgfx::Box __background;
+   // touchgfx::Box __background;
     touchgfx::Image BackGround;
-    touchgfx::Image image1;
     touchgfx::Image ABS_Detection_w;
     touchgfx::Image ABS_Detection_r;
     touchgfx::Image LowBatteryIcon_w;
@@ -65,13 +65,15 @@ protected:
     touchgfx::TextAreaWithOneWildcard Semicolon;
     touchgfx::TextAreaWithOneWildcard AM_PM;
     touchgfx::Image RPMBars;
+    touchgfx::ScalableImage High_beem_White;
+    touchgfx::ScalableImage High_beem_Blue;
 
     /*
      * Wildcard Buffers
      */
     static const uint16_t SPEED_TA_SIZE = 6;
     touchgfx::Unicode::UnicodeChar Speed_TaBuffer[SPEED_TA_SIZE];
-    static const uint16_t KMPH_MPH_SIZE = 5;
+    static const uint16_t KMPH_MPH_SIZE = 6;
     touchgfx::Unicode::UnicodeChar KMPH_MPHBuffer[KMPH_MPH_SIZE];
     static const uint16_t ODOREADINGS_SIZE = 10;
     touchgfx::Unicode::UnicodeChar ODOReadingsBuffer[ODOREADINGS_SIZE];

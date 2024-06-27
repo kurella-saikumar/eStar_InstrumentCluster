@@ -369,6 +369,8 @@ KEEP extern const unsigned char image_fuelbar07_const[];
 KEEP extern const unsigned char image_fuelbar08_const[];
 KEEP extern const unsigned char image_fuelbar09_const[];
 KEEP extern const unsigned char image_fuelbar10_const[];
+KEEP extern const unsigned char image_high_beam_const[];
+KEEP extern const unsigned char image_high_beam_1_const[];
 KEEP extern const unsigned char image_highbeam1_const[];
 KEEP extern const unsigned char image_highbeam2_const[];
 KEEP extern const unsigned char image_leftindicator1_const[];
@@ -405,6 +407,8 @@ extern unsigned char ucImage_fuelbar07_HypRAM[128*128];
 extern unsigned char ucImage_fuelbar08_HypRAM[128*128];
 extern unsigned char ucImage_fuelbar09_HypRAM[128*128];
 extern unsigned char ucImage_fuelbar10_HypRAM[128*128];
+extern unsigned char ucImage_high_beam_HypRAM[64*64];
+extern unsigned char ucImage_high_beam_1_HypRAM[50*50];
 extern unsigned char ucImage_highbeam1_HypRAM[24*20];
 extern unsigned char ucImage_highbeam2_HypRAM[24*20];
 extern unsigned char ucImage_leftindicator1_HypRAM[24*20];
@@ -1632,6 +1636,8 @@ void Disp_imgDataHyperRAM_Init(void)
 	memset(ucImage_fuelbar08_HypRAM, 0 ,(128*128));
 	memset(ucImage_fuelbar09_HypRAM, 0 ,(128*128));
 	memset(ucImage_fuelbar10_HypRAM, 0 ,(128*128));
+	memset(ucImage_high_beam_HypRAM, 0 ,(64*64));
+	memset(ucImage_high_beam_1_HypRAM, 0 ,(50*50));
 	memset(ucImage_highbeam1_HypRAM, 0 ,(24*20));
 	memset(ucImage_highbeam2_HypRAM, 0 ,(24*20));
 	memset(ucImage_leftindicator1_HypRAM, 0 ,(24*20));
@@ -1837,8 +1843,8 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success19\n\r");
 	}
 
-	uint32_t Address20= (uint32_t )(&image_highbeam1_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_highbeam1_HypRAM,Address20,(24*20*4)))
+	uint32_t Address20= (uint32_t )(&image_high_beam_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_high_beam_HypRAM,Address20,(64*64*4)))
 	{
 		printf("Copy Fail-20\n\r");
 	}
@@ -1847,8 +1853,28 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success20\n\r");
 	}
 
-	uint32_t Address21= (uint32_t )(&image_highbeam2_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_highbeam2_HypRAM,Address21,(24*20*4)))
+	uint32_t Address21= (uint32_t )(&image_high_beam_1_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_high_beam_1_HypRAM,Address21,(50*50*4)))
+	{
+		printf("Copy Fail-20\n\r");
+	}
+	else
+	{
+		printf("Copy Success20\n\r");
+	}
+
+	uint32_t Address22= (uint32_t )(&image_highbeam1_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_highbeam1_HypRAM,Address22,(24*20*4)))
+	{
+		printf("Copy Fail-21\n\r");
+	}
+	else
+	{
+		printf("Copy Success21\n\r");
+	}
+
+	uint32_t Address23= (uint32_t )(&image_highbeam2_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_highbeam2_HypRAM,Address23,(24*20*4)))
 	{
 		printf("Copy Fail-21\n\r");
 	}
@@ -1858,8 +1884,8 @@ void Disp_imgDataHyperRAM_Init(void)
 	}
 
 
-	uint32_t Address23= (uint32_t )(&image_leftindicator1_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_leftindicator1_HypRAM,Address23,(24*20*4)))
+	uint32_t Address24= (uint32_t )(&image_leftindicator1_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_leftindicator1_HypRAM,Address24,(24*20*4)))
 	{
 		printf("Copy Fail-23\n\r");
 	}
@@ -1868,8 +1894,8 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success23\n\r");
 	}
 
-	uint32_t Address24= (uint32_t )(&image_leftindicator2_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_leftindicator2_HypRAM,Address24,(24*20*4)))
+	uint32_t Address25= (uint32_t )(&image_leftindicator2_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_leftindicator2_HypRAM,Address25,(24*20*4)))
 	{
 		printf("Copy Fail-24\n\r");
 	}
@@ -1878,8 +1904,8 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success24\n\r");
 	}
 
-	uint32_t Address25= (uint32_t )(&image_lowbattery1_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_lowbattery1_HypRAM,Address25,(24*20*4)))
+	uint32_t Address26= (uint32_t )(&image_lowbattery1_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_lowbattery1_HypRAM,Address26,(24*20*4)))
 	{
 		printf("Copy Fail-25\n\r");
 	}
@@ -1888,8 +1914,8 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success25\n\r");
 	}
 
-	uint32_t Address26= (uint32_t )(&image_lowbattery2_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_lowbattery2_HypRAM,Address26,(24*20*4)))
+	uint32_t Address27= (uint32_t )(&image_lowbattery2_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_lowbattery2_HypRAM,Address27,(24*20*4)))
 	{
 		printf("Copy Fail-26\n\r");
 	}
@@ -1898,8 +1924,8 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success26\n\r");
 	}
 
-	uint32_t Address27= (uint32_t )(&image_lowbeam1_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_lowbeam1_HypRAM,Address27,(24*20*4)))
+	uint32_t Address28= (uint32_t )(&image_lowbeam1_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_lowbeam1_HypRAM,Address28,(24*20*4)))
 	{
 		printf("Copy Fail-27\n\r");
 	}
@@ -1908,8 +1934,8 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success27\n\r");
 	}
 
-	uint32_t Address28= (uint32_t )(&image_lowbeam2_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_lowbeam2_HypRAM,Address28,(24*20*4)))
+	uint32_t Address29= (uint32_t )(&image_lowbeam2_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_lowbeam2_HypRAM,Address29,(24*20*4)))
 	{
 		printf("Copy Fail-28\n\r");
 	}
@@ -1918,8 +1944,8 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success28\n\r");
 	}
 
-	uint32_t Address29= (uint32_t )(&image_rightindicator1_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rightindicator1_HypRAM,Address29,(24*20*4)))
+	uint32_t Address30= (uint32_t )(&image_rightindicator1_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rightindicator1_HypRAM,Address30,(24*20*4)))
 	{
 		printf("Copy Fail-29\n\r");
 	}
@@ -1928,8 +1954,8 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success29\n\r");
 	}
 
-	uint32_t Address30= (uint32_t )(&image_rightindicator2_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rightindicator2_HypRAM,Address30,(24*20*4)))
+	uint32_t Address31= (uint32_t )(&image_rightindicator2_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rightindicator2_HypRAM,Address31,(24*20*4)))
 	{
 		printf("Copy Fail-30\n\r");
 	}
@@ -1938,8 +1964,8 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success30\n\r");
 	}
 
-	uint32_t Address31= (uint32_t )(&image_rpmbar_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar_HypRAM,Address31,(128*128*4)))
+	uint32_t Address32= (uint32_t )(&image_rpmbar_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar_HypRAM,Address32,(128*128*4)))
 	{
 		printf("Copy Fail-31\n\r");
 	}
@@ -1948,8 +1974,8 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success31\n\r");
 	}
 
-	uint32_t Address32= (uint32_t )(&image_rpmicon1_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmicon1_HypRAM,Address32,(24*20*4)))
+	uint32_t Address33= (uint32_t )(&image_rpmicon1_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmicon1_HypRAM,Address33,(24*20*4)))
 	{
 		printf("Copy Fail-32\n\r");
 	}
@@ -1958,8 +1984,8 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success32\n\r");
 	}
 
-	uint32_t Address33= (uint32_t )(&image_rpmicon2_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmicon2_HypRAM,Address33,(24*20*4)))
+	uint32_t Address34= (uint32_t )(&image_rpmicon2_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmicon2_HypRAM,Address34,(24*20*4)))
 	{
 		printf("Copy Fail-33\n\r");
 	}
@@ -1968,8 +1994,8 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success33\n\r");
 	}
 
-	uint32_t Address34= (uint32_t )(&image_tempicon1_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_tempicon1_HypRAM,Address34,(24*20*4)))
+	uint32_t Address35= (uint32_t )(&image_tempicon1_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_tempicon1_HypRAM,Address35,(24*20*4)))
 	{
 		printf("Copy Fail-34\n\r");
 	}
@@ -1978,8 +2004,8 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success34\n\r");
 	}
 
-	uint32_t Address35= (uint32_t )(&image_tempicon2_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_tempicon2_HypRAM,Address35,(24*20*4)))
+	uint32_t Address36= (uint32_t )(&image_tempicon2_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_tempicon2_HypRAM,Address36,(24*20*4)))
 	{
 		printf("Copy Fail-35\n\r");
 	}

@@ -7,7 +7,7 @@
 
 Screen1View::Screen1View()
 {
-	 for (int i = 0; i < 10; ++i)
+	 for (int i = 0; i < 10; i++)
 	 {
 			barImageIds[i] = 0; // Or initialize with the appropriate BitmapId values
 	 }
@@ -51,7 +51,7 @@ void Screen1View::UpdateCount(uint16_t newCounter)
 		}
 		Speed_Ta.invalidate();
 }
-
+#if 0
 void Screen1View::FuelbarWarningIcon(int newCounter)
 {
 
@@ -65,6 +65,7 @@ void Screen1View::FuelbarWarningIcon(int newCounter)
 	}
 	FuelIcon_r.invalidate();
 }
+#endif
 
 void Screen1View::KMPHtoMPH(int newCounter)
 {
@@ -102,21 +103,36 @@ void Screen1View::OdoDataUpdate(uint32_t newodoData)
 	ODOReadings.invalidate();
 }
 
-void Screen1View::FuelGauageAnimation(int newCounter)
+void Screen1View::FuelGauageAnimation(uint16_t newFuelCount)
 {
 
-	 for (int i = 0; i < 10; ++i)
+	 for (int i = 0; i < 10; i++)
 	 {
 		barImageIds[i] = BITMAP_FUELBAR01_ID + i;
 	 }
 	 FuelBarAnimation.setBitmaps(barImageIds[0], barImageIds[9]);
 
-	 int percentage = (newCounter * 100)/220;
-	 int imageIndex = (percentage/10)%10;
-
+	 int imageIndex = 10 -(newFuelCount/10);
 
 	// Set the current image for the animation
-	FuelBarAnimation.setBitmaps(barImageIds[imageIndex], barImageIds[9]);
+	FuelBarAnimation.setBitmaps(barImageIds[imageIndex], barImageIds[imageIndex]);
+
+	if(newFuelCount < 10)
+	{
+		tickCounter++;
+		if (tickCounter >=1)  // Adjust this value to control blink frequency
+		{
+			FuelIcon_r.setVisible(!FuelIcon_r.isVisible());
+			FuelIcon_r.invalidate();
+			tickCounter = 0;
+		}
+
+	}
+	else
+	{
+		FuelIcon_r.setVisible(false);
+		FuelIcon_r.invalidate();
+	}
 
 	FuelBarAnimation.invalidate();
 }

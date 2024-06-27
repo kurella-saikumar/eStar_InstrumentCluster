@@ -27,7 +27,7 @@ public:
 
     virtual void notifyCounterChanged(uint16_t newCounter);
     virtual void notifyOdoDataChanged(uint32_t newodoData);
-   // virtual void notifyFuelCounter(int newFuelCount);
+    virtual void notifyFuelCounter(uint16_t newFuelCount);
 
     virtual ~Screen1Presenter() {}
 

@@ -114,6 +114,8 @@
 "./Application/User/generated/image_RightIndicator2.o"
 "./Application/User/generated/image_TempIcon1.o"
 "./Application/User/generated/image_TempIcon2.o"
+"./Application/User/generated/image_high_beam.o"
+"./Application/User/generated/image_high_beam_1.o"
 "./Application/User/gui/FrontendApplication.o"
 "./Application/User/gui/Model.o"
 "./Application/User/gui/Screen1Presenter.o"

@@ -88,6 +88,12 @@ uint32_t ucImage_fuelbar09_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fue
 LOCATION_PRAGMA_NOLOAD("image_fuelbar10_buf")
 uint32_t ucImage_fuelbar10_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar10_buf");
 
+LOCATION_PRAGMA_NOLOAD("image_high_beam_buf")
+uint32_t ucImage_high_beam_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_high_beam_buf");
+
+LOCATION_PRAGMA_NOLOAD("image_high_beam_1_buf")
+uint32_t ucImage_high_beam_1_HypRAM[50*50]  LOCATION_ATTRIBUTE_NOLOAD("image_high_beam_1_buf");
+
 LOCATION_PRAGMA_NOLOAD("image_highbeam1_buf")
 uint32_t ucImage_highbeam1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_highbeam1_buf");
 

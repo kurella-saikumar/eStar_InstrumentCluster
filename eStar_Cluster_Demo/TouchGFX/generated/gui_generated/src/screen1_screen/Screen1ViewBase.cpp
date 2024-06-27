@@ -8,9 +8,9 @@
 
 Screen1ViewBase::Screen1ViewBase()
 {
-    __background.setPosition(0, 0, 480, 272);
-    __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-    add(__background);
+//    __background.setPosition(0, 0, 480, 272);
+//    __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+//    add(__background);
 
     BackGround.setXY(0, 0);
     BackGround.setBitmap(touchgfx::Bitmap(BITMAP_BACKGROUND_ID));
@@ -203,6 +203,17 @@ Screen1ViewBase::Screen1ViewBase()
     RPMBars.setXY(10, 100);
     RPMBars.setBitmap(touchgfx::Bitmap(BITMAP_RPMBAR_ID));
     add(RPMBars);
+
+    High_beem_White.setBitmap(touchgfx::Bitmap(BITMAP_HIGH_BEAM_ID));
+    High_beem_White.setPosition(318, 14, 24, 24);
+    High_beem_White.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    High_beem_White.setVisible(false);
+    add(High_beem_White);
+
+    High_beem_Blue.setBitmap(touchgfx::Bitmap(BITMAP_HIGH_BEAM_1_ID));
+    High_beem_Blue.setPosition(309, 15, 24, 24);
+    High_beem_Blue.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(High_beem_Blue);
 }
 
 Screen1ViewBase::~Screen1ViewBase()

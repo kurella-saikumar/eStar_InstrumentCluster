@@ -14,17 +14,6 @@
           },
           {
             "Type": "Image",
-            "Name": "image1",
-            "X": -1,
-            "Width": 480,
-            "Height": 272,
-            "Visible": false,
-            "LockPosition": true,
-            "RelativeFilename": "HMI_LAYOUT1.png",
-            "Alpha": 104
-          },
-          {
-            "Type": "Image",
             "Name": "ABS_Detection_w",
             "X": 224,
             "Y": 47,
@@ -230,8 +219,7 @@
             "Height": 128,
             "FileNameFirst": "AnimationImages\\FuelBar_UpToDown\\FuelBar01.png",
             "FileNameLast": "AnimationImages\\FuelBar_UpToDown\\FuelBar10.png",
-            "UpdateTicksInterval": 1,
-            "LoopEnabled": true
+            "UpdateTicksInterval": 1
           },
           {
             "Type": "TextArea",
@@ -456,6 +444,27 @@
             "Width": 128,
             "Height": 128,
             "RelativeFilename": "AnimationImages\\RPM\\RPMBar.png"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "High_beem_White",
+            "X": 318,
+            "Y": 14,
+            "Width": 24,
+            "Height": 24,
+            "Visible": false,
+            "Filename": "IndicatorIcons\\HighBeam\\high_beam.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "High_beem_Blue",
+            "X": 309,
+            "Y": 15,
+            "Width": 24,
+            "Height": 24,
+            "Filename": "high_beam_1.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
           }
         ],
         "Interactions": []
