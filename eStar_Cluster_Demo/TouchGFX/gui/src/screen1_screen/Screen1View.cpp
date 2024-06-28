@@ -125,7 +125,9 @@ void Screen1View::FuelGauageAnimation(uint16_t newFuelCount)
 			if (tickCounter >=1)  // Adjust this value to control blink frequency
 			{
 				FuelIcon_r.setVisible(!FuelIcon_r.isVisible());
+				FuelBarAnimation.setVisible(!FuelBarAnimation.isVisible());
 				FuelIcon_r.invalidate();
+				FuelBarAnimation.invalidate();
 				tickCounter = 0;
 			}
 		}
