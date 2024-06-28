@@ -381,7 +381,16 @@ KEEP extern const unsigned char image_lowbeam1_const[];
 KEEP extern const unsigned char image_lowbeam2_const[];
 KEEP extern const unsigned char image_rightindicator1_const[];
 KEEP extern const unsigned char image_rightindicator2_const[];
-KEEP extern const unsigned char image_rpmbar_const[];
+KEEP extern const unsigned char image_rpmbar01_const[];
+KEEP extern const unsigned char image_rpmbar02_const[];
+KEEP extern const unsigned char image_rpmbar03_const[];
+KEEP extern const unsigned char image_rpmbar04_const[];
+KEEP extern const unsigned char image_rpmbar05_const[];
+KEEP extern const unsigned char image_rpmbar06_const[];
+KEEP extern const unsigned char image_rpmbar07_const[];
+KEEP extern const unsigned char image_rpmbar08_const[];
+KEEP extern const unsigned char image_rpmbar09_const[];
+KEEP extern const unsigned char image_rpmbar10_const[];
 KEEP extern const unsigned char image_rpmicon1_const[];
 KEEP extern const unsigned char image_rpmicon2_const[];
 KEEP extern const unsigned char image_tempicon1_const[];
@@ -419,7 +428,16 @@ extern unsigned char ucImage_lowbeam1_HypRAM[24*20];
 extern unsigned char ucImage_lowbeam2_HypRAM[24*20];
 extern unsigned char ucImage_rightindicator1_HypRAM[24*20];
 extern unsigned char ucImage_rightindicator2_HypRAM[24*20];
-extern unsigned char ucImage_rpmbar_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar01_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar02_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar03_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar04_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar05_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar06_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar07_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar08_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar09_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar10_HypRAM[128*128];
 extern unsigned char ucImage_rpmicon1_HypRAM[24*20];
 extern unsigned char ucImage_rpmicon2_HypRAM[24*20];
 extern unsigned char ucImage_tempicon1_HypRAM[24*20];
@@ -1648,7 +1666,16 @@ void Disp_imgDataHyperRAM_Init(void)
 	memset(ucImage_lowbeam2_HypRAM, 0 ,(24*20));
 	memset(ucImage_rightindicator1_HypRAM, 0 ,(24*20));
 	memset(ucImage_rightindicator2_HypRAM, 0 ,(24*20));
-	memset(ucImage_rpmbar_HypRAM, 0 ,(128*128));
+	memset(ucImage_rpmbar01_HypRAM, 0 ,(128*128));
+	memset(ucImage_rpmbar02_HypRAM, 0 ,(128*128));
+	memset(ucImage_rpmbar03_HypRAM, 0 ,(128*128));
+	memset(ucImage_rpmbar04_HypRAM, 0 ,(128*128));
+	memset(ucImage_rpmbar05_HypRAM, 0 ,(128*128));
+	memset(ucImage_rpmbar06_HypRAM, 0 ,(128*128));
+	memset(ucImage_rpmbar07_HypRAM, 0 ,(128*128));
+	memset(ucImage_rpmbar08_HypRAM, 0 ,(128*128));
+	memset(ucImage_rpmbar09_HypRAM, 0 ,(128*128));
+	memset(ucImage_rpmbar10_HypRAM, 0 ,(128*128));
 	memset(ucImage_rpmicon1_HypRAM, 0 ,(24*20));
 	memset(ucImage_rpmicon2_HypRAM, 0 ,(24*20));
 	memset(ucImage_tempicon1_HypRAM, 0 ,(24*20));
@@ -1964,8 +1991,9 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success30\n\r");
 	}
 
-	uint32_t Address32= (uint32_t )(&image_rpmbar_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar_HypRAM,Address32,(128*128*4)))
+
+	uint32_t Address32= (uint32_t )(&image_rpmbar01_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar01_HypRAM,Address32,(128*128*4)))
 	{
 		printf("Copy Fail-31\n\r");
 	}
@@ -1974,8 +2002,99 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success31\n\r");
 	}
 
-	uint32_t Address33= (uint32_t )(&image_rpmicon1_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmicon1_HypRAM,Address33,(24*20*4)))
+	uint32_t Address33= (uint32_t )(&image_rpmbar02_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar02_HypRAM,Address33,(128*128*4)))
+	{
+		printf("Copy Fail-31\n\r");
+	}
+	else
+	{
+		printf("Copy Success31\n\r");
+	}
+
+	uint32_t Address34= (uint32_t )(&image_rpmbar03_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar03_HypRAM,Address34,(128*128*4)))
+	{
+		printf("Copy Fail-31\n\r");
+	}
+	else
+	{
+		printf("Copy Success31\n\r");
+	}
+
+	uint32_t Address35= (uint32_t )(&image_rpmbar04_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar04_HypRAM,Address35,(128*128*4)))
+	{
+		printf("Copy Fail-31\n\r");
+	}
+	else
+	{
+		printf("Copy Success31\n\r");
+	}
+
+	uint32_t Address36= (uint32_t )(&image_rpmbar05_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar05_HypRAM,Address36,(128*128*4)))
+	{
+		printf("Copy Fail-31\n\r");
+	}
+	else
+	{
+		printf("Copy Success31\n\r");
+	}
+
+	uint32_t Address37= (uint32_t )(&image_rpmbar06_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar06_HypRAM,Address37,(128*128*4)))
+	{
+		printf("Copy Fail-31\n\r");
+	}
+	else
+	{
+		printf("Copy Success31\n\r");
+	}
+
+	uint32_t Address38= (uint32_t )(&image_rpmbar07_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar07_HypRAM,Address38,(128*128*4)))
+	{
+		printf("Copy Fail-31\n\r");
+	}
+	else
+	{
+		printf("Copy Success31\n\r");
+	}
+
+	uint32_t Address39= (uint32_t )(&image_rpmbar08_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar08_HypRAM,Address39,(128*128*4)))
+	{
+		printf("Copy Fail-31\n\r");
+	}
+	else
+	{
+		printf("Copy Success31\n\r");
+	}
+
+	uint32_t Address40= (uint32_t )(&image_rpmbar09_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar09_HypRAM,Address40,(128*128*4)))
+	{
+		printf("Copy Fail-31\n\r");
+	}
+	else
+	{
+		printf("Copy Success31\n\r");
+	}
+
+
+	uint32_t Address41= (uint32_t )(&image_rpmbar10_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar10_HypRAM,Address41,(128*128*4)))
+	{
+		printf("Copy Fail-31\n\r");
+	}
+	else
+	{
+		printf("Copy Success31\n\r");
+	}
+
+	uint32_t Address42= (uint32_t )(&image_rpmicon1_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmicon1_HypRAM,Address42,(24*20*4)))
 	{
 		printf("Copy Fail-32\n\r");
 	}
@@ -1984,8 +2103,8 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success32\n\r");
 	}
 
-	uint32_t Address34= (uint32_t )(&image_rpmicon2_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmicon2_HypRAM,Address34,(24*20*4)))
+	uint32_t Address43= (uint32_t )(&image_rpmicon2_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmicon2_HypRAM,Address43,(24*20*4)))
 	{
 		printf("Copy Fail-33\n\r");
 	}
@@ -1994,8 +2113,8 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success33\n\r");
 	}
 
-	uint32_t Address35= (uint32_t )(&image_tempicon1_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_tempicon1_HypRAM,Address35,(24*20*4)))
+	uint32_t Address44= (uint32_t )(&image_tempicon1_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_tempicon1_HypRAM,Address44,(24*20*4)))
 	{
 		printf("Copy Fail-34\n\r");
 	}
@@ -2004,8 +2123,8 @@ void Disp_imgDataHyperRAM_Init(void)
 		printf("Copy Success34\n\r");
 	}
 
-	uint32_t Address36= (uint32_t )(&image_tempicon2_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_tempicon2_HypRAM,Address36,(24*20*4)))
+	uint32_t Address45= (uint32_t )(&image_tempicon2_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_tempicon2_HypRAM,Address45,(24*20*4)))
 	{
 		printf("Copy Fail-35\n\r");
 	}

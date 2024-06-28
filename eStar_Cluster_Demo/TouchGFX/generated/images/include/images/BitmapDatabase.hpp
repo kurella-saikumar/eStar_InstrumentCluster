@@ -37,11 +37,20 @@ const uint16_t BITMAP_LOWBEAM1_ID = 27;
 const uint16_t BITMAP_LOWBEAM2_ID = 28;
 const uint16_t BITMAP_RIGHTINDICATOR1_ID = 29;
 const uint16_t BITMAP_RIGHTINDICATOR2_ID = 30;
-const uint16_t BITMAP_RPMBAR_ID = 31;
-const uint16_t BITMAP_RPMICON1_ID = 32;
-const uint16_t BITMAP_RPMICON2_ID = 33;
-const uint16_t BITMAP_TEMPICON1_ID = 34;
-const uint16_t BITMAP_TEMPICON2_ID = 35;
+const uint16_t BITMAP_RPMBAR01_ID = 31;
+const uint16_t BITMAP_RPMBAR02_ID = 32;
+const uint16_t BITMAP_RPMBAR03_ID = 33;
+const uint16_t BITMAP_RPMBAR04_ID = 34;
+const uint16_t BITMAP_RPMBAR05_ID = 35;
+const uint16_t BITMAP_RPMBAR06_ID = 36;
+const uint16_t BITMAP_RPMBAR07_ID = 37;
+const uint16_t BITMAP_RPMBAR08_ID = 38;
+const uint16_t BITMAP_RPMBAR09_ID = 39;
+const uint16_t BITMAP_RPMBAR10_ID = 40;
+const uint16_t BITMAP_RPMICON1_ID = 41;
+const uint16_t BITMAP_RPMICON2_ID = 42;
+const uint16_t BITMAP_TEMPICON1_ID = 43;
+const uint16_t BITMAP_TEMPICON2_ID = 44;
 
 namespace BitmapDatabase
 {

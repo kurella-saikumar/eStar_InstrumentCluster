@@ -124,8 +124,35 @@ uint32_t ucImage_rightindicator1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image
 LOCATION_PRAGMA_NOLOAD("image_rightindicator2_buf")
 uint32_t ucImage_rightindicator2_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_rightindicator2_buf");
 
-LOCATION_PRAGMA_NOLOAD("image_rpmbar_buf")
-uint32_t ucImage_rpmbar_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar_buf");
+LOCATION_PRAGMA_NOLOAD("image_rpmbar01_buf")
+uint32_t ucImage_rpmbar01_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar01_buf");
+
+LOCATION_PRAGMA_NOLOAD("image_rpmbar02_buf")
+uint32_t ucImage_rpmbar02_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar02_buf");
+
+LOCATION_PRAGMA_NOLOAD("image_rpmbar03_buf")
+uint32_t ucImage_rpmbar03_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar03_buf");
+
+LOCATION_PRAGMA_NOLOAD("image_rpmbar04_buf")
+uint32_t ucImage_rpmbar04_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar04_buf");
+
+LOCATION_PRAGMA_NOLOAD("image_rpmbar05_buf")
+uint32_t ucImage_rpmbar05_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar05_buf");
+
+LOCATION_PRAGMA_NOLOAD("image_rpmbar06_buf")
+uint32_t ucImage_rpmbar06_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar06_buf");
+
+LOCATION_PRAGMA_NOLOAD("image_rpmbar07_buf")
+uint32_t ucImage_rpmbar07_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar07_buf");
+
+LOCATION_PRAGMA_NOLOAD("image_rpmbar08_buf")
+uint32_t ucImage_rpmbar08_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar08_buf");
+
+LOCATION_PRAGMA_NOLOAD("image_rpmbar09_buf")
+uint32_t ucImage_rpmbar09_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar09_buf");
+
+LOCATION_PRAGMA_NOLOAD("image_rpmbar10_buf")
+uint32_t ucImage_rpmbar10_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar10_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_rpmicon1_buf")
 uint32_t ucImage_rpmicon1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmicon1_buf");

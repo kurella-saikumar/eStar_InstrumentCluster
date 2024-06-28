@@ -814,9 +814,54 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/AnimationImages/FuelBar_UpToDown/image_FuelBar10.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/image_RPMBar.cpp</name>
+			<name>Application/User/generated/image_RPMBar01.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/AnimationImages/RPM/image_RPMBar.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/AnimationImages/RPM/image_RPMBar01.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_RPMBar02.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/AnimationImages/RPM/image_RPMBar02.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_RPMBar03.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/AnimationImages/RPM/image_RPMBar03.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_RPMBar04.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/AnimationImages/RPM/image_RPMBar04.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_RPMBar05.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/AnimationImages/RPM/image_RPMBar05.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_RPMBar06.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/AnimationImages/RPM/image_RPMBar06.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_RPMBar07.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/AnimationImages/RPM/image_RPMBar07.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_RPMBar08.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/AnimationImages/RPM/image_RPMBar08.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_RPMBar09.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/AnimationImages/RPM/image_RPMBar09.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_RPMBar10.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/AnimationImages/RPM/image_RPMBar10.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/BitmapDatabase.cpp</name>

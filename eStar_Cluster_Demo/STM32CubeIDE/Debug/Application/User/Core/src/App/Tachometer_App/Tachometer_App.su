@@ -1,4 +1,4 @@
 ../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:96:6:vTacho_Init	0	static
 ../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:112:6:vMeasureRPM	8	static
-../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:156:10:xGet_TachometerData	12	static
-../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:188:6:vTacho_App	8	static
+../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:156:10:xGet_TachometerData	16	static
+../Application/User/Core/src/App/Tachometer_App/Tachometer_App.c:188:6:vTacho_App	16	static

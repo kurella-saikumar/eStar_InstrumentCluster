@@ -253,14 +253,14 @@
             "TextRotation": "0",
             "Color": {
               "Red": 255,
-              "Green": 247,
-              "Blue": 247
+              "Green": 255,
+              "Blue": 255
             },
             "AutoSize": true,
             "Wildcard1": {
               "TextId": "__SingleUse_ZEGA",
               "UseBuffer": true,
-              "BufferSize": 4
+              "BufferSize": 6
             }
           },
           {
@@ -293,8 +293,8 @@
             "TextRotation": "0",
             "Color": {
               "Red": 255,
-              "Green": 247,
-              "Blue": 247
+              "Green": 255,
+              "Blue": 255
             },
             "AutoSize": true,
             "Wildcard1": {
@@ -437,15 +437,6 @@
             }
           },
           {
-            "Type": "Image",
-            "Name": "RPMBars",
-            "X": 10,
-            "Y": 100,
-            "Width": 128,
-            "Height": 128,
-            "RelativeFilename": "AnimationImages\\RPM\\RPMBar.png"
-          },
-          {
             "Type": "ScalableImage",
             "Name": "High_beem_White",
             "X": 318,
@@ -465,6 +456,17 @@
             "Height": 24,
             "Filename": "high_beam_1.png",
             "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "AnimatedImage",
+            "Name": "RPMAnimation",
+            "X": 10,
+            "Y": 100,
+            "Width": 128,
+            "Height": 128,
+            "FileNameFirst": "AnimationImages\\RPM\\RPMBar01.png",
+            "FileNameLast": "AnimationImages\\RPM\\RPMBar10.png",
+            "UpdateTicksInterval": 1
           }
         ],
         "Interactions": []

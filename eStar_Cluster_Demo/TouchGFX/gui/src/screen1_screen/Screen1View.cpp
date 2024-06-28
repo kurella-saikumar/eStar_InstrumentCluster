@@ -3,14 +3,19 @@
 #include <touchgfx/Color.hpp>
 #include <texts/TextKeysAndLanguages.hpp>
 #include <BitmapDatabase.hpp>
+#include <cstdio>
 
 
 Screen1View::Screen1View()
 {
 	 for (int i = 0; i < 10; i++)
 	 {
-			barImageIds[i] = 0; // Or initialize with the appropriate BitmapId values
+		 FuelbarImageIds[i] = 0; // Or initialize with the appropriate BitmapId values
+		 RPMBarImageIds[i] = 0;
 	 }
+
+
+
 }
 
 void Screen1View::setupScreen()
@@ -102,22 +107,22 @@ void Screen1View::OdoDataUpdate(uint32_t newodoData)
 	// Set the text of the ODOReadings widget to display the updated odometer value
 	ODOReadings.invalidate();
 }
-
+#if 0
 void Screen1View::FuelGauageAnimation(uint16_t newFuelCount)
 {
 
 	 for (int i = 0; i < 10; i++)
 	 {
-		barImageIds[i] = BITMAP_FUELBAR01_ID + i;
+		 FuelbarImageIds[i] = BITMAP_FUELBAR01_ID + i;
 	 }
-	 FuelBarAnimation.setBitmaps(barImageIds[0], barImageIds[9]);
+	 FuelBarAnimation.setBitmaps(FuelbarImageIds[0], FuelbarImageIds[9]);
 
 	 if (newFuelCount<100)
 	 {
 		int imageIndex = 9 -(newFuelCount/10);
 
 		// Set the current image for the animation
-		FuelBarAnimation.setBitmaps(barImageIds[imageIndex], barImageIds[imageIndex]);
+		FuelBarAnimation.setBitmaps(FuelbarImageIds[imageIndex], FuelbarImageIds[imageIndex]);
 
 		if(newFuelCount < 10)
 		{
@@ -127,7 +132,6 @@ void Screen1View::FuelGauageAnimation(uint16_t newFuelCount)
 				FuelIcon_r.setVisible(!FuelIcon_r.isVisible());
 				FuelBarAnimation.setVisible(!FuelBarAnimation.isVisible());
 				FuelIcon_r.invalidate();
-				FuelBarAnimation.invalidate();
 				tickCounter = 0;
 			}
 		}
@@ -136,12 +140,62 @@ void Screen1View::FuelGauageAnimation(uint16_t newFuelCount)
 			FuelIcon_r.setVisible(false);
 			FuelIcon_r.invalidate();
 		}
-
-		FuelBarAnimation.invalidate();
 	 }
 	 else
 	 {
-		 FuelBarAnimation.setBitmaps(barImageIds[0], barImageIds[0]);
-		 FuelBarAnimation.invalidate();
+		 FuelBarAnimation.setBitmaps(FuelbarImageIds[0], FuelbarImageIds[0]);
 	 }
+
+	 FuelBarAnimation.invalidate();
 }
+#endif
+
+void Screen1View::FuelGauageAnimation(uint16_t newFuelCount)
+{
+
+	 for (int i = 0; i < 10; i++)
+	 {
+		 FuelbarImageIds[i] = BITMAP_FUELBAR01_ID + i;
+	 }
+
+	 FuelBarAnimation.setBitmaps(FuelbarImageIds[0], FuelbarImageIds[9]);
+
+	 if (newFuelCount<100)
+	 {
+		int imageIndex = 9 -(newFuelCount/10);
+
+		// Set the current image for the animation
+		FuelBarAnimation.setBitmaps(FuelbarImageIds[imageIndex], FuelbarImageIds[imageIndex]);
+	 }
+	 else
+	 {
+		 FuelBarAnimation.setBitmaps(FuelbarImageIds[0], FuelbarImageIds[0]);
+	 }
+
+	 FuelBarAnimation.invalidate();
+}
+
+void Screen1View:: RPMDataAnimation(uint16_t newRPMData)
+{
+	for (int i = 0; i < 10; i++)
+	{
+		RPMBarImageIds[i] = BITMAP_RPMBAR01_ID + i;
+	}
+
+	RPMAnimation.setBitmaps(RPMBarImageIds[0], RPMBarImageIds[9]);
+
+	uint16_t imageIndex = (newRPMData/1200);
+
+	// Set the current image for the animation
+	RPMAnimation.setBitmaps(RPMBarImageIds[imageIndex], RPMBarImageIds[imageIndex]);
+
+	RPMAnimation.invalidate();
+}
+
+
+
+
+
+
+
+

@@ -35,7 +35,16 @@ extern const unsigned char image_lowbeam1_const[]; // BITMAP_LOWBEAM1_ID = 26, S
 extern const unsigned char image_lowbeam2_const[]; // BITMAP_LOWBEAM2_ID = 27, Size: 24x20 pixels
 extern const unsigned char image_rightindicator1_const[]; // BITMAP_RIGHTINDICATOR1_ID = 28, Size: 24x20 pixels
 extern const unsigned char image_rightindicator2_const[]; // BITMAP_RIGHTINDICATOR2_ID = 29, Size: 24x20 pixels
-extern const unsigned char image_rpmbar_const[]; // BITMAP_RPMBAR_ID = 30, Size: 128x128 pixels
+extern const unsigned char image_rpmbar01_const[]; // BITMAP_RPMBAR01_ID = 31, Size: 128x128 pixels
+extern const unsigned char image_rpmbar02_const[]; // BITMAP_RPMBAR02_ID = 32, Size: 128x128 pixels
+extern const unsigned char image_rpmbar03_const[]; // BITMAP_RPMBAR03_ID = 33, Size: 128x128 pixels
+extern const unsigned char image_rpmbar04_const[]; // BITMAP_RPMBAR04_ID = 34, Size: 128x128 pixels
+extern const unsigned char image_rpmbar05_const[]; // BITMAP_RPMBAR05_ID = 35, Size: 128x128 pixels
+extern const unsigned char image_rpmbar06_const[]; // BITMAP_RPMBAR06_ID = 36, Size: 128x128 pixels
+extern const unsigned char image_rpmbar07_const[]; // BITMAP_RPMBAR07_ID = 37, Size: 128x128 pixels
+extern const unsigned char image_rpmbar08_const[]; // BITMAP_RPMBAR08_ID = 38, Size: 128x128 pixels
+extern const unsigned char image_rpmbar09_const[]; // BITMAP_RPMBAR09_ID = 39, Size: 128x128 pixels
+extern const unsigned char image_rpmbar10_const[]; // BITMAP_RPMBAR10_ID = 40, Size: 128x128 pixels
 extern const unsigned char image_rpmicon1_const[]; // BITMAP_RPMICON1_ID = 31, Size: 24x20 pixels
 extern const unsigned char image_rpmicon2_const[]; // BITMAP_RPMICON2_ID = 32, Size: 24x20 pixels
 extern const unsigned char image_tempicon1_const[]; // BITMAP_TEMPICON1_ID = 33, Size: 24x20 pixels
@@ -72,7 +81,16 @@ extern unsigned char ucImage_lowbeam1_HypRAM[24*20];
 extern unsigned char ucImage_lowbeam2_HypRAM[24*20];
 extern unsigned char ucImage_rightindicator1_HypRAM[24*20];
 extern unsigned char ucImage_rightindicator2_HypRAM[24*20];
-extern unsigned char ucImage_rpmbar_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar01_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar02_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar03_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar04_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar05_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar06_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar07_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar08_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar09_HypRAM[128*128];
+extern unsigned char ucImage_rpmbar10_HypRAM[128*128];
 extern unsigned char ucImage_rpmicon1_HypRAM[24*20];
 extern unsigned char ucImage_rpmicon2_HypRAM[24*20];
 extern unsigned char ucImage_tempicon1_HypRAM[24*20];
@@ -112,7 +130,16 @@ const touchgfx::Bitmap::BitmapData bitmap_database[] = {
     { ucImage_lowbeam2_HypRAM, 0, 24, 20, 8, 1, 2, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 18, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_rightindicator1_HypRAM, 0, 24, 20, 0, 6, 15, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_rightindicator2_HypRAM, 0, 24, 20, 0, 6, 15, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
-    { ucImage_rpmbar_HypRAM, 0, 128, 128, 33, 1, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_rpmbar01_HypRAM, 0, 128, 128, 33, 1, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_rpmbar02_HypRAM, 0, 128, 128, 33, 1, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_rpmbar03_HypRAM, 0, 128, 128, 33, 1, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_rpmbar04_HypRAM, 0, 128, 128, 33, 1, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_rpmbar05_HypRAM, 0, 128, 128, 33, 1, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_rpmbar06_HypRAM, 0, 128, 128, 33, 1, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_rpmbar07_HypRAM, 0, 128, 128, 33, 1, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_rpmbar08_HypRAM, 0, 128, 128, 33, 1, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_rpmbar09_HypRAM, 0, 128, 128, 33, 1, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_rpmbar10_HypRAM, 0, 128, 128, 33, 1, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_rpmicon1_HypRAM, 0, 24, 20, 8, 0, 8, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 2, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_rpmicon2_HypRAM, 0, 24, 20, 8, 0, 8, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 2, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_tempicon1_HypRAM, 0, 24, 20, 11, 0, 1, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 15, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },

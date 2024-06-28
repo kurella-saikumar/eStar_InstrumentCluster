@@ -172,7 +172,7 @@ uint16_t xGet_TachometerData(IndicationStatus_t* Indication, bool *status)
 #if(TACHO_TEST_MACRO == 1)
     printf("RPM: %ld\n\r", ulRpm);
 #endif
-
+    	printf("RPM Data=%ld\n",ulRpm);
     	return ulRpm;
 }
 /**
@@ -201,10 +201,10 @@ void vTacho_App(void)
     }
     else
     {
-//    	 IndicationStatus_t Indication;
-//    	 bool status = false;
-    	 vMeasureRPM();
-//    	 xGet_TachometerData(&Indication,&status);
+   	 IndicationStatus_t Indication;
+  	 bool status = false;
+     vMeasureRPM();
+  	 xGet_TachometerData(&Indication,&status);
     }
     
    

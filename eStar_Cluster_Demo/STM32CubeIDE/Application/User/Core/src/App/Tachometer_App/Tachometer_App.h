@@ -27,9 +27,12 @@
 /**************************************************************************************************
  * Include Project Specific Headers
 ***************************************************************************************************/
-#include "Tachometer_App_cfg.h"
-#include "../ICU_middleware/ICU_driver.h"
-#include "Indicator_App.h"
+//#include "Tachometer_App_cfg.h"
+//#include "../ICU_middleware/ICU_driver.h"
+//#include "Indicator_App.h"
+#include "../../../../Core/PlatformConfig/Tachometer_App_cfg.h"
+#include "../../../src/App/Indicator_App/Indicator_App.h"
+#include "../../../src/Service/IO_HAL/ICU_middleware/ICU_driver.h"
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
 ***************************************************************************************************/
@@ -50,11 +53,19 @@
 ***************************************************************************************************/
 void vTacho_Init(void);
 void vMeasureRPM(void);
-uint16_t xGet_TachometerData(IndicationStatus_t* Indication,bool *status);
+//uint16_t xGet_TachometerData(IndicationStatus_t* Indication,bool *status);
 void vTacho_App(void);
 
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
+uint16_t xGet_TachometerData(IndicationStatus_t* Indication,bool *status);
+
+#ifdef __cplusplus
+}
+#endif
 
 
 

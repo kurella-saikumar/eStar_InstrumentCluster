@@ -28,7 +28,7 @@ protected:
     /*
      * Member Declarations
      */
-   // touchgfx::Box __background;
+    touchgfx::Box __background;
     touchgfx::Image BackGround;
     touchgfx::Image ABS_Detection_w;
     touchgfx::Image ABS_Detection_r;
@@ -64,9 +64,9 @@ protected:
     touchgfx::TextAreaWithOneWildcard Clock_MIN;
     touchgfx::TextAreaWithOneWildcard Semicolon;
     touchgfx::TextAreaWithOneWildcard AM_PM;
-    touchgfx::Image RPMBars;
     touchgfx::ScalableImage High_beem_White;
     touchgfx::ScalableImage High_beem_Blue;
+    touchgfx::AnimatedImage RPMAnimation;
 
     /*
      * Wildcard Buffers

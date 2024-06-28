@@ -1,7 +1,8 @@
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:24:6:void simulateButtonPress()	0	static
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:29:6:void simulateButtonRelease()	0	static
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:33:1:Model::Model()	0	static
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:66:6:void Model::SpeedData()	16	static
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:27:6:void simulateButtonPress()	0	static
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:32:6:void simulateButtonRelease()	0	static
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:36:1:Model::Model()	0	static
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:70:6:void Model::SpeedData()	16	static
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:79:6:void Model::OdoData()	8	static
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:93:6:void Model::FuelData()	16	static
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:39:6:void Model::tick()	8	static
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:91:6:void Model::FuelData()	16	static
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:100:6:void Model::RPMData()	16	static
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:42:6:void Model::tick()	8	static

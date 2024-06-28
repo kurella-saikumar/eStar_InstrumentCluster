@@ -8,9 +8,9 @@
 
 Screen1ViewBase::Screen1ViewBase()
 {
-//    __background.setPosition(0, 0, 480, 272);
-//    __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
-//    add(__background);
+    __background.setPosition(0, 0, 480, 272);
+    __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    add(__background);
 
     BackGround.setXY(0, 0);
     BackGround.setBitmap(touchgfx::Bitmap(BITMAP_BACKGROUND_ID));
@@ -119,7 +119,7 @@ Screen1ViewBase::Screen1ViewBase()
     add(Speed_Ta);
 
     KMPH_MPH.setXY(290, 166);
-    KMPH_MPH.setColor(touchgfx::Color::getColorFromRGB(255, 247, 247));
+    KMPH_MPH.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     KMPH_MPH.setLinespacing(0);
     Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_ZEGA).getText());
     KMPH_MPH.setWildcard(KMPH_MPHBuffer);
@@ -136,7 +136,7 @@ Screen1ViewBase::Screen1ViewBase()
     add(KMPH_MPH_ODO);
 
     KMPH_MPH_DTE.setXY(258, 241);
-    KMPH_MPH_DTE.setColor(touchgfx::Color::getColorFromRGB(255, 247, 247));
+    KMPH_MPH_DTE.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     KMPH_MPH_DTE.setLinespacing(0);
     KMPH_MPH_DTE.setWildcard(touchgfx::TypedText(T___SINGLEUSE_CK36).getText());
     KMPH_MPH_DTE.resizeToCurrentText();
@@ -200,10 +200,6 @@ Screen1ViewBase::Screen1ViewBase()
     AM_PM.setTypedText(touchgfx::TypedText(T___SINGLEUSE_A8BG));
     add(AM_PM);
 
-    RPMBars.setXY(10, 100);
-    RPMBars.setBitmap(touchgfx::Bitmap(BITMAP_RPMBAR_ID));
-    add(RPMBars);
-
     High_beem_White.setBitmap(touchgfx::Bitmap(BITMAP_HIGH_BEAM_ID));
     High_beem_White.setPosition(318, 14, 24, 24);
     High_beem_White.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
@@ -214,6 +210,11 @@ Screen1ViewBase::Screen1ViewBase()
     High_beem_Blue.setPosition(309, 15, 24, 24);
     High_beem_Blue.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
     add(High_beem_Blue);
+
+    RPMAnimation.setXY(10, 100);
+    RPMAnimation.setBitmaps(BITMAP_RPMBAR01_ID, BITMAP_RPMBAR10_ID);
+    RPMAnimation.setUpdateTicksInterval(1);
+    add(RPMAnimation);
 }
 
 Screen1ViewBase::~Screen1ViewBase()

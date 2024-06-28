@@ -4,7 +4,7 @@
 #include "../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App.h"
 #include "../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h"
 #include "../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/FuelGuage/FuelGuage_App.h"
-
+#include "../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App.h"
 
 
 bool isButtonPressed = false;
@@ -18,6 +18,9 @@ speedDisplayMetrics_t speedMetrics;
 IndicationStatus_t speedStatus;
 
 IndicationStatus_t FuelWarning;
+IndicationStatus_t RPMWarning;
+
+bool RPMWarning_Status;
 bool FuelWarning_Status;
 
 // Function to simulate button press
@@ -55,6 +58,7 @@ void Model::tick()
 		SpeedData();
 		OdoData();
 		FuelData();
+		RPMData();
 		TickCount =0;
 	}
 }
@@ -65,10 +69,6 @@ void Model::tick()
 
 void Model::SpeedData()
 {
-//	counter = xGetSpeedValue(speedMetrics, speedStatus);
-
-	//counter =xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStatus_t *speedStatus);
-
 	if(modelListener !=0)
 	{
 		modelListener->notifyCounterChanged(xGetSpeedValue(&speedMetrics, &speedStatus));
@@ -80,7 +80,7 @@ void Model::OdoData()
 {
 	odometer = xGetOdoReadings(odoUnits);
 
-   // Notify listener about odometer data change
+   // Notify listener about Odometer data change
    if (modelListener != nullptr)
    {
        modelListener->notifyOdoDataChanged(odometer);
@@ -88,13 +88,20 @@ void Model::OdoData()
 }
 
 
-
-#if 1
 void Model::FuelData()
 {
+	// Notify listener about fuelData data change
 	if(modelListener !=0)
 	{
 		modelListener->notifyFuelCounter(xGetFuelLevel(&FuelWarning,&FuelWarning_Status));
 	}
 }
-#endif
+
+void Model::RPMData()
+{
+	// Notify listener about RPMData data change
+	if(modelListener !=0)
+	{
+		modelListener->notifyRPMDataChanged(xGet_TachometerData(&RPMWarning,&RPMWarning_Status));
+	}
+}

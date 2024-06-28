@@ -36,3 +36,7 @@ void Screen1Presenter::notifyFuelCounter(uint16_t newFuelCount)
 	view.FuelGauageAnimation(newFuelCount);
 }
 
+void Screen1Presenter::notifyRPMDataChanged(uint16_t newRPMData)
+{
+	view.RPMDataAnimation(newRPMData);
+}

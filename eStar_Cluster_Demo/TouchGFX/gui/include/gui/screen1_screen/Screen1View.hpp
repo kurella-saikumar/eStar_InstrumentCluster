@@ -18,8 +18,12 @@ public:
     virtual void KMPHtoMPH(int newCounter);
     virtual void FuelGauageAnimation(uint16_t newFuelCount);
     virtual void OdoDataUpdate(uint32_t newodoData);
+    virtual void RPMDataAnimation(uint16_t newRPMData);
+
+
 protected:
-    touchgfx::BitmapId barImageIds[10];
+    touchgfx::BitmapId FuelbarImageIds[10];
+    touchgfx::BitmapId RPMBarImageIds[10];
     uint16_t newCounter;
     int tickCounter;
 };

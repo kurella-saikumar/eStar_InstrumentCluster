@@ -342,7 +342,43 @@ SECTIONS
 	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
     
-    *(image_rpmbar_buf image_rpmbar_buf.*)
+    *(image_rpmbar01_buf image_rpmbar01_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_rpmbar02_buf image_rpmbar02_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_rpmbar03_buf image_rpmbar03_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_rpmbar04_buf image_rpmbar04_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_rpmbar05_buf image_rpmbar05_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_rpmbar06_buf image_rpmbar06_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_rpmbar07_buf image_rpmbar07_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_rpmbar08_buf image_rpmbar08_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_rpmbar09_buf image_rpmbar09_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_rpmbar10_buf image_rpmbar10_buf.*)
 	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
     

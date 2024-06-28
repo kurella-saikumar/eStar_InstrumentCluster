@@ -21,8 +21,8 @@ public:
     void SpeedData();
     void OdoData();
     void FuelData();
+    void RPMData();
 
-    //void FuelData();
 protected:
     ModelListener* modelListener;
     uint16_t counter;
