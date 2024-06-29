@@ -40,3 +40,14 @@ void Screen1Presenter::notifyRPMDataChanged(uint16_t newRPMData)
 {
 	view.RPMDataAnimation(newRPMData);
 }
+void Screen1Presenter::notifyDriverInforMenuDataChanged( uint8_t newMenu)
+{
+	view.DriverInforMenu(newMenu);
+}
+
+
+
+
+
+
+

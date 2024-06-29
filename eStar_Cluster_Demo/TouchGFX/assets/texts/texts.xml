@@ -6,6 +6,12 @@
   <Texts>
     <TextGroup Id="Group1" />
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_INCS" Alignment="Left" TypographyId="DrivrInfo_Data">
+        <Translation Language="GB">RANGE</Translation>
+      </Text>
+      <Text Id="__SingleUse_2R6X" Alignment="Right" TypographyId="DrivrInfo_Data">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_9DYF" Alignment="Left" TypographyId="AM_PM">
         <Translation Language="GB">AM</Translation>
       </Text>
@@ -28,12 +34,6 @@
         <Translation Language="GB">00</Translation>
       </Text>
       <Text Id="__SingleUse_8JLD" Alignment="Left" TypographyId="Clock_hr">
-        <Translation Language="GB">&lt;value&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_M7CG" Alignment="Left" TypographyId="DrivrInfo_Data">
-        <Translation Language="GB">DTE</Translation>
-      </Text>
-      <Text Id="__SingleUse_GG4S" Alignment="Center" TypographyId="DrivrInfo_Data">
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_CK36" Alignment="Left" TypographyId="KMPH">
@@ -83,6 +83,6 @@
     <Typography Id="Clock_hr" Font="Technology-Bold.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
     <Typography Id="Clock_min" Font="Technology-Bold.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
     <Typography Id="Semicolon" Font="Technology-Bold.ttf" Size="24" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="DrivrInfo_Data" Font="Technology.ttf" Size="14" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="A-Z,a-z" />
+    <Typography Id="DrivrInfo_Data" Font="Technology-Bold.ttf" Size="17" Bpp="4" IsVector="no" Direction="LTR" EllipsisCharacter=" " />
   </Typographies>
 </TextDatabase>

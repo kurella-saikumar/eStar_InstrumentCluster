@@ -160,14 +160,6 @@ Screen1ViewBase::Screen1ViewBase()
     DriverInfo.setTypedText(touchgfx::TypedText(T___SINGLEUSE_0GI1));
     add(DriverInfo);
 
-    DriverInfo_Data.setXY(180, 244);
-    DriverInfo_Data.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    DriverInfo_Data.setLinespacing(0);
-    DriverInfo_Data.setWildcard(touchgfx::TypedText(T___SINGLEUSE_M7CG).getText());
-    DriverInfo_Data.resizeToCurrentText();
-    DriverInfo_Data.setTypedText(touchgfx::TypedText(T___SINGLEUSE_GG4S));
-    add(DriverInfo_Data);
-
     Clock_HR.setXY(395, 14);
     Clock_HR.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     Clock_HR.setLinespacing(0);
@@ -215,6 +207,14 @@ Screen1ViewBase::Screen1ViewBase()
     RPMAnimation.setBitmaps(BITMAP_RPMBAR01_ID, BITMAP_RPMBAR10_ID);
     RPMAnimation.setUpdateTicksInterval(1);
     add(RPMAnimation);
+
+    DriverInfoMenu.setPosition(142, 241, 65, 18);
+    DriverInfoMenu.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    DriverInfoMenu.setLinespacing(0);
+    Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_INCS).getText());
+    DriverInfoMenu.setWildcard(DriverInfoMenuBuffer);
+    DriverInfoMenu.setTypedText(touchgfx::TypedText(T___SINGLEUSE_2R6X));
+    add(DriverInfoMenu);
 }
 
 Screen1ViewBase::~Screen1ViewBase()

@@ -4,6 +4,7 @@
 
 FONT_TABLE_LOCATION_FLASH_PRAGMA
 KEEP extern const touchgfx::GlyphNode glyphs_Technology_Bold_17_4bpp[] FONT_TABLE_LOCATION_FLASH_ATTRIBUTE = {
+    {     0, 0x0020,   0,   0,   0,   0,   6,   0,   0, 0x00 }, // space
     {     0, 0x003F,   7,  12,  12,   0,   7,   0,   0, 0x00 }, // question
     {    48, 0x0041,   7,  12,  12,   0,   8,   0,   0, 0x00 }, // A
     {    96, 0x0042,   7,  12,  12,   0,   8,   0,   0, 0x00 }, // B
@@ -74,6 +75,6 @@ touchgfx::GeneratedFont& getFont_Technology_Bold_17_4bpp();
 
 touchgfx::GeneratedFont& getFont_Technology_Bold_17_4bpp()
 {
-    static touchgfx::GeneratedFont Technology_Bold_17_4bpp(glyphs_Technology_Bold_17_4bpp, 53, 18, 17, 0, 0, 4, 1, 0, 0, unicodes_Technology_Bold_17_4bpp, kerning_Technology_Bold_17_4bpp, 63, 0, 0, 0);
+    static touchgfx::GeneratedFont Technology_Bold_17_4bpp(glyphs_Technology_Bold_17_4bpp, 54, 18, 17, 0, 0, 4, 1, 0, 0, unicodes_Technology_Bold_17_4bpp, kerning_Technology_Bold_17_4bpp, 63, 32, 0, 0);
     return Technology_Bold_17_4bpp;
 }

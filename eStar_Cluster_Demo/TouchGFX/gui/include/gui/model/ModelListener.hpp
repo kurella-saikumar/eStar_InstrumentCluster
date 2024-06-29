@@ -19,7 +19,7 @@ public:
     virtual void notifyOdoDataChanged(uint32_t odometer){};
     virtual void notifyFuelCounter(uint16_t Fuelcount){};
     virtual void notifyRPMDataChanged(uint16_t RPMData){};
-
+    virtual void notifyDriverInforMenuDataChanged(uint8_t newMenu){};
 protected:
     Model* model;
 };

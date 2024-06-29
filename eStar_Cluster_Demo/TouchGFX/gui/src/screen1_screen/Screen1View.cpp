@@ -193,8 +193,36 @@ void Screen1View:: RPMDataAnimation(uint16_t newRPMData)
 }
 
 
-
-
+void Screen1View::DriverInforMenu(uint8_t newMenu)
+{
+	switch(newMenu)
+	{
+	case 0 :
+			Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "RANGE");
+			DriverInfoMenu.invalidate();
+			break;
+	case 1 :
+			Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "AVS");
+			DriverInfoMenu.invalidate();
+			break;
+	case 2 :
+			Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "AFE");
+			DriverInfoMenu.invalidate();
+			break;
+	case 3 :
+			Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "TRIP"" ""A");
+			DriverInfoMenu.invalidate();
+			break;
+	case 4 :
+			Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "TRIP"" ""B");
+			DriverInfoMenu.invalidate();
+			break;
+	default:
+			Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "RANGE");
+			DriverInfoMenu.invalidate();
+	        break;
+	}
+}
 
 
 

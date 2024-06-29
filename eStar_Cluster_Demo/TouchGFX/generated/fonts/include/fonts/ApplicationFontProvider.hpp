@@ -34,8 +34,8 @@ struct TypographyFontIndex
     static const touchgfx::FontId CLOCK_HR = 5;       // Technology_Bold_20_4bpp
     static const touchgfx::FontId CLOCK_MIN = 5;      // Technology_Bold_20_4bpp
     static const touchgfx::FontId SEMICOLON = 3;      // Technology_Bold_24_4bpp
-    static const touchgfx::FontId DRIVRINFO_DATA = 6; // Technology_14_4bpp
-    static const uint16_t NUMBER_OF_FONTS = 7;
+    static const touchgfx::FontId DRIVRINFO_DATA = 1; // Technology_Bold_17_4bpp
+    static const uint16_t NUMBER_OF_FONTS = 6;
 };
 
 class ApplicationFontProvider : public touchgfx::FontProvider

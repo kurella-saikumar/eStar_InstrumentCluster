@@ -274,7 +274,7 @@ void vHandleModeResetActions(void)
         {
             vModeSwitchToNext();
 #if (SWITCH_HANDLER_MACRO == 1)
-            printf("mode short press\r\n");
+            //printf("mode short press\r\n");
 #endif
             
         }

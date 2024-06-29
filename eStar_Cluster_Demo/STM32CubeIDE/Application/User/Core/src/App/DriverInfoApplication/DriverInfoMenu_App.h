@@ -44,7 +44,18 @@ extern DriverInfoModeStatus_t eCurrentTask; /**< Global variable to store the cu
 
 
 void vSetDriverInforMenu(DriverInfoModeStatus_t MenuSetItem);
+//DriverInfoModeStatus_t xGetDriverInforMenu(void);
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 DriverInfoModeStatus_t xGetDriverInforMenu(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 
 #endif /* DRIVER_INFO_MENU_APP_H */

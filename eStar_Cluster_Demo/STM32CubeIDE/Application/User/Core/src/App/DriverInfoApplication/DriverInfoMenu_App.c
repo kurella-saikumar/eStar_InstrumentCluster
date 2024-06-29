@@ -158,6 +158,7 @@ void vModeSwitchToNext(void)
  */
 DriverInfoModeStatus_t xGetDriverInforMenu(void)
 {
+	printf("DriverInfoMode=%d\n",eCurrentTask);
     return eCurrentTask;
     
 }

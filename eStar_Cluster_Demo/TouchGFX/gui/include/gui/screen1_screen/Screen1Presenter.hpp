@@ -29,6 +29,7 @@ public:
     virtual void notifyOdoDataChanged(uint32_t newodoData);
     virtual void notifyFuelCounter(uint16_t newFuelCount);
     virtual void notifyRPMDataChanged(uint16_t newRPMData);
+    virtual void notifyDriverInforMenuDataChanged( uint8_t newMenu);
 
     virtual ~Screen1Presenter() {}
 

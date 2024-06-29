@@ -19,6 +19,7 @@ public:
     virtual void FuelGauageAnimation(uint16_t newFuelCount);
     virtual void OdoDataUpdate(uint32_t newodoData);
     virtual void RPMDataAnimation(uint16_t newRPMData);
+    virtual void DriverInforMenu(uint8_t newMenu);
 
 
 protected:

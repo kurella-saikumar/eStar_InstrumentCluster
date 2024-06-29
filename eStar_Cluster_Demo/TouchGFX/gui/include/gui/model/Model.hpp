@@ -22,6 +22,7 @@ public:
     void OdoData();
     void FuelData();
     void RPMData();
+    void DriverInforMenu();
 
 protected:
     ModelListener* modelListener;

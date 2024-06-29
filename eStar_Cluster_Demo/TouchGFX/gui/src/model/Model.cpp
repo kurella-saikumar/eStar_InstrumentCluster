@@ -5,7 +5,7 @@
 #include "../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h"
 #include "../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/FuelGuage/FuelGuage_App.h"
 #include "../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App.h"
-
+#include "../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfoApplication/DriverInfoMenu_App.h"
 
 bool isButtonPressed = false;
 static uint32_t ulOdoCounter = 0;
@@ -16,6 +16,7 @@ uint8_t Fuel_Readings[4];
 
 speedDisplayMetrics_t speedMetrics;
 IndicationStatus_t speedStatus;
+DriverInfoModeStatus_t DIM_Value;
 
 IndicationStatus_t FuelWarning;
 IndicationStatus_t RPMWarning;
@@ -59,6 +60,7 @@ void Model::tick()
 		OdoData();
 		FuelData();
 		RPMData();
+		DriverInforMenu();
 		TickCount =0;
 	}
 }
@@ -105,3 +107,21 @@ void Model::RPMData()
 		modelListener->notifyRPMDataChanged(xGet_TachometerData(&RPMWarning,&RPMWarning_Status));
 	}
 }
+
+void Model::DriverInforMenu()
+{
+
+	DIM_Value = xGetDriverInforMenu();
+
+	// Notify listener about RPMData data change
+	if(modelListener !=0)
+	{
+		modelListener->notifyDriverInforMenuDataChanged(DIM_Value);
+	}
+}
+
+
+
+
+
+

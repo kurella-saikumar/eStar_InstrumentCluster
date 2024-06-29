@@ -343,25 +343,6 @@
           },
           {
             "Type": "TextArea",
-            "Name": "DriverInfo_Data",
-            "X": 180,
-            "Y": 244,
-            "Width": 18,
-            "Height": 15,
-            "TextId": "__SingleUse_GG4S",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "TextId": "__SingleUse_M7CG"
-            }
-          },
-          {
-            "Type": "TextArea",
             "Name": "Clock_HR",
             "X": 395,
             "Y": 14,
@@ -467,6 +448,26 @@
             "FileNameFirst": "AnimationImages\\RPM\\RPMBar01.png",
             "FileNameLast": "AnimationImages\\RPM\\RPMBar10.png",
             "UpdateTicksInterval": 1
+          },
+          {
+            "Type": "TextArea",
+            "Name": "DriverInfoMenu",
+            "X": 142,
+            "Y": 241,
+            "Width": 65,
+            "Height": 18,
+            "TextId": "__SingleUse_2R6X",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_INCS",
+              "UseBuffer": true,
+              "BufferSize": 15
+            }
           }
         ],
         "Interactions": []

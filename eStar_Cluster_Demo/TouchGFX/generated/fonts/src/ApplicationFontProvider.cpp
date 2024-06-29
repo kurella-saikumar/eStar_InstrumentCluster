@@ -34,8 +34,8 @@ touchgfx::Font* ApplicationFontProvider::getFont(touchgfx::FontId typography)
         // Technology_Bold_24_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[3]);
     case Typography::DRIVRINFO_DATA:
-        // Technology_14_4bpp
-        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[6]);
+        // Technology_Bold_17_4bpp
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[1]);
     default:
         return 0;
     }

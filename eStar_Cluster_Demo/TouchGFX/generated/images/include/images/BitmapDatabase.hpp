@@ -51,6 +51,7 @@ const uint16_t BITMAP_RPMICON1_ID = 41;
 const uint16_t BITMAP_RPMICON2_ID = 42;
 const uint16_t BITMAP_TEMPICON1_ID = 43;
 const uint16_t BITMAP_TEMPICON2_ID = 44;
+const uint16_t BITMAP_TRIP_A_ID = 45;
 
 namespace BitmapDatabase
 {

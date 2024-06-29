@@ -13,3 +13,4 @@ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/scr
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:103:6:virtual void Screen1View::OdoDataUpdate(uint32_t)	8	static
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:153:6:virtual void Screen1View::FuelGauageAnimation(uint16_t)	16	static
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:178:6:virtual void Screen1View::RPMDataAnimation(uint16_t)	16	static
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:196:6:virtual void Screen1View::DriverInforMenu(uint8_t)	8	static
