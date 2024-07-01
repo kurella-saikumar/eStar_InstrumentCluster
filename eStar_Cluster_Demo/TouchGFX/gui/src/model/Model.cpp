@@ -12,7 +12,8 @@ static uint32_t ulOdoCounter = 0;
 
 uint8_t odoUnits[4]; // Assuming the function returns an array of 4 uint8_t
 uint8_t Fuel_Readings[4];
-
+uint8_t Trip_A_Units;
+uint8_t Trip_B_Units;
 
 speedDisplayMetrics_t speedMetrics;
 IndicationStatus_t speedStatus;
@@ -61,6 +62,8 @@ void Model::tick()
 		FuelData();
 		RPMData();
 		DriverInforMenu();
+		Trip_A();
+		Trip_B();
 		TickCount =0;
 	}
 }
@@ -120,7 +123,29 @@ void Model::DriverInforMenu()
 	}
 }
 
+void Model::Trip_A()
+{
 
+	Trip_A_Value = xGetTripA_OdoReading(&Trip_A_Units);
+
+	// Notify listener about RPMData data change
+	if(modelListener !=0)
+	{
+		modelListener->notifyTrip_ADataChanged(Trip_A_Value);
+	}
+}
+
+void Model::Trip_B()
+{
+
+	Trip_B_Value = xGetTripB_OdoReading(&Trip_B_Units);
+
+	// Notify listener about RPMData data change
+	if(modelListener !=0)
+	{
+		modelListener->notifyTrip_BDataChanged(Trip_B_Value);
+	}
+}
 
 
 

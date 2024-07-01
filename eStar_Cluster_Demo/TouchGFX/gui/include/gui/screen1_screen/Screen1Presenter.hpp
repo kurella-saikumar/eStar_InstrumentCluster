@@ -30,6 +30,8 @@ public:
     virtual void notifyFuelCounter(uint16_t newFuelCount);
     virtual void notifyRPMDataChanged(uint16_t newRPMData);
     virtual void notifyDriverInforMenuDataChanged( uint8_t newMenu);
+    virtual void notifyTrip_ADataChanged(uint16_t newTripA);
+    virtual void notifyTrip_BDataChanged(uint16_t newTripB);
 
     virtual ~Screen1Presenter() {}
 

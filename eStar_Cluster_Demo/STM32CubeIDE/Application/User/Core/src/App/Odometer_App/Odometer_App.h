@@ -67,9 +67,9 @@ void vCalculateOdoInMiles(void);
 uint32_t vPulseCount(void);
 
 void vToggleOdoUnits(void);
-uint16_t xGetTripA_OdoReading(uint8_t *TripA_Units);
+//uint16_t xGetTripA_OdoReading(uint8_t *TripA_Units);
 void vResetTripA_OdoReadings(void);
-uint16_t xGetTripB_OdoReading(uint8_t *TripB_Units);
+//uint16_t xGetTripB_OdoReading(uint8_t *TripB_Units);
 void vResetTripB_OdoReadings(void);
 
 void xWrite_OdoVal_to_EEPROM(void);
@@ -81,7 +81,8 @@ extern "C" {
 #endif
 
 uint32_t xGetOdoReadings(uint8_t* OdoUnits);
-
+uint16_t xGetTripA_OdoReading(uint8_t *TripA_Units);
+uint16_t xGetTripB_OdoReading(uint8_t *TripB_Units);
 #ifdef __cplusplus
 }
 #endif

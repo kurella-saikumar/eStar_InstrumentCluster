@@ -256,7 +256,7 @@ uint16_t xGetTripA_OdoReading(uint8_t *TripA_Units)
 #if(ODO_TEST_MACRO == 1)
     printf("A: %d\t" ,usTripA);
 #endif
-
+    printf("tripAAAAAA=%d\n",usTripA);
     return usTripA; // You might need to change the return type if necessary
 }
 
@@ -334,7 +334,7 @@ usTripB = ulOdoInEeprom -  ulOdoValBeforeTripBReset;
 #if(ODO_TEST_MACRO == 1)
     printf("B: %d\t" ,usTripB);
 #endif
-
+    printf("tripBBBBBB=%d\n",usTripB);
     return usTripB; // You might need to change the return type if necessary
 }
 

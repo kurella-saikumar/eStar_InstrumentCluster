@@ -40,9 +40,19 @@ void Screen1Presenter::notifyRPMDataChanged(uint16_t newRPMData)
 {
 	view.RPMDataAnimation(newRPMData);
 }
+
 void Screen1Presenter::notifyDriverInforMenuDataChanged( uint8_t newMenu)
 {
 	view.DriverInforMenu(newMenu);
+}
+void Screen1Presenter::notifyTrip_ADataChanged(uint16_t newTripA)
+{
+	view.TRIP_A(newTripA);
+}
+
+void Screen1Presenter::notifyTrip_BDataChanged(uint16_t newTripB)
+{
+	view.TRIP_B(newTripB);
 }
 
 

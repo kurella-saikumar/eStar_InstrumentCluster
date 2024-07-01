@@ -23,6 +23,8 @@ public:
     void FuelData();
     void RPMData();
     void DriverInforMenu();
+    void Trip_A();
+    void Trip_B();
 
 protected:
     ModelListener* modelListener;
@@ -31,6 +33,8 @@ protected:
     uint16_t TickCount;
     uint16_t speedcounter;
     uint32_t odometer ;
+    uint16_t Trip_A_Value;
+    uint16_t Trip_B_Value;
 };
 
 #endif // MODEL_HPP

@@ -3,6 +3,8 @@
     "Screens": [
       {
         "Name": "Screen1",
+        "OverrideDefaultBufferSize": true,
+        "CanvasBufferSize": 7200,
         "Components": [
           {
             "Type": "Image",
@@ -285,7 +287,7 @@
           {
             "Type": "TextArea",
             "Name": "KMPH_MPH_DTE",
-            "X": 258,
+            "X": 290,
             "Y": 241,
             "Width": 16,
             "Height": 18,
@@ -325,9 +327,9 @@
           {
             "Type": "TextArea",
             "Name": "DriverInfo",
-            "X": 215,
-            "Y": 236,
-            "Width": 33,
+            "X": 236,
+            "Y": 234,
+            "Width": 48,
             "Height": 25,
             "TextId": "__SingleUse_0GI1",
             "TextRotation": "0",
@@ -338,7 +340,14 @@
             },
             "AutoSize": true,
             "Wildcard1": {
-              "TextId": "__SingleUse_69GV"
+              "TextId": "__SingleUse_69GV",
+              "UseBuffer": true,
+              "BufferSize": 10
+            },
+            "Wildcard2": {
+              "TextId": "__SingleUse_DPKY",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {
@@ -347,7 +356,7 @@
             "X": 395,
             "Y": 14,
             "Width": 18,
-            "Height": 21,
+            "Height": 22,
             "TextId": "__SingleUse_8JLD",
             "TextRotation": "0",
             "Color": {
@@ -366,7 +375,7 @@
             "X": 418,
             "Y": 14,
             "Width": 18,
-            "Height": 21,
+            "Height": 22,
             "TextId": "__SingleUse_SWRW",
             "TextRotation": "0",
             "Color": {
@@ -385,7 +394,7 @@
             "X": 413,
             "Y": 15,
             "Width": 3,
-            "Height": 21,
+            "Height": 22,
             "TextId": "__SingleUse_D0FJ",
             "TextRotation": "0",
             "Color": {
@@ -452,11 +461,11 @@
           {
             "Type": "TextArea",
             "Name": "DriverInfoMenu",
-            "X": 142,
-            "Y": 241,
+            "X": 160,
+            "Y": 238,
             "Width": 65,
-            "Height": 18,
-            "TextId": "__SingleUse_2R6X",
+            "Height": 21,
+            "TextId": "__SingleUse_OOJU",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
@@ -464,9 +473,9 @@
               "Blue": 255
             },
             "Wildcard1": {
-              "TextId": "__SingleUse_INCS",
+              "TextId": "__SingleUse_U3CB",
               "UseBuffer": true,
-              "BufferSize": 15
+              "BufferSize": 20
             }
           }
         ],

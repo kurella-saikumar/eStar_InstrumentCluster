@@ -58,7 +58,7 @@ protected:
     touchgfx::TextAreaWithOneWildcard KMPH_MPH_ODO;
     touchgfx::TextAreaWithOneWildcard KMPH_MPH_DTE;
     touchgfx::TextAreaWithOneWildcard ODOReadings;
-    touchgfx::TextAreaWithOneWildcard DriverInfo;
+    touchgfx::TextAreaWithTwoWildcards DriverInfo;
     touchgfx::TextAreaWithOneWildcard Clock_HR;
     touchgfx::TextAreaWithOneWildcard Clock_MIN;
     touchgfx::TextAreaWithOneWildcard Semicolon;
@@ -77,10 +77,20 @@ protected:
     touchgfx::Unicode::UnicodeChar KMPH_MPHBuffer[KMPH_MPH_SIZE];
     static const uint16_t ODOREADINGS_SIZE = 10;
     touchgfx::Unicode::UnicodeChar ODOReadingsBuffer[ODOREADINGS_SIZE];
-    static const uint16_t DRIVERINFOMENU_SIZE = 15;
+    static const uint16_t DRIVERINFOBUFFER1_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar DriverInfoBuffer1[DRIVERINFOBUFFER1_SIZE];
+    static const uint16_t DRIVERINFOBUFFER2_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar DriverInfoBuffer2[DRIVERINFOBUFFER2_SIZE];
+    static const uint16_t DRIVERINFOMENU_SIZE = 20;
     touchgfx::Unicode::UnicodeChar DriverInfoMenuBuffer[DRIVERINFOMENU_SIZE];
 
 private:
+
+    /*
+     * Canvas Buffer Size
+     */
+    static const uint32_t CANVAS_BUFFER_SIZE = 7200;
+    uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 
 };
 

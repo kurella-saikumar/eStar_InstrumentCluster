@@ -192,35 +192,59 @@ void Screen1View:: RPMDataAnimation(uint16_t newRPMData)
 	RPMAnimation.invalidate();
 }
 
+void Screen1View::TRIP_A(uint16_t newTripA)
+{
+		storedTRIP_A1 = newTripA / 10;
+		storedTRIP_A2 = newTripA % 10;
+}
+
+void Screen1View::TRIP_B(uint16_t newTripB)
+{
+		storedTRIP_B1 = newTripB / 10;
+		storedTRIP_B2 = newTripB % 10;
+}
+
 
 void Screen1View::DriverInforMenu(uint8_t newMenu)
 {
 	switch(newMenu)
 	{
 	case 0 :
-			Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "RANGE");
-			DriverInfoMenu.invalidate();
-			break;
+
+				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "RANGE");
+				DriverInfoMenu.invalidate();
+				break;
 	case 1 :
-			Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "AVS");
-			DriverInfoMenu.invalidate();
-			break;
+				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "AVS");
+				DriverInfoMenu.invalidate();
+				break;
 	case 2 :
-			Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "AFE");
-			DriverInfoMenu.invalidate();
-			break;
+
+				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "AFE");
+				DriverInfoMenu.invalidate();
+				break;
 	case 3 :
-			Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "TRIP"" ""A");
-			DriverInfoMenu.invalidate();
-			break;
+
+				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "TRIP"" ""A");
+				Unicode::snprintf(DriverInfoBuffer1, DRIVERINFOBUFFER1_SIZE, "%d",storedTRIP_A1);
+				DriverInfo.invalidate();
+				Unicode::snprintf(DriverInfoBuffer2, DRIVERINFOBUFFER2_SIZE, "%d",storedTRIP_A2);
+				DriverInfo.invalidate();
+				DriverInfoMenu.invalidate();
+				break;
 	case 4 :
-			Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "TRIP"" ""B");
-			DriverInfoMenu.invalidate();
-			break;
+				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "TRIP"" ""B");
+				Unicode::snprintf(DriverInfoBuffer1, DRIVERINFOBUFFER1_SIZE, "%d",storedTRIP_B1);
+				DriverInfo.invalidate();
+				Unicode::snprintf(DriverInfoBuffer2, DRIVERINFOBUFFER2_SIZE, "%d",storedTRIP_B2);
+				DriverInfo.invalidate();
+				DriverInfoMenu.invalidate();
+				break;
+
 	default:
-			Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "RANGE");
-			DriverInfoMenu.invalidate();
-	        break;
+				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "RANGE");
+				DriverInfoMenu.invalidate();
+				break;
 	}
 }
 

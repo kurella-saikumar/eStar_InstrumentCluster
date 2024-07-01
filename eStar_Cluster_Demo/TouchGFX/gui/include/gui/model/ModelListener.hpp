@@ -20,6 +20,8 @@ public:
     virtual void notifyFuelCounter(uint16_t Fuelcount){};
     virtual void notifyRPMDataChanged(uint16_t RPMData){};
     virtual void notifyDriverInforMenuDataChanged(uint8_t newMenu){};
+    virtual void notifyTrip_ADataChanged(uint16_t TripA){};
+    virtual void notifyTrip_BDataChanged(uint16_t TripB){};
 protected:
     Model* model;
 };
