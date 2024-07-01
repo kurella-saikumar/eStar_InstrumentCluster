@@ -100,7 +100,7 @@ uint32_t xGetRollingPulseCount(uint8_t channelNum)
 {
 	if(MAX_CHANNELS > channelNum)
 	{
-	temp_edgeCounter = edge_Counter_Rollover_Flag[channelNum] * USHRT_MAX + edge_Counter[channelNum];
+		temp_edgeCounter = edge_Counter_Rollover_Flag[channelNum] * USHRT_MAX + edge_Counter[channelNum];
 	}
     return temp_edgeCounter;
 }

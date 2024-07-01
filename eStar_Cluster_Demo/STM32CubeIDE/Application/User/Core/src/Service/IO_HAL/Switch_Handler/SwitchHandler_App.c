@@ -335,7 +335,7 @@ void vHandleModeResetActions(void)
         if (eClockMode == CLOCK_MODE_INACTIVE)
         {
         	xClockSettingGetSetMode();      //Deciding clk action based on buttons inputs
-#if (SWITCH_HANDLER_MACRO == 1)
+#if (SWITCH_HANDLER_MACRO == 0)
             printf("mode and Reset Long press - Clock Setting mode\r\n");
 #endif
             

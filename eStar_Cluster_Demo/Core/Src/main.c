@@ -25,6 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "stdio.h"
 #include "stdint.h"
 #include "Sys_WakeUp_Reason.h"
 #include "stm32h735g_discovery_ospi.h"
@@ -47,10 +48,14 @@
 #include "stm32h7xx_hal_tim.h"
 #include "ServiceRequest_App.h"
 
+#include "cmsis_os.h"
+#include "cmsis_os2.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 typedef StaticTask_t osStaticThreadDef_t;
+typedef StaticEventGroup_t osStaticEventGroupDef_t;
 /* USER CODE BEGIN PTD */
 #ifdef __GNUC__
 /* With GCC, small printf (option LD Linker->Libraries->Small printf
@@ -67,13 +72,14 @@ uint16_t usADCValue;
 uint32_t gl_BAT_MON_u32;
 IndicationStatus_t indicator;
 uint32_t execTimeFault;
+uint8_t debounced_state = 0;
 
 
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+#define EVENT_FLAG_0  (1U << 0)
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -227,18 +233,6 @@ const osThreadAttr_t TachoMeter_attributes = {
   .stack_size = sizeof(TachoMeterBuffer),
   .priority = (osPriority_t) osPriorityBelowNormal,
 };
-/* Definitions for DriverInfo */
-osThreadId_t DriverInfoHandle;
-uint32_t myTask12Buffer[ 128 ];
-osStaticThreadDef_t myTask12ControlBlock;
-const osThreadAttr_t DriverInfo_attributes = {
-  .name = "DriverInfo",
-  .cb_mem = &myTask12ControlBlock,
-  .cb_size = sizeof(myTask12ControlBlock),
-  .stack_mem = &myTask12Buffer[0],
-  .stack_size = sizeof(myTask12Buffer),
-  .priority = (osPriority_t) osPriorityLow,
-};
 /* Definitions for SwitchHandler */
 osThreadId_t SwitchHandlerHandle;
 uint32_t SwitchHandlerBuffer[ 128 ];
@@ -299,6 +293,43 @@ const osThreadAttr_t ServiceIndicato_attributes = {
   .stack_size = sizeof(ServiceIndicatoBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for myTask17 */
+osThreadId_t myTask17Handle;
+uint32_t myTask17Buffer[ 128 ];
+osStaticThreadDef_t myTask17ControlBlock;
+const osThreadAttr_t myTask17_attributes = {
+  .name = "myTask17",
+  .cb_mem = &myTask17ControlBlock,
+  .cb_size = sizeof(myTask17ControlBlock),
+  .stack_mem = &myTask17Buffer[0],
+  .stack_size = sizeof(myTask17Buffer),
+  .priority = (osPriority_t) osPriorityNormal1,
+};
+/* Definitions for DriverInfoApp */
+osThreadId_t DriverInfoAppHandle;
+uint32_t DriverInfoAppBuffer[ 1024 ];
+osStaticThreadDef_t DriverInfoAppControlBlock;
+const osThreadAttr_t DriverInfoApp_attributes = {
+  .name = "DriverInfoApp",
+  .cb_mem = &DriverInfoAppControlBlock,
+  .cb_size = sizeof(DriverInfoAppControlBlock),
+  .stack_mem = &DriverInfoAppBuffer[0],
+  .stack_size = sizeof(DriverInfoAppBuffer),
+  .priority = (osPriority_t) osPriorityBelowNormal,
+};
+/* Definitions for myQueue01 */
+osMessageQueueId_t myQueue01Handle;
+const osMessageQueueAttr_t myQueue01_attributes = {
+  .name = "myQueue01"
+};
+/* Definitions for myEvent01 */
+osEventFlagsId_t myEvent01Handle;
+osStaticEventGroupDef_t myEvent01ControlBlock;
+const osEventFlagsAttr_t myEvent01_attributes = {
+  .name = "myEvent01",
+  .cb_mem = &myEvent01ControlBlock,
+  .cb_size = sizeof(myEvent01ControlBlock),
+};
 /* USER CODE BEGIN PV */
 /**
   * @brief  Retargets the C library printf function to the USART.
@@ -345,12 +376,13 @@ void FuelGuageTask(void *argument);
 void Odo_Task(void *argument);
 void Speedo_Task(void *argument);
 void Tacho_Task(void *argument);
-void DriverInfoAppTask(void *argument);
 void SwitchHandlerTask(void *argument);
 void GetClockTask(void *argument);
 void CAN_Task(void *argument);
 void IndicatorsApp_Task(void *argument);
 void ServiceIndicatorApp_Task(void *argument);
+void StartTask17(void *argument);
+void DriverInfoApp_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
 void vBacklightBrightness(void);
@@ -464,6 +496,10 @@ int main(void)
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
 
+  /* Create the queue(s) */
+  /* creation of myQueue01 */
+//  myQueue01Handle = osMessageQueueNew (16, sizeof(uint16_t), &myQueue01_attributes);
+
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -502,9 +538,6 @@ int main(void)
   /* creation of TachoMeter */
   TachoMeterHandle = osThreadNew(Tacho_Task, NULL, &TachoMeter_attributes);
 
-  /* creation of DriverInfo */
-  DriverInfoHandle = osThreadNew(DriverInfoAppTask, NULL, &DriverInfo_attributes);
-
   /* creation of SwitchHandler */
   SwitchHandlerHandle = osThreadNew(SwitchHandlerTask, NULL, &SwitchHandler_attributes);
 
@@ -520,9 +553,19 @@ int main(void)
   /* creation of ServiceIndicato */
   ServiceIndicatoHandle = osThreadNew(ServiceIndicatorApp_Task, NULL, &ServiceIndicato_attributes);
 
+  /* creation of myTask17 */
+//  myTask17Handle = osThreadNew(StartTask17, NULL, &myTask17_attributes);
+
+  /* creation of DriverInfoApp */
+  DriverInfoAppHandle = osThreadNew(DriverInfoApp_Task, NULL, &DriverInfoApp_attributes);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
+
+  /* Create the event(s) */
+  /* creation of myEvent01 */
+  //myEvent01Handle = osEventFlagsNew(&myEvent01_attributes);
 
   /* USER CODE BEGIN RTOS_EVENTS */
   /* add events, ... */
@@ -1622,8 +1665,8 @@ void DigitalDebounce_Task(void *argument)
   {
 
 	DebounceTask();
-	vGet_Switch_DebouncedStatus();
-     osDelay(4);
+//	vGet_Switch_DebouncedStatus();
+     osDelay(10000);
 
 
   }
@@ -1752,10 +1795,12 @@ void Speedo_Task(void *argument)
 void Tacho_Task(void *argument)
 {
   /* USER CODE BEGIN Tacho_Task */
+
   /* Infinite loop */
   for(;;)
   {
 	  vTacho_App();
+
     osDelay(1000);
   }
   /* USER CODE END Tacho_Task */
@@ -1868,55 +1913,63 @@ void ServiceIndicatorApp_Task(void *argument)
   /* USER CODE END ServiceIndicatorApp_Task */
 }
 
-
-/* USER CODE BEGIN Header_DriverInfoAppTask */
+/* USER CODE BEGIN Header_StartTask17 */
 /**
-* @brief Function implementing the DriverInfo thread.
+* @brief Function implementing the myTask17 thread.
 * @param argument: Not used
 * @retval None
 */
-//extern driverInfoModeStatus_t ModeStatus;
-/* USER CODE END Header_DriverInfoAppTask */
-void DriverInfoAppTask(void *argument)
+/* USER CODE END Header_StartTask17 */
+void StartTask17(void *argument)
 {
-  /* USER CODE BEGIN DriverInfoAppTask */
-//	uint16_t FAVS = 0;
-//	uint16_t FAFE = 0;
-	//uint16_t FDTE = 0;
-	driverInfoModeStatus_t Infostatus;
-//	uint16_t avs = 0;
-//	uint16_t afe = 0;
-//	uint16_t dte = 0;
+  /* USER CODE BEGIN StartTask17 */
+	//static uint8_t Get = 0;
+	debounced_state = get_debounce_status();
   /* Infinite loop */
   for(;;)
   {
-//	  FAVS = vCalculateAVSInKmperhour();
-//	  printf("FAVS:%d\r\n",FAVS);
-//	  FAFE = vCalculateAFEKmperLitre();
-//	  printf("FAFE:%d\r\n",FAFE);
-//	  FDTE = vCalculateDTE();
-//	  printf("FDTE:%d\n\r",FDTE);
-	  //printf("FAFE:\r\n");
-	  //vCalculateAvsAfeRange();
+	  uint32_t flags1 = osEventFlagsWait(myEvent01Handle, EVENT_FLAG_0, osFlagsWaitAny, 10);
+	  if ((flags1 & EVENT_FLAG_0) != 0)
+	  {
+	      printf("StartTask17: Event flag received\n");
 
-//	  vDriver_InfoTask();
-//	  driverInfoModeStatus_t Infostatus = xGetInfostatus();
+	      osEventFlagsClear(myEvent01Handle, EVENT_FLAG_0);
+		  if(osMessageQueueGet (myQueue01Handle, &debounced_state, NULL, 10)== 0)
+		  {
+			  printf("QGet Pass:%d\n\r",debounced_state);
+		  }
+		  else
+		  {
+			  printf("QGet Fail\n\r");
+		  }
+	  }
+	  else
+	  {
+		  printf("Timeout\n\r");
+	  }
+    osDelay(10000);
+  }
+  /* USER CODE END StartTask17 */
+}
 
-	 // printf("AVS:%d\t",Infostatus.AverageVehicleSpeed);
-	  //printf("AFE_m:%d\t",Infostatus.AverageFuelEconomy);
-//	  printf("DTE:%d\n\r",Infostatus.DistanceToEmpty);
-//	  printf("avs:%d\t",val1);
-//	  printf("afe:%d\t",val2);
-//	  printf("dte1:%d\n\r",val3);
-	  //vCalculateAvsAfeRange();
-	  //vDriver_InfoTask();
+/* USER CODE BEGIN Header_DriverInfoApp_Task */
+/**
+* @brief Function implementing the DriverInfoApp thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_DriverInfoApp_Task */
+void DriverInfoApp_Task(void *argument)
+{
+  /* USER CODE BEGIN DriverInfoApp_Task */
+  /* Infinite loop */
+  for(;;)
+  {
 	  vDriver_InfoTask();
-	  //printf("AFE: %d\n\r", calculateAFE());
-	  //printf("DTE: %d\n\r\n\r", calculateDTE());
-
+	  xGetInfostatus();
     osDelay(5000);
   }
-  /* USER CODE END DriverInfoAppTask */
+  /* USER CODE END DriverInfoApp_Task */
 }
 
  /* MPU Configuration */
@@ -1927,7 +1980,7 @@ void MPU_Config(void)
 
   /* Disables the MPU */
   HAL_MPU_Disable();
-
+#if 0
   /** Initializes and configures the Region and the memory to be protected
   */
   MPU_InitStruct.Enable = MPU_REGION_ENABLE;
@@ -1941,6 +1994,36 @@ void MPU_Config(void)
   MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
   MPU_InitStruct.IsCacheable = MPU_ACCESS_NOT_CACHEABLE;
   MPU_InitStruct.IsBufferable = MPU_ACCESS_NOT_BUFFERABLE;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+
+  /* Configure the MPU attributes as WT for OCTOSPI1 */
+  MPU_InitStruct.Enable = MPU_REGION_ENABLE;
+  MPU_InitStruct.BaseAddress = OCTOSPI1_BASE;
+  MPU_InitStruct.Size = MPU_REGION_SIZE_64MB;
+  MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+  MPU_InitStruct.IsBufferable = MPU_ACCESS_BUFFERABLE;
+  MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
+  MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
+  MPU_InitStruct.Number = MPU_REGION_NUMBER1;
+  MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL1;
+  MPU_InitStruct.SubRegionDisable = 0x00;
+  MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+#endif
+  /* Configure the MPU attributes as WT for OCTOSPI2 */
+  MPU_InitStruct.Enable = MPU_REGION_ENABLE;
+  MPU_InitStruct.BaseAddress = OCTOSPI2_BASE;
+  MPU_InitStruct.Size = MPU_REGION_SIZE_128MB;
+  MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+  MPU_InitStruct.IsBufferable = MPU_ACCESS_BUFFERABLE;
+  MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
+  MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
+  MPU_InitStruct.Number = MPU_REGION_NUMBER1;
+  MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL1;
+  MPU_InitStruct.SubRegionDisable = 0x00;
+  MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
 
   HAL_MPU_ConfigRegion(&MPU_InitStruct);
   /* Enables the MPU */

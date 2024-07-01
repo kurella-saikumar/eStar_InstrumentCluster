@@ -33,6 +33,9 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
 ***************************************************************************************************/
+#define EVENT_FLAG_0  (1U << 0)
+#define EVENT_FLAG_1  (1U << 1)
+
 /**
  * Define the number of samples to be compared before confirming a digital input state
  */

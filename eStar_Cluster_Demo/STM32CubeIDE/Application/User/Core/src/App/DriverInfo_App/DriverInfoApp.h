@@ -17,8 +17,8 @@
  * eSTAR TECHNOLOGIES(OPC) PRIVATE LIMITED
 ***************************************************************************************************/
 
-#ifndef APPLICATION_USER_CORE_SRC_APP_DRIVERINFO_APP_DRIVERINFOAPP_H_
-#define APPLICATION_USER_CORE_SRC_APP_DRIVERINFO_APP_DRIVERINFOAPP_H_
+#ifndef DRIVERINFOAPP_H
+#define DRIVERINFOAPP_H
 
 /**************************************************************************************************
  * Include Platform or Standard Headers
@@ -43,6 +43,10 @@
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES\n
 ***************************************************************************************************/
+
+/**************************************************************************************************
+ * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES\n
+***************************************************************************************************/
 typedef struct{
 	uint16_t AverageVehicleSpeed;
 	uint16_t AverageFuelEconomy;
@@ -50,28 +54,18 @@ typedef struct{
 }driverInfoModeStatus_t;
 
 
-
-/**************************************************************************************************
- * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES\n
-***************************************************************************************************/
-#if 0
 void vDriver_InfoTask(void);
 void vCalculateAVSInKmperhour(void);
 void vCalculateAFEKmperLitre(void);
-//uint8_t xGetOdoReadings(void);
-uint8_t prvFuelSimulation(void);
-void vCalculateDTE(void);
-uint8_t Convertintolitres(uint8_t ucFuel_ConsumedinPer);
-driverInfoModeStatus_t xGetInfostatus(void);
-//void xSetinfoStaus(driverInfoModeStatus_t Status);
-#endif
-
-#if 1
 uint8_t prvFuelSimulation(void);
 uint16_t convert_FuelPercentageToLitres(uint8_t);
-uint16_t calculateAFE(void);
-uint16_t calculateDTE(void);
-#endif
+void vCalculateDTE(void);
+uint32_t prvCalculateMovingAverage_Odo(uint32_t);
+uint16_t prvCalculateMovingAverage_Fuel(uint16_t);
+uint32_t prvCalculateAverage1(void);
+uint16_t prvCalculateAverage2(void);
+driverInfoModeStatus_t xGetInfostatus(void);
+
 
 #endif /* APPLICATION_USER_CORE_SRC_APP_DRIVERINFO_APP_DRIVERINFOAPP_H_ */
 

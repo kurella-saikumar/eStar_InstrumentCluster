@@ -24,11 +24,17 @@
 /*Include Platform or Standard Headers*/
 #include <stdint.h>
 #include <stddef.h>
+#include "stdio.h"
 
 /*Include Project Specific Headers*/
 
 #include "digital_debounce.h"
 #include "digital_debounce_cfg.h"
+#include "cmsis_os.h"
+#include "cmsis_os2.h"
+extern osMessageQueueId_t myQueue01Handle;
+extern osEventFlagsId_t myEvent01Handle;
+
 /*DEFINE FILE SCOPE MACROS*/
 
 /*DEFINE FILE SCOPE TYPES*/
@@ -159,6 +165,9 @@ static uint16_t l_State_U16;
  *
  */
 static uint8_t l_Debounced_State_u8 = 0;
+uint8_t ucDebounced_State = 0;
+
+//uint8_t *debounced_value = &debounced_state;
 
 // Service routine called every CHECK_MSEC to
 // debounce both edges
@@ -175,6 +184,7 @@ static uint8_t l_Debounced_State_u8 = 0;
 #ifdef RawKeyPressed
 void DebounceTask(void)
 {
+
     uint8_t i,j;
     l_State_u8A[l_Index_u8]=RawKeyPressed();
     ++l_Index_u8;
@@ -184,7 +194,27 @@ void DebounceTask(void)
         j=j & l_State_u8A[i];
     }
     l_Debounced_State_u8= j;
+    ucDebounced_State = j;
     if(l_Index_u8>=MAX_CHECKS)l_Index_u8=0;
+
+#if 0
+    uint32_t event = osEventFlagsSet(myEvent01Handle,EVENT_FLAG_0);
+    printf("DebounceTask: Event flag set, %ld \n",event);
+	uint32_t flags = osEventFlagsGet(myEvent01Handle);
+	printf("flags:%ld\t",flags);
+	if(flags & EVENT_FLAG_0)
+	{
+		osMessageQueuePut(myQueue01Handle,&l_Debounced_State_u8, NULL, 0);
+		printf("put:%d\n\r\t",l_Debounced_State_u8);
+
+	}
+	else
+	{
+		printf("event not set\n\r");
+	}
+#endif
+
+
 }
 
 #else
@@ -266,8 +296,38 @@ void debounce_init(void)
  * @return l_Debounced_State_u8
  *
  */
+
 uint8_t get_debounce_status(void)
 {
+	//static uint8_t state = 0;
+//		osEventFlagsSet(myEvent01Handle,EVENT_FLAG_1);
+//		uint32_t flags = osEventFlagsGet(myEvent01Handle);
+//		printf("flags:%ld\t",flags);
+//		if(flags & EVENT_FLAG_1)
+//		{
+			//if(osMessageQueuePut(myQueue01Handle,&l_Debounced_State_u8, NULL, 10)==osOK)
+#if 0
+	osStatus_t status = 0;
+	status = osMessageQueuePut(myQueue01Handle,&ucDebounced_State, NULL, 4);
+			if(status == 0)
+			{
+				printf("QPut Pass:%d\n\r",ucDebounced_State);
+
+			}
+			else
+			{
+				printf("QPut Fail,%ld\n\r",status);
+			}
+#endif
+//		}
+//		else
+//		{
+//			printf("Event not set\n\r");
+//		}
+	//static uint8_t Deb_State = 0;
+//	osMessageQueueGet (myQueue01Handle, &l_Debounced_State_u8, NULL, 0);
+//
+//	//printf("get:%d",Deb_State);
     return l_Debounced_State_u8;
 }
 
