@@ -10,12 +10,13 @@
 
 #define SECONDS_TO_HOURS_FACTOR 		3600
 #define NO_OF_SAMPLES 					5
+#define DELTA_TIME						5
 #define FUEL_TANK_CAPACITY 				40
 #define BLINK_THRESHOLD_LOW 			50
 #define MIN_DISPLAYED_DTE 				5
 #define MAX_DISPLAYED_DTE 				20
 #define IDLE_VEHICLE_MILEAGE 			20
-#define usMaxThresholdDTE  				FUEL_TANK_CAPACITY * IDLE_VEHICLE_MILEAGE
+#define usMaxThresholdDTE  				FUEL_TANK_CAPACITY * IDLE_VEHICLE_MILEAGE * 10
 
 #define DEFAULT_AFE 					15.0	//Manufacturer-provided value
 

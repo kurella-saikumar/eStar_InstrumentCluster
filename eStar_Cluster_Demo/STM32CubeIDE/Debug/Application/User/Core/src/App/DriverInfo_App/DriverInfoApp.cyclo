@@ -1,0 +1,14 @@
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:139:6:vCalculateAVSInKmperhour	2
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:167:9:prvFuelSimulation	2
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:180:9:convert_FuelPercentageToLitres	1
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:274:6:vCalculateDTE	6
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:351:10:DisplayDTE	2
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:376:10:xGetAVSstatus	1
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:384:10:xGetAFEstatus	1
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:392:10:xGetDTEstatus	2
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:460:10:prvCalculateAverage1	1
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:415:10:prvCalculateMovingAverage_Odo	2
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:468:10:prvCalculateAverage2	1
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:437:10:prvCalculateMovingAverage_Fuel	2
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:194:10:vCalculateAFEKmperLitre	5
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:100:6:vDriver_InfoTask	2

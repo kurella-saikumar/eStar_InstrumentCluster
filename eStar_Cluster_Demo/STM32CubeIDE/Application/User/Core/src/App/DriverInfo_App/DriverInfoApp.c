@@ -45,59 +45,81 @@
 ***************************************************************************************************/
 
 
+uint32_t ulDistance = 0;
+uint32_t ulDistance1 = 0;
+uint32_t ulDistance2 = 0;
+uint32_t ulTotalVehicleSpeed = 0;
+uint32_t ulVehicleSpeed = 0;
+uint32_t usCurrentAVS = 0;
 
-//uint32_t ucDistance2 = 0;
-uint8_t ucInitialValue = 0;
-uint8_t ucFinalValue = 0;
-uint16_t usFInalOdoinKm = 0;
-uint16_t usFOdo = 0;
-
-uint32_t usDistance = 0;
-uint32_t ucDistance1 = 0;
-uint32_t usDistance2 = 0;
-uint8_t ucDeltaTime = 0;
-uint32_t usTotalVehicleSpeed = 0;
-uint32_t usVehicleSpeed = 0;
-uint16_t CurrentAVS = 0;
-
-uint16_t usvar1 = 0;
-uint32_t ulg_InitOdoVal = 0;
-uint8_t ucFuel_ConsumedinPer = 0;
-uint16_t usvar2 = 0;
-uint16_t usAverageFuelEconomy1 = 0;
-uint16_t usTime = 0;
 vehicleDisplayMetrics_t units = 0;
-uint16_t usDTE = 0;
 IndicationStatus_t warningindicator;
 bool warningstatus = 0;
 
 
 //driverInfoModeStatus_t status;
+//vehicleDisplayMetrics_t units = 0;
+//bool warningstatus = 0;
+bool warningStatus;
+IndicationStatus_t warningIndicator;
+driverInfoModeStatus_t ModeStatus;
+uint16_t usinitialDistance = 0;
+uint16_t usfinalDistance = 0;
+uint32_t ulDeltaDistance = 0;
 
 
-#if 1
-uint8_t ucIntialFuelValue = 0;
-uint32_t ucInitialDistance = 0;
-uint8_t ucFinalFuelValue = 0;
-uint32_t ulFinalDistance = 0;
-uint16_t ucDeltaDistance = 0;
-//uint8_t count = 0;
-uint8_t ucFuelValinLitres = 0;
-#endif
+int8_t initialFuelPercentage = 0;
+int8_t finalFuelPercentage = 0;
+int16_t deltaFuelInPercentage = 0;
+uint16_t usdeltaFuelInLitres = 0;
+uint16_t fuelInLitres = 0;
+//uint64_t In_AFE = 0 ;
+//uint64_t AFE = 0;
+uint32_t Afe = 0;
+uint64_t previousAFE = 0;
+
+uint8_t ucfuelRemainingInPercentage = 0;
+uint16_t usfuelRemainingInLitres = 0;
+uint16_t usFinalFuelLevel = 0;
 
 
-/**************************************************************************************************
- * DECLARE FILE STATIC VARIABLES\n
-***************************************************************************************************/
+uint16_t usCalculated_DTE = 0;
+uint16_t uspresent_DTE = 0;
+uint16_t usprevious_DTE = 0;
+uint16_t usDelta_DTE = 0;
 
-/**************************************************************************************************
- * DEFINE FILE SCOPE FUNCTION PROTOTYPES\n
-***************************************************************************************************/
+static uint16_t DeltaOdoValues1[WINDOW_SIZE];
+static uint16_t DeltaFuelValues2[WINDOW_SIZE];
+static uint16_t odoSamplecount = 0;
+static uint16_t Fuelsamplecount = 0;
+static uint32_t TotalSum1 = 0;
+static uint16_t TotalSum2 = 0;
 
-/**************************************************************************************************
- * FUNCTION DEFINITIONS
-***************************************************************************************************/
 
+
+void vDriver_InfoTask(void)
+{
+    uint8_t ucignitionstatus = 0;
+    ucignitionstatus = usIgnitionGetCurrentState();
+    if(ucignitionstatus == IgnOFF_mode)
+    {
+        printf("Ignition is OFF\r\n");
+        //ucDeltaTime = 0;
+        //usDistance2 = 0;
+        ulDistance2 = 0;
+        ulDistance1 = 0;
+    }
+    else
+    {
+    	vCalculateAVSInKmperhour();
+    	vCalculateAFEKmperLitre();
+    	vCalculateDTE();
+    	xGetAVSstatus();
+    	xGetAFEstatus();
+    	xGetDTEstatus();
+    }
+
+}
 
 /**
  * @brief AverageVehicleSpeed Calculation
@@ -111,179 +133,95 @@ uint8_t ucFuelValinLitres = 0;
  */
 
 
-//vehicleDisplayMetrics_t units = 0;
-//bool warningstatus = 0;
-IndicationStatus_t warningindicator;
-driverInfoModeStatus_t ModeStatus;
-//uint8_t fuelTankCapacity = 40;
-uint16_t initialDistance = 0;
-uint16_t finalDistance = 0;
-//uint32_t deltaDistance = 0;
-uint32_t DeltaDistance = 0;
 
 
-//uint16_t defaultAFE = 0;
-int8_t initialFuelPercentage = 0;
-int8_t finalFuelPercentage = 0;
-//uint8_t deltaFuelInPercentage = 0;
-int8_t deltaFuelInPercentage = 0;
-//int8_t previousdeltaFuelInPercentage = 0;
-uint16_t deltaFuelInLitres = 0;
-//uint32_t deltaFuelInLitres = 0;
-uint16_t fuelInLitres = 0;
-uint64_t In_AFE = 0 ;
-uint64_t AFE = 0;
-uint64_t previousAFE = 0;
-
-uint8_t fuelRemainingInPercentage = 0;
-uint16_t fuelRemainingInLitres = 0;
-uint16_t FinalFuelLevel = 0;
-
-
-uint16_t usCalculated_DTE = 0;
-uint16_t uspresent_DTE = 0;
-uint16_t usprevious_DTE = 0;
-uint16_t usDelta_DTE = 0;
-
-static uint16_t DeltaOdoValues1[WINDOW_SIZE];
-static uint16_t DeltaFuelValues2[WINDOW_SIZE];
-static uint16_t odoSamplecount = 0;
-static uint16_t Fuelsamplecount = 0;
-static uint32_t TotalSum1 = 0;
-//static uint32_t TotalSum2 = 0;
-static uint16_t TotalSum2 = 0;
-//static uint16_t usSampleCount = 0;
-
-
-//uint64_t AFE_D = 0;
-//uint64_t AFE_C = 0;
-//int DTE = 0;
-uint16_t usactual_DTE = 0;
-uint16_t usdisplayed_DTE = 0;
-uint16_t usTotal_DTE = 0;
-
-
-
-uint16_t calculatedDTE = 0;
-
-
-#if 0
-uint8_t xGetOdoReadings(void)
-{
-	uint8_t OdoArray[30] = {20,40,60,80,100,120,140,160,180,200,220,240,260,280,300,320,340,360,380,400};
-	static uint8_t Odo = 0;
-	uint8_t Final = 0;
-		Final = OdoArray[Odo];
-		Odo++;
-	return Final;
-}
-#endif
-
-
-void vDriver_InfoTask(void)
-{
-    uint16_t ucignitionstatus = 0;
-    ucignitionstatus = usIgnitionGetCurrentState();
-    if(ucignitionstatus == IgnOFF_mode)
-    {
-        printf("Ignition is OFF\r\n");
-        //ucDeltaTime = 0;
-        //usDistance2 = 0;
-        finalDistance = 0;
-        initialDistance = 0;
-    }
-    else
-    {
-    	vCalculateAVSInKmperhour();
-    	vCalculateAFEKmperLitre();
-    	vCalculateDTE();
-    }
-
-}
 
 void vCalculateAVSInKmperhour(void)
 {
-
-   //ModeStatus.AverageVehicleSpeed;
-
-   //static uint32_t usDistance1 = 0;
-//   static uint16_t usDistance2 = 0;
-//   static uint16_t usDeltaTime = 0;
    static uint8_t uccounter = 0;
 
-   usDistance2 = xGetOdoReadings(&units);
-   usDistance = usDistance2 - ucDistance1;
-   ucDistance1 = usDistance2;
-   ucDeltaTime = 5;
-   usVehicleSpeed = ( usDistance * SECONDS_TO_HOURS_FACTOR ) / ucDeltaTime;
+   ulDistance2 = xGetOdoReadings(&units);
+   ulDistance = ulDistance2 - ulDistance1;
+   ulDistance1 = ulDistance2;
+   ulVehicleSpeed = ( ulDistance * SECONDS_TO_HOURS_FACTOR ) / DELTA_TIME;
 #if(DRIVERINFO_TEST_MACRO == 1)
 #endif
-   usTotalVehicleSpeed = usTotalVehicleSpeed + usVehicleSpeed;
+   ulTotalVehicleSpeed = ulTotalVehicleSpeed + ulVehicleSpeed;
    uccounter++;
    if(uccounter == 5)
    {
-	   CurrentAVS = usTotalVehicleSpeed / NO_OF_SAMPLES;
-	   printf("CurrentAVS:%d\t",CurrentAVS);
-	  // usvar1 = ModeStatus.AverageVehicleSpeed;
+	   usCurrentAVS = ulTotalVehicleSpeed / NO_OF_SAMPLES;
 #if (DRIVERINFO_TEST_MACRO == 1)
-	   ModeStatus.AverageVehicleSpeed = CurrentAVS;
+	   printf("CurrentAVS:%ld\t",usCurrentAVS);
+#endif
+	   ModeStatus.AverageVehicleSpeed = usCurrentAVS;
 	   uccounter = 0;
-	   usTotalVehicleSpeed = 0;
+	   ulTotalVehicleSpeed = 0;
    }
 }
 
 
+/*This API is used for simulation (Testing Purpose)*/
 
+#if(FUEL_TEST_MACRO == 0)
 uint8_t prvFuelSimulation(void)
 {
-	static uint8_t simulatedFuel = 100;
+	static uint8_t ucsimulatedFuel = 100;
 //	simulatedFuel = simulatedFuel-20;
 
-	if(simulatedFuel <= 0)
-		simulatedFuel = 100;
+	if(ucsimulatedFuel <= 0)
+		ucsimulatedFuel = 100;
 
-	simulatedFuel = simulatedFuel-20;
-	return simulatedFuel;
+	ucsimulatedFuel = ucsimulatedFuel-20;
+	return ucsimulatedFuel;
 }
+#endif
 
-uint16_t convert_FuelPercentageToLitres(uint8_t fuelPercentage)
+int16_t convert_FuelPercentageToLitres(int8_t fuelPercentage)
 {
-	uint16_t fuelInLitres = 0;
+	int16_t usfuelInLitres = 0;
 	//uint8_t FinalFuelLevel = 0xFF;
 
     /*In the below expression 10 is multiplied intentionally in the numerator for calculating fuel in milliliters*/
-    fuelInLitres = (FUEL_TANK_CAPACITY * fuelPercentage * 10) / 100;
+	usfuelInLitres = (FUEL_TANK_CAPACITY * fuelPercentage * 10) / 100;
     //FinalFuelLevel  = (uint8_t) fuelInLitres;
-    FinalFuelLevel  =  fuelInLitres;
+   // usFinalFuelLevel  =  fuelInLitres;
 
-    return FinalFuelLevel;
+    return usfuelInLitres;
 }
 
 
-void vCalculateAFEKmperLitre(void)
+uint64_t vCalculateAFEKmperLitre(void)
 {
 	static uint8_t uccount = 0;
-	static uint32_t AverageDitsance = 0;
-	static uint16_t AverageFuel = 0;
+	static uint32_t ulAverageDitsance = 0;
+	static uint16_t usAverageFuel = 0;
 	//static uint32_t AverageFuel = 0;
 
 	uccount++;
-	finalDistance = xGetOdoReadings(&units);
-	DeltaDistance = finalDistance - initialDistance;
+	usfinalDistance = xGetOdoReadings(&units);
+	ulDeltaDistance = usfinalDistance - usinitialDistance;
 
-	AverageDitsance = prvCalculateMovingAverage_Odo(DeltaDistance);
+	ulAverageDitsance = prvCalculateMovingAverage_Odo(ulDeltaDistance);
 
-	printf("D_odo:%ld\t",DeltaDistance);
-	printf("MA_Odo:%ld\t",AverageDitsance);
+	printf("D_odo:%ld\t",ulDeltaDistance);
+	printf("MA_Odo:%ld\t",ulAverageDitsance);
+#if(FUEL_TEST_MACRO == 1)
+	finalFuelPercentage = xGetFuelLevel(&warningIndicator,warningStatus);
+#endif
+
+#if(FUEL_TEST_MACRO == 0)
 	finalFuelPercentage = prvFuelSimulation();
+#endif
 
-	if((DeltaDistance == 0) ||( DeltaDistance == finalDistance ))
+	if((ulDeltaDistance == 0) ||( ulDeltaDistance == usfinalDistance ))
 	{
-		initialDistance = finalDistance;
+		usinitialDistance = usfinalDistance;
 		initialFuelPercentage = finalFuelPercentage;
-		AFE = DEFAULT_AFE;
-		printf("AFE_D:%ld\n\r",AFE);
-		return AFE;
+		Afe = DEFAULT_AFE;
+		ModeStatus.AverageFuelEconomy = previousAFE;
+		printf("AFE_D:%ld\n\r",Afe);
+		return Afe;
 	}
 
 	deltaFuelInPercentage = initialFuelPercentage - finalFuelPercentage;
@@ -292,32 +230,32 @@ void vCalculateAFEKmperLitre(void)
 	{
 		initialFuelPercentage = finalFuelPercentage;
 		printf("I_Per:%d\t",initialFuelPercentage);
-		//deltaFuelInPercentage = previousdeltaFuelInPercentage;
+		ModeStatus.AverageFuelEconomy = previousAFE;
 		return previousAFE;
 	}
 
-	deltaFuelInLitres = (uint16_t)(convert_FuelPercentageToLitres(deltaFuelInPercentage));
-	AverageFuel = prvCalculateMovingAverage_Fuel(deltaFuelInLitres);
-	printf("Fuel_MA:%u\t", AverageFuel);
+	usdeltaFuelInLitres = (uint16_t)(convert_FuelPercentageToLitres(deltaFuelInPercentage));
+	usAverageFuel = prvCalculateMovingAverage_Fuel(usdeltaFuelInLitres);
+	printf("Fuel_MA:%u\t", usAverageFuel);
 
-	if (AverageFuel == 0)
+	if (usAverageFuel == 0)
 	{
 		// Handle the division by zero case
-		AFE = DEFAULT_AFE;
+		Afe = DEFAULT_AFE;
 	}
 	else
 	{
-		In_AFE = (AverageDitsance * 10);
-		AFE = (In_AFE /( (uint64_t)AverageFuel) );
-		//AFE = (AverageDitsance * 10) /(uint32_t)(AverageFuel);
-		printf("AFE_C:%d\n\r", AFE);
+//		In_AFE = (ulAverageDitsance * 10);
+//		AFE = (In_AFE /((uint64_t)usAverageFuel));
+		Afe = (ulAverageDitsance * 10) /(uint32_t)(usAverageFuel);
+		printf("AFE_C:%ld\n\r", Afe);
 	}
-    initialDistance = finalDistance;
+	usinitialDistance = usfinalDistance;
 
     initialFuelPercentage = finalFuelPercentage;
-    previousAFE = AFE;
-    ModeStatus.AverageFuelEconomy = AFE;
-   // return AFE;
+    previousAFE = Afe;
+    ModeStatus.AverageFuelEconomy = Afe;
+    return Afe;
 }
 
 /**
@@ -332,23 +270,30 @@ void vCalculateAFEKmperLitre(void)
  * @return Void.
  */
 
-#if 1
+
 void vCalculateDTE(void)
 {
 	static uint8_t uccount1 = 0;
 	uccount1++;
-    fuelRemainingInPercentage = xGetFuelLevel(&warningindicator, &warningstatus);
-    fuelRemainingInPercentage = finalFuelPercentage; /*Testing */
-    fuelRemainingInLitres = convert_FuelPercentageToLitres(fuelRemainingInPercentage);
+#if(FUEL_TEST_MACRO == 1)
+	ucfuelRemainingInPercentage = xGetFuelLevel(&warningIndicator, &warningStatus);
+#endif
+
+#if(FUEL_TEST_MACRO == 0)
+	ucfuelRemainingInPercentage = prvFuelSimulation();
+#endif
+
+	//ucfuelRemainingInPercentage = finalFuelPercentage; /*Testing */
+	usfuelRemainingInLitres = convert_FuelPercentageToLitres(ucfuelRemainingInPercentage);
 
 
-    //printf("Fuel: %d\n\r", fuelRemainingInLitres);
+    //printf("Fuel: %d\n\r", usfuelRemainingInLitres);
 	if(uccount1 == 1)
 	{
 		printf("inside_If\r\n");
-		fuelRemainingInLitres = FINAL_FUEL_LEVEL;
+		usfuelRemainingInLitres = FINAL_FUEL_LEVEL;
 		//usCalculated_DTE = (int)(FINAL_FUEL_LEVEL * defaultAFE);
-		usCalculated_DTE = (uint16_t)(FINAL_FUEL_LEVEL * DEFAULT_AFE);
+		usCalculated_DTE = (uint16_t)(FINAL_FUEL_LEVEL * DEFAULT_AFE );
 		printf("C_DTE:%d\t",usCalculated_DTE);
 		uspresent_DTE= usCalculated_DTE;
 		printf("PIN_DTE:%d\t",uspresent_DTE);
@@ -356,7 +301,7 @@ void vCalculateDTE(void)
 	else
 	{
 		printf("inside_else\r\n");
-		usCalculated_DTE = fuelRemainingInLitres * AFE;
+		usCalculated_DTE = usfuelRemainingInLitres * Afe;
 		uspresent_DTE = usCalculated_DTE;
 		printf("POUT_DTE:%d\t",uspresent_DTE);
 		/*Here, if DTE = 28 then it's actual value is 2.8*/
@@ -375,111 +320,139 @@ void vCalculateDTE(void)
 		{
 			uspresent_DTE = usMaxThresholdDTE;
 			printf("P_DTE:%d\t",uspresent_DTE);
-			printf("1\t");
-		}
-		if(usDelta_DTE < MIN_DISPLAYED_DTE)
-		{
-			uspresent_DTE = usprevious_DTE - 1;
-		}
-		else if (usDelta_DTE > MAX_DISPLAYED_DTE)
-		{
-			uspresent_DTE = usCalculated_DTE;
-		}
-		else if (usDelta_DTE >= MIN_DISPLAYED_DTE && usDelta_DTE <= MAX_DISPLAYED_DTE)
-		{
-			uspresent_DTE = usprevious_DTE - 2;
+			ModeStatus.Range = uspresent_DTE;
+			return uspresent_DTE;
 		}
 		else
 		{
+			if(usDelta_DTE < MIN_DISPLAYED_DTE)
+			{
+				uspresent_DTE = usprevious_DTE - 1;
+			}
+			else if (usDelta_DTE > MAX_DISPLAYED_DTE)
+			{
+				uspresent_DTE = usCalculated_DTE;
+			}
+			else if (usDelta_DTE >= MIN_DISPLAYED_DTE && usDelta_DTE <= MAX_DISPLAYED_DTE)
+			{
+				uspresent_DTE = usprevious_DTE - 2;
+			}
+			else
+			{
+			}
 		}
-
+	ModeStatus.Range = uspresent_DTE;
 	usprevious_DTE = uspresent_DTE;
-	//usdisplayed_DTE = usactual_DTE;
 	printf("DTE:%d\r\n",uspresent_DTE);
-	ModeStatus.DistanceToEmpty = uspresent_DTE;
-   // return uspresent_DTE;
+	printf("DTE1:%d\n\r",ModeStatus.Range);
+    return uspresent_DTE;
 }
-
-//void DisplayDTE(bool flag,uint16_t usdisplayed_DTE )
-//{
-//	if(flag)
-//	{
-//#if(DRIVERINFO_TEST_MACRO == 1)
-//		printf("---\n");
-//#endif
-//	}
-//	else
-//	{
-//#if(DRIVERINFO_TEST_MACRO == 1)
-////		printf("DTE1: %u\n",usdisplayed_DTE);
-//#endif
-//	}
-//}
-//driverInfoModeStatus_t Modestate;
-
-driverInfoModeStatus_t xGetInfostatus(void)
+#if 1
+uint16_t DisplayDTE(bool flag,uint16_t uspresent_DTE )
 {
-//	if (Modestate.DistanceToEmpty < BLINK_THRESHOLD_LOW || Modestate.DistanceToEmpty > usMaxThresholdDTE)
-//	{
-//		//flag = true;
-//		//DisplayDTE(true,Modestate.DistanceToEmpty);
-//		Modestate.DistanceToEmpty =1;
-//	}
-//	else
-//	{
-//		DisplayDTE(false,Modestate.DistanceToEmpty);
-//	}
-	printf("AVS:%d\n\r",ModeStatus.AverageVehicleSpeed);
-	return ModeStatus;
+	static uint16_t Error_Value = 0;
+	Error_Value = 9999;
+	if(flag)
+	{
+#if(DRIVERINFO_TEST_MACRO == 1)
+		//printf("---\n");
+#endif
+		printf("E_V:%hu\n\r",Error_Value);
+		return Error_Value;
+
+
+	}
+	else
+	{
+#if(DRIVERINFO_TEST_MACRO == 1)
+		//printf("DTE1: %u\n",usdisplayed_DTE);
+#endif
+		printf("E_V:%ld\n\r",uspresent_DTE);
+		return uspresent_DTE;
+	}
 }
 
 
+uint32_t xGetAVSstatus(void)
+{
+	uint32_t FinalAvs = (uint32_t)ModeStatus.AverageVehicleSpeed;
+	printf("FAVS:%d\n\r",FinalAvs);
+	return FinalAvs;
+}
+
+
+uint32_t xGetAFEstatus(void)
+{
+	uint32_t FinalAfe = (uint32_t)ModeStatus.AverageFuelEconomy;
+	printf("FAFE:%d\n\r",FinalAfe);
+	return FinalAfe;
+}
+
+
+uint16_t xGetDTEstatus(void)
+{
+	if((ModeStatus.Range < BLINK_THRESHOLD_LOW) || (ModeStatus.Range > usMaxThresholdDTE))
+	{
+		//flag = true;
+		DisplayDTE(true,ModeStatus.Range);
+		//ModeStatus.Range =1;
+	}
+	else
+	{
+		DisplayDTE(false,ModeStatus.Range);
+	}
+
+	//printf("DTE:%d\n\r",ModeStatus.Range);
+	uint16_t FinalDte = (uint16_t)ModeStatus.Range;
+	printf("FDTE:%d\n\r",FinalDte);
+
+	return FinalDte;
+}
 #endif
-uint32_t prvCalculateMovingAverage_Odo(uint32_t DeltaDistance)
+
+
+
+uint32_t prvCalculateMovingAverage_Odo(uint32_t ulDeltaDistance)
 {
 	//printf("IF_D_MAVR:%ld\r\n",finalDelta);
-	uint32_t Odo_Raw_value;
+	uint32_t ulOdo_Raw_value;
 //	uint8_t Result = 0;
-	uint32_t Odo_Result = 0;
-	static uint8_t CurrentIndex = 0;
-	Odo_Raw_value = DeltaDistance;
-	//printf("ROdo_MAVR:%ld\r\n",Odo_Raw_value);
-	DeltaOdoValues1[CurrentIndex] = Odo_Raw_value;
-	CurrentIndex = (CurrentIndex + 1) % WINDOW_SIZE;
-	TotalSum1 += Odo_Raw_value;
-	//TotalSum = TotalSum1;
+	uint32_t ulOdo_Result = 0;
+	static uint8_t ucCurrentIndex = 0;
+	ulOdo_Raw_value = ulDeltaDistance;
+	//printf("ROdo_MAVR:%ld\r\n",ulOdo_Raw_value);
+	DeltaOdoValues1[ucCurrentIndex] = ulOdo_Raw_value;
+	ucCurrentIndex = (ucCurrentIndex + 1) % WINDOW_SIZE;
+	TotalSum1 += ulOdo_Raw_value;
 	odoSamplecount++;
 	printf("oS: %d\t", odoSamplecount);
 	if(odoSamplecount >= WINDOW_SIZE)
 	{
-		Odo_Result = prvCalculateAverage1();
+		ulOdo_Result = prvCalculateAverage1();
 		//printf("Result:%ld\t",Result);
-		TotalSum1 -= DeltaOdoValues1[CurrentIndex];
+		TotalSum1 -= DeltaOdoValues1[ucCurrentIndex];
 	}
-	return Odo_Result;
+	return ulOdo_Result;
 }
-uint16_t prvCalculateMovingAverage_Fuel(uint16_t deltaFuelInLitres)
+uint16_t prvCalculateMovingAverage_Fuel(uint16_t usdeltaFuelInLitres)
 {
-	//printf("IF_F_MAVR:%d\t",deltaFuelInLitres);
-	uint16_t Fuel_Raw_value;
-//	uint8_t Result = 0;
-	uint16_t FuelResult = 0;
-	static uint8_t CurrentIndex = 0;
-	Fuel_Raw_value = deltaFuelInLitres;
-	//Fuel_Raw_value = deltaFuelInPercentage;
-	//printf("D_Fuel:%ld\t",Fuel_Raw_value);
-	DeltaFuelValues2[CurrentIndex] = Fuel_Raw_value;
-	CurrentIndex = (CurrentIndex + 1) % WINDOW_SIZE;
-	TotalSum2 += Fuel_Raw_value;
-	//TotalSum = TotalSum2;
+	//printf("IF_F_MAVR:%d\t",usdeltaFuelInLitres);
+	uint16_t usFuel_Raw_value;
+	uint16_t usFuelResult = 0;
+	static uint8_t ucCurrentIndex = 0;
+	usFuel_Raw_value = usdeltaFuelInLitres;
+	//printf("D_Fuel:%ld\t",usFuel_Raw_value);
+	DeltaFuelValues2[ucCurrentIndex] = usFuel_Raw_value;
+	ucCurrentIndex = (ucCurrentIndex + 1) % WINDOW_SIZE;
+	TotalSum2 += usFuel_Raw_value;
 	Fuelsamplecount++;
 	if(Fuelsamplecount >= WINDOW_SIZE)
 	{
-		FuelResult = prvCalculateAverage2();
+		usFuelResult = prvCalculateAverage2();
 		//printf("Result:%ld\t",Result);
-		TotalSum2 -= DeltaFuelValues2[CurrentIndex];
+		TotalSum2 -= DeltaFuelValues2[ucCurrentIndex];
 	}
-	return FuelResult;
+	return usFuelResult;
 }
 
 

@@ -35,6 +35,7 @@
  * DEFINE GLOBAL SCOPE MACROS
 ***************************************************************************************************/
 #define DRIVERINFO_TEST_MACRO 1
+#define FUEL_TEST_MACRO 0
 
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES
@@ -48,23 +49,27 @@
  * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES\n
 ***************************************************************************************************/
 typedef struct{
-	uint16_t AverageVehicleSpeed;
-	uint16_t AverageFuelEconomy;
-	uint16_t DistanceToEmpty;
+	uint32_t AverageVehicleSpeed;
+	uint32_t AverageFuelEconomy;
+	uint16_t Range;
 }driverInfoModeStatus_t;
 
 
 void vDriver_InfoTask(void);
 void vCalculateAVSInKmperhour(void);
-void vCalculateAFEKmperLitre(void);
+uint64_t vCalculateAFEKmperLitre(void);
 uint8_t prvFuelSimulation(void);
-uint16_t convert_FuelPercentageToLitres(uint8_t);
+//uint16_t convert_FuelPercentageToLitres(uint8_t);
+int16_t convert_FuelPercentageToLitres(int8_t);
 void vCalculateDTE(void);
 uint32_t prvCalculateMovingAverage_Odo(uint32_t);
 uint16_t prvCalculateMovingAverage_Fuel(uint16_t);
 uint32_t prvCalculateAverage1(void);
 uint16_t prvCalculateAverage2(void);
-driverInfoModeStatus_t xGetInfostatus(void);
+uint16_t DisplayDTE(bool flag,uint16_t);
+uint32_t xGetAVSstatus(void);
+uint32_t xGetAFEstatus(void);
+uint16_t xGetDTEstatus(void);
 
 
 #endif /* APPLICATION_USER_CORE_SRC_APP_DRIVERINFO_APP_DRIVERINFOAPP_H_ */
