@@ -351,82 +351,6 @@
             }
           },
           {
-            "Type": "TextArea",
-            "Name": "Clock_HR",
-            "X": 395,
-            "Y": 14,
-            "Width": 18,
-            "Height": 22,
-            "TextId": "__SingleUse_8JLD",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "TextId": "__SingleUse_T3J1"
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "Clock_MIN",
-            "X": 418,
-            "Y": 14,
-            "Width": 18,
-            "Height": 22,
-            "TextId": "__SingleUse_SWRW",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "TextId": "__SingleUse_X2EZ"
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "Semicolon",
-            "X": 413,
-            "Y": 15,
-            "Width": 3,
-            "Height": 22,
-            "TextId": "__SingleUse_D0FJ",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "TextId": "__SingleUse_AS99"
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "AM_PM",
-            "X": 436,
-            "Y": 20,
-            "Width": 13,
-            "Height": 15,
-            "TextId": "__SingleUse_A8BG",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "TextId": "__SingleUse_9DYF"
-            }
-          },
-          {
             "Type": "ScalableImage",
             "Name": "High_beem_White",
             "X": 318,
@@ -476,6 +400,52 @@
               "TextId": "__SingleUse_U3CB",
               "UseBuffer": true,
               "BufferSize": 20
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "Clock",
+            "X": 393,
+            "Y": 15,
+            "Width": 51,
+            "Height": 25,
+            "TextId": "__SingleUse_M204",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_KYEZ",
+              "UseBuffer": true,
+              "BufferSize": 10
+            },
+            "Wildcard2": {
+              "TextId": "__SingleUse_JGEB",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "AM_PM",
+            "X": 444,
+            "Y": 23,
+            "Width": 15,
+            "Height": 17,
+            "TextId": "__SingleUse_KI12",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_TIW9",
+              "UseBuffer": true,
+              "BufferSize": 5
             }
           }
         ],

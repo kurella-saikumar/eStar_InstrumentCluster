@@ -166,38 +166,6 @@ Screen1ViewBase::Screen1ViewBase()
     DriverInfo.setTypedText(touchgfx::TypedText(T___SINGLEUSE_0GI1));
     add(DriverInfo);
 
-    Clock_HR.setXY(395, 14);
-    Clock_HR.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    Clock_HR.setLinespacing(0);
-    Clock_HR.setWildcard(touchgfx::TypedText(T___SINGLEUSE_T3J1).getText());
-    Clock_HR.resizeToCurrentText();
-    Clock_HR.setTypedText(touchgfx::TypedText(T___SINGLEUSE_8JLD));
-    add(Clock_HR);
-
-    Clock_MIN.setXY(418, 14);
-    Clock_MIN.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    Clock_MIN.setLinespacing(0);
-    Clock_MIN.setWildcard(touchgfx::TypedText(T___SINGLEUSE_X2EZ).getText());
-    Clock_MIN.resizeToCurrentText();
-    Clock_MIN.setTypedText(touchgfx::TypedText(T___SINGLEUSE_SWRW));
-    add(Clock_MIN);
-
-    Semicolon.setXY(413, 15);
-    Semicolon.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    Semicolon.setLinespacing(0);
-    Semicolon.setWildcard(touchgfx::TypedText(T___SINGLEUSE_AS99).getText());
-    Semicolon.resizeToCurrentText();
-    Semicolon.setTypedText(touchgfx::TypedText(T___SINGLEUSE_D0FJ));
-    add(Semicolon);
-
-    AM_PM.setXY(436, 20);
-    AM_PM.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    AM_PM.setLinespacing(0);
-    AM_PM.setWildcard(touchgfx::TypedText(T___SINGLEUSE_9DYF).getText());
-    AM_PM.resizeToCurrentText();
-    AM_PM.setTypedText(touchgfx::TypedText(T___SINGLEUSE_A8BG));
-    add(AM_PM);
-
     High_beem_White.setBitmap(touchgfx::Bitmap(BITMAP_HIGH_BEAM_ID));
     High_beem_White.setPosition(318, 14, 24, 24);
     High_beem_White.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
@@ -221,6 +189,25 @@ Screen1ViewBase::Screen1ViewBase()
     DriverInfoMenu.setWildcard(DriverInfoMenuBuffer);
     DriverInfoMenu.setTypedText(touchgfx::TypedText(T___SINGLEUSE_OOJU));
     add(DriverInfoMenu);
+
+    Clock.setPosition(393, 15, 51, 25);
+    Clock.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    Clock.setLinespacing(0);
+    touchgfx::Unicode::snprintf(ClockBuffer1, CLOCKBUFFER1_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_KYEZ).getText());
+    Clock.setWildcard1(ClockBuffer1);
+    touchgfx::Unicode::snprintf(ClockBuffer2, CLOCKBUFFER2_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_JGEB).getText());
+    Clock.setWildcard2(ClockBuffer2);
+    Clock.setTypedText(touchgfx::TypedText(T___SINGLEUSE_M204));
+    add(Clock);
+
+    AM_PM.setXY(444, 23);
+    AM_PM.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    AM_PM.setLinespacing(0);
+    Unicode::snprintf(AM_PMBuffer, AM_PM_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_TIW9).getText());
+    AM_PM.setWildcard(AM_PMBuffer);
+    AM_PM.resizeToCurrentText();
+    AM_PM.setTypedText(touchgfx::TypedText(T___SINGLEUSE_KI12));
+    add(AM_PM);
 }
 
 Screen1ViewBase::~Screen1ViewBase()

@@ -43,7 +43,8 @@ RM := rm -rf
 -include Application/User/Core/src/App/Odometer_App/subdir.mk
 -include Application/User/Core/src/App/Indicator_App/subdir.mk
 -include Application/User/Core/src/App/FuelGuage/subdir.mk
--include Application/User/Core/src/App/DriverInfoApplication/subdir.mk
+-include Application/User/Core/src/App/DriverInfo_App/subdir.mk
+-include Application/User/Core/src/App/DriverInfoMenu_App/subdir.mk
 -include Application/User/Core/src/App/Clock_App/subdir.mk
 -include Application/User/Core/src/App/CAN_App/subdir.mk
 -include Application/User/Core/subdir.mk

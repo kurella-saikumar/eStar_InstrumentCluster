@@ -59,14 +59,12 @@ protected:
     touchgfx::TextAreaWithOneWildcard KMPH_MPH_DTE;
     touchgfx::TextAreaWithOneWildcard ODOReadings;
     touchgfx::TextAreaWithTwoWildcards DriverInfo;
-    touchgfx::TextAreaWithOneWildcard Clock_HR;
-    touchgfx::TextAreaWithOneWildcard Clock_MIN;
-    touchgfx::TextAreaWithOneWildcard Semicolon;
-    touchgfx::TextAreaWithOneWildcard AM_PM;
     touchgfx::ScalableImage High_beem_White;
     touchgfx::ScalableImage High_beem_Blue;
     touchgfx::AnimatedImage RPMAnimation;
     touchgfx::TextAreaWithOneWildcard DriverInfoMenu;
+    touchgfx::TextAreaWithTwoWildcards Clock;
+    touchgfx::TextAreaWithOneWildcard AM_PM;
 
     /*
      * Wildcard Buffers
@@ -83,6 +81,12 @@ protected:
     touchgfx::Unicode::UnicodeChar DriverInfoBuffer2[DRIVERINFOBUFFER2_SIZE];
     static const uint16_t DRIVERINFOMENU_SIZE = 20;
     touchgfx::Unicode::UnicodeChar DriverInfoMenuBuffer[DRIVERINFOMENU_SIZE];
+    static const uint16_t CLOCKBUFFER1_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar ClockBuffer1[CLOCKBUFFER1_SIZE];
+    static const uint16_t CLOCKBUFFER2_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar ClockBuffer2[CLOCKBUFFER2_SIZE];
+    static const uint16_t AM_PM_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar AM_PMBuffer[AM_PM_SIZE];
 
 private:
 

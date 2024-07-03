@@ -23,6 +23,7 @@ struct Typography
     static const touchgfx::FontId SEMICOLON = 7;
     static const touchgfx::FontId DRIVRINFO_DATA = 8;
     static const touchgfx::FontId DRIVERINFOMENU = 9;
+    static const touchgfx::FontId CLOCK = 10;
 };
 
 struct TypographyFontIndex
@@ -31,13 +32,14 @@ struct TypographyFontIndex
     static const touchgfx::FontId KMPH = 1;           // Technology_Bold_17_4bpp
     static const touchgfx::FontId ODO = 2;            // Vector_Technology_Bold_36
     static const touchgfx::FontId DRIVERINFO = 3;     // Vector_Technology_Bold_24
-    static const touchgfx::FontId AM_PM = 4;          // Technology_Bold_14_4bpp
+    static const touchgfx::FontId AM_PM = 4;          // Technology_Bold_16_4bpp
     static const touchgfx::FontId CLOCK_HR = 5;       // Technology_Bold_20_4bpp
     static const touchgfx::FontId CLOCK_MIN = 5;      // Technology_Bold_20_4bpp
     static const touchgfx::FontId SEMICOLON = 6;      // Technology_Bold_24_4bpp
     static const touchgfx::FontId DRIVRINFO_DATA = 1; // Technology_Bold_17_4bpp
     static const touchgfx::FontId DRIVERINFOMENU = 5; // Technology_Bold_20_4bpp
-    static const uint16_t NUMBER_OF_FONTS = 7;
+    static const touchgfx::FontId CLOCK = 7;          // Technology_Bold_22_4bpp
+    static const uint16_t NUMBER_OF_FONTS = 8;
 };
 
 class ApplicationFontProvider : public touchgfx::FontProvider

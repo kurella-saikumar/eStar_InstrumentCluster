@@ -1,11 +1,15 @@
 #include <gui/model/Model.hpp>
 #include <gui/model/ModelListener.hpp>
 
+#include "main.h"
+#include "../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfoMenu_App/DriverInfoMenu_App.h"
 #include "../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App.h"
 #include "../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h"
 #include "../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/FuelGuage/FuelGuage_App.h"
 #include "../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App.h"
-#include "../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfoApplication/DriverInfoMenu_App.h"
+#include "../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/clock_App.h"
+#include "../../../../STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.h"
+
 
 bool isButtonPressed = false;
 static uint32_t ulOdoCounter = 0;
@@ -21,6 +25,14 @@ DriverInfoModeStatus_t DIM_Value;
 
 IndicationStatus_t FuelWarning;
 IndicationStatus_t RPMWarning;
+
+#if 1
+//clock variables//
+extern RTC_TimeTypeDef xTime;
+uint8_t Hours;
+uint8_t Minutes;
+uint8_t TimeFormat;
+#endif
 
 bool RPMWarning_Status;
 bool FuelWarning_Status;
@@ -61,9 +73,12 @@ void Model::tick()
 		OdoData();
 		FuelData();
 		RPMData();
-		DriverInforMenu();
 		Trip_A();
 		Trip_B();
+		Clock();
+		SwitchHandler();
+		DriverInforMenu();
+
 		TickCount =0;
 	}
 }
@@ -76,7 +91,7 @@ void Model::SpeedData()
 {
 	if(modelListener !=0)
 	{
-		modelListener->notifyCounterChanged(xGetSpeedValue(&speedMetrics, &speedStatus));
+		modelListener->notifySpeedDataChanged(xGetSpeedValue(&speedMetrics, &speedStatus));
 	}
 }
 
@@ -111,18 +126,6 @@ void Model::RPMData()
 	}
 }
 
-void Model::DriverInforMenu()
-{
-
-	DIM_Value = xGetDriverInforMenu();
-
-	// Notify listener about RPMData data change
-	if(modelListener !=0)
-	{
-		modelListener->notifyDriverInforMenuDataChanged(DIM_Value);
-	}
-}
-
 void Model::Trip_A()
 {
 
@@ -147,6 +150,42 @@ void Model::Trip_B()
 	}
 }
 
+#if 1
+void Model::Clock()
+{
+	vGet_Clock();
+	Hours = xTime.Hours;
+	Minutes = xTime.Minutes;
+	TimeFormat = xTime.TimeFormat;
 
+	// Notify listener about RPMData data change
+	if(modelListener !=0)
+	{
+		modelListener->notifyClockDataChanged(Hours,Minutes,TimeFormat);
+	}
+}
 
+#endif
 
+void Model::SwitchHandler()
+{
+	uint8_t SwitchStatus = xGetSwitchStatus();
+	// Notify listener about RPMData data change
+	if(modelListener !=0)
+	{
+		modelListener->notifySwitchHandlerDataChanged(SwitchStatus);
+	}
+
+}
+
+void Model::DriverInforMenu()
+{
+
+	DIM_Value = xGetDriverInforMenu();
+
+	// Notify listener about RPMData data change
+	if(modelListener !=0)
+	{
+		modelListener->notifyDriverInforMenuDataChanged(DIM_Value);
+	}
+}

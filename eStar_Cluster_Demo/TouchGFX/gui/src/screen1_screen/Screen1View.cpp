@@ -14,8 +14,6 @@ Screen1View::Screen1View()
 		 RPMBarImageIds[i] = 0;
 	 }
 
-
-
 }
 
 void Screen1View::setupScreen()
@@ -32,29 +30,22 @@ void Screen1View::setupScreen()
     RPMIcon_r.setVisible(false);
     ABS_Detection_r.setVisible(false);
     LowBeam_r.setVisible(false);
-    //InitializeFuelBarAnimation();
-
 }
-#if 0
-void Screen1View::tearDownScreen()
-{
-    Screen1ViewBase::tearDownScreen();
-}
-#endif
 
-void Screen1View::UpdateCount(uint16_t newCounter)
-{
-	Unicode::snprintf(Speed_TaBuffer, SPEED_TA_SIZE, "%d",newCounter);
 
-		if(newCounter > 80)
-		{
-			Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-		}
-		else
-		{
-			Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-		}
-		Speed_Ta.invalidate();
+void Screen1View::SpeedUpdate(uint16_t newSpeed)
+{
+	Unicode::snprintf(Speed_TaBuffer, SPEED_TA_SIZE, "%d",newSpeed);
+
+	if(newCounter > 80)
+	{
+		Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+	}
+	else
+	{
+		Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+	}
+	Speed_Ta.invalidate();
 }
 #if 0
 void Screen1View::FuelbarWarningIcon(int newCounter)
@@ -72,9 +63,9 @@ void Screen1View::FuelbarWarningIcon(int newCounter)
 }
 #endif
 
-void Screen1View::KMPHtoMPH(int newCounter)
+void Screen1View::KMPHtoMPH(int newSpeed)
 {
-	if (newCounter >110)
+	if (newSpeed >110)
 	{
 		Unicode::UnicodeChar* currentText = KMPH_MPHBuffer;
 
@@ -207,10 +198,10 @@ void Screen1View::TRIP_B(uint16_t newTripB)
 
 void Screen1View::DriverInforMenu(uint8_t newMenu)
 {
+	currentMenu = newMenu;
 	switch(newMenu)
 	{
 	case 0 :
-
 				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "RANGE");
 				DriverInfoMenu.invalidate();
 				break;
@@ -219,12 +210,10 @@ void Screen1View::DriverInforMenu(uint8_t newMenu)
 				DriverInfoMenu.invalidate();
 				break;
 	case 2 :
-
 				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "AFE");
 				DriverInfoMenu.invalidate();
 				break;
 	case 3 :
-
 				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "TRIP"" ""A");
 				Unicode::snprintf(DriverInfoBuffer1, DRIVERINFOBUFFER1_SIZE, "%d",storedTRIP_A1);
 				DriverInfo.invalidate();
@@ -247,6 +236,54 @@ void Screen1View::DriverInforMenu(uint8_t newMenu)
 				break;
 	}
 }
+
+void Screen1View:: ClockUpdate (uint8_t Hours,uint8_t Minutes,uint8_t TimeFormat)
+{
+	Unicode::snprintf(ClockBuffer1, CLOCKBUFFER1_SIZE, "%d", Hours);
+	Unicode::snprintf(ClockBuffer2, CLOCKBUFFER2_SIZE, "%d", Minutes);
+	if (TimeFormat==0)
+	{
+		Unicode::snprintf(AM_PMBuffer, AM_PM_SIZE,"AM");
+	}
+	else
+	{
+		Unicode::snprintf(AM_PMBuffer, AM_PM_SIZE,"PM");
+	}
+	Clock.invalidate();
+	AM_PM.invalidate();
+}
+
+void Screen1View:: SwitchingModes(uint8_t SwitchStatus)
+{
+	switch(SwitchStatus)
+	{
+	case 0:
+			//odo meTER tOGGLE//
+			break;
+	case 1:
+			tickCounter++;
+			if (tickCounter >=1)  // Adjust this value to control blink frequency
+			{
+				Clock.setVisible(!	Clock.isVisible());
+				Clock.invalidate();
+				tickCounter = 0;
+			}
+			break;
+	case 2:
+				DriverInforMenu(currentMenu);
+			break;
+
+	default:
+			break;
+	}
+}
+
+
+
+
+
+
+
 
 
 

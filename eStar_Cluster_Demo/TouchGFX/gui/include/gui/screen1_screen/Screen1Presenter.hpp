@@ -25,19 +25,23 @@ public:
      */
     virtual void deactivate();
 
-    virtual void notifyCounterChanged(uint16_t newCounter);
+    virtual void notifySpeedDataChanged(uint16_t newSpeed);
     virtual void notifyOdoDataChanged(uint32_t newodoData);
     virtual void notifyFuelCounter(uint16_t newFuelCount);
     virtual void notifyRPMDataChanged(uint16_t newRPMData);
-    virtual void notifyDriverInforMenuDataChanged( uint8_t newMenu);
     virtual void notifyTrip_ADataChanged(uint16_t newTripA);
     virtual void notifyTrip_BDataChanged(uint16_t newTripB);
-
+    virtual void notifyClockDataChanged(uint8_t Hours,uint8_t Minutes,uint8_t TimeFormat);
+    virtual void notifySwitchHandlerDataChanged(uint8_t SwitchStatus);
+    virtual void notifyDriverInforMenuDataChanged( uint8_t newMenu);
     virtual ~Screen1Presenter() {}
+
+
 
 private:
     Screen1Presenter();
-
+    bool driverInfoMenuShown;
+    uint8_t newMenu;
     Screen1View& view;
 };
 

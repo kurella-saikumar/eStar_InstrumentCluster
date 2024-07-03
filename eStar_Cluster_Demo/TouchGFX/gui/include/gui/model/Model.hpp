@@ -22,9 +22,11 @@ public:
     void OdoData();
     void FuelData();
     void RPMData();
-    void DriverInforMenu();
     void Trip_A();
     void Trip_B();
+    void Clock();
+    void SwitchHandler();
+    void DriverInforMenu();
 
 protected:
     ModelListener* modelListener;

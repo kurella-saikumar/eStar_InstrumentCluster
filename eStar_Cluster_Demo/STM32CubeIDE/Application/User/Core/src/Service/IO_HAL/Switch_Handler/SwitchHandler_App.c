@@ -33,7 +33,6 @@
  * Include Project Specific Headers
 ***************************************************************************************************/
 
-#include "DriverInfoMenu_App.h"
 #include "Switch.h"
 #include "Switch_cfg.h"
 #include "SwitchHandler_App.h"
@@ -42,6 +41,8 @@
 
 #include "Odometer_App.h"
 #include "clock_App.h"
+
+#include "../../../App/DriverInfoMenu_App/DriverInfoMenu_App.h"
 /**************************************************************************************************
  * DEFINE FILE SCOPE MACROS
 ***************************************************************************************************/
@@ -63,7 +64,7 @@ uint8_t ucResetButtonStatus = 0;
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES\n
 ***************************************************************************************************/
-
+ SwitchModesDisplay_t ToDisplay;
 /**************************************************************************************************
  * DECLARE FILE SCOPE STATIC VARIABLES
 ***************************************************************************************************/
@@ -80,7 +81,6 @@ uint32_t ulButtonTimeout = 0, ulButtonTimeoutStart = 0, ulButtonTimeoutEnd = 0;
 
 
 
-//extern STATE_t ModeSwitchState = RELEASED;
 
 
 /**
@@ -261,7 +261,10 @@ void vHandleModeResetActions(void)
     {
     	ucModeButtonEventStatus = 0xFF;
     	ucResetButtonEventStatus= 0xFF;
+    	ToDisplay =ODO_METER_TOGGLE;
     	vToggleOdoUnits();
+
+
 #if (SWITCH_HANDLER_MACRO == 1)
         printf("mode and reset short pressed - Odo Units toggle\r\n");
 #endif
@@ -273,6 +276,8 @@ void vHandleModeResetActions(void)
         if (eClockMode == CLOCK_MODE_INACTIVE)
         {
             vModeSwitchToNext();
+            ToDisplay =MENU_MODES;
+
 #if (SWITCH_HANDLER_MACRO == 1)
             //printf("mode short press\r\n");
 #endif
@@ -325,6 +330,7 @@ void vHandleModeResetActions(void)
 
 //    	printf("clock:%d\r\n",eclockMode);
         clockSettingRunMode(CLOCK_ENTRY);
+        ToDisplay =CLOCK_EDITING;
         
         if (eClockMode == CLOCK_MODE_INACTIVE)
         {
@@ -403,6 +409,13 @@ void vHandleModeResetActions(void)
     }
 }
 
+
+SwitchModesDisplay_t xGetSwitchStatus(void)
+{
+	printf("todisplay=%d\n",ToDisplay);
+	return ToDisplay;
+
+}
 
 
 
