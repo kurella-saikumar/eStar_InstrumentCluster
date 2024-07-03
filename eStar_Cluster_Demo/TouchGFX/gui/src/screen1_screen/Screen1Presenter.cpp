@@ -51,6 +51,21 @@ void Screen1Presenter::notifyTrip_BDataChanged(uint16_t newTripB)
 	view.TRIP_B(newTripB);
 }
 
+void Screen1Presenter::notifyAVSDataChanged(uint32_t newAVS)
+{
+	view.AVSValue(newAVS);
+}
+
+void Screen1Presenter::notifyAFEDataChanged(uint32_t newAFE)
+{
+	view.AFEValue(newAFE);
+}
+
+void Screen1Presenter::notifyRANGEDataChanged(uint16_t newRANGE)
+{
+	view.RANGEValue(newRANGE);
+}
+
 void Screen1Presenter::notifyClockDataChanged(uint8_t Hours,uint8_t Minutes,uint8_t TimeFormat)
 {
 	view.ClockUpdate(Hours,Minutes,TimeFormat);

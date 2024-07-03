@@ -31,6 +31,9 @@ public:
     virtual void notifyRPMDataChanged(uint16_t newRPMData);
     virtual void notifyTrip_ADataChanged(uint16_t newTripA);
     virtual void notifyTrip_BDataChanged(uint16_t newTripB);
+    virtual void notifyAVSDataChanged(uint32_t newAVS);
+	virtual void notifyAFEDataChanged(uint32_t newAFE);
+	virtual void notifyRANGEDataChanged(uint16_t newRANGE);
     virtual void notifyClockDataChanged(uint8_t Hours,uint8_t Minutes,uint8_t TimeFormat);
     virtual void notifySwitchHandlerDataChanged(uint8_t SwitchStatus);
     virtual void notifyDriverInforMenuDataChanged( uint8_t newMenu);

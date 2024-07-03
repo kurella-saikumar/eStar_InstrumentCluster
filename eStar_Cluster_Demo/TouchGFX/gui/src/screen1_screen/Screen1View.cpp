@@ -195,6 +195,23 @@ void Screen1View::TRIP_B(uint16_t newTripB)
 		storedTRIP_B2 = newTripB % 10;
 }
 
+void Screen1View::AVSValue(uint32_t newAVS)
+{
+		storednewAVS1 = newAVS / 10;
+		storednewAVS2 = newAVS % 10;
+}
+
+void Screen1View::AFEValue(uint32_t newAFE)
+{
+		storednewAFE1 = newAFE / 10;
+		storednewAFE2 = newAFE % 10;
+}
+
+void Screen1View::RANGEValue(uint16_t newRANGE)
+{
+		storednewRANGE1 = newRANGE / 10;
+		storednewRANGE2 = newRANGE % 10;
+}
 
 void Screen1View::DriverInforMenu(uint8_t newMenu)
 {
@@ -203,14 +220,26 @@ void Screen1View::DriverInforMenu(uint8_t newMenu)
 	{
 	case 0 :
 				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "RANGE");
+				Unicode::snprintf(DriverInfoBuffer1, DRIVERINFOBUFFER1_SIZE, "%d",storednewRANGE1);
+				DriverInfo.invalidate();
+				Unicode::snprintf(DriverInfoBuffer2, DRIVERINFOBUFFER2_SIZE, "%d",storednewRANGE2);
+				DriverInfo.invalidate();
 				DriverInfoMenu.invalidate();
 				break;
 	case 1 :
 				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "AVS");
+				Unicode::snprintf(DriverInfoBuffer1, DRIVERINFOBUFFER1_SIZE, "%d",storednewAVS1);
+				DriverInfo.invalidate();
+				Unicode::snprintf(DriverInfoBuffer2, DRIVERINFOBUFFER2_SIZE, "%d",storednewAVS2);
+				DriverInfo.invalidate();
 				DriverInfoMenu.invalidate();
 				break;
 	case 2 :
 				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "AFE");
+				Unicode::snprintf(DriverInfoBuffer1, DRIVERINFOBUFFER1_SIZE, "%d",storednewAFE1);
+				DriverInfo.invalidate();
+				Unicode::snprintf(DriverInfoBuffer2, DRIVERINFOBUFFER2_SIZE, "%d",storednewAFE2);
+				DriverInfo.invalidate();
 				DriverInfoMenu.invalidate();
 				break;
 	case 3 :

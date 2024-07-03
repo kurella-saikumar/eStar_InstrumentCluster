@@ -9,6 +9,7 @@
 #include "../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App.h"
 #include "../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/clock_App.h"
 #include "../../../../STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.h"
+#include "../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h"
 
 
 bool isButtonPressed = false;
@@ -75,6 +76,9 @@ void Model::tick()
 		RPMData();
 		Trip_A();
 		Trip_B();
+		AVSValue();
+		AFEValue();
+		RANGEValue();
 		Clock();
 		SwitchHandler();
 		DriverInforMenu();
@@ -138,6 +142,7 @@ void Model::Trip_A()
 	}
 }
 
+
 void Model::Trip_B()
 {
 
@@ -147,6 +152,38 @@ void Model::Trip_B()
 	if(modelListener !=0)
 	{
 		modelListener->notifyTrip_BDataChanged(Trip_B_Value);
+	}
+}
+
+
+void Model::AVSValue()
+{
+	uint32_t AVS = xGetAVSstatus();
+	// Notify listener about RPMData data change
+	if(modelListener !=0)
+	{
+		modelListener->notifyAVSDataChanged(AVS);
+	}
+}
+
+void Model::AFEValue()
+{
+	uint32_t AFE = xGetAFEstatus();
+	// Notify listener about RPMData data change
+	if(modelListener !=0)
+	{
+		modelListener->notifyAFEDataChanged(AFE);
+	}
+}
+
+
+void Model::RANGEValue()
+{
+	uint16_t RANGE = xGetRANGEstatus();
+	// Notify listener about RPMData data change
+	if(modelListener !=0)
+	{
+		modelListener->notifyRANGEDataChanged(RANGE);
 	}
 }
 

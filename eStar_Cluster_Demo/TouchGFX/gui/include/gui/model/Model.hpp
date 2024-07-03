@@ -27,6 +27,9 @@ public:
     void Clock();
     void SwitchHandler();
     void DriverInforMenu();
+    void AVSValue();
+    void AFEValue();
+    void RANGEValue();
 
 protected:
     ModelListener* modelListener;

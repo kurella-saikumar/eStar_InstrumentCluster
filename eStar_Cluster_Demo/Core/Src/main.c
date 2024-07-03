@@ -44,6 +44,8 @@
 #include "Indicator_App.h"
 #include "stm32h7xx_hal_tim.h"
 #include "ServiceRequest_App.h"
+#include "../../STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h"
+
 
 
 #include <touchgfx/hal/Config.hpp>
@@ -288,6 +290,18 @@ const osThreadAttr_t ServiceIndicato_attributes = {
   .stack_size = sizeof(ServiceIndicatoBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for DriverInfoApp */
+osThreadId_t DriverInfoAppHandle;
+uint32_t DriverInfoAppBuffer[ 128 ];
+osStaticThreadDef_t DriverInfoAppControlBlock;
+const osThreadAttr_t DriverInfoApp_attributes = {
+  .name = "DriverInfoApp",
+  .cb_mem = &DriverInfoAppControlBlock,
+  .cb_size = sizeof(DriverInfoAppControlBlock),
+  .stack_mem = &DriverInfoAppBuffer[0],
+  .stack_size = sizeof(DriverInfoAppBuffer),
+  .priority = (osPriority_t) osPriorityBelowNormal,
+};
 /* USER CODE BEGIN PV */
 /**
   * @brief  Retargets the C library printf function to the USART.
@@ -339,6 +353,7 @@ void GetClockTask(void *argument);
 void CAN_Task(void *argument);
 void IndicatorsApp_Task(void *argument);
 void ServiceIndicatorApp_Task(void *argument);
+void DriverInfoApp_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
 void vBacklightBrightness(void);
@@ -500,7 +515,7 @@ int main(void)
   MX_ADC1_Init();
   MX_RTC_Init();
   MX_USART3_UART_Init();
-//  MX_IWDG1_Init();
+ // MX_IWDG1_Init();
   MX_ADC3_Init();
   MX_FDCAN3_Init();
   MX_TouchGFX_Init();
@@ -563,7 +578,7 @@ int main(void)
   videoTaskHandle = osThreadNew(videoTaskFunc, NULL, &videoTask_attributes);
 
   /* creation of WatchdogService */
-//  WatchdogServiceHandle = osThreadNew(WDG_SRVC_Task, NULL, &WatchdogService_attributes);
+ // WatchdogServiceHandle = osThreadNew(WDG_SRVC_Task, NULL, &WatchdogService_attributes);
 
   /* creation of DigitalDebounce */
   DigitalDebounceHandle = osThreadNew(DigitalDebounce_Task, NULL, &DigitalDebounce_attributes);
@@ -600,6 +615,9 @@ int main(void)
 
   /* creation of ServiceIndicato */
   ServiceIndicatoHandle = osThreadNew(ServiceIndicatorApp_Task, NULL, &ServiceIndicato_attributes);
+
+  /* creation of DriverInfoApp */
+  DriverInfoAppHandle = osThreadNew(DriverInfoApp_Task, NULL, &DriverInfoApp_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -2460,6 +2478,25 @@ void ServiceIndicatorApp_Task(void *argument)
   /* USER CODE END ServiceIndicatorApp_Task */
 }
 
+/* USER CODE BEGIN Header_DriverInfoApp_Task */
+/**
+* @brief Function implementing the DriverInfoApp thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_DriverInfoApp_Task */
+void DriverInfoApp_Task(void *argument)
+{
+  /* USER CODE BEGIN DriverInfoApp_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+	vDriver_InfoTask();
+    osDelay(1000);
+  }
+  /* USER CODE END DriverInfoApp_Task */
+}
+
  /* MPU Configuration */
 
 void MPU_Config(void)
@@ -2469,6 +2506,7 @@ void MPU_Config(void)
   /* Disables the MPU */
   HAL_MPU_Disable();
 #if 0
+
   /** Initializes and configures the Region and the memory to be protected
   */
   MPU_InitStruct.Enable = MPU_REGION_ENABLE;
