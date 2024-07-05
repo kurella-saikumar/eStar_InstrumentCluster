@@ -747,24 +747,32 @@ static void prvSetFuelLevel(void)
  * Description: This function is designed to get the Updated FuelLevel and providing the status of Fuel bar and Fuel Icon
  *
  ***************************************************************************************************/
-uint8_t xGetFuelLevel(IndicationStatus_t* pucFuelWarning_Indictr_u16p, bool* p_Warning_status_bool)
+uint8_t xGetFuelLevel(void)
 {
+
 	/**:Variable to store the fuel level;*/
     uint8_t uc_FuelLevel_Res = 0 ;
     /**:Initialize warning status to false;*/
-    *p_Warning_status_bool=false;
+    //*p_Warning_status_bool=false;
+
+
     /**:Get fuel level as a percentage;*/
     uc_FuelLevel_Res = (uint8_t)ulFuelLevelInPercentage;
+    printf("uc_FuelLevel_Res-%d\n",uc_FuelLevel_Res);
     /**check if uc_FuelLevel_Res is less than or equeal to configWARNING_FUELLEVEL*/
-    if(uc_FuelLevel_Res <= configWARNING_FUELLEVEL)
+    if(uc_FuelLevel_Res < configWARNING_FUELLEVEL)
     {
-       /**:Set warning status to true;*/
-       *p_Warning_status_bool=true;
        /**:Update fuel warning indicator;*/
-       pucFuelWarning_Indictr_u16p->indicators.Fuel_warning_indicator=1;
+    	Status.indicators.Fuel_warning_indicator =1;
+       printf("if has come\n");
     }
+    else
+    {
+    	Status.indicators.Fuel_warning_indicator=0;
+    	 printf("else has come\n");
+    }
+
     /**:Return the fuel level;*/
-    printf("fuel_Percentage = %d\n",uc_FuelLevel_Res);
 	return uc_FuelLevel_Res;
 }
 
@@ -788,6 +796,9 @@ static uint16_t prvCalculateAverage(void)
     return us_average;
 
 }
+
+
+
 
 
 

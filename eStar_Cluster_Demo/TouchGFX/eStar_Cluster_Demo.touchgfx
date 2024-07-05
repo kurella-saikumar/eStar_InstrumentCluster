@@ -270,18 +270,19 @@
             "Name": "KMPH_MPH_ODO",
             "X": 290,
             "Y": 214,
-            "Width": 16,
+            "Width": 43,
             "Height": 18,
             "TextId": "__SingleUse_VE6R",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
-              "Green": 247,
-              "Blue": 247
+              "Green": 255,
+              "Blue": 255
             },
-            "AutoSize": true,
             "Wildcard1": {
-              "TextId": "__SingleUse_947A"
+              "TextId": "__SingleUse_947A",
+              "UseBuffer": true,
+              "BufferSize": 10
             }
           },
           {

@@ -316,16 +316,18 @@ uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStat
     {
     	speedStatus->indicators.over_speed_indicator = 1;
 
-//    printf("dU: %d\t", speedDisplayUnits);   //Debug purpose
-//    printf("dI: %d\t", speedStatus);   //Debug purpose
+   printf("speedDisplayUnits: %d\t", speedDisplayUnits);   //Debug purpose
+   printf("speedStatus: %d\t", speedStatus);   //Debug purpose
     }
 
 		if(speedoUnits == SPEED_IN_KMPH)
 		{
+			 printf("speeeeeeed: %d\t", ulSpeedInKm);
 			return ulSpeedInKm;
 		}
 		else if(speedoUnits == SPEED_IN_MPH)
 		{
+			printf("speeeeeeed: %d\t", ulSpeedInKm);
 			return ulspeedInMiles;
 		}
 }

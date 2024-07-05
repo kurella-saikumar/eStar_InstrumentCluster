@@ -3,6 +3,8 @@
 
 #include <cstdint>
 
+#include "../../../../STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_App.h"
+
 class ModelListener;
 
 void simulateButtonPress();
@@ -30,6 +32,7 @@ public:
     void AVSValue();
     void AFEValue();
     void RANGEValue();
+    void IndicatorStatus();
 
 protected:
     ModelListener* modelListener;
@@ -37,7 +40,6 @@ protected:
     uint16_t FuelPercentage;
     uint16_t TickCount;
     uint16_t speedcounter;
-    uint32_t odometer ;
     uint16_t Trip_A_Value;
     uint16_t Trip_B_Value;
 };

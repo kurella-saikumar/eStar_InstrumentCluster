@@ -24,6 +24,7 @@ struct Typography
     static const touchgfx::FontId DRIVRINFO_DATA = 8;
     static const touchgfx::FontId DRIVERINFOMENU = 9;
     static const touchgfx::FontId CLOCK = 10;
+    static const touchgfx::FontId ODO_UNITS = 11;
 };
 
 struct TypographyFontIndex
@@ -39,6 +40,7 @@ struct TypographyFontIndex
     static const touchgfx::FontId DRIVRINFO_DATA = 1; // Technology_Bold_17_4bpp
     static const touchgfx::FontId DRIVERINFOMENU = 5; // Technology_Bold_20_4bpp
     static const touchgfx::FontId CLOCK = 7;          // Technology_Bold_22_4bpp
+    static const touchgfx::FontId ODO_UNITS = 1;      // Technology_Bold_17_4bpp
     static const uint16_t NUMBER_OF_FONTS = 8;
 };
 

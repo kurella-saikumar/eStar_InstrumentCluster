@@ -130,11 +130,11 @@ Screen1ViewBase::Screen1ViewBase()
     KMPH_MPH.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DKL2));
     add(KMPH_MPH);
 
-    KMPH_MPH_ODO.setXY(290, 214);
-    KMPH_MPH_ODO.setColor(touchgfx::Color::getColorFromRGB(255, 247, 247));
+    KMPH_MPH_ODO.setPosition(290, 214, 43, 18);
+    KMPH_MPH_ODO.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     KMPH_MPH_ODO.setLinespacing(0);
-    KMPH_MPH_ODO.setWildcard(touchgfx::TypedText(T___SINGLEUSE_947A).getText());
-    KMPH_MPH_ODO.resizeToCurrentText();
+    Unicode::snprintf(KMPH_MPH_ODOBuffer, KMPH_MPH_ODO_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_947A).getText());
+    KMPH_MPH_ODO.setWildcard(KMPH_MPH_ODOBuffer);
     KMPH_MPH_ODO.setTypedText(touchgfx::TypedText(T___SINGLEUSE_VE6R));
     add(KMPH_MPH_ODO);
 

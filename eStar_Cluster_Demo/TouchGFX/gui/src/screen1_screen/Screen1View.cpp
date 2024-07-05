@@ -32,22 +32,34 @@ void Screen1View::setupScreen()
     LowBeam_r.setVisible(false);
 }
 
-
-void Screen1View::SpeedUpdate(uint16_t newSpeed)
+#if 0
+void Screen1View::SpeedUpdate(uint32_t newSpeedValue,uint8_t newSpeedMetrics,uint8_t newSpeedStatus)
 {
-	Unicode::snprintf(Speed_TaBuffer, SPEED_TA_SIZE, "%d",newSpeed);
-
-	if(newCounter > 80)
+	if(newSpeedStatus == 0)
 	{
-		Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+		Unicode::snprintf(Speed_TaBuffer, SPEED_TA_SIZE, "%d",newSpeedValue);
+		Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+		Speed_Ta.invalidate();
 	}
 	else
 	{
-		Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+		Unicode::snprintf(Speed_TaBuffer, SPEED_TA_SIZE, "%d",newSpeedValue);
+		Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+		Speed_Ta.invalidate();
 	}
-	Speed_Ta.invalidate();
+
+	if(newSpeedMetrics == 0)
+	{
+		Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, "KMPH");
+		KMPH_MPH.invalidate();
+	}
+	else
+	{
+		Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, "MPH");
+		KMPH_MPH.invalidate();
+	}
 }
-#if 0
+
 void Screen1View::FuelbarWarningIcon(int newCounter)
 {
 
@@ -61,7 +73,7 @@ void Screen1View::FuelbarWarningIcon(int newCounter)
 	}
 	FuelIcon_r.invalidate();
 }
-#endif
+
 
 void Screen1View::KMPHtoMPH(int newSpeed)
 {
@@ -91,13 +103,45 @@ void Screen1View::KMPHtoMPH(int newSpeed)
 		KMPH_MPH.invalidate();
 	}
 }
-void Screen1View::OdoDataUpdate(uint32_t newodoData)
-{
-	Unicode::snprintf(ODOReadingsBuffer, ODOREADINGS_SIZE, "%u", newodoData);
+#endif
 
-	// Set the text of the ODOReadings widget to display the updated odometer value
-	ODOReadings.invalidate();
+void Screen1View::SpeedUpdate(uint32_t newSpeedValue,uint8_t newSpeedMetrics,uint8_t newSpeedStatus)
+{
+	if(newSpeedMetrics == 0)
+	{
+		Unicode::snprintf(Speed_TaBuffer, SPEED_TA_SIZE, "%d",newSpeedValue);
+		Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, "KMPH");
+		Speed_Ta.invalidate();
+		KMPH_MPH.invalidate();
+	}
+	else
+	{
+		Unicode::snprintf(Speed_TaBuffer, SPEED_TA_SIZE, "%d",newSpeedValue);
+		Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, "MPH");
+		Speed_Ta.invalidate();
+		KMPH_MPH.invalidate();
+	}
 }
+
+
+void Screen1View::OdoDataUpdate(uint32_t newOdoData,uint8_t newOdoUnits)
+{
+	if (newOdoUnits == 0)
+	{
+		Unicode::snprintf(ODOReadingsBuffer, ODOREADINGS_SIZE, "%u", newOdoData);
+		Unicode::snprintf(KMPH_MPH_ODOBuffer, KMPH_MPH_ODO_SIZE, "KM");
+		ODOReadings.invalidate();
+		KMPH_MPH_ODO.invalidate();
+	}
+	else
+	{
+		Unicode::snprintf(ODOReadingsBuffer, ODOREADINGS_SIZE, "%u", newOdoData);
+		Unicode::snprintf(KMPH_MPH_ODOBuffer, KMPH_MPH_ODO_SIZE, "Miles");
+		ODOReadings.invalidate();
+		KMPH_MPH_ODO.invalidate();
+	}
+}
+
 #if 0
 void Screen1View::FuelGauageAnimation(uint16_t newFuelCount)
 {
@@ -307,11 +351,284 @@ void Screen1View:: SwitchingModes(uint8_t SwitchStatus)
 	}
 }
 
+void Screen1View::IndicatorsStatus(IndicationStatus_t newIndicators)
+{
+	if(newIndicators.indicators.right_indicator == 1)
+	{
+		tickCounter++;
+		if (tickCounter >=1)  // Adjust this value to control blink frequency
+		{
+			RightIndicator_r.setVisible(!RightIndicator_r.isVisible());
+			RightIndicator_r.invalidate();
+			tickCounter = 0;
+		}
+	}
+	else
+	{
+		RightIndicator_r.setVisible(false);
+		RightIndicator_r.invalidate();
+	}
+
+	if(newIndicators.indicators.left_indicator == 1)
+	{
+		tickCounter++;
+		if (tickCounter >=1)  // Adjust this value to control blink frequency
+		{
+			LeftIndicator_r.setVisible(!LeftIndicator_r.isVisible());
+			LeftIndicator_r.invalidate();
+			tickCounter = 0;
+		}
+	}
+	else
+	{
+		LeftIndicator_r.setVisible(false);
+		LeftIndicator_r.invalidate();
+	}
+#if 0
+	if(newIndicators.indicators.parking_indicator == 1)
+	{
+		tickCounter++;
+		if (tickCounter >=1)  // Adjust this value to control blink frequency
+		{
+			parking_indicator.setVisible(!parking_indicator.isVisible());
+			parking_indicator.invalidate();
+			tickCounter = 0;
+		}
+	}
+	else
+	{
+		parking_indicator.setVisible(false);
+		parking_indicator.invalidate();
+	}
+#endif
+
+	if(newIndicators.indicators.HighBeam_indicator == 1)
+	{
+		tickCounter++;
+		if (tickCounter >=1)  // Adjust this value to control blink frequency
+		{
+			HighBeam_r.setVisible(!HighBeam_r.isVisible());
+			HighBeam_r.invalidate();
+			tickCounter = 0;
+		}
+	}
+	else
+	{
+		HighBeam_r.setVisible(false);
+		HighBeam_r.invalidate();
+	}
+
+	if(newIndicators.indicators.LowBeam_indicator == 1)
+	{
+		tickCounter++;
+		if (tickCounter >=1)  // Adjust this value to control blink frequency
+		{
+			LowBeam_r.setVisible(!LowBeam_r.isVisible());
+			LowBeam_r.invalidate();
+			tickCounter = 0;
+		}
+	}
+	else
+	{
+		LowBeam_r.setVisible(false);
+		LowBeam_r.invalidate();
+	}
+
+	if(newIndicators.indicators.engine_oil_temp_indicator == 1)
+	{
+		tickCounter++;
+		if (tickCounter >=1)  // Adjust this value to control blink frequency
+		{
+			EngineOIl_r.setVisible(!EngineOIl_r.isVisible());
+			EngineOIl_r.invalidate();
+			tickCounter = 0;
+		}
+	}
+	else
+	{
+		EngineOIl_r.setVisible(false);
+		EngineOIl_r.invalidate();
+	}
+
+#if 0
+	if(newIndicators.indicators.seat_belt_indicator == 1)
+	{
+		tickCounter++;
+		if (tickCounter >=1)  // Adjust this value to control blink frequency
+		{
+			seat_belt_indicator.setVisible(!seat_belt_indicator.isVisible());
+			seat_belt_indicator.invalidate();
+			tickCounter = 0;
+		}
+	}
+	else
+	{
+		seat_belt_indicator.setVisible(false);
+		seat_belt_indicator.invalidate();
+	}
 
 
+	if(newIndicators.indicators.engine_malfunction_indicator == 1)
+	{
+		tickCounter++;
+		if (tickCounter >=1)  // Adjust this value to control blink frequency
+		{
+			engine_malfunction_indicator.setVisible(!engine_malfunction_indicator.isVisible());
+			engine_malfunction_indicator.invalidate();
+			tickCounter = 0;
+		}
+	}
+	else
+	{
+		engine_malfunction_indicator.setVisible(false);
+		engine_malfunction_indicator.invalidate();
+	}
+#endif
+
+	if(newIndicators.indicators.door_open_indicator == 1)
+	{
+		tickCounter++;
+		if (tickCounter >=1)  // Adjust this value to control blink frequency
+		{
+			DoorsIcon_r.setVisible(!DoorsIcon_r.isVisible());
+			DoorsIcon_r.invalidate();
+			tickCounter = 0;
+		}
+	}
+	else
+	{
+		DoorsIcon_r.setVisible(false);
+		DoorsIcon_r.invalidate();
+	}
+
+	if(newIndicators.indicators.abs_warning_indicator == 1)
+	{
+		tickCounter++;
+		if (tickCounter >=1)  // Adjust this value to control blink frequency
+		{
+			ABS_Detection_r.setVisible(!ABS_Detection_r.isVisible());
+			ABS_Detection_r.invalidate();
+			tickCounter = 0;
+		}
+	}
+	else
+	{
+		ABS_Detection_r.setVisible(false);
+		ABS_Detection_r.invalidate();
+	}
 
 
+	if(newIndicators.indicators.FaultyRight_indicator == 1)
+	{
+		tickCounter++;
+		if (tickCounter >=2)  // Adjust this value to control blink frequency
+		{
+			RightIndicator_r.setVisible(!RightIndicator_r.isVisible());
+			RightIndicator_r.invalidate();
+			tickCounter = 0;
+		}
+	}
+	else
+	{
+		RightIndicator_r.setVisible(false);
+		RightIndicator_r.invalidate();
+	}
 
+	if(newIndicators.indicators.FaultyLeft_indicator == 1)
+	{
+		tickCounter++;
+		if (tickCounter >=2)  // Adjust this value to control blink frequency
+		{
+			LeftIndicator_r.setVisible(!LeftIndicator_r.isVisible());
+			LeftIndicator_r.invalidate();
+			tickCounter = 0;
+		}
+	}
+	else
+	{
+		LeftIndicator_r.setVisible(false);
+		LeftIndicator_r.invalidate();
+	}
+
+	if(newIndicators.indicators.low_battery_indicator == 1)
+	{
+		tickCounter++;
+		if (tickCounter >=2)  // Adjust this value to control blink frequency
+		{
+			LowBatteryIcon_r.setVisible(!LowBatteryIcon_r.isVisible());
+			LowBatteryIcon_r.invalidate();
+			tickCounter = 0;
+		}
+	}
+	else
+	{
+		LowBatteryIcon_r.setVisible(false);
+		LowBatteryIcon_r.invalidate();
+	}
+
+#if 0
+	if(newIndicators.indicators.service_reminder_indicator == 1)
+	{
+		tickCounter++;
+		if (tickCounter >=2)  // Adjust this value to control blink frequency
+		{
+			service_reminder_indicator.setVisible(!service_reminder_indicator.isVisible());
+			service_reminder_indicator.invalidate();
+			tickCounter = 0;
+		}
+	}
+	else
+	{
+		service_reminder_indicator.setVisible(false);
+		service_reminder_indicator.invalidate();
+	}
+#endif
+
+	if(newIndicators.indicators.tachometer_indicator == 1)
+	{
+		tickCounter++;
+		if (tickCounter >=2)  // Adjust this value to control blink frequency
+		{
+			RPMIcon_r.setVisible(!RPMIcon_r.isVisible());
+			RPMIcon_r.invalidate();
+			tickCounter = 0;
+		}
+	}
+	else
+	{
+		RPMIcon_r.setVisible(false);
+		RPMIcon_r.invalidate();
+	}
+
+
+	if(newIndicators.indicators.over_speed_indicator == 1)
+	{
+
+		Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+		Speed_Ta.invalidate();
+	}
+	else
+	{
+		Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255,255,255));
+		Speed_Ta.invalidate();
+	}
+
+	if(newIndicators.indicators.Fuel_warning_indicator == 1)
+	{
+		tickCounter++;
+		if (tickCounter >=1)  // Adjust this value to control blink frequency
+		{
+			FuelIcon_r.setVisible(!FuelIcon_r.isVisible());
+			FuelIcon_r.invalidate();
+			tickCounter = 0;
+		}
+	}
+	else
+	{
+		FuelIcon_r.setVisible(false);
+		FuelIcon_r.invalidate();
+	}
+}
 
 
 

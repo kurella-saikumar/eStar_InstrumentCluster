@@ -17,18 +17,15 @@ void Screen1Presenter::deactivate()
 
 }
 
-void Screen1Presenter::notifySpeedDataChanged(uint16_t newSpeed)
+void Screen1Presenter::notifySpeedDataChanged(uint32_t newSpeedValue,uint8_t newSpeedMetrics,uint8_t newSpeedStatus)
 {
-	//view.FuelbarWarningIcon(newCounter);
-	view.SpeedUpdate(newSpeed);
-	view.KMPHtoMPH(newSpeed);
-	//view.FuelGauageAnimation(newCounter);
-
+	view.SpeedUpdate(newSpeedValue,newSpeedMetrics,newSpeedStatus);
+	//view.KMPHtoMPH(newSpeed);
 }
 
-void Screen1Presenter::notifyOdoDataChanged(uint32_t newodoData)
+void Screen1Presenter::notifyOdoDataChanged(uint32_t newOdoData,uint8_t newOdoUnits)
 {
-	view.OdoDataUpdate(newodoData);
+	view.OdoDataUpdate(newOdoData,newOdoUnits);
 }
 
 void Screen1Presenter::notifyFuelCounter(uint16_t newFuelCount)
@@ -92,6 +89,9 @@ void Screen1Presenter::notifySwitchHandlerDataChanged(uint8_t SwitchStatus)
 //	    }
 }
 
-
+void Screen1Presenter:: notifyIndicatorStatusDataChanged(IndicationStatus_t newIndicators)
+{
+	view. IndicatorsStatus(newIndicators);
+}
 
 

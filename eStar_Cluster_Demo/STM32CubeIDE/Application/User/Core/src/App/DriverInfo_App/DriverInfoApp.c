@@ -195,7 +195,7 @@ uint32_t vCalculateAFEKmperLitre(void)
 	ulAverageDitsance = prvCalculateMovingAverage_Odo(ulDeltaDistance);
 
 #if(FUEL_TEST_MACRO == 0)
-	finalFuelPercentage = xGetFuelLevel(&warningIndicator,&warningStatus);
+	finalFuelPercentage = xGetFuelLevel();
 #endif
 
 #if(FUEL_TEST_MACRO == 1)

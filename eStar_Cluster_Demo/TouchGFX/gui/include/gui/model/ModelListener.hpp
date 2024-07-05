@@ -15,8 +15,8 @@ public:
         model = m;
     }
 
-    virtual void notifySpeedDataChanged (uint16_t Speed){};
-    virtual void notifyOdoDataChanged(uint32_t odometer){};
+    virtual void notifySpeedDataChanged(uint32_t SpeedValue,uint8_t SpeedMetrics,uint8_t SpeedStatus){};
+    virtual void notifyOdoDataChanged(uint32_t Odometer,uint8_t OdoUnits){};
     virtual void notifyFuelCounter(uint16_t Fuelcount){};
     virtual void notifyRPMDataChanged(uint16_t RPMData){};
     virtual void notifyTrip_ADataChanged(uint16_t TripA){};
@@ -27,6 +27,9 @@ public:
     virtual void notifyClockDataChanged(uint8_t Hours,uint8_t Minutes,uint8_t TimeFormat){};
     virtual void notifySwitchHandlerDataChanged(uint8_t SwitchStatus){};
     virtual void notifyDriverInforMenuDataChanged(uint8_t newMenu){};
+    virtual void notifyIndicatorStatusDataChanged(IndicationStatus_t Status){};
+
+
 protected:
     Model* model;
 };

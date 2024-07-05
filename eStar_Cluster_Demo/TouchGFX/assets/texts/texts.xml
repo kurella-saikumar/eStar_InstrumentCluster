@@ -42,10 +42,10 @@
       <Text Id="__SingleUse_0GI1" Alignment="Right" TypographyId="DriverInfo">
         <Translation Language="GB">&lt;value&gt;.&lt;value&gt;</Translation>
       </Text>
-      <Text Id="__SingleUse_947A" Alignment="Left" TypographyId="KMPH">
+      <Text Id="__SingleUse_947A" Alignment="Left" TypographyId="ODO_UNITS">
         <Translation Language="GB">KM</Translation>
       </Text>
-      <Text Id="__SingleUse_VE6R" Alignment="Left" TypographyId="KMPH">
+      <Text Id="__SingleUse_VE6R" Alignment="Left" TypographyId="ODO_UNITS">
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_1I4V" Alignment="Left" TypographyId="Odo">
@@ -80,5 +80,6 @@
     <Typography Id="DrivrInfo_Data" Font="Technology-Bold.ttf" Size="17" Bpp="4" IsVector="no" Direction="LTR" WildcardCharacterRanges="a-z,A-Z" EllipsisCharacter=" " />
     <Typography Id="DriverInfoMenu" Font="Technology-Bold.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="; , .  :" WildcardCharacterRanges="a-z,A-Z" />
     <Typography Id="Clock" Font="Technology-Bold.ttf" Size="22" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789" />
+    <Typography Id="ODO_UNITS" Font="Technology-Bold.ttf" Size="17" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="Miles" WildcardCharacterRanges="a-z,A-Z" />
   </Typographies>
 </TextDatabase>

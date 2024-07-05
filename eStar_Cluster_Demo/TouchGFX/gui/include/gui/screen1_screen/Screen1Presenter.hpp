@@ -3,6 +3,7 @@
 
 #include <gui/model/ModelListener.hpp>
 #include <mvp/Presenter.hpp>
+//#include "../../../../STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_App.h"
 
 using namespace touchgfx;
 
@@ -25,8 +26,8 @@ public:
      */
     virtual void deactivate();
 
-    virtual void notifySpeedDataChanged(uint16_t newSpeed);
-    virtual void notifyOdoDataChanged(uint32_t newodoData);
+    virtual void notifySpeedDataChanged(uint32_t newSpeedValue,uint8_t newSpeedMetrics,uint8_t newSpeedStatus);
+    virtual void notifyOdoDataChanged(uint32_t newOdoData,uint8_t newOdoUnits);
     virtual void notifyFuelCounter(uint16_t newFuelCount);
     virtual void notifyRPMDataChanged(uint16_t newRPMData);
     virtual void notifyTrip_ADataChanged(uint16_t newTripA);
@@ -37,6 +38,7 @@ public:
     virtual void notifyClockDataChanged(uint8_t Hours,uint8_t Minutes,uint8_t TimeFormat);
     virtual void notifySwitchHandlerDataChanged(uint8_t SwitchStatus);
     virtual void notifyDriverInforMenuDataChanged( uint8_t newMenu);
+    virtual void notifyIndicatorStatusDataChanged(IndicationStatus_t newIndicators);
     virtual ~Screen1Presenter() {}
 
 
@@ -45,6 +47,7 @@ private:
     Screen1Presenter();
     bool driverInfoMenuShown;
     uint8_t newMenu;
+   // IndicationStatus_t newIndicators;
     Screen1View& view;
 };
 
