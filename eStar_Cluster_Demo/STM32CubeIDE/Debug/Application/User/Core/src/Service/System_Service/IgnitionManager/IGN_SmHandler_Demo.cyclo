@@ -1,4 +1,0 @@
-../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.c:74:6:vIgnitionONFunc	1
-../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.c:88:6:vIgnitionOffFunc	1
-../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.c:102:6:vInIgnitionONFunc	1
-../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.c:117:6:vInIgnitionOffFunc	1

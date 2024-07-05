@@ -1,3 +1,0 @@
-../Application/User/Core/src/Service/IO_HAL/Damping_Filter/damp_out.c:90:6:DAMP_OUT	20	static
-../Application/User/Core/src/Service/IO_HAL/Damping_Filter/damp_out.c:157:10:Get_DAMP_OUT	0	static
-../Application/User/Core/src/Service/IO_HAL/Damping_Filter/damp_out.c:174:6:vUpdateParametrs	0	static

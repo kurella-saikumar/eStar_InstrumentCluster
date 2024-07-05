@@ -51,17 +51,17 @@
 typedef struct{
 	uint32_t AverageVehicleSpeed;
 	uint32_t AverageFuelEconomy;
-	uint16_t Range;
+	uint32_t Range;
 }driverInfoModeStatus_t;
 
 
 void vDriver_InfoTask(void);
 void vCalculateAVSInKmperhour(void);
-uint64_t vCalculateAFEKmperLitre(void);
+uint32_t vCalculateAFEKmperLitre(void);
 uint8_t prvFuelSimulation(void);
 //uint16_t convert_FuelPercentageToLitres(uint8_t);
 int16_t convert_FuelPercentageToLitres(int8_t);
-void vCalculateDTE(void);
+uint16_t vCalculateDTE(void);
 uint32_t prvCalculateMovingAverage_Odo(uint32_t);
 uint16_t prvCalculateMovingAverage_Fuel(uint16_t);
 uint32_t prvCalculateAverage1(void);

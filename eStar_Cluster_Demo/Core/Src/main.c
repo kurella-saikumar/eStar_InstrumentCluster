@@ -1967,7 +1967,7 @@ void DriverInfoApp_Task(void *argument)
   {
 	  vDriver_InfoTask();
 	  //xGetInfostatus();
-    osDelay(5000);
+    osDelay(1000);
   }
   /* USER CODE END DriverInfoApp_Task */
 }
