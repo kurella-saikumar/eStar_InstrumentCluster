@@ -25,13 +25,15 @@ public:
     virtual void notifyAFEDataChanged(uint32_t AFE){};
     virtual void notifyRANGEDataChanged(uint16_t RANGE){};
     virtual void notifyClockDataChanged(uint8_t Hours,uint8_t Minutes,uint8_t TimeFormat){};
+    //virtual void notifyClockEditingDataChanged(uint8_t ClockEditingMode){};
     virtual void notifySwitchHandlerDataChanged(uint8_t SwitchStatus){};
-    virtual void notifyDriverInforMenuDataChanged(uint8_t newMenu){};
+   // virtual void notifyDriverInforMenuDataChanged(uint8_t newMenu){};
     virtual void notifyIndicatorStatusDataChanged(IndicationStatus_t Status){};
 
 
 protected:
     Model* model;
+   // virtual void notifyClockEditingDataChanged(uint8_t ClockEditingMode){};
 };
 
 #endif // MODELLISTENER_HPP

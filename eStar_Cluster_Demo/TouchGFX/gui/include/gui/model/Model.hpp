@@ -27,6 +27,7 @@ public:
     void Trip_A();
     void Trip_B();
     void Clock();
+   // void ClockEdit();
     void SwitchHandler();
     void DriverInforMenu();
     void AVSValue();

@@ -68,10 +68,15 @@ void Screen1Presenter::notifyClockDataChanged(uint8_t Hours,uint8_t Minutes,uint
 	view.ClockUpdate(Hours,Minutes,TimeFormat);
 }
 
-void Screen1Presenter::notifyDriverInforMenuDataChanged( uint8_t newMenu)
-{
-	view.DriverInforMenu(newMenu);
-}
+//void Screen1Presenter::notifyClockEditingDataChanged(uint8_t ClockEditingMode)
+//{
+//	view.ClockValueChangingMode(ClockEditingMode);
+//}
+
+//void Screen1Presenter::notifyDriverInforMenuDataChanged( uint8_t newMenu)
+//{
+//	view.DriverInforMenu(newMenu);
+//}
 
 
 void Screen1Presenter::notifySwitchHandlerDataChanged(uint8_t SwitchStatus)

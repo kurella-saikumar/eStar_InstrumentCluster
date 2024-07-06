@@ -22,8 +22,9 @@ uint8_t Trip_B_Units;
 
 DriverInfoModeStatus_t DIM_Value;
 IndicationStatus_t RPMWarning;
-//IndicationStatus_t Indicators;
 IndicationStatus_t   Status;
+//ClockEditActions_t ClockEditingMode;
+
 #if 1
 //clock variables//
 extern RTC_TimeTypeDef xTime;
@@ -77,8 +78,9 @@ void Model::tick()
 		AFEValue();
 		RANGEValue();
 		Clock();
+		//ClockEdit();
 		SwitchHandler();
-		DriverInforMenu();
+		//DriverInforMenu();
 		IndicatorStatus();
 
 		TickCount =0;
@@ -130,10 +132,11 @@ void Model::FuelData()
 
 void Model::RPMData()
 {
+	uint16_t RPMData = xGet_TachometerData();
 	// Notify listener about RPMData data change
 	if(modelListener !=0)
 	{
-		modelListener->notifyRPMDataChanged(xGet_TachometerData(&RPMWarning,&RPMWarning_Status));
+		modelListener->notifyRPMDataChanged(RPMData);
 	}
 }
 
@@ -209,7 +212,16 @@ void Model::Clock()
 	}
 }
 
-
+//void Model::ClockEdit()
+//{
+//	clockSettingRunMode(ClockEditingMode);
+//
+//	// Notify listener about Clock data change
+//	if(modelListener !=0)
+//	{
+//		modelListener->notifyClockEditingDataChanged(ClockEditingMode);
+//	}
+//}
 
 void Model::SwitchHandler()
 {
@@ -222,17 +234,17 @@ void Model::SwitchHandler()
 
 }
 
-void Model::DriverInforMenu()
-{
-
-	DIM_Value = xGetDriverInforMenu();
-
-	// Notify listener about DriverInforMenudata change
-	if(modelListener !=0)
-	{
-		modelListener->notifyDriverInforMenuDataChanged(DIM_Value);
-	}
-}
+//void Model::DriverInforMenu()
+//{
+//
+//	DIM_Value = xGetDriverInforMenu();
+//
+//	// Notify listener about DriverInforMenudata change
+//	if(modelListener !=0)
+//	{
+//		modelListener->notifyDriverInforMenuDataChanged(DIM_Value);
+//	}
+//}
 
 void Model::IndicatorStatus()
 {

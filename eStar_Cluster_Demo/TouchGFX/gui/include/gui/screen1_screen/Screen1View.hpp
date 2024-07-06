@@ -4,6 +4,8 @@
 #include <gui_generated/screen1_screen/Screen1ViewBase.hpp>
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 //#include "../../../../STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_App.h"
+#include "../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/clock_App.h"
+#include "../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfoMenu_App/DriverInfoMenu_App.h"
 
 class Screen1View : public Screen1ViewBase
 {
@@ -22,8 +24,8 @@ public:
     virtual void AFEValue(uint32_t newAFE);
     virtual void RANGEValue(uint16_t newRANGE);
     virtual void ClockUpdate (uint8_t Hours,uint8_t Minutes,uint8_t TimeFormat);
+    //virtual void ClockValueChangingMode(uint8_t ClockEditingMode);
     virtual void SwitchingModes(uint8_t SwitchStatus);
-    virtual void DriverInforMenu(uint8_t newMenu);
     virtual void IndicatorsStatus(IndicationStatus_t newIndicators);
 
 protected:
@@ -42,10 +44,23 @@ protected:
     uint16_t storednewRANGE1;
     uint16_t storednewRANGE2;
     uint8_t currentMenu;
-    //IndicationStatus_t newIndicators;
+    uint8_t Current_Hours;
+    uint8_t Current_Minutes;
+  //  uint8_t currentClockEditingMode;
+    uint8_t Hour;
+	uint8_t Minute;
+	uint8_t TimeFormats;
+	ClockEditActions_t ClockEditingMode;
+
+    uint8_t ulShiftingPosition;
     int tickCounter;
-
-
+    bool isBlinkingOn = 0;
+    void updateClockVisibility(void);
+    void updateClock_Hours_Buffer1Visibility(bool visible);
+    void updateClock_Minutes_Buffer2Visibility(bool visible);
+    //virtual void ClockValueChangingMode(uint8_t ClockEditingMode);
+    void ClockValueChangingMode(void);
+    void DriverInforMenu(void);
 };
 
 

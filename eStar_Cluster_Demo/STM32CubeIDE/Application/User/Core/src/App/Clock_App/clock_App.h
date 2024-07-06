@@ -49,7 +49,7 @@
 extern void clock_Init(void);
 //extern void vGet_Clock(struct tm CurrentTime);
 
-extern void clockSettingRunMode(ClockEditActions_t clockSettingMode);
+
 extern void vClock_exit(void);
 extern void ContinousIncrement(void);
 extern void vClockIncreament(void);
@@ -59,6 +59,7 @@ extern "C" {
 #endif
 
 extern void vGet_Clock(void);
+extern void clockSettingRunMode(ClockEditActions_t clockSettingMode);
 
 #ifdef __cplusplus
 }

@@ -216,15 +216,20 @@ void Screen1View:: RPMDataAnimation(uint16_t newRPMData)
 	{
 		RPMBarImageIds[i] = BITMAP_RPMBAR01_ID + i;
 	}
-
 	RPMAnimation.setBitmaps(RPMBarImageIds[0], RPMBarImageIds[9]);
 
-	uint16_t imageIndex = (newRPMData/1200);
-
-	// Set the current image for the animation
-	RPMAnimation.setBitmaps(RPMBarImageIds[imageIndex], RPMBarImageIds[imageIndex]);
-
-	RPMAnimation.invalidate();
+	if(newRPMData<12000)
+	{
+		uint16_t imageIndex = (newRPMData/1200);
+		// Set the current image for the animation
+		RPMAnimation.setBitmaps(RPMBarImageIds[imageIndex], RPMBarImageIds[imageIndex]);
+		RPMAnimation.invalidate();
+	}
+	else
+	{
+		RPMAnimation.setBitmaps(RPMBarImageIds[9], RPMBarImageIds[9]);
+		RPMAnimation.invalidate();
+	}
 }
 
 void Screen1View::TRIP_A(uint16_t newTripA)
@@ -257,10 +262,10 @@ void Screen1View::RANGEValue(uint16_t newRANGE)
 		storednewRANGE2 = newRANGE % 10;
 }
 
-void Screen1View::DriverInforMenu(uint8_t newMenu)
+void Screen1View::DriverInforMenu(void)
 {
-	currentMenu = newMenu;
-	switch(newMenu)
+	uint8_t InfoMenu= xGetDriverInforMenu();
+	switch(InfoMenu)
 	{
 	case 0 :
 				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "RANGE");
@@ -312,6 +317,8 @@ void Screen1View::DriverInforMenu(uint8_t newMenu)
 
 void Screen1View:: ClockUpdate (uint8_t Hours,uint8_t Minutes,uint8_t TimeFormat)
 {
+	Current_Hours = Hours;
+	Current_Minutes = Minutes;
 	Unicode::snprintf(ClockBuffer1, CLOCKBUFFER1_SIZE, "%d", Hours);
 	Unicode::snprintf(ClockBuffer2, CLOCKBUFFER2_SIZE, "%d", Minutes);
 	if (TimeFormat==0)
@@ -326,6 +333,128 @@ void Screen1View:: ClockUpdate (uint8_t Hours,uint8_t Minutes,uint8_t TimeFormat
 	AM_PM.invalidate();
 }
 
+void Screen1View::updateClockVisibility(void)
+{
+	tickCounter++;
+	if (tickCounter <=3)  // Adjust this value to control blink frequency
+	{
+		Clock.setVisible(!Clock.isVisible());
+		Clock.invalidate();
+		tickCounter = 0;
+	}
+}
+
+
+#if 1
+void Screen1View::ClockValueChangingMode(void)
+{
+	clockSettingRunMode(ClockEditingMode);
+	switch (ClockEditingMode)
+	{
+		case 0:
+				{
+					updateClockVisibility();
+					ClockUpdate(Hour,Minute,TimeFormats);
+				}
+
+				break;
+
+		case 1:
+				{
+					ClockUpdate(Hour,Minute,TimeFormats);
+				}
+				break;
+
+		case 3:
+				{
+					ulShiftingPosition++;
+					if (ulShiftingPosition == 1)
+					{
+						updateClock_Hours_Buffer1Visibility(isBlinkingOn);
+						ClockUpdate(Hour,Minute,TimeFormats);
+					}
+					else
+					{
+						updateClock_Minutes_Buffer2Visibility(isBlinkingOn);
+						ClockUpdate(Hour,Minute,TimeFormats);
+						ulShiftingPosition = 0;
+					}
+				}
+				break;
+
+		case 4:
+				{
+					ClockUpdate(Hour,Minute,TimeFormats);
+				}
+				break;
+
+		case 5:
+				{
+					ClockUpdate(Hour,Minute,TimeFormats);
+				}
+				break;
+
+		case 6:
+				{
+					if (ulShiftingPosition == 1)
+					{
+						ClockUpdate(Hour,Minute,TimeFormats);
+					}
+					else if (ulShiftingPosition == 2)
+					{
+						ClockUpdate(Hour,Minute,TimeFormats);
+					}
+				}
+				break;
+		default:
+				// Handle unknown mode
+				break;
+	}
+
+}
+#endif
+
+
+void Screen1View::updateClock_Hours_Buffer1Visibility(bool visible)
+{
+	tickCounter++;
+	if (tickCounter >=1)
+	{
+		tickCounter = 0;
+		isBlinkingOn = !isBlinkingOn;
+		if (visible)
+		{
+			Unicode::snprintf(ClockBuffer1, CLOCKBUFFER1_SIZE, "%d",Current_Hours); // Preserve the hour value
+		}
+		else
+		{
+			Unicode::snprintf(ClockBuffer1, CLOCKBUFFER1_SIZE, ""); // Clear the text to make it invisible
+		}
+	Clock.invalidate(); // Refresh the widget to apply changes
+	}
+}
+
+void Screen1View::updateClock_Minutes_Buffer2Visibility(bool visible)
+{
+	tickCounter++;
+	if (tickCounter >=1)
+	{
+		tickCounter = 0;
+		isBlinkingOn = !isBlinkingOn;
+		if (visible)
+		{
+			Unicode::snprintf(ClockBuffer2, CLOCKBUFFER1_SIZE, "%d",Current_Minutes); // Preserve the Minutes value
+		}
+		else
+		{
+			Unicode::snprintf(ClockBuffer2, CLOCKBUFFER1_SIZE, ""); // Clear the text to make it invisible
+		}
+	Clock.invalidate(); // Refresh the widget to apply changes
+	}
+}
+
+
+
 void Screen1View:: SwitchingModes(uint8_t SwitchStatus)
 {
 	switch(SwitchStatus)
@@ -334,16 +463,14 @@ void Screen1View:: SwitchingModes(uint8_t SwitchStatus)
 			//odo meTER tOGGLE//
 			break;
 	case 1:
-			tickCounter++;
-			if (tickCounter >=1)  // Adjust this value to control blink frequency
 			{
-				Clock.setVisible(!	Clock.isVisible());
-				Clock.invalidate();
-				tickCounter = 0;
+				ClockValueChangingMode();
 			}
+
+
 			break;
 	case 2:
-				DriverInforMenu(currentMenu);
+				DriverInforMenu();
 			break;
 
 	default:

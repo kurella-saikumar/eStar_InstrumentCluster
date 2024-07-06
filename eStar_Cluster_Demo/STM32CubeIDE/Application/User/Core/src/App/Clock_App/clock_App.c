@@ -105,7 +105,7 @@ void vGet_Clock(void)
     }
     else
     {
-    	//printf("DT: %02d:%02d \n", xTime.Hours, xTime.Minutes);
+    	printf("DT: %02d:%02d \n", xTime.Hours, xTime.Minutes);
     }
 
     xRes = HAL_RTC_GetDate(&hrtc, &xDate, RTC_FORMAT_BIN);
@@ -142,6 +142,7 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 
 		case MODE_SHORTPRESS:
 		{
+			printf("position shifting hours");
 			ulShiftingPosition++;
 			if (ulShiftingPosition == E_CLOCK_INVALID_POS)
 			{
@@ -171,6 +172,9 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 				xEditTime.Hours++;
 				// Ensure hours wrap around correctly
 				xEditTime.Hours %= 24;
+
+				printf("Reset short Press hours Held\n\r");
+
 			}
 			else if (ulShiftingPosition == E_CLOCK_MINS_POS)
 			{
@@ -185,6 +189,7 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 			//				xEditTime.Hours++;
 					// Ensure hours wrap around correctly
 			//				xEditTime.Hours %= 24;
+					printf("Reset short Press minutes Held\n\r");
 				}
 				else
 				{
