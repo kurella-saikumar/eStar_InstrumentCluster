@@ -256,7 +256,7 @@ uint16_t xGetTripA_OdoReading(uint8_t *TripA_Units)
 #if(ODO_TEST_MACRO == 1)
     printf("A: %d\t" ,usTripA);
 #endif
-
+    printf("tripAAAAAA=%d\n",usTripA);
     return usTripA; // You might need to change the return type if necessary
 }
 
@@ -334,7 +334,7 @@ usTripB = ulOdoInEeprom -  ulOdoValBeforeTripBReset;
 #if(ODO_TEST_MACRO == 1)
     printf("B: %d\t" ,usTripB);
 #endif
-
+    printf("tripBBBBBB=%d\n",usTripB);
     return usTripB; // You might need to change the return type if necessary
 }
 
@@ -346,13 +346,13 @@ void xWrite_OdoVal_to_EEPROM(void)
 	uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[0],*eepromVariables[0],eepromVariables[0]);
 	if (0 == FlashStatus)
 	{
-#if(EMUL_DEBUG_ENABLE == 1)
+#if(EMUL_DEBUG_ENABLE == 0)
 		printf("ESW_S EE[0]:%ld\n\r",*eepromVariables[0]);
 #endif
 	}
 	else
 	{
-#if(EMUL_DEBUG_ENABLE == 1)
+#if(EMUL_DEBUG_ENABLE == 0)
 		printf("ESW_F\n\r");
 #endif
 	}
@@ -412,6 +412,7 @@ uint32_t xGetOdoReadings(uint8_t* OdoUnits)
     	   xOdoValue = MAX_ODO_VALUE_IN_KM;
        else
     	   xOdoValue = ulOdoInKm;
+       printf("Odo value=%ld\n", xOdoValue);
     }
     else
     {

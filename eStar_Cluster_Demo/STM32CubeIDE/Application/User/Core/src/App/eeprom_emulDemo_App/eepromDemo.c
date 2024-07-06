@@ -140,8 +140,11 @@ void vEE_Demo(void)
 		printf("BSP_OSPI_NOR_GetStatus:Fail \n\r");
 #endif
 	}
-
-//	prvEE_Format(EE_FORCED_ERASE); // EE_CONDITIONAL_ERASE
+//	HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
+//	prvEE_Format(EE_FORCED_ERASE);
+//	HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
+//	prvEE_Format(EE_CONDITIONAL_ERASE);
+//	HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
 	/* Init Sequence */
 	if ( 0U != xEE_Init(EE_FORCED_ERASE))
 	{
@@ -151,28 +154,21 @@ void vEE_Demo(void)
 	}
 	else
 	{
+
 #if(EMUL_DEBUG_ENABLE == 1)
 //		printf("xEE_Init:Success \n\r");
 #endif
 	}
 
-	/* ShadowRAM initialization*/
-//	vShadowRAM_Init();
-	/********** Read Back the shadow 20 variable's latest values *******/
-	/* Loop through each variable and perform the Read check */
-	for (int i = 0; i < sizeof(eepromVariables) / sizeof(eepromVariables[0]); i++)
-	{
-#if(EMUL_DEBUG_ENABLE == 1)
-//		printf("ShadowRam Read: eepromVariables[%d] at :%p data :0x%lx\n\r",i,eepromVariables[i],*eepromVariables[i]);
-#endif
-	}
 //	xRetrive_LastStored_OdoVal_from_EEPROM();
 	/* Loop through each variable and perform the write check */
-	for (uint32_t i = 0xFFFFFFFF ; i >= 0x0; i = i-0xFFFF)
+
+//	for (uint32_t i = 0xFFFFFFFF ; i >= 0x0; i = i-0xFFFF)
+	for (uint32_t i = 0 ; i < 20; i++)
 	{
-//		for (int j = 0; j < sizeof(eepromVariables) / sizeof(eepromVariables[0]); j++)
-		for (int j = 0; j < 20; j++)
+		for (int j = 0; j < sizeof(eepromVariables) / sizeof(eepromVariables[0]); j++) //for (int j = 0; j < 20; j++)
 		{
+
 			uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[j],(uint32_t)(i),eepromVariables[j]);
 			if (BSP_ERROR_NONE == FlashStatus)
 			{

@@ -58,6 +58,7 @@ uint8_t ulShiftingPosition = E_CLOCK_HOURS_POS;
  * @brief Variable representing the RTC time.
  */
 RTC_TimeTypeDef xTime;
+extern RTC_TimeTypeDef xTime;
 /*
  * @brief Variable representing the RTC Date.
  */
@@ -66,7 +67,6 @@ RTC_DateTypeDef xDate;
  * @brief To store the HAL function result.
  */
 HAL_StatusTypeDef xRes;
-
 
 RTC_TimeTypeDef xEditTime;
 
@@ -101,12 +101,13 @@ void vGet_Clock(void)
     xRes = HAL_RTC_GetTime(&hrtc, &xTime, RTC_FORMAT_BIN);
     if(xRes != HAL_OK)
     {
-    	//printf("HAL_RTC_GetTime failed: %d\r\n", xRes);
+    	printf("HAL_RTC_GetTime failed: %d\r\n", xRes);
     }
     else
     {
-    	//printf("DT: %02d:%02d \n", xTime.Hours, xTime.Minutes);
+    	printf("DT: %02d:%02d \n", xTime.Hours, xTime.Minutes);
     }
+
     xRes = HAL_RTC_GetDate(&hrtc, &xDate, RTC_FORMAT_BIN);
     if(xRes != HAL_OK)
     {
@@ -116,79 +117,89 @@ void vGet_Clock(void)
     {
     	//printf("Current date: %02d-%02d-%04d\n", xDate.Date, xDate.Month, xDate.Year);
     }
-
 }
+
 
 void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 {
 	switch (clockSettingMode)
 	{
-	case CLOCK_ENTRY:
-	{
-		printf("Clock Edit Mode Entry\n");
-		HAL_RTC_GetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
-		ulHours = xEditTime.Hours;
-		ulMinutes = xEditTime.Minutes;
-		printf("Hours:%02d,Minutes:%02d \n", ulHours, ulMinutes);
-	}
-	break;
-	case MODE_LONGPRESS:
-	{
-		vClock_exit();
-	}
-	break;
-	case MODE_SHORTPRESS:
-	{
-		ulShiftingPosition++;
-		if (ulShiftingPosition == E_CLOCK_INVALID_POS)
+		case CLOCK_ENTRY:
 		{
-			ulShiftingPosition = E_CLOCK_HOURS_POS;
+			printf("Clock Edit Mode Entry\n");
+			HAL_RTC_GetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
+			ulHours = xEditTime.Hours;
+			ulMinutes = xEditTime.Minutes;
+			printf("Hours:%02d,Minutes:%02d \n", ulHours, ulMinutes);
 		}
-		else
+		break;
+
+		case MODE_LONGPRESS:
 		{
-			/*do nothing*/
+			vClock_exit();
 		}
-	}
-	break;
-    case RESET_LONGPRESS_RELEASE:
-        	ulContinousIncrement_flag = 0;
-        	printf("Long Press Release\n\r");
-        break;
-    case RESET_LONGPRESS_HELD:
-    	ulContinousIncrement_flag = 1;
-    	printf("Long Press Held\n\r");
-    break;
-      case RESET_SHORTPRESS:
-    	if (ulShiftingPosition == E_CLOCK_HOURS_POS)
-    	{
-			//Increment hours
-			xEditTime.Hours++;
-			// Ensure hours wrap around correctly
-			xEditTime.Hours %= 24;
-		}
-        else if (ulShiftingPosition == E_CLOCK_MINS_POS)
-        {
-			// Increment minutes
-			xEditTime.Minutes++;
-			// Check if minutes reached 60
-			if (xEditTime.Minutes == 60)
+		break;
+
+		case MODE_SHORTPRESS:
+		{
+			printf("position shifting hours");
+			ulShiftingPosition++;
+			if (ulShiftingPosition == E_CLOCK_INVALID_POS)
 			{
-				// Reset minutes to 0
-				xEditTime.Minutes = 0;
-				// Increment hours
-//				xEditTime.Hours++;
-				// Ensure hours wrap around correctly
-//				xEditTime.Hours %= 24;
+				ulShiftingPosition = E_CLOCK_HOURS_POS;
 			}
 			else
 			{
 				/*do nothing*/
 			}
 		}
-       break;
-       default:
-    	   // Handle unknown mode
-       break;
+		break;
+
+		case RESET_LONGPRESS_RELEASE:
+				ulContinousIncrement_flag = 0;
+				printf("Long Press Release\n\r");
+		break;
+
+		case RESET_LONGPRESS_HELD:
+			ulContinousIncrement_flag = 1;
+			printf("Long Press Held\n\r");
+		break;
+
+		case RESET_SHORTPRESS:
+			if (ulShiftingPosition == E_CLOCK_HOURS_POS)
+			{
+				//Increment hours
+				xEditTime.Hours++;
+				// Ensure hours wrap around correctly
+				xEditTime.Hours %= 24;
+
+				printf("Reset short Press hours Held\n\r");
+
+			}
+			else if (ulShiftingPosition == E_CLOCK_MINS_POS)
+			{
+				// Increment minutes
+				xEditTime.Minutes++;
+				// Check if minutes reached 60
+				if (xEditTime.Minutes == 60)
+				{
+					// Reset minutes to 0
+					xEditTime.Minutes = 0;
+					// Increment hours
+			//				xEditTime.Hours++;
+					// Ensure hours wrap around correctly
+			//				xEditTime.Hours %= 24;
+					printf("Reset short Press minutes Held\n\r");
+				}
+				else
+				{
+					/*do nothing*/
+				}
+			}
+		break;
+		default:
+		   // Handle unknown mode
+		break;
 	}
 
 }

@@ -9,6 +9,9 @@
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/Image.hpp>
+#include <touchgfx/widgets/AnimatedImage.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/widgets/ScalableImage.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -26,10 +29,74 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::Image image1;
-    touchgfx::Image Low_Fuel;
+    touchgfx::Image BackGround;
+    touchgfx::Image ABS_Detection_w;
+    touchgfx::Image ABS_Detection_r;
+    touchgfx::Image LowBatteryIcon_w;
+    touchgfx::Image LowBatteryIcon_r;
+    touchgfx::Image DoorsIcon_w;
+    touchgfx::Image DoorsIcon_r;
+    touchgfx::Image EngineOIl_w;
+    touchgfx::Image EngineOIl_r;
+    touchgfx::Image Temperature_w;
+    touchgfx::Image Temperature_r;
+    touchgfx::Image FuelICon_w;
+    touchgfx::Image FuelIcon_r;
+    touchgfx::Image HighBeam_w;
+    touchgfx::Image HighBeam_r;
+    touchgfx::Image LeftIndicator_w;
+    touchgfx::Image LeftIndicator_r;
+    touchgfx::Image LowBeam_w;
+    touchgfx::Image LowBeam_r;
+    touchgfx::Image RightIndicator_w;
+    touchgfx::Image RightIndicator_r;
+    touchgfx::Image RPMIcon_w;
+    touchgfx::Image RPMIcon_r;
+    touchgfx::AnimatedImage FuelBarAnimation;
+    touchgfx::TextAreaWithOneWildcard Speed_Ta;
+    touchgfx::TextAreaWithOneWildcard KMPH_MPH;
+    touchgfx::TextAreaWithOneWildcard KMPH_MPH_ODO;
+    touchgfx::TextAreaWithOneWildcard KMPH_MPH_DTE;
+    touchgfx::TextAreaWithOneWildcard ODOReadings;
+    touchgfx::TextAreaWithTwoWildcards DriverInfo;
+    touchgfx::ScalableImage High_beem_White;
+    touchgfx::ScalableImage High_beem_Blue;
+    touchgfx::AnimatedImage RPMAnimation;
+    touchgfx::TextAreaWithOneWildcard DriverInfoMenu;
+    touchgfx::TextAreaWithTwoWildcards Clock;
+    touchgfx::TextAreaWithOneWildcard AM_PM;
+
+    /*
+     * Wildcard Buffers
+     */
+    static const uint16_t SPEED_TA_SIZE = 6;
+    touchgfx::Unicode::UnicodeChar Speed_TaBuffer[SPEED_TA_SIZE];
+    static const uint16_t KMPH_MPH_SIZE = 6;
+    touchgfx::Unicode::UnicodeChar KMPH_MPHBuffer[KMPH_MPH_SIZE];
+    static const uint16_t KMPH_MPH_ODO_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar KMPH_MPH_ODOBuffer[KMPH_MPH_ODO_SIZE];
+    static const uint16_t ODOREADINGS_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar ODOReadingsBuffer[ODOREADINGS_SIZE];
+    static const uint16_t DRIVERINFOBUFFER1_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar DriverInfoBuffer1[DRIVERINFOBUFFER1_SIZE];
+    static const uint16_t DRIVERINFOBUFFER2_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar DriverInfoBuffer2[DRIVERINFOBUFFER2_SIZE];
+    static const uint16_t DRIVERINFOMENU_SIZE = 20;
+    touchgfx::Unicode::UnicodeChar DriverInfoMenuBuffer[DRIVERINFOMENU_SIZE];
+    static const uint16_t CLOCKBUFFER1_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar ClockBuffer1[CLOCKBUFFER1_SIZE];
+    static const uint16_t CLOCKBUFFER2_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar ClockBuffer2[CLOCKBUFFER2_SIZE];
+    static const uint16_t AM_PM_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar AM_PMBuffer[AM_PM_SIZE];
 
 private:
+
+    /*
+     * Canvas Buffer Size
+     */
+    static const uint32_t CANVAS_BUFFER_SIZE = 7200;
+    uint8_t canvasBuffer[CANVAS_BUFFER_SIZE];
 
 };
 

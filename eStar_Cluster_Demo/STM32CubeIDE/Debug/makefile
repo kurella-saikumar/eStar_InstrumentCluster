@@ -43,7 +43,8 @@ RM := rm -rf
 -include Application/User/Core/src/App/Odometer_App/subdir.mk
 -include Application/User/Core/src/App/Indicator_App/subdir.mk
 -include Application/User/Core/src/App/FuelGuage/subdir.mk
--include Application/User/Core/src/App/DriverInfoApplication/subdir.mk
+-include Application/User/Core/src/App/DriverInfo_App/subdir.mk
+-include Application/User/Core/src/App/DriverInfoMenu_App/subdir.mk
 -include Application/User/Core/src/App/Clock_App/subdir.mk
 -include Application/User/Core/src/App/CAN_App/subdir.mk
 -include Application/User/Core/subdir.mk
@@ -123,7 +124,7 @@ main-build: STM32H735G-DK.elf secondary-outputs
 
 # Tool invocations
 STM32H735G-DK.elf STM32H735G-DK.map: $(OBJS) $(USER_OBJS) D:\GIT_WorkAreas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\STM32H735IGKX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "STM32H735G-DK.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\GIT_WorkAreas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\STM32H735IGKX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32H735G-DK.map" -Wl,--gc-sections -static -L../../Middlewares/ST/touchgfx/lib/core/cortex_m7/gcc --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+	arm-none-eabi-g++ -o "STM32H735G-DK.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\GIT_WorkAreas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\STM32H735IGKX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32H735G-DK.map" -Wl,--gc-sections -static -L../../Middlewares/ST/touchgfx/lib/core/cortex_m7/gcc -u _printf_float --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

@@ -84,4 +84,3 @@
 
 
 #endif	/* SPEEDOMETER_CFG_H */
-

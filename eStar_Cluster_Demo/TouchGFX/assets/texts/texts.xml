@@ -1,14 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="texts.xsd" Version="4.23.0">
+<TextDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="texts.xsd" Version="4.23.1">
   <Languages>
     <Language Id="GB" />
   </Languages>
   <Texts>
     <TextGroup Id="Group1" />
+    <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_TIW9" Alignment="Left" TypographyId="AM_PM">
+        <Translation Language="GB">AM</Translation>
+      </Text>
+      <Text Id="__SingleUse_KI12" Alignment="Left" TypographyId="AM_PM">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_JGEB" Alignment="Left" TypographyId="Clock">
+        <Translation Language="GB">55</Translation>
+      </Text>
+      <Text Id="__SingleUse_KYEZ" Alignment="Left" TypographyId="Clock">
+        <Translation Language="GB">00</Translation>
+      </Text>
+      <Text Id="__SingleUse_M204" Alignment="Center" TypographyId="Clock">
+        <Translation Language="GB">&lt;value&gt;:&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_U3CB" Alignment="Left" TypographyId="DriverInfoMenu">
+        <Translation Language="GB">RANGE</Translation>
+      </Text>
+      <Text Id="__SingleUse_OOJU" Alignment="Right" TypographyId="DriverInfoMenu">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_DPKY" Alignment="Left" TypographyId="Speed">
+        <Translation Language="GB">0</Translation>
+      </Text>
+      <Text Id="__SingleUse_CK36" Alignment="Left" TypographyId="KMPH">
+        <Translation Language="GB">KM</Translation>
+      </Text>
+      <Text Id="__SingleUse_EPWF" Alignment="Left" TypographyId="KMPH">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_69GV" Alignment="Left" TypographyId="DriverInfo">
+        <Translation Language="GB">000</Translation>
+      </Text>
+      <Text Id="__SingleUse_0GI1" Alignment="Right" TypographyId="DriverInfo">
+        <Translation Language="GB">&lt;value&gt;.&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_947A" Alignment="Left" TypographyId="ODO_UNITS">
+        <Translation Language="GB">KM</Translation>
+      </Text>
+      <Text Id="__SingleUse_VE6R" Alignment="Left" TypographyId="ODO_UNITS">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_1I4V" Alignment="Left" TypographyId="Odo">
+        <Translation Language="GB">000000</Translation>
+      </Text>
+      <Text Id="__SingleUse_7ZNN" Alignment="Right" TypographyId="Odo">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_ZEGA" Alignment="Left" TypographyId="KMPH">
+        <Translation Language="GB">KMPH</Translation>
+      </Text>
+      <Text Id="__SingleUse_DKL2" Alignment="Left" TypographyId="KMPH">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_MEO5" Alignment="Left" TypographyId="Speed">
+        <Translation Language="GB">000</Translation>
+      </Text>
+      <Text Id="__SingleUse_VG2X" Alignment="Right" TypographyId="Speed">
+        <Translation Language="GB">&lt;value&gt;</Translation>
+      </Text>
+    </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Speed" Font="Technology-Bold.ttf" Size="96" Bpp="4" IsVector="yes" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="KMPH" Font="Technology-Bold.ttf" Size="17" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="A-Z,a-z" />
+    <Typography Id="Odo" Font="Technology-Bold.ttf" Size="36" Bpp="4" IsVector="yes" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="DriverInfo" Font="Technology-Bold.ttf" Size="24" Bpp="4" IsVector="yes" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="AM_PM" Font="Technology-Bold.ttf" Size="16" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="A-Z" />
+    <Typography Id="Clock_hr" Font="Technology-Bold.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="Clock_min" Font="Technology-Bold.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="Semicolon" Font="Technology-Bold.ttf" Size="24" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="DrivrInfo_Data" Font="Technology-Bold.ttf" Size="17" Bpp="4" IsVector="no" Direction="LTR" WildcardCharacterRanges="a-z,A-Z" EllipsisCharacter=" " />
+    <Typography Id="DriverInfoMenu" Font="Technology-Bold.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="; , .  :" WildcardCharacterRanges="a-z,A-Z" />
+    <Typography Id="Clock" Font="Technology-Bold.ttf" Size="22" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789" />
+    <Typography Id="ODO_UNITS" Font="Technology-Bold.ttf" Size="17" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="Miles" WildcardCharacterRanges="a-z,A-Z" />
   </Typographies>
 </TextDatabase>

@@ -1,7 +1,14 @@
 #ifndef MODEL_HPP
 #define MODEL_HPP
 
+#include <cstdint>
+
+#include "../../../../STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_App.h"
+
 class ModelListener;
+
+void simulateButtonPress();
+void simulateButtonRelease();
 
 class Model
 {
@@ -12,11 +19,30 @@ public:
     {
         modelListener = listener;
     }
-
     void tick();
+    void SpeedData();
+    void OdoData();
+    void FuelData();
+    void RPMData();
+    void Trip_A();
+    void Trip_B();
+    void Clock();
+   // void ClockEdit();
+    void SwitchHandler();
+    void DriverInforMenu();
+    void AVSValue();
+    void AFEValue();
+    void RANGEValue();
+    void IndicatorStatus();
+
 protected:
     ModelListener* modelListener;
-    bool Button_State;
+    uint16_t counter;
+    uint16_t FuelPercentage;
+    uint16_t TickCount;
+    uint16_t speedcounter;
+    uint16_t Trip_A_Value;
+    uint16_t Trip_B_Value;
 };
 
 #endif // MODEL_HPP

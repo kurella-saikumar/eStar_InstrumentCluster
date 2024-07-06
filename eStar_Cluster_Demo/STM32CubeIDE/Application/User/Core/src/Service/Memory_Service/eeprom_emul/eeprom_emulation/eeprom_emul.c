@@ -131,10 +131,12 @@ EE_Status prvEE_Format(EE_Erase_type EraseType)
    {
 		if (EraseType == EE_FORCED_ERASE)
 		{
+			HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
 			if (xFI_PageErase(PAGE_ADDRESS(ulPage))!= EE_OK)
 			{
 				return EE_ERASE_ERROR;
 			}
+			HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
 		}
 		else /* EraseType == EE_CONDITIONAL_ERASE */
 		{
@@ -775,9 +777,9 @@ EE_Status prvVerifyPagesFullWriteVariable(uint32_t VirtAddress, EE_DATA_TYPE Dat
 	ulAddressNextWrite += EE_ELEMENT_SIZE;
 	usNbWrittenElements++;
 #if(EMUL_DEBUG_ENABLE == 1)
-//	printf( "usNbWrittenElements=%d\n\r",usNbWrittenElements);
-//	printf( "ucCurrentActivePage=%d\n\r",ucCurrentActivePage);
-//	printf( "ulAddressNextWrite=%lu\n\r",ulAddressNextWrite);
+	printf( "usNbWrittenElements=%d\n\r",usNbWrittenElements);
+	printf( "ucCurrentActivePage=%d\n\r",ucCurrentActivePage);
+	printf( "ulAddressNextWrite=%lu\n\r",ulAddressNextWrite);
 #endif
 	return EE_OK;
 }
@@ -1005,6 +1007,7 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 
 EE_Status xEE_Init(EE_Erase_type EraseType)
 {
+
     EE_State_type pagestatus = STATE_PAGE_INVALID;
     uint32_t ulPage = 0U;
     uint32_t ulPageAddress = 0U;
@@ -1234,7 +1237,7 @@ EE_Status xEE_Init(EE_Erase_type EraseType)
             return EE_INVALID_PAGE_SEQUENCE;
         }
     }
-
+    HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
     /*********************************************************************/
     /* Step 6: Ensure empty pages are erased                             */
     /*********************************************************************/
@@ -1266,6 +1269,7 @@ EE_Status xEE_Init(EE_Erase_type EraseType)
 		ulPage = FOLLOWING_PAGE(ulPage);
 		ulPageAddress = PAGE_ADDRESS(ulPage);
     }
+    HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
 #if(EMUL_DEBUG_ENABLE == 1)
 //	printf( "usNbWrittenElements=%d\n\r",usNbWrittenElements);
 //	printf( "ucCurrentActivePage=%d\n\r",ucCurrentActivePage);
@@ -1324,7 +1328,7 @@ uint32_t xShadowUpdate(void)
  				{
 					memcpy((void *)ulReadAddr,(const void *) &ulData, sizeof(ulData));
 #if(EMUL_DEBUG_ENABLE == 1)
-					printf("ESR_S:Data = 0x%lx\t,VAdr = 0x%lx\t,CRC= 0x%x\n",ulData,ulReadAddr,usCRCRead);
+//					printf("ESR_S:Data = 0x%lx\t,VAdr = 0x%lx\t,CRC= 0x%x\n",ulData,ulReadAddr,usCRCRead);
 #endif
  				}
  				else

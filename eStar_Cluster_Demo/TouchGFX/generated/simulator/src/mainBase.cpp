@@ -18,6 +18,7 @@
 #define fopen_s(pFile, filename, mode) (((*(pFile)) = fopen((filename), (mode))) == NULL)
 #endif
 touchgfx::LCD24bpp lcd;
+const uint8_t* video_Untitled_video___Made_with_Clipchamp_bin_start;
 
 uint32_t lineBuffer[10000];
 SoftwareMJPEGDecoder *mjpegDecoders[1];
@@ -35,6 +36,9 @@ void setupVideoDecoder(touchgfx::HAL& hal)
         mjpegDecoders[i] = new SoftwareMJPEGDecoder((uint8_t*)lineBuffer);
         controller.addDecoder(*mjpegDecoders[i], i);
     }
+
+    char videoFileName[400];
+    setupVideo(static_cast<touchgfx::HALSDL2&>(hal).localFileName(videoFileName, 400, "Untitled video - Made with Clipchamp.bin"), &video_Untitled_video___Made_with_Clipchamp_bin_start, video_Untitled_video___Made_with_Clipchamp_bin_length);
 }
 
 void setupVideo(const char* videoFileName, const uint8_t** videoBuffer, uint32_t videoLength)

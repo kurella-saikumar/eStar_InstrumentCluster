@@ -16,6 +16,7 @@ public:
     virtual void handleTickEvent()
     {
         model.tick();
+        //model.SpeedData();
         FrontendApplicationBase::handleTickEvent();
     }
 private:

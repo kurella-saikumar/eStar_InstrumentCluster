@@ -27,7 +27,7 @@
  * Include Platform or Standard Headers
 ***************************************************************************************************/
 #include "stdint.h"
-#include "Indicator_App.h"
+#include "../Indicator_App/Indicator_App.h"
 /**************************************************************************************************
  * Include Project Specific Headers
 ***************************************************************************************************/
@@ -85,6 +85,16 @@ typedef struct
 ***************************************************************************************************/
 extern void vFuelGuageTaskInit(void);
 extern void vFuelGuageTask(void);
-extern uint8_t xGetFuelLevel(IndicationStatus_t* ucFuelWarning_Indictr, bool* Warning_status);
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+extern uint8_t xGetFuelLevel(void);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* FUELGUAGE_APP_H */

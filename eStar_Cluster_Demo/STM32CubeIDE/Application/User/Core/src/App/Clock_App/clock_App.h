@@ -29,7 +29,8 @@
 ***************************************************************************************************/
 //#include "clock_App_cfg.h"
 //#include "definitions.h"
-#include "../Switch_Handler/SwitchHandler_App.h"
+//#include "../Switch_Handler/SwitchHandler_App.h"
+#include "../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h"
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
 ***************************************************************************************************/
@@ -47,11 +48,24 @@
 ***************************************************************************************************/
 extern void clock_Init(void);
 //extern void vGet_Clock(struct tm CurrentTime);
-extern void vGet_Clock(void);
-extern void clockSettingRunMode(ClockEditActions_t clockSettingMode);
+
+
 extern void vClock_exit(void);
 extern void ContinousIncrement(void);
 extern void vClockIncreament(void);
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+extern void vGet_Clock(void);
+extern void clockSettingRunMode(ClockEditActions_t clockSettingMode);
+
+#ifdef __cplusplus
+}
+#endif
+
+
 
 #endif	/* RKE_HANDLER_H */
 /**************************************************************************************************

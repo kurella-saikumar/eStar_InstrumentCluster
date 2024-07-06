@@ -5,4 +5,11 @@
 
 #include <touchgfx/hal/Types.hpp>
 
+const uint32_t video_Untitled video - Made with Clipchamp_bin_length = 42500;
+#ifdef SIMULATOR
+extern const uint8_t* video_Untitled video - Made with Clipchamp_bin_start;
+#else
+extern const uint8_t video_Untitled video - Made with Clipchamp_bin_start[];
+#endif
+
 #endif // TOUCHGFX_VIDEODATABASE_HPP

@@ -26,6 +26,7 @@
 #ifndef SPEEDOMETER_C
 #define	SPEEDOMETER_C
 
+
 /**************************************************************************************************
  * Include Platform or Standard Headers
  ***************************************************************************************************/
@@ -34,10 +35,10 @@
  * Include Project Specific Headers
  ***************************************************************************************************/
 #include "speedometer_App.h"
-#include "IGN_SmHandler.h"
 //#include "../Speedometer_App_test/speedometer_App_Test.h"
+#include "IGN_SmHandler.h"
 /**************************************************************************************************
- * DEFINE FILE SCOPE MACROS
+  * DEFINE FILE SCOPE MACROS
  ***************************************************************************************************/
 
 /**************************************************************************************************
@@ -217,11 +218,14 @@ void vValidateSpeed(void)
 	if(ulSpeedInKm > configMAX_VEH_SPEED_IN_KM)
 	{
 		ulSpeedInKm = configSPEED_ERROR;
-#if(SPEEDO_TEST_MACRO == 1)
-		printf("Error in Speed\n");
-#endif
+    #if(SPEEDO_TEST_MACRO == 1)
+            printf("Error in Speed\n");
+    #endif
 	}
-
+    else
+    {
+        /*do nothing*/
+    }
 }
 
 uint32_t vPulseDeltaCounter(void)
@@ -312,19 +316,20 @@ uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStat
     {
     	speedStatus->indicators.over_speed_indicator = 1;
 
-//    printf("dU: %d\t", speedDisplayUnits);   //Debug purpose
-//    printf("dI: %d\t", speedStatus);   //Debug purpose
+   printf("speedDisplayUnits: %d\t", speedDisplayUnits);   //Debug purpose
+   printf("speedStatus: %d\t", speedStatus);   //Debug purpose
     }
 
 		if(speedoUnits == SPEED_IN_KMPH)
 		{
+			 printf("speeeeeeed: %d\t", ulSpeedInKm);
 			return ulSpeedInKm;
 		}
 		else if(speedoUnits == SPEED_IN_MPH)
 		{
+			printf("speeeeeeed: %d\t", ulSpeedInKm);
 			return ulspeedInMiles;
 		}
 }
 
 #endif	/* SPEEDOMETER_C */
-
