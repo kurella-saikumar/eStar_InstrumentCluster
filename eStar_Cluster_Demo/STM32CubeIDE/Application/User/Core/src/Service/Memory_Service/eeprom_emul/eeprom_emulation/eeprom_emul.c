@@ -131,12 +131,10 @@ EE_Status prvEE_Format(EE_Erase_type EraseType)
    {
 		if (EraseType == EE_FORCED_ERASE)
 		{
-			HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
 			if (xFI_PageErase(PAGE_ADDRESS(ulPage))!= EE_OK)
 			{
 				return EE_ERASE_ERROR;
 			}
-			HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
 		}
 		else /* EraseType == EE_CONDITIONAL_ERASE */
 		{
@@ -416,7 +414,7 @@ EE_Status prvEE_CleanUp(void)
 EE_Status prvVerifyPageFullyErased(uint32_t Address, uint32_t PageSize)
 {
   EE_Status readstatus = EE_PAGE_ERASED;
-  uint16_t usCounter = 0U;
+  uint16_t usCounter = PAGE_HEADER_SIZE;
   uint64_t ulReadData =0U;
   uint8_t ucData[8]={0};
 
@@ -1007,7 +1005,7 @@ EE_Status prvPagesTransfer (uint32_t VirtAddress, EE_DATA_TYPE Data, EE_Transfer
 
 EE_Status xEE_Init(EE_Erase_type EraseType)
 {
-
+//    HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
     EE_State_type pagestatus = STATE_PAGE_INVALID;
     uint32_t ulPage = 0U;
     uint32_t ulPageAddress = 0U;
@@ -1237,24 +1235,16 @@ EE_Status xEE_Init(EE_Erase_type EraseType)
             return EE_INVALID_PAGE_SEQUENCE;
         }
     }
-    HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
+
     /*********************************************************************/
     /* Step 6: Ensure empty pages are erased                             */
     /*********************************************************************/
-
-    ulPage = FOLLOWING_PAGE(ucCurrentActivePage);
-    ulPageAddress = PAGE_ADDRESS(ulPage);
-
-    while (ulPage != ulFirstValidPage)
+    // retrieve page states
+    for (ulPage = 0; ulPage < PAGES_NUMBER; ulPage++)
     {
-        if (EraseType == EE_FORCED_ERASE)
-        {
-            if (xFI_PageErase((ulPageAddress)) != EE_OK)
-            {
-                return EE_ERASE_ERROR;
-            }
-        }
-        else
+        ulPageAddress = PAGE_ADDRESS(ulPage);
+        pageStates[ulPage] = prvGetPageState(ulPageAddress);
+        if ((pageStates[ulPage] == STATE_PAGE_ERASED))
         {
             if (prvVerifyPageFullyErased(ulPageAddress, PAGE_SIZE) == EE_PAGE_NOTERASED)
             {
@@ -1262,20 +1252,29 @@ EE_Status xEE_Init(EE_Erase_type EraseType)
                 {
                     return EE_ERASE_ERROR;
                 }
+                else
+                {
+                	/*Do Nothing*/
+                }
+            }
+            else
+            {
+            	/*Do Nothing*/
             }
         }
-
-		/* Increment page index among circular pages list, to get first page to erased */
-		ulPage = FOLLOWING_PAGE(ulPage);
-		ulPageAddress = PAGE_ADDRESS(ulPage);
+        else
+        {
+        	/*Do Nothing*/
+        }
     }
-    HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
+
 #if(EMUL_DEBUG_ENABLE == 1)
 //	printf( "usNbWrittenElements=%d\n\r",usNbWrittenElements);
 //	printf( "ucCurrentActivePage=%d\n\r",ucCurrentActivePage);
 //	printf( "ulAddressNextWrite=%lu\n\r",ulAddressNextWrite);
 #endif
     vShadowRAM_Init();
+//    HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
     return EE_OK;
 
 }
@@ -1376,8 +1375,8 @@ uint32_t xShadowUpdate(void)
  {
 	if(*UpdateToShadowRAM != Data)
 	{
-#if(EMUL_DEBUG_ENABLE == 1)
-//		printf("SHRAM:%ld,Data:%ld\n",*UpdateToShadowRAM,Data);
+#if(EMUL_DEBUG_ENABLE == 0)
+		printf("SHRAM:%ld,Data:%ld\n",*UpdateToShadowRAM,Data);
 #endif
 		if (BSP_ERROR_NONE == xEE_WriteVariable32bits(VirtAddress, Data)) //Write into EEPROM
 		{

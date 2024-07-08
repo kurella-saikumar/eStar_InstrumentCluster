@@ -162,9 +162,9 @@ void vEE_Demo(void)
 
 //	xRetrive_LastStored_OdoVal_from_EEPROM();
 	/* Loop through each variable and perform the write check */
-
+#if 1
 //	for (uint32_t i = 0xFFFFFFFF ; i >= 0x0; i = i-0xFFFF)
-	for (uint32_t i = 0 ; i < 20; i++)
+	for (uint32_t i = 0 ; i < 100; i++)
 	{
 		for (int j = 0; j < sizeof(eepromVariables) / sizeof(eepromVariables[0]); j++) //for (int j = 0; j < 20; j++)
 		{
@@ -184,6 +184,25 @@ void vEE_Demo(void)
 			}
 		}
 	}
+#endif
+#if 1
+	for (int jj = 0; jj < sizeof(eepromVariables) / sizeof(eepromVariables[0]); jj++)
+	{
+		uint16_t FlashStatus2= xEE_ReadVariable32bits((uint32_t)eepromVariables[jj],(uint32_t*)eepromVariables[jj]);
+		if (BSP_ERROR_NONE == FlashStatus2)
+		{
+#if(EMUL_DEBUG_ENABLE == 1)
+			printf("ESR_S:at %p,[%d]:0x%lx \n\r",eepromVariables[jj],jj,*eepromVariables[jj]);
+#endif
+		}
+		else
+		{
+#if(EMUL_DEBUG_ENABLE == 1)
+			printf("ESR_F:0x%x\n\r",FlashStatus2);
+#endif
+		}
+	}
+#endif
 }
 
 

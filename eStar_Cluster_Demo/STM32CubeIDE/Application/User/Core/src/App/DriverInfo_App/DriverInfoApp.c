@@ -274,7 +274,7 @@ uint16_t vCalculateDTE(void)
 		//printf("Fuel: %d\n\r", usfuelRemainingInLitres);
 		if(uccount1 == 1)
 		{
-			printf("inside_If\r\n");
+//			printf("inside_If\r\n");
 			usfuelRemainingInLitres = FINAL_FUEL_LEVEL;
 			usCalculated_DTE = (uint16_t)(FINAL_FUEL_LEVEL * DEFAULT_AFE );
 			printf("C_DTE:%d\t",usCalculated_DTE);
@@ -283,7 +283,7 @@ uint16_t vCalculateDTE(void)
 		}
 		else
 		{
-			printf("inside_else\r\n");
+//			printf("inside_else\r\n");
 			usCalculated_DTE = usfuelRemainingInLitres * Afe;
 			uspresent_DTE = usCalculated_DTE;
 			printf("POUT_DTE:%d\t",uspresent_DTE);

@@ -43,7 +43,7 @@
 #define EE_FLASH_SECTOR_SIZE 		  	4096U 							/* 4096Bytes //BSP_OSPI_NOR_BLOCK_4K */
 #define CYCLES_NUMBER           		100000U  				 		/*!< Number of Erase/Write cycles given by manufacturer*/
 #define NB_OF_VARIABLES         		20U//100U  							/*!< Number of variables to handle in eeprom */
-#define NB_OF_WRITES				    320000U//1600000U 						/* Number of writes required by each variable */
+#define NB_OF_WRITES				    1600000U 	//320000U					/* Number of writes required by each variable */
 
 /* Page Header status*/
 #define EE_ELEMENT_SIZE         	  	10U                         	 /*!< Size of element in Bytes */
