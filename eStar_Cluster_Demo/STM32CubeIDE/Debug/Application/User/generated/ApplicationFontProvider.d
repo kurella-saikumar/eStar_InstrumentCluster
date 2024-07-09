@@ -1,5 +1,6 @@
 Application/User/generated/ApplicationFontProvider.o: \
- D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/fonts/src/ApplicationFontProvider.cpp \
+ D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/fonts/src/ApplicationFontProvider.cpp \
+ D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h \
  ../../TouchGFX/generated/fonts/include/fonts/ApplicationFontProvider.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/FontManager.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp \
@@ -11,6 +12,7 @@ Application/User/generated/ApplicationFontProvider.o: \
  ../../TouchGFX/generated/texts/include/texts/TypedTextDatabase.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/TypedText.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Texts.hpp
+D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h:
 ../../TouchGFX/generated/fonts/include/fonts/ApplicationFontProvider.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/FontManager.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Font.hpp:

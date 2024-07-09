@@ -1,5 +1,6 @@
 Application/User/TouchGFX/target/TouchGFXGPIO.o: \
- D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/TouchGFXGPIO.cpp \
+ D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/TouchGFXGPIO.cpp \
+ D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/GPIO.hpp \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h735xx.h \
@@ -47,6 +48,7 @@ Application/User/TouchGFX/target/TouchGFXGPIO.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  ../../Core/Inc/main.h
+D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/GPIO.hpp:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h735xx.h:

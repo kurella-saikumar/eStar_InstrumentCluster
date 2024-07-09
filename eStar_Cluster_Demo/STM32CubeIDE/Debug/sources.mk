@@ -43,6 +43,7 @@ Application/User/Core \
 Application/User/Core/src/App/CAN_App \
 Application/User/Core/src/App/Clock_App \
 Application/User/Core/src/App/DriverInfoApplication \
+Application/User/Core/src/App/DriverInfo_App \
 Application/User/Core/src/App/FuelGuage \
 Application/User/Core/src/App/Indicator_App \
 Application/User/Core/src/App/Odometer_App \

@@ -1,5 +1,6 @@
 Middlewares/FreeRTOS/stream_buffer.o: \
- D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c \
+ D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/stream_buffer.c \
+ D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../../Core/Inc/FreeRTOSConfig.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
@@ -10,6 +11,7 @@ Middlewares/FreeRTOS/stream_buffer.o: \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/stream_buffer.h
+D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 ../../Core/Inc/FreeRTOSConfig.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:

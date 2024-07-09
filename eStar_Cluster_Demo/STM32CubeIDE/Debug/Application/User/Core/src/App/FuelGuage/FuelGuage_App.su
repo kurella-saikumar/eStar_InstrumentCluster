@@ -1,4 +1,4 @@
 ../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:731:13:prvSetFuelLevel	0	static
 ../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:302:6:vFuelGuageTaskInit	0	static
 ../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:318:6:vFuelGuageTask	40	static
-../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:750:9:xGetFuelLevel	8	static
+../Application/User/Core/src/App/FuelGuage/FuelGuage_App.c:750:9:xGetFuelLevel	0	static

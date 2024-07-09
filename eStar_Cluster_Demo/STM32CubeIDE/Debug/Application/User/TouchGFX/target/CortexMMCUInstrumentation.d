@@ -1,5 +1,6 @@
 Application/User/TouchGFX/target/CortexMMCUInstrumentation.o: \
- D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/CortexMMCUInstrumentation.cpp \
+ D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/CortexMMCUInstrumentation.cpp \
+ D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h \
  ../../TouchGFX/target/CortexMMCUInstrumentation.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/platform/core/MCUInstrumentation.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
@@ -30,6 +31,7 @@ Application/User/TouchGFX/target/CortexMMCUInstrumentation.o: \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/VGData.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/Widget.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/lcd/DebugPrinter.hpp
+D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h:
 ../../TouchGFX/target/CortexMMCUInstrumentation.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/platform/core/MCUInstrumentation.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp:

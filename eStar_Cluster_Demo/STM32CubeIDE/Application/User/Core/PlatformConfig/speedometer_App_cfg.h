@@ -52,7 +52,7 @@
 #define configSEC_TO_HR_TIME_CONV_FACTOR          3600
 
 /**Speedometer configurations*/
-#define configSPEEDO_ALGO_CALL_FREQ_IN_MS		   250
+#define configSPEEDO_ALGO_CALL_FREQ_IN_MS		   250//5000//1000//250
 
 /**Km configuration parameters*/
 #define configPULSE_MULTI_FACTOR                  100

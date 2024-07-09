@@ -44,6 +44,7 @@
 #include "Indicator_App.h"
 #include "stm32h7xx_hal_tim.h"
 #include "ServiceRequest_App.h"
+#include "../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h"
 
 
 #include <touchgfx/hal/Config.hpp>
@@ -288,6 +289,18 @@ const osThreadAttr_t ServiceIndicato_attributes = {
   .stack_size = sizeof(ServiceIndicatoBuffer),
   .priority = (osPriority_t) osPriorityLow,
 };
+/* Definitions for DriverInfo */
+osThreadId_t DriverInfoHandle;
+uint32_t DriverInfoBuffer[ 128 ];
+osStaticThreadDef_t DriverInfoControlBlock;
+const osThreadAttr_t DriverInfo_attributes = {
+  .name = "DriverInfo",
+  .cb_mem = &DriverInfoControlBlock,
+  .cb_size = sizeof(DriverInfoControlBlock),
+  .stack_mem = &DriverInfoBuffer[0],
+  .stack_size = sizeof(DriverInfoBuffer),
+  .priority = (osPriority_t) osPriorityBelowNormal,
+};
 /* USER CODE BEGIN PV */
 /**
   * @brief  Retargets the C library printf function to the USART.
@@ -339,6 +352,7 @@ void GetClockTask(void *argument);
 void CAN_Task(void *argument);
 void IndicatorsApp_Task(void *argument);
 void ServiceIndicatorApp_Task(void *argument);
+void DriverInfo_Task(void *argument);
 
 /* USER CODE BEGIN PFP */
 void vBacklightBrightness(void);
@@ -500,7 +514,7 @@ int main(void)
   MX_ADC1_Init();
   MX_RTC_Init();
   MX_USART3_UART_Init();
-//  MX_IWDG1_Init();
+  MX_IWDG1_Init();
   MX_ADC3_Init();
   MX_FDCAN3_Init();
   MX_TouchGFX_Init();
@@ -563,7 +577,7 @@ int main(void)
   videoTaskHandle = osThreadNew(videoTaskFunc, NULL, &videoTask_attributes);
 
   /* creation of WatchdogService */
-//  WatchdogServiceHandle = osThreadNew(WDG_SRVC_Task, NULL, &WatchdogService_attributes);
+  WatchdogServiceHandle = osThreadNew(WDG_SRVC_Task, NULL, &WatchdogService_attributes);
 
   /* creation of DigitalDebounce */
   DigitalDebounceHandle = osThreadNew(DigitalDebounce_Task, NULL, &DigitalDebounce_attributes);
@@ -600,6 +614,9 @@ int main(void)
 
   /* creation of ServiceIndicato */
   ServiceIndicatoHandle = osThreadNew(ServiceIndicatorApp_Task, NULL, &ServiceIndicato_attributes);
+
+  /* creation of DriverInfo */
+  DriverInfoHandle = osThreadNew(DriverInfo_Task, NULL, &DriverInfo_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -1266,10 +1283,10 @@ static void MX_RTC_Init(void)
 
   /** Enable the WakeUp
   */
-//  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
-//  {
-//    Error_Handler();
-//  }
+  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+  {
+    Error_Handler();
+  }
   /* USER CODE BEGIN RTC_Init 2 */
   if(HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR0) != 0x32F2)
   {
@@ -2460,15 +2477,34 @@ void ServiceIndicatorApp_Task(void *argument)
   /* USER CODE END ServiceIndicatorApp_Task */
 }
 
+/* USER CODE BEGIN Header_DriverInfo_Task */
+/**
+* @brief Function implementing the DriverInfo thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_DriverInfo_Task */
+void DriverInfo_Task(void *argument)
+{
+  /* USER CODE BEGIN DriverInfo_Task */
+  /* Infinite loop */
+  for(;;)
+  {
+	  vDriver_InfoTask();
+    osDelay(5000);
+  }
+  /* USER CODE END DriverInfo_Task */
+}
+
  /* MPU Configuration */
 
 void MPU_Config(void)
 {
- MPU_Region_InitTypeDef MPU_InitStruct = {0};
+  MPU_Region_InitTypeDef MPU_InitStruct = {0};
 
   /* Disables the MPU */
   HAL_MPU_Disable();
-#if 0
+
   /** Initializes and configures the Region and the memory to be protected
   */
   MPU_InitStruct.Enable = MPU_REGION_ENABLE;
@@ -2482,36 +2518,6 @@ void MPU_Config(void)
   MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
   MPU_InitStruct.IsCacheable = MPU_ACCESS_NOT_CACHEABLE;
   MPU_InitStruct.IsBufferable = MPU_ACCESS_NOT_BUFFERABLE;
-
-  HAL_MPU_ConfigRegion(&MPU_InitStruct);
-
-  /* Configure the MPU attributes as WT for OCTOSPI1 */
-  MPU_InitStruct.Enable = MPU_REGION_ENABLE;
-  MPU_InitStruct.BaseAddress = OCTOSPI1_BASE;
-  MPU_InitStruct.Size = MPU_REGION_SIZE_64MB;
-  MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
-  MPU_InitStruct.IsBufferable = MPU_ACCESS_BUFFERABLE;
-  MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
-  MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
-  MPU_InitStruct.Number = MPU_REGION_NUMBER1;
-  MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL1;
-  MPU_InitStruct.SubRegionDisable = 0x00;
-  MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
-
-  HAL_MPU_ConfigRegion(&MPU_InitStruct);
-#endif
-  /* Configure the MPU attributes as WT for OCTOSPI2 */
-  MPU_InitStruct.Enable = MPU_REGION_ENABLE;
-  MPU_InitStruct.BaseAddress = OCTOSPI2_BASE;
-  MPU_InitStruct.Size = MPU_REGION_SIZE_128MB;
-  MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
-  MPU_InitStruct.IsBufferable = MPU_ACCESS_BUFFERABLE;
-  MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
-  MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
-  MPU_InitStruct.Number = MPU_REGION_NUMBER1;
-  MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL1;
-  MPU_InitStruct.SubRegionDisable = 0x00;
-  MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
 
   HAL_MPU_ConfigRegion(&MPU_InitStruct);
   /* Enables the MPU */

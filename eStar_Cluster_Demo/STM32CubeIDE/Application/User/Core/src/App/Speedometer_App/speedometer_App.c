@@ -190,9 +190,12 @@ void vCalculateSpeed(void)
 void vCalculateSpeedInKm(void)
 {
 	ulReceivedPulses = vPulseDeltaCounter();
-	ulDistanceInMts = (ulReceivedPulses / ucPulsesPerMeter );
+	ulDistanceInMts = (ulReceivedPulses / ucPulsesPerMeter);
+//	printf("S_R_Pul:%ld\t",ulReceivedPulses);
+//	printf("S_D_Met:%ld\t",ulDistanceInMts);
 	ulSpeedInMtsPerSec = ( (ulDistanceInMts * configMILLI_SEC_TO_SECS_CONV_FACTOR) / configSPEEDO_ALGO_CALL_FREQ_IN_MS );
 	ulSpeedInKm = ((ulSpeedInMtsPerSec * configSEC_TO_HR_TIME_CONV_FACTOR) / configMTS_TO_KM_DIST_CONV_FACTOR );
+//	printf("S_Km:%ld\t",ulSpeedInKm);
 	vValidateSpeed();
 
 #if(SPEEDO_TEST_MACRO == 1)

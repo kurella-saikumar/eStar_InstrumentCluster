@@ -1,5 +1,6 @@
 Application/User/generated/VectorFontRendererBuffers.o: \
- D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/fonts/src/VectorFontRendererBuffers.cpp \
+ D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/fonts/src/VectorFontRendererBuffers.cpp \
+ D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/VectorFontRendererImpl.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp \
@@ -16,6 +17,7 @@ Application/User/generated/VectorFontRendererBuffers.o: \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Event.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/events/DragEvent.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/events/GestureEvent.hpp
+D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/VectorFontRendererImpl.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp:

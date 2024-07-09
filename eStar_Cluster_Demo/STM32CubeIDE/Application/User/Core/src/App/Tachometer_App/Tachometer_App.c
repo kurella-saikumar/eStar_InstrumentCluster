@@ -172,7 +172,7 @@ uint16_t xGet_TachometerData(IndicationStatus_t* Indication, bool *status)
 #if(TACHO_TEST_MACRO == 1)
     printf("RPM: %ld\n\r", ulRpm);
 #endif
-    	printf("RPM Data=%ld\n",ulRpm);
+//    	printf("RPM Data=%ld\n",ulRpm);
     	return ulRpm;
 }
 /**

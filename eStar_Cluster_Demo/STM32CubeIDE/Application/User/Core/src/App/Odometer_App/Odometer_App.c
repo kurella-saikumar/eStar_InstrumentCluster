@@ -151,13 +151,16 @@ uint32_t vPulseCount(void)
 void vCalculateOdoInKm(void)
 {
 	ulPulsesReceived = vPulseCount();
-	ulPulse100mCountRatioOdo = ( ulPulsesReceived / PULSES_PER_100_METERS );
+	//ulPulse100mCountRatioOdo = ( ulPulsesReceived / PULSES_PER_100_METERS );
+	ulPulse100mCountRatioOdo = ( ulPulsesReceived / PULSES_PER_1_METER );
+//	printf("P_Rec:%ld\t",ulPulsesReceived);
+//	printf("P_Ratio:%ld\t",ulPulse100mCountRatioOdo);
+    ulDistanceInMtsOdo = ulPulse100mCountRatioOdo; //* ulPulseMultiFactor;
 
-    ulDistanceInMtsOdo = ulPulse100mCountRatioOdo * ulPulseMultiFactor;
-
-    ulUpdatedOdoValue = ulOdoInEeprom + ulPulse100mCountRatioOdo;// Update OdoInEeprom with the new value
+    ulUpdatedOdoValue = ulOdoInEeprom + ulDistanceInMtsOdo;// Update OdoInEeprom with the new value
     ulOdoInEeprom = ulUpdatedOdoValue;
-    ulOdoInKm = (ulOdoInEeprom/10);
+    ulOdoInKm = (ulOdoInEeprom/1000);
+//    printf("O_Km:%ld\t",ulOdoInKm);
 
 #if(ODO_TEST_MACRO == 1)
     printf("P: %ld\t", ulPulsesReceived);
@@ -256,7 +259,7 @@ uint16_t xGetTripA_OdoReading(uint8_t *TripA_Units)
 #if(ODO_TEST_MACRO == 1)
     printf("A: %d\t" ,usTripA);
 #endif
-    printf("tripAAAAAA=%d\n",usTripA);
+//    printf("tripAAAAAA=%d\n",usTripA);
     return usTripA; // You might need to change the return type if necessary
 }
 
@@ -334,7 +337,7 @@ usTripB = ulOdoInEeprom -  ulOdoValBeforeTripBReset;
 #if(ODO_TEST_MACRO == 1)
     printf("B: %d\t" ,usTripB);
 #endif
-    printf("tripBBBBBB=%d\n",usTripB);
+//    printf("tripBBBBBB=%d\n",usTripB);
     return usTripB; // You might need to change the return type if necessary
 }
 
@@ -412,7 +415,7 @@ uint32_t xGetOdoReadings(uint8_t* OdoUnits)
     	   xOdoValue = MAX_ODO_VALUE_IN_KM;
        else
     	   xOdoValue = ulOdoInKm;
-       printf("Odo value=%ld\n", xOdoValue);
+//       printf("Odo value=%ld\n", xOdoValue);
     }
     else
     {

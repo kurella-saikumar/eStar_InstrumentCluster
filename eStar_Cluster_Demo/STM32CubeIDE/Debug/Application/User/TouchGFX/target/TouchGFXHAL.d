@@ -1,5 +1,6 @@
 Application/User/TouchGFX/target/TouchGFXHAL.o: \
- D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/TouchGFXHAL.cpp \
+ D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/TouchGFXHAL.cpp \
+ D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h \
  ../../TouchGFX/target/TouchGFXHAL.hpp \
  ../../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp \
@@ -89,6 +90,7 @@ Application/User/TouchGFX/target/TouchGFXHAL.o: \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h:
 ../../TouchGFX/target/TouchGFXHAL.hpp:
 ../../TouchGFX/target/generated/TouchGFXGeneratedHAL.hpp:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/HAL.hpp:

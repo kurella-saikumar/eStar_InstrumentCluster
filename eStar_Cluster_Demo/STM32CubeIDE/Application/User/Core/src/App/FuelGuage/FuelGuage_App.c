@@ -764,7 +764,7 @@ uint8_t xGetFuelLevel(IndicationStatus_t* pucFuelWarning_Indictr_u16p, bool* p_W
        pucFuelWarning_Indictr_u16p->indicators.Fuel_warning_indicator=1;
     }
     /**:Return the fuel level;*/
-    printf("fuel_Percentage = %d\n",uc_FuelLevel_Res);
+//    printf("fuel_Percentage = %d\n",uc_FuelLevel_Res);
 	return uc_FuelLevel_Res;
 }
 

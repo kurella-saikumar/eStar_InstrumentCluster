@@ -1,5 +1,6 @@
 Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o: \
- D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/SoftwareMJPEGDecoder.cpp \
+ D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/SoftwareMJPEGDecoder.cpp \
+ D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h \
  ../../Middlewares/Third_Party/LibJPEG/include/jinclude.h \
  ../../LIBJPEG/Target/jconfig.h ../../LIBJPEG/Target/jdata_conf.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
@@ -20,6 +21,7 @@ Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o: \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/VideoController.hpp
+D:/Git_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h:
 ../../Middlewares/Third_Party/LibJPEG/include/jinclude.h:
 ../../LIBJPEG/Target/jconfig.h:
 ../../LIBJPEG/Target/jdata_conf.h:
