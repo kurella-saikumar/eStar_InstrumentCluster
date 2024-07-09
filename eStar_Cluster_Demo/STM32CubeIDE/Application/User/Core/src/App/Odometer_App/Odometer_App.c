@@ -118,6 +118,7 @@ void vOdoAlgorithm(void)
     else
     {        
         vCalculateOdo();
+        vWrite_OdoVal_to_EEPROM();
     }
 }
 
@@ -340,7 +341,7 @@ usTripB = ulOdoInEeprom -  ulOdoValBeforeTripBReset;
     return usTripB; // You might need to change the return type if necessary
 }
 
-void xWrite_OdoVal_to_EEPROM(void)
+void vWrite_OdoVal_to_EEPROM(void)
 {
 	/*Write odo value to EEPROM*/
 	//printf("ulOdoInEeprom: %ld\n", ulOdoInEeprom);
@@ -377,7 +378,7 @@ void xWrite_OdoVal_to_EEPROM(void)
 
 }
 
-void xRetrive_LastStored_OdoVal_from_EEPROM(void)
+void vRetrive_LastStored_OdoVal_from_EEPROM(void)
 {
 	/*Read odo value from EEPROM variable*/
 	ulOdoInEeprom = *eepromVariables[0];
