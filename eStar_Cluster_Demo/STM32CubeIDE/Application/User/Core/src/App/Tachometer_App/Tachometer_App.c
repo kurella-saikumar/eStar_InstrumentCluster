@@ -160,8 +160,9 @@ uint16_t xGet_TachometerData(void)
 	{
     	Status.indicators.tachometer_indicator = 1;
 	}
-
+#if(TACHO_TEST_MACRO == 1)
 	printf("RPM Data=%ld\n",ulRpm);
+#endif
 	return ulRpm;
 }
 /**

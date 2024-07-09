@@ -2339,7 +2339,7 @@ void Odo_Task(void *argument)
   for(;;)
   {
 	vOdoAlgorithm();
-//	xWrite_OdoVal_to_EEPROM();
+	xWrite_OdoVal_to_EEPROM();
 	osDelay(5000);
   }
   /* USER CODE END Odo_Task */

@@ -322,12 +322,12 @@ uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStat
 
 		if(speedoUnits == SPEED_IN_KMPH)
 		{
-			 printf("speeeeeeed: %d\t", ulSpeedInKm);
+//			 printf("speeeeeeed: %d\t", ulSpeedInKm);
 			return ulSpeedInKm;
 		}
 		else if(speedoUnits == SPEED_IN_MPH)
 		{
-			printf("speeeeeeed: %d\t", ulSpeedInKm);
+//			printf("speeeeeeed: %d\t", ulSpeedInKm);
 			return ulspeedInMiles;
 		}
 }

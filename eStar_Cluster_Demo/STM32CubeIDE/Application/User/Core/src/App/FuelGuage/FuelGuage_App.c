@@ -758,18 +758,24 @@ uint8_t xGetFuelLevel(void)
 
     /**:Get fuel level as a percentage;*/
     uc_FuelLevel_Res = (uint8_t)ulFuelLevelInPercentage;
+#if(FuelApp_TestMacro == 1)
     printf("uc_FuelLevel_Res-%d\n",uc_FuelLevel_Res);
+#endif
     /**check if uc_FuelLevel_Res is less than or equeal to configWARNING_FUELLEVEL*/
     if(uc_FuelLevel_Res < configWARNING_FUELLEVEL)
     {
        /**:Update fuel warning indicator;*/
     	Status.indicators.Fuel_warning_indicator =1;
+#if(FuelApp_TestMacro == 1)
        printf("if has come\n");
+#endif
     }
     else
     {
     	Status.indicators.Fuel_warning_indicator=0;
+#if(FuelApp_TestMacro == 1)
     	 printf("else has come\n");
+#endif
     }
 
     /**:Return the fuel level;*/

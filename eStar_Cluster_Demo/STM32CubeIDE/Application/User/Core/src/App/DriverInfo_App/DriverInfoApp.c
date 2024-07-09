@@ -92,7 +92,9 @@ void vDriver_InfoTask(void)
     ucignitionstatus = usIgnitionGetCurrentState();
     if(ucignitionstatus == IgnOFF_mode)
     {
-        printf("Ignition is OFF\r\n");
+#if(DRIVERINFO_TEST_MACRO == 1)
+        printf("Driver_InfoTask: IGN_OFF\r\n");
+#endif
         //ucDeltaTime = 0;
         //usDistance2 = 0;
         ulDistance2 = 0;
@@ -208,7 +210,9 @@ uint32_t vCalculateAFEKmperLitre(void)
 		initialFuelPercentage = finalFuelPercentage;
 		Afe = DEFAULT_AFE;
 		ModeStatus.AverageFuelEconomy = previousAFE;
+#if(DRIVERINFO_TEST_MACRO == 1)
 		printf("AFE_D:%ld\n\r",Afe);
+#endif
 		return Afe;
 	}
 
@@ -217,14 +221,18 @@ uint32_t vCalculateAFEKmperLitre(void)
 	if(deltaFuelInPercentage <= 0)
 	{
 		initialFuelPercentage = finalFuelPercentage;
+#if(DRIVERINFO_TEST_MACRO == 1)
 		printf("I_Per:%d\t",initialFuelPercentage);
+#endif
 		ModeStatus.AverageFuelEconomy = previousAFE;
 		return previousAFE;
 	}
 
 	usdeltaFuelInLitres = (uint16_t)(convert_FuelPercentageToLitres(deltaFuelInPercentage));
 	usAverageFuel = prvCalculateMovingAverage_Fuel(usdeltaFuelInLitres);
+#if(DRIVERINFO_TEST_MACRO == 1)
 	printf("Fuel_MA:%u\t", usAverageFuel);
+#endif
 
 	if (usAverageFuel == 0)
 	{
@@ -234,7 +242,9 @@ uint32_t vCalculateAFEKmperLitre(void)
 	else
 	{
 		Afe = (ulAverageDitsance * 10) /(uint32_t)(usAverageFuel);
+#if(DRIVERINFO_TEST_MACRO == 1)
 		printf("AFE_C:%ld\n\r", Afe);
+#endif
 	}
 	usinitialDistance = usfinalDistance;
 
@@ -271,22 +281,24 @@ uint16_t vCalculateDTE(void)
 	{
 		usfuelRemainingInLitres = (uint16_t)convert_FuelPercentageToLitres(fuelremaingvalueinPercentage);
 
-		//printf("Fuel: %d\n\r", usfuelRemainingInLitres);
 		if(uccount1 == 1)
 		{
-//			printf("inside_If\r\n");
 			usfuelRemainingInLitres = FINAL_FUEL_LEVEL;
 			usCalculated_DTE = (uint16_t)(FINAL_FUEL_LEVEL * DEFAULT_AFE );
-			printf("C_DTE:%d\t",usCalculated_DTE);
 			uspresent_DTE= usCalculated_DTE;
+#if(DRIVERINFO_TEST_MACRO == 1)
+			//printf("Fuel: %d\n\r", usfuelRemainingInLitres);
+			printf("C_DTE:%d\t",usCalculated_DTE);
 			printf("PIN_DTE:%d\t",uspresent_DTE);
+#endif
 		}
 		else
 		{
-//			printf("inside_else\r\n");
 			usCalculated_DTE = usfuelRemainingInLitres * Afe;
 			uspresent_DTE = usCalculated_DTE;
+#if(DRIVERINFO_TEST_MACRO == 1)
 			printf("POUT_DTE:%d\t",uspresent_DTE);
+#endif
 			/*Here, if DTE = 28 then it's actual value is 2.8*/
 		}
 
@@ -303,8 +315,10 @@ uint16_t vCalculateDTE(void)
 		if(uspresent_DTE >= usMaxThresholdDTE)
 		{
 			uspresent_DTE = usMaxThresholdDTE;
+#if(DRIVERINFO_TEST_MACRO == 1)
 			printf("P_DTE:%d\t",uspresent_DTE);
 			ModeStatus.Range = uspresent_DTE;
+#endif
 			return uspresent_DTE;
 		}
 		else
@@ -328,8 +342,10 @@ uint16_t vCalculateDTE(void)
 	}
 	ModeStatus.Range = uspresent_DTE;
 	usprevious_DTE = uspresent_DTE;
+#if(DRIVERINFO_TEST_MACRO == 1)
 	printf("DTE:%d\r\n",uspresent_DTE);
 	printf("DTE1:%d\n\r",ModeStatus.Range);
+#endif
     return uspresent_DTE;
 }
 
@@ -341,8 +357,9 @@ uint16_t DisplayDTE(bool flag,uint16_t uspresent_DTE )
 	{
 #if(DRIVERINFO_TEST_MACRO == 1)
 		//printf("---\n");
-#endif
 		printf("E_V:%hu\n\r",Error_Value);
+#endif
+
 		return Error_Value;
 
 
@@ -351,8 +368,9 @@ uint16_t DisplayDTE(bool flag,uint16_t uspresent_DTE )
 	{
 #if(DRIVERINFO_TEST_MACRO == 1)
 		//printf("DTE1: %u\n",usdisplayed_DTE);
-#endif
 		printf("E_V:%ld\n\r",uspresent_DTE);
+#endif
+
 		return uspresent_DTE;
 	}
 }
@@ -361,7 +379,9 @@ uint16_t DisplayDTE(bool flag,uint16_t uspresent_DTE )
 uint32_t xGetAVSstatus(void)
 {
 	uint32_t FinalAvs = (uint32_t)ModeStatus.AverageVehicleSpeed;
+#if(DRIVERINFO_TEST_MACRO == 1)
 	printf("AVS Value to Display %ld=",FinalAvs);
+#endif
 	return FinalAvs;
 }
 
@@ -401,7 +421,9 @@ uint32_t prvCalculateMovingAverage_Odo(uint32_t ulDeltaDistance)
 	ucCurrentIndex = (ucCurrentIndex + 1) % WINDOW_SIZE;
 	TotalSum1 += ulOdo_Raw_value;
 	odoSamplecount++;
+#if(DRIVERINFO_TEST_MACRO == 1)
 	printf("oS: %d\t", odoSamplecount);
+#endif
 	if(odoSamplecount >= WINDOW_SIZE)
 	{
 		ulOdo_Result = prvCalculateAverage1();

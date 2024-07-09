@@ -412,7 +412,7 @@ void vHandleModeResetActions(void)
 
 SwitchModesDisplay_t xGetSwitchStatus(void)
 {
-	printf("todisplay=%d\n",ToDisplay);
+//	printf("todisplay=%d\n",ToDisplay);
 	return ToDisplay;
 
 }

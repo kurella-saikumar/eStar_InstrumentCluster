@@ -487,15 +487,24 @@ EE_Status prvReadVariable(uint32_t VirtAddress, EE_DATA_TYPE* pData)
 		/* Check each page address starting from end */
 		while (ulCounter >= PAGE_HEADER_SIZE)
 		{
+#if(EMUL_DEBUG_ENABLE == 1)
+			printf("VirtAddress:0x%lx\n",VirtAddress);
+#endif
 			/* Get the current location content to be compared with virtual address */
 			xFI_Read(ulPageAddress + ulCounter,ucReadData,EE_ELEMENT_SIZE);
 
 			ulReadAddr = (ucReadData[0]<<24|ucReadData[1]<<16|ucReadData[2]<<8|ucReadData[3]);
+#if(EMUL_DEBUG_ENABLE == 1)
+			printf("while:ulReadAddr:0x%lx\n",ulReadAddr);
+#endif
  			if (ulReadAddr != 0xFFFFFFFFU)
  			{
 				/* Compare the read address with the virtual address */
 				if (ulReadAddr == VirtAddress)
 				{
+#if(EMUL_DEBUG_ENABLE == 1)
+					printf("ulReadAddr:0x%lx\n",ulReadAddr);
+#endif
 					/* Get content of variable value */
 					ulData = (ucReadData[4]<<24|ucReadData[5]<<16|ucReadData[6]<<8|ucReadData[7]);
 
@@ -775,9 +784,9 @@ EE_Status prvVerifyPagesFullWriteVariable(uint32_t VirtAddress, EE_DATA_TYPE Dat
 	ulAddressNextWrite += EE_ELEMENT_SIZE;
 	usNbWrittenElements++;
 #if(EMUL_DEBUG_ENABLE == 1)
-	printf( "usNbWrittenElements=%d\n\r",usNbWrittenElements);
-	printf( "ucCurrentActivePage=%d\n\r",ucCurrentActivePage);
-	printf( "ulAddressNextWrite=%lu\n\r",ulAddressNextWrite);
+//	printf( "usNbWrittenElements=%d\n\r",usNbWrittenElements);
+//	printf( "ucCurrentActivePage=%d\n\r",ucCurrentActivePage);
+//	printf( "ulAddressNextWrite=%lu\n\r",ulAddressNextWrite);
 #endif
 	return EE_OK;
 }
@@ -1327,7 +1336,7 @@ uint32_t xShadowUpdate(void)
  				{
 					memcpy((void *)ulReadAddr,(const void *) &ulData, sizeof(ulData));
 #if(EMUL_DEBUG_ENABLE == 1)
-//					printf("ESR_S:Data = 0x%lx\t,VAdr = 0x%lx\t,CRC= 0x%x\n",ulData,ulReadAddr,usCRCRead);
+					printf("ESR_S:Data = 0x%lx\t,VAdr = 0x%lx\t,CRC= 0x%x\n",ulData,ulReadAddr,usCRCRead);
 #endif
  				}
  				else

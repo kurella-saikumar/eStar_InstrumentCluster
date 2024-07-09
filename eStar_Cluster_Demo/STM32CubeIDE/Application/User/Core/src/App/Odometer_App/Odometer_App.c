@@ -163,7 +163,7 @@ void vCalculateOdoInKm(void)
     printf("P: %ld\t", ulPulsesReceived);
     printf("R:%ld\t",ulPulse100mCountRatioOdo );
     printf("EE:%ld\t", ulOdoInEeprom);
-    printf("Km: %ld", ulOdoInKm);
+    printf("Km: %ld\n\r", ulOdoInKm);
 //    if(OdometerUnits == ODO_IN_KM)
 //    {
 //    	printf("\n");
@@ -335,7 +335,7 @@ usTripB = ulOdoInEeprom -  ulOdoValBeforeTripBReset;
     }
 
 #if(ODO_TEST_MACRO == 1)
-    printf("tripB: %d\t" ,usTripB);
+    printf("tripB: %d\n\r" ,usTripB);
 #endif
     return usTripB; // You might need to change the return type if necessary
 }
@@ -344,8 +344,8 @@ void xWrite_OdoVal_to_EEPROM(void)
 {
 	/*Write odo value to EEPROM*/
 	//printf("ulOdoInEeprom: %ld\n", ulOdoInEeprom);
-	*eepromVariables[0] = ulOdoInEeprom;
-	uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[0],*eepromVariables[0],eepromVariables[0]);
+//	*eepromVariables[0] = ulOdoInEeprom;
+	uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[0],ulOdoInEeprom,eepromVariables[0]);
 	if (0 == FlashStatus)
 	{
 #if(ODO_TEST_MACRO == 1)
@@ -359,21 +359,22 @@ void xWrite_OdoVal_to_EEPROM(void)
 #endif
 	}
 #if 1
-	uint16_t FlashStatus2 = xEE_ReadVariable32bits((uint32_t)eepromVariables[0], eepromVariables[0]);
-	if (0 != FlashStatus2)
+	uint16_t FlashStatus2= xEE_ReadVariable32bits((uint32_t)eepromVariables[0],(uint32_t*)eepromVariables[0]);
+	if (0 == FlashStatus2)
 	{
-#if(ODO_TEST_MACRO == 1)
-		printf("Read Fail:ODOwritEEP:%d\n\r",FlashStatus2);
-//		printf("eepromVariables[0] at :0x%lx data :0x%lx\n\r",eepromVariables[0],*eepromVariables[0]);
+#if(EMUL_DEBUG_ENABLE == 0)
+		printf("ESR_S:at %p:0x%lx \n\r",eepromVariables[0],*eepromVariables[0]);
 #endif
 	}
 	else
 	{
-#if(ODO_TEST_MACRO == 1)
-		printf("Read Success:eepromVariables[0] at :0x%lx data :0x%lx\n\r",eepromVariables[0],*eepromVariables[0]);
+#if(EMUL_DEBUG_ENABLE == 0)
+		printf("ESR_F:0x%lx\n\r",FlashStatus2);
 #endif
 	}
+
 #endif
+
 }
 
 void xRetrive_LastStored_OdoVal_from_EEPROM(void)
