@@ -34,7 +34,7 @@
 typedef enum {
     CLOCK_MODE_INACTIVE,  // Clock setting mode is off
     CLOCK_MODE_ACTIVE    // Clock setting mode is on
-} ClockEditModeState_t;    //ClockMode_t;
+} ClockEditModeState_t;  //ClockMode_t;
 
 typedef enum
 {

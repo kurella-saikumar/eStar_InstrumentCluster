@@ -160,9 +160,9 @@ void vEE_Demo(void)
 #endif
 	}
 
-//	xRetrive_LastStored_OdoVal_from_EEPROM();
+	xRetrive_LastStored_OdoVal_from_EEPROM();
 	/* Loop through each variable and perform the write check */
-
+#if 0
 //	for (uint32_t i = 0xFFFFFFFF ; i >= 0x0; i = i-0xFFFF)
 	for (uint32_t i = 0 ; i < 20; i++)
 	{
@@ -184,6 +184,7 @@ void vEE_Demo(void)
 			}
 		}
 	}
+#endif
 }
 
 

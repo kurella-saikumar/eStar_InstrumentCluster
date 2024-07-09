@@ -250,6 +250,14 @@ SECTIONS
 	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
     
+    *(image_enginewarning_w_buf image_enginewarning_w_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_enginewarning_y_buf image_enginewarning_y_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
     *(image_fuelbar01_buf image_fuelbar01_buf.*)
 	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
@@ -333,6 +341,14 @@ SECTIONS
     *(image_lowbeam2_buf image_lowbeam2_buf.*)
 	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
+   
+     *(image_parking_r_buf image_parking_r_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+     *(image_parking_w_buf image_parking_w_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
     
     *(image_rightindicator1_buf image_rightindicator1_buf.*)
 	*(.gnu.linkonce.r.*)
@@ -387,6 +403,22 @@ SECTIONS
     . = ALIGN(0x4);
     
     *(image_rpmicon2_buf image_rpmicon2_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_seatbelt_r_buf image_seatbelt_r_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_seatbelt_w_buf image_seatbelt_w_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_servicereminder_w_buf image_servicereminder_w_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_servicereminder_y_buf image_servicereminder_y_buf.*)
 	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
     

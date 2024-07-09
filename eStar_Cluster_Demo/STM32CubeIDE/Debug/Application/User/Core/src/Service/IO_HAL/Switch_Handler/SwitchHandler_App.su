@@ -6,4 +6,4 @@
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:238:21:xGetResetButtonStatus	0	static
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:187:20:xClockSettingGetSetMode	8	static
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:255:6:vHandleModeResetActions	24	static
-../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:413:22:xGetSwitchStatus	8	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:414:22:xGetSwitchStatus	8	static

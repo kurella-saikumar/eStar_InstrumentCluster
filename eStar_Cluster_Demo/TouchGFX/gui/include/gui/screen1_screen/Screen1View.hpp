@@ -13,13 +13,13 @@ public:
     Screen1View();
     virtual ~Screen1View() {}
     virtual void setupScreen();
-    virtual void SpeedUpdate(uint32_t newSpeedValue,uint8_t newSpeedMetrics,uint8_t newSpeedStatus);
+    virtual void SpeedUpdate(uint32_t newSpeedValue,uint8_t newSpeedMetrics);
     //virtual void KMPHtoMPH(int newCounter);
     virtual void FuelGauageAnimation(uint16_t newFuelCount);
     virtual void OdoDataUpdate(uint32_t newOdoData,uint8_t newOdoUnits);
     virtual void RPMDataAnimation(uint16_t newRPMData);
-    virtual void TRIP_A(uint16_t newTripA);
-    virtual void TRIP_B(uint16_t newTripB);
+    virtual void TRIP_A(uint16_t newTripA_Value,uint8_t newTripA_Units);
+    virtual void TRIP_B(uint16_t newTripB_Value, uint8_t newTripB_Units);
     virtual void AVSValue(uint32_t newAVS);
     virtual void AFEValue(uint32_t newAFE);
     virtual void RANGEValue(uint16_t newRANGE);
@@ -35,8 +35,10 @@ protected:
     uint16_t newCounter;
     uint16_t storedTRIP_A1;
     uint16_t storedTRIP_A2;
+    uint8_t stroredTripA_Units;
     uint16_t storedTRIP_B1;
     uint16_t storedTRIP_B2;
+    uint8_t stroredTripB_Units;
     uint32_t storednewAVS1;
     uint32_t storednewAVS2;
     uint32_t storednewAFE1;

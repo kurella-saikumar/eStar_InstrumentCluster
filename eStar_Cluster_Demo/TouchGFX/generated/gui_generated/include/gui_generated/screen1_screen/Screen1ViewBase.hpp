@@ -56,7 +56,7 @@ protected:
     touchgfx::TextAreaWithOneWildcard Speed_Ta;
     touchgfx::TextAreaWithOneWildcard KMPH_MPH;
     touchgfx::TextAreaWithOneWildcard KMPH_MPH_ODO;
-    touchgfx::TextAreaWithOneWildcard KMPH_MPH_DTE;
+    touchgfx::TextAreaWithOneWildcard DriverInfo_Units;
     touchgfx::TextAreaWithOneWildcard ODOReadings;
     touchgfx::TextAreaWithTwoWildcards DriverInfo;
     touchgfx::ScalableImage High_beem_White;
@@ -65,6 +65,14 @@ protected:
     touchgfx::TextAreaWithOneWildcard DriverInfoMenu;
     touchgfx::TextAreaWithTwoWildcards Clock;
     touchgfx::TextAreaWithOneWildcard AM_PM;
+    touchgfx::ScalableImage SeatBelt_w;
+    touchgfx::ScalableImage SeatBelt_r;
+    touchgfx::ScalableImage Parking_w;
+    touchgfx::ScalableImage Parking_r;
+    touchgfx::ScalableImage EngineWarning_w;
+    touchgfx::ScalableImage EngineWarning_y;
+    touchgfx::ScalableImage ServiceReminder_w;
+    touchgfx::ScalableImage ServiceReminder_y;
 
     /*
      * Wildcard Buffers
@@ -75,6 +83,8 @@ protected:
     touchgfx::Unicode::UnicodeChar KMPH_MPHBuffer[KMPH_MPH_SIZE];
     static const uint16_t KMPH_MPH_ODO_SIZE = 10;
     touchgfx::Unicode::UnicodeChar KMPH_MPH_ODOBuffer[KMPH_MPH_ODO_SIZE];
+    static const uint16_t DRIVERINFO_UNITS_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar DriverInfo_UnitsBuffer[DRIVERINFO_UNITS_SIZE];
     static const uint16_t ODOREADINGS_SIZE = 10;
     touchgfx::Unicode::UnicodeChar ODOReadingsBuffer[ODOREADINGS_SIZE];
     static const uint16_t DRIVERINFOBUFFER1_SIZE = 10;

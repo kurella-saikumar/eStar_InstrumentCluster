@@ -52,9 +52,13 @@ Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../../../../Core/PlatformConfig/speedometer_App_cfg.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../../Service/IO_HAL/ICU_middleware/ICU_driver.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../../Service/IO_HAL/ICU_middleware/../../../../PlatformConfig/ICU_driver_cfg.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../Indicator_App/Indicator_App.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/ICU_driver.h \
- D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/../../../../PlatformConfig/ICU_driver_cfg.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../../PlatformConfig/Odometer_App_cfg.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Clock_App/clock_App.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h \
@@ -111,9 +115,13 @@ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Applica
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../../../../Core/PlatformConfig/speedometer_App_cfg.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../../Service/IO_HAL/ICU_middleware/ICU_driver.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../../Service/IO_HAL/ICU_middleware/../../../../PlatformConfig/ICU_driver_cfg.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../Indicator_App/Indicator_App.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/ICU_driver.h:
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/../../../../PlatformConfig/ICU_driver_cfg.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../../PlatformConfig/Odometer_App_cfg.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Clock_App/clock_App.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h:

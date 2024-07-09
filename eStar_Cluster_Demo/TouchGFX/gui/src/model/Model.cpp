@@ -17,8 +17,6 @@ bool isButtonPressed = false;
 
 //uint8_t odoUnits[4]; // Assuming the function returns an array of 4 uint8_t
 uint8_t Fuel_Readings[4];
-uint8_t Trip_A_Units;
-uint8_t Trip_B_Units;
 
 DriverInfoModeStatus_t DIM_Value;
 IndicationStatus_t RPMWarning;
@@ -94,14 +92,12 @@ void Model::tick()
 void Model::SpeedData()
 {
 	speedDisplayMetrics_t SpeedMetrics;
-	IndicationStatus_t SpeedDisplayColor;
-	uint32_t SpeedValue = xGetSpeedValue(&SpeedMetrics,&SpeedDisplayColor);
-	uint32_t SpeedStatus = SpeedDisplayColor.indicators.over_speed_indicator;
+	uint32_t SpeedValue = xGetSpeedValue(&SpeedMetrics);
 
 	// Notify listener about SpeedData data change
 	if(modelListener !=0)
 	{
-		modelListener->notifySpeedDataChanged(SpeedValue,SpeedMetrics,SpeedStatus);
+		modelListener->notifySpeedDataChanged(SpeedValue,SpeedMetrics);
 	}
 }
 
@@ -142,26 +138,26 @@ void Model::RPMData()
 
 void Model::Trip_A()
 {
-
-	Trip_A_Value = xGetTripA_OdoReading(&Trip_A_Units);
+	uint8_t TripA_Units;
+	uint16_t TripA_Value = xGetTripA_OdoReading(&TripA_Units);
 
 	// Notify listener about Trip_A data change
 	if(modelListener !=0)
 	{
-		modelListener->notifyTrip_ADataChanged(Trip_A_Value);
+		modelListener->notifyTrip_ADataChanged(TripA_Value,TripA_Units);
 	}
 }
 
 
 void Model::Trip_B()
 {
-
-	Trip_B_Value = xGetTripB_OdoReading(&Trip_B_Units);
+	uint8_t TripB_Units;
+	uint16_t TripB_Value = xGetTripB_OdoReading(&TripB_Units);
 
 	// Notify listener about Trip_B data change
 	if(modelListener !=0)
 	{
-		modelListener->notifyTrip_BDataChanged(Trip_B_Value);
+		modelListener->notifyTrip_BDataChanged(TripB_Value,TripB_Units);
 	}
 }
 

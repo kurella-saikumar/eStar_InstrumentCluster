@@ -15,12 +15,12 @@ public:
         model = m;
     }
 
-    virtual void notifySpeedDataChanged(uint32_t SpeedValue,uint8_t SpeedMetrics,uint8_t SpeedStatus){};
+    virtual void notifySpeedDataChanged(uint32_t SpeedValue,uint8_t SpeedMetrics){};
     virtual void notifyOdoDataChanged(uint32_t Odometer,uint8_t OdoUnits){};
     virtual void notifyFuelCounter(uint16_t Fuelcount){};
     virtual void notifyRPMDataChanged(uint16_t RPMData){};
-    virtual void notifyTrip_ADataChanged(uint16_t TripA){};
-    virtual void notifyTrip_BDataChanged(uint16_t TripB){};
+    virtual void notifyTrip_ADataChanged(uint16_t TripA_Value,uint8_t TripA_Units){};
+    virtual void notifyTrip_BDataChanged(uint16_t TripB_Value,uint8_t TripB_Units){};
     virtual void notifyAVSDataChanged(uint32_t AVS){};
     virtual void notifyAFEDataChanged(uint32_t AFE){};
     virtual void notifyRANGEDataChanged(uint16_t RANGE){};

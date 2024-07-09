@@ -989,14 +989,49 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/Temperature/image_TempIcon2.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/image_EngineWarning_w.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_EngineWarning_w.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_EngineWarning_y.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_EngineWarning_y.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Parking_r.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_Parking_r.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Parking_w.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_Parking_w.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_SeatBelt_r.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_SeatBelt_r.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_SeatBelt_w.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_SeatBelt_w.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_ServiceReminder_w.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_ServiceReminder_w.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_ServiceReminder_y.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_ServiceReminder_y.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/image_BackGround.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_BackGround.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_TRIP_A.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_TRIP_A.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_high_beam_1.cpp</name>

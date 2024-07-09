@@ -138,13 +138,13 @@ Screen1ViewBase::Screen1ViewBase()
     KMPH_MPH_ODO.setTypedText(touchgfx::TypedText(T___SINGLEUSE_VE6R));
     add(KMPH_MPH_ODO);
 
-    KMPH_MPH_DTE.setXY(290, 241);
-    KMPH_MPH_DTE.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    KMPH_MPH_DTE.setLinespacing(0);
-    KMPH_MPH_DTE.setWildcard(touchgfx::TypedText(T___SINGLEUSE_CK36).getText());
-    KMPH_MPH_DTE.resizeToCurrentText();
-    KMPH_MPH_DTE.setTypedText(touchgfx::TypedText(T___SINGLEUSE_EPWF));
-    add(KMPH_MPH_DTE);
+    DriverInfo_Units.setPosition(290, 241, 46, 18);
+    DriverInfo_Units.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    DriverInfo_Units.setLinespacing(0);
+    Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_CK36).getText());
+    DriverInfo_Units.setWildcard(DriverInfo_UnitsBuffer);
+    DriverInfo_Units.setTypedText(touchgfx::TypedText(T___SINGLEUSE_EPWF));
+    add(DriverInfo_Units);
 
     ODOReadings.setXY(191, 195);
     ODOReadings.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
@@ -208,6 +208,46 @@ Screen1ViewBase::Screen1ViewBase()
     AM_PM.resizeToCurrentText();
     AM_PM.setTypedText(touchgfx::TypedText(T___SINGLEUSE_KI12));
     add(AM_PM);
+
+    SeatBelt_w.setBitmap(touchgfx::Bitmap(BITMAP_SEATBELT_W_ID));
+    SeatBelt_w.setPosition(174, 68, 25, 25);
+    SeatBelt_w.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(SeatBelt_w);
+
+    SeatBelt_r.setBitmap(touchgfx::Bitmap(BITMAP_SEATBELT_R_ID));
+    SeatBelt_r.setPosition(174, 68, 25, 25);
+    SeatBelt_r.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(SeatBelt_r);
+
+    Parking_w.setBitmap(touchgfx::Bitmap(BITMAP_PARKING_W_ID));
+    Parking_w.setPosition(79, 68, 25, 25);
+    Parking_w.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
+    add(Parking_w);
+
+    Parking_r.setBitmap(touchgfx::Bitmap(BITMAP_PARKING_R_ID));
+    Parking_r.setPosition(79, 68, 25, 25);
+    Parking_r.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
+    add(Parking_r);
+
+    EngineWarning_w.setBitmap(touchgfx::Bitmap(BITMAP_ENGINEWARNING_W_ID));
+    EngineWarning_w.setPosition(308, 48, 25, 25);
+    EngineWarning_w.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
+    add(EngineWarning_w);
+
+    EngineWarning_y.setBitmap(touchgfx::Bitmap(BITMAP_ENGINEWARNING_Y_ID));
+    EngineWarning_y.setPosition(308, 48, 25, 25);
+    EngineWarning_y.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
+    add(EngineWarning_y);
+
+    ServiceReminder_w.setBitmap(touchgfx::Bitmap(BITMAP_SERVICEREMINDER_W_ID));
+    ServiceReminder_w.setPosition(266, 68, 25, 25);
+    ServiceReminder_w.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
+    add(ServiceReminder_w);
+
+    ServiceReminder_y.setBitmap(touchgfx::Bitmap(BITMAP_SERVICEREMINDER_Y_ID));
+    ServiceReminder_y.setPosition(266, 68, 25, 25);
+    ServiceReminder_y.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
+    add(ServiceReminder_y);
 }
 
 Screen1ViewBase::~Screen1ViewBase()

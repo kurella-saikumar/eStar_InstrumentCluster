@@ -38,7 +38,7 @@
 #include "SwitchHandler_App.h"
 #include "SwitchInf.h"
 #include "stm32h7xx_hal.h"
-
+#include "speedometer_App.h"
 #include "Odometer_App.h"
 #include "clock_App.h"
 
@@ -74,7 +74,7 @@ Switch_PushRelease_State_T eResetButtonPushReleaseState = BUTTON_RELEASED;
 
 
 
-ClockEditModeState_t eClockMode = CLOCK_MODE_INACTIVE; //eClockMode
+extern ClockEditModeState_t eClockMode = CLOCK_MODE_INACTIVE; //eClockMode
 // Define a timer variable to track the count since the last button press
 
 uint32_t ulButtonTimeout = 0, ulButtonTimeoutStart = 0, ulButtonTimeoutEnd = 0;
@@ -263,6 +263,7 @@ void vHandleModeResetActions(void)
     	ucResetButtonEventStatus= 0xFF;
     	ToDisplay =ODO_METER_TOGGLE;
     	vToggleOdoUnits();
+    	vCustomizeSpeedUnits();
 
 
 #if (SWITCH_HANDLER_MACRO == 1)

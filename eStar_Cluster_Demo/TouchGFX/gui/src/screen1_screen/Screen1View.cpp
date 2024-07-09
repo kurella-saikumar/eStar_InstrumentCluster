@@ -30,6 +30,10 @@ void Screen1View::setupScreen()
     RPMIcon_r.setVisible(false);
     ABS_Detection_r.setVisible(false);
     LowBeam_r.setVisible(false);
+    SeatBelt_r.setVisible(false);
+	Parking_r.setVisible(false);
+	EngineWarning_y.setVisible(false);
+	ServiceReminder_y.setVisible(false);
 }
 
 #if 0
@@ -105,7 +109,7 @@ void Screen1View::KMPHtoMPH(int newSpeed)
 }
 #endif
 
-void Screen1View::SpeedUpdate(uint32_t newSpeedValue,uint8_t newSpeedMetrics,uint8_t newSpeedStatus)
+void Screen1View::SpeedUpdate(uint32_t newSpeedValue,uint8_t newSpeedMetrics)
 {
 	if(newSpeedMetrics == 0)
 	{
@@ -232,16 +236,18 @@ void Screen1View:: RPMDataAnimation(uint16_t newRPMData)
 	}
 }
 
-void Screen1View::TRIP_A(uint16_t newTripA)
+void Screen1View::TRIP_A(uint16_t newTripA_Value,uint8_t newTripA_Units)
 {
-		storedTRIP_A1 = newTripA / 10;
-		storedTRIP_A2 = newTripA % 10;
+		storedTRIP_A1 = newTripA_Value / 10;
+		storedTRIP_A2 = newTripA_Value % 10;
+		stroredTripA_Units = newTripA_Units;
 }
 
-void Screen1View::TRIP_B(uint16_t newTripB)
+void Screen1View::TRIP_B(uint16_t newTripB_Value, uint8_t newTripB_Units)
 {
-		storedTRIP_B1 = newTripB / 10;
-		storedTRIP_B2 = newTripB % 10;
+		storedTRIP_B1 = newTripB_Value / 10;
+		storedTRIP_B2 = newTripB_Value % 10;
+		stroredTripB_Units = newTripB_Units;
 }
 
 void Screen1View::AVSValue(uint32_t newAVS)
@@ -270,47 +276,99 @@ void Screen1View::DriverInforMenu(void)
 	case 0 :
 				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "RANGE");
 				Unicode::snprintf(DriverInfoBuffer1, DRIVERINFOBUFFER1_SIZE, "%d",storednewRANGE1);
-				DriverInfo.invalidate();
+				//DriverInfo.invalidate();
 				Unicode::snprintf(DriverInfoBuffer2, DRIVERINFOBUFFER2_SIZE, "%d",storednewRANGE2);
+				if(stroredTripA_Units == 1)
+				{
+				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MILES");
+				DriverInfo_Units.invalidate();
+				}
+				else
+				{
+				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KM");
+				DriverInfo_Units.invalidate();
+				}
 				DriverInfo.invalidate();
 				DriverInfoMenu.invalidate();
 				break;
 	case 1 :
 				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "AVS");
 				Unicode::snprintf(DriverInfoBuffer1, DRIVERINFOBUFFER1_SIZE, "%d",storednewAVS1);
-				DriverInfo.invalidate();
+				//DriverInfo.invalidate();
 				Unicode::snprintf(DriverInfoBuffer2, DRIVERINFOBUFFER2_SIZE, "%d",storednewAVS2);
+				if(stroredTripA_Units == 1)
+				{
+				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MILES");
+				DriverInfo_Units.invalidate();
+				}
+				else
+				{
+				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KM");
+				DriverInfo_Units.invalidate();
+				}
 				DriverInfo.invalidate();
 				DriverInfoMenu.invalidate();
 				break;
 	case 2 :
 				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "AFE");
 				Unicode::snprintf(DriverInfoBuffer1, DRIVERINFOBUFFER1_SIZE, "%d",storednewAFE1);
-				DriverInfo.invalidate();
+				//DriverInfo.invalidate();
 				Unicode::snprintf(DriverInfoBuffer2, DRIVERINFOBUFFER2_SIZE, "%d",storednewAFE2);
+				if(stroredTripA_Units == 1)
+				{
+				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MPL");
+				DriverInfo_Units.invalidate();
+				}
+				else
+				{
+				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KMPL");
+				DriverInfo_Units.invalidate();
+				}
+
 				DriverInfo.invalidate();
 				DriverInfoMenu.invalidate();
 				break;
 	case 3 :
 				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "TRIP"" ""A");
 				Unicode::snprintf(DriverInfoBuffer1, DRIVERINFOBUFFER1_SIZE, "%d",storedTRIP_A1);
-				DriverInfo.invalidate();
+				//DriverInfo.invalidate();
 				Unicode::snprintf(DriverInfoBuffer2, DRIVERINFOBUFFER2_SIZE, "%d",storedTRIP_A2);
+				if(stroredTripA_Units == 1)
+				{
+				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MILES");
+				DriverInfo_Units.invalidate();
+				}
+				else
+				{
+				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KM");
+				DriverInfo_Units.invalidate();
+				}
+
 				DriverInfo.invalidate();
 				DriverInfoMenu.invalidate();
 				break;
 	case 4 :
 				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "TRIP"" ""B");
 				Unicode::snprintf(DriverInfoBuffer1, DRIVERINFOBUFFER1_SIZE, "%d",storedTRIP_B1);
-				DriverInfo.invalidate();
+				//DriverInfo.invalidate();
 				Unicode::snprintf(DriverInfoBuffer2, DRIVERINFOBUFFER2_SIZE, "%d",storedTRIP_B2);
+				if(stroredTripB_Units == 1)
+				{
+				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MILES");
+				DriverInfo_Units.invalidate();
+				}
+				else
+				{
+				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KM");
+				DriverInfo_Units.invalidate();
+				}
+
 				DriverInfo.invalidate();
 				DriverInfoMenu.invalidate();
 				break;
 
 	default:
-				Unicode::snprintf(DriverInfoMenuBuffer, DRIVERINFOMENU_SIZE, "RANGE");
-				DriverInfoMenu.invalidate();
+				/* Nothing to do */
 				break;
 	}
 }
@@ -353,8 +411,8 @@ void Screen1View::ClockValueChangingMode(void)
 	{
 		case 0:
 				{
-					updateClockVisibility();
-					ClockUpdate(Hour,Minute,TimeFormats);
+					updateClock_Hours_Buffer1Visibility(isBlinkingOn);
+//					ClockUpdate(Hour,Minute,TimeFormats);
 				}
 
 				break;
@@ -511,23 +569,23 @@ void Screen1View::IndicatorsStatus(IndicationStatus_t newIndicators)
 		LeftIndicator_r.setVisible(false);
 		LeftIndicator_r.invalidate();
 	}
-#if 0
+
 	if(newIndicators.indicators.parking_indicator == 1)
 	{
 		tickCounter++;
 		if (tickCounter >=1)  // Adjust this value to control blink frequency
 		{
-			parking_indicator.setVisible(!parking_indicator.isVisible());
-			parking_indicator.invalidate();
+			Parking_r.setVisible(!Parking_r.isVisible());
+			Parking_r.invalidate();
 			tickCounter = 0;
 		}
 	}
 	else
 	{
-		parking_indicator.setVisible(false);
-		parking_indicator.invalidate();
+		Parking_r.setVisible(false);
+		Parking_r.invalidate();
 	}
-#endif
+
 
 	if(newIndicators.indicators.HighBeam_indicator == 1)
 	{
@@ -577,21 +635,20 @@ void Screen1View::IndicatorsStatus(IndicationStatus_t newIndicators)
 		EngineOIl_r.invalidate();
 	}
 
-#if 0
 	if(newIndicators.indicators.seat_belt_indicator == 1)
 	{
 		tickCounter++;
 		if (tickCounter >=1)  // Adjust this value to control blink frequency
 		{
-			seat_belt_indicator.setVisible(!seat_belt_indicator.isVisible());
-			seat_belt_indicator.invalidate();
+			SeatBelt_r.setVisible(!SeatBelt_r.isVisible());
+			SeatBelt_r.invalidate();
 			tickCounter = 0;
 		}
 	}
 	else
 	{
-		seat_belt_indicator.setVisible(false);
-		seat_belt_indicator.invalidate();
+		SeatBelt_r.setVisible(false);
+		SeatBelt_r.invalidate();
 	}
 
 
@@ -600,17 +657,17 @@ void Screen1View::IndicatorsStatus(IndicationStatus_t newIndicators)
 		tickCounter++;
 		if (tickCounter >=1)  // Adjust this value to control blink frequency
 		{
-			engine_malfunction_indicator.setVisible(!engine_malfunction_indicator.isVisible());
-			engine_malfunction_indicator.invalidate();
+			EngineWarning_y.setVisible(!EngineWarning_y.isVisible());
+			EngineWarning_y.invalidate();
 			tickCounter = 0;
 		}
 	}
 	else
 	{
-		engine_malfunction_indicator.setVisible(false);
-		engine_malfunction_indicator.invalidate();
+		EngineWarning_y.setVisible(false);
+		EngineWarning_y.invalidate();
 	}
-#endif
+
 
 	if(newIndicators.indicators.door_open_indicator == 1)
 	{
@@ -693,23 +750,22 @@ void Screen1View::IndicatorsStatus(IndicationStatus_t newIndicators)
 		LowBatteryIcon_r.invalidate();
 	}
 
-#if 0
+
 	if(newIndicators.indicators.service_reminder_indicator == 1)
 	{
 		tickCounter++;
 		if (tickCounter >=2)  // Adjust this value to control blink frequency
 		{
-			service_reminder_indicator.setVisible(!service_reminder_indicator.isVisible());
-			service_reminder_indicator.invalidate();
+			ServiceReminder_y.setVisible(!ServiceReminder_y.isVisible());
+			ServiceReminder_y.invalidate();
 			tickCounter = 0;
 		}
 	}
 	else
 	{
-		service_reminder_indicator.setVisible(false);
-		service_reminder_indicator.invalidate();
+		ServiceReminder_y.setVisible(false);
+		ServiceReminder_y.invalidate();
 	}
-#endif
 
 	if(newIndicators.indicators.tachometer_indicator == 1)
 	{

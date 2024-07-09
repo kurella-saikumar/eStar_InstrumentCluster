@@ -22,8 +22,11 @@
  * Include Platform or Standard Headers
 ***************************************************************************************************/
 #include "clock_App.h"
-#include "../Switch_Handler/SwitchHandler_App.h"
+#include "../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h"
 #include "main.h"
+
+
+ClockEditModeState_t eclockMode ;
 /**************************************************************************************************
  * Include Project Specific Headers
 ***************************************************************************************************/
@@ -58,7 +61,6 @@ uint8_t ulShiftingPosition = E_CLOCK_HOURS_POS;
  * @brief Variable representing the RTC time.
  */
 RTC_TimeTypeDef xTime;
-extern RTC_TimeTypeDef xTime;
 /*
  * @brief Variable representing the RTC Date.
  */
@@ -67,6 +69,7 @@ RTC_DateTypeDef xDate;
  * @brief To store the HAL function result.
  */
 HAL_StatusTypeDef xRes;
+
 
 RTC_TimeTypeDef xEditTime;
 
@@ -105,103 +108,101 @@ void vGet_Clock(void)
     }
     else
     {
-    	printf("DT: %02d:%02d \n", xTime.Hours, xTime.Minutes);
+    	printf("DT: %02d:%02d:%02d \n", xTime.Hours, xTime.Minutes, xTime.Seconds);
     }
-
     xRes = HAL_RTC_GetDate(&hrtc, &xDate, RTC_FORMAT_BIN);
     if(xRes != HAL_OK)
     {
-    	//printf("HAL_RTC_GetDate failed: %d\r\n", xRes);
+    	printf("HAL_RTC_GetDate failed: %d\r\n", xRes);
     }
     else
     {
-    	//printf("Current date: %02d-%02d-%04d\n", xDate.Date, xDate.Month, xDate.Year);
+    	printf("Current date: %02d-%02d-%04d\n", xDate.Date, xDate.Month, xDate.Year);
     }
-}
 
+}
 
 void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 {
 	switch (clockSettingMode)
 	{
-		case CLOCK_ENTRY:
-		{
-			printf("Clock Edit Mode Entry\n");
-			HAL_RTC_GetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
-			ulHours = xEditTime.Hours;
-			ulMinutes = xEditTime.Minutes;
-			printf("Hours:%02d,Minutes:%02d \n", ulHours, ulMinutes);
-		}
-		break;
+	case CLOCK_ENTRY:
+	{
+		printf("Clock Edit Mode Entry\n");
+		HAL_RTC_GetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
+		ulHours = xEditTime.Hours;
+		ulMinutes = xEditTime.Minutes;
+		printf("Hours:%02d,Minutes:%02d \n", ulHours, ulMinutes);
+	}
+	break;
+	case MODE_LONGPRESS:
+	{
+		vClock_exit();
+		eclockMode = CLOCK_MODE_INACTIVE;
+	    printf("case1");
+	}
+	break;
+	case MODE_SHORTPRESS:
+	{
+		ulShiftingPosition++;
 
-		case MODE_LONGPRESS:
+		if (ulShiftingPosition == E_CLOCK_INVALID_POS)
 		{
-			vClock_exit();
+			ulShiftingPosition = E_CLOCK_HOURS_POS;
+			printf("Case2\n");
 		}
-		break;
-
-		case MODE_SHORTPRESS:
+		else
 		{
-			printf("position shifting hours");
-			ulShiftingPosition++;
-			if (ulShiftingPosition == E_CLOCK_INVALID_POS)
+			/*do nothing*/
+			printf("Case2\n");
+		}
+	}
+	break;
+    case RESET_LONGPRESS_RELEASE:
+        	ulContinousIncrement_flag = 0;
+        	printf("Long Press Release\n\r");
+        	printf("Case3\n");
+        break;
+    case RESET_LONGPRESS_HELD:
+    	ulContinousIncrement_flag = 1;
+    	printf("Long Press Held\n\r");
+    	printf("Case4\n");
+    break;
+      case RESET_SHORTPRESS:
+    	if (ulShiftingPosition == E_CLOCK_HOURS_POS)
+    	{
+			//Increment hours
+			xEditTime.Hours++;
+			// Ensure hours wrap around correctly
+			xEditTime.Hours %= 24;
+			printf("case5");
+		}
+        else if (ulShiftingPosition == E_CLOCK_MINS_POS)
+        {
+			// Increment minutes
+			xEditTime.Minutes++;
+			// Check if minutes reached 60
+			if (xEditTime.Minutes == 60)
 			{
-				ulShiftingPosition = E_CLOCK_HOURS_POS;
+				// Reset minutes to 0
+				xEditTime.Minutes = 0;
+				printf("Case5\n");
+				// Increment hours
+//				xEditTime.Hours++;
+				// Ensure hours wrap around correctly
+//				xEditTime.Hours %= 24;
 			}
 			else
 			{
 				/*do nothing*/
+				printf("Case5\n");
 			}
 		}
-		break;
-
-		case RESET_LONGPRESS_RELEASE:
-				ulContinousIncrement_flag = 0;
-				printf("Long Press Release\n\r");
-		break;
-
-		case RESET_LONGPRESS_HELD:
-			ulContinousIncrement_flag = 1;
-			printf("Long Press Held\n\r");
-		break;
-
-		case RESET_SHORTPRESS:
-			if (ulShiftingPosition == E_CLOCK_HOURS_POS)
-			{
-				//Increment hours
-				xEditTime.Hours++;
-				// Ensure hours wrap around correctly
-				xEditTime.Hours %= 24;
-
-				printf("Reset short Press hours Held\n\r");
-
-			}
-			else if (ulShiftingPosition == E_CLOCK_MINS_POS)
-			{
-				// Increment minutes
-				xEditTime.Minutes++;
-				// Check if minutes reached 60
-				if (xEditTime.Minutes == 60)
-				{
-					// Reset minutes to 0
-					xEditTime.Minutes = 0;
-					// Increment hours
-			//				xEditTime.Hours++;
-					// Ensure hours wrap around correctly
-			//				xEditTime.Hours %= 24;
-					printf("Reset short Press minutes Held\n\r");
-				}
-				else
-				{
-					/*do nothing*/
-				}
-			}
-		break;
-		default:
-		   // Handle unknown mode
-		break;
+       break;
+       default:
+    	   // Handle unknown mode
+       break;
 	}
-
 }
 
 void vClock_exit(void)

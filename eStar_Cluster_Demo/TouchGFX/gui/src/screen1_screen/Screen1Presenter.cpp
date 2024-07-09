@@ -17,9 +17,9 @@ void Screen1Presenter::deactivate()
 
 }
 
-void Screen1Presenter::notifySpeedDataChanged(uint32_t newSpeedValue,uint8_t newSpeedMetrics,uint8_t newSpeedStatus)
+void Screen1Presenter::notifySpeedDataChanged(uint32_t newSpeedValue,uint8_t newSpeedMetrics)
 {
-	view.SpeedUpdate(newSpeedValue,newSpeedMetrics,newSpeedStatus);
+	view.SpeedUpdate(newSpeedValue,newSpeedMetrics);
 	//view.KMPHtoMPH(newSpeed);
 }
 
@@ -38,14 +38,14 @@ void Screen1Presenter::notifyRPMDataChanged(uint16_t newRPMData)
 	view.RPMDataAnimation(newRPMData);
 }
 
-void Screen1Presenter::notifyTrip_ADataChanged(uint16_t newTripA)
+void Screen1Presenter::notifyTrip_ADataChanged(uint16_t newTripA_Value,uint8_t newTripA_Units)
 {
-	view.TRIP_A(newTripA);
+	view.TRIP_A(newTripA_Value,newTripA_Units);
 }
 
-void Screen1Presenter::notifyTrip_BDataChanged(uint16_t newTripB)
+void Screen1Presenter::notifyTrip_BDataChanged(uint16_t newTripB_Value, uint8_t newTripB_Units)
 {
-	view.TRIP_B(newTripB);
+	view.TRIP_B(newTripB_Value,newTripB_Units);
 }
 
 void Screen1Presenter::notifyAVSDataChanged(uint32_t newAVS)

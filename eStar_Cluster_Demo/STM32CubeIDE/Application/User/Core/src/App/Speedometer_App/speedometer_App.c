@@ -308,28 +308,29 @@ void vCustomizeSpeedUnits(void)
  * 
  * @return uint16_t  This return parameter provides the latest updated Speed value
  */
-uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStatus_t *speedStatus)
+uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits)
 {
     *speedDisplayUnits = speedoUnits;
 
+    Status.indicators.over_speed_indicator = 0;
+
     if(xSafeSpeedCheck())
     {
-    	speedStatus->indicators.over_speed_indicator = 1;
+    	Status.indicators.over_speed_indicator = 1;
 
-   printf("speedDisplayUnits: %d\t", speedDisplayUnits);   //Debug purpose
-   printf("speedStatus: %d\t", speedStatus);   //Debug purpose
+    	printf("speedDisplayUnits: %d\t", speedDisplayUnits);   //Debug purpose
     }
 
-		if(speedoUnits == SPEED_IN_KMPH)
-		{
-			 printf("speeeeeeed: %d\t", ulSpeedInKm);
-			return ulSpeedInKm;
-		}
-		else if(speedoUnits == SPEED_IN_MPH)
-		{
-			printf("speeeeeeed: %d\t", ulSpeedInKm);
-			return ulspeedInMiles;
-		}
+	if(speedoUnits == SPEED_IN_KMPH)
+	{
+		 printf("speeeeeeed: %d\t", ulSpeedInKm);
+		return ulSpeedInKm;
+	}
+	else if(speedoUnits == SPEED_IN_MPH)
+	{
+		printf("speeeeeeed: %d\t", ulSpeedInKm);
+		return ulspeedInMiles;
+	}
 }
 
 #endif	/* SPEEDOMETER_C */

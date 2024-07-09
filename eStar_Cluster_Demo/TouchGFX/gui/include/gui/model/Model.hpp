@@ -27,7 +27,6 @@ public:
     void Trip_A();
     void Trip_B();
     void Clock();
-   // void ClockEdit();
     void SwitchHandler();
     void DriverInforMenu();
     void AVSValue();
@@ -41,8 +40,6 @@ protected:
     uint16_t FuelPercentage;
     uint16_t TickCount;
     uint16_t speedcounter;
-    uint16_t Trip_A_Value;
-    uint16_t Trip_B_Value;
 };
 
 #endif // MODEL_HPP
