@@ -34,21 +34,13 @@ uint8_t TimeFormat;
 bool RPMWarning_Status;
 bool FuelWarning_Status;
 
-// Function to simulate button press
-void simulateButtonPress() {
-    isButtonPressed = true;
-}
 
-// Function to simulate button release
-void simulateButtonRelease() {
-    isButtonPressed = false;
-}
-
-Model::Model() : modelListener(0),counter(0),TickCount(0),speedcounter(0)
+Model::Model() : modelListener(0),counter(0),TickCount(0)
 {
 
 }
-#if 1
+
+
 
 void Model::tick()
 {
@@ -56,16 +48,6 @@ void Model::tick()
 
 	if (TickCount > 100)
 	{
-		speedcounter++;
-		if (speedcounter < 120)
-		{
-			simulateButtonPress(); // Simulate button press when speed counter is less than 100
-		}
-		else
-		{
-			simulateButtonRelease(); // Simulate button release when speed counter is 100 or more
-		}
-
 		SpeedData();
 		OdoData();
 		FuelData();
@@ -76,17 +58,12 @@ void Model::tick()
 		AFEValue();
 		RANGEValue();
 		Clock();
-		//ClockEdit();
 		SwitchHandler();
-		//DriverInforMenu();
 		IndicatorStatus();
 
 		TickCount =0;
 	}
 }
-#endif
-
-
 
 
 void Model::SpeedData()
@@ -230,17 +207,6 @@ void Model::SwitchHandler()
 
 }
 
-//void Model::DriverInforMenu()
-//{
-//
-//	DIM_Value = xGetDriverInforMenu();
-//
-//	// Notify listener about DriverInforMenudata change
-//	if(modelListener !=0)
-//	{
-//		modelListener->notifyDriverInforMenuDataChanged(DIM_Value);
-//	}
-//}
 
 void Model::IndicatorStatus()
 {

@@ -538,6 +538,7 @@ int main(void)
   /* Call PreOsInit function */
   MX_TouchGFX_PreOSInit();
   /* USER CODE BEGIN 2 */
+  vEmul_Init();
   (void)Mcu_GetResetReason();
   State_Manager_init();
   vOdoInit();
@@ -2433,7 +2434,6 @@ void Odo_Task(void *argument)
   for(;;)
   {
 	vOdoAlgorithm();
-//	xWrite_OdoVal_to_EEPROM();
 	osDelay(5000);
   }
   /* USER CODE END Odo_Task */

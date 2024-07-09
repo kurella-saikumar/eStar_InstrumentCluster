@@ -52,7 +52,7 @@ int32_t xFI_ReadDoubleWord(uint32_t Address,  uint8_t *Data);
 int32_t xFI_ReadSingleWord(uint32_t Address,  uint8_t *Data);
 int32_t xFI_ReadByte(uint32_t Address,  uint8_t *Data);
 int32_t xFI_PageErase(uint32_t Address);
-
+void vFI_Init(void);
 
 #endif /* FLASH_INTERFACE_H_ */
 

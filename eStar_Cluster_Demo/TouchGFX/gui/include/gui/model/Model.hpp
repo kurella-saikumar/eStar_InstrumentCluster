@@ -7,9 +7,6 @@
 
 class ModelListener;
 
-void simulateButtonPress();
-void simulateButtonRelease();
-
 class Model
 {
 public:
@@ -39,7 +36,6 @@ protected:
     uint16_t counter;
     uint16_t FuelPercentage;
     uint16_t TickCount;
-    uint16_t speedcounter;
 };
 
 #endif // MODEL_HPP

@@ -46,7 +46,7 @@
 #define ODO_IN_KM 0U
 #define ODO_IN_MILES 1U
 
-#define ODO_TEST_MACRO 1
+#define ODO_TEST_MACRO 1U
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES
  ***************************************************************************************************/
@@ -72,8 +72,8 @@ void vResetTripA_OdoReadings(void);
 //uint16_t xGetTripB_OdoReading(uint8_t *TripB_Units);
 void vResetTripB_OdoReadings(void);
 
-void xWrite_OdoVal_to_EEPROM(void);
-void xRetrive_LastStored_OdoVal_from_EEPROM(void);
+void vWrite_OdoVal_to_EEPROM(void);
+void vRetrive_LastStored_OdoVal_from_EEPROM(void);
 
 
 #ifdef __cplusplus

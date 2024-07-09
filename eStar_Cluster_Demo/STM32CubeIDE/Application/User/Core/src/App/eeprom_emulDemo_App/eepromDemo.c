@@ -116,55 +116,11 @@ uint16_t xES_WriteVariable(uint32_t VirtAddress, uint32_t Data,uint32_t *UpdateT
 
 void vEE_Demo(void)
 {
-	BSP_OSPI_NOR_Init_t ospiInit;
 
-	/*Initialize OSPI NOR Flash*/
-	ospiInit.InterfaceMode = BSP_OSPI_NOR_OPI_MODE;  // or BSP_OSPI_NOR_OPI_MODE for Octal SPI
-	ospiInit.TransferRate = BSP_OSPI_NOR_DTR_TRANSFER;  // or BSP_OSPI_NOR_DTR_TRANSFER for Double Transfer Rate
-
-	/* De-initialize OSPI NOR Flash */
-	BSP_OSPI_NOR_DeInit(0);
-
-	/* Initialize OSPI NOR Flash */
-	while ( BSP_ERROR_NONE != BSP_OSPI_NOR_Init(0, &ospiInit))
-	{
-#if(EMUL_DEBUG_ENABLE == 1)
-		printf("BSP_OSPI_NOR_Init:Fail \n\r");
-#endif
-	}
-
-	/* Read the current status of the OSPI memory */
-	while ( BSP_ERROR_NONE != BSP_OSPI_NOR_GetStatus(0))
-	{
-#if(EMUL_DEBUG_ENABLE == 1)
-		printf("BSP_OSPI_NOR_GetStatus:Fail \n\r");
-#endif
-	}
-//	HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
-//	prvEE_Format(EE_FORCED_ERASE);
-//	HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
-//	prvEE_Format(EE_CONDITIONAL_ERASE);
-//	HAL_GPIO_TogglePin(GPIOF, GPIO_PIN_9);
-	/* Init Sequence */
-	if ( 0U != xEE_Init(EE_FORCED_ERASE))
-	{
-#if(EMUL_DEBUG_ENABLE == 1)
-		printf("xEE_Init:Fail \n\r");
-#endif
-	}
-	else
-	{
-
-#if(EMUL_DEBUG_ENABLE == 1)
-//		printf("xEE_Init:Success \n\r");
-#endif
-	}
-
-	xRetrive_LastStored_OdoVal_from_EEPROM();
 	/* Loop through each variable and perform the write check */
-#if 0
-//	for (uint32_t i = 0xFFFFFFFF ; i >= 0x0; i = i-0xFFFF)
-	for (uint32_t i = 0 ; i < 20; i++)
+#if 1
+	for (uint32_t i = 0x0 ; i <= 0x0000FFFF; i = i+6553)
+//	for (uint32_t i = 0 ; i < 100; i++)
 	{
 		for (int j = 0; j < sizeof(eepromVariables) / sizeof(eepromVariables[0]); j++) //for (int j = 0; j < 20; j++)
 		{
@@ -184,9 +140,42 @@ void vEE_Demo(void)
 			}
 		}
 	}
+
+	for (int jj = 0; jj < sizeof(eepromVariables) / sizeof(eepromVariables[0]); jj++)
+	{
+		uint16_t FlashStatus2= xEE_ReadVariable32bits((uint32_t)eepromVariables[jj],(uint32_t*)eepromVariables[jj]);
+		if (BSP_ERROR_NONE == FlashStatus2)
+		{
+#if(EMUL_DEBUG_ENABLE == 0)
+			printf("ESR_S:at %p,[%d]:0x%lx \n\r",eepromVariables[jj],jj,*eepromVariables[jj]);
+#endif
+		}
+		else
+		{
+#if(EMUL_DEBUG_ENABLE == 0)
+			printf("ESR_F:0x%x\n\r",FlashStatus2);
+#endif
+		}
+	}
 #endif
 }
 
+void vEmul_Init(void)
+{
+	/* Init Sequence */
+	if ( 0U != xEE_Init(EE_FORCED_ERASE))
+	{
+#if(EMUL_DEBUG_ENABLE == 1)
+		printf("xEE_Init:Fail \n\r");
+#endif
+	}
+	else
+	{
+#if(EMUL_DEBUG_ENABLE == 1)
+//		printf("xEE_Init:Success \n\r");
+#endif
+	}
+}
 
 /**************************************************************************************************
  * End Of File
