@@ -33,29 +33,29 @@
 ***************************************************************************************************/
 
 /*FAST_FILL_LOSS_FILTER parameters which takes the 3sec time to update from 0 to 4096*/
-#define configFAST_FILL_LOSS_FILTER_STEPSIZE   273 /*6.66% Fuel*/
-#define configFAST_FILL_LOSS_FILTER_UPDATERATE 2  /*200ms*/
+#define configFAST_FILL_LOSS_FILTER_STEPSIZE   			273 /*6.66% Fuel*/
+#define configFAST_FILL_LOSS_FILTER_UPDATERATE 			2  /*200ms*/
 
 /*SLOW_FILL_LOSS_FILTER parameters which takes the 5min time to update from 0 to 4096*/
-#define configSLOW_FILL_LOSS_FILTER_STEPSIZE  136 /*3.33% Fuel*/
-#define configSLOW_FILL_LOSS_FILTER_UPDATERATE 100 /*10sec */
+#define configSLOW_FILL_LOSS_FILTER_STEPSIZE  			136 /*3.33% Fuel*/
+#define configSLOW_FILL_LOSS_FILTER_UPDATERATE 			100 /*10sec */
 
 /*NORMAL_FILL_LOSS_FILTER parameters which takes the 15min time to update from 0 to 4096*/
-#define configNORMAL_FILL_LOSS_FILTER_STEPSIZE 136 /*3.33% Fuel*/
-#define configNORMAL_FILL_LOSS_FILTER_UPDATERATE 300 /*30 sec*/
+#define configNORMAL_FILL_LOSS_FILTER_STEPSIZE 			136 /*3.33% Fuel*/
+#define configNORMAL_FILL_LOSS_FILTER_UPDATERATE 		300 /*30 sec*/
 
 /*INSTANTANEOUS_FILTER parameters which takes the 100ms time to update from 0 to 4096*/
-#define configINSTANTANEOUS_FILTER_STEPSIZE 4096 /*100% Fuel*/
-#define configINSTANTANEOUS_FILTER_UPDATERATE 0 /*100ms*/
+#define configINSTANTANEOUS_FILTER_STEPSIZE 			4096 /*100% Fuel*/
+#define configINSTANTANEOUS_FILTER_UPDATERATE 			0 /*100ms*/
 
 
-#define configMAXIMUM_ADC_RANGE 4095
+#define configMAXIMUM_ADC_RANGE 						4095
 
-#define configWINDOW_SIZE 30
+#define configWINDOW_SIZE 						30
 
-#define configFAST_FILL_RANGE 819      /*20% of ADC range*/
-#define configSLOW_FILL_RANGE 409      /*10% of ADC range*/
-#define configWARNING_FUELLEVEL 341    /*8% of ADC range*/
+#define configFAST_FILL_RANGE 							819      /*20% of ADC range*/
+#define configSLOW_FILL_RANGE 							409      /*10% of ADC range*/
+#define configWARNING_FUELLEVEL 						0x0A  /*8% of ADC range*/
 
 
 

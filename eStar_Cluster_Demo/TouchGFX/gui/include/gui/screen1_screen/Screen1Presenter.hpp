@@ -3,6 +3,7 @@
 
 #include <gui/model/ModelListener.hpp>
 #include <mvp/Presenter.hpp>
+//#include "../../../../STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_App.h"
 
 using namespace touchgfx;
 
@@ -25,18 +26,27 @@ public:
      */
     virtual void deactivate();
 
-    virtual void notifyCounterChanged(uint16_t newCounter);
-    virtual void notifyOdoDataChanged(uint32_t newodoData);
+    virtual void notifySpeedDataChanged(uint32_t newSpeedValue,uint8_t newSpeedMetrics);
+    virtual void notifyOdoDataChanged(uint32_t newOdoData,uint8_t newOdoUnits);
     virtual void notifyFuelCounter(uint16_t newFuelCount);
     virtual void notifyRPMDataChanged(uint16_t newRPMData);
-    virtual void notifyDriverInforMenuDataChanged( uint8_t newMenu);
-    virtual void notifyTrip_ADataChanged(uint16_t newTripA);
-    virtual void notifyTrip_BDataChanged(uint16_t newTripB);
-
+    virtual void notifyTrip_ADataChanged(uint16_t newTripA_Value,uint8_t newTripA_Units);
+    virtual void notifyTrip_BDataChanged(uint16_t newTripB_Value, uint8_t newTripB_Units);
+    virtual void notifyAVSDataChanged(uint32_t newAVS);
+	virtual void notifyAFEDataChanged(uint32_t newAFE);
+	virtual void notifyRANGEDataChanged(uint16_t newRANGE);
+    virtual void notifyClockDataChanged(uint8_t Hours,uint8_t Minutes,uint8_t TimeFormat);
+    virtual void notifySwitchHandlerDataChanged(uint8_t SwitchStatus);
+    virtual void notifyIndicatorStatusDataChanged(IndicationStatus_t newIndicators);
     virtual ~Screen1Presenter() {}
+
+protected:
+
 
 private:
     Screen1Presenter();
+    bool driverInfoMenuShown;
+    uint8_t newMenu;
 
     Screen1View& view;
 };

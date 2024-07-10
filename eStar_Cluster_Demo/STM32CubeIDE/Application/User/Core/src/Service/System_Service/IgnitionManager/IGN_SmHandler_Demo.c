@@ -77,7 +77,7 @@ void vIgnitionONFunc(void)
 {
 	printf("IGNON_STATE_OFF_TO_ON_ENTRY_Action\r\n");
 	vEnable_OdoSpeedo_Channel_Interrupts();
-	vEE_Demo();
+	vRetrive_LastStored_OdoVal_from_EEPROM();
 	Disp_imgDataHyperRAM_Init();
 }
 

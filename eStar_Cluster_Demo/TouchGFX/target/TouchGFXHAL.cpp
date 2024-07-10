@@ -58,6 +58,12 @@ uint32_t ucImage_engineoil1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_engi
 LOCATION_PRAGMA_NOLOAD("image_engineoil2_buf")
 uint32_t ucImage_engineoil2_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_engineoil2_buf");
 
+LOCATION_PRAGMA_NOLOAD("image_enginewarning_w_buf")
+uint32_t ucImage_enginewarning_w_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_enginewarning_w_buf");
+
+LOCATION_PRAGMA_NOLOAD("image_enginewarning_y_buf")
+uint32_t ucImage_enginewarning_y_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_enginewarning_y_buf");
+
 LOCATION_PRAGMA_NOLOAD("image_fuelbar01_buf")
 uint32_t ucImage_fuelbar01_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar01_buf");
 
@@ -118,6 +124,12 @@ uint32_t ucImage_lowbeam1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_lowbea
 LOCATION_PRAGMA_NOLOAD("image_lowbeam2_buf")
 uint32_t ucImage_lowbeam2_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_lowbeam2_buf");
 
+LOCATION_PRAGMA_NOLOAD("image_parking_r_buf")
+uint32_t ucImage_parking_r_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_parking_r_buf");
+
+LOCATION_PRAGMA_NOLOAD("image_parking_w_buf")
+uint32_t ucImage_parking_w_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_parking_w_buf");
+
 LOCATION_PRAGMA_NOLOAD("image_rightindicator1_buf")
 uint32_t ucImage_rightindicator1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_rightindicator1_buf");
 
@@ -159,6 +171,19 @@ uint32_t ucImage_rpmicon1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmico
 
 LOCATION_PRAGMA_NOLOAD("image_rpmicon2_buf")
 uint32_t ucImage_rpmicon2_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmicon2_buf");
+
+
+LOCATION_PRAGMA_NOLOAD("image_seatbelt_r_buf")
+uint32_t ucImage_seatbelt_r_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_seatbelt_r_buf");
+
+LOCATION_PRAGMA_NOLOAD("image_seatbelt_w_buf")
+uint32_t ucImage_seatbelt_w_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_seatbelt_w_buf");
+
+LOCATION_PRAGMA_NOLOAD("image_servicereminder_w_buf")
+uint32_t ucImage_servicereminder_w_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_servicereminder_w_buf");
+
+LOCATION_PRAGMA_NOLOAD("image_servicereminder_y_buf")
+uint32_t ucImage_servicereminder_y_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_servicereminder_y_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_tempicon1_buf")
 uint32_t ucImage_tempicon1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_tempicon1_buf");

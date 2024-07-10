@@ -130,21 +130,21 @@ Screen1ViewBase::Screen1ViewBase()
     KMPH_MPH.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DKL2));
     add(KMPH_MPH);
 
-    KMPH_MPH_ODO.setXY(290, 214);
-    KMPH_MPH_ODO.setColor(touchgfx::Color::getColorFromRGB(255, 247, 247));
+    KMPH_MPH_ODO.setPosition(290, 214, 43, 18);
+    KMPH_MPH_ODO.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     KMPH_MPH_ODO.setLinespacing(0);
-    KMPH_MPH_ODO.setWildcard(touchgfx::TypedText(T___SINGLEUSE_947A).getText());
-    KMPH_MPH_ODO.resizeToCurrentText();
+    Unicode::snprintf(KMPH_MPH_ODOBuffer, KMPH_MPH_ODO_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_947A).getText());
+    KMPH_MPH_ODO.setWildcard(KMPH_MPH_ODOBuffer);
     KMPH_MPH_ODO.setTypedText(touchgfx::TypedText(T___SINGLEUSE_VE6R));
     add(KMPH_MPH_ODO);
 
-    KMPH_MPH_DTE.setXY(290, 241);
-    KMPH_MPH_DTE.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    KMPH_MPH_DTE.setLinespacing(0);
-    KMPH_MPH_DTE.setWildcard(touchgfx::TypedText(T___SINGLEUSE_CK36).getText());
-    KMPH_MPH_DTE.resizeToCurrentText();
-    KMPH_MPH_DTE.setTypedText(touchgfx::TypedText(T___SINGLEUSE_EPWF));
-    add(KMPH_MPH_DTE);
+    DriverInfo_Units.setPosition(290, 241, 46, 18);
+    DriverInfo_Units.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    DriverInfo_Units.setLinespacing(0);
+    Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_CK36).getText());
+    DriverInfo_Units.setWildcard(DriverInfo_UnitsBuffer);
+    DriverInfo_Units.setTypedText(touchgfx::TypedText(T___SINGLEUSE_EPWF));
+    add(DriverInfo_Units);
 
     ODOReadings.setXY(191, 195);
     ODOReadings.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
@@ -165,38 +165,6 @@ Screen1ViewBase::Screen1ViewBase()
     DriverInfo.resizeToCurrentText();
     DriverInfo.setTypedText(touchgfx::TypedText(T___SINGLEUSE_0GI1));
     add(DriverInfo);
-
-    Clock_HR.setXY(395, 14);
-    Clock_HR.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    Clock_HR.setLinespacing(0);
-    Clock_HR.setWildcard(touchgfx::TypedText(T___SINGLEUSE_T3J1).getText());
-    Clock_HR.resizeToCurrentText();
-    Clock_HR.setTypedText(touchgfx::TypedText(T___SINGLEUSE_8JLD));
-    add(Clock_HR);
-
-    Clock_MIN.setXY(418, 14);
-    Clock_MIN.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    Clock_MIN.setLinespacing(0);
-    Clock_MIN.setWildcard(touchgfx::TypedText(T___SINGLEUSE_X2EZ).getText());
-    Clock_MIN.resizeToCurrentText();
-    Clock_MIN.setTypedText(touchgfx::TypedText(T___SINGLEUSE_SWRW));
-    add(Clock_MIN);
-
-    Semicolon.setXY(413, 15);
-    Semicolon.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    Semicolon.setLinespacing(0);
-    Semicolon.setWildcard(touchgfx::TypedText(T___SINGLEUSE_AS99).getText());
-    Semicolon.resizeToCurrentText();
-    Semicolon.setTypedText(touchgfx::TypedText(T___SINGLEUSE_D0FJ));
-    add(Semicolon);
-
-    AM_PM.setXY(436, 20);
-    AM_PM.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    AM_PM.setLinespacing(0);
-    AM_PM.setWildcard(touchgfx::TypedText(T___SINGLEUSE_9DYF).getText());
-    AM_PM.resizeToCurrentText();
-    AM_PM.setTypedText(touchgfx::TypedText(T___SINGLEUSE_A8BG));
-    add(AM_PM);
 
     High_beem_White.setBitmap(touchgfx::Bitmap(BITMAP_HIGH_BEAM_ID));
     High_beem_White.setPosition(318, 14, 24, 24);
@@ -221,6 +189,65 @@ Screen1ViewBase::Screen1ViewBase()
     DriverInfoMenu.setWildcard(DriverInfoMenuBuffer);
     DriverInfoMenu.setTypedText(touchgfx::TypedText(T___SINGLEUSE_OOJU));
     add(DriverInfoMenu);
+
+    Clock.setPosition(393, 15, 51, 25);
+    Clock.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    Clock.setLinespacing(0);
+    touchgfx::Unicode::snprintf(ClockBuffer1, CLOCKBUFFER1_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_KYEZ).getText());
+    Clock.setWildcard1(ClockBuffer1);
+    touchgfx::Unicode::snprintf(ClockBuffer2, CLOCKBUFFER2_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_JGEB).getText());
+    Clock.setWildcard2(ClockBuffer2);
+    Clock.setTypedText(touchgfx::TypedText(T___SINGLEUSE_M204));
+    add(Clock);
+
+    AM_PM.setXY(444, 23);
+    AM_PM.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    AM_PM.setLinespacing(0);
+    Unicode::snprintf(AM_PMBuffer, AM_PM_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_TIW9).getText());
+    AM_PM.setWildcard(AM_PMBuffer);
+    AM_PM.resizeToCurrentText();
+    AM_PM.setTypedText(touchgfx::TypedText(T___SINGLEUSE_KI12));
+    add(AM_PM);
+
+    SeatBelt_w.setBitmap(touchgfx::Bitmap(BITMAP_SEATBELT_W_ID));
+    SeatBelt_w.setPosition(174, 68, 25, 25);
+    SeatBelt_w.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(SeatBelt_w);
+
+    SeatBelt_r.setBitmap(touchgfx::Bitmap(BITMAP_SEATBELT_R_ID));
+    SeatBelt_r.setPosition(174, 68, 25, 25);
+    SeatBelt_r.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(SeatBelt_r);
+
+    Parking_w.setBitmap(touchgfx::Bitmap(BITMAP_PARKING_W_ID));
+    Parking_w.setPosition(79, 68, 25, 25);
+    Parking_w.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
+    add(Parking_w);
+
+    Parking_r.setBitmap(touchgfx::Bitmap(BITMAP_PARKING_R_ID));
+    Parking_r.setPosition(79, 68, 25, 25);
+    Parking_r.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
+    add(Parking_r);
+
+    EngineWarning_w.setBitmap(touchgfx::Bitmap(BITMAP_ENGINEWARNING_W_ID));
+    EngineWarning_w.setPosition(308, 48, 25, 25);
+    EngineWarning_w.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
+    add(EngineWarning_w);
+
+    EngineWarning_y.setBitmap(touchgfx::Bitmap(BITMAP_ENGINEWARNING_Y_ID));
+    EngineWarning_y.setPosition(308, 48, 25, 25);
+    EngineWarning_y.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
+    add(EngineWarning_y);
+
+    ServiceReminder_w.setBitmap(touchgfx::Bitmap(BITMAP_SERVICEREMINDER_W_ID));
+    ServiceReminder_w.setPosition(266, 68, 25, 25);
+    ServiceReminder_w.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
+    add(ServiceReminder_w);
+
+    ServiceReminder_y.setBitmap(touchgfx::Bitmap(BITMAP_SERVICEREMINDER_Y_ID));
+    ServiceReminder_y.setPosition(266, 68, 25, 25);
+    ServiceReminder_y.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
+    add(ServiceReminder_y);
 }
 
 Screen1ViewBase::~Screen1ViewBase()

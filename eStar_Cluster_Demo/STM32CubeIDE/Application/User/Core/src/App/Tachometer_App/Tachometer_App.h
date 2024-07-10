@@ -53,7 +53,6 @@
 ***************************************************************************************************/
 void vTacho_Init(void);
 void vMeasureRPM(void);
-//uint16_t xGet_TachometerData(IndicationStatus_t* Indication,bool *status);
 void vTacho_App(void);
 
 
@@ -61,7 +60,7 @@ void vTacho_App(void);
 extern "C" {
 #endif
 
-uint16_t xGet_TachometerData(IndicationStatus_t* Indication,bool *status);
+uint16_t xGet_TachometerData(void);
 
 #ifdef __cplusplus
 }

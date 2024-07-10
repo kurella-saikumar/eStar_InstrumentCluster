@@ -195,7 +195,7 @@ uint32_t vCalculateAFEKmperLitre(void)
 	ulAverageDitsance = prvCalculateMovingAverage_Odo(ulDeltaDistance);
 
 #if(FUEL_TEST_MACRO == 0)
-	finalFuelPercentage = xGetFuelLevel(&warningIndicator,&warningStatus);
+	finalFuelPercentage = xGetFuelLevel();
 #endif
 
 #if(FUEL_TEST_MACRO == 1)
@@ -361,6 +361,7 @@ uint16_t DisplayDTE(bool flag,uint16_t uspresent_DTE )
 uint32_t xGetAVSstatus(void)
 {
 	uint32_t FinalAvs = (uint32_t)ModeStatus.AverageVehicleSpeed;
+	printf("AVS Value to Display %ld=",FinalAvs);
 	return FinalAvs;
 }
 
@@ -372,7 +373,7 @@ uint32_t xGetAFEstatus(void)
 }
 
 
-uint16_t xGetDTEstatus(void)
+uint16_t xGetRANGEstatus(void)
 {
 	if((ModeStatus.Range < BLINK_THRESHOLD_LOW) || (ModeStatus.Range > usMaxThresholdDTE))
 	{

@@ -1,4 +1,0 @@
-../Application/User/Core/src/App/DriverInfoApplication/DriverInfoMenu_App.c:64:6:vDriverInfoMenu_Init	1
-../Application/User/Core/src/App/DriverInfoApplication/DriverInfoMenu_App.c:103:6:vModeSwitchToNext	3
-../Application/User/Core/src/App/DriverInfoApplication/DriverInfoMenu_App.c:159:24:xGetDriverInforMenu	1
-../Application/User/Core/src/App/DriverInfoApplication/DriverInfoMenu_App.c:171:6:vSetDriverInforMenu	1

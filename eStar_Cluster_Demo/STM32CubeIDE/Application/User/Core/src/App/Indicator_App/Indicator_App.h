@@ -76,8 +76,9 @@ typedef union {
          uint32_t reserved :15;
      }indicators;																		  //
 																					  //
-}IndicationStatus_t;
+}IndicationStatus_t ;
 
+extern IndicationStatus_t   Status;
 
 
 //typedef union
@@ -113,7 +114,21 @@ typedef union {
 
 extern void vIndicatorsInit(void);
 extern void vIndicator_App_Task(void);
+
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern IndicationStatus_t xGetIndicatorstatus(void);
+
+#ifdef __cplusplus
+}
+#endif
+
+
+
 #endif /* FILE_TEMPLATE_H */
 
 /**************************************************************************************************

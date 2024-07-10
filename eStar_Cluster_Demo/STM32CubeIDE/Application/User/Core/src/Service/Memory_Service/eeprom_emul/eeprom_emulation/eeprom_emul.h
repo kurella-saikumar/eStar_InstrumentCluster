@@ -59,9 +59,11 @@
 #define BANK_SIZE					(uint32_t)(PAGES_NUMBER * PAGE_SIZE)/* Flash Bank Size*/
 #define PAGE(__ADDRESS__)       	(uint32_t)((((__ADDRESS__)) % BANK_SIZE) / FLASH_PAGE_SIZE) /*!< Get page index from page address */
 #define PAGE_ADDRESS(__PAGE__)  	(uint32_t)( (__PAGE__) * PAGE_SIZE + ((START_PAGE_ADDRESS) / BANK_SIZE) * BANK_SIZE) /*!< Get page address from page index */
-#define PREVIOUS_PAGE(__PAGE__)  	(uint32_t)((((__PAGE__) - START_PAGE - 1U + PAGES_NUMBER) % PAGES_NUMBER) + START_PAGE) /*!< Get page index of previous page, among circular page list */
-#define FOLLOWING_PAGE(__PAGE__) 	(uint32_t)((((__PAGE__) - START_PAGE + 1U) % PAGES_NUMBER) + START_PAGE) /*!< Get page index of following page, among circular page list */
+//#define PREVIOUS_PAGE(__PAGE__)  	(uint32_t)((((__PAGE__) - START_PAGE - 1U + PAGES_NUMBER) % PAGES_NUMBER) + START_PAGE) /*!< Get page index of previous page, among circular page list */
+//#define FOLLOWING_PAGE(__PAGE__) 	(uint32_t)((((__PAGE__) - START_PAGE + 1U) % PAGES_NUMBER) + START_PAGE) /*!< Get page index of following page, among circular page list */
 #define START_PAGE             		PAGE(START_PAGE_ADDRESS)                         /*!< Page index of the 1st page used for EEPROM emul, in the bank */
+#define PREVIOUS_PAGE(__PAGE__)  	(uint32_t)((((__PAGE__) - START_PAGE + PAGES_NUMBER - 1U) % PAGES_NUMBER) + START_PAGE) /*!< Get page index of previous page, among circular page list */
+#define FOLLOWING_PAGE(__PAGE__) 	(uint32_t)((((__PAGE__) - START_PAGE + 1U) % PAGES_NUMBER) + START_PAGE) /*!< Get page index of following page, among circular page list */
 #define CALCULATED_END_ADDRESS		(START_PAGE_ADDRESS+ BANK_SIZE)          /*Calculated end address*/
 #define PAGE_GROUP					PAGES_NUMBER / 2U		/* Page Group */
 /* Page state header */
@@ -152,7 +154,8 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data);
 extern uint16_t xES_WriteVariable(uint32_t VirtAddress, uint32_t Data,uint32_t *UpdateToShadowRAM);
 extern void vShadowRAM_Init(void);
 extern void vEE_Demo(void);
-uint32_t xShadowUpdate(uint8_t ShadowPOP_flag);
+extern void vEmul_Init(void);
+uint32_t xShadowUpdate(void);
 #endif /* __EEPROM_H */
 
 /**************************************************************************************************

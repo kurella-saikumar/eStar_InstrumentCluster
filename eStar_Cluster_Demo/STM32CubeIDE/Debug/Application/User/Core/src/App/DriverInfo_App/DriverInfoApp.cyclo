@@ -4,11 +4,11 @@
 ../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:260:10:vCalculateDTE	7
 ../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:336:10:DisplayDTE	2
 ../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:361:10:xGetAVSstatus	1
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:368:10:xGetAFEstatus	1
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:375:10:xGetDTEstatus	2
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:431:10:prvCalculateAverage1	1
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:393:10:prvCalculateMovingAverage_Odo	2
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:437:10:prvCalculateAverage2	1
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:411:10:prvCalculateMovingAverage_Fuel	2
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:369:10:xGetAFEstatus	1
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:376:10:xGetRANGEstatus	2
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:432:10:prvCalculateAverage1	1
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:394:10:prvCalculateMovingAverage_Odo	2
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:438:10:prvCalculateAverage2	1
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:412:10:prvCalculateMovingAverage_Fuel	2
 ../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:187:10:vCalculateAFEKmperLitre	5
 ../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:89:6:vDriver_InfoTask	2

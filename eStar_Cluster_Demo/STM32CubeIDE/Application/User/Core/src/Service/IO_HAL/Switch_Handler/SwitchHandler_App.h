@@ -34,7 +34,7 @@
 typedef enum {
     CLOCK_MODE_INACTIVE,  // Clock setting mode is off
     CLOCK_MODE_ACTIVE    // Clock setting mode is on
-} ClockEditModeState_t;    //ClockMode_t;
+} ClockEditModeState_t;  //ClockMode_t;
 
 typedef enum
 {
@@ -47,9 +47,16 @@ typedef enum
 }ClockEditActions_t;
 
 
+typedef enum
+{
+	ODO_METER_TOGGLE, 		// Mode = Short Press : Reset = Short Press//
+	CLOCK_EDITING,			// Mode = Long Press : Reset = Long Press//
+	MENU_MODES
+}SwitchModesDisplay_t;
 
 // Function to get the current clock mode
 ClockEditModeState_t xGetClockMode(void);
+
 
 extern Button_Push_Event_T xGetModeButtonStatus(void);
 extern Button_Push_Event_T xGetResetButtonStatus(void);
@@ -65,5 +72,17 @@ extern void vSwitchHandlerTask(void);
 // Function prototype for handling mode reset actions
 extern void vHandleModeResetActions(void);
 ClockEditActions_t xClockSettingGetSetMode(void);
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+SwitchModesDisplay_t xGetSwitchStatus(void);
+
+#ifdef __cplusplus
+}
+#endif
+
+
 #endif /* SWITCH_HANDLER_APP_H */
 

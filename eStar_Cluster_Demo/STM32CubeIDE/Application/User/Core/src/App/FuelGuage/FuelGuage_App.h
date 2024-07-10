@@ -85,13 +85,13 @@ typedef struct
 ***************************************************************************************************/
 extern void vFuelGuageTaskInit(void);
 extern void vFuelGuageTask(void);
-//extern uint8_t xGetFuelLevel(IndicationStatus_t* ucFuelWarning_Indictr, bool* Warning_status);
+
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-uint8_t xGetFuelLevel(IndicationStatus_t* ucFuelWarning_Indictr, bool* Warning_status);
+extern uint8_t xGetFuelLevel(void);
 
 #ifdef __cplusplus
 }

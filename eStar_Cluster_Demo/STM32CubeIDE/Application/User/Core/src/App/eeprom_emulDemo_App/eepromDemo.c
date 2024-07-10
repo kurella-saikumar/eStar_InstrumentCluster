@@ -116,32 +116,52 @@ uint16_t xES_WriteVariable(uint32_t VirtAddress, uint32_t Data,uint32_t *UpdateT
 
 void vEE_Demo(void)
 {
-	BSP_OSPI_NOR_Init_t ospiInit;
 
-	/*Initialize OSPI NOR Flash*/
-	ospiInit.InterfaceMode = BSP_OSPI_NOR_OPI_MODE;  // or BSP_OSPI_NOR_OPI_MODE for Octal SPI
-	ospiInit.TransferRate = BSP_OSPI_NOR_DTR_TRANSFER;  // or BSP_OSPI_NOR_DTR_TRANSFER for Double Transfer Rate
-
-	/* De-initialize OSPI NOR Flash */
-	BSP_OSPI_NOR_DeInit(0);
-
-	/* Initialize OSPI NOR Flash */
-	while ( BSP_ERROR_NONE != BSP_OSPI_NOR_Init(0, &ospiInit))
+	/* Loop through each variable and perform the write check */
+#if 1
+	for (uint32_t i = 0x0 ; i <= 0x0000FFFF; i = i+6553)
+//	for (uint32_t i = 0 ; i < 100; i++)
 	{
+		for (int j = 0; j < sizeof(eepromVariables) / sizeof(eepromVariables[0]); j++) //for (int j = 0; j < 20; j++)
+		{
+
+			uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[j],(uint32_t)(i),eepromVariables[j]);
+			if (BSP_ERROR_NONE == FlashStatus)
+			{
 #if(EMUL_DEBUG_ENABLE == 1)
-		printf("BSP_OSPI_NOR_Init:Fail \n\r");
+				printf("ESW_S:at %p,[%d]:0x%lx \n\r",eepromVariables[j],j,*eepromVariables[j]);
 #endif
+			}
+			else
+			{
+#if(EMUL_DEBUG_ENABLE == 1)
+				printf("ESW_F:0x%x\n\r",FlashStatus);
+#endif
+			}
+		}
 	}
 
-	/* Read the current status of the OSPI memory */
-	while ( BSP_ERROR_NONE != BSP_OSPI_NOR_GetStatus(0))
+	for (int jj = 0; jj < sizeof(eepromVariables) / sizeof(eepromVariables[0]); jj++)
 	{
-#if(EMUL_DEBUG_ENABLE == 1)
-		printf("BSP_OSPI_NOR_GetStatus:Fail \n\r");
+		uint16_t FlashStatus2= xEE_ReadVariable32bits((uint32_t)eepromVariables[jj],(uint32_t*)eepromVariables[jj]);
+		if (BSP_ERROR_NONE == FlashStatus2)
+		{
+#if(EMUL_DEBUG_ENABLE == 0)
+			printf("ESR_S:at %p,[%d]:0x%lx \n\r",eepromVariables[jj],jj,*eepromVariables[jj]);
 #endif
+		}
+		else
+		{
+#if(EMUL_DEBUG_ENABLE == 0)
+			printf("ESR_F:0x%x\n\r",FlashStatus2);
+#endif
+		}
 	}
+#endif
+}
 
-//	prvEE_Format(EE_FORCED_ERASE); // EE_CONDITIONAL_ERASE
+void vEmul_Init(void)
+{
 	/* Init Sequence */
 	if ( 0U != xEE_Init(EE_FORCED_ERASE))
 	{
@@ -155,42 +175,7 @@ void vEE_Demo(void)
 //		printf("xEE_Init:Success \n\r");
 #endif
 	}
-
-	/* ShadowRAM initialization*/
-	vShadowRAM_Init();
-	/********** Read Back the shadow 20 variable's latest values *******/
-	/* Loop through each variable and perform the Read check */
-	for (int i = 0; i < sizeof(eepromVariables) / sizeof(eepromVariables[0]); i++)
-	{
-#if(EMUL_DEBUG_ENABLE == 1)
-//		printf("ShadowRam Read: eepromVariables[%d] at :%p data :0x%lx\n\r",i,eepromVariables[i],*eepromVariables[i]);
-#endif
-	}
-//	xRetrive_LastStored_OdoVal_from_EEPROM();
-	/* Loop through each variable and perform the write check */
-	for (uint32_t i = 0 ; i <= 0xF; i = i+2)
-	{
-//		for (int j = 0; j < sizeof(eepromVariables) / sizeof(eepromVariables[0]); j++)
-		for (int j = 0; j < 2; j++)
-		{
-			uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[j],(uint32_t)(i),eepromVariables[j]);
-			if (BSP_ERROR_NONE == FlashStatus)
-			{
-#if(EMUL_DEBUG_ENABLE == 1)
-//				printf("ESW_S:at %p,[%d]:%ld \n\r",eepromVariables[j],j,*eepromVariables[j]);
-#endif
-			}
-			else
-			{
-#if(EMUL_DEBUG_ENABLE == 1)
-				printf("ESW_F:\n\r");
-#endif
-			}
-		}
-	}
-	xShadowUpdate(1);
 }
-
 
 /**************************************************************************************************
  * End Of File

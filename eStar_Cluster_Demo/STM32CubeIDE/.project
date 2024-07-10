@@ -634,9 +634,9 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/FontCache.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Font_Technology_Bold_14_4bpp_0.cpp</name>
+			<name>Application/User/generated/Font_Technology_Bold_16_4bpp_0.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_Technology_Bold_14_4bpp_0.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_Technology_Bold_16_4bpp_0.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/Font_Technology_Bold_17_4bpp_0.cpp</name>
@@ -649,6 +649,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_Technology_Bold_20_4bpp_0.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/Font_Technology_Bold_22_4bpp_0.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_Technology_Bold_22_4bpp_0.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/Font_Technology_Bold_24_4bpp_0.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_Technology_Bold_24_4bpp_0.cpp</locationURI>
@@ -659,9 +664,9 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/GeneratedFont.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Kerning_Technology_Bold_14_4bpp.cpp</name>
+			<name>Application/User/generated/Kerning_Technology_Bold_16_4bpp.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_Technology_Bold_14_4bpp.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_Technology_Bold_16_4bpp.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/Kerning_Technology_Bold_17_4bpp.cpp</name>
@@ -674,14 +679,19 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_Technology_Bold_20_4bpp.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/Kerning_Technology_Bold_22_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_Technology_Bold_22_4bpp.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/Kerning_Technology_Bold_24_4bpp.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_Technology_Bold_24_4bpp.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Table_Technology_Bold_14_4bpp.cpp</name>
+			<name>Application/User/generated/Table_Technology_Bold_16_4bpp.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_Technology_Bold_14_4bpp.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_Technology_Bold_16_4bpp.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/Table_Technology_Bold_17_4bpp.cpp</name>
@@ -692,6 +702,11 @@
 			<name>Application/User/generated/Table_Technology_Bold_20_4bpp.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_Technology_Bold_20_4bpp.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/Table_Technology_Bold_22_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_Technology_Bold_22_4bpp.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/Table_Technology_Bold_24_4bpp.cpp</name>
@@ -974,14 +989,49 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/Temperature/image_TempIcon2.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/image_EngineWarning_w.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_EngineWarning_w.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_EngineWarning_y.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_EngineWarning_y.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Parking_r.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_Parking_r.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Parking_w.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_Parking_w.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_SeatBelt_r.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_SeatBelt_r.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_SeatBelt_w.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_SeatBelt_w.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_ServiceReminder_w.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_ServiceReminder_w.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_ServiceReminder_y.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_ServiceReminder_y.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/image_BackGround.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_BackGround.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_TRIP_A.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_TRIP_A.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_high_beam_1.cpp</name>

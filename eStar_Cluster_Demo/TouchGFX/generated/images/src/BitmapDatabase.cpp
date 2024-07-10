@@ -13,42 +13,50 @@ extern const unsigned char image_doorswarning1_const[]; // BITMAP_DOORSWARNING1_
 extern const unsigned char image_doorswarning2_const[]; // BITMAP_DOORSWARNING2_ID = 6, Size: 24x20 pixels
 extern const unsigned char image_engineoil1_const[]; // BITMAP_ENGINEOIL1_ID = 7, Size: 24x20 pixels
 extern const unsigned char image_engineoil2_const[]; // BITMAP_ENGINEOIL2_ID = 8, Size: 24x20 pixels
-extern const unsigned char image_fuelbar01_const[]; // BITMAP_FUELBAR01_ID = 9, Size: 128x128 pixels
-extern const unsigned char image_fuelbar02_const[]; // BITMAP_FUELBAR02_ID = 10, Size: 128x128 pixels
-extern const unsigned char image_fuelbar03_const[]; // BITMAP_FUELBAR03_ID = 11, Size: 128x128 pixels
-extern const unsigned char image_fuelbar04_const[]; // BITMAP_FUELBAR04_ID = 12, Size: 128x128 pixels
-extern const unsigned char image_fuelbar05_const[]; // BITMAP_FUELBAR05_ID = 13, Size: 128x128 pixels
-extern const unsigned char image_fuelbar06_const[]; // BITMAP_FUELBAR06_ID = 14, Size: 128x128 pixels
-extern const unsigned char image_fuelbar07_const[]; // BITMAP_FUELBAR07_ID = 15, Size: 128x128 pixels
-extern const unsigned char image_fuelbar08_const[]; // BITMAP_FUELBAR08_ID = 16, Size: 128x128 pixels
-extern const unsigned char image_fuelbar09_const[]; // BITMAP_FUELBAR09_ID = 17, Size: 128x128 pixels
-extern const unsigned char image_fuelbar10_const[]; // BITMAP_FUELBAR10_ID = 18, Size: 128x128 pixels
-extern const unsigned char image_high_beam_const[]; // BITMAP_HIGH_BEAM_ID = 19, Size: 512x512 pixels
-extern const unsigned char image_high_beam_1_const[]; // BITMAP_HIGH_BEAM_1_ID = 20, Size: 512x512 pixels
-extern const unsigned char image_highbeam1_const[]; // BITMAP_HIGHBEAM1_ID = 19, Size: 24x20 pixels
-extern const unsigned char image_highbeam2_const[]; // BITMAP_HIGHBEAM2_ID = 20, Size: 24x20 pixels
-extern const unsigned char image_leftindicator1_const[]; // BITMAP_LEFTINDICATOR1_ID = 22, Size: 24x20 pixels
-extern const unsigned char image_leftindicator2_const[]; // BITMAP_LEFTINDICATOR2_ID = 23, Size: 24x20 pixels
-extern const unsigned char image_lowbattery1_const[]; // BITMAP_LOWBATTERY1_ID = 24, Size: 24x20 pixels
-extern const unsigned char image_lowbattery2_const[]; // BITMAP_LOWBATTERY2_ID = 25, Size: 24x20 pixels
-extern const unsigned char image_lowbeam1_const[]; // BITMAP_LOWBEAM1_ID = 26, Size: 24x20 pixels
-extern const unsigned char image_lowbeam2_const[]; // BITMAP_LOWBEAM2_ID = 27, Size: 24x20 pixels
-extern const unsigned char image_rightindicator1_const[]; // BITMAP_RIGHTINDICATOR1_ID = 28, Size: 24x20 pixels
-extern const unsigned char image_rightindicator2_const[]; // BITMAP_RIGHTINDICATOR2_ID = 29, Size: 24x20 pixels
-extern const unsigned char image_rpmbar01_const[]; // BITMAP_RPMBAR01_ID = 31, Size: 128x128 pixels
-extern const unsigned char image_rpmbar02_const[]; // BITMAP_RPMBAR02_ID = 32, Size: 128x128 pixels
-extern const unsigned char image_rpmbar03_const[]; // BITMAP_RPMBAR03_ID = 33, Size: 128x128 pixels
-extern const unsigned char image_rpmbar04_const[]; // BITMAP_RPMBAR04_ID = 34, Size: 128x128 pixels
-extern const unsigned char image_rpmbar05_const[]; // BITMAP_RPMBAR05_ID = 35, Size: 128x128 pixels
-extern const unsigned char image_rpmbar06_const[]; // BITMAP_RPMBAR06_ID = 36, Size: 128x128 pixels
-extern const unsigned char image_rpmbar07_const[]; // BITMAP_RPMBAR07_ID = 37, Size: 128x128 pixels
-extern const unsigned char image_rpmbar08_const[]; // BITMAP_RPMBAR08_ID = 38, Size: 128x128 pixels
-extern const unsigned char image_rpmbar09_const[]; // BITMAP_RPMBAR09_ID = 39, Size: 128x128 pixels
-extern const unsigned char image_rpmbar10_const[]; // BITMAP_RPMBAR10_ID = 40, Size: 128x128 pixels
-extern const unsigned char image_rpmicon1_const[]; // BITMAP_RPMICON1_ID = 31, Size: 24x20 pixels
-extern const unsigned char image_rpmicon2_const[]; // BITMAP_RPMICON2_ID = 32, Size: 24x20 pixels
-extern const unsigned char image_tempicon1_const[]; // BITMAP_TEMPICON1_ID = 33, Size: 24x20 pixels
-extern const unsigned char image_tempicon2_const[]; // BITMAP_TEMPICON2_ID = 34, Size: 24x20 pixels
+extern const unsigned char image_enginewarning_w_const[]; // BITMAP_ENGINEOIL2_ID = 9, Size: 25x25 pixels
+extern const unsigned char image_enginewarning_y_const[]; // BITMAP_ENGINEOIL2_ID = 10, Size: 25x25 pixels
+extern const unsigned char image_fuelbar01_const[]; // BITMAP_FUELBAR01_ID = 11, Size: 128x128 pixels
+extern const unsigned char image_fuelbar02_const[]; // BITMAP_FUELBAR02_ID = 12, Size: 128x128 pixels
+extern const unsigned char image_fuelbar03_const[]; // BITMAP_FUELBAR03_ID = 13, Size: 128x128 pixels
+extern const unsigned char image_fuelbar04_const[]; // BITMAP_FUELBAR04_ID = 14, Size: 128x128 pixels
+extern const unsigned char image_fuelbar05_const[]; // BITMAP_FUELBAR05_ID = 15, Size: 128x128 pixels
+extern const unsigned char image_fuelbar06_const[]; // BITMAP_FUELBAR06_ID = 16, Size: 128x128 pixels
+extern const unsigned char image_fuelbar07_const[]; // BITMAP_FUELBAR07_ID = 17, Size: 128x128 pixels
+extern const unsigned char image_fuelbar08_const[]; // BITMAP_FUELBAR08_ID = 18, Size: 128x128 pixels
+extern const unsigned char image_fuelbar09_const[]; // BITMAP_FUELBAR09_ID = 19, Size: 128x128 pixels
+extern const unsigned char image_fuelbar10_const[]; // BITMAP_FUELBAR10_ID = 20, Size: 128x128 pixels
+extern const unsigned char image_high_beam_const[]; // BITMAP_HIGH_BEAM_ID = 21, Size: 512x512 pixels
+extern const unsigned char image_high_beam_1_const[]; // BITMAP_HIGH_BEAM_1_ID = 22, Size: 512x512 pixels
+extern const unsigned char image_highbeam1_const[]; // BITMAP_HIGHBEAM1_ID = 23, Size: 24x20 pixels
+extern const unsigned char image_highbeam2_const[]; // BITMAP_HIGHBEAM2_ID = 24, Size: 24x20 pixels
+extern const unsigned char image_leftindicator1_const[]; // BITMAP_LEFTINDICATOR1_ID = 25, Size: 24x20 pixels
+extern const unsigned char image_leftindicator2_const[]; // BITMAP_LEFTINDICATOR2_ID = 26, Size: 24x20 pixels
+extern const unsigned char image_lowbattery1_const[]; // BITMAP_LOWBATTERY1_ID = 27, Size: 24x20 pixels
+extern const unsigned char image_lowbattery2_const[]; // BITMAP_LOWBATTERY2_ID = 28, Size: 24x20 pixels
+extern const unsigned char image_lowbeam1_const[]; // BITMAP_LOWBEAM1_ID = 29, Size: 24x20 pixels
+extern const unsigned char image_lowbeam2_const[]; // BITMAP_LOWBEAM2_ID = 30, Size: 24x20 pixels
+extern const unsigned char image_parking_r_const[]; // BITMAP_LOWBEAM1_ID = 31, Size: 25x25 pixels
+extern const unsigned char image_parking_w_const[]; // BITMAP_LOWBEAM2_ID = 32, Size: 25x25 pixels
+extern const unsigned char image_rightindicator1_const[]; // BITMAP_RIGHTINDICATOR1_ID = 33, Size: 24x20 pixels
+extern const unsigned char image_rightindicator2_const[]; // BITMAP_RIGHTINDICATOR2_ID = 34, Size: 24x20 pixels
+extern const unsigned char image_rpmbar01_const[]; // BITMAP_RPMBAR01_ID = 35, Size: 128x128 pixels
+extern const unsigned char image_rpmbar02_const[]; // BITMAP_RPMBAR02_ID = 36, Size: 128x128 pixels
+extern const unsigned char image_rpmbar03_const[]; // BITMAP_RPMBAR03_ID = 37, Size: 128x128 pixels
+extern const unsigned char image_rpmbar04_const[]; // BITMAP_RPMBAR04_ID = 38, Size: 128x128 pixels
+extern const unsigned char image_rpmbar05_const[]; // BITMAP_RPMBAR05_ID = 39, Size: 128x128 pixels
+extern const unsigned char image_rpmbar06_const[]; // BITMAP_RPMBAR06_ID = 40, Size: 128x128 pixels
+extern const unsigned char image_rpmbar07_const[]; // BITMAP_RPMBAR07_ID = 41, Size: 128x128 pixels
+extern const unsigned char image_rpmbar08_const[]; // BITMAP_RPMBAR08_ID = 42, Size: 128x128 pixels
+extern const unsigned char image_rpmbar09_const[]; // BITMAP_RPMBAR09_ID = 43, Size: 128x128 pixels
+extern const unsigned char image_rpmbar10_const[]; // BITMAP_RPMBAR10_ID = 44, Size: 128x128 pixels
+extern const unsigned char image_rpmicon1_const[]; // BITMAP_RPMICON1_ID = 45, Size: 24x20 pixels
+extern const unsigned char image_rpmicon2_const[]; // BITMAP_RPMICON2_ID = 46, Size: 24x20 pixels
+extern const unsigned char image_seatbelt_r_const[]; // BITMAP_RPMBAR09_ID = 47, Size: 25x25 pixels
+extern const unsigned char image_seatbelt_w_const[]; // BITMAP_RPMBAR10_ID = 48, Size: 25x25 pixels
+extern const unsigned char image_servicereminder_w_const[]; // BITMAP_RPMICON1_ID = 49, Size: 25x25 pixels
+extern const unsigned char image_servicereminder_y_const[]; // BITMAP_RPMICON2_ID = 50, Size: 25x25 pixels
+extern const unsigned char image_tempicon1_const[]; // BITMAP_TEMPICON1_ID = 51, Size: 24x20 pixels
+extern const unsigned char image_tempicon2_const[]; // BITMAP_TEMPICON2_ID = 52, Size: 24x20 pixels
 
 extern unsigned char ucImage_abs_detection1_HypRAM[24*20];
 extern unsigned char ucImage_abs_detection2_HypRAM[24*20];
@@ -59,6 +67,8 @@ extern unsigned char ucImage_doorswarning1_HypRAM[24*20];
 extern unsigned char ucImage_doorswarning2_HypRAM[24*20];
 extern unsigned char ucImage_engineoil1_HypRAM[24*20];
 extern unsigned char ucImage_engineoil2_HypRAM[24*20];
+extern unsigned char ucImage_enginewarning_w_HypRAM[64*64];
+extern unsigned char ucImage_enginewarning_y_HypRAM[64*64];
 extern unsigned char ucImage_fuelbar01_HypRAM[128*128];
 extern unsigned char ucImage_fuelbar02_HypRAM[128*128];
 extern unsigned char ucImage_fuelbar03_HypRAM[128*128];
@@ -79,6 +89,8 @@ extern unsigned char ucImage_lowbattery1_HypRAM[24*20];
 extern unsigned char ucImage_lowbattery2_HypRAM[24*20];
 extern unsigned char ucImage_lowbeam1_HypRAM[24*20];
 extern unsigned char ucImage_lowbeam2_HypRAM[24*20];
+extern unsigned char ucImage_parking_r_HypRAM[64*64];
+extern unsigned char ucImage_parking_w_HypRAM[64*64];
 extern unsigned char ucImage_rightindicator1_HypRAM[24*20];
 extern unsigned char ucImage_rightindicator2_HypRAM[24*20];
 extern unsigned char ucImage_rpmbar01_HypRAM[128*128];
@@ -93,6 +105,10 @@ extern unsigned char ucImage_rpmbar09_HypRAM[128*128];
 extern unsigned char ucImage_rpmbar10_HypRAM[128*128];
 extern unsigned char ucImage_rpmicon1_HypRAM[24*20];
 extern unsigned char ucImage_rpmicon2_HypRAM[24*20];
+extern unsigned char ucImage_seatbelt_r_HypRAM[64*64];
+extern unsigned char ucImage_seatbelt_w_HypRAM[64*64];
+extern unsigned char ucImage_servicereminder_w_HypRAM[64*64];
+extern unsigned char ucImage_servicereminder_y_HypRAM[64*64];
 extern unsigned char ucImage_tempicon1_HypRAM[24*20];
 extern unsigned char ucImage_tempicon2_HypRAM[24*20];
 
@@ -108,6 +124,8 @@ const touchgfx::Bitmap::BitmapData bitmap_database[] = {
     { ucImage_doorswarning2_HypRAM, 0, 24, 20, 9, 7, 6, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 3, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_engineoil1_HypRAM, 0, 24, 20, 3, 12, 8, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 8, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_engineoil2_HypRAM, 0, 24, 20, 3, 12, 8, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 8, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_enginewarning_w_HypRAM, 0, 64, 64, 0, 22, 3, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 19, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_enginewarning_y_HypRAM, 0, 64, 64, 0, 22, 3, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 19, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_fuelbar01_HypRAM, 0, 128, 128, 31, 117, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_fuelbar02_HypRAM, 0, 128, 128, 31, 117, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_fuelbar03_HypRAM, 0, 128, 128, 31, 117, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
@@ -128,6 +146,8 @@ const touchgfx::Bitmap::BitmapData bitmap_database[] = {
     { ucImage_lowbattery2_HypRAM, 0, 24, 20, 2, 5, 20, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 2, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_lowbeam1_HypRAM, 0, 24, 20, 8, 1, 2, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 18, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_lowbeam2_HypRAM, 0, 24, 20, 8, 1, 2, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 18, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_parking_r_HypRAM, 0, 64, 64, 24, 18, 3, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 30, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_parking_w_HypRAM, 0, 64, 64, 24, 18, 3, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 30, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_rightindicator1_HypRAM, 0, 24, 20, 0, 6, 15, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_rightindicator2_HypRAM, 0, 24, 20, 0, 6, 15, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_rpmbar01_HypRAM, 0, 128, 128, 33, 116, 13, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 11, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
@@ -142,6 +162,10 @@ const touchgfx::Bitmap::BitmapData bitmap_database[] = {
     { ucImage_rpmbar10_HypRAM, 0, 128, 128, 33, 1, 64, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 10, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_rpmicon1_HypRAM, 0, 24, 20, 8, 0, 8, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 2, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_rpmicon2_HypRAM, 0, 24, 20, 8, 0, 8, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 2, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_seatbelt_r_HypRAM, 0, 64, 64, 15, 39, 34, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 11, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_seatbelt_w_HypRAM, 0, 64, 64, 15, 39, 34, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 11, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_servicereminder_w_HypRAM, 0, 64, 64, 41, 21, 12, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 32, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
+    { ucImage_servicereminder_y_HypRAM, 0, 64, 64, 41, 21, 12, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 32, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_tempicon1_HypRAM, 0, 24, 20, 11, 0, 1, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 15, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 },
     { ucImage_tempicon2_HypRAM, 0, 24, 20, 11, 0, 1, ((uint8_t)touchgfx::Bitmap::ARGB8888) >> 3, 15, ((uint8_t)touchgfx::Bitmap::ARGB8888) & 0x7 }
 };

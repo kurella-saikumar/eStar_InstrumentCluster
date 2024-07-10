@@ -61,7 +61,7 @@ void vCustomizeSpeedUnits(void);
 extern "C" {
 #endif
 
-uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits, IndicationStatus_t *speedStatus);
+uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits);
 
 #ifdef __cplusplus
 }

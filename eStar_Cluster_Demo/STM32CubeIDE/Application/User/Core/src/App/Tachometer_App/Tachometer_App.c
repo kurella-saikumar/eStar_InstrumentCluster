@@ -56,7 +56,7 @@
 	uint32_t ulPresentCapture = 0;
 	int64_t slDeltaPulse = 0;
 	uint32_t ulFrequency = 0;
-	IndicationStatus_t *Indication;
+	//IndicationStatus_t *Indication;
 	bool status = false;
 
 
@@ -95,8 +95,7 @@
 
 void vTacho_Init(void)
 {
-	 Indication->indicators.tachometer_indicator = 1;
-	 status = true;
+	Status.indicators.tachometer_indicator = 1;
 	 ulRpm = 0;
 }
 /** 
@@ -153,27 +152,17 @@ void vMeasureRPM(void)
  * @return uint16_t - The tachometer data.
  */
 
-uint16_t xGet_TachometerData(IndicationStatus_t* Indication, bool *status)
+uint16_t xGet_TachometerData(void)
 {
-	 Indication->indicators.tachometer_indicator = 0;
-	 *status = false;
-     
+	Status.indicators.tachometer_indicator = 0;
+
     if( ulRpm >= configMAXIMUM_ENGINE_RPM || ulRpm <= configIDLE_ENGINE_RPM)
-    {
+	{
+    	Status.indicators.tachometer_indicator = 1;
+	}
 
-        Indication->indicators.tachometer_indicator = 1;
-        *status = true;
-        ulRpm = 0;
-#if(TACHO_TEST_MACRO == 1)
-        printf("warning\t");
-#endif
-
-    }
-#if(TACHO_TEST_MACRO == 1)
-    printf("RPM: %ld\n\r", ulRpm);
-#endif
-//    	printf("RPM Data=%ld\n",ulRpm);
-    	return ulRpm;
+	printf("RPM Data=%ld\n",ulRpm);
+	return ulRpm;
 }
 /**
  * @brief Tachometer Application.
@@ -201,10 +190,9 @@ void vTacho_App(void)
     }
     else
     {
-   	 IndicationStatus_t Indication;
-  	 bool status = false;
+
      vMeasureRPM();
-  	 xGet_TachometerData(&Indication,&status);
+  	 xGet_TachometerData();
     }
     
    

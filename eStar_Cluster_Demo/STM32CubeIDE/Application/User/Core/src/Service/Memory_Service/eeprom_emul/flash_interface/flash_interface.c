@@ -160,8 +160,37 @@ int32_t xFI_ReadByte(uint32_t Address,  uint8_t *Data)
 #endif
 	return BSP_OSPI_NOR_Read(BSP_INSTANCE,Data, Address, 1);
 }
+/**
+  * @brief  Write a single byte at the given address in Flash
+  * @param  Address Where to write
+  * @param  Data What to write
+  * @retval EE_Status
+  *           - EE_OK: on success
+  *           - EE_WRITE_ERROR: if an error occurs
+  */
+int32_t xFI_Write(uint32_t Address, uint8_t *Data, uint32_t size)
+{
+#if(EMUL_DEBUG_ENABLE == 1)
+//	printf("Write Address at 0x%lx \n\r", Address);
+#endif
+  return BSP_OSPI_NOR_Write(BSP_INSTANCE, Data, Address, size);
+}
 
-
+/**
+  * @brief  Read a single byte at the given address in Flash
+  * @param  Address Where to read
+  * @param  Data What to read
+  * @retval EE_Status
+  *           - EE_OK: on success
+  *           - EE_READ_ERROR: if an error occurs
+  */
+int32_t xFI_Read(uint32_t Address,  uint8_t *Data, uint32_t size)
+{
+#if(EMUL_DEBUG_ENABLE == 1)
+//	printf("Read Address at 0x%lx \n\r", Address);
+#endif
+	return BSP_OSPI_NOR_Read(BSP_INSTANCE,Data, Address, size);
+}
 /**
 	  * @brief  Erase a memory page from given address in Flash
 	  * @param  Address Page erase start address
@@ -174,6 +203,32 @@ int32_t xFI_PageErase(uint32_t Address)
   return BSP_OSPI_NOR_Erase_Block(BSP_INSTANCE, Address, BSP_OSPI_NOR_ERASE_4K);
 }
 
+void vFI_Init(void)
+{
+	BSP_OSPI_NOR_Init_t ospiInit;
+
+	/*Initialize OSPI NOR Flash*/
+	ospiInit.InterfaceMode = BSP_OSPI_NOR_OPI_MODE;  // or BSP_OSPI_NOR_OPI_MODE for Octal SPI
+	ospiInit.TransferRate = BSP_OSPI_NOR_DTR_TRANSFER;  // or BSP_OSPI_NOR_DTR_TRANSFER for Double Transfer Rate
+
+	/* De-initialize OSPI NOR Flash */
+	BSP_OSPI_NOR_DeInit(0);
+
+	/* Initialize OSPI NOR Flash */
+	while ( BSP_ERROR_NONE != BSP_OSPI_NOR_Init(0, &ospiInit))
+	{
+#if(EMUL_DEBUG_ENABLE == 1)
+		printf("BSP_OSPI_NOR_Init:Fail \n\r");
+#endif
+	}
+	/* Read the current status of the OSPI memory */
+	while ( BSP_ERROR_NONE != BSP_OSPI_NOR_GetStatus(0))
+	{
+#if(EMUL_DEBUG_ENABLE == 1)
+		printf("BSP_OSPI_NOR_GetStatus:Fail \n\r");
+#endif
+	}
+}
 
 /**************************************************************************************************
  * End Of File

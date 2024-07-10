@@ -67,11 +67,17 @@ uint16_t prvCalculateMovingAverage_Fuel(uint16_t);
 uint32_t prvCalculateAverage1(void);
 uint16_t prvCalculateAverage2(void);
 uint16_t DisplayDTE(bool flag,uint16_t);
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 uint32_t xGetAVSstatus(void);
 uint32_t xGetAFEstatus(void);
-uint16_t xGetDTEstatus(void);
-
-
+uint16_t xGetRANGEstatus(void);
+#ifdef __cplusplus
+}
+#endif
 #endif /* APPLICATION_USER_CORE_SRC_APP_DRIVERINFO_APP_DRIVERINFOAPP_H_ */
 
 /**************************************************************************************************
