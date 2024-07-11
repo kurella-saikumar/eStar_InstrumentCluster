@@ -92,7 +92,9 @@ void vDriver_InfoTask(void)
     ucignitionstatus = usIgnitionGetCurrentState();
     if(ucignitionstatus == IgnOFF_mode)
     {
+#if(DriverInfoApp_TeseMacro == 1)
         printf("Ignition is OFF\r\n");
+#endif
         //ucDeltaTime = 0;
         //usDistance2 = 0;
         ulDistance2 = 0;
@@ -132,7 +134,7 @@ void vCalculateAVSInKmperhour(void)
    if(uccounter == 5)
    {
 	   usCurrentAVS = ulTotalVehicleSpeed / NO_OF_SAMPLES;
-#if (DRIVERINFO_TEST_MACRO == 1)
+#if(DriverInfoApp_TeseMacro == 1)
 	   printf("CurrentAVS:%ld\t",usCurrentAVS);
 #endif
 	   ModeStatus.AverageVehicleSpeed = usCurrentAVS;
@@ -208,7 +210,9 @@ uint32_t vCalculateAFEKmperLitre(void)
 		initialFuelPercentage = finalFuelPercentage;
 		Afe = DEFAULT_AFE;
 		ModeStatus.AverageFuelEconomy = previousAFE;
+#if(DriverInfoApp_TeseMacro == 1)
 		printf("AFE_D:%ld\n\r",Afe);
+#endif
 		return Afe;
 	}
 
@@ -217,14 +221,18 @@ uint32_t vCalculateAFEKmperLitre(void)
 	if(deltaFuelInPercentage <= 0)
 	{
 		initialFuelPercentage = finalFuelPercentage;
+#if(DriverInfoApp_TeseMacro == 1)
 		printf("I_Per:%d\t",initialFuelPercentage);
+#endif
 		ModeStatus.AverageFuelEconomy = previousAFE;
 		return previousAFE;
 	}
 
 	usdeltaFuelInLitres = (uint16_t)(convert_FuelPercentageToLitres(deltaFuelInPercentage));
 	usAverageFuel = prvCalculateMovingAverage_Fuel(usdeltaFuelInLitres);
+#if(DriverInfoApp_TeseMacro == 1)
 	printf("Fuel_MA:%u\t", usAverageFuel);
+#endif
 
 	if (usAverageFuel == 0)
 	{
@@ -234,7 +242,9 @@ uint32_t vCalculateAFEKmperLitre(void)
 	else
 	{
 		Afe = (ulAverageDitsance * 10) /(uint32_t)(usAverageFuel);
+#if(DriverInfoApp_TeseMacro == 1)
 		printf("AFE_C:%ld\n\r", Afe);
+#endif
 	}
 	usinitialDistance = usfinalDistance;
 
@@ -274,19 +284,29 @@ uint16_t vCalculateDTE(void)
 		//printf("Fuel: %d\n\r", usfuelRemainingInLitres);
 		if(uccount1 == 1)
 		{
+#if(DriverInfoApp_TeseMacro == 1)
 			printf("inside_If\r\n");
+#endif
 			usfuelRemainingInLitres = FINAL_FUEL_LEVEL;
 			usCalculated_DTE = (uint16_t)(FINAL_FUEL_LEVEL * DEFAULT_AFE );
+#if(DriverInfoApp_TeseMacro == 1)
 			printf("C_DTE:%d\t",usCalculated_DTE);
+#endif
 			uspresent_DTE= usCalculated_DTE;
+#if(DriverInfoApp_TeseMacro == 1)
 			printf("PIN_DTE:%d\t",uspresent_DTE);
+#endif
 		}
 		else
 		{
+#if(DriverInfoApp_TeseMacro == 1)
 			printf("inside_else\r\n");
+#endif
 			usCalculated_DTE = usfuelRemainingInLitres * Afe;
 			uspresent_DTE = usCalculated_DTE;
+#if(DriverInfoApp_TeseMacro == 1)
 			printf("POUT_DTE:%d\t",uspresent_DTE);
+#endif
 			/*Here, if DTE = 28 then it's actual value is 2.8*/
 		}
 
@@ -303,7 +323,9 @@ uint16_t vCalculateDTE(void)
 		if(uspresent_DTE >= usMaxThresholdDTE)
 		{
 			uspresent_DTE = usMaxThresholdDTE;
+#if(DriverInfoApp_TeseMacro == 1)
 			printf("P_DTE:%d\t",uspresent_DTE);
+#endif
 			ModeStatus.Range = uspresent_DTE;
 			return uspresent_DTE;
 		}
@@ -328,8 +350,10 @@ uint16_t vCalculateDTE(void)
 	}
 	ModeStatus.Range = uspresent_DTE;
 	usprevious_DTE = uspresent_DTE;
+#if(DriverInfoApp_TeseMacro == 1)
 	printf("DTE:%d\r\n",uspresent_DTE);
 	printf("DTE1:%d\n\r",ModeStatus.Range);
+#endif
     return uspresent_DTE;
 }
 
@@ -339,20 +363,22 @@ uint16_t DisplayDTE(bool flag,uint16_t uspresent_DTE )
 	Error_Value = 9999;
 	if(flag)
 	{
-#if(DRIVERINFO_TEST_MACRO == 1)
+#if(DriverInfoApp_TeseMacro == 1)
 		//printf("---\n");
-#endif
+
 		printf("E_V:%hu\n\r",Error_Value);
+#endif
 		return Error_Value;
 
 
 	}
 	else
 	{
-#if(DRIVERINFO_TEST_MACRO == 1)
+#if(DriverInfoApp_TeseMacro == 1)
 		//printf("DTE1: %u\n",usdisplayed_DTE);
-#endif
+
 		printf("E_V:%ld\n\r",uspresent_DTE);
+#endif
 		return uspresent_DTE;
 	}
 }
@@ -361,7 +387,9 @@ uint16_t DisplayDTE(bool flag,uint16_t uspresent_DTE )
 uint32_t xGetAVSstatus(void)
 {
 	uint32_t FinalAvs = (uint32_t)ModeStatus.AverageVehicleSpeed;
+#if(DriverInfoApp_TeseMacro == 1)
 	printf("AVS Value to Display %ld=",FinalAvs);
+#endif
 	return FinalAvs;
 }
 
@@ -401,7 +429,9 @@ uint32_t prvCalculateMovingAverage_Odo(uint32_t ulDeltaDistance)
 	ucCurrentIndex = (ucCurrentIndex + 1) % WINDOW_SIZE;
 	TotalSum1 += ulOdo_Raw_value;
 	odoSamplecount++;
+#if(DriverInfoApp_TeseMacro == 1)
 	printf("oS: %d\t", odoSamplecount);
+#endif
 	if(odoSamplecount >= WINDOW_SIZE)
 	{
 		ulOdo_Result = prvCalculateAverage1();

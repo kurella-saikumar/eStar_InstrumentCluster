@@ -31,6 +31,7 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
 ***************************************************************************************************/
+#define ECUPwrMode_TestMacro 0
 
 #define ECU_POWER_MODE_OFF SM_STATE_3
 #define ECU_POWER_MODE_ACTIVE SM_STATE_4

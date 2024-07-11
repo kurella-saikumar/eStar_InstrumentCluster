@@ -117,25 +117,39 @@ uint8_t Mcu_GetResetReason(void)
     switch (boot_reason)
     {
         case PM_PWRDN_RESET:
+#if(SysWakeup_TestMacro == 1)
             printf("Boot reason is reset\n");
+#endif
             break;
         case PM_PWRDN_WDT:
+#if(SysWakeup_TestMacro == 1)
             printf("Boot reason is watchdog\n");
+#endif
             break;
         case PM_BOR:
+#if(SysWakeup_TestMacro == 1)
             printf("Boot reason is brown-out reset\n");
+#endif
             break;
         case PM_POR_PDR:
+#if(SysWakeup_TestMacro == 1)
             printf("Boot reason is power-on reset or power-down reset\n");
+#endif
             break;
         case PM_PIN_RESET:
+#if(SysWakeup_TestMacro == 1)
             printf("Boot reason is pin reset\n");
+#endif
             break;
         case PM_PWR_WakeUp_RESET:
+#if(SysWakeup_TestMacro == 1)
             printf("Boot reason is power wake-up reset\n");
+#endif
             break;
         default:
+#if(SysWakeup_TestMacro == 1)
             printf("Unknown boot reason\n");
+#endif
             break;
     }
     /* Reset all RSR flags */

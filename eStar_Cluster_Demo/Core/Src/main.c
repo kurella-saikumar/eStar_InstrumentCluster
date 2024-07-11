@@ -1641,7 +1641,9 @@ void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef *hrtc)
 	SYSCLKConfig_STOP();
 	HAL_ResumeTick();
 	HAL_LTDC_MspInit(&hltdc);
+#if(DBGPrints_TestMacro == 1)
 	printf("WAKEUP FROM RTC\r\n");
+#endif
 	//HAL_PWR_DisableSleepOnExit();
     /* Reset all RSR(Reset) flags */
     SET_BIT(RCC->RSR, RCC_RSR_RMVF);
@@ -1654,11 +1656,15 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	  res = HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
 	  if(res == HAL_OK)
 	  {
+#if(DBGPrints_TestMacro == 1)
 		  printf("%02d:%02d:%02d \n", sTime.Hours, sTime.Minutes, sTime.Seconds);
+#endif
 	  }
 	  SystemClock_Config ();
 	  HAL_ResumeTick();
+#if(DBGPrints_TestMacro == 1)
 	  printf("WAKEUP FROM EXTII\r\n");
+#endif
  // HAL_PWR_DisableSleepOnExit();
 }
 
@@ -1728,534 +1734,746 @@ void Disp_imgDataHyperRAM_Init(void)
 	uint32_t Address1= (uint32_t )(&image_abs_detection1_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_abs_detection1_HypRAM,Address1,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-1\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success1\n\r");
+#endif
 	}
 
 	uint32_t Address2= (uint32_t )(&image_abs_detection2_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_abs_detection2_HypRAM,Address2,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-2\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success2\n\r");
+#endif
 	}
 
 	uint32_t Address3= (uint32_t )(&image_background_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_background_HypRAM,Address3,(480*272*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-3\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success3\n\r");
+#endif
 	}
 
 	uint32_t Address4= (uint32_t )(&image_clustericons1_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_clustericons1_HypRAM,Address4,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-4\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success4\n\r");
+#endif
 	}
 
 	uint32_t Address5= (uint32_t )(&image_clustericons2_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_clustericons2_HypRAM,Address5,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-5\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success5\n\r");
+#endif
 	}
 
 	uint32_t Address6= (uint32_t )(&image_doorswarning1_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_doorswarning1_HypRAM,Address6,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-6\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success6\n\r");
+#endif
 	}
 
 	uint32_t Address7= (uint32_t )(&image_doorswarning2_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_doorswarning2_HypRAM,Address7,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-7\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success7\n\r");
+#endif
 	}
 
 	uint32_t Address8= (uint32_t )(&image_engineoil1_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_engineoil1_HypRAM,Address8,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-8\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success8\n\r");
+#endif
 	}
 
 	uint32_t Address9= (uint32_t )(&image_engineoil2_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_engineoil2_HypRAM,Address9,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-9\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success9\n\r");
+#endif
 	}
 
 	uint32_t Address10= (uint32_t )(&image_enginewarning_w_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_enginewarning_w_HypRAM,Address10,(64*64*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-10\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success10\n\r");
+#endif
 	}
 
 	uint32_t Address11= (uint32_t )(&image_enginewarning_y_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_enginewarning_y_HypRAM,Address11,(64*64*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-11\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success11\n\r");
+#endif
 	}
 
 
 	uint32_t Address12= (uint32_t )(&image_fuelbar01_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_fuelbar01_HypRAM,Address12,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-12\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success12\n\r");
+#endif
 	}
 	uint32_t Address13= (uint32_t )(&image_fuelbar02_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_fuelbar02_HypRAM,Address13,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-13\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success13\n\r");
+#endif
 	}
 	uint32_t Address14= (uint32_t )(&image_fuelbar03_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_fuelbar03_HypRAM,Address14,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-14\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success14\n\r");
+#endif
 	}
 
 	uint32_t Address15= (uint32_t )(&image_fuelbar04_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_fuelbar04_HypRAM,Address15,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-15\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success15\n\r");
+#endif
 	}
 
 	uint32_t Address16= (uint32_t )(&image_fuelbar05_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_fuelbar05_HypRAM,Address16,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-16\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success16\n\r");
+#endif
 	}
 
 	uint32_t Address17= (uint32_t )(&image_fuelbar06_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_fuelbar06_HypRAM,Address17,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-17\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success17\n\r");
+#endif
 	}
 
 	uint32_t Address18= (uint32_t )(&image_fuelbar07_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_fuelbar07_HypRAM,Address18,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-18\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success18\n\r");
+#endif
 	}
 
 	uint32_t Address19= (uint32_t )(&image_fuelbar08_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_fuelbar08_HypRAM,Address19,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-19\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success19\n\r");
+#endif
 	}
 
 	uint32_t Address20= (uint32_t )(&image_fuelbar09_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_fuelbar09_HypRAM,Address20,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-20\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success20\n\r");
+#endif
 	}
 
 	uint32_t Address21= (uint32_t )(&image_fuelbar10_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_fuelbar10_HypRAM,Address21,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-21\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success21\n\r");
+#endif
 	}
 
 	uint32_t Address22= (uint32_t )(&image_high_beam_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_high_beam_HypRAM,Address22,(64*64*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-22\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success22\n\r");
+#endif
 	}
 
 	uint32_t Address23= (uint32_t )(&image_high_beam_1_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_high_beam_1_HypRAM,Address23,(50*50*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-23\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success23\n\r");
+#endif
 	}
 
 	uint32_t Address24= (uint32_t )(&image_highbeam1_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_highbeam1_HypRAM,Address24,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-24\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success24\n\r");
+#endif
 	}
 
 	uint32_t Address25= (uint32_t )(&image_highbeam2_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_highbeam2_HypRAM,Address25,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-25\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success25\n\r");
+#endif
 	}
 
 
 	uint32_t Address26= (uint32_t )(&image_leftindicator1_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_leftindicator1_HypRAM,Address26,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-26\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success26\n\r");
+#endif
 	}
 
 	uint32_t Address27= (uint32_t )(&image_leftindicator2_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_leftindicator2_HypRAM,Address27,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-27\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success27\n\r");
+#endif
 	}
 
 	uint32_t Address28= (uint32_t )(&image_lowbattery1_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_lowbattery1_HypRAM,Address28,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-28\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success28\n\r");
+#endif
 	}
 
 	uint32_t Address29= (uint32_t )(&image_lowbattery2_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_lowbattery2_HypRAM,Address29,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-29\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success29\n\r");
+#endif
 	}
 
 	uint32_t Address30= (uint32_t )(&image_lowbeam1_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_lowbeam1_HypRAM,Address30,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-30\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success30\n\r");
+#endif
 	}
 
 	uint32_t Address31= (uint32_t )(&image_lowbeam2_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_lowbeam2_HypRAM,Address31,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-31\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success31\n\r");
+#endif
 	}
 
 	uint32_t Address32= (uint32_t )(&image_parking_r_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_parking_r_HypRAM,Address32,(64*64*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-32\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success32\n\r");
+#endif
 	}
 
 	uint32_t Address33= (uint32_t )(&image_parking_w_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_parking_w_HypRAM,Address33,(64*64*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-33\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success33\n\r");
+#endif
 	}
 
 	uint32_t Address34= (uint32_t )(&image_rightindicator1_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rightindicator1_HypRAM,Address34,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-34\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success34\n\r");
+#endif
 	}
 
 	uint32_t Address35= (uint32_t )(&image_rightindicator2_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rightindicator2_HypRAM,Address35,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-35\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success35\n\r");
+#endif
 	}
 
 
 	uint32_t Address36= (uint32_t )(&image_rpmbar01_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar01_HypRAM,Address36,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-36\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success36\n\r");
+#endif
 	}
 
 	uint32_t Address37= (uint32_t )(&image_rpmbar02_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar02_HypRAM,Address37,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-37\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success37\n\r");
+#endif
 	}
 
 	uint32_t Address38= (uint32_t )(&image_rpmbar03_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar03_HypRAM,Address38,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-38\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success38\n\r");
+#endif
 	}
 
 	uint32_t Address39= (uint32_t )(&image_rpmbar04_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar04_HypRAM,Address39,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-39\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success39\n\r");
+#endif
 	}
 
 	uint32_t Address40= (uint32_t )(&image_rpmbar05_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar05_HypRAM,Address40,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-40\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success40\n\r");
+#endif
 	}
 
 	uint32_t Address41= (uint32_t )(&image_rpmbar06_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar06_HypRAM,Address41,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-41\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success41\n\r");
+#endif
 	}
 
 	uint32_t Address42= (uint32_t )(&image_rpmbar07_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar07_HypRAM,Address42,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-42\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success42\n\r");
+#endif
 	}
 
 	uint32_t Address43= (uint32_t )(&image_rpmbar08_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar08_HypRAM,Address43,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-43\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success43\n\r");
+#endif
 	}
 
 	uint32_t Address44= (uint32_t )(&image_rpmbar09_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar09_HypRAM,Address44,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-44\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success44\n\r");
+#endif
 	}
 
 
 	uint32_t Address45= (uint32_t )(&image_rpmbar10_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmbar10_HypRAM,Address45,(128*128*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-45\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success45\n\r");
+#endif
 	}
 
 	uint32_t Address46= (uint32_t )(&image_rpmicon1_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmicon1_HypRAM,Address46,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-46\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success46\n\r");
+#endif
 	}
 
 	uint32_t Address47= (uint32_t )(&image_rpmicon2_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_rpmicon2_HypRAM,Address47,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-47\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success47\n\r");
+#endif
 	}
 
 
 	uint32_t Address48= (uint32_t )(&image_seatbelt_r_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_seatbelt_r_HypRAM,Address48,(64*64*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-48\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success48\n\r");
+#endif
 	}
 
 	uint32_t Address49= (uint32_t )(&image_seatbelt_w_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_seatbelt_w_HypRAM,Address49,(64*64*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-49\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success49\n\r");
+#endif
 	}
 
 	uint32_t Address50= (uint32_t )(&image_servicereminder_w_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_servicereminder_w_HypRAM,Address50,(64*64*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-50\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success50\n\r");
+#endif
 	}
 
 	uint32_t Address51= (uint32_t )(&image_servicereminder_y_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_servicereminder_y_HypRAM,Address51,(64*64*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-51\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success51\n\r");
+#endif
 	}
 
 	uint32_t Address52= (uint32_t )(&image_tempicon1_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_tempicon1_HypRAM,Address52,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-52\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success52\n\r");
+#endif
 	}
 
 	uint32_t Address53= (uint32_t )(&image_tempicon2_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_tempicon2_HypRAM,Address53,(24*20*4)))
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-53\n\r");
+#endif
 	}
 	else
 	{
+#if(DBGPrints_TestMacro == 1)
 		printf("Copy Success53\n\r");
+#endif
 	}
 #endif
 
@@ -2310,7 +2528,9 @@ void WDG_SRVC_Task(void *argument)
   {
 	    osDelay(30000); //watchdog period
 	    //service or refresh or reload the watchdog here
+#if(DBGPrints_TestMacro == 1)
 	    printf("WDG_SRVC_Task\r\n");
+#endif
 	    if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
 	    {
 	          Error_Handler();
@@ -2390,7 +2610,9 @@ void Analog_Debounce_Task(void *argument)
 
 #if(BATMON_TEST_MACRO == 1)
 	  Batt_state = get_analog_debounce_state(0);
+#if(DBGPrints_TestMacro == 1)
 	  printf("Batt_state:%d\r\n",Batt_state);
+#endif
 #endif
     osDelay(100);
   }

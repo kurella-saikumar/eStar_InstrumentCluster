@@ -47,7 +47,7 @@ extern "C" {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-
+#define DBGPrints_TestMacro 0
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/

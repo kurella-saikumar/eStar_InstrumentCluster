@@ -75,7 +75,9 @@ extern void Disp_imgDataHyperRAM_Init(void);
 
 void vIgnitionONFunc(void)
 {
+#if(IGN_TestMacro == 1)
 	printf("IGNON_STATE_OFF_TO_ON_ENTRY_Action\r\n");
+#endif
 	vEnable_OdoSpeedo_Channel_Interrupts();
 	vRetrive_LastStored_OdoVal_from_EEPROM();
 	Disp_imgDataHyperRAM_Init();
@@ -91,7 +93,9 @@ void vIgnitionONFunc(void)
  */
 void vIgnitionOffFunc(void)
 {
+#if(IGN_TestMacro == 1)
 	 printf("IGNOFF_STATE_ON_TO_OFF_ENTRY_Action\r\n");
+#endif
 	 vDisable_OdoSpeedo_Channel_Interrupts();
 }  
 
