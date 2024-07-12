@@ -16,7 +16,8 @@ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:311:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:667:6:SystemClock_Config	2
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:733:6:PeriphCommonClock_Config	1
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:484:5:main	6
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1637:6:HAL_RTCEx_WakeUpTimerEventCallback	2
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1601:13:SYSCLKConfig_STOP	2
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1637:6:HAL_RTCEx_WakeUpTimerEventCallback	1
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1650:6:HAL_GPIO_EXTI_Callback	2
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:1669:6:Disp_imgDataHyperRAM_Init	54
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c:2305:6:WDG_SRVC_Task	1

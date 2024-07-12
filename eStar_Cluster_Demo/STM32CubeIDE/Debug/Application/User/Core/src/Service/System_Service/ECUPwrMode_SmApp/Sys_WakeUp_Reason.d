@@ -3,8 +3,7 @@ Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/Sys_WakeUp_Rea
  ../Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/Sys_WakeUp_Reason.h \
  ../Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/ECUPwrMode_SmHandler.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/stateManager/smHandler.h \
- ../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h \
- ../../Core/Inc/stm32h735g_discovery_conf.h \
+ ../../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -50,6 +49,8 @@ Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/Sys_WakeUp_Rea
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
+ ../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h \
+ ../../Core/Inc/stm32h735g_discovery_conf.h \
  ../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h \
  ../../Drivers/BSP/STM32H735G-DK/../Components/mx25lm51245g/mx25lm51245g.h \
  ../../Core/Inc/mx25lm51245g_conf.h \
@@ -58,8 +59,7 @@ Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/Sys_WakeUp_Rea
 ../Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/Sys_WakeUp_Reason.h:
 ../Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/ECUPwrMode_SmHandler.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/stateManager/smHandler.h:
-../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h:
-../../Core/Inc/stm32h735g_discovery_conf.h:
+../../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:
@@ -105,6 +105,8 @@ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Applica
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
+../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h:
+../../Core/Inc/stm32h735g_discovery_conf.h:
 ../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h:
 ../../Drivers/BSP/STM32H735G-DK/../Components/mx25lm51245g/mx25lm51245g.h:
 ../../Core/Inc/mx25lm51245g_conf.h:

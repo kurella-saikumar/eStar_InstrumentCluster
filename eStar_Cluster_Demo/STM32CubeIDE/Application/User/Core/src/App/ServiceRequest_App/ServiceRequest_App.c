@@ -391,6 +391,7 @@ void vServiceRequestTask(void)
 		ulLastServicePoint = ulTotalDistance;
 		/**:Update distance passed;*/
 		ulDistancePassed = ulTotalDistance;
+		Status.indicators.service_reminder_indicator=1;
 
 #if(ServiceRequest_TestMacro == 1)
             printf("DistanceServiceFlag is set\n");
@@ -420,6 +421,7 @@ void vServiceRequestTask(void)
 		{
 			/**:Set time service flag;*/
 			ucTimeServiceFlag=1;
+			Status.indicators.service_reminder_indicator=1;
 
 #if(ServiceRequest_TestMacro == 1)
 			printf("TimeServiceFlag is set\n");
@@ -443,6 +445,8 @@ void vServiceRequestTask(void)
 			ucInitialDay = ucCurrentDay;
 			/**:Update initial month;*/
 			ucInitialMonth = ucCurrentMonth;
+			Status.indicators.service_reminder_indicator=0;
+
 
 #if(ServiceRequest_TestMacro == 1)
 			 printf("DistanceServiceFlag reset is done \n");
@@ -475,6 +479,7 @@ void vServiceRequestTask(void)
 
 			/**:Update last service point;*/
 			ulLastServicePoint = ulTotalDistance;
+			Status.indicators.service_reminder_indicator=0;
 
 
 #if(ServiceRequest_TestMacro == 1)
@@ -495,22 +500,24 @@ void vServiceRequestTask(void)
  *
  ***************************************************************************************************/
 
-void vGetSrvcReqStatus(IndicationStatus_t* pucSrvcReq_Indictr, bool* p_Warning_status_bool)
-{
-    /**:Initialize warning status to false;*/
-    *p_Warning_status_bool=false;
-	if((ucTimeServiceFlag == 1)  || (ucTimeServiceFlag == 1) )
-	{
-		/**:Set warning status to true;*/
-		*p_Warning_status_bool=true;
-		/**:Update fuel warning indicator;*/
-		pucSrvcReq_Indictr->indicators.service_reminder_indicator=1;
-#if(ServiceRequest_TestMacro == 1)
-		printf("indicattor:%d\n",pucSrvcReq_Indictr->indicators.service_reminder_indicator);
-#endif
-
-	}
-}
+//void vGetSrvcReqStatus(void)
+//{
+//    /**:Initialize warning status to false;*/
+//    //*p_Warning_status_bool=false;
+//    Status.indicators.service_reminder_indicator=1;
+//	if((ucTimeServiceFlag == 1)  || (ucTimeServiceFlag == 1) )
+//	{
+//		/**:Set warning status to true;*/
+//		//*p_Warning_status_bool=true;
+//		/**:Update fuel warning indicator;*/
+//		Status.indicators.service_reminder_indicator=1;
+//#if(ServiceRequest_TestMacro == 1)
+//		//printf("indicattor:%d\n",Status.indicators.service_reminder_indicator);
+//#endif
+//
+//	}
+//	printf("indicattor:%d\n",Status.indicators.service_reminder_indicator);
+//}
 
 /**************************************************************************************************
  * Function Name: vRTCDemoApp

@@ -26,7 +26,7 @@
 /**************************************************************************************************
  * Include Project Specific Headers
 ***************************************************************************************************/
-
+#include "main.h"
 #include "ECUPwrMode_SmHandler_cfg.h"
 #include "IGN_SmHandler.h"
 #include "smHandler.h"

@@ -316,7 +316,7 @@ PUTCHAR_PROTOTYPE
   return ch;
 }
 
-static void SYSCLKConfig_STOP(void);
+extern void SYSCLKConfig_STOP(void);
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -1598,7 +1598,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-static void SYSCLKConfig_STOP(void)
+extern void SYSCLKConfig_STOP(void)
 {
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};

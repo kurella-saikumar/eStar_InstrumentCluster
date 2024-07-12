@@ -629,7 +629,8 @@ void Screen1View::IndicatorsStatus(IndicationStatus_t newIndicators)
 		RightIndicator_r.invalidate();
 	}
 
-	if(newIndicators.indicators.left_indicator == 1)
+
+	if(newIndicators.indicators.right_indicator == 1)
 	{
 		tickCounter++;
 		if (tickCounter >=1)  // Adjust this value to control blink frequency
@@ -644,6 +645,7 @@ void Screen1View::IndicatorsStatus(IndicationStatus_t newIndicators)
 		LeftIndicator_r.setVisible(false);
 		LeftIndicator_r.invalidate();
 	}
+
 
 	if(newIndicators.indicators.parking_indicator == 1)
 	{
@@ -699,8 +701,8 @@ void Screen1View::IndicatorsStatus(IndicationStatus_t newIndicators)
 		tickCounter++;
 		if (tickCounter >=1)  // Adjust this value to control blink frequency
 		{
-			EngineOIl_r.setVisible(!EngineOIl_r.isVisible());
-			EngineOIl_r.invalidate();
+			Temperature_r.setVisible(!Temperature_r.isVisible());
+			Temperature_r.invalidate();
 			tickCounter = 0;
 		}
 	}
@@ -777,42 +779,42 @@ void Screen1View::IndicatorsStatus(IndicationStatus_t newIndicators)
 	}
 
 
-	if(newIndicators.indicators.FaultyRight_indicator == 1)
-	{
-		tickCounter++;
-		if (tickCounter >=2)  // Adjust this value to control blink frequency
-		{
-			RightIndicator_r.setVisible(!RightIndicator_r.isVisible());
-			RightIndicator_r.invalidate();
-			tickCounter = 0;
-		}
-	}
-	else
-	{
-		RightIndicator_r.setVisible(false);
-		RightIndicator_r.invalidate();
-	}
+//	if(newIndicators.indicators.FaultyRight_indicator == 1)
+//	{
+//		tickCounter++;
+//		if (tickCounter >=2)  // Adjust this value to control blink frequency
+//		{
+//			RightIndicator_r.setVisible(!RightIndicator_r.isVisible());
+//			RightIndicator_r.invalidate();
+//			tickCounter = 0;
+//		}
+//	}
+//	else
+//	{
+//		RightIndicator_r.setVisible(false);
+//		RightIndicator_r.invalidate();
+//	}
 
-	if(newIndicators.indicators.FaultyLeft_indicator == 1)
-	{
-		tickCounter++;
-		if (tickCounter >=2)  // Adjust this value to control blink frequency
-		{
-			LeftIndicator_r.setVisible(!LeftIndicator_r.isVisible());
-			LeftIndicator_r.invalidate();
-			tickCounter = 0;
-		}
-	}
-	else
-	{
-		LeftIndicator_r.setVisible(false);
-		LeftIndicator_r.invalidate();
-	}
+//	if(newIndicators.indicators.FaultyLeft_indicator == 1)
+//	{
+//		tickCounter++;
+//		if (tickCounter >=2)  // Adjust this value to control blink frequency
+//		{
+//			LeftIndicator_r.setVisible(!LeftIndicator_r.isVisible());
+//			LeftIndicator_r.invalidate();
+//			tickCounter = 0;
+//		}
+//	}
+//	else
+//	{
+//		LeftIndicator_r.setVisible(false);
+//		LeftIndicator_r.invalidate();
+//	}
 
 	if(newIndicators.indicators.low_battery_indicator == 1)
 	{
 		tickCounter++;
-		if (tickCounter >=2)  // Adjust this value to control blink frequency
+		if (tickCounter >=1)  // Adjust this value to control blink frequency
 		{
 			LowBatteryIcon_r.setVisible(!LowBatteryIcon_r.isVisible());
 			LowBatteryIcon_r.invalidate();
@@ -829,7 +831,7 @@ void Screen1View::IndicatorsStatus(IndicationStatus_t newIndicators)
 	if(newIndicators.indicators.service_reminder_indicator == 1)
 	{
 		tickCounter++;
-		if (tickCounter >=2)  // Adjust this value to control blink frequency
+		if (tickCounter >=1)  // Adjust this value to control blink frequency
 		{
 			ServiceReminder_y.setVisible(!ServiceReminder_y.isVisible());
 			ServiceReminder_y.invalidate();
@@ -845,7 +847,7 @@ void Screen1View::IndicatorsStatus(IndicationStatus_t newIndicators)
 	if(newIndicators.indicators.tachometer_indicator == 1)
 	{
 		tickCounter++;
-		if (tickCounter >=2)  // Adjust this value to control blink frequency
+		if (tickCounter >=1)  // Adjust this value to control blink frequency
 		{
 			RPMIcon_r.setVisible(!RPMIcon_r.isVisible());
 			RPMIcon_r.invalidate();

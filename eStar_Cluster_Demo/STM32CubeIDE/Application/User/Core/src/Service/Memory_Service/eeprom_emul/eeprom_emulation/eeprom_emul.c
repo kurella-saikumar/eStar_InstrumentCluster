@@ -1028,7 +1028,7 @@ EE_Status xEE_Init(EE_Erase_type EraseType)
 
     //Flash interface (peripheral init) shall be done before eeprom read/write operation start
     vFI_Init();
-
+    prvEE_Format(EraseType);
     // Cache page states
     EE_State_type pageStates[PAGES_NUMBER];
     for (ulPage = START_PAGE; ulPage < (START_PAGE + PAGES_NUMBER); ulPage++)

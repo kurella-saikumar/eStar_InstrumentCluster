@@ -31,8 +31,8 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
 ***************************************************************************************************/
-#define ServiceRequest_TestMacro 0//1
-#define TimeBasedServiceDemo 0//1
+#define ServiceRequest_TestMacro 1
+#define TimeBasedServiceDemo 0
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES
 ***************************************************************************************************/
@@ -46,7 +46,7 @@
 ***************************************************************************************************/
 extern void vServiceRequestTask(void);
 extern void vServiceRequestTask_Init(void);
-void vGetSrvcReqStatus(IndicationStatus_t* pucSrvcReq_Indictr, bool* p_Warning_status_bool);
+//void vGetSrvcReqStatus(void);
 void vRTCDemoApp(void);
 
 #endif /* SERVICEREQUEST_APP_H */

@@ -219,7 +219,6 @@
             "Y": 100,
             "Width": 128,
             "Height": 128,
-            "LockPosition": true,
             "FileNameFirst": "AnimationImages\\FuelBar_UpToDown\\FuelBar01.png",
             "FileNameLast": "AnimationImages\\FuelBar_UpToDown\\FuelBar10.png",
             "UpdateTicksInterval": 1
@@ -381,7 +380,6 @@
             "Y": 100,
             "Width": 128,
             "Height": 128,
-            "LockPosition": true,
             "FileNameFirst": "AnimationImages\\RPM\\RPMBar01.png",
             "FileNameLast": "AnimationImages\\RPM\\RPMBar10.png",
             "UpdateTicksInterval": 1

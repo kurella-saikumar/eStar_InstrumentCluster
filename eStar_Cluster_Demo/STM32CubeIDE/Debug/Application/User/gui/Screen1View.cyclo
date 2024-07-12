@@ -23,4 +23,4 @@ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/scr
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:570:6:void Screen1View::updateClock_Minutes_Buffer2Visibility(bool)	3
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:482:6:void Screen1View::ClockValueChangingMode()	10
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:591:6:virtual void Screen1View::SwitchingModes(uint8_t)	3
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:614:6:virtual void Screen1View::IndicatorsStatus(IndicationStatus_t)	34
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:614:6:virtual void Screen1View::IndicatorsStatus(IndicationStatus_t)	29

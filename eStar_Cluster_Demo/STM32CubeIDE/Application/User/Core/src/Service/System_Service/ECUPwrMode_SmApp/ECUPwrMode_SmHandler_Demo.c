@@ -124,17 +124,15 @@ void vEcuPwrModeOffToSleepEntryAction(void)
 		  Error_Handler();
 		}
 	  /****** Suspend the Ticks before entering the STOP mode or else this can wake the device up **********/
-	  HAL_SuspendTick();
-	  HAL_PWR_EnableSleepOnExit();
-	  HAL_LTDC_DeInit(&hltdc);
+//	  HAL_SuspendTick();
+//	  HAL_PWR_EnableSleepOnExit();
+//	  HAL_LTDC_DeInit(&hltdc);
 	  HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
 	  // The code will continue here upon wake-up
+	  SYSCLKConfig_STOP();
 	// Deactivate the Wake-up Timer
 	HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
-	while(1)
-	{
 
-	}
 }
 
 
