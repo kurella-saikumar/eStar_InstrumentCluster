@@ -66,7 +66,7 @@ void vCalculateOdoInMiles(void);
 //uint32_t xGetOdoReadings(uint8_t* OdoUnits);
 uint32_t vPulseCount(void);
 
-void vToggleOdoUnits(void);
+uint8_t xToggleOdoUnits(void);
 //uint16_t xGetTripA_OdoReading(uint8_t *TripA_Units);
 void vResetTripA_OdoReadings(void);
 //uint16_t xGetTripB_OdoReading(uint8_t *TripB_Units);

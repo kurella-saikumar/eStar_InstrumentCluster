@@ -24,6 +24,7 @@
 #include "../Switch/switch.h"
 // Include necessary libraries or headers if needed
 
+
 // Define macro for reading mode button input
 #define MODE_BUTTON_INPUT IO_RA6_GetValue()
 
@@ -69,6 +70,7 @@ extern Button_Push_Event_T xGetResetButtonStatus(void);
 // Function prototype for the switch handler task
 extern void vSwitchHandlerTask(void);
 
+
 // Function prototype for handling mode reset actions
 extern void vHandleModeResetActions(void);
 ClockEditActions_t xClockSettingGetSetMode(void);
@@ -78,7 +80,7 @@ extern "C" {
 #endif
 
 SwitchModesDisplay_t xGetSwitchStatus(void);
-
+uint8_t xGetToggleMetrics(void);
 #ifdef __cplusplus
 }
 #endif

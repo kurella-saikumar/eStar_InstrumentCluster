@@ -17,15 +17,15 @@ void Screen1Presenter::deactivate()
 
 }
 
-void Screen1Presenter::notifySpeedDataChanged(uint32_t newSpeedValue,uint8_t newSpeedMetrics)
+void Screen1Presenter::notifySpeedDataChanged(uint32_t newSpeedValue)
 {
-	view.SpeedUpdate(newSpeedValue,newSpeedMetrics);
+	view.SpeedUpdate(newSpeedValue);
 	//view.KMPHtoMPH(newSpeed);
 }
 
-void Screen1Presenter::notifyOdoDataChanged(uint32_t newOdoData,uint8_t newOdoUnits)
+void Screen1Presenter::notifyOdoDataChanged(uint32_t newOdoData)
 {
-	view.OdoDataUpdate(newOdoData,newOdoUnits);
+	view.OdoDataUpdate(newOdoData);
 }
 
 void Screen1Presenter::notifyFuelCounter(uint16_t newFuelCount)
@@ -38,14 +38,14 @@ void Screen1Presenter::notifyRPMDataChanged(uint16_t newRPMData)
 	view.RPMDataAnimation(newRPMData);
 }
 
-void Screen1Presenter::notifyTrip_ADataChanged(uint16_t newTripA_Value,uint8_t newTripA_Units)
+void Screen1Presenter::notifyTrip_ADataChanged(uint16_t newTripA_Value)
 {
-	view.TRIP_A(newTripA_Value,newTripA_Units);
+	view.TRIP_A(newTripA_Value);
 }
 
-void Screen1Presenter::notifyTrip_BDataChanged(uint16_t newTripB_Value, uint8_t newTripB_Units)
+void Screen1Presenter::notifyTrip_BDataChanged(uint16_t newTripB_Value)
 {
-	view.TRIP_B(newTripB_Value,newTripB_Units);
+	view.TRIP_B(newTripB_Value);
 }
 
 void Screen1Presenter::notifyAVSDataChanged(uint32_t newAVS)
@@ -97,6 +97,11 @@ void Screen1Presenter::notifySwitchHandlerDataChanged(uint8_t SwitchStatus)
 void Screen1Presenter:: notifyIndicatorStatusDataChanged(IndicationStatus_t newIndicators)
 {
 	view. IndicatorsStatus(newIndicators);
+}
+
+void Screen1Presenter:: notifyMetricsToggleDataChanged(uint8_t newMetrics)
+{
+	view.  MetricsToggle(newMetrics);
 }
 
 

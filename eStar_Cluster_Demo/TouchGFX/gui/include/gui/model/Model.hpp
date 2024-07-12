@@ -17,6 +17,7 @@ public:
         modelListener = listener;
     }
     void tick();
+    void MetricsToggle();
     void SpeedData();
     void OdoData();
     void FuelData();
@@ -30,6 +31,7 @@ public:
     void AFEValue();
     void RANGEValue();
     void IndicatorStatus();
+
 
 protected:
     ModelListener* modelListener;

@@ -447,26 +447,24 @@ uint32_t xGetOdoReadings(uint8_t* OdoUnits)
  * @return void
  */
 
-void vToggleOdoUnits(void)
+uint8_t xToggleOdoUnits(void)
 {
+
     if(OdometerUnits == ODO_IN_KM)
     {
+#if (ODO_TEST_MACRO == 1)
+    	printf("Units: MILE\n");
+#endif
         OdometerUnits = ODO_IN_MILES;
     }
     else
     {
+#if (ODO_TEST_MACRO == 1)
+    	printf("Units: KM\n");
+#endif
         OdometerUnits = ODO_IN_KM;
     }
-#if(ODO_TEST_MACRO == 1)
-    if(OdometerUnits == ODO_IN_KM)
-    {
-    	printf("Units: KM\n");
-    }
-    else
-    {
-    	printf("Units: MILE\n");
-    }
-#endif
+    return OdometerUnits;
 }
 
 #endif	/* ODOMETER_C */

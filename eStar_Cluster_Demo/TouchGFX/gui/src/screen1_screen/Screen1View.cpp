@@ -109,41 +109,18 @@ void Screen1View::KMPHtoMPH(int newSpeed)
 }
 #endif
 
-void Screen1View::SpeedUpdate(uint32_t newSpeedValue,uint8_t newSpeedMetrics)
+void Screen1View::SpeedUpdate(uint32_t newSpeedValue)
 {
-	if(newSpeedMetrics == 0)
-	{
-		Unicode::snprintf(Speed_TaBuffer, SPEED_TA_SIZE, "%d",newSpeedValue);
-		Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, "KMPH");
-		Speed_Ta.invalidate();
-		KMPH_MPH.invalidate();
-	}
-	else
-	{
-		Unicode::snprintf(Speed_TaBuffer, SPEED_TA_SIZE, "%d",newSpeedValue);
-		Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, "MPH");
-		Speed_Ta.invalidate();
-		KMPH_MPH.invalidate();
-	}
+	Unicode::snprintf(Speed_TaBuffer, SPEED_TA_SIZE, "%d",newSpeedValue);
+	Speed_Ta.invalidate();
+
 }
 
 
-void Screen1View::OdoDataUpdate(uint32_t newOdoData,uint8_t newOdoUnits)
+void Screen1View::OdoDataUpdate(uint32_t newOdoData)
 {
-	if (newOdoUnits == 0)
-	{
-		Unicode::snprintf(ODOReadingsBuffer, ODOREADINGS_SIZE, "%u", newOdoData);
-		Unicode::snprintf(KMPH_MPH_ODOBuffer, KMPH_MPH_ODO_SIZE, "KM");
-		ODOReadings.invalidate();
-		KMPH_MPH_ODO.invalidate();
-	}
-	else
-	{
-		Unicode::snprintf(ODOReadingsBuffer, ODOREADINGS_SIZE, "%u", newOdoData);
-		Unicode::snprintf(KMPH_MPH_ODOBuffer, KMPH_MPH_ODO_SIZE, "Miles");
-		ODOReadings.invalidate();
-		KMPH_MPH_ODO.invalidate();
-	}
+	Unicode::snprintf(ODOReadingsBuffer, ODOREADINGS_SIZE, "%u", newOdoData);
+	ODOReadings.invalidate();
 }
 
 #if 0
@@ -236,18 +213,16 @@ void Screen1View:: RPMDataAnimation(uint16_t newRPMData)
 	}
 }
 
-void Screen1View::TRIP_A(uint16_t newTripA_Value,uint8_t newTripA_Units)
+void Screen1View::TRIP_A(uint16_t newTripA_Value)
 {
 		storedTRIP_A1 = newTripA_Value / 10;
 		storedTRIP_A2 = newTripA_Value % 10;
-		stroredTripA_Units = newTripA_Units;
 }
 
-void Screen1View::TRIP_B(uint16_t newTripB_Value, uint8_t newTripB_Units)
+void Screen1View::TRIP_B(uint16_t newTripB_Value)
 {
 		storedTRIP_B1 = newTripB_Value / 10;
 		storedTRIP_B2 = newTripB_Value % 10;
-		stroredTripB_Units = newTripB_Units;
 }
 
 void Screen1View::AVSValue(uint32_t newAVS)
@@ -270,7 +245,7 @@ void Screen1View::RANGEValue(uint16_t newRANGE)
 
 void Screen1View::DriverInforMenu(void)
 {
-	uint8_t InfoMenu= xGetDriverInforMenu();
+	InfoMenu= xGetDriverInforMenu();
 	switch(InfoMenu)
 	{
 	case 0 :
@@ -278,16 +253,16 @@ void Screen1View::DriverInforMenu(void)
 				Unicode::snprintf(DriverInfoBuffer1, DRIVERINFOBUFFER1_SIZE, "%d",storednewRANGE1);
 				//DriverInfo.invalidate();
 				Unicode::snprintf(DriverInfoBuffer2, DRIVERINFOBUFFER2_SIZE, "%d",storednewRANGE2);
-				if(stroredTripA_Units == 1)
-				{
-				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MILES");
-				DriverInfo_Units.invalidate();
-				}
-				else
-				{
-				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KM");
-				DriverInfo_Units.invalidate();
-				}
+//				if(Units == 1)
+//				{
+//				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MILES");
+//				DriverInfo_Units.invalidate();
+//				}
+//				else
+//				{
+//				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KM");
+//				DriverInfo_Units.invalidate();
+//				}
 				DriverInfo.invalidate();
 				DriverInfoMenu.invalidate();
 				break;
@@ -296,16 +271,16 @@ void Screen1View::DriverInforMenu(void)
 				Unicode::snprintf(DriverInfoBuffer1, DRIVERINFOBUFFER1_SIZE, "%d",storednewAVS1);
 				//DriverInfo.invalidate();
 				Unicode::snprintf(DriverInfoBuffer2, DRIVERINFOBUFFER2_SIZE, "%d",storednewAVS2);
-				if(stroredTripA_Units == 1)
-				{
-				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MILES");
-				DriverInfo_Units.invalidate();
-				}
-				else
-				{
-				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KM");
-				DriverInfo_Units.invalidate();
-				}
+//				if(Units == 1)
+//				{
+//				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MILES");
+//				DriverInfo_Units.invalidate();
+//				}
+//				else
+//				{
+//				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KM");
+//				DriverInfo_Units.invalidate();
+//				}
 				DriverInfo.invalidate();
 				DriverInfoMenu.invalidate();
 				break;
@@ -314,16 +289,16 @@ void Screen1View::DriverInforMenu(void)
 				Unicode::snprintf(DriverInfoBuffer1, DRIVERINFOBUFFER1_SIZE, "%d",storednewAFE1);
 				//DriverInfo.invalidate();
 				Unicode::snprintf(DriverInfoBuffer2, DRIVERINFOBUFFER2_SIZE, "%d",storednewAFE2);
-				if(stroredTripA_Units == 1)
-				{
-				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MPL");
-				DriverInfo_Units.invalidate();
-				}
-				else
-				{
-				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KMPL");
-				DriverInfo_Units.invalidate();
-				}
+//				if(Units == 1)
+//				{
+//				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MPL");
+//				DriverInfo_Units.invalidate();
+//				}
+//				else
+//				{
+//				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KMPL");
+//				DriverInfo_Units.invalidate();
+//				}
 
 				DriverInfo.invalidate();
 				DriverInfoMenu.invalidate();
@@ -333,16 +308,16 @@ void Screen1View::DriverInforMenu(void)
 				Unicode::snprintf(DriverInfoBuffer1, DRIVERINFOBUFFER1_SIZE, "%d",storedTRIP_A1);
 				//DriverInfo.invalidate();
 				Unicode::snprintf(DriverInfoBuffer2, DRIVERINFOBUFFER2_SIZE, "%d",storedTRIP_A2);
-				if(stroredTripA_Units == 1)
-				{
-				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MILES");
-				DriverInfo_Units.invalidate();
-				}
-				else
-				{
-				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KM");
-				DriverInfo_Units.invalidate();
-				}
+//				if(Units == 1)
+//				{
+//				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MILES");
+//				DriverInfo_Units.invalidate();
+//				}
+//				else
+//				{
+//				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KM");
+//				DriverInfo_Units.invalidate();
+//				}
 
 				DriverInfo.invalidate();
 				DriverInfoMenu.invalidate();
@@ -352,16 +327,16 @@ void Screen1View::DriverInforMenu(void)
 				Unicode::snprintf(DriverInfoBuffer1, DRIVERINFOBUFFER1_SIZE, "%d",storedTRIP_B1);
 				//DriverInfo.invalidate();
 				Unicode::snprintf(DriverInfoBuffer2, DRIVERINFOBUFFER2_SIZE, "%d",storedTRIP_B2);
-				if(stroredTripB_Units == 1)
-				{
-				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MILES");
-				DriverInfo_Units.invalidate();
-				}
-				else
-				{
-				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KM");
-				DriverInfo_Units.invalidate();
-				}
+//				if(Units == 1)
+//				{
+//				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MILES");
+//				DriverInfo_Units.invalidate();
+//				}
+//				else
+//				{
+//				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KM");
+//				DriverInfo_Units.invalidate();
+//				}
 
 				DriverInfo.invalidate();
 				DriverInfoMenu.invalidate();
@@ -372,6 +347,106 @@ void Screen1View::DriverInforMenu(void)
 				break;
 	}
 }
+
+void Screen1View:: MetricsToggle(uint8_t newMetrics)
+{
+	Units = newMetrics;
+	if(Units == 0)
+	{
+		Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, "KMPH");
+		Unicode::snprintf(KMPH_MPH_ODOBuffer, KMPH_MPH_ODO_SIZE, "KM");
+		KMPH_MPH.invalidate();
+		KMPH_MPH_ODO.invalidate();
+
+		switch(InfoMenu)
+		{
+			case 0 :
+					{
+						Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KM");
+						DriverInfo_Units.invalidate();
+					}
+					break;
+			case 1 :
+					{
+						Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KM");
+						DriverInfo_Units.invalidate();
+					}
+					break;
+			case 2 :
+					{
+						Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KMPL");
+						DriverInfo_Units.invalidate();
+					}
+					break;
+			case 3 :
+					{
+						Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KM");
+						DriverInfo_Units.invalidate();
+					}
+					break;
+			case 4 :
+					{
+						Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "KM");
+						DriverInfo_Units.invalidate();
+					}
+					break;
+
+			default:
+							/* Nothing to do */
+					break;
+		}
+	}
+	else
+	{
+		Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, "MPH");
+		Unicode::snprintf(KMPH_MPH_ODOBuffer, KMPH_MPH_ODO_SIZE, "MILES");
+		KMPH_MPH.invalidate();
+		KMPH_MPH_ODO.invalidate();
+
+		switch(InfoMenu)
+		{
+			case 0 :
+					{
+						Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MILES");
+						DriverInfo_Units.invalidate();
+					}
+					break;
+			case 1 :
+					{
+						Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MILES");
+						DriverInfo_Units.invalidate();
+					}
+					break;
+			case 2 :
+					{
+						Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MPL");
+						DriverInfo_Units.invalidate();
+					}
+					break;
+			case 3 :
+					{
+						Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MILES");
+						DriverInfo_Units.invalidate();
+					}
+					break;
+			case 4 :
+					{
+						Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "MILES");
+						DriverInfo_Units.invalidate();
+					}
+					break;
+			default:
+							/* Nothing to do */
+					break;
+		}
+	}
+}
+
+
+
+
+
+
 
 void Screen1View:: ClockUpdate (uint8_t Hours,uint8_t Minutes,uint8_t TimeFormat)
 {
@@ -812,7 +887,6 @@ void Screen1View::IndicatorsStatus(IndicationStatus_t newIndicators)
 		FuelIcon_r.invalidate();
 	}
 }
-
 
 
 

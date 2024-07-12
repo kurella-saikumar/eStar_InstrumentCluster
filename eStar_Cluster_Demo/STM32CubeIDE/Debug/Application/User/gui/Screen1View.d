@@ -59,6 +59,7 @@ Application/User/gui/Screen1View.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/../Switch/switch.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfoMenu_App/DriverInfoMenu_App.h \
+ ../../TouchGFX/gui/include/gui/screen1_screen/../../../../../STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.h \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp \
  ../../TouchGFX/generated/texts/include/texts/TextKeysAndLanguages.hpp \
  ../../TouchGFX/generated/images/include/BitmapDatabase.hpp \
@@ -122,6 +123,7 @@ Application/User/gui/Screen1View.o: \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/../Switch/switch.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfoMenu_App/DriverInfoMenu_App.h:
+../../TouchGFX/gui/include/gui/screen1_screen/../../../../../STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.h:
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp:
 ../../TouchGFX/generated/texts/include/texts/TextKeysAndLanguages.hpp:
 ../../TouchGFX/generated/images/include/BitmapDatabase.hpp:

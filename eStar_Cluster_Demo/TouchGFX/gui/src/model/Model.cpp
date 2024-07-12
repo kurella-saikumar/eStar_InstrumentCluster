@@ -48,6 +48,7 @@ void Model::tick()
 
 	if (TickCount > 100)
 	{
+		MetricsToggle();
 		SpeedData();
 		OdoData();
 		FuelData();
@@ -74,7 +75,7 @@ void Model::SpeedData()
 	// Notify listener about SpeedData data change
 	if(modelListener !=0)
 	{
-		modelListener->notifySpeedDataChanged(SpeedValue,SpeedMetrics);
+		modelListener->notifySpeedDataChanged(SpeedValue);
 	}
 }
 
@@ -87,7 +88,7 @@ void Model::OdoData()
    // Notify listener about OdoData data change
    if (modelListener != 0)
    {
-       modelListener->notifyOdoDataChanged(Odometer,OdoUnits);
+       modelListener->notifyOdoDataChanged(Odometer);
    }
 }
 
@@ -121,7 +122,7 @@ void Model::Trip_A()
 	// Notify listener about Trip_A data change
 	if(modelListener !=0)
 	{
-		modelListener->notifyTrip_ADataChanged(TripA_Value,TripA_Units);
+		modelListener->notifyTrip_ADataChanged(TripA_Value);
 	}
 }
 
@@ -134,7 +135,7 @@ void Model::Trip_B()
 	// Notify listener about Trip_B data change
 	if(modelListener !=0)
 	{
-		modelListener->notifyTrip_BDataChanged(TripB_Value,TripB_Units);
+		modelListener->notifyTrip_BDataChanged(TripB_Value);
 	}
 }
 
@@ -207,19 +208,25 @@ void Model::SwitchHandler()
 
 }
 
-
 void Model::IndicatorStatus()
 {
 	Status= xGetIndicatorstatus();
 
 	if(modelListener !=0)
-		{
-			modelListener->notifyIndicatorStatusDataChanged(Status);
-		}
+	{
+		modelListener->notifyIndicatorStatusDataChanged(Status);
+	}
 }
 
+void Model::MetricsToggle()
+{
+	uint8_t Metrics= xGetToggleMetrics();
 
-
+	if(modelListener !=0)
+	{
+		modelListener->notifyMetricsToggleDataChanged(Metrics);
+	}
+}
 
 
 

@@ -55,6 +55,9 @@ uint8_t ucModeButtonEventStatus = 0xFF;
 uint8_t ucResetButtonEventStatus = 0xFF;
 uint8_t ucModeButtonStatus = 0;
 uint8_t ucResetButtonStatus = 0;
+uint8_t ToggleMetrics = ODO_IN_KM;
+
+
 
 
 
@@ -255,14 +258,17 @@ Button_Push_Event_T xGetResetButtonStatus(void)//xGetResetButtonStatus
 void vHandleModeResetActions(void)
 {
 
+    //printf("before pressing the switches : %d\n", ToggleMetrics );
     /***/
+
     // Check if both mode and reset buttons are short-pressed
     if (ucModeButtonEventStatus == SHORT_PRESS_RELEASED && ucResetButtonEventStatus == SHORT_PRESS_RELEASED)
     {
     	ucModeButtonEventStatus = 0xFF;
     	ucResetButtonEventStatus= 0xFF;
     	ToDisplay =ODO_METER_TOGGLE;
-    	vToggleOdoUnits();
+    	ToggleMetrics = xToggleOdoUnits();
+
     	vCustomizeSpeedUnits();
 
 
@@ -418,6 +424,13 @@ SwitchModesDisplay_t xGetSwitchStatus(void)
 
 }
 
+uint8_t xGetToggleMetrics(void)
+{
+	printf("after pressing the switches : %d\n", ToggleMetrics );
+	return ToggleMetrics;
+
+
+}
 
 
 

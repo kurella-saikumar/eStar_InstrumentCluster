@@ -1,14 +1,15 @@
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:38:1:Model::Model()	1
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:69:6:void Model::SpeedData()	2
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:82:6:void Model::OdoData()	2
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:95:6:void Model::FuelData()	2
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:106:6:void Model::RPMData()	2
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:116:6:void Model::Trip_A()	2
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:129:6:void Model::Trip_B()	2
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:142:6:void Model::AVSValue()	2
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:152:6:void Model::AFEValue()	2
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:163:6:void Model::RANGEValue()	2
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:174:6:void Model::Clock()	2
-D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:199:6:void Model::SwitchHandler()	2
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:70:6:void Model::SpeedData()	2
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:83:6:void Model::OdoData()	2
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:96:6:void Model::FuelData()	2
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:107:6:void Model::RPMData()	2
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:117:6:void Model::Trip_A()	2
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:130:6:void Model::Trip_B()	2
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:143:6:void Model::AVSValue()	2
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:153:6:void Model::AFEValue()	2
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:164:6:void Model::RANGEValue()	2
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:175:6:void Model::Clock()	2
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:200:6:void Model::SwitchHandler()	2
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:211:6:void Model::IndicatorStatus()	2
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:221:6:void Model::MetricsToggle()	2
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp:45:6:void Model::tick()	2
