@@ -428,8 +428,6 @@ uint8_t xGetToggleMetrics(void)
 {
 	printf("after pressing the switches : %d\n", ToggleMetrics );
 	return ToggleMetrics;
-
-
 }
 
 

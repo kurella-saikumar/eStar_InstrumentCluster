@@ -370,7 +370,7 @@ static uint8_t ucDaycount = 1;
 void vServiceRequestTask(void)
 {
 	/**:Get odometer readings;*/
-	ulTotalDistance = xGetOdoReadings(&ucOdoVar);
+	ulTotalDistance = xGetOdoReadings();
 
 #if (TimeBasedServiceDemo == 1)
 	/**:Run RTC demo application and copy service data to month variable;*/

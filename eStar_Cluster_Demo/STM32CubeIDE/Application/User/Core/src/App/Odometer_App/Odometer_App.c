@@ -211,57 +211,62 @@ void vResetTripA_OdoReadings(void)
 #endif
 }
 
-uint16_t xGetTripA_OdoReading(uint8_t *TripA_Units)
+uint16_t xGetTripA_OdoReading(void)
 {
+    uint16_t usTripA;
+    uint8_t TripA_Units = 0;  // Initialize TripA_Units
+
     // Calculate the total odometer reading after the reset
-	usTripA = ulOdoInEeprom -  ulOdoValBeforeTripAReset ;
-    if( usTripA >= TRIP_A_MAX)
+    usTripA = ulOdoInEeprom - ulOdoValBeforeTripAReset;
+
+    if (usTripA >= TRIP_A_MAX)
     {
-    	uint16_t usDifference = 0;
+        uint16_t usDifference = 0;
+        usDifference = usTripA - TRIP_A_MAX;
+        ulOdoValBeforeTripAReset = ulOdoInEeprom - usDifference;
 
-    	usDifference = usTripA - TRIP_A_MAX;
-    	ulOdoValBeforeTripAReset = ulOdoInEeprom - usDifference;
+        /* Write Odo value into the EEPROM after Trip-A value reaching to its max value */
+        *eepromVariables[4] = ulOdoValBeforeTripAReset;
+        uint16_t FlashStatus = xES_WriteVariable((uint32_t)eepromVariables[4], *eepromVariables[4], eepromVariables[4]);
 
-    	/*Write Odo value value into the EEPROM after Trip-A value reaching to it's max value*/
-    	*eepromVariables[4]=ulOdoValBeforeTripAReset;
-    	uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[4],*eepromVariables[4],eepromVariables[4]);
-    	if (0 == FlashStatus)
-    	{
-#if(ODO_TEST_MACRO == 1)
-    		printf("ESWrite Success: EEVar[4]:%ld\n\r",*eepromVariables[4]);
+        if (0 == FlashStatus)
+        {
+#if (ODO_TEST_MACRO == 1)
+            printf("ESWrite Success: EEVar[4]:%ld\n\r", *eepromVariables[4]);
 #endif
-    	}
-    	else
-    	{
-#if(ODO_TEST_MACRO == 1)
-    		printf("ESWrite Fail:TripAGet\n\r");
+        }
+        else
+        {
+#if (ODO_TEST_MACRO == 1)
+            printf("ESWrite Fail:TripAGet\n\r");
 #endif
-    	}
-
+        }
     }
     else
     {
-    	/*Do nothing*/
+        /* Do nothing */
     }
 
-    /*Trip A value calculation*/
-	usTripA = ulOdoInEeprom -  ulOdoValBeforeTripAReset;
+    /* Trip A value calculation */
+    usTripA = ulOdoInEeprom - ulOdoValBeforeTripAReset;
 
     if (OdometerUnits == ODO_IN_KM)
     {
-        *TripA_Units = ODO_IN_KM;
+        TripA_Units = ODO_IN_KM;
     }
     else if (OdometerUnits == ODO_IN_MILES)
     {
         // Calculate Trip-A reading in miles (1 km = 0.621371 miles)
-    	usTripA = (usTripA * KM_TO_MILES_CONV_FACTOR) / 1000;
-        *TripA_Units = ODO_IN_MILES;
+        usTripA = (usTripA * KM_TO_MILES_CONV_FACTOR) / 1000;
+        TripA_Units = ODO_IN_MILES;
     }
 
-#if(ODO_TEST_MACRO == 1)
-    printf("tripA: %d\t" ,usTripA);
+#if (ODO_TEST_MACRO == 1)
+    printf("tripA: %d\t", usTripA);
+    printf("TripA_Units: %d\n\r", TripA_Units); // Use TripA_Units here
 #endif
-    return usTripA; // You might need to change the return type if necessary
+
+    return usTripA;
 }
 
 void vResetTripB_OdoReadings(void)
@@ -288,59 +293,63 @@ void vResetTripB_OdoReadings(void)
     printf("BVR: %ld\n" ,ulOdoValBeforeTripBReset);
 #endif
 }
-uint16_t xGetTripB_OdoReading(uint8_t *TripB_Units)
+uint16_t xGetTripB_OdoReading(void)
 {
+    uint16_t usTripB;
+    uint8_t TripB_Units = 0;
+
     // Calculate the total odometer reading after the reset
-	usTripB = ulOdoInEeprom -  ulOdoValBeforeTripBReset ;
-    if( usTripB >= TRIP_B_MAX)
+    usTripB = ulOdoInEeprom - ulOdoValBeforeTripBReset;
+
+    if (usTripB >= TRIP_B_MAX)
     {
-    	uint16_t usDifferenceB = 0;
+        uint16_t usDifferenceB = 0;
+        usDifferenceB = usTripB - TRIP_B_MAX;
+        ulOdoValBeforeTripBReset = ulOdoInEeprom - usDifferenceB;
 
-    	usDifferenceB = usTripB - TRIP_B_MAX;
-    	ulOdoValBeforeTripBReset = ulOdoInEeprom - usDifferenceB;
+        /* Write Odo value into the EEPROM after Trip-B value reaches its max value */
+        *eepromVariables[5] = ulOdoValBeforeTripBReset;
+        uint16_t FlashStatus = xES_WriteVariable((uint32_t)eepromVariables[5], *eepromVariables[5], eepromVariables[5]);
 
-    	/*Write Odo value value into the EEPROM after Trip-B value reaching to it's max value*/
-    	*eepromVariables[5] = ulOdoValBeforeTripBReset;
-    	uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[5],*eepromVariables[5],eepromVariables[5]);
-    	if (0 == FlashStatus)
-    	{
-#if(ODO_TEST_MACRO == 1)
-    		printf("ESW_S EE[5]:%ld\n\r",*eepromVariables[5]);
+        if (0 == FlashStatus)
+        {
+#if (ODO_TEST_MACRO == 1)
+            printf("ESW_S EE[5]:%ld\n\r", *eepromVariables[5]);
 #endif
-    	}
-    	else
-    	{
-#if(ODO_TEST_MACRO == 1)
-    		printf("ESW_F:tripBGet\n\r");
+        }
+        else
+        {
+#if (ODO_TEST_MACRO == 1)
+            printf("ESW_F:tripBGet\n\r");
 #endif
-    	}
-
+        }
     }
     else
     {
-    	/*Do nothing*/
+        /* Do nothing */
     }
 
-/*Trip A value calculation*/
-usTripB = ulOdoInEeprom -  ulOdoValBeforeTripBReset;
+    /* Trip B value calculation */
+    usTripB = ulOdoInEeprom - ulOdoValBeforeTripBReset;
 
     if (OdometerUnits == ODO_IN_KM)
     {
-        *TripB_Units = ODO_IN_KM;
+        TripB_Units = ODO_IN_KM;
     }
     else if (OdometerUnits == ODO_IN_MILES)
     {
-        // Calculate Trip-A reading in miles (1 km = 0.621371 miles)
-    	usTripB = (usTripB * KM_TO_MILES_CONV_FACTOR) / 1000;
-        *TripB_Units = ODO_IN_MILES;
+        // Calculate Trip-B reading in miles (1 km = 0.621371 miles)
+        usTripB = (usTripB * KM_TO_MILES_CONV_FACTOR) / 1000;
+        TripB_Units = ODO_IN_MILES;
     }
 
-#if(ODO_TEST_MACRO == 1)
-    printf("tripB: %d\n\r" ,usTripB);
+#if (ODO_TEST_MACRO == 1)
+    printf("tripB: %d\n\r", usTripB);
+    printf("TripB_Units: %d\n\r", TripB_Units); // Use TripB_Units here
 #endif
+
     return usTripB; // You might need to change the return type if necessary
 }
-
 void vWrite_OdoVal_to_EEPROM(void)
 {
 	/*Write odo value to EEPROM*/
@@ -402,39 +411,45 @@ void vRetrive_LastStored_OdoVal_from_EEPROM(void)
  * @return uint32_t  This return parameter provides the latest updated Odo value
  */
 
-uint32_t xGetOdoReadings(uint8_t* OdoUnits)
+uint32_t xGetOdoReadings(void)
 {
-	uint32_t xOdoValue = 0;
+    uint8_t OdoUnits = 0;
+    uint32_t xOdoValue = 0;
 
-    if(OdometerUnits == ODO_IN_KM)
+    if (OdometerUnits == ODO_IN_KM)
     {
-       *OdoUnits = ODO_IN_KM;
-
-       if(ulOdoInKm >= MAX_ODO_VALUE_IN_KM)
-       {
-    	   xOdoValue = MAX_ODO_VALUE_IN_KM;
-       }
-       else
-       {
-    	   xOdoValue = ulOdoInKm;
-       }
-#if(ODO_TEST_MACRO == 1)
-       printf("Odo value=%ld\n", xOdoValue);
+        OdoUnits = ODO_IN_KM;
+        if (ulOdoInKm >= MAX_ODO_VALUE_IN_KM)
+        {
+            xOdoValue = MAX_ODO_VALUE_IN_KM;
+        }
+        else
+        {
+            xOdoValue = ulOdoInKm;
+        }
+#if (ODO_TEST_MACRO == 1)
+        printf("Odo value=%ld\n", xOdoValue);
 #endif
     }
     else
     {
-    	*OdoUnits = ODO_IN_MILES;
-    	if(ulOdoInMiles >= MAX_ODO_VALUE_IN_KM)
-    	{
-    		ulOdoInMiles = MAX_ODO_VALUE_IN_KM;
-    	}
-    	else
-    	{
-    		xOdoValue = ulOdoInMiles;
-    	}
+        OdoUnits = ODO_IN_MILES;
+        if (ulOdoInMiles >= MAX_ODO_VALUE_IN_KM)
+        {
+            ulOdoInMiles = MAX_ODO_VALUE_IN_KM;
+        }
+        else
+        {
+            xOdoValue = ulOdoInMiles;
+        }
     }
- return xOdoValue;
+
+    // Debug print to use OdoUnits variable
+#if (ODO_TEST_MACRO == 1)
+    printf("OdoUnits=%d\n", OdoUnits);
+#endif
+
+    return xOdoValue;
 }
 
 /**

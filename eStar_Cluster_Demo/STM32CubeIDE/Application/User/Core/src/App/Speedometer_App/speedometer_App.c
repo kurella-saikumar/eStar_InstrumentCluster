@@ -308,9 +308,9 @@ void vCustomizeSpeedUnits(void)
  * 
  * @return uint16_t  This return parameter provides the latest updated Speed value
  */
-uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits)
+uint32_t xGetSpeedValue(void)
 {
-    *speedDisplayUnits = speedoUnits;
+//    *speedDisplayUnits = speedoUnits;
 
     Status.indicators.over_speed_indicator = 0;
 
@@ -318,7 +318,7 @@ uint32_t xGetSpeedValue(speedDisplayMetrics_t *speedDisplayUnits)
     {
     	Status.indicators.over_speed_indicator = 1;
 
-    	printf("speedDisplayUnits: %d\t", speedDisplayUnits);   //Debug purpose
+//    	printf("speedDisplayUnits: %d\t", speedDisplayUnits);   //Debug purpose
     }
 
 	if(speedoUnits == SPEED_IN_KMPH)

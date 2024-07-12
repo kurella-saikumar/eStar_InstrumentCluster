@@ -123,7 +123,7 @@ void vCalculateAVSInKmperhour(void)
 {
    static uint8_t uccounter = 0;
 
-   ulDistance2 = xGetOdoReadings(&units);
+   ulDistance2 = xGetOdoReadings();
    ulDistance = ulDistance2 - ulDistance1;
    ulDistance1 = ulDistance2;
    ulVehicleSpeed = ( ulDistance * SECONDS_TO_HOURS_FACTOR ) / DELTA_TIME;

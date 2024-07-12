@@ -69,8 +69,7 @@ void Model::tick()
 
 void Model::SpeedData()
 {
-	speedDisplayMetrics_t SpeedMetrics;
-	uint32_t SpeedValue = xGetSpeedValue(&SpeedMetrics);
+	uint32_t SpeedValue = xGetSpeedValue();
 
 	// Notify listener about SpeedData data change
 	if(modelListener !=0)
@@ -82,8 +81,7 @@ void Model::SpeedData()
 
 void Model::OdoData()
 {
-	uint8_t OdoUnits;
-	uint32_t Odometer = xGetOdoReadings(&OdoUnits);
+	uint32_t Odometer = xGetOdoReadings();
 
    // Notify listener about OdoData data change
    if (modelListener != 0)
@@ -116,8 +114,7 @@ void Model::RPMData()
 
 void Model::Trip_A()
 {
-	uint8_t TripA_Units;
-	uint16_t TripA_Value = xGetTripA_OdoReading(&TripA_Units);
+	uint16_t TripA_Value = xGetTripA_OdoReading();
 
 	// Notify listener about Trip_A data change
 	if(modelListener !=0)
@@ -129,8 +126,7 @@ void Model::Trip_A()
 
 void Model::Trip_B()
 {
-	uint8_t TripB_Units;
-	uint16_t TripB_Value = xGetTripB_OdoReading(&TripB_Units);
+	uint16_t TripB_Value = xGetTripB_OdoReading();
 
 	// Notify listener about Trip_B data change
 	if(modelListener !=0)

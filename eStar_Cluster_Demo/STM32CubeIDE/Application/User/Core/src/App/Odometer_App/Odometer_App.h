@@ -80,9 +80,9 @@ void vRetrive_LastStored_OdoVal_from_EEPROM(void);
 extern "C" {
 #endif
 
-uint32_t xGetOdoReadings(uint8_t* OdoUnits);
-uint16_t xGetTripA_OdoReading(uint8_t *TripA_Units);
-uint16_t xGetTripB_OdoReading(uint8_t *TripB_Units);
+uint32_t xGetOdoReadings(void);
+uint16_t xGetTripA_OdoReading(void);
+uint16_t xGetTripB_OdoReading(void);
 #ifdef __cplusplus
 }
 #endif
