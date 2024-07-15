@@ -24,12 +24,33 @@ public:
     virtual void AVSValue(uint32_t newAVS);
     virtual void AFEValue(uint32_t newAFE);
     virtual void RANGEValue(uint16_t newRANGE);
-    virtual void ClockUpdate (uint8_t Hours,uint8_t Minutes,uint8_t TimeFormat);
+    virtual void ClockUpdate (uint8_t Hours,uint8_t Minutes,uint8_t Seconds,uint8_t TimeFormat);
     //virtual void ClockValueChangingMode(uint8_t ClockEditingMode);
     virtual void SwitchingModes(uint8_t SwitchStatus);
     virtual void IndicatorsStatus(IndicationStatus_t newIndicators);
     virtual void MetricsToggle(uint8_t newMetrics);
 
+
+
+private:
+    uint32_t tickCounterRightIndicator;
+    uint32_t tickCounterLeftIndicator;
+    uint32_t tickCounterParking;
+    uint32_t tickCounterHighBeam;
+    uint32_t tickCounterLowBeam;
+    uint32_t tickCounterEngineOilTemp;
+    uint32_t tickCounterSeatBelt;
+    uint32_t tickCounterEngineMalfunction;
+    uint32_t tickCounterDoorOpen;
+    uint32_t tickCounterABSWarning;
+    uint32_t tickCounterFaultyRightIndicator;
+    uint32_t tickCounterFaultyLeftIndicator;
+    uint32_t tickCounterLowBattery;
+    uint32_t tickCounterServiceReminder;
+    uint32_t tickCounterTachometer;
+    uint32_t tickCounterFuelWarning;
+
+    void BlinkIndicator(bool state, uint32_t& tickCounters, Image& icon, uint32_t frequency);
 
 protected:
     touchgfx::BitmapId FuelbarImageIds[10];
@@ -52,6 +73,8 @@ protected:
     uint8_t currentMenu;
     uint8_t Current_Hours;
     uint8_t Current_Minutes;
+    uint8_t Current_Seconds;
+    uint8_t Previous_Seconds;
   //  uint8_t currentClockEditingMode;
     uint8_t Hour;
 	uint8_t Minute;

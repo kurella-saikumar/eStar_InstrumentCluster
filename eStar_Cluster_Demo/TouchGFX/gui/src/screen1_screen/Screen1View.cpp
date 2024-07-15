@@ -13,7 +13,6 @@ Screen1View::Screen1View()
 		 FuelbarImageIds[i] = 0; // Or initialize with the appropriate BitmapId values
 		 RPMBarImageIds[i] = 0;
 	 }
-
 }
 
 void Screen1View::setupScreen()
@@ -36,78 +35,6 @@ void Screen1View::setupScreen()
 	ServiceReminder_y.setVisible(false);
 }
 
-#if 0
-void Screen1View::SpeedUpdate(uint32_t newSpeedValue,uint8_t newSpeedMetrics,uint8_t newSpeedStatus)
-{
-	if(newSpeedStatus == 0)
-	{
-		Unicode::snprintf(Speed_TaBuffer, SPEED_TA_SIZE, "%d",newSpeedValue);
-		Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-		Speed_Ta.invalidate();
-	}
-	else
-	{
-		Unicode::snprintf(Speed_TaBuffer, SPEED_TA_SIZE, "%d",newSpeedValue);
-		Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-		Speed_Ta.invalidate();
-	}
-
-	if(newSpeedMetrics == 0)
-	{
-		Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, "KMPH");
-		KMPH_MPH.invalidate();
-	}
-	else
-	{
-		Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, "MPH");
-		KMPH_MPH.invalidate();
-	}
-}
-
-void Screen1View::FuelbarWarningIcon(int newCounter)
-{
-
-	if(newCounter > 80 )
-	{
-		FuelIcon_r.setVisible(true);
-	}
-	else
-	{
-		FuelIcon_r.setVisible(false);
-	}
-	FuelIcon_r.invalidate();
-}
-
-
-void Screen1View::KMPHtoMPH(int newSpeed)
-{
-	if (newSpeed >110)
-	{
-		Unicode::UnicodeChar* currentText = KMPH_MPHBuffer;
-
-		if (Unicode::strncmp(currentText, TypedText(T___SINGLEUSE_ZEGA).getText(), Unicode::strlen("KMPH")) == 0)
-		{
-			// Change the text buffer to "MPH"
-			Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, "MPH");
-
-			// Update the text in the TextArea
-			KMPH_MPH.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DKL2));
-
-			// Invalidate the text area to trigger a redraw
-			KMPH_MPH.invalidate();
-		}
-
-	}
-	else
-	{
-		Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, "KMPH");
-
-		// Update the text in the TextArea
-		KMPH_MPH.setTypedText(TypedText(T___SINGLEUSE_ZEGA));
-		KMPH_MPH.invalidate();
-	}
-}
-#endif
 
 void Screen1View::SpeedUpdate(uint32_t newSpeedValue)
 {
@@ -123,48 +50,7 @@ void Screen1View::OdoDataUpdate(uint32_t newOdoData)
 	ODOReadings.invalidate();
 }
 
-#if 0
-void Screen1View::FuelGauageAnimation(uint16_t newFuelCount)
-{
 
-	 for (int i = 0; i < 10; i++)
-	 {
-		 FuelbarImageIds[i] = BITMAP_FUELBAR01_ID + i;
-	 }
-	 FuelBarAnimation.setBitmaps(FuelbarImageIds[0], FuelbarImageIds[9]);
-
-	 if (newFuelCount<100)
-	 {
-		int imageIndex = 9 -(newFuelCount/10);
-
-		// Set the current image for the animation
-		FuelBarAnimation.setBitmaps(FuelbarImageIds[imageIndex], FuelbarImageIds[imageIndex]);
-
-		if(newFuelCount < 10)
-		{
-			tickCounter++;
-			if (tickCounter >=1)  // Adjust this value to control blink frequency
-			{
-				FuelIcon_r.setVisible(!FuelIcon_r.isVisible());
-				FuelBarAnimation.setVisible(!FuelBarAnimation.isVisible());
-				FuelIcon_r.invalidate();
-				tickCounter = 0;
-			}
-		}
-		else
-		{
-			FuelIcon_r.setVisible(false);
-			FuelIcon_r.invalidate();
-		}
-	 }
-	 else
-	 {
-		 FuelBarAnimation.setBitmaps(FuelbarImageIds[0], FuelbarImageIds[0]);
-	 }
-
-	 FuelBarAnimation.invalidate();
-}
-#endif
 
 void Screen1View::FuelGauageAnimation(uint16_t newFuelCount)
 {
@@ -215,32 +101,32 @@ void Screen1View:: RPMDataAnimation(uint16_t newRPMData)
 
 void Screen1View::TRIP_A(uint16_t newTripA_Value)
 {
-		storedTRIP_A1 = newTripA_Value / 10;
-		storedTRIP_A2 = newTripA_Value % 10;
+	storedTRIP_A1 = newTripA_Value / 10;
+	storedTRIP_A2 = newTripA_Value % 10;
 }
 
 void Screen1View::TRIP_B(uint16_t newTripB_Value)
 {
-		storedTRIP_B1 = newTripB_Value / 10;
-		storedTRIP_B2 = newTripB_Value % 10;
+	storedTRIP_B1 = newTripB_Value / 10;
+	storedTRIP_B2 = newTripB_Value % 10;
 }
 
 void Screen1View::AVSValue(uint32_t newAVS)
 {
-		storednewAVS1 = newAVS / 10;
-		storednewAVS2 = newAVS % 10;
+	storednewAVS1 = newAVS / 10;
+	storednewAVS2 = newAVS % 10;
 }
 
 void Screen1View::AFEValue(uint32_t newAFE)
 {
-		storednewAFE1 = newAFE / 10;
-		storednewAFE2 = newAFE % 10;
+	storednewAFE1 = newAFE / 10;
+	storednewAFE2 = newAFE % 10;
 }
 
 void Screen1View::RANGEValue(uint16_t newRANGE)
 {
-		storednewRANGE1 = newRANGE / 10;
-		storednewRANGE2 = newRANGE % 10;
+	storednewRANGE1 = newRANGE / 10;
+	storednewRANGE2 = newRANGE % 10;
 }
 
 void Screen1View::DriverInforMenu(void)
@@ -306,54 +192,128 @@ void Screen1View::MetricsToggle(uint8_t newMetrics)
 
     switch (InfoMenu)
     {
-    case 0:
-    case 1:
-    case 3:
-    case 4:
-			Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, OdoUnits);
-			DriverInfo_Units.invalidate();
-			break;
-    case 2:
-			Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, AFEUnits);
-			DriverInfo_Units.invalidate();
-			break;
-    default:
-        /* Nothing to do */
-        break;
+		case 0:
+		case 1:
+		case 3:
+		case 4:
+				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, OdoUnits);
+				DriverInfo_Units.invalidate();
+				break;
+		case 2:
+				Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, AFEUnits);
+				DriverInfo_Units.invalidate();
+				break;
+		default:
+				/* Nothing to do */
+				break;
     }
 }
 
 
-
-void Screen1View:: ClockUpdate (uint8_t Hours,uint8_t Minutes,uint8_t TimeFormat)
+void Screen1View:: ClockUpdate (uint8_t Hours,uint8_t Minutes,uint8_t Seconds, uint8_t TimeFormat)
 {
+
 	Current_Hours = Hours;
 	Current_Minutes = Minutes;
-	Unicode::snprintf(ClockBuffer1, CLOCKBUFFER1_SIZE, "%d", Hours);
-	Unicode::snprintf(ClockBuffer2, CLOCKBUFFER2_SIZE, "%d", Minutes);
-	if (TimeFormat==0)
+	Current_Seconds = Seconds;
+
+	Unicode::snprintf(Clock_HRBuffer, CLOCK_HR_SIZE, "%d", Hours);
+	Unicode::snprintf(Clock_MNBuffer, CLOCK_MN_SIZE, "%d", Minutes);
+	const char* amPmText = (TimeFormat == 0) ? "AM" : "PM";
+	Unicode::snprintf(AM_PMBuffer, AM_PM_SIZE, amPmText);
+
+	if (Previous_Seconds != Current_Seconds)  // Adjust this value to control blink frequency
 	{
-		Unicode::snprintf(AM_PMBuffer, AM_PM_SIZE,"AM");
+		Clock_SEC.setVisible(!Clock_SEC.isVisible());
+		Clock_SEC.invalidate();
+		Previous_Seconds = Current_Seconds;
 	}
-	else
-	{
-		Unicode::snprintf(AM_PMBuffer, AM_PM_SIZE,"PM");
-	}
-	Clock.invalidate();
+	Clock_HR.invalidate();
+	Clock_MN.invalidate();
 	AM_PM.invalidate();
 }
 
-void Screen1View::updateClockVisibility(void)
+
+#if 0
+void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 {
-	tickCounter++;
-	if (tickCounter <=3)  // Adjust this value to control blink frequency
+	switch (clockSettingMode)
 	{
-		Clock.setVisible(!Clock.isVisible());
-		Clock.invalidate();
-		tickCounter = 0;
+	case CLOCK_ENTRY:
+	{
+
+	}
+	break;
+	case MODE_LONGPRESS:
+	{
+		vClock_exit();
+		eclockMode = CLOCK_MODE_INACTIVE;
+	    printf("case1");
+	}
+	break;
+	case MODE_SHORTPRESS:
+	{
+		ulShiftingPosition++;
+
+		if (ulShiftingPosition == E_CLOCK_INVALID_POS)
+		{
+			ulShiftingPosition = E_CLOCK_HOURS_POS;
+			printf("Case2\n");
+		}
+		else
+		{
+			/*do nothing*/
+			printf("Case2\n");
+		}
+	}
+	break;
+    case RESET_LONGPRESS_RELEASE:
+        	ulContinousIncrement_flag = 0;
+        	printf("Long Press Release\n\r");
+        	printf("Case3\n");
+        break;
+    case RESET_LONGPRESS_HELD:
+    	ulContinousIncrement_flag = 1;
+    	printf("Long Press Held\n\r");
+    	printf("Case4\n");
+    break;
+      case RESET_SHORTPRESS:
+    	if (ulShiftingPosition == E_CLOCK_HOURS_POS)
+    	{
+			//Increment hours
+			xEditTime.Hours++;
+			// Ensure hours wrap around correctly
+			xEditTime.Hours %= 24;
+			printf("case5");
+		}
+        else if (ulShiftingPosition == E_CLOCK_MINS_POS)
+        {
+			// Increment minutes
+			xEditTime.Minutes++;
+			// Check if minutes reached 60
+			if (xEditTime.Minutes == 60)
+			{
+				// Reset minutes to 0
+				xEditTime.Minutes = 0;
+				printf("Case5\n");
+				// Increment hours
+//				xEditTime.Hours++;
+				// Ensure hours wrap around correctly
+//				xEditTime.Hours %= 24;
+			}
+			else
+			{
+				/*do nothing*/
+				printf("Case5\n");
+			}
+		}
+       break;
+       default:
+    	   // Handle unknown mode
+       break;
 	}
 }
-
+#endif
 
 #if 1
 void Screen1View::ClockValueChangingMode(void)
@@ -361,32 +321,29 @@ void Screen1View::ClockValueChangingMode(void)
 	clockSettingRunMode(ClockEditingMode);
 	switch (ClockEditingMode)
 	{
-		case 0:
+		case CLOCK_ENTRY:
 				{
 					updateClock_Hours_Buffer1Visibility(isBlinkingOn);
-//					ClockUpdate(Hour,Minute,TimeFormats);
 				}
 
 				break;
 
 		case 1:
 				{
-					ClockUpdate(Hour,Minute,TimeFormats);
+
 				}
 				break;
 
-		case 3:
+		case MODE_SHORTPRESS:
 				{
 					ulShiftingPosition++;
 					if (ulShiftingPosition == 1)
 					{
-						updateClock_Hours_Buffer1Visibility(isBlinkingOn);
-						ClockUpdate(Hour,Minute,TimeFormats);
+						updateClock_Minutes_Buffer2Visibility(isBlinkingOn);
 					}
 					else
 					{
-						updateClock_Minutes_Buffer2Visibility(isBlinkingOn);
-						ClockUpdate(Hour,Minute,TimeFormats);
+						updateClock_Hours_Buffer1Visibility(isBlinkingOn);
 						ulShiftingPosition = 0;
 					}
 				}
@@ -394,28 +351,15 @@ void Screen1View::ClockValueChangingMode(void)
 
 		case 4:
 				{
-					ClockUpdate(Hour,Minute,TimeFormats);
 				}
 				break;
 
 		case 5:
 				{
-					ClockUpdate(Hour,Minute,TimeFormats);
+
 				}
 				break;
 
-		case 6:
-				{
-					if (ulShiftingPosition == 1)
-					{
-						ClockUpdate(Hour,Minute,TimeFormats);
-					}
-					else if (ulShiftingPosition == 2)
-					{
-						ClockUpdate(Hour,Minute,TimeFormats);
-					}
-				}
-				break;
 		default:
 				// Handle unknown mode
 				break;
@@ -427,40 +371,14 @@ void Screen1View::ClockValueChangingMode(void)
 
 void Screen1View::updateClock_Hours_Buffer1Visibility(bool visible)
 {
-	tickCounter++;
-	if (tickCounter >=1)
-	{
-		tickCounter = 0;
-		isBlinkingOn = !isBlinkingOn;
-		if (visible)
-		{
-			Unicode::snprintf(ClockBuffer1, CLOCKBUFFER1_SIZE, "%d",Current_Hours); // Preserve the hour value
-		}
-		else
-		{
-			Unicode::snprintf(ClockBuffer1, CLOCKBUFFER1_SIZE, "  "); // Clear the text to make it invisible
-		}
-	Clock.invalidate(); // Refresh the widget to apply changes
-	}
+	Clock_HR.setVisible(!Clock_HR.isVisible());
+	Clock_HR.invalidate();
 }
 
 void Screen1View::updateClock_Minutes_Buffer2Visibility(bool visible)
 {
-	tickCounter++;
-	if (tickCounter >=1)
-	{
-		tickCounter = 0;
-		isBlinkingOn = !isBlinkingOn;
-		if (visible)
-		{
-			Unicode::snprintf(ClockBuffer2, CLOCKBUFFER1_SIZE, "%d",Current_Minutes); // Preserve the Minutes value
-		}
-		else
-		{
-			Unicode::snprintf(ClockBuffer2, CLOCKBUFFER1_SIZE, "  "); // Clear the text to make it invisible
-		}
-	Clock.invalidate(); // Refresh the widget to apply changes
-	}
+	Clock_MN.setVisible(!Clock_MN.isVisible());
+	Clock_MN.invalidate();
 }
 
 
@@ -488,285 +406,60 @@ void Screen1View:: SwitchingModes(uint8_t SwitchStatus)
 	}
 }
 
-void Screen1View::IndicatorsStatus(IndicationStatus_t newIndicators)
+
+
+void Screen1View::BlinkIndicator(bool state, uint32_t& tickCounters, Image& icon, uint32_t frequency)
 {
-	if(newIndicators.indicators.right_indicator == 1)
-	{
-		tickCounter++;
-		if (tickCounter >=1)  // Adjust this value to control blink frequency
-		{
-			RightIndicator_r.setVisible(!RightIndicator_r.isVisible());
-			RightIndicator_r.invalidate();
-			tickCounter = 0;
-		}
-	}
-	else
-	{
-		RightIndicator_r.setVisible(false);
-		RightIndicator_r.invalidate();
-	}
-
-
-	if(newIndicators.indicators.right_indicator == 1)
-	{
-		tickCounter++;
-		if (tickCounter >=1)  // Adjust this value to control blink frequency
-		{
-			LeftIndicator_r.setVisible(!LeftIndicator_r.isVisible());
-			LeftIndicator_r.invalidate();
-			tickCounter = 0;
-		}
-	}
-	else
-	{
-		LeftIndicator_r.setVisible(false);
-		LeftIndicator_r.invalidate();
-	}
-
-
-	if(newIndicators.indicators.parking_indicator == 1)
-	{
-		tickCounter++;
-		if (tickCounter >=1)  // Adjust this value to control blink frequency
-		{
-			Parking_r.setVisible(!Parking_r.isVisible());
-			Parking_r.invalidate();
-			tickCounter = 0;
-		}
-	}
-	else
-	{
-		Parking_r.setVisible(false);
-		Parking_r.invalidate();
-	}
-
-
-	if(newIndicators.indicators.HighBeam_indicator == 1)
-	{
-		tickCounter++;
-		if (tickCounter >=1)  // Adjust this value to control blink frequency
-		{
-			HighBeam_r.setVisible(!HighBeam_r.isVisible());
-			HighBeam_r.invalidate();
-			tickCounter = 0;
-		}
-	}
-	else
-	{
-		HighBeam_r.setVisible(false);
-		HighBeam_r.invalidate();
-	}
-
-	if(newIndicators.indicators.LowBeam_indicator == 1)
-	{
-		tickCounter++;
-		if (tickCounter >=1)  // Adjust this value to control blink frequency
-		{
-			LowBeam_r.setVisible(!LowBeam_r.isVisible());
-			LowBeam_r.invalidate();
-			tickCounter = 0;
-		}
-	}
-	else
-	{
-		LowBeam_r.setVisible(false);
-		LowBeam_r.invalidate();
-	}
-
-	if(newIndicators.indicators.engine_oil_temp_indicator == 1)
-	{
-		tickCounter++;
-		if (tickCounter >=1)  // Adjust this value to control blink frequency
-		{
-			Temperature_r.setVisible(!Temperature_r.isVisible());
-			Temperature_r.invalidate();
-			tickCounter = 0;
-		}
-	}
-	else
-	{
-		EngineOIl_r.setVisible(false);
-		EngineOIl_r.invalidate();
-	}
-
-	if(newIndicators.indicators.seat_belt_indicator == 1)
-	{
-		tickCounter++;
-		if (tickCounter >=1)  // Adjust this value to control blink frequency
-		{
-			SeatBelt_r.setVisible(!SeatBelt_r.isVisible());
-			SeatBelt_r.invalidate();
-			tickCounter = 0;
-		}
-	}
-	else
-	{
-		SeatBelt_r.setVisible(false);
-		SeatBelt_r.invalidate();
-	}
-
-
-	if(newIndicators.indicators.engine_malfunction_indicator == 1)
-	{
-		tickCounter++;
-		if (tickCounter >=1)  // Adjust this value to control blink frequency
-		{
-			EngineWarning_y.setVisible(!EngineWarning_y.isVisible());
-			EngineWarning_y.invalidate();
-			tickCounter = 0;
-		}
-	}
-	else
-	{
-		EngineWarning_y.setVisible(false);
-		EngineWarning_y.invalidate();
-	}
-
-
-	if(newIndicators.indicators.door_open_indicator == 1)
-	{
-		tickCounter++;
-		if (tickCounter >=1)  // Adjust this value to control blink frequency
-		{
-			DoorsIcon_r.setVisible(!DoorsIcon_r.isVisible());
-			DoorsIcon_r.invalidate();
-			tickCounter = 0;
-		}
-	}
-	else
-	{
-		DoorsIcon_r.setVisible(false);
-		DoorsIcon_r.invalidate();
-	}
-
-	if(newIndicators.indicators.abs_warning_indicator == 1)
-	{
-		tickCounter++;
-		if (tickCounter >=1)  // Adjust this value to control blink frequency
-		{
-			ABS_Detection_r.setVisible(!ABS_Detection_r.isVisible());
-			ABS_Detection_r.invalidate();
-			tickCounter = 0;
-		}
-	}
-	else
-	{
-		ABS_Detection_r.setVisible(false);
-		ABS_Detection_r.invalidate();
-	}
-
-
-//	if(newIndicators.indicators.FaultyRight_indicator == 1)
-//	{
-//		tickCounter++;
-//		if (tickCounter >=2)  // Adjust this value to control blink frequency
-//		{
-//			RightIndicator_r.setVisible(!RightIndicator_r.isVisible());
-//			RightIndicator_r.invalidate();
-//			tickCounter = 0;
-//		}
-//	}
-//	else
-//	{
-//		RightIndicator_r.setVisible(false);
-//		RightIndicator_r.invalidate();
-//	}
-
-//	if(newIndicators.indicators.FaultyLeft_indicator == 1)
-//	{
-//		tickCounter++;
-//		if (tickCounter >=2)  // Adjust this value to control blink frequency
-//		{
-//			LeftIndicator_r.setVisible(!LeftIndicator_r.isVisible());
-//			LeftIndicator_r.invalidate();
-//			tickCounter = 0;
-//		}
-//	}
-//	else
-//	{
-//		LeftIndicator_r.setVisible(false);
-//		LeftIndicator_r.invalidate();
-//	}
-
-	if(newIndicators.indicators.low_battery_indicator == 1)
-	{
-		tickCounter++;
-		if (tickCounter >=1)  // Adjust this value to control blink frequency
-		{
-			LowBatteryIcon_r.setVisible(!LowBatteryIcon_r.isVisible());
-			LowBatteryIcon_r.invalidate();
-			tickCounter = 0;
-		}
-	}
-	else
-	{
-		LowBatteryIcon_r.setVisible(false);
-		LowBatteryIcon_r.invalidate();
-	}
-
-
-	if(newIndicators.indicators.service_reminder_indicator == 1)
-	{
-		tickCounter++;
-		if (tickCounter >=1)  // Adjust this value to control blink frequency
-		{
-			ServiceReminder_y.setVisible(!ServiceReminder_y.isVisible());
-			ServiceReminder_y.invalidate();
-			tickCounter = 0;
-		}
-	}
-	else
-	{
-		ServiceReminder_y.setVisible(false);
-		ServiceReminder_y.invalidate();
-	}
-
-	if(newIndicators.indicators.tachometer_indicator == 1)
-	{
-		tickCounter++;
-		if (tickCounter >=1)  // Adjust this value to control blink frequency
-		{
-			RPMIcon_r.setVisible(!RPMIcon_r.isVisible());
-			RPMIcon_r.invalidate();
-			tickCounter = 0;
-		}
-	}
-	else
-	{
-		RPMIcon_r.setVisible(false);
-		RPMIcon_r.invalidate();
-	}
-
-
-	if(newIndicators.indicators.over_speed_indicator == 1)
-	{
-
-		Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-		Speed_Ta.invalidate();
-	}
-	else
-	{
-		Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255,255,255));
-		Speed_Ta.invalidate();
-	}
-
-	if(newIndicators.indicators.Fuel_warning_indicator == 1)
-	{
-		tickCounter++;
-		if (tickCounter >=1)  // Adjust this value to control blink frequency
-		{
-			FuelIcon_r.setVisible(!FuelIcon_r.isVisible());
-			FuelIcon_r.invalidate();
-			tickCounter = 0;
-		}
-	}
-	else
-	{
-		FuelIcon_r.setVisible(false);
-		FuelIcon_r.invalidate();
-	}
+    if (state)
+    {
+        tickCounters++;
+        if (tickCounters >= frequency)
+        {
+            icon.setVisible(!icon.isVisible());
+            icon.invalidate();
+            tickCounters = 0;
+        }
+    }
+    else
+    {
+        icon.setVisible(false);
+        icon.invalidate();
+        tickCounters = 0; // Reset tickCounter when state is false
+    }
 }
 
+
+void Screen1View::IndicatorsStatus(IndicationStatus_t newIndicators)
+{
+    BlinkIndicator(newIndicators.indicators.right_indicator, tickCounterRightIndicator, RightIndicator_r, 7);
+    BlinkIndicator(newIndicators.indicators.left_indicator, tickCounterLeftIndicator, LeftIndicator_r, 7);
+    BlinkIndicator(newIndicators.indicators.parking_indicator, tickCounterParking, Parking_r, 7);
+    BlinkIndicator(newIndicators.indicators.HighBeam_indicator, tickCounterHighBeam, HighBeam_r, 7);
+    BlinkIndicator(newIndicators.indicators.LowBeam_indicator, tickCounterLowBeam, LowBeam_r, 7);
+    BlinkIndicator(newIndicators.indicators.engine_oil_temp_indicator, tickCounterEngineOilTemp, Temperature_r, 7);
+    BlinkIndicator(newIndicators.indicators.seat_belt_indicator, tickCounterSeatBelt, SeatBelt_r, 7);
+    BlinkIndicator(newIndicators.indicators.engine_malfunction_indicator, tickCounterEngineMalfunction, EngineWarning_y, 7);
+    BlinkIndicator(newIndicators.indicators.door_open_indicator, tickCounterDoorOpen, DoorsIcon_r, 7);
+    BlinkIndicator(newIndicators.indicators.abs_warning_indicator, tickCounterABSWarning, ABS_Detection_r, 7);
+    BlinkIndicator(newIndicators.indicators.FaultyRight_indicator, tickCounterFaultyRightIndicator, RightIndicator_r, 1);
+    BlinkIndicator(newIndicators.indicators.FaultyLeft_indicator, tickCounterFaultyLeftIndicator, LeftIndicator_r, 1);
+    BlinkIndicator(newIndicators.indicators.low_battery_indicator, tickCounterLowBattery, LowBatteryIcon_r, 7);
+    BlinkIndicator(newIndicators.indicators.service_reminder_indicator, tickCounterServiceReminder, ServiceReminder_y, 7);
+    BlinkIndicator(newIndicators.indicators.tachometer_indicator, tickCounterTachometer, RPMIcon_r,7);
+    BlinkIndicator(newIndicators.indicators.Fuel_warning_indicator, tickCounterFuelWarning, FuelIcon_r, 7);
+
+    // Color handling for over_speed_indicator (no blinking, just color change)
+    if (newIndicators.indicators.over_speed_indicator == 1)
+    {
+        Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+        Speed_Ta.invalidate();
+    }
+    else
+    {
+        Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+        Speed_Ta.invalidate();
+    }
+}
 
 
 

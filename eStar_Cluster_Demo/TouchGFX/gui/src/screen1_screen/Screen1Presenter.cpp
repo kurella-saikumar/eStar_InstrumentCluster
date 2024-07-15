@@ -63,9 +63,9 @@ void Screen1Presenter::notifyRANGEDataChanged(uint16_t newRANGE)
 	view.RANGEValue(newRANGE);
 }
 
-void Screen1Presenter::notifyClockDataChanged(uint8_t Hours,uint8_t Minutes,uint8_t TimeFormat)
+void Screen1Presenter::notifyClockDataChanged(uint8_t Hours,uint8_t Minutes,uint8_t Seconds, uint8_t TimeFormat)
 {
-	view.ClockUpdate(Hours,Minutes,TimeFormat);
+	view.ClockUpdate(Hours,Minutes,Seconds,TimeFormat);
 }
 
 //void Screen1Presenter::notifyClockEditingDataChanged(uint8_t ClockEditingMode)

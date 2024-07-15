@@ -406,10 +406,10 @@
           },
           {
             "Type": "TextArea",
-            "Name": "Clock",
+            "Name": "Clock_HR",
             "X": 393,
             "Y": 15,
-            "Width": 51,
+            "Width": 25,
             "Height": 25,
             "TextId": "__SingleUse_M204",
             "TextRotation": "0",
@@ -422,18 +422,48 @@
               "TextId": "__SingleUse_KYEZ",
               "UseBuffer": true,
               "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "Clock_MN",
+            "X": 419,
+            "Y": 15,
+            "Width": 25,
+            "Height": 25,
+            "TextId": "__SingleUse_BVFY",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
             },
-            "Wildcard2": {
-              "TextId": "__SingleUse_JGEB",
+            "Wildcard1": {
+              "TextId": "__SingleUse_OFVJ",
               "UseBuffer": true,
               "BufferSize": 10
             }
           },
           {
             "Type": "TextArea",
+            "Name": "Clock_SEC",
+            "X": 406,
+            "Y": 15,
+            "Width": 25,
+            "Height": 25,
+            "TextId": "__SingleUse_IOGO",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            }
+          },
+          {
+            "Type": "TextArea",
             "Name": "AM_PM",
             "X": 444,
-            "Y": 23,
+            "Y": 22,
             "Width": 15,
             "Height": 17,
             "TextId": "__SingleUse_KI12",

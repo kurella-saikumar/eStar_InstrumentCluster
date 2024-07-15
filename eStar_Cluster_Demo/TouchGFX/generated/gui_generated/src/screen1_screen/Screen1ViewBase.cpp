@@ -190,17 +190,29 @@ Screen1ViewBase::Screen1ViewBase()
     DriverInfoMenu.setTypedText(touchgfx::TypedText(T___SINGLEUSE_OOJU));
     add(DriverInfoMenu);
 
-    Clock.setPosition(393, 15, 51, 25);
-    Clock.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    Clock.setLinespacing(0);
-    touchgfx::Unicode::snprintf(ClockBuffer1, CLOCKBUFFER1_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_KYEZ).getText());
-    Clock.setWildcard1(ClockBuffer1);
-    touchgfx::Unicode::snprintf(ClockBuffer2, CLOCKBUFFER2_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_JGEB).getText());
-    Clock.setWildcard2(ClockBuffer2);
-    Clock.setTypedText(touchgfx::TypedText(T___SINGLEUSE_M204));
-    add(Clock);
+    Clock_HR.setPosition(393, 15, 25, 25);
+    Clock_HR.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    Clock_HR.setLinespacing(0);
+    Unicode::snprintf(Clock_HRBuffer, CLOCK_HR_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_KYEZ).getText());
+    Clock_HR.setWildcard(Clock_HRBuffer);
+    Clock_HR.setTypedText(touchgfx::TypedText(T___SINGLEUSE_M204));
+    add(Clock_HR);
 
-    AM_PM.setXY(444, 23);
+    Clock_MN.setPosition(419, 15, 25, 25);
+    Clock_MN.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    Clock_MN.setLinespacing(0);
+    Unicode::snprintf(Clock_MNBuffer, CLOCK_MN_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_OFVJ).getText());
+    Clock_MN.setWildcard(Clock_MNBuffer);
+    Clock_MN.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BVFY));
+    add(Clock_MN);
+
+    Clock_SEC.setPosition(406, 15, 25, 25);
+    Clock_SEC.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    Clock_SEC.setLinespacing(0);
+    Clock_SEC.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IOGO));
+    add(Clock_SEC);
+
+    AM_PM.setXY(444, 22);
     AM_PM.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     AM_PM.setLinespacing(0);
     Unicode::snprintf(AM_PMBuffer, AM_PM_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_TIW9).getText());

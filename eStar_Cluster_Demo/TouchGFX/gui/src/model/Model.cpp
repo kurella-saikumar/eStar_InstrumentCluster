@@ -12,41 +12,31 @@
 #include "../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h"
 #include "../../../../STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_App.h"
 
-bool isButtonPressed = false;
-//static uint32_t ulOdoCounter = 0;
 
-//uint8_t odoUnits[4]; // Assuming the function returns an array of 4 uint8_t
-uint8_t Fuel_Readings[4];
-
-DriverInfoModeStatus_t DIM_Value;
-IndicationStatus_t RPMWarning;
 IndicationStatus_t   Status;
-//ClockEditActions_t ClockEditingMode;
+
 
 #if 1
 //clock variables//
 extern RTC_TimeTypeDef xTime;
 uint8_t Hours;
 uint8_t Minutes;
+uint8_t Seconds;
 uint8_t TimeFormat;
 #endif
 
-bool RPMWarning_Status;
-bool FuelWarning_Status;
 
 
-Model::Model() : modelListener(0),counter(0),TickCount(0)
+Model::Model() : modelListener(0),TickCount(0)
 {
 
 }
-
-
 
 void Model::tick()
 {
 	TickCount++;
 
-	if (TickCount > 100)
+	if (TickCount >10)
 	{
 		MetricsToggle();
 		SpeedData();
@@ -93,7 +83,6 @@ void Model::OdoData()
 
 void Model::FuelData()
 {
-	//IndicationStatus_t FuelWarningIndication;
 	uint8_t Fuelcount= xGetFuelLevel();
 	// Notify listener about fuelData data change
 	if(modelListener !=0)
@@ -173,12 +162,13 @@ void Model::Clock()
 	vGet_Clock();
 	Hours = xTime.Hours;
 	Minutes = xTime.Minutes;
+	Seconds = xTime.Seconds;
 	TimeFormat = xTime.TimeFormat;
 
 	// Notify listener about Clock data change
 	if(modelListener !=0)
 	{
-		modelListener->notifyClockDataChanged(Hours,Minutes,TimeFormat);
+		modelListener->notifyClockDataChanged(Hours,Minutes,Seconds,TimeFormat);
 	}
 }
 

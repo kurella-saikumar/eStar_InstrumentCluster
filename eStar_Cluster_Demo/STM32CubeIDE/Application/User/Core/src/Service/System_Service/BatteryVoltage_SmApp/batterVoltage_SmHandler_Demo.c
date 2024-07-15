@@ -30,6 +30,7 @@
 #include "batterVoltage_SmHandler.h"
 #include "Analog_debounce.h"
 #include "Analog_debounce_cfg.h"
+#include "../../../App/Indicator_App/Indicator_App.h"
 
 /**************************************************************************************************
  * DEFINE FILE SCOPE MACROS
@@ -78,8 +79,10 @@ void vInULVFunc(void);
  */
 void vULVFunc(void)
 {
+	Status.indicators.low_battery_indicator = 1;
 #if(BATMON_TEST_MACRO == 1)
     printf("\nULTRA_LOW_VOLTAGE_STATE_ENTRY_Action\n");
+
 #endif
 }
 /**
@@ -92,6 +95,7 @@ void vULVFunc(void)
  */
 void vLVFunc(void)
 {
+	Status.indicators.low_battery_indicator = 0;
 #if(BATMON_TEST_MACRO == 1)
     printf("\nLOW_VOLTAGE_STATE_ENTRY_Action\n");
 #endif
@@ -107,6 +111,7 @@ void vLVFunc(void)
  */
 void vNVFunc(void)
 {
+	Status.indicators.low_battery_indicator = 0;
 #if(BATMON_TEST_MACRO == 1)
     printf("\nNORMAL_VOLTAGE_STATE_ENTRY_Action\n");
 #endif
@@ -122,6 +127,7 @@ void vNVFunc(void)
  */
 void vHVFunc(void)
 {
+	Status.indicators.low_battery_indicator = 0;
 #if(BATMON_TEST_MACRO == 1)
     printf("\nHIGH_VOLTAGE_STATE_ENTRY_Action\n");
 #endif
@@ -138,6 +144,7 @@ void vHVFunc(void)
 
 void vInULVFunc(void)
 {
+	Status.indicators.low_battery_indicator = 1;
 #if(BATMON_TEST_MACRO == 1)
     printf("\nUL_UL_voltage\n");
 #endif
@@ -153,6 +160,7 @@ void vInULVFunc(void)
  */
 void vInLVFunc(void)
 {
+	Status.indicators.low_battery_indicator = 0;
 #if(BATMON_TEST_MACRO == 1)
     printf("\nLOW_LOW_voltage\n");
 #endif
@@ -168,6 +176,7 @@ void vInLVFunc(void)
  */
 void vInNVFunc(void)
 {
+	Status.indicators.low_battery_indicator = 0;
 #if(BATMON_TEST_MACRO == 1)
    printf("\nNORMAL_NORMAL_voltage\n");
 #endif
@@ -183,6 +192,7 @@ void vInNVFunc(void)
  */
 void vInHVFunc(void)
 {
+	Status.indicators.low_battery_indicator = 0;
 #if(BATMON_TEST_MACRO == 1)
   printf("\nHIGH_HIGH_voltage\n");
 #endif

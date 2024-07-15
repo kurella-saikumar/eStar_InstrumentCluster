@@ -35,8 +35,6 @@ public:
 
 protected:
     ModelListener* modelListener;
-    uint16_t counter;
-    uint16_t FuelPercentage;
     uint16_t TickCount;
 };
 

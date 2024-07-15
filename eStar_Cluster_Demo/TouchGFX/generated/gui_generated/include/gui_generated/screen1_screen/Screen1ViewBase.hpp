@@ -12,6 +12,7 @@
 #include <touchgfx/widgets/AnimatedImage.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/ScalableImage.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -63,7 +64,9 @@ protected:
     touchgfx::ScalableImage High_beem_Blue;
     touchgfx::AnimatedImage RPMAnimation;
     touchgfx::TextAreaWithOneWildcard DriverInfoMenu;
-    touchgfx::TextAreaWithTwoWildcards Clock;
+    touchgfx::TextAreaWithOneWildcard Clock_HR;
+    touchgfx::TextAreaWithOneWildcard Clock_MN;
+    touchgfx::TextArea Clock_SEC;
     touchgfx::TextAreaWithOneWildcard AM_PM;
     touchgfx::ScalableImage SeatBelt_w;
     touchgfx::ScalableImage SeatBelt_r;
@@ -93,10 +96,10 @@ protected:
     touchgfx::Unicode::UnicodeChar DriverInfoBuffer2[DRIVERINFOBUFFER2_SIZE];
     static const uint16_t DRIVERINFOMENU_SIZE = 20;
     touchgfx::Unicode::UnicodeChar DriverInfoMenuBuffer[DRIVERINFOMENU_SIZE];
-    static const uint16_t CLOCKBUFFER1_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar ClockBuffer1[CLOCKBUFFER1_SIZE];
-    static const uint16_t CLOCKBUFFER2_SIZE = 10;
-    touchgfx::Unicode::UnicodeChar ClockBuffer2[CLOCKBUFFER2_SIZE];
+    static const uint16_t CLOCK_HR_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar Clock_HRBuffer[CLOCK_HR_SIZE];
+    static const uint16_t CLOCK_MN_SIZE = 10;
+    touchgfx::Unicode::UnicodeChar Clock_MNBuffer[CLOCK_MN_SIZE];
     static const uint16_t AM_PM_SIZE = 5;
     touchgfx::Unicode::UnicodeChar AM_PMBuffer[AM_PM_SIZE];
 
