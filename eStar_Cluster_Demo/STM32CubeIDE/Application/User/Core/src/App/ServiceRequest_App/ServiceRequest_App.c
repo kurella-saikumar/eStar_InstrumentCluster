@@ -346,7 +346,9 @@ static uint8_t ucDaycount = 1;
 	 xMonthsElapsed = HAL_RTC_GetDate(&hrtc, &xvar, RTC_FORMAT_BIN);
 	 if(xMonthsElapsed != HAL_OK)
 	 {
+#if(ServiceRequest_TestMacro == 1)
 		printf("HAL_RTC_GetDate failed: %d\r\n", xMonthsElapsed);
+#endif
 	 }
 	 /**: Set initial day from RTC data;*/
 	 ucInitialDay = xvar.Date;

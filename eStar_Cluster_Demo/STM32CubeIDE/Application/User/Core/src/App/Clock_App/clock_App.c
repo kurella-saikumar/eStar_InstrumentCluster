@@ -104,20 +104,28 @@ void vGet_Clock(void)
     xRes = HAL_RTC_GetTime(&hrtc, &xTime, RTC_FORMAT_BIN);
     if(xRes != HAL_OK)
     {
+#if(ClockApp_TestMacro == 1)
     	printf("HAL_RTC_GetTime failed: %d\r\n", xRes);
+#endif
     }
     else
     {
+#if(ClockApp_TestMacro == 1)
     	printf("DT: %02d:%02d:%02d \n", xTime.Hours, xTime.Minutes, xTime.Seconds);
+#endif
     }
     xRes = HAL_RTC_GetDate(&hrtc, &xDate, RTC_FORMAT_BIN);
     if(xRes != HAL_OK)
     {
+#if(ClockApp_TestMacro == 1)
     	printf("HAL_RTC_GetDate failed: %d\r\n", xRes);
+#endif
     }
     else
     {
+#if(ClockApp_TestMacro == 1)
     	printf("Current date: %02d-%02d-%04d\n", xDate.Date, xDate.Month, xDate.Year);
+#endif
     }
 
 }
@@ -128,18 +136,24 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 	{
 	case CLOCK_ENTRY:
 	{
+#if(ClockApp_TestMacro == 1)
 		printf("Clock Edit Mode Entry\n");
+#endif
 		HAL_RTC_GetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
 		ulHours = xEditTime.Hours;
 		ulMinutes = xEditTime.Minutes;
+#if(ClockApp_TestMacro == 1)
 		printf("Hours:%02d,Minutes:%02d \n", ulHours, ulMinutes);
+#endif
 	}
 	break;
 	case MODE_LONGPRESS:
 	{
 		vClock_exit();
 		eclockMode = CLOCK_MODE_INACTIVE;
+#if(ClockApp_TestMacro == 1)
 	    printf("case1");
+#endif
 	}
 	break;
 	case MODE_SHORTPRESS:
@@ -149,24 +163,32 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 		if (ulShiftingPosition == E_CLOCK_INVALID_POS)
 		{
 			ulShiftingPosition = E_CLOCK_HOURS_POS;
+#if(ClockApp_TestMacro == 1)
 			printf("Case2\n");
+#endif
 		}
 		else
 		{
 			/*do nothing*/
+#if(ClockApp_TestMacro == 1)
 			printf("Case2\n");
+#endif
 		}
 	}
 	break;
     case RESET_LONGPRESS_RELEASE:
         	ulContinousIncrement_flag = 0;
+#if(ClockApp_TestMacro == 1)
         	printf("Long Press Release\n\r");
         	printf("Case3\n");
+#endif
         break;
     case RESET_LONGPRESS_HELD:
     	ulContinousIncrement_flag = 1;
+#if(ClockApp_TestMacro == 1)
     	printf("Long Press Held\n\r");
     	printf("Case4\n");
+#endif
     break;
       case RESET_SHORTPRESS:
     	if (ulShiftingPosition == E_CLOCK_HOURS_POS)
@@ -175,7 +197,9 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 			xEditTime.Hours++;
 			// Ensure hours wrap around correctly
 			xEditTime.Hours %= 24;
+#if(ClockApp_TestMacro == 1)
 			printf("case5");
+#endif
 		}
         else if (ulShiftingPosition == E_CLOCK_MINS_POS)
         {
@@ -186,7 +210,9 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 			{
 				// Reset minutes to 0
 				xEditTime.Minutes = 0;
+#if(ClockApp_TestMacro == 1)
 				printf("Case5\n");
+#endif
 				// Increment hours
 //				xEditTime.Hours++;
 				// Ensure hours wrap around correctly
@@ -195,7 +221,9 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 			else
 			{
 				/*do nothing*/
+#if(ClockApp_TestMacro == 1)
 				printf("Case5\n");
+#endif
 			}
 		}
        break;
@@ -207,9 +235,13 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 
 void vClock_exit(void)
 {
+#if(ClockApp_TestMacro == 1)
 	printf("Exit Param: H: %d\tM: %d\n", xEditTime.Hours, xEditTime.Minutes);
+#endif
 	HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
+#if(ClockApp_TestMacro == 1)
 	printf("Clock edit mode exit\n");
+#endif
 }
 
 void ContinousIncrement(void)
@@ -220,7 +252,9 @@ void ContinousIncrement(void)
 		xEditTime.Hours++;
 		// Ensure hours wrap around correctly
 		xEditTime.Hours %= 24;
+#if(ClockApp_TestMacro == 1)
 		printf("ContinousIncrement_Hours:%d",xEditTime.Hours);
+#endif
 	}
 	else if (ulShiftingPosition == E_CLOCK_MINS_POS)
 	{
@@ -235,7 +269,9 @@ void ContinousIncrement(void)
 			xEditTime.Hours++;
 				// Ensure hours wrap around correctly
 			xEditTime.Hours %= 24;
+#if(ClockApp_TestMacro == 1)
 			printf("ContinousIncrement_Minutes:%d",xEditTime.Minutes);
+#endif
 		}
 		else
 		{
@@ -256,7 +292,9 @@ void vClockIncreament(void)
 //		if (0 == xGetResetSwitch())
 //		{
 			ContinousIncrement();
+#if(ClockApp_TestMacro == 1)
 			printf("ContinousIncrement success\n\r");
+#endif
 //		}
 //		else
 //		{

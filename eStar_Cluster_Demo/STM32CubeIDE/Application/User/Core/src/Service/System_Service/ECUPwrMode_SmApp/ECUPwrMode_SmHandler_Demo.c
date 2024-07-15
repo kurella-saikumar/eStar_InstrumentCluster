@@ -92,7 +92,9 @@ void vEcuPwrModeActiveToOffEntryAction(void)
    // printf("wrModeActive_To_Off_EntryAction\n");
     //PowerDown(Hw_ACC_DET);
 	pm_ReqNewState(ECU_POWER_MODE_OFF);
+#if(ECUPwrMode_TestMacro == 1)
 	printf("ECUPwrModeAction_off\n");
+#endif
 
 }
 

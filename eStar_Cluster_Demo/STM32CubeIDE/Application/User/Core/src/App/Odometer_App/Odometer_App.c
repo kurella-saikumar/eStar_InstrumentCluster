@@ -227,18 +227,18 @@ uint16_t xGetTripA_OdoReading(void)
 
         /* Write Odo value into the EEPROM after Trip-A value reaching to its max value */
         *eepromVariables[4] = ulOdoValBeforeTripAReset;
-        uint16_t FlashStatus = xES_WriteVariable((uint32_t)eepromVariables[4], *eepromVariables[4], eepromVariables[4]);
+uint16_t FlashStatus = xES_WriteVariable((uint32_t)eepromVariables[4], *eepromVariables[4], eepromVariables[4]);
 
         if (0 == FlashStatus)
-        {
-#if (ODO_TEST_MACRO == 1)
-            printf("ESWrite Success: EEVar[4]:%ld\n\r", *eepromVariables[4]);
+    	{
+#if(ODO_TEST_MACRO == 1)
+    		printf("ESWrite Success: EEVar[4]:%ld\n\r", *eepromVariables[4]);
 #endif
         }
         else
         {
 #if (ODO_TEST_MACRO == 1)
-            printf("ESWrite Fail:TripAGet\n\r");
+    		printf("ESWrite Fail:TripAGet\n\r");
 #endif
         }
     }
@@ -261,9 +261,9 @@ uint16_t xGetTripA_OdoReading(void)
         TripA_Units = ODO_IN_MILES;
     }
 
-#if (ODO_TEST_MACRO == 1)
+#if(ODO_TEST_MACRO == 1)
     printf("tripA: %d\t", usTripA);
-    printf("TripA_Units: %d\n\r", TripA_Units); // Use TripA_Units here
+printf("TripA_Units: %d\n\r", TripA_Units); // Use TripA_Units here
 #endif
 
     return usTripA;

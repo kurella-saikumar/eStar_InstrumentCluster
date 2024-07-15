@@ -322,43 +322,49 @@ void Screen1View::ClockValueChangingMode(void)
 	switch (ClockEditingMode)
 	{
 		case CLOCK_ENTRY:
-				{
-					updateClock_Hours_Buffer1Visibility(isBlinkingOn);
-				}
+							{
+								updateClock_HoursVisibility();
+							}
 
-				break;
+							break;
 
-		case 1:
-				{
-
-				}
-				break;
+		case MODE_LONGPRESS:
+							{
+								//ClockUpdate (Hours,Minutes,Seconds,TimeFormat);
+							}
+							break;
 
 		case MODE_SHORTPRESS:
-				{
-					ulShiftingPosition++;
-					if (ulShiftingPosition == 1)
-					{
-						updateClock_Minutes_Buffer2Visibility(isBlinkingOn);
-					}
-					else
-					{
-						updateClock_Hours_Buffer1Visibility(isBlinkingOn);
-						ulShiftingPosition = 0;
-					}
-				}
-				break;
+							{
+								ulShiftingPosition++;
+								if (ulShiftingPosition == 1)
+								{
+									updateClock_MinutesVisibility();
+								}
+								else
+								{
+									updateClock_HoursVisibility();
+									ulShiftingPosition = 0;
+								}
+							}
+							break;
 
-		case 4:
-				{
-				}
-				break;
+		case RESET_LONGPRESS_RELEASE:
+							{
+							}
+							break;
 
-		case 5:
-				{
+		case RESET_LONGPRESS_HELD:
+							{
 
-				}
-				break;
+							}
+							break;
+		case RESET_SHORTPRESS:
+							{
+
+							}
+							break;
+
 
 		default:
 				// Handle unknown mode
@@ -369,13 +375,13 @@ void Screen1View::ClockValueChangingMode(void)
 #endif
 
 
-void Screen1View::updateClock_Hours_Buffer1Visibility(bool visible)
+void Screen1View::updateClock_HoursVisibility(void)
 {
 	Clock_HR.setVisible(!Clock_HR.isVisible());
 	Clock_HR.invalidate();
 }
 
-void Screen1View::updateClock_Minutes_Buffer2Visibility(bool visible)
+void Screen1View::updateClock_MinutesVisibility(void)
 {
 	Clock_MN.setVisible(!Clock_MN.isVisible());
 	Clock_MN.invalidate();

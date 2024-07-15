@@ -83,12 +83,12 @@ protected:
 	uint8_t InfoMenu;
     uint8_t ulShiftingPosition;
     int tickCounter;
-    bool isBlinkingOn = 0;
+    //bool isBlinkingOn = 0;
 
 
-    void updateClockVisibility(void);
-    void updateClock_Hours_Buffer1Visibility(bool visible);
-    void updateClock_Minutes_Buffer2Visibility(bool visible);
+    //void updateClockVisibility(void);
+    void updateClock_HoursVisibility(void);
+    void updateClock_MinutesVisibility(void);
     //virtual void ClockValueChangingMode(uint8_t ClockEditingMode);
     void ClockValueChangingMode(void);
     void DriverInforMenu(void);

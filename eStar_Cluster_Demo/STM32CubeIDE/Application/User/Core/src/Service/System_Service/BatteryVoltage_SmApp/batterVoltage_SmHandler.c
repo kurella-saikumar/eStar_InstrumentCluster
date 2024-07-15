@@ -183,7 +183,9 @@ uint8_t ucULVTransCheckFunc(void)
  */
 void vLVEntryActionFunc(void)
 {
+#if(BATMON_TEST_MACRO == 1)
 	printf("STATE- %d\n",get_analog_debounce_state(AD_INDEX_BATTERY_VOLTAGE));
+#endif
     uint8_t ucLVEntryCounter = 0;
     static const BatterVolage_ptr_t LV_EntryState_List[]=
     {

@@ -96,29 +96,39 @@ void vModeSwitchToNext(void)
         {
             case TASK_RANGE: // Add a case for TASK_RANGE
                 vSetDriverInforMenu(TASK_RANGE); // Set current task to TASK_RANGE
+#if(DriverInfoMenuApp_TestMacro == 1)
                 printf("mode press 5 = Range\r\n");
+#endif
                // while(SERCOM4_USART_Write(mode_press5,sizeof(mode_press5))==false);
                 break;
             case TASK_AVS:
                 //current_task = TASK_AVS; // Set current task to TASK_AVS
                 vSetDriverInforMenu(TASK_AVS);
+#if(DriverInfoMenuApp_TestMacro == 1)
                 printf("mode press 1 = AVS\r\n");
+#endif
               //  while(SERCOM4_USART_Write(mode_press1,sizeof(mode_press1))==false);
                 break;
             case TASK_AFE:
                 vSetDriverInforMenu(TASK_AFE); // Set current task to TASK_AFE
+#if(DriverInfoMenuApp_TestMacro == 1)
                 printf("mode press 2 = AFE\r\n");
+#endif
               //  while(SERCOM4_USART_Write(mode_press2,sizeof(mode_press2))==false);
                 break;                
             case TASK_TRIP_ODO_A:
                 vSetDriverInforMenu(TASK_TRIP_ODO_A); // Set current task to TASK_TRIP_ODO_A
+#if(DriverInfoMenuApp_TestMacro == 1)
                 printf("mode press 3 = Trip A\r\n");
+#endif
               //  while(SERCOM4_USART_Write(mode_press3,sizeof(mode_press3))==false);
                 
                 break;
             case TASK_TRIP_ODO_B:
                 vSetDriverInforMenu(TASK_TRIP_ODO_B); // Set current task to TASK_TRIP_ODO_B
+#if(DriverInfoMenuApp_TestMacro == 1)
                 printf("mode press 4 = Trip B\r\n");
+#endif
                // while(SERCOM4_USART_Write(mode_press4,sizeof(mode_press4))==false);
                 break;
             default:
@@ -135,7 +145,9 @@ void vModeSwitchToNext(void)
  */
 DriverInfoModeStatus_t xGetDriverInforMenu(void)
 {
+#if(DriverInfoMenuApp_TestMacro == 1)
 	printf("DriverInfoMode=%d\n",eCurrentTask);
+#endif
     return eCurrentTask;
     
 }

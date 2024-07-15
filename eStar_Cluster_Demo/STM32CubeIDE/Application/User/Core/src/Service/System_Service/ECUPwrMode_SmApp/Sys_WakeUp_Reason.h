@@ -30,6 +30,7 @@ typedef enum
     NoRequestPending
 }pmReqStatus_t;
 
+#define SysWakeup_TestMacro 0
 PM_PWRDN_TYPE checkBootReason(void);
 uint8_t Mcu_GetResetReason(void);
 

@@ -419,7 +419,9 @@ void vHandleModeResetActions(void)
 
 SwitchModesDisplay_t xGetSwitchStatus(void)
 {
+#if (SWITCH_HANDLER_MACRO == 1)
 	printf("todisplay=%d\n",ToDisplay);
+#endif
 	return ToDisplay;
 
 }

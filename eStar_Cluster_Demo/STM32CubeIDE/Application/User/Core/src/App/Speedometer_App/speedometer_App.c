@@ -317,18 +317,23 @@ uint32_t xGetSpeedValue(void)
     if(xSafeSpeedCheck())
     {
     	Status.indicators.over_speed_indicator = 1;
-
-//    	printf("speedDisplayUnits: %d\t", speedDisplayUnits);   //Debug purpose
+#if(SPEEDO_TEST_MACRO == 1)
+    	printf("speedDisplayUnits: %d\t", speedDisplayUnits);   //Debug purpose
+#endif
     }
 
 	if(speedoUnits == SPEED_IN_KMPH)
 	{
-		 printf("speeeeeeed: %d\t", ulSpeedInKm);
+#if(SPEEDO_TEST_MACRO == 1)
+		 printf("speeeeeeed: %ld\t", ulSpeedInKm);
+#endif
 		return ulSpeedInKm;
 	}
 	else if(speedoUnits == SPEED_IN_MPH)
 	{
-		printf("speeeeeeed: %d\t", ulSpeedInKm);
+#if(SPEEDO_TEST_MACRO == 1)
+		printf("speeeeeeed: %ld\t", ulSpeedInKm);
+#endif
 		return ulspeedInMiles;
 	}
 }

@@ -62,7 +62,7 @@ ClockEditModeState_t xGetClockMode(void);
 extern Button_Push_Event_T xGetModeButtonStatus(void);
 extern Button_Push_Event_T xGetResetButtonStatus(void);
 
-#define SWITCH_HANDLER_MACRO 1
+#define SWITCH_HANDLER_MACRO 0
 //extern Clock_Edit_Actions clockSettingGetSetMode(void);
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES
