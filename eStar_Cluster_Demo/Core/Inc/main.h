@@ -85,6 +85,8 @@ void Error_Handler(void);
 #define VSYNC_FREQ_GPIO_Port GPIOA
 #define FuelGuage_Pin GPIO_PIN_0
 #define FuelGuage_GPIO_Port GPIOA
+#define gpio_test_Pin GPIO_PIN_14
+#define gpio_test_GPIO_Port GPIOF
 
 /* USER CODE BEGIN Private defines */
 

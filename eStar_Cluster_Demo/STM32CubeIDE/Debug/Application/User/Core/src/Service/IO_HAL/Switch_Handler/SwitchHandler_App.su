@@ -7,4 +7,4 @@
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:190:20:xClockSettingGetSetMode	8	static
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:258:6:vHandleModeResetActions	24	static
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:420:22:xGetSwitchStatus	0	static
-../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:429:9:xGetToggleMetrics	8	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:429:9:xGetToggleMetrics	0	static

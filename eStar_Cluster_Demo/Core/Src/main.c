@@ -587,7 +587,6 @@ int main(void)
 
   /* Init scheduler */
   osKernelInitialize();
-  HAL_TIM_Base_Start(&htim2);
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
@@ -610,7 +609,7 @@ int main(void)
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* creation of TouchGFXTask */
-  //TouchGFXTaskHandle = osThreadNew(TouchGFX_Task, NULL, &TouchGFXTask_attributes);
+  TouchGFXTaskHandle = osThreadNew(TouchGFX_Task, NULL, &TouchGFXTask_attributes);
 
   /* creation of videoTask */
   videoTaskHandle = osThreadNew(videoTaskFunc, NULL, &videoTask_attributes);
@@ -619,43 +618,43 @@ int main(void)
   //WatchdogServiceHandle = osThreadNew(WDG_SRVC_Task, NULL, &WatchdogService_attributes);
 
   /* creation of DigitalDebounce */
-  DigitalDebounceHandle = osThreadNew(DigitalDebounce_Task, NULL, &DigitalDebounce_attributes);
+  //DigitalDebounceHandle = osThreadNew(DigitalDebounce_Task, NULL, &DigitalDebounce_attributes);
 
   /* creation of State_Manager */
-  //State_ManagerHandle = osThreadNew(State_Machine_Task, NULL, &State_Manager_attributes);
+  State_ManagerHandle = osThreadNew(State_Machine_Task, NULL, &State_Manager_attributes);
 
   /* creation of Analog_Debounce */
-  Analog_DebounceHandle = osThreadNew(Analog_Debounce_Task, NULL, &Analog_Debounce_attributes);
+  //Analog_DebounceHandle = osThreadNew(Analog_Debounce_Task, NULL, &Analog_Debounce_attributes);
 
   /* creation of FuelGuage */
-  FuelGuageHandle = osThreadNew(FuelGuageTask, NULL, &FuelGuage_attributes);
+  //FuelGuageHandle = osThreadNew(FuelGuageTask, NULL, &FuelGuage_attributes);
 
   /* creation of OdoMeter */
-  OdoMeterHandle = osThreadNew(Odo_Task, NULL, &OdoMeter_attributes);
+  //OdoMeterHandle = osThreadNew(Odo_Task, NULL, &OdoMeter_attributes);
 
   /* creation of SpeedoMeter */
-  SpeedoMeterHandle = osThreadNew(Speedo_Task, NULL, &SpeedoMeter_attributes);
+  //SpeedoMeterHandle = osThreadNew(Speedo_Task, NULL, &SpeedoMeter_attributes);
 
   /* creation of TachoMeter */
-  TachoMeterHandle = osThreadNew(Tacho_Task, NULL, &TachoMeter_attributes);
+  //TachoMeterHandle = osThreadNew(Tacho_Task, NULL, &TachoMeter_attributes);
 
   /* creation of SwitchHandler */
-  SwitchHandlerHandle = osThreadNew(SwitchHandlerTask, NULL, &SwitchHandler_attributes);
+  //SwitchHandlerHandle = osThreadNew(SwitchHandlerTask, NULL, &SwitchHandler_attributes);
 
   /* creation of GetClock */
-  GetClockHandle = osThreadNew(GetClockTask, NULL, &GetClock_attributes);
+  //GetClockHandle = osThreadNew(GetClockTask, NULL, &GetClock_attributes);
 
   /* creation of CAN_AppTask */
-  CAN_AppTaskHandle = osThreadNew(CAN_Task, NULL, &CAN_AppTask_attributes);
+  //CAN_AppTaskHandle = osThreadNew(CAN_Task, NULL, &CAN_AppTask_attributes);
 
   /* creation of Indicators_App */
-  Indicators_AppHandle = osThreadNew(IndicatorsApp_Task, NULL, &Indicators_App_attributes);
+  //Indicators_AppHandle = osThreadNew(IndicatorsApp_Task, NULL, &Indicators_App_attributes);
 
   /* creation of ServiceIndicato */
-  ServiceIndicatoHandle = osThreadNew(ServiceIndicatorApp_Task, NULL, &ServiceIndicato_attributes);
+  //ServiceIndicatoHandle = osThreadNew(ServiceIndicatorApp_Task, NULL, &ServiceIndicato_attributes);
 
   /* creation of DriverInfoApp */
-  DriverInfoAppHandle = osThreadNew(DriverInfoApp_Task, NULL, &DriverInfoApp_attributes);
+  //DriverInfoAppHandle = osThreadNew(DriverInfoApp_Task, NULL, &DriverInfoApp_attributes);
 
   /* creation of DeadLock */
   DeadLockHandle = osThreadNew(DeadLockTask, NULL, &DeadLock_attributes);
@@ -1586,6 +1585,9 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(VSYNC_FREQ_GPIO_Port, VSYNC_FREQ_Pin, GPIO_PIN_RESET);
 
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(gpio_test_GPIO_Port, gpio_test_Pin, GPIO_PIN_RESET);
+
   /*Configure GPIO pin : Mode_switch_Pin */
   GPIO_InitStruct.Pin = Mode_switch_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
@@ -1650,6 +1652,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(VSYNC_FREQ_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : gpio_test_Pin */
+  GPIO_InitStruct.Pin = gpio_test_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(gpio_test_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI4_IRQn, 5, 0);
@@ -2716,7 +2725,7 @@ void DigitalDebounce_Task(void *argument)
 
   TaskHandle3_t xTaskHandler;
   xTaskHandler = xTaskGetCurrentTaskHandle();
-  vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,5,SwitchErrorHook1 );
+  vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,4000,SwitchErrorHook1 );
   /* Infinite loop */
   for(;;)
   {
@@ -2818,10 +2827,14 @@ void State_Machine_Task(void *argument)
   for(;;)
   {
 	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T02,vTask_demo1PeriodicityCheckErrorHook02 );
+	  //HAL_GPIO_TogglePin(gpio_test_GPIO_Port, gpio_test_Pin);
+	  HAL_GPIO_WritePin(gpio_test_GPIO_Port, gpio_test_Pin, GPIO_PIN_SET);
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	//HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x4E20, RTC_WAKEUPCLOCK_RTCCLK_DIV16);
 	  State_Manager_task();
-	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1100), execTimeFault_cb2);
+	  //HAL_GPIO_TogglePin(gpio_test_GPIO_Port, gpio_test_Pin);
+	  HAL_GPIO_WritePin(gpio_test_GPIO_Port, gpio_test_Pin, GPIO_PIN_RESET);
+	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1500), execTimeFault_cb2);
 	      osDelay(10);
 
   }
@@ -3384,7 +3397,7 @@ void SwitchHandlerTask(void *argument)
 	  Switch_Task();
 	  vHandleModeResetActions();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb8);
-	  osDelay(1);
+	  osDelay(10);
   }
   /* USER CODE END SwitchHandlerTask */
 }
@@ -3750,7 +3763,7 @@ void ServiceIndicatorApp_Task(void *argument)
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
-	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,0,SwitchErrorHook12 );
+	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook12 );
   /* Infinite loop */
   for(;;)
   {
@@ -3900,7 +3913,7 @@ void MPU_Config(void)
 
   /* Disables the MPU */
   HAL_MPU_Disable();
-
+#if 0
   /** Initializes and configures the Region and the memory to be protected
   */
   MPU_InitStruct.Enable = MPU_REGION_ENABLE;
@@ -3914,6 +3927,36 @@ void MPU_Config(void)
   MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
   MPU_InitStruct.IsCacheable = MPU_ACCESS_NOT_CACHEABLE;
   MPU_InitStruct.IsBufferable = MPU_ACCESS_NOT_BUFFERABLE;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+
+  /* Configure the MPU attributes as WT for OCTOSPI1 */
+  MPU_InitStruct.Enable = MPU_REGION_ENABLE;
+  MPU_InitStruct.BaseAddress = OCTOSPI1_BASE;
+  MPU_InitStruct.Size = MPU_REGION_SIZE_64MB;
+  MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+  MPU_InitStruct.IsBufferable = MPU_ACCESS_BUFFERABLE;
+  MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
+  MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
+  MPU_InitStruct.Number = MPU_REGION_NUMBER1;
+  MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL1;
+  MPU_InitStruct.SubRegionDisable = 0x00;
+  MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+#endif
+  /* Configure the MPU attributes as WT for OCTOSPI2 */
+  MPU_InitStruct.Enable = MPU_REGION_ENABLE;
+  MPU_InitStruct.BaseAddress = OCTOSPI2_BASE;
+  MPU_InitStruct.Size = MPU_REGION_SIZE_128MB;
+  MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+  MPU_InitStruct.IsBufferable = MPU_ACCESS_BUFFERABLE;
+  MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
+  MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
+  MPU_InitStruct.Number = MPU_REGION_NUMBER1;
+  MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL1;
+  MPU_InitStruct.SubRegionDisable = 0x00;
+  MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
 
   HAL_MPU_ConfigRegion(&MPU_InitStruct);
   /* Enables the MPU */
