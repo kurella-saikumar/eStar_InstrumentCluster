@@ -373,13 +373,13 @@ void vWrite_OdoVal_to_EEPROM(void)
 	if (0 == FlashStatus2)
 	{
 #if(EMUL_DEBUG_ENABLE == 0)
-		printf("ESR_S:at %p:0x%lx \n\r",eepromVariables[0],*eepromVariables[0]);
+		//printf("ESR_S:at %p:0x%lx \n\r",eepromVariables[0],*eepromVariables[0]);
 #endif
 	}
 	else
 	{
 #if(EMUL_DEBUG_ENABLE == 0)
-		printf("ESR_F:0x%lx\n\r",FlashStatus2);
+		//printf("ESR_F:0x%lx\n\r",FlashStatus2);
 #endif
 	}
 #endif

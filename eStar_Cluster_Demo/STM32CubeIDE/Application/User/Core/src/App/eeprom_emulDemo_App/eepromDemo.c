@@ -147,13 +147,13 @@ void vEE_Demo(void)
 		if (BSP_ERROR_NONE == FlashStatus2)
 		{
 #if(EMUL_DEBUG_ENABLE == 0)
-			printf("ESR_S:at %p,[%d]:0x%lx \n\r",eepromVariables[jj],jj,*eepromVariables[jj]);
+			//printf("ESR_S:at %p,[%d]:0x%lx \n\r",eepromVariables[jj],jj,*eepromVariables[jj]);
 #endif
 		}
 		else
 		{
 #if(EMUL_DEBUG_ENABLE == 0)
-			printf("ESR_F:0x%x\n\r",FlashStatus2);
+			//printf("ESR_F:0x%x\n\r",FlashStatus2);
 #endif
 		}
 	}

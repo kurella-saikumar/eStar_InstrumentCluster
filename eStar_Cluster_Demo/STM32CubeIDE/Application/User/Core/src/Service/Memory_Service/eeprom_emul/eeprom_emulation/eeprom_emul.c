@@ -1388,7 +1388,7 @@ uint32_t xShadowUpdate(void)
 	if(*UpdateToShadowRAM != Data)
 	{
 #if(EMUL_DEBUG_ENABLE == 0)
-		printf("SHRAM:%ld,Data:%ld\n",*UpdateToShadowRAM,Data);
+		//printf("SHRAM:%ld,Data:%ld\n",*UpdateToShadowRAM,Data);
 #endif
 		if (BSP_ERROR_NONE == xEE_WriteVariable32bits(VirtAddress, Data)) //Write into EEPROM
 		{
