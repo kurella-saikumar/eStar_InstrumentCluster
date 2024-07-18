@@ -550,7 +550,7 @@ int main(void)
   MX_ADC1_Init();
   MX_RTC_Init();
   MX_USART3_UART_Init();
-  MX_IWDG1_Init();
+//  MX_IWDG1_Init();
   MX_ADC3_Init();
   MX_FDCAN3_Init();
   MX_TIM2_Init();
@@ -1325,10 +1325,10 @@ static void MX_RTC_Init(void)
 
   /** Enable the WakeUp
   */
-  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
-  {
-    Error_Handler();
-  }
+//  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
   /* USER CODE BEGIN RTC_Init 2 */
   if(HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR0) != 0x32F2)
   {
@@ -3922,18 +3922,18 @@ void DriverInfoApp_Task(void *argument)
 {
   /* USER CODE BEGIN DriverInfoApp_Task */
 	static TaskRunTimeStat_t p_measurement_var_ptr;
-	vReset_executionTimeStats(&p_measurement_var_ptr);
-
-	TaskHandle3_t xTaskHandler;
-	xTaskHandler = xTaskGetCurrentTaskHandle();
-	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,500,SwitchErrorHook13 );
+//	vReset_executionTimeStats(&p_measurement_var_ptr);
+//
+//	TaskHandle3_t xTaskHandler;
+//	xTaskHandler = xTaskGetCurrentTaskHandle();
+//	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,500,SwitchErrorHook13 );
   /* Infinite loop */
   for(;;)
   {
 	  //vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T13,vTask_demo1PeriodicityCheckErrorHook13 );
-	  vBeginExecMeas(&p_measurement_var_ptr);
+//	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vDriver_InfoTask();
-	 vEndExecMeas(&p_measurement_var_ptr, CONVERT_TIMER_COUNTS_TO_US(1000), execTimeFault_cb13);
+//	 vEndExecMeas(&p_measurement_var_ptr, CONVERT_TIMER_COUNTS_TO_US(1000), execTimeFault_cb13);
     osDelay(1000);
   }
   /* USER CODE END DriverInfoApp_Task */
@@ -3967,9 +3967,9 @@ void SwitchErrorHook14(uint8_t reason)
 void DeadLockTask(void *argument)
 {
   /* USER CODE BEGIN DeadLockTask */
-	TaskHandle3_t xTaskHandler;
-	xTaskHandler = xTaskGetCurrentTaskHandle();
-	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook14 );
+//	TaskHandle3_t xTaskHandler;
+//	xTaskHandler = xTaskGetCurrentTaskHandle();
+//	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook14 );
   /* Infinite loop */
   for(;;)
   {

@@ -1,0 +1,10 @@
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:97:6:vModeButtonPressHandler	0	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:103:6:vResetButtonPressHandler	0	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:117:6:vSwitchHandlerTask	8	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:159:22:xGetClockMode	0	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:174:21:xGetModeButtonStatus	0	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:241:21:xGetResetButtonStatus	0	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:190:20:xClockSettingGetSetMode	8	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:258:6:vHandleModeResetActions	24	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:420:22:xGetSwitchStatus	0	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:429:9:xGetToggleMetrics	0	static

@@ -1,0 +1,2 @@
+../Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.c:117:6:vEE_Demo	32	static
+../Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.c:163:6:vEmul_Init	0	static

@@ -1,0 +1,3 @@
+../Application/User/Core/src/App/Tachometer_App/DisplayBacklightBrightness.c:29:9:BSP_LCD_DisplayOn	8	static
+../Application/User/Core/src/App/Tachometer_App/DisplayBacklightBrightness.c:56:9:BSP_LCD_DisplayOff	8	static
+../Application/User/Core/src/App/Tachometer_App/DisplayBacklightBrightness.c:77:6:vBacklightBrightness	8	static
