@@ -61,7 +61,8 @@ typedef union
 		uint8_t Signal_12 : 1;
 		uint8_t Signal_13 : 1;
 		uint8_t Signal_14 : 1;
-		uint32_t Reserved :18 ;
+		uint8_t Signal_15 : 1;
+		uint32_t Reserved :17 ;
 	}flags;
 }CAN_RxMessage_t;
 

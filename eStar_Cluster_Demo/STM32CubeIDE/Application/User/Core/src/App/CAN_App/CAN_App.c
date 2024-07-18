@@ -151,7 +151,6 @@ void HAL_FDCAN_RxFifo0Callback(FDCAN_HandleTypeDef *hfdcan, uint32_t RxFifo0ITs)
 				  CAN_RxData.flags.Signal_11 = (RxData[1] >> 2) & 0x01;
 				  CAN_RxData.flags.Signal_12 = (RxData[1] >> 3) & 0x01;
 				  CAN_RxData.flags.Signal_13 = (RxData[1] >> 4) & 0x01;
-				  CAN_RxData.flags.Signal_14 = (RxData[1] >> 5) & 0x01;
 			  }
 			  else
 			  {

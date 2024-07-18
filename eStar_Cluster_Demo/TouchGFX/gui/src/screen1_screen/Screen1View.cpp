@@ -449,6 +449,7 @@ void Screen1View::IndicatorsStatus(IndicationStatus_t newIndicators)
     BlinkIndicator(newIndicators.indicators.abs_warning_indicator, tickCounterABSWarning, ABS_Detection_r, 7);
     BlinkIndicator(newIndicators.indicators.FaultyRight_indicator, tickCounterFaultyRightIndicator, RightIndicator_r, 1);
     BlinkIndicator(newIndicators.indicators.FaultyLeft_indicator, tickCounterFaultyLeftIndicator, LeftIndicator_r, 1);
+    BlinkIndicator(newIndicators.indicators.Engine_Oil_indicator, tickCounterEngineOil, EngineOIl_r, 7);
     BlinkIndicator(newIndicators.indicators.low_battery_indicator, tickCounterLowBattery, LowBatteryIcon_r, 7);
     BlinkIndicator(newIndicators.indicators.service_reminder_indicator, tickCounterServiceReminder, ServiceReminder_y, 7);
     BlinkIndicator(newIndicators.indicators.tachometer_indicator, tickCounterTachometer, RPMIcon_r,7);

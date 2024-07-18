@@ -68,12 +68,13 @@ typedef union {
          uint8_t abs_warning_indicator : 1;
          uint8_t FaultyRight_indicator : 1;																			  //
          uint8_t FaultyLeft_indicator :1;
+         uint8_t Engine_Oil_indicator : 1;
          uint8_t low_battery_indicator : 1;
          uint8_t service_reminder_indicator : 1;
          uint8_t tachometer_indicator : 1;
          uint8_t over_speed_indicator : 1;
          uint8_t Fuel_warning_indicator : 1;
-         uint32_t reserved :15;
+         uint32_t reserved :14;
      }indicators;																		  //
 																					  //
 }IndicationStatus_t ;

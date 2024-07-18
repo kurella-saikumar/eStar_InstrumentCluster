@@ -3576,7 +3576,7 @@ void CAN_Task(void *argument)
   {
 	 // vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T10,vTask_demo1PeriodicityCheckErrorHook10 );
 	  vBeginExecMeas(&p_measurement_var_ptr);
-//	vCANTransmit();
+	 // vCANTransmit();
 //	vCANReceive();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb10);
     osDelay(100);

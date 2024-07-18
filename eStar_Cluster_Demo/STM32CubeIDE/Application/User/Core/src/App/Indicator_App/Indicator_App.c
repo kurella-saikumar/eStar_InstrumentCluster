@@ -118,6 +118,7 @@ void vIndicator_App_Task(void)
 		Status.indicators.abs_warning_indicator       = CANRxdata.flags.Signal_10;
 	    Status.indicators.FaultyRight_indicator       = CANRxdata.flags.Signal_11;
 	    Status.indicators.FaultyLeft_indicator	      =	CANRxdata.flags.Signal_12;
+	    Status.indicators.Engine_Oil_indicator	      =	CANRxdata.flags.Signal_13;
 
      }
 #if(Indicator_Macro == 1)

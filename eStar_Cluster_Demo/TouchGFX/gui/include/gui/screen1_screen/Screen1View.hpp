@@ -45,6 +45,7 @@ private:
     uint32_t tickCounterABSWarning;
     uint32_t tickCounterFaultyRightIndicator;
     uint32_t tickCounterFaultyLeftIndicator;
+    uint32_t tickCounterEngineOil;
     uint32_t tickCounterLowBattery;
     uint32_t tickCounterServiceReminder;
     uint32_t tickCounterTachometer;
