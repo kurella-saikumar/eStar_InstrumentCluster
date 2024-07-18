@@ -2561,7 +2561,9 @@ void Disp_imgDataHyperRAM_Init(void)
   */
 void vApplicationStackUsageLimit(TaskHandle2_t xTask, const char *pcTaskName)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("Task handle: %p, Task name: %s, exceeded stack usage limit\n",xTask,pcTaskName);
+#endif
 #if(UART_DEBUG == 1)
 
 	/** @startuml */ /** start */
@@ -2657,7 +2659,9 @@ void WDG_SRVC_Task(void *argument)
 */
 void execTimeFault_cb1(TaskRunTimeStat_t *p_measurement_var_ptr)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("DigitalDebounce_Task_ExeTime Failed\n");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold cExecutionTime ;*/
@@ -2682,7 +2686,9 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T01 = {
 };
 void vTask_demo1PeriodicityCheckErrorHook01(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("DigitalDebounce_Task periodicity Failed");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold FailStatus;*/
@@ -2703,7 +2709,9 @@ void vTask_demo1PeriodicityCheckErrorHook01(TaskPeriodicityCheck_t *xPeriodicity
 }
 void SwitchErrorHook1(uint8_t reason)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("task1 hook- reason:%d \r\n",reason);
+#endif
 #if(UART_DEBUG == 1)
 	/* Buffer to hold checksum status */
 	char cStatusBuffer[50];
@@ -2752,7 +2760,9 @@ void DigitalDebounce_Task(void *argument)
 */
 void execTimeFault_cb2(TaskRunTimeStat_t *p_measurement_var_ptr)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("State_Machine_Task_ExeTime Failed\n");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold cExecutionTime ;*/
@@ -2777,7 +2787,9 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T02 = {
 };
 void vTask_demo1PeriodicityCheckErrorHook02(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("State_Machine_Task periodicity Failed");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold FailStatus;*/
@@ -2798,7 +2810,9 @@ void vTask_demo1PeriodicityCheckErrorHook02(TaskPeriodicityCheck_t *xPeriodicity
 }
 void SwitchErrorHook2(uint8_t reason)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("task2 hook- reason:%d \r\n",reason);
+#endif
 #if(UART_DEBUG == 1)
 	/* Buffer to hold checksum status */
 	char cStatusBuffer[50];
@@ -2844,7 +2858,9 @@ void State_Machine_Task(void *argument)
 */
 void execTimeFault_cb3(TaskRunTimeStat_t *p_measurement_var_ptr)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("Analog_Debounce_Task_ExeTime Failed\n");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold cExecutionTime ;*/
@@ -2869,7 +2885,9 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T03 = {
 };
 void vTask_demo1PeriodicityCheckErrorHook03(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("Analog_Debounce_Task periodicity Failed");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold FailStatus;*/
@@ -2890,7 +2908,9 @@ void vTask_demo1PeriodicityCheckErrorHook03(TaskPeriodicityCheck_t *xPeriodicity
 }
 void SwitchErrorHook3(uint8_t reason)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("task3 hook- reason:%d \r\n",reason);
+#endif
 #if(UART_DEBUG == 1)
 	/* Buffer to hold checksum status */
 	char cStatusBuffer[50];
@@ -2946,7 +2966,9 @@ void Analog_Debounce_Task(void *argument)
 */
 void execTimeFault_cb4(TaskRunTimeStat_t *p_measurement_var_ptr)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("FuelGuageTask_ExeTime Failed\n");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold cExecutionTime ;*/
@@ -2971,7 +2993,9 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T04 = {
 };
 void vTask_demo1PeriodicityCheckErrorHook04(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("FuelGuageTask periodicity Failed\n");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold FailStatus;*/
@@ -2992,7 +3016,9 @@ void vTask_demo1PeriodicityCheckErrorHook04(TaskPeriodicityCheck_t *xPeriodicity
 }
 void SwitchErrorHook4(uint8_t reason)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("task4 hook- reason:%d \r\n",reason);
+#endif
 #if(UART_DEBUG == 1)
 	/* Buffer to hold checksum status */
 	char cStatusBuffer[50];
@@ -3041,7 +3067,9 @@ void FuelGuageTask(void *argument)
 */
 void execTimeFault_cb5(TaskRunTimeStat_t *p_measurement_var_ptr)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("Odo_Task_ExeTime Failed\n");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold cExecutionTime ;*/
@@ -3066,7 +3094,9 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T05 = {
 };
 void vTask_demo1PeriodicityCheckErrorHook05(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("Odo_Task periodicity Failed");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold FailStatus;*/
@@ -3087,7 +3117,9 @@ void vTask_demo1PeriodicityCheckErrorHook05(TaskPeriodicityCheck_t *xPeriodicity
 }
 void SwitchErrorHook5(uint8_t reason)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("task5 hook- reason:%d \r\n",reason);
+#endif
 #if(UART_DEBUG == 1)
 	/* Buffer to hold checksum status */
 	char cStatusBuffer[50];
@@ -3132,7 +3164,9 @@ void Odo_Task(void *argument)
 */
 void execTimeFault_cb6(TaskRunTimeStat_t *p_measurement_var_ptr)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("Speedo_Task_ExeTime Failed\n");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold cExecutionTime ;*/
@@ -3157,7 +3191,9 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T06 = {
 };
 void vTask_demo1PeriodicityCheckErrorHook06(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("Speedo_Task periodicity Failed");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold FailStatus;*/
@@ -3178,7 +3214,9 @@ void vTask_demo1PeriodicityCheckErrorHook06(TaskPeriodicityCheck_t *xPeriodicity
 }
 void SwitchErrorHook6(uint8_t reason)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("task6 hook- reason:%d \r\n",reason);
+#endif
 #if(UART_DEBUG == 1)
 	/* Buffer to hold checksum status */
 	char cStatusBuffer[50];
@@ -3224,7 +3262,9 @@ void Speedo_Task(void *argument)
 */
 void execTimeFault_cb7(TaskRunTimeStat_t *p_measurement_var_ptr)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("Tacho_Task_ExeTime Failed\n");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold cExecutionTime ;*/
@@ -3249,7 +3289,9 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T07 = {
 };
 void vTask_demo1PeriodicityCheckErrorHook07(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("Tacho_Task periodicity Failed");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold FailStatus;*/
@@ -3270,7 +3312,9 @@ void vTask_demo1PeriodicityCheckErrorHook07(TaskPeriodicityCheck_t *xPeriodicity
 }
 void SwitchErrorHook7(uint8_t reason)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("task7 hook- reason:%d \r\n",reason);
+#endif
 #if(UART_DEBUG == 1)
 	/* Buffer to hold checksum status */
 	char cStatusBuffer[50];
@@ -3314,7 +3358,9 @@ void Tacho_Task(void *argument)
 */
 void execTimeFault_cb8(TaskRunTimeStat_t *p_measurement_var_ptr)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("SwitchHandlerTask_ExeTime Failed\n");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold cExecutionTime ;*/
@@ -3339,7 +3385,9 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T08 = {
 };
 void vTask_demo1PeriodicityCheckErrorHook08(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("SwitchHandlerTask periodicity Failed");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold FailStatus;*/
@@ -3361,7 +3409,9 @@ void vTask_demo1PeriodicityCheckErrorHook08(TaskPeriodicityCheck_t *xPeriodicity
 
 void SwitchErrorHook8(uint8_t reason)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("task8 hook- reason:%d \r\n",reason);
+#endif
 #if(UART_DEBUG == 1)
 	/* Buffer to hold checksum status */
 	char cStatusBuffer[50];
@@ -3408,7 +3458,9 @@ void SwitchHandlerTask(void *argument)
 */
 void execTimeFault_cb9(TaskRunTimeStat_t *p_measurement_var_ptr)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("GetClockTask Failed\n");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold cExecutionTime ;*/
@@ -3433,7 +3485,9 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T09 = {
 };
 void vTask_demo1PeriodicityCheckErrorHook09(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("GetClockTask periodicity Failed");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold FailStatus;*/
@@ -3455,7 +3509,9 @@ void vTask_demo1PeriodicityCheckErrorHook09(TaskPeriodicityCheck_t *xPeriodicity
 
 void SwitchErrorHook9(uint8_t reason)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("task9 hook- reason:%d \r\n",reason);
+#endif
 #if(UART_DEBUG == 1)
 	/* Buffer to hold checksum status */
 	char cStatusBuffer[50];
@@ -3500,7 +3556,9 @@ void GetClockTask(void *argument)
 */
 void execTimeFault_cb10(TaskRunTimeStat_t *p_measurement_var_ptr)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("CAN_Task_ExeTime Failed\n");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold cExecutionTime ;*/
@@ -3525,7 +3583,9 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T10 = {
 };
 void vTask_demo1PeriodicityCheckErrorHook10(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("CAN_Task periodicity Failed");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold FailStatus;*/
@@ -3547,7 +3607,9 @@ void vTask_demo1PeriodicityCheckErrorHook10(TaskPeriodicityCheck_t *xPeriodicity
 
 void SwitchErrorHook10(uint8_t reason)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("task10 hook- reason:%d \r\n",reason);
+#endif
 #if(UART_DEBUG == 1)
 	/* Buffer to hold checksum status */
 	char cStatusBuffer[50];
@@ -3592,7 +3654,9 @@ void CAN_Task(void *argument)
 */
 void execTimeFault_cb11(TaskRunTimeStat_t *p_measurement_var_ptr)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("IndicatorsApp_Task_ExeTime Failed\n");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold cExecutionTime ;*/
@@ -3617,7 +3681,9 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T11 = {
 };
 void vTask_demo1PeriodicityCheckErrorHook11(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("IndicatorsApp_Task periodicity Failed");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold FailStatus;*/
@@ -3639,7 +3705,9 @@ void vTask_demo1PeriodicityCheckErrorHook11(TaskPeriodicityCheck_t *xPeriodicity
 
 void SwitchErrorHook11(uint8_t reason)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("task11 hook- reason:%d \r\n",reason);
+#endif
 #if(UART_DEBUG == 1)
 	/* Buffer to hold checksum status */
 	char cStatusBuffer[50];
@@ -3685,7 +3753,9 @@ void IndicatorsApp_Task(void *argument)
 */
 void execTimeFault_cb12(TaskRunTimeStat_t *p_measurement_var_ptr)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("ServiceIndicatorApp_Task_ExeTime Failed\n");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold cExecutionTime ;*/
@@ -3710,7 +3780,9 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T12 = {
 };
 void vTask_demo1PeriodicityCheckErrorHook12(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("ServiceIndicatorApp_Task periodicity Failed");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold FailStatus;*/
@@ -3732,7 +3804,9 @@ void vTask_demo1PeriodicityCheckErrorHook12(TaskPeriodicityCheck_t *xPeriodicity
 
 void SwitchErrorHook12(uint8_t reason)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("task12 hook- reason:%d \r\n",reason);
+#endif
 #if(UART_DEBUG == 1)
 	/* Buffer to hold checksum status */
 	char cStatusBuffer[50];
@@ -3776,7 +3850,9 @@ void ServiceIndicatorApp_Task(void *argument)
 */
 void execTimeFault_cb13(TaskRunTimeStat_t *p_measurement_var_ptr)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("DriverInfoApp_Task_ExeTime Failed\n");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold cExecutionTime ;*/
@@ -3801,7 +3877,9 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T13 = {
 };
 void vTask_demo1PeriodicityCheckErrorHook13(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("DriverInfoApp_Task periodicity Failed");
+#endif
 #if(UART_DEBUG == 1)
 	/** @startuml */ /** start */
 	/**: Buffer to hold FailStatus;*/
@@ -3823,7 +3901,9 @@ void vTask_demo1PeriodicityCheckErrorHook13(TaskPeriodicityCheck_t *xPeriodicity
 
 void SwitchErrorHook13(uint8_t reason)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("task13 hook- reason:%d \r\n",reason);
+#endif
 #if(UART_DEBUG == 1)
 	/* Buffer to hold checksum status */
 	char cStatusBuffer[50];
@@ -3867,7 +3947,9 @@ void DriverInfoApp_Task(void *argument)
 */
 void SwitchErrorHook14(uint8_t reason)
 {
+#if(SafeChecks_TestMacro == 1)
 	printf("task14 hook- reason:%d \r\n",reason);
+#endif
 #if(UART_DEBUG == 1)
 	/* Buffer to hold checksum status */
 	char cStatusBuffer[50];

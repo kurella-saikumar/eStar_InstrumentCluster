@@ -48,6 +48,7 @@ extern TIM_HandleTypeDef htim2;
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
 #define DBGPrints_TestMacro 0
+#define SafeChecks_TestMacro 0
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/

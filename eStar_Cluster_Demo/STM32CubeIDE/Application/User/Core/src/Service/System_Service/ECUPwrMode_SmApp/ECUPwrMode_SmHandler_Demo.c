@@ -76,7 +76,9 @@ void vEcuPwrModeOffActiveEntryAction(void);
  */
 void vEcuPwrModeSleepToOffEntryAction(void)
 {
-  //  printf("ECUPwrModeSleep_To_Off_EntryAction\n");
+#if(ECUPwrMode_TestMacro == 1)
+    printf("ECUPwrModeSleep_To_Off_EntryAction\n");
+#endif
 }
 
 /**
@@ -110,7 +112,9 @@ extern RTC_HandleTypeDef hrtc;
 extern LTDC_HandleTypeDef hltdc;
 void vEcuPwrModeOffToSleepEntryAction(void)
 {
-//    printf("ECUPwrModeOff_To_Sleep_EntryAction\n");
+#if(ECUPwrMode_TestMacro == 1)
+    printf("ECUPwrModeOff_To_Sleep_EntryAction\n");
+#endif
 	HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
 	/*## Configure the Wake up timer ###########################################*/
 	  /*  RTC Wake-up Interrupt Generation:
@@ -148,7 +152,9 @@ void vEcuPwrModeOffToSleepEntryAction(void)
  */
 void vEcuPwrModeActiveToSleepEntryAction(void)
 {
-   // printf("ECUPwrModeActive_To_Sleep_EntryAction\n");
+#if(ECUPwrMode_TestMacro == 1)
+    printf("ECUPwrModeActive_To_Sleep_EntryAction\n");
+#endif
 }
 
 
@@ -162,7 +168,9 @@ void vEcuPwrModeActiveToSleepEntryAction(void)
  */
 void vEcuPwrModeSleepToActiveEntryAction(void)
 {
-  //  printf("ECUPwrModeSleep_To_Active_EntryAction\n");
+#if(ECUPwrMode_TestMacro == 1)
+    printf("ECUPwrModeSleep_To_Active_EntryAction\n");
+#endif
 }
 
 
@@ -177,6 +185,9 @@ void vEcuPwrModeSleepToActiveEntryAction(void)
 uint16_t l_PowerOff_Sleep_u16 = 0;
 void vEcuPwrModeOffAction(void)
 {
+#if(ECUPwrMode_TestMacro == 1)
+	printf("EcuPwrModeOffAction\n");
+#endif
     //Enable Wakeup Settings
     // Enter into sleep mode
 	/*No warnings, Display OFF - When Warning Indicators are OFF,Display Shall be in OFF mode, All features non functional
@@ -208,7 +219,9 @@ void vEcuPwrModeOffAction(void)
  */
 void vEcuPwrModeSleepAction(void)
 {
-   // printf("ECUPwrModeSleep_Action\n");
+#if(ECUPwrMode_TestMacro == 1)
+    printf("ECUPwrModeSleep_Action\n");
+#endif
 }
 
 
@@ -222,7 +235,9 @@ void vEcuPwrModeSleepAction(void)
  */
 void vEcuPwrModeActiveAction(void)
 {
-   // printf("ECUPwrModeActive_Action\n");
+#if(ECUPwrMode_TestMacro == 1)
+    printf("ECUPwrModeActive_Action\n");
+#endif
 //	 printf("ECUPwrModeOff_To_Sleep_EntryAction\n");
 //		RTC_HandleTypeDef hrtc;
 //		/*## Configure the Wake up timer ###########################################*/
@@ -267,7 +282,9 @@ void vEcuPwrModeActiveAction(void)
 
 void vEcuPwrModeOffActiveEntryAction()
 {
-    //printf("ECUPwrModeOff_Active_ENtryAction\n");
+#if(ECUPwrMode_TestMacro == 1)
+    printf("ECUPwrModeOff_Active_ENtryAction\n");
+#endif
     //PowerDown(Hw_ACC_DET);
 	pm_ReqNewState(ECU_POWER_MODE_ACTIVE);
 }
