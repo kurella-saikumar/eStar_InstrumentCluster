@@ -48,8 +48,8 @@ extern Switch_PushRelease_State_T eResetButtonPushReleaseState;
 /* Macros for short-push,long-push and stuck functionality of all analog and digital switches */
 /*  Stuck functionality is implemented for 5minutes (12000 * 5 = 60000msec) */
 
-#define MODE_BUTTON_DURATIONS_CONFIG {200,3000,30000}
-#define RESET_BUTTON_DURATION_CONFIG {200,3000,30000}
+#define MODE_BUTTON_DURATIONS_CONFIG {4,60,600}
+#define RESET_BUTTON_DURATION_CONFIG {4,60,600}
 
 /**************************************************************************************************************************************************
 *** Only the list name gets used in the code, during initializing the respective array... All items in the list are local to this Configuartion ***

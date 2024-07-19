@@ -109,8 +109,10 @@ void vIgnitionOffFunc(void)
  */
 void vInIgnitionONFunc(void)
 {
+#if(IGN_TestMacro == 1)
     //printf("IGN_STATE_in_IGNON_Action\r\n");
      printf("\nIGNON_To_IGNON_STATE\n");
+#endif
 } 
 
 /**
@@ -124,8 +126,10 @@ void vInIgnitionONFunc(void)
 
 void vInIgnitionOffFunc(void)
 {
+#if(IGN_TestMacro == 1)
     //printf("IGN_STATE_in_IGNOFF_Action\r\n");
     printf("\nIGNOFF_To_IGNOFF_STATE\n");
+#endif
 } 
 
 /**************************************************************************************************
