@@ -81,6 +81,8 @@ extern "C" {
 
 SwitchModesDisplay_t xGetSwitchStatus(void);
 uint8_t xGetToggleMetrics(void);
+
+uint8_t xToggleUnits(void);
 #ifdef __cplusplus
 }
 #endif

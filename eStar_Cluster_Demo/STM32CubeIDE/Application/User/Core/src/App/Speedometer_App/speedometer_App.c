@@ -338,4 +338,9 @@ uint32_t xGetSpeedValue(void)
 	}
 }
 
+uint32_t GetSpeedValueInKM(void)
+{
+	return ulSpeedInKm;
+}
+
 #endif	/* SPEEDOMETER_C */

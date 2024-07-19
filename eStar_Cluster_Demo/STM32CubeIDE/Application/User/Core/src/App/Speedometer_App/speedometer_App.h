@@ -58,10 +58,14 @@ bool xSafeSpeedCheck(void);
 void vCustomizeSpeedUnits(void);
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 uint32_t xGetSpeedValue(void);
+
+uint32_t GetSpeedValueInKM(void);
+
 
 #ifdef __cplusplus
 }

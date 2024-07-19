@@ -348,7 +348,7 @@ uint16_t xGetTripB_OdoReading(void)
     printf("TripB_Units: %d\n\r", TripB_Units); // Use TripB_Units here
 #endif
 
-    return usTripB; // You might need to change the return type if necessary
+    return usTripB;
 }
 void vWrite_OdoVal_to_EEPROM(void)
 {
@@ -462,25 +462,7 @@ uint32_t xGetOdoReadings(void)
  * @return void
  */
 
-uint8_t xToggleOdoUnits(void)
-{
 
-    if(OdometerUnits == ODO_IN_KM)
-    {
-#if (ODO_TEST_MACRO == 1)
-    	printf("Units: MILE\n");
-#endif
-        OdometerUnits = ODO_IN_MILES;
-    }
-    else
-    {
-#if (ODO_TEST_MACRO == 1)
-    	printf("Units: KM\n");
-#endif
-        OdometerUnits = ODO_IN_KM;
-    }
-    return OdometerUnits;
-}
 
 #endif	/* ODOMETER_C */
 

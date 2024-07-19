@@ -10,3 +10,4 @@
 ../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:246:6:xSafeSpeedCheck	5
 ../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:287:6:vCustomizeSpeedUnits	1
 ../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:311:10:xGetSpeedValue	4
+../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:341:10:GetSpeedValueInKM	1

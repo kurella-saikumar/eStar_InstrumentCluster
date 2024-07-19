@@ -36,6 +36,7 @@ RM := rm -rf
 -include Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/Switch_Handler/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/Switch/subdir.mk
+-include Application/User/Core/src/Service/IO_HAL/Moving_Average_Algorithm/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/ICU_middleware/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/DigitalDebounce/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/Damping_Filter/subdir.mk

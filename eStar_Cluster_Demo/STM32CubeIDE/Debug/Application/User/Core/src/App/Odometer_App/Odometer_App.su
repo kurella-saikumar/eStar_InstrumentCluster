@@ -11,4 +11,3 @@
 ../Application/User/Core/src/App/Odometer_App/Odometer_App.c:107:6:vOdoAlgorithm	8	static
 ../Application/User/Core/src/App/Odometer_App/Odometer_App.c:388:6:vRetrive_LastStored_OdoVal_from_EEPROM	0	static
 ../Application/User/Core/src/App/Odometer_App/Odometer_App.c:414:10:xGetOdoReadings	0	static
-../Application/User/Core/src/App/Odometer_App/Odometer_App.c:465:9:xToggleOdoUnits	0	static

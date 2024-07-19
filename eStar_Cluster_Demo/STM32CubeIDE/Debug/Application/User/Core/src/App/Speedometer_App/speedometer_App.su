@@ -10,3 +10,4 @@
 ../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:246:6:xSafeSpeedCheck	0	static
 ../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:287:6:vCustomizeSpeedUnits	0	static
 ../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:311:10:xGetSpeedValue	8	static
+../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:341:10:GetSpeedValueInKM	0	static

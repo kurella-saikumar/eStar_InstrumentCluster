@@ -113,8 +113,8 @@ void Screen1View::TRIP_B(uint16_t newTripB_Value)
 
 void Screen1View::AVSValue(uint32_t newAVS)
 {
-	storednewAVS1 = newAVS / 10;
-	storednewAVS2 = newAVS % 10;
+	storednewAVS1 = newAVS;
+	storednewAVS2 = 00;
 }
 
 void Screen1View::AFEValue(uint32_t newAFE)

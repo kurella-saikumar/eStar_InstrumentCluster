@@ -55,6 +55,7 @@ Application/User/Core/src/Service/IO_HAL/AnalogDebounce \
 Application/User/Core/src/Service/IO_HAL/Damping_Filter \
 Application/User/Core/src/Service/IO_HAL/DigitalDebounce \
 Application/User/Core/src/Service/IO_HAL/ICU_middleware \
+Application/User/Core/src/Service/IO_HAL/Moving_Average_Algorithm \
 Application/User/Core/src/Service/IO_HAL/Switch \
 Application/User/Core/src/Service/IO_HAL/Switch_Handler \
 Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation \

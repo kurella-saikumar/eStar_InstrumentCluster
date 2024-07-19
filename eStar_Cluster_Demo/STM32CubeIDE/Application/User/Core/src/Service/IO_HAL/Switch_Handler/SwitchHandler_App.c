@@ -267,9 +267,9 @@ void vHandleModeResetActions(void)
     	ucModeButtonEventStatus = 0xFF;
     	ucResetButtonEventStatus= 0xFF;
     	ToDisplay =ODO_METER_TOGGLE;
-    	ToggleMetrics = xToggleOdoUnits();
+    	ToggleMetrics = xToggleUnits();
 
-    	vCustomizeSpeedUnits();
+    	//vCustomizeSpeedUnits();
 
 
 #if (SWITCH_HANDLER_MACRO == 1)
@@ -432,6 +432,21 @@ uint8_t xGetToggleMetrics(void)
 	printf("after pressing the switches : %d\n", ToggleMetrics );
 #endif
 	return ToggleMetrics;
+}
+
+uint8_t UserDriverUnits = 0;
+uint8_t xToggleUnits(void)
+{
+
+    if(UserDriverUnits == ODO_IN_KM)
+    {
+    	UserDriverUnits = ODO_IN_MILES;
+    }
+    else
+    {
+    	UserDriverUnits = ODO_IN_KM;
+    }
+    return UserDriverUnits;
 }
 
 

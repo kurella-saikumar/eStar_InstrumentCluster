@@ -21,6 +21,7 @@
 "./Application/User/Core/src/Service/IO_HAL/Damping_Filter/damp_out.o"
 "./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o"
 "./Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.o"
+"./Application/User/Core/src/Service/IO_HAL/Moving_Average_Algorithm/moving_avg.o"
 "./Application/User/Core/src/Service/IO_HAL/Switch/switch.o"
 "./Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.o"
 "./Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.o"

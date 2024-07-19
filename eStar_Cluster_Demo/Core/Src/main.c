@@ -3921,6 +3921,9 @@ void SwitchErrorHook13(uint8_t reason)
 void DriverInfoApp_Task(void *argument)
 {
   /* USER CODE BEGIN DriverInfoApp_Task */
+	AVSreset_IO_LM_BV_FA_data();
+	Odoreset_IO_LM_BV_FA_data();
+	Fuelreset_IO_LM_BV_FA_data();
 	static TaskRunTimeStat_t p_measurement_var_ptr;
 	vReset_executionTimeStats(&p_measurement_var_ptr);
 
