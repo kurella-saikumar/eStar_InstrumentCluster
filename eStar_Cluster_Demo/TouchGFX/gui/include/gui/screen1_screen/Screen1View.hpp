@@ -80,9 +80,8 @@ protected:
     uint8_t Hour;
 	uint8_t Minute;
 	uint8_t TimeFormats;
-	ClockEditActions_t ClockEditingMode;
+	//ClockEditActions_t ClockEditing;
 	uint8_t InfoMenu;
-    uint8_t ulShiftingPosition;
     int tickCounter;
     //bool isBlinkingOn = 0;
 
@@ -90,6 +89,12 @@ protected:
     //void updateClockVisibility(void);
     void updateClock_HoursVisibility(void);
     void updateClock_MinutesVisibility(void);
+    void startBlinkingHours(void);
+    void startBlinkingMinutes(void);
+    void stopBlinking(void);
+    void StopHoursBlinking(void);
+    void StopMinutesBlinking(void);
+
     //virtual void ClockValueChangingMode(uint8_t ClockEditingMode);
     void ClockValueChangingMode(void);
     void DriverInforMenu(void);

@@ -315,11 +315,11 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 }
 #endif
 
-#if 1
+#if 0
 void Screen1View::ClockValueChangingMode(void)
 {
-	clockSettingRunMode(ClockEditingMode);
-	switch (ClockEditingMode)
+
+	switch (ClockEditing)
 	{
 		case CLOCK_ENTRY:
 							{
@@ -378,6 +378,7 @@ void Screen1View::ClockValueChangingMode(void)
 void Screen1View::updateClock_HoursVisibility(void)
 {
 	Clock_HR.setVisible(!Clock_HR.isVisible());
+	//Clock_HR.setVisible(Clock_HR.isVisible());
 	Clock_HR.invalidate();
 }
 
@@ -388,6 +389,109 @@ void Screen1View::updateClock_MinutesVisibility(void)
 }
 
 
+
+void Screen1View::ClockValueChangingMode(void)
+{
+	bool ulShiftingPosition;
+    switch (ClockEditing)
+    {
+        case CLOCK_ENTRY:
+            {
+            	updateClock_HoursVisibility();
+//                startBlinkingHours();
+//                StopMinutesBlinking();
+            }
+            break;
+
+        case MODE_LONGPRESS:
+            {
+                stopBlinking();
+            }
+            break;
+
+        case MODE_SHORTPRESS:
+            {
+                ulShiftingPosition++;
+                if (ulShiftingPosition == 1)
+                {
+                	Clock_MN.setVisible(!Clock_MN.isVisible());
+                	Clock_MN.invalidate();
+
+//                    startBlinkingMinutes();
+//                    StopHoursBlinking();
+
+                }
+                else if (ulShiftingPosition == 0)
+                {
+                	Clock_HR.setVisible(!Clock_HR.isVisible());
+                	Clock_HR.invalidate();
+//                	updateClock_HoursVisibility();
+//                    StopMinutesBlinking();
+                    ulShiftingPosition = 0;
+                }
+                else
+                {
+
+                }
+
+            }
+            break;
+
+        case RESET_LONGPRESS_RELEASE:
+            {
+                // Add logic if required
+            }
+            break;
+
+        case RESET_LONGPRESS_HELD:
+            {
+                // Add logic if required
+            }
+            break;
+
+        case RESET_SHORTPRESS:
+            {
+                // Add logic if required
+            }
+            break;
+
+        default:
+            // Handle unknown mode
+            break;
+    }
+}
+
+void Screen1View::startBlinkingHours(void)
+{
+	Clock_HR.setVisible(!Clock_HR.isVisible());
+    Clock_HR.invalidate();
+}
+
+void Screen1View::startBlinkingMinutes(void)
+{
+	Clock_MN.setVisible(!Clock_MN.isVisible());
+    Clock_MN.invalidate();
+}
+
+void Screen1View::stopBlinking(void)
+{
+    Clock_HR.setVisible(true);
+    Clock_HR.invalidate();
+    Clock_MN.setVisible(true);
+    Clock_MN.invalidate();
+}
+
+void Screen1View::StopHoursBlinking(void)
+{
+    Clock_HR.setVisible(true);
+    Clock_HR.invalidate();
+}
+
+void Screen1View::StopMinutesBlinking(void)
+{
+    Clock_MN.setVisible(true);
+    Clock_MN.invalidate();
+}
 
 void Screen1View:: SwitchingModes(uint8_t SwitchStatus)
 {

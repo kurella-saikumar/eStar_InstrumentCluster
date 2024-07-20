@@ -8,6 +8,6 @@
 ../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:327:6:vCalculateRange	16	static
 ../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:64:6:vDriver_InfoTask	8	static
 ../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:422:10:DisplayDTE	0	static
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:447:10:xGetAVSstatus	8	static
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:457:10:xGetAFEstatus	8	static
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:465:10:xGetRANGEstatus	8	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:447:10:xGetAVSstatus	0	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:457:10:xGetAFEstatus	0	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:465:10:xGetRANGEstatus	0	static

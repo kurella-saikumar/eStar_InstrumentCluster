@@ -446,7 +446,7 @@ uint16_t DisplayDTE(bool flag,uint16_t uspresent_DTE )
 
 uint32_t xGetAVSstatus(void)
 {
-	printf("AVS:%ld\n",ModeStatus.AverageVehicleSpeed);
+	//printf("AVS:%ld\n",ModeStatus.AverageVehicleSpeed);
 	return ModeStatus.AverageVehicleSpeed;
 
 //	return ulFinal_AVS;
@@ -456,7 +456,7 @@ uint32_t xGetAVSstatus(void)
 
 uint32_t xGetAFEstatus(void)
 {
-	printf("AFE:%ld\n",ModeStatus.AverageFuelEconomy);
+	//printf("AFE:%ld\n",ModeStatus.AverageFuelEconomy);
 	return ModeStatus.AverageFuelEconomy;
 	//return ulAfe;
 }
@@ -479,7 +479,7 @@ uint16_t xGetRANGEstatus(void)
 
 		//uint16_t FinalDte = (uint16_t)ModeStatus.Range;
 		FinalRange = RangeValue;
-		printf("Range:%ld\n",FinalRange);
+		//printf("Range:%ld\n",FinalRange);
 
 		return FinalRange;
 }

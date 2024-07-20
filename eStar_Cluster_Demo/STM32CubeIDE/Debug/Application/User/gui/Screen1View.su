@@ -10,7 +10,7 @@ D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/scr
 ../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:15:13:Screen1View::~Screen1View()	8	static
 ../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:15:13:virtual Screen1View::~Screen1View()	8	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:9:1:Screen1View::Screen1View()	8	static
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:417:6:void Screen1View::BlinkIndicator(bool, uint32_t&, touchgfx::Image&, uint32_t)	16	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:521:6:void Screen1View::BlinkIndicator(bool, uint32_t&, touchgfx::Image&, uint32_t)	16	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:18:6:virtual void Screen1View::setupScreen()	8	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:39:6:virtual void Screen1View::SpeedUpdate(uint32_t)	8	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:47:6:virtual void Screen1View::OdoDataUpdate(uint32_t)	8	static
@@ -20,7 +20,12 @@ D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/scr
 D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:180:6:virtual void Screen1View::MetricsToggle(uint8_t)	24	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:213:6:virtual void Screen1View::ClockUpdate(uint8_t, uint8_t, uint8_t, uint8_t)	24	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:378:6:void Screen1View::updateClock_HoursVisibility()	0	static
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:384:6:void Screen1View::updateClock_MinutesVisibility()	0	static
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:319:6:void Screen1View::ClockValueChangingMode()	16	static
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:392:6:virtual void Screen1View::SwitchingModes(uint8_t)	0	static
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:438:6:virtual void Screen1View::IndicatorsStatus(IndicationStatus_t)	40	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:464:6:void Screen1View::startBlinkingHours()	0	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:385:6:void Screen1View::updateClock_MinutesVisibility()	0	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:470:6:void Screen1View::startBlinkingMinutes()	0	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:476:6:void Screen1View::stopBlinking()	16	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:393:6:void Screen1View::ClockValueChangingMode()	0	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:496:6:virtual void Screen1View::SwitchingModes(uint8_t)	0	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:484:6:void Screen1View::StopHoursBlinking()	0	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:490:6:void Screen1View::StopMinutesBlinking()	0	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:542:6:virtual void Screen1View::IndicatorsStatus(IndicationStatus_t)	40	static
