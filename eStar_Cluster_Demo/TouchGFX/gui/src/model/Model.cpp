@@ -36,7 +36,7 @@ void Model::tick()
 {
 	TickCount++;
 
-	if (TickCount >10)
+	if (TickCount >50)
 	{
 		MetricsToggle();
 		SpeedData();

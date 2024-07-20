@@ -33,13 +33,7 @@ ClockEditModeState_t eclockMode ;
 /**************************************************************************************************
  * DEFINE FILE SCOPE MACROS
 ***************************************************************************************************/
-typedef enum
-{
-	E_CLOCK_HOURS_POS,
-	E_CLOCK_MINS_POS,
-	E_CLOCK_INVALID_POS
 
-}en_clockShiftingPositionType_t;
 
 /**************************************************************************************************
  * DEFINE FILE SCOPE TYPES
@@ -56,7 +50,7 @@ extern RTC_HandleTypeDef hrtc;
 ***************************************************************************************************/
 uint8_t ulHours,ulMinutes;
 
-uint8_t ulShiftingPosition = E_CLOCK_HOURS_POS;
+en_clockShiftingPositionType_t ulShiftingPosition = E_CLOCK_HOURS_POS;
 /*
  * @brief Variable representing the RTC time.
  */
@@ -200,6 +194,7 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 			xEditTime.Hours++;
 			// Ensure hours wrap around correctly
 			xEditTime.Hours %= 24;
+			HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
 #if(ClockApp_TestMacro == 1)
 			printf("case5");
 #endif
@@ -208,11 +203,14 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
         {
 			// Increment minutes
 			xEditTime.Minutes++;
+
+			HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
 			// Check if minutes reached 60
 			if (xEditTime.Minutes == 60)
 			{
 				// Reset minutes to 0
 				xEditTime.Minutes = 0;
+				HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
 #if(ClockApp_TestMacro == 1)
 				printf("Case5\n");
 #endif
@@ -255,6 +253,7 @@ void ContinousIncrement(void)
 		xEditTime.Hours++;
 		// Ensure hours wrap around correctly
 		xEditTime.Hours %= 24;
+		HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
 #if(ClockApp_TestMacro == 1)
 		printf("ContinousIncrement_Hours:%d",xEditTime.Hours);
 #endif
@@ -263,6 +262,7 @@ void ContinousIncrement(void)
 	{
 		// Increment minutes
 		xEditTime.Minutes++;
+		HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
 		// Check if minutes reached 60
 		if (xEditTime.Minutes == 60)
 		{
@@ -272,6 +272,7 @@ void ContinousIncrement(void)
 			xEditTime.Hours++;
 				// Ensure hours wrap around correctly
 			xEditTime.Hours %= 24;
+			HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
 #if(ClockApp_TestMacro == 1)
 			printf("ContinousIncrement_Minutes:%d",xEditTime.Minutes);
 #endif

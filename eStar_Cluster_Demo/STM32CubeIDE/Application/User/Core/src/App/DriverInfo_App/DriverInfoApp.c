@@ -215,13 +215,13 @@ int16_t prvconvert_FuelPercentageToLitres(int8_t ucfuelPercentage)
 
 void vCalculateAFE(void)
 {
-    uint32_t ulinitialDistanceinKm = 0;
-	uint32_t ulfinalDistanceinKm = 0;
-	uint32_t ulDeltaDistanceinKm = 0;
-	uint16_t usdeltaFuelInLitres = 0;
-	uint32_t ulAfe = 0;
-	uint32_t ulpreviousAFEinKmperLitre = 0;
-	uint16_t usAverageFuel = 0;
+    static uint32_t ulinitialDistanceinKm = 0;
+    static uint32_t ulfinalDistanceinKm = 0;
+    static uint32_t ulDeltaDistanceinKm = 0;
+    static uint16_t usdeltaFuelInLitres = 0;
+    static uint32_t ulAfe = 0;
+    static uint32_t ulpreviousAFEinKmperLitre = 0;
+    static uint16_t usAverageFuel = 0;
 
 	static uint32_t ulAverageDitsance = 0;
 	DriverInfo_Units_t OdoUnits = 0;
@@ -326,14 +326,14 @@ void vCalculateAFE(void)
 
 void vCalculateRange(void)
 {
-	uint16_t usfuelRemainingInLitres = 0;
-	uint16_t usCalculated_DTEinKm = 0;
-	uint16_t uspresent_DTEinKm = 0;
-	uint16_t uspresent_DTE = 0 ;
-	uint16_t usprevious_DTEinKm = 0;
-	uint16_t usDelta_DTEinKm = 0;
+	static uint16_t usfuelRemainingInLitres = 0;
+	static uint16_t usCalculated_DTEinKm = 0;
+	static uint16_t uspresent_DTEinKm = 0;
+	static uint16_t uspresent_DTE = 0 ;
+	static uint16_t usprevious_DTEinKm = 0;
+	static uint16_t usDelta_DTEinKm = 0;
 	static uint8_t uccount1 = 0;
-	int8_t ucfuelremaingvalueinPercentage = 0;
+	static int8_t ucfuelremaingvalueinPercentage = 0;
 	DriverInfo_Units_t AfeUnits = 0;
 
 	uccount1++;

@@ -219,7 +219,8 @@ void Screen1View:: ClockUpdate (uint8_t Hours,uint8_t Minutes,uint8_t Seconds, u
 
 	Unicode::snprintf(Clock_HRBuffer, CLOCK_HR_SIZE, "%d", Hours);
 	Unicode::snprintf(Clock_MNBuffer, CLOCK_MN_SIZE, "%d", Minutes);
-	const char* amPmText = (TimeFormat == 0) ? "AM" : "PM";
+	//const char* amPmText = (TimeFormat == 0) ? "AM" : "PM";
+	const char* amPmText = (TimeFormat == 0) ? "" : "";
 	Unicode::snprintf(AM_PMBuffer, AM_PM_SIZE, amPmText);
 
 	if (Previous_Seconds != Current_Seconds)  // Adjust this value to control blink frequency
@@ -234,151 +235,10 @@ void Screen1View:: ClockUpdate (uint8_t Hours,uint8_t Minutes,uint8_t Seconds, u
 }
 
 
-#if 0
-void clockSettingRunMode(ClockEditActions_t clockSettingMode)
-{
-	switch (clockSettingMode)
-	{
-	case CLOCK_ENTRY:
-	{
-
-	}
-	break;
-	case MODE_LONGPRESS:
-	{
-		vClock_exit();
-		eclockMode = CLOCK_MODE_INACTIVE;
-	    printf("case1");
-	}
-	break;
-	case MODE_SHORTPRESS:
-	{
-		ulShiftingPosition++;
-
-		if (ulShiftingPosition == E_CLOCK_INVALID_POS)
-		{
-			ulShiftingPosition = E_CLOCK_HOURS_POS;
-			printf("Case2\n");
-		}
-		else
-		{
-			/*do nothing*/
-			printf("Case2\n");
-		}
-	}
-	break;
-    case RESET_LONGPRESS_RELEASE:
-        	ulContinousIncrement_flag = 0;
-        	printf("Long Press Release\n\r");
-        	printf("Case3\n");
-        break;
-    case RESET_LONGPRESS_HELD:
-    	ulContinousIncrement_flag = 1;
-    	printf("Long Press Held\n\r");
-    	printf("Case4\n");
-    break;
-      case RESET_SHORTPRESS:
-    	if (ulShiftingPosition == E_CLOCK_HOURS_POS)
-    	{
-			//Increment hours
-			xEditTime.Hours++;
-			// Ensure hours wrap around correctly
-			xEditTime.Hours %= 24;
-			printf("case5");
-		}
-        else if (ulShiftingPosition == E_CLOCK_MINS_POS)
-        {
-			// Increment minutes
-			xEditTime.Minutes++;
-			// Check if minutes reached 60
-			if (xEditTime.Minutes == 60)
-			{
-				// Reset minutes to 0
-				xEditTime.Minutes = 0;
-				printf("Case5\n");
-				// Increment hours
-//				xEditTime.Hours++;
-				// Ensure hours wrap around correctly
-//				xEditTime.Hours %= 24;
-			}
-			else
-			{
-				/*do nothing*/
-				printf("Case5\n");
-			}
-		}
-       break;
-       default:
-    	   // Handle unknown mode
-       break;
-	}
-}
-#endif
-
-#if 0
-void Screen1View::ClockValueChangingMode(void)
-{
-
-	switch (ClockEditing)
-	{
-		case CLOCK_ENTRY:
-							{
-								updateClock_HoursVisibility();
-							}
-
-							break;
-
-		case MODE_LONGPRESS:
-							{
-								//ClockUpdate (Hours,Minutes,Seconds,TimeFormat);
-							}
-							break;
-
-		case MODE_SHORTPRESS:
-							{
-								ulShiftingPosition++;
-								if (ulShiftingPosition == 1)
-								{
-									updateClock_MinutesVisibility();
-								}
-								else
-								{
-									updateClock_HoursVisibility();
-									ulShiftingPosition = 0;
-								}
-							}
-							break;
-
-		case RESET_LONGPRESS_RELEASE:
-							{
-							}
-							break;
-
-		case RESET_LONGPRESS_HELD:
-							{
-
-							}
-							break;
-		case RESET_SHORTPRESS:
-							{
-
-							}
-							break;
-
-
-		default:
-				// Handle unknown mode
-				break;
-	}
-
-}
-#endif
-
 
 void Screen1View::updateClock_HoursVisibility(void)
 {
 	Clock_HR.setVisible(!Clock_HR.isVisible());
-	//Clock_HR.setVisible(Clock_HR.isVisible());
 	Clock_HR.invalidate();
 }
 
@@ -392,14 +252,11 @@ void Screen1View::updateClock_MinutesVisibility(void)
 
 void Screen1View::ClockValueChangingMode(void)
 {
-	bool ulShiftingPosition;
     switch (ClockEditing)
     {
         case CLOCK_ENTRY:
             {
-            	updateClock_HoursVisibility();
-//                startBlinkingHours();
-//                StopMinutesBlinking();
+            	startBlinkingHours();
             }
             break;
 
@@ -411,47 +268,50 @@ void Screen1View::ClockValueChangingMode(void)
 
         case MODE_SHORTPRESS:
             {
-                ulShiftingPosition++;
-                if (ulShiftingPosition == 1)
-                {
-                	Clock_MN.setVisible(!Clock_MN.isVisible());
-                	Clock_MN.invalidate();
+        		if (ulShiftingPosition == E_CLOCK_INVALID_POS)
+        		{
+        			startBlinkingHours();
+        		}
+        		else if (ulShiftingPosition == E_CLOCK_HOURS_POS)
+				{
+        			startBlinkingHours();
+				}
+        		else if(ulShiftingPosition == E_CLOCK_MINS_POS)
+				{
+        			startBlinkingMinutes();
+				}
+        		else
+        		{
 
-//                    startBlinkingMinutes();
-//                    StopHoursBlinking();
-
-                }
-                else if (ulShiftingPosition == 0)
-                {
-                	Clock_HR.setVisible(!Clock_HR.isVisible());
-                	Clock_HR.invalidate();
-//                	updateClock_HoursVisibility();
-//                    StopMinutesBlinking();
-                    ulShiftingPosition = 0;
-                }
-                else
-                {
-
-                }
-
+        		}
             }
             break;
 
         case RESET_LONGPRESS_RELEASE:
             {
-                // Add logic if required
+            	stopBlinking();
             }
             break;
 
         case RESET_LONGPRESS_HELD:
             {
-                // Add logic if required
+            	stopBlinking();
             }
             break;
 
         case RESET_SHORTPRESS:
             {
-                // Add logic if required
+				if (ulShiftingPosition == E_CLOCK_HOURS_POS)
+				{
+					startBlinkingHours();
+				}
+				else if(ulShiftingPosition == E_CLOCK_MINS_POS)
+				{
+					startBlinkingMinutes();
+				}
+				else
+				{
+				}
             }
             break;
 
