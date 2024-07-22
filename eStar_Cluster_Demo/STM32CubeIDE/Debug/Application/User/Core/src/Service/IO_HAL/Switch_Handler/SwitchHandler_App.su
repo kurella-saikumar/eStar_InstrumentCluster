@@ -5,7 +5,7 @@
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:175:21:xGetModeButtonStatus	0	static
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:249:21:xGetResetButtonStatus	0	static
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:191:20:xClockSettingGetSetMode	8	static
-../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:429:22:xGetSwitchStatus	0	static
-../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:438:9:xGetToggleMetrics	0	static
-../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:447:9:xToggleUnits	0	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:432:22:xGetSwitchStatus	0	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:441:9:xGetToggleMetrics	0	static
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:450:9:xToggleUnits	0	static
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:266:6:vHandleModeResetActions	24	static

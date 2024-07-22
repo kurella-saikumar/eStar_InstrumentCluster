@@ -394,6 +394,7 @@ void vHandleModeResetActions(void)
         }
         
     }
+
     if(ucResetButtonEventStatus == LONG_PRESS_HELD)
     {
         if(eClockMode == CLOCK_MODE_ACTIVE)
@@ -405,6 +406,7 @@ void vHandleModeResetActions(void)
         }
         
     }
+
     if(ucResetButtonEventStatus == LONG_PRESS_RELEASED)
     {
     	if(eClockMode == CLOCK_MODE_ACTIVE)
@@ -414,6 +416,7 @@ void vHandleModeResetActions(void)
 			ucResetButtonEventStatus = 0xFF;
 		}
     }
+
     // Reset button timeout and statuses if clock mode is active and any button is short-pressed
     if ((eClockMode == CLOCK_MODE_ACTIVE) && (ucModeButtonEventStatus == SHORT_PRESS_HELD || ucResetButtonEventStatus == SHORT_PRESS_HELD))
     {

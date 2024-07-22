@@ -268,11 +268,7 @@ void Screen1View::ClockValueChangingMode(void)
 
         case MODE_SHORTPRESS:
             {
-        		if (ulShiftingPosition == E_CLOCK_INVALID_POS)
-        		{
-        			startBlinkingHours();
-        		}
-        		else if (ulShiftingPosition == E_CLOCK_HOURS_POS)
+        		if (ulShiftingPosition == E_CLOCK_HOURS_POS)
 				{
         			startBlinkingHours();
 				}
