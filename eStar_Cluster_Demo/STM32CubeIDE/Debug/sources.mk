@@ -51,6 +51,7 @@ Application/User/Core/src/App/ServiceRequest_App \
 Application/User/Core/src/App/Speedometer_App \
 Application/User/Core/src/App/Tachometer_App \
 Application/User/Core/src/App/eeprom_emulDemo_App \
+Application/User/Core/src/Service/CAN_IF \
 Application/User/Core/src/Service/IO_HAL/AnalogDebounce \
 Application/User/Core/src/Service/IO_HAL/Damping_Filter \
 Application/User/Core/src/Service/IO_HAL/DigitalDebounce \

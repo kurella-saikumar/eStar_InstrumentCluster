@@ -41,6 +41,7 @@ RM := rm -rf
 -include Application/User/Core/src/Service/IO_HAL/DigitalDebounce/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/Damping_Filter/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/AnalogDebounce/subdir.mk
+-include Application/User/Core/src/Service/CAN_IF/subdir.mk
 -include Application/User/Core/src/App/eeprom_emulDemo_App/subdir.mk
 -include Application/User/Core/src/App/Tachometer_App/subdir.mk
 -include Application/User/Core/src/App/Speedometer_App/subdir.mk

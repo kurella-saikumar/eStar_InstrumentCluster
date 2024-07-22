@@ -3001,6 +3001,570 @@ Discarded input sections
  .debug_macro   0x00000000       0x22 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
  .debug_macro   0x00000000       0x2e ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
  .debug_macro   0x00000000       0x16 ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .text          0x00000000        0x0 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .data          0x00000000        0x0 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .bss           0x00000000        0x0 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .text.vNim_unPack
+                0x00000000        0x2 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .text.vNim_get_indicator_status_right_indicator
+                0x00000000       0x3c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .text.vNim_get_indicator_status_left_indicator
+                0x00000000       0x3c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .text.vNim_get_indicator_status_parking_indicator
+                0x00000000       0x3c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .text.vNim_get_indicator_status_highbeam_indicator
+                0x00000000       0x3c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .text.vNim_get_indicator_status_lowbeam_indicator
+                0x00000000       0x3c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .text.vNim_get_indicator_status_engineoiltemperature_indicator
+                0x00000000       0x3c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .text.vNim_get_indicator_status_seatbelt_indicator
+                0x00000000       0x3c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .text.vNim_get_indicator_status_enginemalfunction_indicator
+                0x00000000       0x3c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .text.vNim_get_indicator_status_doorsopen_indicator
+                0x00000000       0x3c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .text.vNim_get_indicator_status_abswarning_indicator
+                0x00000000       0x3c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .text.vNim_get_indicator_status_faultyright_indicator
+                0x00000000       0x3c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .text.vNim_get_indicator_status_faultyleft_indicator
+                0x00000000       0x3c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .text.vNim_get_indicator_status_engineoil_indicator
+                0x00000000       0x3c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .bss.Nim_CAN_CH0_RxBuffer
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_info    0x00000000      0x9fb ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_abbrev  0x00000000      0x1ea ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_loclists
+                0x00000000      0x248 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_aranges
+                0x00000000       0x88 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_rnglists
+                0x00000000       0x61 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x374 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0xad8 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x268 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x2e ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x42 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x22 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x8e ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x51 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x103 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x6a ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x1df ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x1c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x22 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0xfb ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000     0x1305 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x11f ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x27 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000    0x21cf4 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x6d ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000     0x3d64 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x189 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x61 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x29 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x43 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x34 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x16 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x43 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x34 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x10 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x58 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x8e ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x1c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x177 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x369 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x19b ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x5d ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000     0x257a ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000     0x1079 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x154 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x114 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x3fc ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0xac ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x788 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x228 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x66 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x3a6 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x28d ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x3f9 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x275 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000     0x1178 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x7c8 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x39f ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0xe42 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0xc7 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x4c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x3ca ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x45c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x3c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x4a ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x22c ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x67 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0xa5 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x85 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x198 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0xd6 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x520 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x1c4 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x25b ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x35 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x328 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x65b ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0xeb ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0xb24 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x29f ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x693 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0xa6 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000      0x5e6 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0xbe ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x22 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x70 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_macro   0x00000000       0x2e ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_line    0x00000000      0xf4d ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_str     0x00000000   0x17603e ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .comment       0x00000000       0x44 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .debug_frame   0x00000000      0x1c0 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .ARM.attributes
+                0x00000000       0x32 ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .text          0x00000000        0x0 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .data          0x00000000        0x0 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .bss           0x00000000        0x0 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .text.vNim_Sig_Init
+                0x00000000       0x14 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .rodata.vNim_ProcessRxTask.str1.1
+                0x00000000       0x2b ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .text.vNim_ProcessRxTask
+                0x00000000       0x44 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .bss.tmpDataBuffer.0
+                0x00000000        0x8 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .rodata.Nim_CAN_CH0_msgTimeoutLimit
+                0x00000000        0x4 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_info    0x00000000      0x2fa ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_abbrev  0x00000000      0x1b4 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_aranges
+                0x00000000       0x28 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_rnglists
+                0x00000000       0x25 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x3de ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0xad8 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x22 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x5b ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x29 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x94 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x43 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x34 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x189 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x16 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x43 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x57 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x34 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x10 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x58 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x8e ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x1c ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x177 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x369 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x10 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x35 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x20 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x1c ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x10 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x1c ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x16 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x146 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x268 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x2e ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x42 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x103 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x6a ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x1df ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x1c ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x22 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0xfb ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000     0x1305 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x11f ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x27 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000    0x21cf4 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x6d ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000     0x3d64 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x19b ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x5d ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000     0x257a ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000     0x1079 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x154 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x114 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x3fc ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0xac ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x788 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x228 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x66 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x3a6 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x28d ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x3f9 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x275 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000     0x1178 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x7c8 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x39f ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0xe42 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0xc7 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x4c ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x3ca ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x45c ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x3c ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x4a ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x22c ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x67 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0xa5 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x85 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x198 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0xd6 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x520 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x1c4 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x25b ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x35 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x328 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x65b ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0xeb ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0xb24 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x29f ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x693 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0xa6 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000      0x5e6 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0xbe ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x22 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x70 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_macro   0x00000000       0x2e ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_line    0x00000000      0xb6a ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_str     0x00000000   0x175da8 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .comment       0x00000000       0x44 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .debug_frame   0x00000000       0x30 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .ARM.attributes
+                0x00000000       0x32 ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .group         0x00000000        0xc ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text          0x00000000        0x0 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .data          0x00000000        0x0 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .bss           0x00000000        0x0 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_pack
+                0x00000000       0xa4 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_unpack
+                0x00000000       0x74 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_init
+                0x00000000       0x16 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_right_indicator_encode
+                0x00000000       0x12 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_right_indicator_decode
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_right_indicator_is_in_range
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_left_indicator_encode
+                0x00000000       0x12 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_left_indicator_decode
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_left_indicator_is_in_range
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_parking_indicator_encode
+                0x00000000       0x12 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_parking_indicator_decode
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_parking_indicator_is_in_range
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_high_beam_indicator_encode
+                0x00000000       0x12 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_high_beam_indicator_decode
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_high_beam_indicator_is_in_range
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_low_beam_indicator_encode
+                0x00000000       0x12 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_low_beam_indicator_decode
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_low_beam_indicator_is_in_range
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_engine_oil_temperature_indicator_encode
+                0x00000000       0x12 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_engine_oil_temperature_indicator_decode
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_engine_oil_temperature_indicator_is_in_range
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_seat_belt_indicator_encode
+                0x00000000       0x12 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_seat_belt_indicator_decode
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_seat_belt_indicator_is_in_range
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_engine_malfunction_indicator_encode
+                0x00000000       0x12 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_engine_malfunction_indicator_decode
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_engine_malfunction_indicator_is_in_range
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_doors_open_indicator_encode
+                0x00000000       0x12 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_doors_open_indicator_decode
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_doors_open_indicator_is_in_range
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_abs_warning_indicator_encode
+                0x00000000       0x12 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_abs_warning_indicator_decode
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_abs_warning_indicator_is_in_range
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_faulty_right_indicator_encode
+                0x00000000       0x12 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_faulty_right_indicator_decode
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_faulty_right_indicator_is_in_range
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_faulty_left_indicator_encode
+                0x00000000       0x12 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_faulty_left_indicator_decode
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_faulty_left_indicator_is_in_range
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_engine_oil_indicator_encode
+                0x00000000       0x12 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_engine_oil_indicator_decode
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .text.indicators_indicator_status_engine_oil_indicator_is_in_range
+                0x00000000        0xa ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_info    0x00000000      0xdd9 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_abbrev  0x00000000      0x1d1 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_loclists
+                0x00000000      0x471 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_aranges
+                0x00000000      0x168 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_rnglists
+                0x00000000      0x10a ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000      0x14c ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000      0xad8 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x22 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x5b ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x29 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x94 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x43 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x34 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000      0x189 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x16 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x43 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x57 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x34 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x10 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x58 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x8e ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x1c ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000      0x177 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000      0x369 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x10 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x35 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x20 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000      0x103 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x6a ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000      0x1df ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x22 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_macro   0x00000000       0x70 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_line    0x00000000      0xb94 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_str     0x00000000     0x8287 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .comment       0x00000000       0x44 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .debug_frame   0x00000000      0x320 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
+ .ARM.attributes
+                0x00000000       0x32 ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
  .group         0x00000000        0xc ./Application/User/Core/src/Service/IO_HAL/AnalogDebounce/Analog_debounce.o
  .group         0x00000000        0xc ./Application/User/Core/src/Service/IO_HAL/AnalogDebounce/Analog_debounce.o
  .group         0x00000000        0xc ./Application/User/Core/src/Service/IO_HAL/AnalogDebounce/Analog_debounce.o
@@ -4906,6 +5470,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x1c ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
  .debug_macro   0x00000000      0x177 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
  .debug_macro   0x00000000      0x369 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
+ .debug_macro   0x00000000       0x10 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
  .debug_macro   0x00000000       0x35 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
  .debug_macro   0x00000000       0x20 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
  .debug_macro   0x00000000       0x1c ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
@@ -34017,6 +34582,9 @@ LOAD ./Application/User/Core/src/App/Speedometer_App/speedometer_App.o
 LOAD ./Application/User/Core/src/App/Tachometer_App/DisplayBacklightBrightness.o
 LOAD ./Application/User/Core/src/App/Tachometer_App/Tachometer_App.o
 LOAD ./Application/User/Core/src/App/eeprom_emulDemo_App/eepromDemo.o
+LOAD ./Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o
+LOAD ./Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o
+LOAD ./Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.o
 LOAD ./Application/User/Core/src/Service/IO_HAL/AnalogDebounce/Analog_debounce.o
 LOAD ./Application/User/Core/src/Service/IO_HAL/Damping_Filter/damp_out.o
 LOAD ./Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.o
@@ -43986,7 +44554,7 @@ LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_rnglists
                 0x000060ee       0x25 ./Middlewares/LibJPEG/jutils.o
 
-.debug_macro    0x00000000    0x5e5cf
+.debug_macro    0x00000000    0x5e5bf
  .debug_macro   0x00000000      0x408 ./Application/User/Core/freertos.o
  .debug_macro   0x00000408      0xad8 ./Application/User/Core/freertos.o
  .debug_macro   0x00000ee0      0x189 ./Application/User/Core/freertos.o
@@ -44208,240 +44776,239 @@ LOAD C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x0003e3c5      0x3d9 ./Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/ECUPwrMode_SmHandler_Demo.o
  .debug_macro   0x0003e79e      0x440 ./Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/Sys_WakeUp_Reason.o
  .debug_macro   0x0003ebde      0x3d1 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
- .debug_macro   0x0003efaf       0x10 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
- .debug_macro   0x0003efbf       0x22 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
- .debug_macro   0x0003efe1      0x44d ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.o
- .debug_macro   0x0003f42e      0x397 ./Application/User/Core/src/Service/System_Service/PeriodicityCheck/PeriodicityCheck.o
- .debug_macro   0x0003f7c5      0x40c ./Application/User/Core/src/Service/System_Service/Stack_Usage/Stack_Usage.o
- .debug_macro   0x0003fbd1      0x3ab ./Application/User/Core/src/Service/System_Service/Switch_Interface/SwitchInf.o
- .debug_macro   0x0003ff7c       0x76 ./Application/User/Core/src/Service/System_Service/Switch_Interface/SwitchInf.o
- .debug_macro   0x0003fff2      0x3d6 ./Application/User/Core/src/Service/System_Service/Task_ExeTime/Task_ExeTime.o
- .debug_macro   0x000403c8       0x10 ./Application/User/Core/src/Service/System_Service/Task_ExeTime/Task_ExeTime.o
- .debug_macro   0x000403d8      0x40c ./Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock/Task_OverLoad_DeadLock.o
- .debug_macro   0x000407e4      0x36b ./Application/User/Core/src/Service/System_Service/checksum/checksum.o
- .debug_macro   0x00040b4f      0x402 ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
- .debug_macro   0x00040f51       0x28 ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
- .debug_macro   0x00040f79       0x3a ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
- .debug_macro   0x00040fb3      0x49e ./Application/User/LIBJPEG/App/libjpeg.o
- .debug_macro   0x00041451       0x1b ./Application/User/TouchGFX/App/app_touchgfx.o
- .debug_macro   0x0004146c      0x2e1 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_macro   0x0004174d      0xbb0 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_macro   0x000422fd       0x34 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_macro   0x00042331       0x16 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_macro   0x00042347       0x1c ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_macro   0x00042363       0x1c ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_macro   0x0004237f      0x1d6 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_macro   0x00042555       0x10 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_macro   0x00042565      0x417 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_macro   0x0004297c      0x190 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_macro   0x00042b0c      0x38c ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_macro   0x00042e98       0x43 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_macro   0x00042edb       0x10 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_macro   0x00042eeb       0x58 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
- .debug_macro   0x00042f43      0x73a ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_macro   0x0004367d     0x1305 ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_macro   0x00044982       0x18 ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_macro   0x0004499a       0x10 ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_macro   0x000449aa      0x194 ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_macro   0x00044b3e       0x10 ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_macro   0x00044b4e       0x35 ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_macro   0x00044b83       0x10 ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_macro   0x00044b93      0x3c7 ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_macro   0x00044f5a       0x8e ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_macro   0x00044fe8      0x5b4 ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_macro   0x0004559c       0x1c ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_macro   0x000455b8       0x76 ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_macro   0x0004562e       0x90 ./Application/User/TouchGFX/target/STM32TouchController.o
- .debug_macro   0x000456be      0x3f5 ./Application/User/TouchGFX/target/TouchGFXGPIO.o
- .debug_macro   0x00045ab3      0x6be ./Application/User/TouchGFX/target/TouchGFXHAL.o
- .debug_macro   0x00046171      0x300 ./Application/User/TouchGFX/target/generated/OSWrappers.o
- .debug_macro   0x00046471       0x10 ./Application/User/TouchGFX/target/generated/OSWrappers.o
- .debug_macro   0x00046481      0x5e6 ./Application/User/TouchGFX/target/generated/STM32DMA.o
- .debug_macro   0x00046a67      0x5dd ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
- .debug_macro   0x00047044       0x9e ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
- .debug_macro   0x000470e2      0x112 ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
- .debug_macro   0x000471f4      0x138 ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
- .debug_macro   0x0004732c       0xf0 ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
- .debug_macro   0x0004741c       0x16 ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
- .debug_macro   0x00047432      0x82d ./Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o
- .debug_macro   0x00047c5f       0x16 ./Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o
- .debug_macro   0x00047c75      0xa45 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
- .debug_macro   0x000486ba       0x16 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
- .debug_macro   0x000486d0       0x34 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
- .debug_macro   0x00048704      0x116 ./Application/User/generated/ApplicationFontProvider.o
- .debug_macro   0x0004881a       0xc7 ./Application/User/generated/BitmapDatabase.o
- .debug_macro   0x000488e1      0x120 ./Application/User/generated/CachedFont.o
- .debug_macro   0x00048a01      0x21c ./Application/User/generated/FontCache.o
- .debug_macro   0x00048c1d       0x8e ./Application/User/generated/FontCache.o
- .debug_macro   0x00048cab       0x10 ./Application/User/generated/FontCache.o
- .debug_macro   0x00048cbb       0xb3 ./Application/User/generated/Font_Technology_Bold_16_4bpp_0.o
- .debug_macro   0x00048d6e       0xb3 ./Application/User/generated/Font_Technology_Bold_17_4bpp_0.o
- .debug_macro   0x00048e21       0xb3 ./Application/User/generated/Font_Technology_Bold_20_4bpp_0.o
- .debug_macro   0x00048ed4       0xb3 ./Application/User/generated/Font_Technology_Bold_22_4bpp_0.o
- .debug_macro   0x00048f87       0xb3 ./Application/User/generated/Font_Technology_Bold_24_4bpp_0.o
- .debug_macro   0x0004903a      0x4f0 ./Application/User/generated/FrontendApplicationBase.o
- .debug_macro   0x0004952a      0x1fb ./Application/User/generated/GeneratedFont.o
- .debug_macro   0x00049725       0xd0 ./Application/User/generated/Kerning_Technology_Bold_16_4bpp.o
- .debug_macro   0x000497f5       0xd0 ./Application/User/generated/Kerning_Technology_Bold_17_4bpp.o
- .debug_macro   0x000498c5       0xd0 ./Application/User/generated/Kerning_Technology_Bold_20_4bpp.o
- .debug_macro   0x00049995       0xd0 ./Application/User/generated/Kerning_Technology_Bold_22_4bpp.o
- .debug_macro   0x00049a65       0xd0 ./Application/User/generated/Kerning_Technology_Bold_24_4bpp.o
- .debug_macro   0x00049b35       0xcc ./Application/User/generated/LanguageGb.o
- .debug_macro   0x00049c01      0x482 ./Application/User/generated/Screen1ViewBase.o
- .debug_macro   0x0004a083       0xe4 ./Application/User/generated/Table_Technology_Bold_16_4bpp.o
- .debug_macro   0x0004a167       0xe4 ./Application/User/generated/Table_Technology_Bold_17_4bpp.o
- .debug_macro   0x0004a24b       0xe4 ./Application/User/generated/Table_Technology_Bold_20_4bpp.o
- .debug_macro   0x0004a32f       0xe4 ./Application/User/generated/Table_Technology_Bold_22_4bpp.o
- .debug_macro   0x0004a413       0xe4 ./Application/User/generated/Table_Technology_Bold_24_4bpp.o
- .debug_macro   0x0004a4f7      0x2f5 ./Application/User/generated/Texts.o
- .debug_macro   0x0004a7ec      0x102 ./Application/User/generated/TypedTextDatabase.o
- .debug_macro   0x0004a8ee      0x148 ./Application/User/generated/VectorFontRendererBuffers.o
- .debug_macro   0x0004aa36       0xb3 ./Application/User/generated/Vector_Font_Technology_Bold_0.o
- .debug_macro   0x0004aae9       0xe4 ./Application/User/generated/Vector_Kerning_Technology_Bold.o
- .debug_macro   0x0004abcd       0xe4 ./Application/User/generated/Vector_Table_Technology_Bold.o
- .debug_macro   0x0004acb1       0xe4 ./Application/User/generated/Vector_Table_Technology_Bold_24.o
- .debug_macro   0x0004ad95       0xe4 ./Application/User/generated/Vector_Table_Technology_Bold_36.o
- .debug_macro   0x0004ae79       0xe4 ./Application/User/generated/Vector_Table_Technology_Bold_96.o
- .debug_macro   0x0004af5d       0x1a ./Application/User/generated/image_ABS_Detection1.o
- .debug_macro   0x0004af77       0x1a ./Application/User/generated/image_ABS_Detection2.o
- .debug_macro   0x0004af91       0x1a ./Application/User/generated/image_BackGround.o
- .debug_macro   0x0004afab       0x1a ./Application/User/generated/image_ClusterIcons1.o
- .debug_macro   0x0004afc5       0x1a ./Application/User/generated/image_ClusterIcons2.o
- .debug_macro   0x0004afdf       0x1a ./Application/User/generated/image_DoorsWarning1.o
- .debug_macro   0x0004aff9       0x1a ./Application/User/generated/image_DoorsWarning2.o
- .debug_macro   0x0004b013       0x1a ./Application/User/generated/image_EngineOil1.o
- .debug_macro   0x0004b02d       0x1a ./Application/User/generated/image_EngineOil2.o
- .debug_macro   0x0004b047       0x1a ./Application/User/generated/image_EngineWarning_w.o
- .debug_macro   0x0004b061       0x1a ./Application/User/generated/image_EngineWarning_y.o
- .debug_macro   0x0004b07b       0x1a ./Application/User/generated/image_FuelBar01.o
- .debug_macro   0x0004b095       0x1a ./Application/User/generated/image_FuelBar02.o
- .debug_macro   0x0004b0af       0x1a ./Application/User/generated/image_FuelBar03.o
- .debug_macro   0x0004b0c9       0x1a ./Application/User/generated/image_FuelBar04.o
- .debug_macro   0x0004b0e3       0x1a ./Application/User/generated/image_FuelBar05.o
- .debug_macro   0x0004b0fd       0x1a ./Application/User/generated/image_FuelBar06.o
- .debug_macro   0x0004b117       0x1a ./Application/User/generated/image_FuelBar07.o
- .debug_macro   0x0004b131       0x1a ./Application/User/generated/image_FuelBar08.o
- .debug_macro   0x0004b14b       0x1a ./Application/User/generated/image_FuelBar09.o
- .debug_macro   0x0004b165       0x1a ./Application/User/generated/image_FuelBar10.o
- .debug_macro   0x0004b17f       0x1a ./Application/User/generated/image_HighBeam1.o
- .debug_macro   0x0004b199       0x1a ./Application/User/generated/image_HighBeam2.o
- .debug_macro   0x0004b1b3       0x1a ./Application/User/generated/image_LeftIndicator1.o
- .debug_macro   0x0004b1cd       0x1a ./Application/User/generated/image_LeftIndicator2.o
- .debug_macro   0x0004b1e7       0x1a ./Application/User/generated/image_LowBattery1.o
- .debug_macro   0x0004b201       0x1a ./Application/User/generated/image_LowBattery2.o
- .debug_macro   0x0004b21b       0x1a ./Application/User/generated/image_LowBeam1.o
- .debug_macro   0x0004b235       0x1a ./Application/User/generated/image_LowBeam2.o
- .debug_macro   0x0004b24f       0x1a ./Application/User/generated/image_Parking_r.o
- .debug_macro   0x0004b269       0x1a ./Application/User/generated/image_Parking_w.o
- .debug_macro   0x0004b283       0x1a ./Application/User/generated/image_RPMBar01.o
- .debug_macro   0x0004b29d       0x1a ./Application/User/generated/image_RPMBar02.o
- .debug_macro   0x0004b2b7       0x1a ./Application/User/generated/image_RPMBar03.o
- .debug_macro   0x0004b2d1       0x1a ./Application/User/generated/image_RPMBar04.o
- .debug_macro   0x0004b2eb       0x1a ./Application/User/generated/image_RPMBar05.o
- .debug_macro   0x0004b305       0x1a ./Application/User/generated/image_RPMBar06.o
- .debug_macro   0x0004b31f       0x1a ./Application/User/generated/image_RPMBar07.o
- .debug_macro   0x0004b339       0x1a ./Application/User/generated/image_RPMBar08.o
- .debug_macro   0x0004b353       0x1a ./Application/User/generated/image_RPMBar09.o
- .debug_macro   0x0004b36d       0x1a ./Application/User/generated/image_RPMBar10.o
- .debug_macro   0x0004b387       0x1a ./Application/User/generated/image_RPMIcon1.o
- .debug_macro   0x0004b3a1       0x1a ./Application/User/generated/image_RPMIcon2.o
- .debug_macro   0x0004b3bb       0x1a ./Application/User/generated/image_RightIndicator1.o
- .debug_macro   0x0004b3d5       0x1a ./Application/User/generated/image_RightIndicator2.o
- .debug_macro   0x0004b3ef       0x1a ./Application/User/generated/image_SeatBelt_r.o
- .debug_macro   0x0004b409       0x1a ./Application/User/generated/image_SeatBelt_w.o
- .debug_macro   0x0004b423       0x1a ./Application/User/generated/image_ServiceReminder_w.o
- .debug_macro   0x0004b43d       0x1a ./Application/User/generated/image_ServiceReminder_y.o
- .debug_macro   0x0004b457       0x1a ./Application/User/generated/image_TempIcon1.o
- .debug_macro   0x0004b471       0x1a ./Application/User/generated/image_TempIcon2.o
- .debug_macro   0x0004b48b       0x1a ./Application/User/generated/image_high_beam.o
- .debug_macro   0x0004b4a5       0x1a ./Application/User/generated/image_high_beam_1.o
- .debug_macro   0x0004b4bf      0x3d8 ./Application/User/gui/FrontendApplication.o
- .debug_macro   0x0004b897      0x536 ./Application/User/gui/Model.o
- .debug_macro   0x0004bdcd      0x4a0 ./Application/User/gui/Screen1Presenter.o
- .debug_macro   0x0004c26d      0x4cb ./Application/User/gui/Screen1View.o
- .debug_macro   0x0004c738      0x11d ./Application/User/gui/Screen1View.o
- .debug_macro   0x0004c855       0x93 ./Drivers/BSP/Components/ft5336.o
- .debug_macro   0x0004c8e8      0x5ae ./Drivers/BSP/Components/ft5336.o
- .debug_macro   0x0004ce96       0x72 ./Drivers/BSP/Components/ft5336_reg.o
- .debug_macro   0x0004cf08      0x358 ./Drivers/BSP/Components/mx25lm51245g.o
- .debug_macro   0x0004d260       0x2e ./Drivers/BSP/Components/mx25lm51245g.o
- .debug_macro   0x0004d28e      0x3b5 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o
- .debug_macro   0x0004d643       0x64 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o
- .debug_macro   0x0004d6a7      0x391 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.o
- .debug_macro   0x0004da38      0x39f ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
- .debug_macro   0x0004ddd7       0x6a ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
- .debug_macro   0x0004de41      0x340 ./Drivers/CMSIS/system_stm32h7xx.o
- .debug_macro   0x0004e181      0x364 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o
- .debug_macro   0x0004e4e5      0x365 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc.o
- .debug_macro   0x0004e84a      0x346 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc_ex.o
- .debug_macro   0x0004eb90      0x33a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o
- .debug_macro   0x0004eeca      0x33a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.o
- .debug_macro   0x0004f204      0x33a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.o
- .debug_macro   0x0004f53e      0x349 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma2d.o
- .debug_macro   0x0004f887      0x3ff ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_fdcan.o
- .debug_macro   0x0004fc86      0x341 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o
- .debug_macro   0x0004ffc7      0x406 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o
- .debug_macro   0x000503cd      0x33a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o
- .debug_macro   0x00050707      0x348 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_iwdg.o
- .debug_macro   0x00050a4f      0x342 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc.o
- .debug_macro   0x00050d91      0x349 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o
- .debug_macro   0x000510da      0x381 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ospi.o
- .debug_macro   0x0005145b      0x35e ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr.o
- .debug_macro   0x000517b9      0x373 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o
- .debug_macro   0x00051b2c      0x35e ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o
- .debug_macro   0x00051e8a      0x358 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o
- .debug_macro   0x000521e2      0x33b ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc.o
- .debug_macro   0x0005251d      0x340 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc_ex.o
- .debug_macro   0x0005285d      0x33b ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o
- .debug_macro   0x00052b98      0x340 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o
- .debug_macro   0x00052ed8      0x365 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o
- .debug_macro   0x0005323d      0x346 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o
- .debug_macro   0x00053583      0x4ff ./Middlewares/FreeRTOS/cmsis_os2.o
- .debug_macro   0x00053a82       0xf5 ./Middlewares/FreeRTOS/cmsis_os2.o
- .debug_macro   0x00053b77       0x91 ./Middlewares/FreeRTOS/cmsis_os2.o
- .debug_macro   0x00053c08       0x8d ./Middlewares/FreeRTOS/cmsis_os2.o
- .debug_macro   0x00053c95       0x9a ./Middlewares/FreeRTOS/cmsis_os2.o
- .debug_macro   0x00053d2f       0x22 ./Middlewares/FreeRTOS/cmsis_os2.o
- .debug_macro   0x00053d51      0x44e ./Middlewares/FreeRTOS/heap_4.o
- .debug_macro   0x0005419f      0x427 ./Middlewares/FreeRTOS/list.o
- .debug_macro   0x000545c6      0x4ce ./Middlewares/FreeRTOS/port.o
- .debug_macro   0x00054a94      0x4b6 ./Middlewares/FreeRTOS/queue.o
- .debug_macro   0x00054f4a       0x87 ./Middlewares/FreeRTOS/queue.o
- .debug_macro   0x00054fd1      0x51f ./Middlewares/FreeRTOS/tasks.o
- .debug_macro   0x000554f0       0x10 ./Middlewares/FreeRTOS/tasks.o
- .debug_macro   0x00055500      0x47c ./Middlewares/FreeRTOS/timers.o
- .debug_macro   0x0005597c       0x97 ./Middlewares/FreeRTOS/timers.o
- .debug_macro   0x00055a13      0x52b ./Middlewares/LibJPEG/jaricom.o
- .debug_macro   0x00055f3e       0x6b ./Middlewares/LibJPEG/jaricom.o
- .debug_macro   0x00055fa9      0x124 ./Middlewares/LibJPEG/jaricom.o
- .debug_macro   0x000560cd       0x8f ./Middlewares/LibJPEG/jaricom.o
- .debug_macro   0x0005615c       0xaa ./Middlewares/LibJPEG/jaricom.o
- .debug_macro   0x00056206      0x525 ./Middlewares/LibJPEG/jcomapi.o
- .debug_macro   0x0005672b      0x525 ./Middlewares/LibJPEG/jdapimin.o
- .debug_macro   0x00056c50      0x525 ./Middlewares/LibJPEG/jdapistd.o
- .debug_macro   0x00057175      0x531 ./Middlewares/LibJPEG/jdarith.o
- .debug_macro   0x000576a6      0x51a ./Middlewares/LibJPEG/jdatasrc.o
- .debug_macro   0x00057bc0      0x54e ./Middlewares/LibJPEG/jdcoefct.o
- .debug_macro   0x0005810e      0x54f ./Middlewares/LibJPEG/jdcolor.o
- .debug_macro   0x0005865d      0x53b ./Middlewares/LibJPEG/jddctmgr.o
- .debug_macro   0x00058b98      0x582 ./Middlewares/LibJPEG/jdhuff.o
- .debug_macro   0x0005911a      0x525 ./Middlewares/LibJPEG/jdinput.o
- .debug_macro   0x0005963f      0x53a ./Middlewares/LibJPEG/jdmainct.o
- .debug_macro   0x00059b79      0x562 ./Middlewares/LibJPEG/jdmarker.o
- .debug_macro   0x0005a0db      0x525 ./Middlewares/LibJPEG/jdmaster.o
- .debug_macro   0x0005a600      0x537 ./Middlewares/LibJPEG/jdmerge.o
- .debug_macro   0x0005ab37      0x525 ./Middlewares/LibJPEG/jdpostct.o
- .debug_macro   0x0005b05c      0x525 ./Middlewares/LibJPEG/jdsample.o
- .debug_macro   0x0005b581      0x52e ./Middlewares/LibJPEG/jerror.o
- .debug_macro   0x0005baaf       0x10 ./Middlewares/LibJPEG/jerror.o
- .debug_macro   0x0005babf      0x534 ./Middlewares/LibJPEG/jidctflt.o
- .debug_macro   0x0005bff3      0x580 ./Middlewares/LibJPEG/jidctfst.o
- .debug_macro   0x0005c573      0x590 ./Middlewares/LibJPEG/jidctint.o
- .debug_macro   0x0005cb03      0x542 ./Middlewares/LibJPEG/jmemmgr.o
- .debug_macro   0x0005d045      0x52f ./Middlewares/LibJPEG/jmemnobs.o
- .debug_macro   0x0005d574      0x53e ./Middlewares/LibJPEG/jquant1.o
- .debug_macro   0x0005dab2      0x5f1 ./Middlewares/LibJPEG/jquant2.o
- .debug_macro   0x0005e0a3      0x52c ./Middlewares/LibJPEG/jutils.o
+ .debug_macro   0x0003efaf       0x22 ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.o
+ .debug_macro   0x0003efd1      0x44d ./Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.o
+ .debug_macro   0x0003f41e      0x397 ./Application/User/Core/src/Service/System_Service/PeriodicityCheck/PeriodicityCheck.o
+ .debug_macro   0x0003f7b5      0x40c ./Application/User/Core/src/Service/System_Service/Stack_Usage/Stack_Usage.o
+ .debug_macro   0x0003fbc1      0x3ab ./Application/User/Core/src/Service/System_Service/Switch_Interface/SwitchInf.o
+ .debug_macro   0x0003ff6c       0x76 ./Application/User/Core/src/Service/System_Service/Switch_Interface/SwitchInf.o
+ .debug_macro   0x0003ffe2      0x3d6 ./Application/User/Core/src/Service/System_Service/Task_ExeTime/Task_ExeTime.o
+ .debug_macro   0x000403b8       0x10 ./Application/User/Core/src/Service/System_Service/Task_ExeTime/Task_ExeTime.o
+ .debug_macro   0x000403c8      0x40c ./Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock/Task_OverLoad_DeadLock.o
+ .debug_macro   0x000407d4      0x36b ./Application/User/Core/src/Service/System_Service/checksum/checksum.o
+ .debug_macro   0x00040b3f      0x402 ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
+ .debug_macro   0x00040f41       0x28 ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
+ .debug_macro   0x00040f69       0x3a ./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o
+ .debug_macro   0x00040fa3      0x49e ./Application/User/LIBJPEG/App/libjpeg.o
+ .debug_macro   0x00041441       0x1b ./Application/User/TouchGFX/App/app_touchgfx.o
+ .debug_macro   0x0004145c      0x2e1 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_macro   0x0004173d      0xbb0 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_macro   0x000422ed       0x34 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_macro   0x00042321       0x16 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_macro   0x00042337       0x1c ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_macro   0x00042353       0x1c ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_macro   0x0004236f      0x1d6 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_macro   0x00042545       0x10 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_macro   0x00042555      0x417 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_macro   0x0004296c      0x190 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_macro   0x00042afc      0x38c ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_macro   0x00042e88       0x43 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_macro   0x00042ecb       0x10 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_macro   0x00042edb       0x58 ./Application/User/TouchGFX/target/CortexMMCUInstrumentation.o
+ .debug_macro   0x00042f33      0x73a ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_macro   0x0004366d     0x1305 ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_macro   0x00044972       0x18 ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_macro   0x0004498a       0x10 ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_macro   0x0004499a      0x194 ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_macro   0x00044b2e       0x10 ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_macro   0x00044b3e       0x35 ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_macro   0x00044b73       0x10 ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_macro   0x00044b83      0x3c7 ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_macro   0x00044f4a       0x8e ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_macro   0x00044fd8      0x5b4 ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_macro   0x0004558c       0x1c ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_macro   0x000455a8       0x76 ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_macro   0x0004561e       0x90 ./Application/User/TouchGFX/target/STM32TouchController.o
+ .debug_macro   0x000456ae      0x3f5 ./Application/User/TouchGFX/target/TouchGFXGPIO.o
+ .debug_macro   0x00045aa3      0x6be ./Application/User/TouchGFX/target/TouchGFXHAL.o
+ .debug_macro   0x00046161      0x300 ./Application/User/TouchGFX/target/generated/OSWrappers.o
+ .debug_macro   0x00046461       0x10 ./Application/User/TouchGFX/target/generated/OSWrappers.o
+ .debug_macro   0x00046471      0x5e6 ./Application/User/TouchGFX/target/generated/STM32DMA.o
+ .debug_macro   0x00046a57      0x5dd ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
+ .debug_macro   0x00047034       0x9e ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
+ .debug_macro   0x000470d2      0x112 ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
+ .debug_macro   0x000471e4      0x138 ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
+ .debug_macro   0x0004731c       0xf0 ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
+ .debug_macro   0x0004740c       0x16 ./Application/User/TouchGFX/target/generated/SoftwareMJPEGDecoder.o
+ .debug_macro   0x00047422      0x82d ./Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o
+ .debug_macro   0x00047c4f       0x16 ./Application/User/TouchGFX/target/generated/TouchGFXConfiguration.o
+ .debug_macro   0x00047c65      0xa45 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
+ .debug_macro   0x000486aa       0x16 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
+ .debug_macro   0x000486c0       0x34 ./Application/User/TouchGFX/target/generated/TouchGFXGeneratedHAL.o
+ .debug_macro   0x000486f4      0x116 ./Application/User/generated/ApplicationFontProvider.o
+ .debug_macro   0x0004880a       0xc7 ./Application/User/generated/BitmapDatabase.o
+ .debug_macro   0x000488d1      0x120 ./Application/User/generated/CachedFont.o
+ .debug_macro   0x000489f1      0x21c ./Application/User/generated/FontCache.o
+ .debug_macro   0x00048c0d       0x8e ./Application/User/generated/FontCache.o
+ .debug_macro   0x00048c9b       0x10 ./Application/User/generated/FontCache.o
+ .debug_macro   0x00048cab       0xb3 ./Application/User/generated/Font_Technology_Bold_16_4bpp_0.o
+ .debug_macro   0x00048d5e       0xb3 ./Application/User/generated/Font_Technology_Bold_17_4bpp_0.o
+ .debug_macro   0x00048e11       0xb3 ./Application/User/generated/Font_Technology_Bold_20_4bpp_0.o
+ .debug_macro   0x00048ec4       0xb3 ./Application/User/generated/Font_Technology_Bold_22_4bpp_0.o
+ .debug_macro   0x00048f77       0xb3 ./Application/User/generated/Font_Technology_Bold_24_4bpp_0.o
+ .debug_macro   0x0004902a      0x4f0 ./Application/User/generated/FrontendApplicationBase.o
+ .debug_macro   0x0004951a      0x1fb ./Application/User/generated/GeneratedFont.o
+ .debug_macro   0x00049715       0xd0 ./Application/User/generated/Kerning_Technology_Bold_16_4bpp.o
+ .debug_macro   0x000497e5       0xd0 ./Application/User/generated/Kerning_Technology_Bold_17_4bpp.o
+ .debug_macro   0x000498b5       0xd0 ./Application/User/generated/Kerning_Technology_Bold_20_4bpp.o
+ .debug_macro   0x00049985       0xd0 ./Application/User/generated/Kerning_Technology_Bold_22_4bpp.o
+ .debug_macro   0x00049a55       0xd0 ./Application/User/generated/Kerning_Technology_Bold_24_4bpp.o
+ .debug_macro   0x00049b25       0xcc ./Application/User/generated/LanguageGb.o
+ .debug_macro   0x00049bf1      0x482 ./Application/User/generated/Screen1ViewBase.o
+ .debug_macro   0x0004a073       0xe4 ./Application/User/generated/Table_Technology_Bold_16_4bpp.o
+ .debug_macro   0x0004a157       0xe4 ./Application/User/generated/Table_Technology_Bold_17_4bpp.o
+ .debug_macro   0x0004a23b       0xe4 ./Application/User/generated/Table_Technology_Bold_20_4bpp.o
+ .debug_macro   0x0004a31f       0xe4 ./Application/User/generated/Table_Technology_Bold_22_4bpp.o
+ .debug_macro   0x0004a403       0xe4 ./Application/User/generated/Table_Technology_Bold_24_4bpp.o
+ .debug_macro   0x0004a4e7      0x2f5 ./Application/User/generated/Texts.o
+ .debug_macro   0x0004a7dc      0x102 ./Application/User/generated/TypedTextDatabase.o
+ .debug_macro   0x0004a8de      0x148 ./Application/User/generated/VectorFontRendererBuffers.o
+ .debug_macro   0x0004aa26       0xb3 ./Application/User/generated/Vector_Font_Technology_Bold_0.o
+ .debug_macro   0x0004aad9       0xe4 ./Application/User/generated/Vector_Kerning_Technology_Bold.o
+ .debug_macro   0x0004abbd       0xe4 ./Application/User/generated/Vector_Table_Technology_Bold.o
+ .debug_macro   0x0004aca1       0xe4 ./Application/User/generated/Vector_Table_Technology_Bold_24.o
+ .debug_macro   0x0004ad85       0xe4 ./Application/User/generated/Vector_Table_Technology_Bold_36.o
+ .debug_macro   0x0004ae69       0xe4 ./Application/User/generated/Vector_Table_Technology_Bold_96.o
+ .debug_macro   0x0004af4d       0x1a ./Application/User/generated/image_ABS_Detection1.o
+ .debug_macro   0x0004af67       0x1a ./Application/User/generated/image_ABS_Detection2.o
+ .debug_macro   0x0004af81       0x1a ./Application/User/generated/image_BackGround.o
+ .debug_macro   0x0004af9b       0x1a ./Application/User/generated/image_ClusterIcons1.o
+ .debug_macro   0x0004afb5       0x1a ./Application/User/generated/image_ClusterIcons2.o
+ .debug_macro   0x0004afcf       0x1a ./Application/User/generated/image_DoorsWarning1.o
+ .debug_macro   0x0004afe9       0x1a ./Application/User/generated/image_DoorsWarning2.o
+ .debug_macro   0x0004b003       0x1a ./Application/User/generated/image_EngineOil1.o
+ .debug_macro   0x0004b01d       0x1a ./Application/User/generated/image_EngineOil2.o
+ .debug_macro   0x0004b037       0x1a ./Application/User/generated/image_EngineWarning_w.o
+ .debug_macro   0x0004b051       0x1a ./Application/User/generated/image_EngineWarning_y.o
+ .debug_macro   0x0004b06b       0x1a ./Application/User/generated/image_FuelBar01.o
+ .debug_macro   0x0004b085       0x1a ./Application/User/generated/image_FuelBar02.o
+ .debug_macro   0x0004b09f       0x1a ./Application/User/generated/image_FuelBar03.o
+ .debug_macro   0x0004b0b9       0x1a ./Application/User/generated/image_FuelBar04.o
+ .debug_macro   0x0004b0d3       0x1a ./Application/User/generated/image_FuelBar05.o
+ .debug_macro   0x0004b0ed       0x1a ./Application/User/generated/image_FuelBar06.o
+ .debug_macro   0x0004b107       0x1a ./Application/User/generated/image_FuelBar07.o
+ .debug_macro   0x0004b121       0x1a ./Application/User/generated/image_FuelBar08.o
+ .debug_macro   0x0004b13b       0x1a ./Application/User/generated/image_FuelBar09.o
+ .debug_macro   0x0004b155       0x1a ./Application/User/generated/image_FuelBar10.o
+ .debug_macro   0x0004b16f       0x1a ./Application/User/generated/image_HighBeam1.o
+ .debug_macro   0x0004b189       0x1a ./Application/User/generated/image_HighBeam2.o
+ .debug_macro   0x0004b1a3       0x1a ./Application/User/generated/image_LeftIndicator1.o
+ .debug_macro   0x0004b1bd       0x1a ./Application/User/generated/image_LeftIndicator2.o
+ .debug_macro   0x0004b1d7       0x1a ./Application/User/generated/image_LowBattery1.o
+ .debug_macro   0x0004b1f1       0x1a ./Application/User/generated/image_LowBattery2.o
+ .debug_macro   0x0004b20b       0x1a ./Application/User/generated/image_LowBeam1.o
+ .debug_macro   0x0004b225       0x1a ./Application/User/generated/image_LowBeam2.o
+ .debug_macro   0x0004b23f       0x1a ./Application/User/generated/image_Parking_r.o
+ .debug_macro   0x0004b259       0x1a ./Application/User/generated/image_Parking_w.o
+ .debug_macro   0x0004b273       0x1a ./Application/User/generated/image_RPMBar01.o
+ .debug_macro   0x0004b28d       0x1a ./Application/User/generated/image_RPMBar02.o
+ .debug_macro   0x0004b2a7       0x1a ./Application/User/generated/image_RPMBar03.o
+ .debug_macro   0x0004b2c1       0x1a ./Application/User/generated/image_RPMBar04.o
+ .debug_macro   0x0004b2db       0x1a ./Application/User/generated/image_RPMBar05.o
+ .debug_macro   0x0004b2f5       0x1a ./Application/User/generated/image_RPMBar06.o
+ .debug_macro   0x0004b30f       0x1a ./Application/User/generated/image_RPMBar07.o
+ .debug_macro   0x0004b329       0x1a ./Application/User/generated/image_RPMBar08.o
+ .debug_macro   0x0004b343       0x1a ./Application/User/generated/image_RPMBar09.o
+ .debug_macro   0x0004b35d       0x1a ./Application/User/generated/image_RPMBar10.o
+ .debug_macro   0x0004b377       0x1a ./Application/User/generated/image_RPMIcon1.o
+ .debug_macro   0x0004b391       0x1a ./Application/User/generated/image_RPMIcon2.o
+ .debug_macro   0x0004b3ab       0x1a ./Application/User/generated/image_RightIndicator1.o
+ .debug_macro   0x0004b3c5       0x1a ./Application/User/generated/image_RightIndicator2.o
+ .debug_macro   0x0004b3df       0x1a ./Application/User/generated/image_SeatBelt_r.o
+ .debug_macro   0x0004b3f9       0x1a ./Application/User/generated/image_SeatBelt_w.o
+ .debug_macro   0x0004b413       0x1a ./Application/User/generated/image_ServiceReminder_w.o
+ .debug_macro   0x0004b42d       0x1a ./Application/User/generated/image_ServiceReminder_y.o
+ .debug_macro   0x0004b447       0x1a ./Application/User/generated/image_TempIcon1.o
+ .debug_macro   0x0004b461       0x1a ./Application/User/generated/image_TempIcon2.o
+ .debug_macro   0x0004b47b       0x1a ./Application/User/generated/image_high_beam.o
+ .debug_macro   0x0004b495       0x1a ./Application/User/generated/image_high_beam_1.o
+ .debug_macro   0x0004b4af      0x3d8 ./Application/User/gui/FrontendApplication.o
+ .debug_macro   0x0004b887      0x536 ./Application/User/gui/Model.o
+ .debug_macro   0x0004bdbd      0x4a0 ./Application/User/gui/Screen1Presenter.o
+ .debug_macro   0x0004c25d      0x4cb ./Application/User/gui/Screen1View.o
+ .debug_macro   0x0004c728      0x11d ./Application/User/gui/Screen1View.o
+ .debug_macro   0x0004c845       0x93 ./Drivers/BSP/Components/ft5336.o
+ .debug_macro   0x0004c8d8      0x5ae ./Drivers/BSP/Components/ft5336.o
+ .debug_macro   0x0004ce86       0x72 ./Drivers/BSP/Components/ft5336_reg.o
+ .debug_macro   0x0004cef8      0x358 ./Drivers/BSP/Components/mx25lm51245g.o
+ .debug_macro   0x0004d250       0x2e ./Drivers/BSP/Components/mx25lm51245g.o
+ .debug_macro   0x0004d27e      0x3b5 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o
+ .debug_macro   0x0004d633       0x64 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o
+ .debug_macro   0x0004d697      0x391 ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.o
+ .debug_macro   0x0004da28      0x39f ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
+ .debug_macro   0x0004ddc7       0x6a ./Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ts.o
+ .debug_macro   0x0004de31      0x340 ./Drivers/CMSIS/system_stm32h7xx.o
+ .debug_macro   0x0004e171      0x364 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o
+ .debug_macro   0x0004e4d5      0x365 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc.o
+ .debug_macro   0x0004e83a      0x346 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc_ex.o
+ .debug_macro   0x0004eb80      0x33a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o
+ .debug_macro   0x0004eeba      0x33a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.o
+ .debug_macro   0x0004f1f4      0x33a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.o
+ .debug_macro   0x0004f52e      0x349 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma2d.o
+ .debug_macro   0x0004f877      0x3ff ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_fdcan.o
+ .debug_macro   0x0004fc76      0x341 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o
+ .debug_macro   0x0004ffb7      0x406 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o
+ .debug_macro   0x000503bd      0x33a ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o
+ .debug_macro   0x000506f7      0x348 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_iwdg.o
+ .debug_macro   0x00050a3f      0x342 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc.o
+ .debug_macro   0x00050d81      0x349 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o
+ .debug_macro   0x000510ca      0x381 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ospi.o
+ .debug_macro   0x0005144b      0x35e ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr.o
+ .debug_macro   0x000517a9      0x373 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o
+ .debug_macro   0x00051b1c      0x35e ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o
+ .debug_macro   0x00051e7a      0x358 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o
+ .debug_macro   0x000521d2      0x33b ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc.o
+ .debug_macro   0x0005250d      0x340 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc_ex.o
+ .debug_macro   0x0005284d      0x33b ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o
+ .debug_macro   0x00052b88      0x340 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o
+ .debug_macro   0x00052ec8      0x365 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o
+ .debug_macro   0x0005322d      0x346 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o
+ .debug_macro   0x00053573      0x4ff ./Middlewares/FreeRTOS/cmsis_os2.o
+ .debug_macro   0x00053a72       0xf5 ./Middlewares/FreeRTOS/cmsis_os2.o
+ .debug_macro   0x00053b67       0x91 ./Middlewares/FreeRTOS/cmsis_os2.o
+ .debug_macro   0x00053bf8       0x8d ./Middlewares/FreeRTOS/cmsis_os2.o
+ .debug_macro   0x00053c85       0x9a ./Middlewares/FreeRTOS/cmsis_os2.o
+ .debug_macro   0x00053d1f       0x22 ./Middlewares/FreeRTOS/cmsis_os2.o
+ .debug_macro   0x00053d41      0x44e ./Middlewares/FreeRTOS/heap_4.o
+ .debug_macro   0x0005418f      0x427 ./Middlewares/FreeRTOS/list.o
+ .debug_macro   0x000545b6      0x4ce ./Middlewares/FreeRTOS/port.o
+ .debug_macro   0x00054a84      0x4b6 ./Middlewares/FreeRTOS/queue.o
+ .debug_macro   0x00054f3a       0x87 ./Middlewares/FreeRTOS/queue.o
+ .debug_macro   0x00054fc1      0x51f ./Middlewares/FreeRTOS/tasks.o
+ .debug_macro   0x000554e0       0x10 ./Middlewares/FreeRTOS/tasks.o
+ .debug_macro   0x000554f0      0x47c ./Middlewares/FreeRTOS/timers.o
+ .debug_macro   0x0005596c       0x97 ./Middlewares/FreeRTOS/timers.o
+ .debug_macro   0x00055a03      0x52b ./Middlewares/LibJPEG/jaricom.o
+ .debug_macro   0x00055f2e       0x6b ./Middlewares/LibJPEG/jaricom.o
+ .debug_macro   0x00055f99      0x124 ./Middlewares/LibJPEG/jaricom.o
+ .debug_macro   0x000560bd       0x8f ./Middlewares/LibJPEG/jaricom.o
+ .debug_macro   0x0005614c       0xaa ./Middlewares/LibJPEG/jaricom.o
+ .debug_macro   0x000561f6      0x525 ./Middlewares/LibJPEG/jcomapi.o
+ .debug_macro   0x0005671b      0x525 ./Middlewares/LibJPEG/jdapimin.o
+ .debug_macro   0x00056c40      0x525 ./Middlewares/LibJPEG/jdapistd.o
+ .debug_macro   0x00057165      0x531 ./Middlewares/LibJPEG/jdarith.o
+ .debug_macro   0x00057696      0x51a ./Middlewares/LibJPEG/jdatasrc.o
+ .debug_macro   0x00057bb0      0x54e ./Middlewares/LibJPEG/jdcoefct.o
+ .debug_macro   0x000580fe      0x54f ./Middlewares/LibJPEG/jdcolor.o
+ .debug_macro   0x0005864d      0x53b ./Middlewares/LibJPEG/jddctmgr.o
+ .debug_macro   0x00058b88      0x582 ./Middlewares/LibJPEG/jdhuff.o
+ .debug_macro   0x0005910a      0x525 ./Middlewares/LibJPEG/jdinput.o
+ .debug_macro   0x0005962f      0x53a ./Middlewares/LibJPEG/jdmainct.o
+ .debug_macro   0x00059b69      0x562 ./Middlewares/LibJPEG/jdmarker.o
+ .debug_macro   0x0005a0cb      0x525 ./Middlewares/LibJPEG/jdmaster.o
+ .debug_macro   0x0005a5f0      0x537 ./Middlewares/LibJPEG/jdmerge.o
+ .debug_macro   0x0005ab27      0x525 ./Middlewares/LibJPEG/jdpostct.o
+ .debug_macro   0x0005b04c      0x525 ./Middlewares/LibJPEG/jdsample.o
+ .debug_macro   0x0005b571      0x52e ./Middlewares/LibJPEG/jerror.o
+ .debug_macro   0x0005ba9f       0x10 ./Middlewares/LibJPEG/jerror.o
+ .debug_macro   0x0005baaf      0x534 ./Middlewares/LibJPEG/jidctflt.o
+ .debug_macro   0x0005bfe3      0x580 ./Middlewares/LibJPEG/jidctfst.o
+ .debug_macro   0x0005c563      0x590 ./Middlewares/LibJPEG/jidctint.o
+ .debug_macro   0x0005caf3      0x542 ./Middlewares/LibJPEG/jmemmgr.o
+ .debug_macro   0x0005d035      0x52f ./Middlewares/LibJPEG/jmemnobs.o
+ .debug_macro   0x0005d564      0x53e ./Middlewares/LibJPEG/jquant1.o
+ .debug_macro   0x0005daa2      0x5f1 ./Middlewares/LibJPEG/jquant2.o
+ .debug_macro   0x0005e093      0x52c ./Middlewares/LibJPEG/jutils.o
 
 .debug_line     0x00000000    0xd64ba
  .debug_line    0x00000000      0xdc0 ./Application/User/Core/freertos.o
