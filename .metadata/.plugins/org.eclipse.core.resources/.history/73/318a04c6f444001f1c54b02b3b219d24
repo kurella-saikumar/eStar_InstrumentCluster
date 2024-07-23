@@ -1,4 +1,0 @@
-../Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock/Task_OverLoad_DeadLock.c:76:6:vRegisterTaskForOverloadDeadLockCheck	32	static
-../Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock/Task_OverLoad_DeadLock.c:114:6:vSafeChecksTaskSwitchedOut	16	static
-../Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock/Task_OverLoad_DeadLock.c:156:6:vSafeChecksMovedTaskToReadyState	24	static
-../Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock/Task_OverLoad_DeadLock.c:191:6:vCheckTaskDeadlock	24	static

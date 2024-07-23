@@ -1,3 +1,0 @@
-../Application/User/Core/src/Service/System_Service/stateManager/smHandler.c:69:11:SM_get_current_state	1
-../Application/User/Core/src/Service/System_Service/stateManager/smHandler.c:82:6:State_Manager_init	1
-../Application/User/Core/src/Service/System_Service/stateManager/smHandler.c:101:6:State_Manager_task	10

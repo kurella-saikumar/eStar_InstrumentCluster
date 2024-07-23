@@ -1,3 +1,0 @@
-../Application/User/Core/src/Service/System_Service/Task_ExeTime/Task_ExeTime.c:62:6:vReset_executionTimeStats	1
-../Application/User/Core/src/Service/System_Service/Task_ExeTime/Task_ExeTime.c:89:6:vBeginExecMeas	2
-../Application/User/Core/src/Service/System_Service/Task_ExeTime/Task_ExeTime.c:109:6:vEndExecMeas	6

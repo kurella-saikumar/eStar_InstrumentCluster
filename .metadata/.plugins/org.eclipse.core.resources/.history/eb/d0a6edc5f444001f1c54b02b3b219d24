@@ -1,7 +1,0 @@
-../Application/User/Core/src/App/CAN_App/CAN_App.c:78:6:VCAN_Init	3
-../Application/User/Core/src/App/CAN_App/CAN_App.c:127:6:HAL_FDCAN_RxFifo0Callback	5
-../Application/User/Core/src/App/CAN_App/CAN_App.c:181:6:HAL_FDCAN_TimeoutOccurredCallback	2
-../Application/User/Core/src/App/CAN_App/CAN_App.c:217:6:vCANTransmit	1
-../Application/User/Core/src/App/CAN_App/CAN_App.c:228:6:xGet_CANBusOff_Status	1
-../Application/User/Core/src/App/CAN_App/CAN_App.c:236:17:Get_SignalStatus	1
-../Application/User/Core/src/App/CAN_App/CAN_App.c:241:6:Get_TimeoutStatus	1

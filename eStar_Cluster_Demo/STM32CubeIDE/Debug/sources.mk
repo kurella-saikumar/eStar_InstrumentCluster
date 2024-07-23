@@ -69,6 +69,7 @@ Application/User/Core/src/Service/System_Service/Stack_Usage \
 Application/User/Core/src/Service/System_Service/Switch_Interface \
 Application/User/Core/src/Service/System_Service/Task_ExeTime \
 Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock \
+Application/User/Core/src/Service/System_Service/WDG_Handler \
 Application/User/Core/src/Service/System_Service/checksum \
 Application/User/Core/src/Service/System_Service/stateManager \
 Application/User/LIBJPEG/App \

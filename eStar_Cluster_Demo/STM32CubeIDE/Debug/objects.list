@@ -41,6 +41,7 @@
 "./Application/User/Core/src/Service/System_Service/Switch_Interface/SwitchInf.o"
 "./Application/User/Core/src/Service/System_Service/Task_ExeTime/Task_ExeTime.o"
 "./Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock/Task_OverLoad_DeadLock.o"
+"./Application/User/Core/src/Service/System_Service/WDG_Handler/wdgh.o"
 "./Application/User/Core/src/Service/System_Service/checksum/checksum.o"
 "./Application/User/Core/src/Service/System_Service/stateManager/smHandler.o"
 "./Application/User/LIBJPEG/App/libjpeg.o"

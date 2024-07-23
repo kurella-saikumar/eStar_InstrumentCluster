@@ -1,5 +1,5 @@
 Application/User/Core/stm32h7xx_it.o: \
- D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_it.c \
+ D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_it.c \
  ../../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
