@@ -1,6 +1,6 @@
-Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o: \
- ../Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.c \
- ../Application/User/Core/src/Service/CAN_IF/CAN_NIM.h \
+Application/User/Core/src/Service/CAN/CAN_IF/Can_NIM_MsgHandler.o: \
+ ../Application/User/Core/src/Service/CAN/CAN_IF/Can_NIM_MsgHandler.c \
+ ../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM.h \
  ../../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
@@ -47,8 +47,8 @@ Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- ../Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.h
-../Application/User/Core/src/Service/CAN_IF/CAN_NIM.h:
+ ../Application/User/Core/src/Service/CAN/CAN_IF/Indicators_CANSignal.h
+../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM.h:
 ../../Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:
@@ -95,4 +95,4 @@ Application/User/Core/src/Service/CAN_IF/CAN_NIM_Signal_IF.o: \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
-../Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.h:
+../Application/User/Core/src/Service/CAN/CAN_IF/Indicators_CANSignal.h:

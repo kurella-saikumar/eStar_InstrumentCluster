@@ -41,7 +41,8 @@ RM := rm -rf
 -include Application/User/Core/src/Service/IO_HAL/DigitalDebounce/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/Damping_Filter/subdir.mk
 -include Application/User/Core/src/Service/IO_HAL/AnalogDebounce/subdir.mk
--include Application/User/Core/src/Service/CAN_IF/subdir.mk
+-include Application/User/Core/src/Service/CAN/CAN_IF/subdir.mk
+-include Application/User/Core/src/Service/CAN/CAN_Driver/subdir.mk
 -include Application/User/Core/src/App/eeprom_emulDemo_App/subdir.mk
 -include Application/User/Core/src/App/Tachometer_App/subdir.mk
 -include Application/User/Core/src/App/Speedometer_App/subdir.mk
@@ -52,7 +53,6 @@ RM := rm -rf
 -include Application/User/Core/src/App/DriverInfo_App/subdir.mk
 -include Application/User/Core/src/App/DriverInfoMenu_App/subdir.mk
 -include Application/User/Core/src/App/Clock_App/subdir.mk
--include Application/User/Core/src/App/CAN_App/subdir.mk
 -include Application/User/Core/subdir.mk
 -include objects.mk
 
@@ -129,8 +129,8 @@ all: main-build
 main-build: STM32H735G-DK.elf secondary-outputs
 
 # Tool invocations
-STM32H735G-DK.elf STM32H735G-DK.map: $(OBJS) $(USER_OBJS) D:\GIT_WorkAreas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\STM32H735IGKX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "STM32H735G-DK.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\GIT_WorkAreas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\STM32H735IGKX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32H735G-DK.map" -Wl,--gc-sections -static -L../../Middlewares/ST/touchgfx/lib/core/cortex_m7/gcc -u _printf_float --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+STM32H735G-DK.elf STM32H735G-DK.map: $(OBJS) $(USER_OBJS) D:\estar_GIT\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\STM32H735IGKX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "STM32H735G-DK.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"D:\estar_GIT\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\STM32H735IGKX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32H735G-DK.map" -Wl,--gc-sections -static -L../../Middlewares/ST/touchgfx/lib/core/cortex_m7/gcc -u _printf_float --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

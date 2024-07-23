@@ -1,15 +1,15 @@
 
 /** \addtogroup  FILE_TEMPLATE
  *  @{
- * @file template.c
+ * @file CAN_NIMSignal.c
  *
  * @brief Template Source File
  *
- * File Short Name: 
+ * File Short Name: Can NIM signal
  *
- * Author: 
+ * Author: Madhavi Manthri
  *
- * Create Date: 
+ * Create Date: Apr 10,2024
  *
  * Copyright:  All information contained herein is, and remains the property of
  * eSTAR TECHNOLOGIES(OPC) PRIVATE LIMITED and its suppliers, if any.
@@ -66,10 +66,25 @@ void vNim_unPack(uint16_t msg_index, uint8_t *srcPtr)
 {
 	if(msg_index == 0)
 	{
-
+		indicators_indicator_status_unpack(&l_msg_Indicator_Status_unpacked, srcPtr, INDICATORS_INDICATOR_STATUS_LENGTH);
 	}
 }
 
+void vNim_Pack(uint8_t msg_index, uint8_t *dstPtr)
+{
+
+}
+
+void vNim_RxmsgInit(uint8_t msg_index, uint8_t CH_id)
+{
+	if(CH_id == NIM_CAN_ID_0)
+	{
+		if(msg_index == 0)
+		{
+			indicators_indicator_status_init(&l_msg_Indicator_Status_unpacked);
+		}
+	}
+}
 /**
  * @brief Get the status of the Right_Indicator signal
  *
@@ -522,9 +537,9 @@ double vNim_get_indicator_status_faultyright_indicator(CanRxStatus_t *sigStatus)
 
     if (*sigStatus == MSG_PROCESSED)
     {
-        if (indicators_indicator_status_faulty_right_indicator_is_in_range(l_msg_Indicator_Status_unpacked.faulty_left_indicator))
+        if (indicators_indicator_status_faulty_right_indicator_is_in_range(l_msg_Indicator_Status_unpacked.faulty_right_indicator))
         {
-            fl_data_double = indicators_indicator_status_faulty_right_indicator_decode(l_msg_Indicator_Status_unpacked.faulty_left_indicator);
+            fl_data_double = indicators_indicator_status_faulty_right_indicator_decode(l_msg_Indicator_Status_unpacked.faulty_right_indicator);
         }
         else
         {
@@ -565,9 +580,9 @@ double vNim_get_indicator_status_faultyleft_indicator(CanRxStatus_t *sigStatus)
 
     if (*sigStatus == MSG_PROCESSED)
     {
-        if (indicators_indicator_status_faulty_left_indicator_is_in_range(l_msg_Indicator_Status_unpacked.engine_oil_indicator))
+        if (indicators_indicator_status_faulty_left_indicator_is_in_range(l_msg_Indicator_Status_unpacked.faulty_left_indicator))
         {
-            fl_data_double = indicators_indicator_status_faulty_left_indicator_decode(l_msg_Indicator_Status_unpacked.engine_oil_indicator);
+            fl_data_double = indicators_indicator_status_faulty_left_indicator_decode(l_msg_Indicator_Status_unpacked.faulty_left_indicator);
         }
         else
         {

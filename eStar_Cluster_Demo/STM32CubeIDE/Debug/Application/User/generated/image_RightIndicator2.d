@@ -1,4 +1,4 @@
 Application/User/generated/image_RightIndicator2.o: \
- D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/images/src/IndicatorIcons/RightIndicator/image_RightIndicator2.cpp \
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/images/src/IndicatorIcons/RightIndicator/image_RightIndicator2.cpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp:

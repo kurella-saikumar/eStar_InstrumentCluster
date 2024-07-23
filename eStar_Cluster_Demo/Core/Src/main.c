@@ -40,7 +40,8 @@
 #include "SwitchHandler_App.h"
 #include "SwitchInf.h"
 #include "clock_App.h"
-#include "CAN_App.h"
+#include "CAN_NIM.h"
+#include "CAN_Driver.h"
 #include "Indicator_App.h"
 #include "stm32h7xx_hal_tim.h"
 #include "ServiceRequest_App.h"
@@ -567,6 +568,7 @@ int main(void)
   clock_Init();
   vFuelGuageTaskInit();
   VCAN_Init();
+  vNim_Sig_Init();
   vIndicatorsInit();
   vServiceRequestTask_Init();
 
@@ -3638,10 +3640,9 @@ void CAN_Task(void *argument)
   {
 	 // vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T10,vTask_demo1PeriodicityCheckErrorHook10 );
 	  vBeginExecMeas(&p_measurement_var_ptr);
-	 // vCANTransmit();
-//	vCANReceive();
+	  vNim_ProcessRxTask();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb10);
-    osDelay(100);
+      osDelay(10);
   }
   /* USER CODE END CAN_Task */
 }

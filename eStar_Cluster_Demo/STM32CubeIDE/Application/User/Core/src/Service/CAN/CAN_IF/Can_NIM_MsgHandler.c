@@ -36,15 +36,15 @@
 /**************************************************************************************************
  * DEFINE FILE SCOPE TYPES
 ***************************************************************************************************/
-//FDCAN_TxHeaderTypeDef TxHeader[]={
-//		TX_MSG_LIST
-//};
+FDCAN_TxHeaderTypeDef TxMsgHeader[]={
+		TX_MSG_LIST
+};
 
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES\n
 ***************************************************************************************************/
 
-
+uint8_t Nim_Can_TxCount[NUM_TX_MESSAGES];
 /**************************************************************************************************
  * DECLARE FILE STATIC VARIABLES\n
 ***************************************************************************************************/
@@ -52,6 +52,8 @@ const uint32_t Nim_CAN_CH0_msgTimeoutLimit[NUM_RX_MESSAGES] =
 {
 	((RX_MESSAGE_MISSING_COUNT * INDICATORS_INDICATOR_STATUS_CYCLE_TIME_MS) / CAN_NIM_TASK_RATE)
 };
+
+const uint32_t Nim_CAN_CH0_msgTxPeriodicity[NUM_TX_MESSAGES] = { };
 /**************************************************************************************************
  * DEFINE FILE SCOPE FUNCTION PROTOTYPES\n
 ***************************************************************************************************/
@@ -85,7 +87,7 @@ static void vNim_ProcessSignalTimeout(uint8_t MessageIndex, uint8_t CH_id)
 		else
 		{
 			Nim_CAN_CH0_RxBuffer[MessageIndex].l_rxStatus_U8 = MSG_MISSING_CONFIRMED;
-			printf("Message missing confirmed from index: %d\r\n",MessageIndex);
+			//printf("Message missing confirmed from index: %d\r\n",MessageIndex);
 		}
 	}
 	else
@@ -169,20 +171,20 @@ void vNim_ProcessRxTask(void)
  * @return None
  * @todo: Need to update Event and Event Periodic message handling.
  */
-#if 0
+
 void vNim_Process_TxTask(void)
 {
 	static uint8_t tmpDataBuffer[8];
 	uint16_t fl_msgLoopCounter_u16 = 0;
 
-	for(fl_msgLoopCounter_u16=0; fl_msgLoopCounter_u16 < CH_0_TX_MESSAGE_COUNT; fl_msgLoopCounter_u16++)
+	for(fl_msgLoopCounter_u16=0; fl_msgLoopCounter_u16 < NUM_TX_MESSAGES; fl_msgLoopCounter_u16++)
 	{
 		if(Nim_CAN_CH0_msgTxPeriodicity[fl_msgLoopCounter_u16] != 0)
 		{
 			if(Nim_Can_TxCount[fl_msgLoopCounter_u16] == 0)
 			{
 				vNim_Pack(fl_msgLoopCounter_u16, tmpDataBuffer);
-				HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan3, &TxHeader[fl_msgLoopCounter_u16], tmpDataBuffer);
+				HAL_FDCAN_AddMessageToTxFifoQ(&hfdcan3, &TxMsgHeader[fl_msgLoopCounter_u16], tmpDataBuffer);
 				Nim_Can_TxCount[fl_msgLoopCounter_u16] = Nim_CAN_CH0_msgTxPeriodicity[fl_msgLoopCounter_u16];
 			}
 			else
@@ -192,9 +194,26 @@ void vNim_Process_TxTask(void)
 		}
 	}
 }
-#endif
 
-
+/**
+ * @brief Update receive status and buffer based on message ID.
+ *
+ * @param Msg_Id The message ID.
+ * @param data Pointer to the data to be copied into the receive buffer.
+ */
+void vUpdateRxBuffer_Callback(uint32_t Msg_Id, uint8_t* data)
+{
+	uint32_t fl_RxMessageIndex_U32 = 0;
+	for (fl_RxMessageIndex_U32 = 0; fl_RxMessageIndex_U32 < NUM_RX_MESSAGES; fl_RxMessageIndex_U32++)
+	{
+		if (Msg_Id == rx_message_ids[fl_RxMessageIndex_U32])
+		{
+			Nim_CAN_CH0_RxBuffer[fl_RxMessageIndex_U32].l_rxStatus_U8 = NEW_MSG_RECEIVED;
+			memcpy(Nim_CAN_CH0_RxBuffer[fl_RxMessageIndex_U32].l_rxBuffer, data, sizeof(Nim_CAN_CH0_RxBuffer[fl_RxMessageIndex_U32].l_rxBuffer));
+			break;
+		}
+	}
+}
 /**************************************************************************************************
  * End Of File
 ***************************************************************************************************/

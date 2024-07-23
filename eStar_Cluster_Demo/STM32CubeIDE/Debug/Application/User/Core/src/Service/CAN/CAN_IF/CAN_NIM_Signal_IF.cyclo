@@ -1,0 +1,16 @@
+../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM_Signal_IF.c:65:6:vNim_unPack	2
+../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM_Signal_IF.c:73:6:vNim_Pack	1
+../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM_Signal_IF.c:78:6:vNim_RxmsgInit	2
+../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM_Signal_IF.c:102:8:vNim_get_indicator_status_right_indicator	3
+../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM_Signal_IF.c:145:8:vNim_get_indicator_status_left_indicator	3
+../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM_Signal_IF.c:188:8:vNim_get_indicator_status_parking_indicator	3
+../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM_Signal_IF.c:231:8:vNim_get_indicator_status_highbeam_indicator	3
+../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM_Signal_IF.c:274:8:vNim_get_indicator_status_lowbeam_indicator	3
+../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM_Signal_IF.c:317:8:vNim_get_indicator_status_engineoiltemperature_indicator	3
+../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM_Signal_IF.c:360:8:vNim_get_indicator_status_seatbelt_indicator	3
+../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM_Signal_IF.c:403:8:vNim_get_indicator_status_enginemalfunction_indicator	3
+../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM_Signal_IF.c:446:8:vNim_get_indicator_status_doorsopen_indicator	3
+../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM_Signal_IF.c:489:8:vNim_get_indicator_status_abswarning_indicator	3
+../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM_Signal_IF.c:532:8:vNim_get_indicator_status_faultyright_indicator	3
+../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM_Signal_IF.c:575:8:vNim_get_indicator_status_faultyleft_indicator	3
+../Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM_Signal_IF.c:618:8:vNim_get_indicator_status_engineoil_indicator	3

@@ -1,2 +1,0 @@
-../Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.c:110:6:vNim_Sig_Init	0	static
-../Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.c:136:6:vNim_ProcessRxTask	0	static

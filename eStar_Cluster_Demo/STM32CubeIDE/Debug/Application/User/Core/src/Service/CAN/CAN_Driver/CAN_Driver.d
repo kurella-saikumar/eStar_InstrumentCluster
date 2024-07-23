@@ -1,7 +1,6 @@
-Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o: \
- ../Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.c \
- ../Application/User/Core/src/Service/CAN_IF/CAN_NIM.h \
- ../../Core/Inc/main.h \
+Application/User/Core/src/Service/CAN/CAN_Driver/CAN_Driver.o: \
+ ../Application/User/Core/src/Service/CAN/CAN_Driver/CAN_Driver.c \
+ ../Application/User/Core/src/Service/CAN/CAN_Driver/CAN_Driver.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -47,9 +46,10 @@ Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- ../Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.h
-../Application/User/Core/src/Service/CAN_IF/CAN_NIM.h:
-../../Core/Inc/main.h:
+ ../../Core/Inc/main.h \
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM.h \
+ D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/CAN/CAN_IF/Indicators_CANSignal.h
+../Application/User/Core/src/Service/CAN/CAN_Driver/CAN_Driver.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:
@@ -95,4 +95,6 @@ Application/User/Core/src/Service/CAN_IF/Can_NIM_MsgHandler.o: \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
-../Application/User/Core/src/Service/CAN_IF/Indicators_CANSignal.h:
+../../Core/Inc/main.h:
+D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/CAN/CAN_IF/CAN_NIM.h:
+D:/estar_GIT/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/CAN/CAN_IF/Indicators_CANSignal.h:

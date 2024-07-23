@@ -1,15 +1,15 @@
 
-/** \addtogroup  FILE_TEMPLATE
+/** \addtogroup  CAN_NIM
  *  @{
- * @file template.h
+ * @file CAN_NIM.h
  *
  * @brief Template Header File
  *
- * File Short Name: 
+ * File Short Name: can nim
  *
- * Author: 
+ * Author: Madhavi Manthri
  *
- * Create Date: 
+ * Create Date: Apr 10,2024
  *
  * Copyright:  All information contained herein is, and remains the property of
  * eSTAR TECHNOLOGIES(OPC) PRIVATE LIMITED and its suppliers, if any.
@@ -36,7 +36,8 @@
 #define NUM_TX_MESSAGES 0
 
 #define RX_MESSAGE_MISSING_COUNT 10
-#define CAN_NIM_TASK_RATE 5
+#define CAN_NIM_TASK_RATE 10
+#define NIM_CAN_ID_0 0
 
 /*-------------------------------------------RX_MESSAGE_INDEX-------------------------------------------------------------------------*/
 
@@ -45,7 +46,7 @@
 /*-------------------------------------------RX_TIMEOUT_VALUES-------------------------------------------------------------------------*/
 
 
-#define INDICATORS_INDICATOR_STATUS_CYCLE_TIME_MS 10
+#define INDICATORS_INDICATOR_STATUS_CYCLE_TIME_MS 100
 
 /*-------------------------------------------TX_TIMEOUT_VALUES-------------------------------------------------------------------------*/
 
@@ -88,6 +89,12 @@ extern Nim_RxMsg_t Nim_CAN_CH0_RxBuffer[NUM_RX_MESSAGES];;
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES
 ***************************************************************************************************/
+extern void vUpdateRxBuffer_Callback(uint32_t Msg_Id, uint8_t* data);
+extern void vNim_unPack(uint16_t msg_index, uint8_t *srcPtr);
+extern void vNim_Pack(uint8_t msg_index, uint8_t *dstPtr);
+extern void vNim_RxmsgInit(uint8_t msg_index, uint8_t CH_id);
+extern void vNim_Sig_Init(void);
+extern void vNim_ProcessRxTask(void);
 extern double vNim_get_indicator_status_right_indicator(CanRxStatus_t *sigStatus);
 extern double vNim_get_indicator_status_left_indicator(CanRxStatus_t *sigStatus);
 extern double vNim_get_indicator_status_parking_indicator(CanRxStatus_t *sigStatus);
