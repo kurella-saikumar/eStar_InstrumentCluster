@@ -67,7 +67,7 @@ void vDriver_InfoTask(void)
     ucignitionstatus = usIgnitionGetCurrentState();
     if(ucignitionstatus == IgnOFF_mode)
     {
-        printf("Ignition is OFF\r\n");
+       // printf("Ignition is OFF\r\n");
         //ucDeltaTime = 0;
         //usDistance2 = 0;
         //ulDistance2 = 0;
@@ -272,14 +272,14 @@ void vCalculateAFE(void)
 		{
 			ulinitialDistanceinKm = ulfinalDistanceinKm;
 			ucinitialFuelPercentage = ucfinalFuelPercentage;
-			printf("I_Per:%d\t",ucinitialFuelPercentage);
+			//printf("I_Per:%d\t",ucinitialFuelPercentage);
 			ulAfeinKmperLitre  = ulpreviousAFEinKmperLitre;
 		}
 		else
 		{
 			usdeltaFuelInLitres = (uint16_t)(prvconvert_FuelPercentageToLitres(usdeltaFuelInPercentage));
 			usAverageFuel = calculateMovingAverage(usdeltaFuelInLitres,&l_Fuel_MA_t);
-			printf("Fuel_MA:%u\t", usAverageFuel);
+			//printf("Fuel_MA:%u\t", usAverageFuel);
 
 			if (usAverageFuel == 0)
 			{
@@ -289,7 +289,7 @@ void vCalculateAFE(void)
 			else
 			{
 				ulAfeinKmperLitre = (ulAverageDitsance * 10) /(uint32_t)(usAverageFuel);
-				printf("AFE_C:%ld\n\r", ulAfeinKmperLitre);
+				//printf("AFE_C:%ld\n\r", ulAfeinKmperLitre);
 				ulinitialDistanceinKm = ulfinalDistanceinKm;
 				ucinitialFuelPercentage = ucfinalFuelPercentage;
 			}
@@ -349,18 +349,18 @@ void vCalculateRange(void)
 		//printf("Fuel: %d\n\r", usfuelRemainingInLitres);
 		if(uccount1 == 1)
 		{
-			printf("inside_If\r\n");
+			//printf("inside_If\r\n");
 			usfuelRemainingInLitres = FINAL_FUEL_LEVEL;
 			usCalculated_DTEinKm = (uint16_t)(FINAL_FUEL_LEVEL * DEFAULT_AFE );
-			printf("C_DTE:%d\t",usCalculated_DTEinKm);
+			//printf("C_DTE:%d\t",usCalculated_DTEinKm);
 			uspresent_DTEinKm= usCalculated_DTEinKm;
-			printf("PIN_DTE:%d\t",uspresent_DTEinKm);
+			//printf("PIN_DTE:%d\t",uspresent_DTEinKm);
 		}
 		else
 		{
 			usCalculated_DTEinKm = usfuelRemainingInLitres * ulAfeinKmperLitre;
 		 	uspresent_DTEinKm = usCalculated_DTEinKm;
-			printf("POUT_DTE:%d\t",uspresent_DTEinKm);
+			//printf("POUT_DTE:%d\t",uspresent_DTEinKm);
 			/*Here, if DTE = 28 then it's actual value is 2.8*/
 		}
 
@@ -377,7 +377,7 @@ void vCalculateRange(void)
 		if(uspresent_DTEinKm >= MAX_THRESHOLD_DTE)
 		{
 			uspresent_DTEinKm = MAX_THRESHOLD_DTE;
-			printf("P_DTE:%d\t",uspresent_DTEinKm);
+			//printf("P_DTE:%d\t",uspresent_DTEinKm);
 //			ModeStatus.Range = uspresent_DTEinKm;
 			//return uspresent_DTEinKm;
 		}
@@ -413,8 +413,8 @@ void vCalculateRange(void)
 	}
 	ModeStatus.Range = uspresent_DTE;
 	usprevious_DTEinKm = uspresent_DTEinKm;
-	printf("DTE:%d\r\n",uspresent_DTEinKm);
-	printf("DTE1:%d\n\r",ModeStatus.Range);
+	//printf("DTE:%d\r\n",uspresent_DTEinKm);
+	//printf("DTE1:%d\n\r",ModeStatus.Range);
     //return uspresent_DTEinKm;
 }
 

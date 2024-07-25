@@ -4,7 +4,7 @@
 ../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:151:6:vCalculateAVS	8	static
 ../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:178:9:prvFuelSimulation	0	static
 ../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:192:9:prvconvert_FuelPercentageToLitres	0	static
-../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:216:6:vCalculateAFE	40	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:216:6:vCalculateAFE	32	static
 ../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:327:6:vCalculateRange	16	static
 ../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:64:6:vDriver_InfoTask	8	static
 ../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:422:10:DisplayDTE	0	static

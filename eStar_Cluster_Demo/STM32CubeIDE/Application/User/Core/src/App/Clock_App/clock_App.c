@@ -145,7 +145,7 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 	{
 		vClock_exit();
 		eclockMode = CLOCK_MODE_INACTIVE;
-		printf("clockMode_\n");
+		//printf("clockMode_\n");
 #if(ClockApp_TestMacro == 1)
 	    printf("case1");
 #endif
@@ -158,7 +158,7 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 		if (ulShiftingPosition == E_CLOCK_INVALID_POS)
 		{
 			ulShiftingPosition = E_CLOCK_HOURS_POS;
-			printf("clockMode_shortpress\n");
+			//printf("clockMode_shortpress\n");
 #if(ClockApp_TestMacro == 1)
 			printf("Case2\n");
 #endif

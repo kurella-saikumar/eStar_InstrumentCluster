@@ -29,6 +29,28 @@
 /**************************************************************************************************
  * Include Project Specific Headers
 ***************************************************************************************************/
+#include "stdint.h"
+
+/**************************************************************************************************
+ * Include Project Specific Headers
+***************************************************************************************************/
+#include "../../../../PlatformConfig/safe_checks_Config.h"
+
+/**************************************************************************************************
+ * DEFINE GLOBAL SCOPE TYPES
+***************************************************************************************************/
+struct tskTaskControlBlock;
+typedef struct tskTaskControlBlock* TaskHandle4_t;
+
+/**
+ * @struct StackMonitorInfo_t
+ * @brief Structure to hold information about a monitored task.
+ */
+  typedef struct
+  {
+	  TaskHandle4_t handle; /** Task handle of the monitored task. */
+      char* pcTaskName;   /** Task name as a string. */
+  } WdgMonitorInfo_t;
 
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
@@ -55,9 +77,10 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES
 ***************************************************************************************************/
-extern int32 register_for_watchdog_monitoring(uint32 p_min_count_u32,uint32 p_max_count_u32, const char *p_taskName_ptr);
-extern void wdt_kick_task(int32 p_wdt_task_kick_id);
-extern uint8 validate_tsk_wdt_kick(void);
+//extern int32_t register_for_watchdog_monitoring(uint32_t p_min_count_u32,uint32_t p_max_count_u32, const char *p_taskName_ptr);
+extern int32_t register_for_watchdog_monitoring(uint32_t p_min_count_u32,uint32_t p_max_count_u32, char *p_taskName_ptr);
+extern void wdt_kick_task(int32_t p_wdt_task_kick_id);
+extern uint8_t validate_tsk_wdt_kick(void);
 extern void wdt_handler_init(void);
 extern void tsk_wdt_kick_data(void);
 
