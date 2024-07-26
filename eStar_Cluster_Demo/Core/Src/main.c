@@ -4127,7 +4127,8 @@ void DeadLockTask(void *argument)
  /* MPU Configuration */
 
 void MPU_Config(void)
-{  MPU_Region_InitTypeDef MPU_InitStruct = {0};
+{
+  MPU_Region_InitTypeDef MPU_InitStruct = {0};
 
   /* Disables the MPU */
   HAL_MPU_Disable();

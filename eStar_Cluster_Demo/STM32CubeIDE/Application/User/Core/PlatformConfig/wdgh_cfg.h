@@ -63,7 +63,7 @@
  *  No.of seconds after which the watchdog should be serviced
  *  WTD time: second
  * */
-#define WDT_WINDOW_OPEN_IN_SEC 5
+#define WDT_WINDOW_OPEN_IN_SEC 10
 
 /**
  *  Define the Watchdog open window for the Watchdog timer Pripheral 
