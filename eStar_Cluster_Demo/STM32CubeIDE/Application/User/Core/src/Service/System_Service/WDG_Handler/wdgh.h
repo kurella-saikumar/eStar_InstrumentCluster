@@ -64,14 +64,16 @@ typedef struct tskTaskControlBlock* TaskHandle4_t;
  *  Define the Watchdog task minimum count based on idle count 
  *  minimum no.of times watchdog to be serived based on minimum count
  * */
-#define WDT_TASK_MIN_COUNT(x) (WDT_TASK_IDLE_COUNT(x) - ((WDT_TASK_IDLE_COUNT(x)*WDT_KICK_LIMIT_PERCENT)/100) )
+//#define WDT_TASK_MIN_COUNT(x) (WDT_TASK_IDLE_COUNT(x) - ((WDT_TASK_IDLE_COUNT(x)*WDT_KICK_LIMIT_PERCENT)/100) )
+#define WDT_TASK_MIN_COUNT(x) (WDT_TASK_IDLE_COUNT(x) - ((WDT_TASK_IDLE_COUNT(x) * WDT_KICK_LIMIT_PERCENT) / 100) - (((WDT_TASK_IDLE_COUNT(x) * WDT_KICK_LIMIT_PERCENT) % 100) > 0 ? 1 : 0))
 //#define WDT_TASK_MIN_COUNT(x) (WDT_TASK_IDLE_COUNT(x) - WDT_KICK_LIMIT_PERCENT) 
 
 /**
  *  Define the Watchdog task maximum count based on idle count 
  *  maximum no.of times watchdog to be serived based on maximum count
  * */
-#define WDT_TASK_MAX_COUNT(x) (WDT_TASK_IDLE_COUNT(x) + ((WDT_TASK_IDLE_COUNT(x)*WDT_KICK_LIMIT_PERCENT)/100) )
+//#define WDT_TASK_MAX_COUNT(x) (WDT_TASK_IDLE_COUNT(x) + ((WDT_TASK_IDLE_COUNT(x)*WDT_KICK_LIMIT_PERCENT)/100) )
+#define WDT_TASK_MAX_COUNT(x) (WDT_TASK_IDLE_COUNT(x) + ((WDT_TASK_IDLE_COUNT(x) * WDT_KICK_LIMIT_PERCENT) / 100) + (((WDT_TASK_IDLE_COUNT(x) * WDT_KICK_LIMIT_PERCENT) % 100) > 0 ? 1 : 0))
 //#define WDT_TASK_MAX_COUNT(x) (WDT_TASK_IDLE_COUNT(x) + WDT_KICK_LIMIT_PERCENT) 
 
 /**************************************************************************************************
