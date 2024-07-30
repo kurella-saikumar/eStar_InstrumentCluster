@@ -59,12 +59,10 @@
 typedef void (* ContextSwitchErrorHook)(uint8_t reason);
 
 /** Forward declaration of a task control block. */
-//struct tskTaskControlBlock;
-///** Type definition for a TaskHandle3_t as a pointer to a task control block. */
-//typedef struct tskTaskControlBlock* TaskHandle3_t;
-
 struct tskTaskControlBlock;
-typedef struct tskTaskControlBlock* TaskHandle3_t;
+/** Type definition for a TaskHandle3_t as a pointer to a task control block. */
+typedef struct tskTaskControlBlock *TaskHandle3_t;
+
 /*****************************************************************************
  * @brief Structure to hold information for monitoring tasks.
  * This structure contains information for monitoring tasks, including task handles, error hooks,

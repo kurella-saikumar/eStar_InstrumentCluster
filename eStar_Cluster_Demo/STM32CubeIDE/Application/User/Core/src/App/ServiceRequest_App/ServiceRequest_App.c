@@ -225,7 +225,7 @@ static uint8_t ucDaypassed;
 * Shutdown Value\Action: Don't Care
 *
 ***************************************************************************************************/
-//static uint8_t ucOdoVar;
+static uint8_t ucOdoVar;
 /**************************************************************************************************
 * Purpose: the purpose of ulLastServicePoint variable is to store the odo readings when reset the time service flag.
 *

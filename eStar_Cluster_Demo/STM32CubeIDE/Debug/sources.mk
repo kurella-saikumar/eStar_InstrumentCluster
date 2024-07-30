@@ -40,6 +40,7 @@ CPP_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Application/User/Core \
+Application/User/Core/src/App/CAN_App \
 Application/User/Core/src/App/Clock_App \
 Application/User/Core/src/App/DriverInfoMenu_App \
 Application/User/Core/src/App/DriverInfo_App \
@@ -50,8 +51,6 @@ Application/User/Core/src/App/ServiceRequest_App \
 Application/User/Core/src/App/Speedometer_App \
 Application/User/Core/src/App/Tachometer_App \
 Application/User/Core/src/App/eeprom_emulDemo_App \
-Application/User/Core/src/Service/CAN/CAN_Driver \
-Application/User/Core/src/Service/CAN/CAN_IF \
 Application/User/Core/src/Service/IO_HAL/AnalogDebounce \
 Application/User/Core/src/Service/IO_HAL/Damping_Filter \
 Application/User/Core/src/Service/IO_HAL/DigitalDebounce \
@@ -69,7 +68,6 @@ Application/User/Core/src/Service/System_Service/Stack_Usage \
 Application/User/Core/src/Service/System_Service/Switch_Interface \
 Application/User/Core/src/Service/System_Service/Task_ExeTime \
 Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock \
-Application/User/Core/src/Service/System_Service/WDG_Handler \
 Application/User/Core/src/Service/System_Service/checksum \
 Application/User/Core/src/Service/System_Service/stateManager \
 Application/User/LIBJPEG/App \

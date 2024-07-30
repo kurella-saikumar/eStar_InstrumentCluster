@@ -38,15 +38,7 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES
 ***************************************************************************************************/
-typedef enum
-{
-	E_CLOCK_HOURS_POS,
-	E_CLOCK_MINS_POS,
-	E_CLOCK_INVALID_POS
 
-}en_clockShiftingPositionType_t;
-
-extern en_clockShiftingPositionType_t ulShiftingPosition;
 
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES

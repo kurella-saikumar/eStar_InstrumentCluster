@@ -190,9 +190,10 @@ void vCalculateSpeed(void)
 void vCalculateSpeedInKm(void)
 {
 	ulReceivedPulses = vPulseDeltaCounter();
-	ulDistanceInMts = (ulReceivedPulses / ucPulsesPerMeter );
+	ulDistanceInMts = ((ulReceivedPulses*10) / ucPulsesPerMeter );
 	ulSpeedInMtsPerSec = ( (ulDistanceInMts * configMILLI_SEC_TO_SECS_CONV_FACTOR) / configSPEEDO_ALGO_CALL_FREQ_IN_MS );
 	ulSpeedInKm = ((ulSpeedInMtsPerSec * configSEC_TO_HR_TIME_CONV_FACTOR) / configMTS_TO_KM_DIST_CONV_FACTOR );
+	ulSpeedInKm = (ulSpeedInKm/10);
 	vValidateSpeed();
 
 #if(SPEEDO_TEST_MACRO == 1)
@@ -318,21 +319,21 @@ uint32_t xGetSpeedValue(void)
     {
     	Status.indicators.over_speed_indicator = 1;
 #if(SPEEDO_TEST_MACRO == 1)
-    	printf("speedDisplayUnits: %d\t", speedDisplayUnits);   //Debug purpose
+//    	printf("speedDisplayUnits: %d\t", speedDisplayUnits);   //Debug purpose
 #endif
     }
 
 	if(speedoUnits == SPEED_IN_KMPH)
 	{
 #if(SPEEDO_TEST_MACRO == 1)
-		 printf("speeeeeeed: %ld\t", ulSpeedInKm);
+//		 printf("speeeeeeed: %ld\t", ulSpeedInKm);
 #endif
 		return ulSpeedInKm;
 	}
 	else if(speedoUnits == SPEED_IN_MPH)
 	{
 #if(SPEEDO_TEST_MACRO == 1)
-		printf("speeeeeeed: %ld\t", ulSpeedInKm);
+//		printf("speeeeeeed: %ld\t", ulSpeedInKm);
 #endif
 		return ulspeedInMiles;
 	}

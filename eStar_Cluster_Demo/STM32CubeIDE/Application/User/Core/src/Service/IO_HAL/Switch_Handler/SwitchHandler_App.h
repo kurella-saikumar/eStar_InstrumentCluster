@@ -48,8 +48,6 @@ typedef enum
 }ClockEditActions_t;
 
 
-extern ClockEditActions_t ClockEditing;
-
 typedef enum
 {
 	ODO_METER_TOGGLE, 		// Mode = Short Press : Reset = Short Press//

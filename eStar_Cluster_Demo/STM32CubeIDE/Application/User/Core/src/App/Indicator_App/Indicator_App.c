@@ -6,9 +6,9 @@
  *
  * File Short Name: IndicatorApp
  *
- * @author: Roja Ramani
+ * @author: _________
  *
- * @date: 15 Apr 2024
+ * @date: ________
  *
  * @copyright:  All information contained herein is, and remains the property of
  * eSTAR TECHNOLOGIES(OPC) PRIVATE LIMITED and its suppliers, if any.
@@ -30,7 +30,7 @@
 #include "Indicator_App.h"
 #include "IGN_SmHandler.h"
 #include "Tachometer_App.h"
-#include "CAN_NIM.h"
+#include "CAN_App.h"
 #include <stdint.h>
 
 /**************************************************************************************************
@@ -54,7 +54,10 @@
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES\n
 ***************************************************************************************************/
-CanRxStatus_t* l_IndicatorSignalStatus;
+
+
+CAN_RxMessage_t  CANRxdata;
+
 /**************************************************************************************************
  * DECLARE FILE STATIC VARIABLES\n
 ***************************************************************************************************/
@@ -95,26 +98,27 @@ void vIndicatorsInit(void)
 void vIndicator_App_Task(void)
 {
      uint8_t usIgnition_State;
-
+     /**:Get signal status from CAN bus;*/
+     CANRxdata = Get_SignalStatus();
      /**:Get current ignition state;*/
 	 usIgnition_State = usIgnitionGetCurrentState();
 	 /**check if the IGN status is ON mode*/
     if(usIgnition_State  == IgnON_mode)
 	{
     	/**:Update indicator statuses based on received CAN signals;*/
-		Status.indicators.right_indicator             = vNim_get_indicator_status_right_indicator(l_IndicatorSignalStatus);
-		Status.indicators.left_indicator              = vNim_get_indicator_status_left_indicator(l_IndicatorSignalStatus);
-		Status.indicators.parking_indicator           = vNim_get_indicator_status_parking_indicator(l_IndicatorSignalStatus);
-		Status.indicators.HighBeam_indicator          = vNim_get_indicator_status_highbeam_indicator(l_IndicatorSignalStatus);
-		Status.indicators.LowBeam_indicator           = vNim_get_indicator_status_lowbeam_indicator(l_IndicatorSignalStatus);
-		Status.indicators.engine_oil_temp_indicator   = vNim_get_indicator_status_engineoiltemperature_indicator(l_IndicatorSignalStatus);
-		Status.indicators.seat_belt_indicator         = vNim_get_indicator_status_seatbelt_indicator(l_IndicatorSignalStatus);
-		Status.indicators.engine_malfunction_indicator= vNim_get_indicator_status_enginemalfunction_indicator(l_IndicatorSignalStatus);
-		Status.indicators.door_open_indicator         = vNim_get_indicator_status_doorsopen_indicator(l_IndicatorSignalStatus);
-		Status.indicators.abs_warning_indicator       = vNim_get_indicator_status_abswarning_indicator(l_IndicatorSignalStatus);
-	    Status.indicators.FaultyRight_indicator       = vNim_get_indicator_status_faultyright_indicator(l_IndicatorSignalStatus);
-	    Status.indicators.FaultyLeft_indicator	      =	vNim_get_indicator_status_faultyleft_indicator(l_IndicatorSignalStatus);
-	    Status.indicators.Engine_Oil_indicator	      =	vNim_get_indicator_status_engineoil_indicator(l_IndicatorSignalStatus);
+		Status.indicators.right_indicator             = CANRxdata.flags.Signal_1;
+		Status.indicators.left_indicator              = CANRxdata.flags.Signal_2;
+		Status.indicators.parking_indicator           = CANRxdata.flags.Signal_3;
+		Status.indicators.HighBeam_indicator          = CANRxdata.flags.Signal_4;
+		Status.indicators.LowBeam_indicator           = CANRxdata.flags.Signal_5;
+		Status.indicators.engine_oil_temp_indicator   = CANRxdata.flags.Signal_6;
+		Status.indicators.seat_belt_indicator         = CANRxdata.flags.Signal_7;
+		Status.indicators.engine_malfunction_indicator= CANRxdata.flags.Signal_8;
+		Status.indicators.door_open_indicator         = CANRxdata.flags.Signal_9;
+		Status.indicators.abs_warning_indicator       = CANRxdata.flags.Signal_10;
+	    Status.indicators.FaultyRight_indicator       = CANRxdata.flags.Signal_11;
+	    Status.indicators.FaultyLeft_indicator	      =	CANRxdata.flags.Signal_12;
+	    Status.indicators.Engine_Oil_indicator	      =	CANRxdata.flags.Signal_13;
 
      }
 #if(Indicator_Macro == 1)
