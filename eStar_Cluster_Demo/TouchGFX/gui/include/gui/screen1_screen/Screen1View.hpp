@@ -51,6 +51,11 @@ private:
     uint32_t tickCounterTachometer;
     uint32_t tickCounterFuelWarning;
 
+
+    uint8_t Current_Hours;
+    uint8_t Current_Minutes;
+
+
     void BlinkIndicator(bool state, uint32_t& tickCounters, Image& icon, uint32_t frequency);
 
 protected:
@@ -72,17 +77,18 @@ protected:
     uint16_t storednewRANGE1;
     uint16_t storednewRANGE2;
     uint8_t currentMenu;
-    uint8_t Current_Hours;
-    uint8_t Current_Minutes;
+
     uint8_t Current_Seconds;
     uint8_t Previous_Seconds;
   //  uint8_t currentClockEditingMode;
     uint8_t Hour;
 	uint8_t Minute;
 	uint8_t TimeFormats;
-	ClockEditActions_t ClockEditingMode;
+	//ClockEditActions_t ClockEditing;
+	//bool ulClockShiftingPosition;
+	//en_clockShiftingPositionType_t ulShiftingPosition;
+
 	uint8_t InfoMenu;
-    uint8_t ulShiftingPosition;
     int tickCounter;
     //bool isBlinkingOn = 0;
 
@@ -90,6 +96,12 @@ protected:
     //void updateClockVisibility(void);
     void updateClock_HoursVisibility(void);
     void updateClock_MinutesVisibility(void);
+    void startBlinkingHours(void);
+    void startBlinkingMinutes(void);
+    void stopBlinking(void);
+    void StopHoursBlinking(void);
+    void StopMinutesBlinking(void);
+
     //virtual void ClockValueChangingMode(uint8_t ClockEditingMode);
     void ClockValueChangingMode(void);
     void DriverInforMenu(void);

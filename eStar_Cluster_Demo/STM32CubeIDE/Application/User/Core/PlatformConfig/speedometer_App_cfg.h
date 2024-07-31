@@ -40,7 +40,7 @@
  * DEFINE GLOBAL SCOPE MACROS
  ***************************************************************************************************/
 /**Vehicle specific configurations*/
-#define configPULSES_PER_1_METER				    25U
+#define configPULSES_PER_1_METER				    5
 #define configPULSES_PER_100_METERS               500
 #define configMAX_VEH_SPEED_IN_KM                 200
 #define configMAX_VEH_SPEED_IN_MILES              125

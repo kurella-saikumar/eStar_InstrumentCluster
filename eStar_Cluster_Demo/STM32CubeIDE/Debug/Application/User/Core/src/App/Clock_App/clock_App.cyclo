@@ -1,6 +1,6 @@
-../Application/User/Core/src/App/Clock_App/clock_App.c:93:6:clock_Init	1
-../Application/User/Core/src/App/Clock_App/clock_App.c:102:6:vGet_Clock	1
-../Application/User/Core/src/App/Clock_App/clock_App.c:236:6:vClock_exit	1
-../Application/User/Core/src/App/Clock_App/clock_App.c:133:6:clockSettingRunMode	11
-../Application/User/Core/src/App/Clock_App/clock_App.c:247:6:ContinousIncrement	4
-../Application/User/Core/src/App/Clock_App/clock_App.c:288:6:vClockIncreament	2
+../Application/User/Core/src/App/Clock_App/clock_App.c:87:6:clock_Init	1
+../Application/User/Core/src/App/Clock_App/clock_App.c:96:6:vGet_Clock	1
+../Application/User/Core/src/App/Clock_App/clock_App.c:237:6:vClock_exit	1
+../Application/User/Core/src/App/Clock_App/clock_App.c:127:6:clockSettingRunMode	11
+../Application/User/Core/src/App/Clock_App/clock_App.c:248:6:ContinousIncrement	4
+../Application/User/Core/src/App/Clock_App/clock_App.c:292:6:vClockIncreament	2

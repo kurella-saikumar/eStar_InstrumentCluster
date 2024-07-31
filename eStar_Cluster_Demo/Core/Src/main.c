@@ -40,7 +40,8 @@
 #include "SwitchHandler_App.h"
 #include "SwitchInf.h"
 #include "clock_App.h"
-#include "CAN_App.h"
+#include "CAN_NIM.h"
+#include "CAN_Driver.h"
 #include "Indicator_App.h"
 #include "stm32h7xx_hal_tim.h"
 #include "ServiceRequest_App.h"
@@ -53,6 +54,8 @@
 #include "PeriodicityCheck.h"
 #include "Stack_Usage.h"
 #include "Task_OverLoad_DeadLock.h"
+#include "wdgh.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -567,8 +570,10 @@ int main(void)
   clock_Init();
   vFuelGuageTaskInit();
   VCAN_Init();
+  vNim_Sig_Init();
   vIndicatorsInit();
   vServiceRequestTask_Init();
+  wdt_handler_init();
 
   if(HAL_TIM_IC_Start_IT(&htim1,TIM_CHANNEL_4)!=HAL_OK)
   {
@@ -1383,10 +1388,10 @@ static void MX_TIM1_Init(void)
   {
     Error_Handler();
   }
-//  if (HAL_TIM_IC_Init(&htim1) != HAL_OK)
-//  {
-//    Error_Handler();
-//  }
+  if (HAL_TIM_IC_Init(&htim1) != HAL_OK)
+  {
+    Error_Handler();
+  }
   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
   sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
@@ -2616,7 +2621,7 @@ void StartDefaultTask(void *argument)
 //	  {
 //		  printf("Current date: %02d-%02d-%04d\n", sDate.Date, sDate.Month, sDate.Year);
 //	  }
-    osDelay(10000);
+    osDelay(5000);
   }
   /* USER CODE END 5 */
 }
@@ -2637,14 +2642,31 @@ void WDG_SRVC_Task(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	    osDelay(30000); //watchdog period
+	    osDelay(WDT_WINDOW_OPEN_IN_SEC*1000); //watchdog period
 	    //service or refresh or reload the watchdog here
-#if(DBGPrints_TestMacro == 1)
-	    printf("WDG_SRVC_Task\r\n");
-#endif
-	    if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
+
+	    if(validate_tsk_wdt_kick())
 	    {
-	          Error_Handler();
+			if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
+			{
+#if(DBGPrints_TestMacro == 0)
+				printf("Watchdog Refresh Filure\r\n");
+#endif
+			}
+			else
+			{
+#if(DBGPrints_TestMacro == 0)
+				printf("Watchdog Serviced\r\n");
+#endif
+			}
+	    }
+	    else
+	    {
+
+#if(DBGPrints_TestMacro == 0)
+			printf("Watchdog Service validation Filure\r\n");
+#endif
+			while(1);
 	    }
 
   }
@@ -2730,11 +2752,14 @@ void DigitalDebounce_Task(void *argument)
 {
   /* USER CODE BEGIN DigitalDebounce_Task */
   static TaskRunTimeStat_t p_measurement_var_ptr;
+  int32_t fl_wdt_task_kick_id_i32 = -1;
   vReset_executionTimeStats(&p_measurement_var_ptr);
 
   TaskHandle3_t xTaskHandler;
   xTaskHandler = xTaskGetCurrentTaskHandle();
+  const char *taskName = pcTaskGetName(xTaskHandler);
   vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,4000,SwitchErrorHook1 );
+  fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(DIGITALDEBOUNCE_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(DIGITALDEBOUNCE_TASK_DELAY_IN_MS),taskName);
   /* Infinite loop */
   for(;;)
   {
@@ -2744,7 +2769,9 @@ void DigitalDebounce_Task(void *argument)
 	  DebounceTask();
 	  vGet_Switch_DebouncedStatus();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb1);
-     osDelay(4);
+	  /* Kicking watchdog timer */
+	  wdt_kick_task(fl_wdt_task_kick_id_i32);
+     osDelay(DIGITALDEBOUNCE_TASK_DELAY_IN_MS);
 
 
 
@@ -2831,11 +2858,15 @@ void State_Machine_Task(void *argument)
 {
   /* USER CODE BEGIN State_Machine_Task */
 	static TaskRunTimeStat_t p_measurement_var_ptr;
+	int32_t fl_wdt_task_kick_id_i32 = -1;
 	vReset_executionTimeStats(&p_measurement_var_ptr);
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
+	const char *taskName = pcTaskGetName(xTaskHandler);
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,500,SwitchErrorHook2 );
+	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(STATE_MACHINE_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(STATE_MACHINE_TASK_DELAY_IN_MS),taskName);
+
   /* Infinite loop */
   for(;;)
   {
@@ -2844,8 +2875,8 @@ void State_Machine_Task(void *argument)
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  State_Manager_task();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(3000000), execTimeFault_cb2);
-	  osDelay(10);
-
+	  wdt_kick_task(fl_wdt_task_kick_id_i32);
+	  osDelay(STATE_MACHINE_TASK_DELAY_IN_MS);
   }
   /* USER CODE END State_Machine_Task */
 }
@@ -2930,11 +2961,15 @@ void Analog_Debounce_Task(void *argument)
   /* USER CODE BEGIN Analog_Debounce_Task */
 // uint8_t Batt_state = 0 ;
 	static TaskRunTimeStat_t p_measurement_var_ptr;
+	int32_t fl_wdt_task_kick_id_i32 = -1;
 	vReset_executionTimeStats(&p_measurement_var_ptr);
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
+	const char *taskName = pcTaskGetName(xTaskHandler);
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,500,SwitchErrorHook3 );
+	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(ANALOG_DEBOUNCE_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(ANALOG_DEBOUNCE_TASK_DELAY_IN_MS),taskName);
+
   /* Infinite loop */
   for(;;)
   {
@@ -2946,6 +2981,7 @@ void Analog_Debounce_Task(void *argument)
 	  gl_BAT_MON_u32 = HAL_ADC_GetValue(&hadc3); // get the adc value
 	  analog_debounce_task();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb3);
+	  wdt_kick_task(fl_wdt_task_kick_id_i32);
 
 #if(BATMON_TEST_MACRO == 1)
 	  Batt_state = get_analog_debounce_state(0);
@@ -2953,7 +2989,7 @@ void Analog_Debounce_Task(void *argument)
 	  printf("Batt_state:%d\r\n",Batt_state);
 #endif
 #endif
-    osDelay(100);
+    osDelay(ANALOG_DEBOUNCE_TASK_DELAY_IN_MS);
   }
   /* USER CODE END Analog_Debounce_Task */
 }
@@ -3037,11 +3073,15 @@ void FuelGuageTask(void *argument)
 {
   /* USER CODE BEGIN FuelGuageTask */
 	static TaskRunTimeStat_t p_measurement_var_ptr;
+	int32_t fl_wdt_task_kick_id_i32 = -1;
 	vReset_executionTimeStats(&p_measurement_var_ptr);
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
+	const char *taskName = pcTaskGetName(xTaskHandler);
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,5,SwitchErrorHook4 );
+	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(FUELGUAGE_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(FUELGUAGE_TASK_DELAY_IN_MS),taskName);
+
   /* Infinite loop */
   for(;;)
   {
@@ -3054,7 +3094,8 @@ void FuelGuageTask(void *argument)
 	  usADCValue=(uint16_t)HAL_ADC_GetValue(&hadc1);
 	  vFuelGuageTask();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_TIMER_COUNTS_TO_US(1000), execTimeFault_cb4);
-      osDelay(100);
+	  wdt_kick_task(fl_wdt_task_kick_id_i32);
+      osDelay(FUELGUAGE_TASK_DELAY_IN_MS);
   }
   /* USER CODE END FuelGuageTask */
 }
@@ -3138,11 +3179,15 @@ void Odo_Task(void *argument)
 {
   /* USER CODE BEGIN Odo_Task */
 	static TaskRunTimeStat_t p_measurement_var_ptr;
+	int32_t fl_wdt_task_kick_id_i32 = -1;
 	vReset_executionTimeStats(&p_measurement_var_ptr);
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
+	const char *taskName = pcTaskGetName(xTaskHandler);
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,5500,SwitchErrorHook5 );
+	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(ODO_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(ODO_TASK_DELAY_IN_MS),taskName);
+
   /* Infinite loop */
   for(;;)
   {
@@ -3151,7 +3196,8 @@ void Odo_Task(void *argument)
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vOdoAlgorithm();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb5);
-	osDelay(250);
+	  wdt_kick_task(fl_wdt_task_kick_id_i32);
+	osDelay(ODO_TASK_DELAY_IN_MS);
   }
   /* USER CODE END Odo_Task */
 }
@@ -3236,11 +3282,15 @@ void Speedo_Task(void *argument)
 {
   /* USER CODE BEGIN Speedo_Task */
 	static TaskRunTimeStat_t p_measurement_var_ptr;
+	int32_t fl_wdt_task_kick_id_i32 = -1;
 	vReset_executionTimeStats(&p_measurement_var_ptr);
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
+	const char *taskName = pcTaskGetName(xTaskHandler);
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,5500,SwitchErrorHook6 );
+	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(SPEEDO_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(SPEEDO_TASK_DELAY_IN_MS),taskName);
+
   /* Infinite loop */
   for(;;)
   {
@@ -3249,7 +3299,8 @@ void Speedo_Task(void *argument)
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vSpeedoAlgorithm();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb6);
-	  osDelay(configSPEEDO_ALGO_CALL_FREQ_IN_MS);
+	  wdt_kick_task(fl_wdt_task_kick_id_i32);
+	  osDelay(SPEEDO_TASK_DELAY_IN_MS);
   }
   /* USER CODE END Speedo_Task */
 }
@@ -3333,11 +3384,15 @@ void Tacho_Task(void *argument)
 {
   /* USER CODE BEGIN Tacho_Task */
 	static TaskRunTimeStat_t p_measurement_var_ptr;
+	int32_t fl_wdt_task_kick_id_i32 = -1;
 	vReset_executionTimeStats(&p_measurement_var_ptr);
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
+	const char *taskName = pcTaskGetName(xTaskHandler);
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1500,SwitchErrorHook7 );
+	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(TACHO_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(TACHO_TASK_DELAY_IN_MS),taskName);
+
   /* Infinite loop */
   for(;;)
   {
@@ -3345,7 +3400,8 @@ void Tacho_Task(void *argument)
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vTacho_App();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb7);
-    osDelay(1000);
+	  wdt_kick_task(fl_wdt_task_kick_id_i32);
+    osDelay(TACHO_TASK_DELAY_IN_MS);
   }
   /* USER CODE END Tacho_Task */
 }
@@ -3430,11 +3486,15 @@ void SwitchHandlerTask(void *argument)
 {
   /* USER CODE BEGIN SwitchHandlerTask */
 	static TaskRunTimeStat_t p_measurement_var_ptr;
+	int32_t fl_wdt_task_kick_id_i32 = -1;
 	vReset_executionTimeStats(&p_measurement_var_ptr);
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
+	const char *taskName = pcTaskGetName(xTaskHandler);
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,10000,SwitchErrorHook8 );
+	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(SWITCHHANDLER_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(SWITCHHANDLER_TASK_DELAY_IN_MS),taskName);
+
   /* Infinite loop */
   for(;;)
   {
@@ -3444,8 +3504,9 @@ void SwitchHandlerTask(void *argument)
 	  Switch_Task();
 	  vHandleModeResetActions();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(3000), execTimeFault_cb8);
+	  wdt_kick_task(fl_wdt_task_kick_id_i32);
 	  //printf("SwitchHandle = %d\n",p_measurement_var_ptr.ulexecutionTime);
-	  osDelay(50);
+	  osDelay(SWITCHHANDLER_TASK_DELAY_IN_MS);
   }
   /* USER CODE END SwitchHandlerTask */
 }
@@ -3530,11 +3591,15 @@ void GetClockTask(void *argument)
 {
   /* USER CODE BEGIN GetClockTask */
 	static TaskRunTimeStat_t p_measurement_var_ptr;
+	int32_t fl_wdt_task_kick_id_i32 = -1;
 	vReset_executionTimeStats(&p_measurement_var_ptr);
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
+	const char *taskName = pcTaskGetName(xTaskHandler);
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook9 );
+	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(GETCLOCK_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(GETCLOCK_TASK_DELAY_IN_MS),taskName);
+
   /* Infinite loop */
   for(;;)
   {
@@ -3543,7 +3608,8 @@ void GetClockTask(void *argument)
 	  vGet_Clock();
 	  vClockIncreament();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb9);
-	  osDelay(500);
+	  wdt_kick_task(fl_wdt_task_kick_id_i32);
+	  osDelay(GETCLOCK_TASK_DELAY_IN_MS);
   }
   /* USER CODE END GetClockTask */
 }
@@ -3628,20 +3694,24 @@ void CAN_Task(void *argument)
 {
   /* USER CODE BEGIN CAN_Task */
 	static TaskRunTimeStat_t p_measurement_var_ptr;
+	int32_t fl_wdt_task_kick_id_i32 = -1;
 	vReset_executionTimeStats(&p_measurement_var_ptr);
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
+	const char *taskName = pcTaskGetName(xTaskHandler);
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,500,SwitchErrorHook10 );
+	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(CAN_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(CAN_TASK_DELAY_IN_MS),taskName);
+
   /* Infinite loop */
   for(;;)
   {
 	 // vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T10,vTask_demo1PeriodicityCheckErrorHook10 );
 	  vBeginExecMeas(&p_measurement_var_ptr);
-	 // vCANTransmit();
-//	vCANReceive();
+	  vNim_ProcessRxTask();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb10);
-    osDelay(100);
+	  wdt_kick_task(fl_wdt_task_kick_id_i32);
+      osDelay(CAN_TASK_DELAY_IN_MS);
   }
   /* USER CODE END CAN_Task */
 }
@@ -3726,11 +3796,15 @@ void IndicatorsApp_Task(void *argument)
 {
   /* USER CODE BEGIN IndicatorsApp_Task */
 	static TaskRunTimeStat_t p_measurement_var_ptr;
+	int32_t fl_wdt_task_kick_id_i32 = -1;
 	vReset_executionTimeStats(&p_measurement_var_ptr);
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
+	const char *taskName = pcTaskGetName(xTaskHandler);
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,500,SwitchErrorHook11 );
+	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(INDICATORSAPP_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(INDICATORSAPP_TASK_DELAY_IN_MS),taskName);
+
   /* Infinite loop */
 	for(;;)
 	  {
@@ -3739,7 +3813,8 @@ void IndicatorsApp_Task(void *argument)
 		vIndicator_App_Task();
 		indicator = xGetIndicatorstatus();
 		vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb11);
-	    osDelay(50);
+		wdt_kick_task(fl_wdt_task_kick_id_i32);
+	    osDelay(INDICATORSAPP_TASK_DELAY_IN_MS);
 
 	  }
   /* USER CODE END IndicatorsApp_Task */
@@ -3825,11 +3900,15 @@ void ServiceIndicatorApp_Task(void *argument)
 {
   /* USER CODE BEGIN ServiceIndicatorApp_Task */
 	static TaskRunTimeStat_t p_measurement_var_ptr;
+	int32_t fl_wdt_task_kick_id_i32 = -1;
 	vReset_executionTimeStats(&p_measurement_var_ptr);
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
+	const char *taskName = pcTaskGetName(xTaskHandler);
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook12 );
+	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(SERVICEINDICATOR_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(SERVICEINDICATOR_TASK_DELAY_IN_MS),taskName);
+
   /* Infinite loop */
   for(;;)
   {
@@ -3837,7 +3916,8 @@ void ServiceIndicatorApp_Task(void *argument)
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vServiceRequestTask();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_TIMER_COUNTS_TO_US(1000), execTimeFault_cb12);
-    osDelay(1000);
+	  wdt_kick_task(fl_wdt_task_kick_id_i32);
+    osDelay(SERVICEINDICATOR_TASK_DELAY_IN_MS);
   }
   /* USER CODE END ServiceIndicatorApp_Task */
 }
@@ -3917,6 +3997,7 @@ void SwitchErrorHook13(uint8_t reason)
 	}
 #endif
 }
+
 /* USER CODE END Header_DriverInfoApp_Task */
 void DriverInfoApp_Task(void *argument)
 {
@@ -3925,11 +4006,16 @@ void DriverInfoApp_Task(void *argument)
 	Odoreset_IO_LM_BV_FA_data();
 	Fuelreset_IO_LM_BV_FA_data();
 	static TaskRunTimeStat_t p_measurement_var_ptr;
+	int32_t fl_wdt_task_kick_id_i32 = -1;
 	vReset_executionTimeStats(&p_measurement_var_ptr);
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
+	const char *taskName = pcTaskGetName(xTaskHandler);
+	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(DRIVERINFOAPP_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(DRIVERINFOAPP_TASK_DELAY_IN_MS),taskName);
+
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook13 );
+
   /* Infinite loop */
   for(;;)
   {
@@ -3937,7 +4023,8 @@ void DriverInfoApp_Task(void *argument)
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vDriver_InfoTask();
 	 vEndExecMeas(&p_measurement_var_ptr, CONVERT_TIMER_COUNTS_TO_US(1000), execTimeFault_cb13);
-    osDelay(1000);
+	 wdt_kick_task(fl_wdt_task_kick_id_i32);
+    osDelay(DRIVERINFOAPP_TASK_DELAY_IN_MS);
   }
   /* USER CODE END DriverInfoApp_Task */
 }
@@ -3948,6 +4035,56 @@ void DriverInfoApp_Task(void *argument)
 * @param argument: Not used
 * @retval None
 */
+void execTimeFault_cb14(TaskRunTimeStat_t *p_measurement_var_ptr)
+{
+#if(SafeChecks_TestMacro == 1)
+	printf("adLockTask_ExeTime Failed\n");
+#endif
+#if(UART_DEBUG == 1)
+	/** @startuml */ /** start */
+	/**: Buffer to hold cExecutionTime ;*/
+	char cExecutionTime[50];
+	sprintf(cExecutionTime,"Execution time: %lu\r\n",CONVERT_TIMER_COUNTS_TO_US(p_measurement_var_ptr->ulexecutionTime));
+
+	/**: Transmit the execTimeFault_cb status message via UART ;*/
+	while (HAL_UART_Transmit(&huart1, cExecutionTime, strlen(cExecutionTime), 30) != HAL_OK)
+	{
+		/**: You can add some error handling here if needed ;*/
+		break;
+	}
+	/** end*/ /** @enduml */
+#endif
+}
+TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T14 = {
+	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
+	.ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
+	.ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
+	.ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(900000),   /**< Minimum periodicity for vTask_demo1 */
+	.ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(1100000)   /**< Maximum periodicity for vTask_demo1 */
+};
+void vTask_demo1PeriodicityCheckErrorHook14(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
+{
+#if(SafeChecks_TestMacro == 1)
+	printf("DeadLockTask_periodicity Failed");
+#endif
+#if(UART_DEBUG == 1)
+	/** @startuml */ /** start */
+	/**: Buffer to hold FailStatus;*/
+	char ucBuffer[50];
+
+	/**: Periodicity Check status ;*/
+	snprintf(ucBuffer,sizeof(ucBuffer),"vTask_demo1PeriodicityCheckErrorHook\r\n");
+
+	/**: Transmit the Periodicity Check status message via UART;*/
+	while (HAL_UART_Transmit(&huart1, (uint8_t*)ucBuffer, strlen(ucBuffer), 30) != HAL_OK)
+	{
+		/**: You can add some error handling here if needed;*/
+		break;
+	}
+	/** end*/ /** @enduml */
+#endif
+	ulFail1Counter++;
+}
 void SwitchErrorHook14(uint8_t reason)
 {
 #if(SafeChecks_TestMacro == 1)
@@ -3970,14 +4107,19 @@ void SwitchErrorHook14(uint8_t reason)
 void DeadLockTask(void *argument)
 {
   /* USER CODE BEGIN DeadLockTask */
+	int32_t fl_wdt_task_kick_id_i32 = -1;
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
+	const char *taskName = pcTaskGetName(xTaskHandler);
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,100,SwitchErrorHook14 );
+	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(DEADLOCK_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(DEADLOCK_TASK_DELAY_IN_MS),taskName);
+
   /* Infinite loop */
   for(;;)
   {
 	  vCheckTaskDeadlock();
-    osDelay(1000);
+	  wdt_kick_task(fl_wdt_task_kick_id_i32);
+    osDelay(DEADLOCK_TASK_DELAY_IN_MS);
   }
   /* USER CODE END DeadLockTask */
 }

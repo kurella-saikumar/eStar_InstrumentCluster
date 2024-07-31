@@ -68,6 +68,7 @@ uint8_t ToggleMetrics = ODO_IN_KM;
  * DECLARE GLOBAL VARIABLES\n
 ***************************************************************************************************/
  SwitchModesDisplay_t ToDisplay;
+ ClockEditActions_t ClockEditing;
 /**************************************************************************************************
  * DECLARE FILE SCOPE STATIC VARIABLES
 ***************************************************************************************************/
@@ -199,6 +200,7 @@ ClockEditActions_t xClockSettingGetSetMode(void)
          printf("Clock mode short press\r\n");
 #endif
          clockSettingRunMode(MODE_SHORTPRESS);
+         ClockEditing = MODE_SHORTPRESS;
      }
      else if(eClkModeStatus == LONG_PRESS_HELD)
      {
@@ -207,6 +209,8 @@ ClockEditActions_t xClockSettingGetSetMode(void)
 #endif
 
          clockSettingRunMode(MODE_LONGPRESS);
+         ClockEditing = MODE_LONGPRESS;
+
      }
      else if(eClkResetStatus == SHORT_PRESS_RELEASED)
      {
@@ -214,6 +218,8 @@ ClockEditActions_t xClockSettingGetSetMode(void)
          printf("clock reset short press\r\n");
 #endif
          clockSettingRunMode(RESET_SHORTPRESS);
+
+         ClockEditing = RESET_SHORTPRESS;
      }
      else if(eClkResetStatus == LONG_PRESS_RELEASED)
 	  {
@@ -221,6 +227,7 @@ ClockEditActions_t xClockSettingGetSetMode(void)
 		  printf("clock reset long press release");
 #endif
 		  clockSettingRunMode(RESET_LONGPRESS_RELEASE);
+		  ClockEditing = RESET_LONGPRESS_RELEASE;
 	  }
      else if(eClkResetStatus == LONG_PRESS_HELD)
      {
@@ -228,6 +235,7 @@ ClockEditActions_t xClockSettingGetSetMode(void)
          printf("clock reset long press held");
 #endif
          clockSettingRunMode(RESET_LONGPRESS_HELD);
+         ClockEditing = RESET_LONGPRESS_HELD;
      }
      else
      {
@@ -337,6 +345,7 @@ void vHandleModeResetActions(void)
 
 //    	printf("clock:%d\r\n",eclockMode);
         clockSettingRunMode(CLOCK_ENTRY);
+        ClockEditing = CLOCK_ENTRY;
         ToDisplay =CLOCK_EDITING;
         
         if (eClockMode == CLOCK_MODE_INACTIVE)
@@ -385,6 +394,7 @@ void vHandleModeResetActions(void)
         }
         
     }
+
     if(ucResetButtonEventStatus == LONG_PRESS_HELD)
     {
         if(eClockMode == CLOCK_MODE_ACTIVE)
@@ -396,6 +406,7 @@ void vHandleModeResetActions(void)
         }
         
     }
+
     if(ucResetButtonEventStatus == LONG_PRESS_RELEASED)
     {
     	if(eClockMode == CLOCK_MODE_ACTIVE)
@@ -405,6 +416,7 @@ void vHandleModeResetActions(void)
 			ucResetButtonEventStatus = 0xFF;
 		}
     }
+
     // Reset button timeout and statuses if clock mode is active and any button is short-pressed
     if ((eClockMode == CLOCK_MODE_ACTIVE) && (ucModeButtonEventStatus == SHORT_PRESS_HELD || ucResetButtonEventStatus == SHORT_PRESS_HELD))
     {
