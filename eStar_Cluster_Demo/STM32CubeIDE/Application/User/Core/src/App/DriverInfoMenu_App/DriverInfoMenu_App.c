@@ -146,7 +146,7 @@ void vModeSwitchToNext(void)
 DriverInfoModeStatus_t xGetDriverInforMenu(void)
 {
 #if(DriverInfoMenuApp_TestMacro == 1)
-	printf("DriverInfoMode=%d\n",eCurrentTask);
+	//printf("DriverInfoMode=%d\n",eCurrentTask);
 #endif
     return eCurrentTask;
     

@@ -99,26 +99,26 @@ void vGet_Clock(void)
     if(xRes != HAL_OK)
     {
 #if(ClockApp_TestMacro == 1)
-    	printf("HAL_RTC_GetTime failed: %d\r\n", xRes);
+    	//printf("HAL_RTC_GetTime failed: %d\r\n", xRes);
 #endif
     }
     else
     {
 #if(ClockApp_TestMacro == 1)
-    	printf("DT: %02d:%02d:%02d \n", xTime.Hours, xTime.Minutes, xTime.Seconds);
+    	//printf("DT: %02d:%02d:%02d \n", xTime.Hours, xTime.Minutes, xTime.Seconds);
 #endif
     }
     xRes = HAL_RTC_GetDate(&hrtc, &xDate, RTC_FORMAT_BIN);
     if(xRes != HAL_OK)
     {
 #if(ClockApp_TestMacro == 1)
-    	printf("HAL_RTC_GetDate failed: %d\r\n", xRes);
+    	//printf("HAL_RTC_GetDate failed: %d\r\n", xRes);
 #endif
     }
     else
     {
 #if(ClockApp_TestMacro == 1)
-    	printf("Current date: %02d-%02d-%04d\n", xDate.Date, xDate.Month, xDate.Year);
+    	//printf("Current date: %02d-%02d-%04d\n", xDate.Date, xDate.Month, xDate.Year);
 #endif
     }
 
@@ -147,7 +147,7 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 		eclockMode = CLOCK_MODE_INACTIVE;
 		//printf("clockMode_\n");
 #if(ClockApp_TestMacro == 1)
-	    printf("case1");
+	    //printf("case1");
 #endif
 	}
 	break;
@@ -160,14 +160,14 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 			ulShiftingPosition = E_CLOCK_HOURS_POS;
 			//printf("clockMode_shortpress\n");
 #if(ClockApp_TestMacro == 1)
-			printf("Case2\n");
+			//printf("Case2\n");
 #endif
 		}
 		else
 		{
 			/*do nothing*/
 #if(ClockApp_TestMacro == 1)
-			printf("Case2\n");
+			//printf("Case2\n");
 #endif
 		}
 
@@ -177,14 +177,15 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
         	ulContinousIncrement_flag = 0;
 #if(ClockApp_TestMacro == 1)
         	printf("Long Press Release\n\r");
-        	printf("Case3\n");
+        	//printf("Case3\n");
 #endif
         break;
     case RESET_LONGPRESS_HELD:
     	ulContinousIncrement_flag = 1;
+    	vClockIncreament();
 #if(ClockApp_TestMacro == 1)
     	printf("Long Press Held\n\r");
-    	printf("Case4\n");
+    	//printf("Case4\n");
 #endif
     break;
       case RESET_SHORTPRESS:
@@ -196,7 +197,7 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 			xEditTime.Hours %= 24;
 			HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
 #if(ClockApp_TestMacro == 1)
-			printf("case5");
+			//printf("case5");
 #endif
 		}
         else if (ulShiftingPosition == E_CLOCK_MINS_POS)
@@ -212,7 +213,7 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 				xEditTime.Minutes = 0;
 				HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
 #if(ClockApp_TestMacro == 1)
-				printf("Case5\n");
+				//printf("Case5\n");
 #endif
 				// Increment hours
 //				xEditTime.Hours++;
@@ -223,7 +224,7 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 			{
 				/*do nothing*/
 #if(ClockApp_TestMacro == 1)
-				printf("Case5\n");
+				//printf("Case5\n");
 #endif
 			}
 		}
@@ -273,14 +274,14 @@ void ContinousIncrement(void)
 				// Ensure hours wrap around correctly
 			xEditTime.Hours %= 24;
 			HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
-#if(ClockApp_TestMacro == 1)
-			printf("ContinousIncrement_Minutes:%d",xEditTime.Minutes);
-#endif
 		}
 		else
 		{
 				/*do nothing*/
 		}
+#if(ClockApp_TestMacro == 1)
+			printf("ContinousIncrement_Minutes:%d",xEditTime.Minutes);
+#endif
 	}
 	else
 
@@ -293,18 +294,10 @@ void vClockIncreament(void)
 {
 	if(ulContinousIncrement_flag == 1)
 	{
-//		if (0 == xGetResetSwitch())
-//		{
 			ContinousIncrement();
 #if(ClockApp_TestMacro == 1)
 			printf("ContinousIncrement success\n\r");
 #endif
-//		}
-//		else
-//		{
-//			ulContinousIncrement_flag =0;
-//			printf("Long press released1\n\r");
-//		}
 	}
 	else
 	{

@@ -36,7 +36,7 @@ typedef enum {
 void vDriverInfoMenu_Init(void); /**< Initializes the Driver Information Menu */
 void vModeSwitchToNext(void); /**< Switches to the next mode */
 
-#define DriverInfoMenuApp_TestMacro 0
+#define DriverInfoMenuApp_TestMacro 1
 
 // Global variables
 extern DriverInfoModeStatus_t eCurrentTask; /**< Global variable to store the current task */

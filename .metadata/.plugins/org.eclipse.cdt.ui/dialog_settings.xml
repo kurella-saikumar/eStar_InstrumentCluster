@@ -9,6 +9,12 @@
 		<item key="caseSensitive" value="false"/>
 		<item key="searchFlags" value="227191"/>
 		<list key="previousPatterns">
+			<item value="E_CLOCK_INVALID_POS"/>
+			<item value="vHandleModeResetActions"/>
+			<item value="xClockSettingGetSetMode"/>
+			<item value="eClkResetStatus"/>
+			<item value="ClockEditing"/>
+			<item value="ulContinousIncrement_flag"/>
 			<item value="State_Machine_Task_ExeTimeFailed"/>
 			<item value="printf"/>
 			<item value="ESR_F"/>

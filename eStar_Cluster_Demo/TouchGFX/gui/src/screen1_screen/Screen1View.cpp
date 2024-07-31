@@ -234,24 +234,34 @@ void Screen1View:: ClockUpdate (uint8_t Hours,uint8_t Minutes,uint8_t Seconds, u
 	AM_PM.invalidate();
 }
 
-
-
-void Screen1View::updateClock_HoursVisibility(void)
+void Screen1View::startBlinkingHours(void)
 {
 	Clock_HR.setVisible(!Clock_HR.isVisible());
-	Clock_HR.invalidate();
+    Clock_HR.invalidate();
+    Clock_MN.setVisible(true);
+    Clock_MN.invalidate();
 }
 
-void Screen1View::updateClock_MinutesVisibility(void)
+void Screen1View::startBlinkingMinutes(void)
 {
 	Clock_MN.setVisible(!Clock_MN.isVisible());
-	Clock_MN.invalidate();
+    Clock_MN.invalidate();
+    Clock_HR.setVisible(true);
+    Clock_HR.invalidate();
 }
 
+void Screen1View::stopBlinking(void)
+{
+    Clock_HR.setVisible(true);
+    Clock_HR.invalidate();
+    Clock_MN.setVisible(true);
+    Clock_MN.invalidate();
+}
 
 
 void Screen1View::ClockValueChangingMode(void)
 {
+
     switch (ClockEditing)
     {
         case CLOCK_ENTRY:
@@ -317,37 +327,6 @@ void Screen1View::ClockValueChangingMode(void)
     }
 }
 
-void Screen1View::startBlinkingHours(void)
-{
-	Clock_HR.setVisible(!Clock_HR.isVisible());
-    Clock_HR.invalidate();
-}
-
-void Screen1View::startBlinkingMinutes(void)
-{
-	Clock_MN.setVisible(!Clock_MN.isVisible());
-    Clock_MN.invalidate();
-}
-
-void Screen1View::stopBlinking(void)
-{
-    Clock_HR.setVisible(true);
-    Clock_HR.invalidate();
-    Clock_MN.setVisible(true);
-    Clock_MN.invalidate();
-}
-
-void Screen1View::StopHoursBlinking(void)
-{
-    Clock_HR.setVisible(true);
-    Clock_HR.invalidate();
-}
-
-void Screen1View::StopMinutesBlinking(void)
-{
-    Clock_MN.setVisible(true);
-    Clock_MN.invalidate();
-}
 
 void Screen1View:: SwitchingModes(uint8_t SwitchStatus)
 {

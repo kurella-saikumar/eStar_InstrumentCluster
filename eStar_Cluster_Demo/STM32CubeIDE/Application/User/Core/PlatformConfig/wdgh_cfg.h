@@ -75,7 +75,7 @@
  *  Define the Watchdog KICK limit percent to validate the minimum task watchdog kicks 
  *  eg: 10% -1  , 20% - 2, .... , 30% - 3  
  * */
-#define WDT_KICK_LIMIT_PERCENT 3
+#define WDT_KICK_LIMIT_PERCENT 2
 
 #endif /*WDT_CFG_H*/
 /**************************************************************************************************

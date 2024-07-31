@@ -3606,7 +3606,7 @@ void GetClockTask(void *argument)
 	 // vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T09,vTask_demo1PeriodicityCheckErrorHook09 );
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vGet_Clock();
-	  vClockIncreament();
+	  //vClockIncreament();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb9);
 	  wdt_kick_task(fl_wdt_task_kick_id_i32);
 	  osDelay(GETCLOCK_TASK_DELAY_IN_MS);

@@ -94,13 +94,13 @@ protected:
 
 
     //void updateClockVisibility(void);
-    void updateClock_HoursVisibility(void);
-    void updateClock_MinutesVisibility(void);
+//    void updateClock_HoursVisibility(void);
+//    void updateClock_MinutesVisibility(void);
     void startBlinkingHours(void);
     void startBlinkingMinutes(void);
     void stopBlinking(void);
-    void StopHoursBlinking(void);
-    void StopMinutesBlinking(void);
+//    void StopHoursBlinking(void);
+//    void StopMinutesBlinking(void);
 
     //virtual void ClockValueChangingMode(uint8_t ClockEditingMode);
     void ClockValueChangingMode(void);

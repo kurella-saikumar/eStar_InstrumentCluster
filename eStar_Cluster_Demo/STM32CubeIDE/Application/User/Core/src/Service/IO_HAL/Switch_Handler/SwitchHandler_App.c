@@ -200,7 +200,7 @@ ClockEditActions_t xClockSettingGetSetMode(void)
          printf("Clock mode short press\r\n");
 #endif
          clockSettingRunMode(MODE_SHORTPRESS);
-         ClockEditing = MODE_SHORTPRESS;
+         //ClockEditing = MODE_SHORTPRESS;
      }
      else if(eClkModeStatus == LONG_PRESS_HELD)
      {
@@ -209,7 +209,7 @@ ClockEditActions_t xClockSettingGetSetMode(void)
 #endif
 
          clockSettingRunMode(MODE_LONGPRESS);
-         ClockEditing = MODE_LONGPRESS;
+         //ClockEditing = MODE_LONGPRESS;
 
      }
      else if(eClkResetStatus == SHORT_PRESS_RELEASED)
@@ -219,7 +219,7 @@ ClockEditActions_t xClockSettingGetSetMode(void)
 #endif
          clockSettingRunMode(RESET_SHORTPRESS);
 
-         ClockEditing = RESET_SHORTPRESS;
+         //ClockEditing = RESET_SHORTPRESS;
      }
      else if(eClkResetStatus == LONG_PRESS_RELEASED)
 	  {
@@ -227,7 +227,7 @@ ClockEditActions_t xClockSettingGetSetMode(void)
 		  printf("clock reset long press release");
 #endif
 		  clockSettingRunMode(RESET_LONGPRESS_RELEASE);
-		  ClockEditing = RESET_LONGPRESS_RELEASE;
+		  //ClockEditing = RESET_LONGPRESS_RELEASE;
 	  }
      else if(eClkResetStatus == LONG_PRESS_HELD)
      {
@@ -235,7 +235,7 @@ ClockEditActions_t xClockSettingGetSetMode(void)
          printf("clock reset long press held");
 #endif
          clockSettingRunMode(RESET_LONGPRESS_HELD);
-         ClockEditing = RESET_LONGPRESS_HELD;
+         //ClockEditing = RESET_LONGPRESS_HELD;
      }
      else
      {
@@ -294,7 +294,7 @@ void vHandleModeResetActions(void)
             ToDisplay =MENU_MODES;
 
 #if (SWITCH_HANDLER_MACRO == 1)
-            //printf("mode short press\r\n");
+            printf("mode short press\r\n");
 #endif
             
         }
@@ -302,6 +302,7 @@ void vHandleModeResetActions(void)
         {
            //Button_Push_Event_T mode_status = getModeButtonStatus();
         	xClockSettingGetSetMode();
+        	ClockEditing = MODE_SHORTPRESS;
         }
         // Reset Mode Button Status
         ucModeButtonEventStatus = 0xFF;
@@ -332,6 +333,7 @@ void vHandleModeResetActions(void)
          }
          if(eClockMode == CLOCK_MODE_ACTIVE)
          {
+        	 ClockEditing = RESET_SHORTPRESS;
         	 xClockSettingGetSetMode();
 //             Button_Push_Event_T reset_status = getResetButtonStatus();
              //printf("reset short press\r\n");
@@ -383,13 +385,26 @@ void vHandleModeResetActions(void)
             }
         }
     }
+    else if(ucResetButtonEventStatus == LONG_PRESS_RELEASED)
+        {
+        	if(eClockMode == CLOCK_MODE_ACTIVE)
+    		{
+
+        		ClockEditing = RESET_LONGPRESS_RELEASE;
+        		printf("longpress released-%d\n",ClockEditing);
+        		xClockSettingGetSetMode();
+    			//Button_Push_Event_T reset_status = getResetButtonStatus();
+    			ucResetButtonEventStatus = 0xFF;
+    		}
+        }
     if(ucModeButtonEventStatus == LONG_PRESS_HELD)
     {
         if(eClockMode == CLOCK_MODE_ACTIVE)
         {
+        	ClockEditing = MODE_LONGPRESS;
         	xClockSettingGetSetMode();
+        	eClockMode = CLOCK_MODE_INACTIVE;
             //Button_Push_Event_T mode_status = getModeButtonStatus();
-
             ucModeButtonEventStatus = 0xFF;
         }
         
@@ -399,23 +414,17 @@ void vHandleModeResetActions(void)
     {
         if(eClockMode == CLOCK_MODE_ACTIVE)
         {
+        	ClockEditing = RESET_LONGPRESS_HELD;
+        	printf("longpress held-%d\n",ClockEditing);
         	xClockSettingGetSetMode();
             //Button_Push_Event_T reset_status = getResetButtonStatus();
 
-            ucResetButtonEventStatus = 0xFF;
+            //ucResetButtonEventStatus = 0xFF;
+
         }
         
     }
 
-    if(ucResetButtonEventStatus == LONG_PRESS_RELEASED)
-    {
-    	if(eClockMode == CLOCK_MODE_ACTIVE)
-		{
-    		xClockSettingGetSetMode();
-			//Button_Push_Event_T reset_status = getResetButtonStatus();
-			ucResetButtonEventStatus = 0xFF;
-		}
-    }
 
     // Reset button timeout and statuses if clock mode is active and any button is short-pressed
     if ((eClockMode == CLOCK_MODE_ACTIVE) && (ucModeButtonEventStatus == SHORT_PRESS_HELD || ucResetButtonEventStatus == SHORT_PRESS_HELD))
@@ -432,7 +441,7 @@ void vHandleModeResetActions(void)
 SwitchModesDisplay_t xGetSwitchStatus(void)
 {
 #if (SWITCH_HANDLER_MACRO == 1)
-	printf("todisplay=%d\n",ToDisplay);
+	//printf("todisplay=%d\n",ToDisplay);
 #endif
 	return ToDisplay;
 
@@ -441,7 +450,7 @@ SwitchModesDisplay_t xGetSwitchStatus(void)
 uint8_t xGetToggleMetrics(void)
 {
 #if (SWITCH_HANDLER_MACRO == 1)
-	printf("after pressing the switches : %d\n", ToggleMetrics );
+	//printf("after pressing the switches : %d\n", ToggleMetrics );
 #endif
 	return ToggleMetrics;
 }
