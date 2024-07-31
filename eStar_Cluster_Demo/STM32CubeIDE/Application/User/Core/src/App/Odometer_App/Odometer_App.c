@@ -104,6 +104,7 @@ void vOdoInit(void)
     OdometerUnits = defaultOdoUnits;
 }
 
+/**************************************************************************************************/
 void vOdoAlgorithm(void)
 {   
 	 uint8_t ucIgnitionStatus=0;
@@ -111,9 +112,9 @@ void vOdoAlgorithm(void)
 
 	if(ucIgnitionStatus == IgnOFF_mode)
     {
-#if(ODO_TEST_MACRO == 1)
-		printf("Odometer Ignition: OFF\n\r");
-#endif
+		#if(ODO_TEST_MACRO == 1)
+				printf("Odometer Ignition: OFF\n\r");
+		#endif
     }
     else
     {        
@@ -122,8 +123,10 @@ void vOdoAlgorithm(void)
     }
 }
 
+/**************************************************************************************************/
 void vCalculateOdo(void)
 {  
+	OdometerUnits = xToggleUnits();
     if(OdometerUnits == ODO_IN_KM)
     {
         vCalculateOdoInKm();
@@ -134,6 +137,7 @@ void vCalculateOdo(void)
     }
 }
 
+/**************************************************************************************************/
 uint32_t vPulseCount(void)
 {
 	ulPresentPulses= xGetRollingPulseCount(ODO_SPEEDO_CHANNEL);
@@ -149,14 +153,13 @@ uint32_t vPulseCount(void)
 	return sllPulsesDelta;
 }
 
+/**************************************************************************************************/
 void vCalculateOdoInKm(void)
 {
 	ulPulsesReceived = vPulseCount();
-	ulPulse100mCountRatioOdo = ( ulPulsesReceived / PULSES_PER_100_METERS );
-
-    ulDistanceInMtsOdo = ulPulse100mCountRatioOdo * ulPulseMultiFactor;
-
-    ulUpdatedOdoValue = ulOdoInEeprom + ulPulse100mCountRatioOdo;// Update OdoInEeprom with the new value
+	ulDistanceInMtsOdo = ( (ulPulsesReceived*10) / PULSES_PER_1_METER );
+	ulDistanceInMtsOdo = (ulDistanceInMtsOdo/10);
+    ulUpdatedOdoValue = ulOdoInEeprom + ulDistanceInMtsOdo;// Update OdoInEeprom with the new value
     ulOdoInEeprom = ulUpdatedOdoValue;
     ulOdoInKm = (ulOdoInEeprom/10);
 
@@ -165,26 +168,25 @@ void vCalculateOdoInKm(void)
     printf("R:%ld\t",ulPulse100mCountRatioOdo );
     printf("EE:%ld\t", ulOdoInEeprom);
     printf("Km: %ld\n\r", ulOdoInKm);
-//    if(OdometerUnits == ODO_IN_KM)
-//    {
-//    	printf("\n");
-//    }
-//    else
-//    {
-//    	printf("\t");
-//    }
+    if(OdometerUnits == ODO_IN_KM)
+    	printf("\n");
+    else
+    	printf("\t");
 #endif
 }
 
+/**************************************************************************************************/
 void vCalculateOdoInMiles(void)
 {
     vCalculateOdoInKm();   
     ulOdoInMiles =(ulOdoInKm * KM_TO_MILES_CONV_FACTOR) / 1000;
+
 #if(ODO_TEST_MACRO == 1)
     printf("Mile: %ld\n" ,ulOdoInMiles);
 #endif
 }
 
+/**************************************************************************************************/
 void vResetTripA_OdoReadings(void)
 {
     // Store the current value of l_Total_odo_u32 into l_Total_odo_u32_Before_TripA_u32_Reset
@@ -193,24 +195,18 @@ void vResetTripA_OdoReadings(void)
 	/*Write Odo value before Trip-A reset into the EEPROM*/
 	*eepromVariables[4] = ulOdoValBeforeTripAReset;
 	uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[4],*eepromVariables[4],eepromVariables[4]);
-	if (0 == FlashStatus)
-	{
-#if(ODO_TEST_MACRO == 1)
-		printf("ESWrite Success: EEVar[4]:%ld\n" ,*eepromVariables[4]);
-#endif
-	}
-	else
-	{
-#if(ODO_TEST_MACRO == 1)
-		printf("ESWrite Fail:TripAReset\n");
-#endif
-	}
 
 #if(ODO_TEST_MACRO == 1)
+	if (0 == FlashStatus)
+		printf("ESWrite Success: EEVar[4]:%ld\n" ,*eepromVariables[4]);
+	else
+		printf("ESWrite Fail:TripAReset\n");
+
     printf("AVR: %ld\t" ,ulOdoValBeforeTripAReset);
 #endif
 }
 
+/**************************************************************************************************/
 uint16_t xGetTripA_OdoReading(void)
 {
     uint16_t usTripA;
@@ -227,20 +223,14 @@ uint16_t xGetTripA_OdoReading(void)
 
         /* Write Odo value into the EEPROM after Trip-A value reaching to its max value */
         *eepromVariables[4] = ulOdoValBeforeTripAReset;
-uint16_t FlashStatus = xES_WriteVariable((uint32_t)eepromVariables[4], *eepromVariables[4], eepromVariables[4]);
+        uint16_t FlashStatus = xES_WriteVariable((uint32_t)eepromVariables[4], *eepromVariables[4], eepromVariables[4]);
 
-        if (0 == FlashStatus)
-    	{
-#if(ODO_TEST_MACRO == 1)
-    		printf("ESWrite Success: EEVar[4]:%ld\n\r", *eepromVariables[4]);
-#endif
-        }
-        else
-        {
-#if (ODO_TEST_MACRO == 1)
-    		printf("ESWrite Fail:TripAGet\n\r");
-#endif
-        }
+		#if(ODO_TEST_MACRO == 1)
+				if (0 == FlashStatus)
+					printf("ESWrite Success: EEVar[4]:%ld\n\r", *eepromVariables[4]);
+				else
+					printf("ESWrite Fail:TripAGet\n\r");
+		#endif
     }
     else
     {
@@ -262,13 +252,13 @@ uint16_t FlashStatus = xES_WriteVariable((uint32_t)eepromVariables[4], *eepromVa
     }
 
 #if(ODO_TEST_MACRO == 1)
-    printf("tripA: %d\t", usTripA);
-printf("TripA_Units: %d\n\r", TripA_Units); // Use TripA_Units here
+    printf("A: %d\t", usTripA);
 #endif
 
     return usTripA;
 }
 
+/**************************************************************************************************/
 void vResetTripB_OdoReadings(void)
 {
     // Store the current value of total odometer value into variable (Total odo value before Trip B reset)
@@ -277,22 +267,17 @@ void vResetTripB_OdoReadings(void)
 	/*Write Odo value before Trip-B reset into the EEPROM*/
 	*eepromVariables[5] = ulOdoValBeforeTripBReset;
 	uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[5],*eepromVariables[5],eepromVariables[5]);
+
+#if(ODO_TEST_MACRO == 1)
 	if (0 == FlashStatus)
-	{
-#if(ODO_TEST_MACRO == 1)
 		printf("ESW_S: EE[5]:%ld\n\r",*eepromVariables[5]);
-#endif
-	}
 	else
-	{
-#if(ODO_TEST_MACRO == 1)
 		printf("ESW_F\n\r");
-#endif
-	}
-#if(ODO_TEST_MACRO == 1)
     printf("BVR: %ld\n" ,ulOdoValBeforeTripBReset);
 #endif
 }
+
+/**************************************************************************************************/
 uint16_t xGetTripB_OdoReading(void)
 {
     uint16_t usTripB;
@@ -311,18 +296,12 @@ uint16_t xGetTripB_OdoReading(void)
         *eepromVariables[5] = ulOdoValBeforeTripBReset;
         uint16_t FlashStatus = xES_WriteVariable((uint32_t)eepromVariables[5], *eepromVariables[5], eepromVariables[5]);
 
+#if (ODO_TEST_MACRO == 1)
         if (0 == FlashStatus)
-        {
-#if (ODO_TEST_MACRO == 1)
             printf("ESW_S EE[5]:%ld\n\r", *eepromVariables[5]);
-#endif
-        }
         else
-        {
-#if (ODO_TEST_MACRO == 1)
             printf("ESW_F:tripBGet\n\r");
 #endif
-        }
     }
     else
     {
@@ -344,47 +323,45 @@ uint16_t xGetTripB_OdoReading(void)
     }
 
 #if (ODO_TEST_MACRO == 1)
-    printf("tripB: %d\n\r", usTripB);
-    printf("TripB_Units: %d\n\r", TripB_Units); // Use TripB_Units here
+    printf("B: %d\n\r", usTripB);
 #endif
 
     return usTripB;
 }
+
+/**************************************************************************************************/
 void vWrite_OdoVal_to_EEPROM(void)
 {
 	/*Write odo value to EEPROM*/
 	//printf("ulOdoInEeprom: %ld\n", ulOdoInEeprom);
 
 	uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[0],ulOdoInEeprom,eepromVariables[0]);
-	if (0 == FlashStatus)
-	{
-#if(ODO_TEST_MACRO == 1)
-		printf("ESW_S EE[0]:%ld\n\r",*eepromVariables[0]);
-#endif
-	}
-	else
-	{
-#if(ODO_TEST_MACRO == 1)
-		printf("ESW_F:odoEEP\n\r");
-#endif
-	}
-#if 1
-	uint16_t FlashStatus2= xEE_ReadVariable32bits((uint32_t)eepromVariables[0],(uint32_t*)eepromVariables[0]);
-	if (0 == FlashStatus2)
-	{
-#if(EMUL_DEBUG_ENABLE == 0)
-		//printf("ESR_S:at %p:0x%lx \n\r",eepromVariables[0],*eepromVariables[0]);
-#endif
-	}
-	else
-	{
-#if(EMUL_DEBUG_ENABLE == 0)
-		//printf("ESR_F:0x%lx\n\r",FlashStatus2);
-#endif
-	}
-#endif
+
+	#if(ODO_TEST_MACRO == 1)
+		if (0 == FlashStatus)
+			printf("ESW_S EE[0]:%ld\n\r",*eepromVariables[0]);
+		else
+			printf("ESW_F:odoEEP\n\r");
+	#endif
+
+	#if 1
+		uint16_t FlashStatus2= xEE_ReadVariable32bits((uint32_t)eepromVariables[0],(uint32_t*)eepromVariables[0]);
+		if (0 == FlashStatus2)
+		{
+			#if(EMUL_DEBUG_ENABLE == 0)
+					//printf("ESR_S:at %p:0x%lx \n\r",eepromVariables[0],*eepromVariables[0]);
+			#endif
+		}
+		else
+		{
+			#if(EMUL_DEBUG_ENABLE == 0)
+					//printf("ESR_F:0x%lx\n\r",FlashStatus2);
+			#endif
+		}
+	#endif
 }
 
+/**************************************************************************************************/
 void vRetrive_LastStored_OdoVal_from_EEPROM(void)
 {
 	/*Read odo value from EEPROM variable*/
@@ -393,14 +370,15 @@ void vRetrive_LastStored_OdoVal_from_EEPROM(void)
 	ulOdoValBeforeTripBReset = *eepromVariables[5];
 	ulOdoInKm = (ulOdoInEeprom/10);
 
-#if(ODO_TEST_MACRO == 1)
-	printf("Retrived Odo data from EEPROM\t");
-	printf("ER_Odo: %ld\t", ulOdoInEeprom);
-	printf("ER_AVR: %ld\t",ulOdoValBeforeTripAReset);
-	printf("ER_BVR: %ld\n",ulOdoValBeforeTripBReset);
-#endif
+	#if(ODO_TEST_MACRO == 1)
+		printf("Retrived Odo data from EEPROM\t");
+		printf("ER_Odo: %ld\t", ulOdoInEeprom);
+		printf("ER_AVR: %ld\t",ulOdoValBeforeTripAReset);
+		printf("ER_BVR: %ld\n",ulOdoValBeforeTripBReset);
+	#endif
 }
 
+/**************************************************************************************************/
 /**
  * @brief Provides Odo value
  * 
@@ -413,12 +391,10 @@ void vRetrive_LastStored_OdoVal_from_EEPROM(void)
 
 uint32_t xGetOdoReadings(void)
 {
-    uint8_t OdoUnits = 0;
     uint32_t xOdoValue = 0;
 
     if (OdometerUnits == ODO_IN_KM)
     {
-        OdoUnits = ODO_IN_KM;
         if (ulOdoInKm >= MAX_ODO_VALUE_IN_KM)
         {
             xOdoValue = MAX_ODO_VALUE_IN_KM;
@@ -427,13 +403,9 @@ uint32_t xGetOdoReadings(void)
         {
             xOdoValue = ulOdoInKm;
         }
-#if (ODO_TEST_MACRO == 1)
-        printf("Odo value=%ld\n", xOdoValue);
-#endif
     }
     else
     {
-        OdoUnits = ODO_IN_MILES;
         if (ulOdoInMiles >= MAX_ODO_VALUE_IN_KM)
         {
             ulOdoInMiles = MAX_ODO_VALUE_IN_KM;
@@ -444,25 +416,10 @@ uint32_t xGetOdoReadings(void)
         }
     }
 
-    // Debug print to use OdoUnits variable
-#if (ODO_TEST_MACRO == 1)
-    printf("OdoUnits=%d\n", OdoUnits);
-#endif
-
     return xOdoValue;
 }
 
-/**
- * @brief Toggle Odo units
- *
- * This function is designed to configure vehicle odometer units, in between kilometers and miles
- *
- * @param[in] void
- *
- * @return void
- */
-
-
+/**************************************************************************************************/
 
 #endif	/* ODOMETER_C */
 

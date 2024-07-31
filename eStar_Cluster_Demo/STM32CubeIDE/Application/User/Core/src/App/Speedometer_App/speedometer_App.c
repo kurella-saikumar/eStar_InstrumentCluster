@@ -293,7 +293,6 @@ void vCustomizeSpeedUnits(void)
     else
     {
         speedoUnits = SPEED_IN_KMPH;
-    //printf("u: %d\t", speedoUnits);   //Debug purpose
     }
 }
 
@@ -317,23 +316,14 @@ uint32_t xGetSpeedValue(void)
     if(xSafeSpeedCheck())
     {
     	Status.indicators.over_speed_indicator = 1;
-#if(SPEEDO_TEST_MACRO == 1)
-    	printf("speedDisplayUnits: %d\t", speedDisplayUnits);   //Debug purpose
-#endif
     }
 
 	if(speedoUnits == SPEED_IN_KMPH)
 	{
-#if(SPEEDO_TEST_MACRO == 1)
-		 printf("speeeeeeed: %ld\t", ulSpeedInKm);
-#endif
 		return ulSpeedInKm;
 	}
 	else if(speedoUnits == SPEED_IN_MPH)
 	{
-#if(SPEEDO_TEST_MACRO == 1)
-		printf("speeeeeeed: %ld\t", ulSpeedInKm);
-#endif
 		return ulspeedInMiles;
 	}
 }

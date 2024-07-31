@@ -16,16 +16,14 @@
 /**************************************************************************************************
  * Include Project Specific Headers
  ***************************************************************************************************/
-//#include "speedometer_App_cfg.h"
 #include "../../../../Core/PlatformConfig/speedometer_App_cfg.h"
 #include "../../Service/IO_HAL/ICU_middleware/ICU_driver.h"
+#include "../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h"
 #include "../Indicator_App/Indicator_App.h"
-//#include "../ICU_middleware/ICU_driver.h"
-//#include "Indicator_App.h"
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
  ***************************************************************************************************/
-#define SPEEDO_TEST_MACRO 0
+#define SPEEDO_TEST_MACRO 1U
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES
  ***************************************************************************************************/

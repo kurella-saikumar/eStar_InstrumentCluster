@@ -36,17 +36,16 @@
 /**************************************************************************************************
  * Include Project Specific Headers
  ***************************************************************************************************/
-//#include "Odometer_App_cfg.h"
-//#include "../ICU_middleware/ICU_driver.h"
-#include "../../Service/IO_HAL/ICU_middleware/ICU_driver.h"
 #include "../../../PlatformConfig/Odometer_App_cfg.h"
+#include "../../Service/IO_HAL/ICU_middleware/ICU_driver.h"
+#include "../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h"
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
  ***************************************************************************************************/
 #define ODO_IN_KM 0U
 #define ODO_IN_MILES 1U
 
-#define ODO_TEST_MACRO 0U
+#define ODO_TEST_MACRO 1U
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES
  ***************************************************************************************************/

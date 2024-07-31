@@ -1,6 +1,6 @@
 ../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:124:6:vInitializeSpeedometer	1
-../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:112:6:vSpeedoInit	1
 ../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:143:6:xLoadToEEPROM	1
+../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:112:6:vSpeedoInit	1
 ../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:216:6:vValidateSpeed	2
 ../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:231:10:vPulseDeltaCounter	1
 ../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:190:6:vCalculateSpeedInKm	1
@@ -9,5 +9,5 @@
 ../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:156:6:vSpeedoAlgorithm	2
 ../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:246:6:xSafeSpeedCheck	5
 ../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:287:6:vCustomizeSpeedUnits	1
-../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:311:10:xGetSpeedValue	4
-../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:341:10:GetSpeedValueInKM	1
+../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:310:10:xGetSpeedValue	4
+../Application/User/Core/src/App/Speedometer_App/speedometer_App.c:331:10:GetSpeedValueInKM	1
