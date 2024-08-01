@@ -1,5 +1,5 @@
 Middlewares/LibJPEG/jcarith.o: \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcarith.c \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcarith.c \
  ../../Middlewares/Third_Party/LibJPEG/include/jinclude.h \
  ../../LIBJPEG/Target/jconfig.h ../../LIBJPEG/Target/jdata_conf.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
@@ -55,7 +55,7 @@ Middlewares/LibJPEG/jcarith.o: \
  ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Stack_Usage/../../../../PlatformConfig/safe_checks_Config.h \
  ../../Core/Inc/main.h \
  ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Task_OverLoad_DeadLock/Task_OverLoad_DeadLock.h \
- D:\Projects\Git_WorkSpace\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\safe_checks_Config.h \
+ ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Task_OverLoad_DeadLock/../../../../../Core/PlatformConfig/safe_checks_Config.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
@@ -125,7 +125,7 @@ Middlewares/LibJPEG/jcarith.o: \
 ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Stack_Usage/../../../../PlatformConfig/safe_checks_Config.h:
 ../../Core/Inc/main.h:
 ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Task_OverLoad_DeadLock/Task_OverLoad_DeadLock.h:
-D:\Projects\Git_WorkSpace\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\safe_checks_Config.h:
+../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Task_OverLoad_DeadLock/../../../../../Core/PlatformConfig/safe_checks_Config.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:

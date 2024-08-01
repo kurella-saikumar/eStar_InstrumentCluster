@@ -54,7 +54,7 @@ extern TIM_HandleTypeDef htim2;
 #define STATE_MACHINE_TASK_DELAY_IN_MS      10
 #define ANALOG_DEBOUNCE_TASK_DELAY_IN_MS    100
 #define FUELGUAGE_TASK_DELAY_IN_MS          100
-#define ODO_TASK_DELAY_IN_MS                5000
+#define ODO_TASK_DELAY_IN_MS                250
 #define SPEEDO_TASK_DELAY_IN_MS             250
 #define TACHO_TASK_DELAY_IN_MS              1000
 #define SWITCHHANDLER_TASK_DELAY_IN_MS      50

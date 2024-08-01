@@ -1,5 +1,5 @@
 Application/User/TouchGFX/target/STM32TouchController.o: \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/STM32TouchController.cpp \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/STM32TouchController.cpp \
  ../../TouchGFX/target/STM32TouchController.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/platform/driver/touch/TouchController.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
@@ -93,7 +93,7 @@ Application/User/TouchGFX/target/STM32TouchController.o: \
  ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Stack_Usage/../../../../PlatformConfig/safe_checks_Config.h \
  ../../Core/Inc/main.h \
  ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Task_OverLoad_DeadLock/Task_OverLoad_DeadLock.h \
- D:\Projects\Git_WorkSpace\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\safe_checks_Config.h \
+ ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Task_OverLoad_DeadLock/../../../../../Core/PlatformConfig/safe_checks_Config.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
@@ -196,7 +196,7 @@ Application/User/TouchGFX/target/STM32TouchController.o: \
 ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Stack_Usage/../../../../PlatformConfig/safe_checks_Config.h:
 ../../Core/Inc/main.h:
 ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Task_OverLoad_DeadLock/Task_OverLoad_DeadLock.h:
-D:\Projects\Git_WorkSpace\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\safe_checks_Config.h:
+../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Task_OverLoad_DeadLock/../../../../../Core/PlatformConfig/safe_checks_Config.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:

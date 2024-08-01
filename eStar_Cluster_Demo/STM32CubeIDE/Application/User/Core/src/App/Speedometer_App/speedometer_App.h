@@ -23,7 +23,7 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
  ***************************************************************************************************/
-#define SPEEDO_TEST_MACRO 0U
+#define SPEEDO_TEST_MACRO 1U
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES
  ***************************************************************************************************/
@@ -54,6 +54,8 @@ void vValidateSpeed(void);
 
 bool xSafeSpeedCheck(void);
 void vCustomizeSpeedUnits(void);
+void prvSpeedDampOut(void);
+
 
 #ifdef __cplusplus
 extern "C"

@@ -10,7 +10,7 @@
 ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:809:11:prvPagesTransfer	25
 ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:551:12:prvWriteVariable	2
 ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:212:11:xEE_WriteVariable32bits	2
-../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:1293:10:xShadowUpdate	6
-../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:1369:7:vShadowRAM_Init	1
+../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:1294:10:xShadowUpdate	6
+../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:1370:7:vShadowRAM_Init	1
 ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:1015:11:xEE_Init	35
-../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:1386:11:xES_WriteVariable	3
+../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c:1387:11:xES_WriteVariable	3

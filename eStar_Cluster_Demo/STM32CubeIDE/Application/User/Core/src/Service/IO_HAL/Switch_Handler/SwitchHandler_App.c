@@ -450,7 +450,8 @@ SwitchModesDisplay_t xGetSwitchStatus(void)
 uint8_t xGetToggleMetrics(void)
 {
 #if (SWITCH_HANDLER_MACRO == 1)
-	//printf("after pressing the switches : %d\n", ToggleMetrics );
+//	printf("after pressing the switches : %d\n", ToggleMetrics );
+//	printf("Units: %d\n", ToggleMetrics);
 #endif
 	return ToggleMetrics;
 }

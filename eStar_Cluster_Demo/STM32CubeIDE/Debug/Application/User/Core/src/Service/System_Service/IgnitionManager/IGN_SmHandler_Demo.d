@@ -1,6 +1,6 @@
 Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.o: \
  ../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_Demo.c \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.h \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -47,21 +47,21 @@ Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler_D
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  ../../Core/Inc/main.h \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul_cfg.h \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul_cfg.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.H \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../../PlatformConfig/Odometer_App_cfg.h \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/ICU_driver.h \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/../../../../PlatformConfig/ICU_driver_cfg.h \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/Switch_Handler/../Switch/switch.h \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../../PlatformConfig/Odometer_App_cfg.h \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/ICU_driver.h \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/../../../../PlatformConfig/ICU_driver_cfg.h \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/Switch_Handler/../Switch/switch.h \
  ../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.h \
  ../Application/User/Core/src/Service/System_Service/IgnitionManager/../stateManager/smHandler.h \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/IGN_SmHandler_cfg.h \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.h \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.h
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.h:
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/IGN_SmHandler_cfg.h \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.h \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.h
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:
@@ -108,17 +108,17 @@ D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeID
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
 ../../Core/Inc/main.h:
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul_cfg.h:
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul_cfg.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.H:
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h:
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../../PlatformConfig/Odometer_App_cfg.h:
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/ICU_driver.h:
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/../../../../PlatformConfig/ICU_driver_cfg.h:
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h:
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/Switch_Handler/../Switch/switch.h:
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/Odometer_App.h:
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../../PlatformConfig/Odometer_App_cfg.h:
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/ICU_driver.h:
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/ICU_middleware/../../../../PlatformConfig/ICU_driver_cfg.h:
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h:
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Odometer_App/../../Service/IO_HAL/Switch_Handler/../Switch/switch.h:
 ../Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.h:
 ../Application/User/Core/src/Service/System_Service/IgnitionManager/../stateManager/smHandler.h:
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/IGN_SmHandler_cfg.h:
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.h:
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.h:
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/PlatformConfig/IGN_SmHandler_cfg.h:
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/IgnitionManager/IGN_SmHandler.h:
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.h:

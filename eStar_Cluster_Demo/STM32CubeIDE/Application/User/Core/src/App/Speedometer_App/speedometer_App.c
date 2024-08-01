@@ -65,14 +65,15 @@ uint32_t ulMaxVehicleSpeedInKm = 0;
 /**Miles configuration parameters*/
 uint8_t ucSafeThresholdSpeedInMiles = 0;
 uint32_t ulMaxVehicleSpeedInMiles = 0;
-uint8_t ucKmToMilesDivisionFactor = 0;
-uint8_t ucKmToMilesSpeedMultiFactor = 0;
+uint16_t ucKmToMilesDivisionFactor = 0;
+uint16_t ucKmToMilesSpeedMultiFactor = 0;
 
 /**Speedometer variables*/
 bool ignitionStatus_speed = 0;
 int64_t sllDelta = 0;
 uint32_t ulCurrentReceivedPulses = 0;
 uint32_t ulPreviousReceivedPulses = 0;
+uint32_t ulSpeedValue = 0;
 
 /**km variables*/
 uint8_t ucPulsesPerMeter = 0;
@@ -87,6 +88,10 @@ uint32_t ulSpeedInKm = 0;
 /**miles variables*/
 uint32_t ulspeedInMiles = 0;
 
+
+uint32_t prevSpeedVal = 0;
+uint32_t presSpeedVal = 0;
+uint32_t deltaSpeed = 0;
 //IndicationStatus_t IndicationStatus;
 /**************************************************************************************************
  * DECLARE FILE SCOPE STATIC VARIABLES
@@ -121,31 +126,35 @@ void vSpeedoInit(void)
 #endif
 }
 
+/**************************************************************************************************/
 void vInitializeSpeedometer(void)
 {
     /**Km configuration parameters*/
-	ulMtsToKmDistConvFactorSpeed = configMTS_TO_KM_DIST_CONV_FACTOR;
-	ulSecToHrTimeConvFactor = configSEC_TO_HR_TIME_CONV_FACTOR;
-	ulPulseMultiFactorSpeed = configPULSE_MULTI_FACTOR;
-	ucPulsesPerMeter = configPULSES_PER_1_METER;
-	ulPulsesPer100MetersSpeed = configPULSES_PER_100_METERS;
-	ulTimeInSecs = configTIME_IN_SECS;
-	ucSafeThresholdSpeedInKm = configSAFE_THRESHOLD_VEH_SPEED_IN_KM;
-	ulMaxVehicleSpeedInKm = configMAX_VEH_SPEED_IN_KM;
+	ulMtsToKmDistConvFactorSpeed 	= configMTS_TO_KM_DIST_CONV_FACTOR;
+	ulSecToHrTimeConvFactor 		= configSEC_TO_HR_TIME_CONV_FACTOR;
+	ulPulseMultiFactorSpeed 		= configPULSE_MULTI_FACTOR;
+	ucPulsesPerMeter 				= configPULSES_PER_1_METER;
+	ulPulsesPer100MetersSpeed 		= configPULSES_PER_100_METERS;
+	ulTimeInSecs 					= configTIME_IN_SECS;
+	ucSafeThresholdSpeedInKm 		= configSAFE_THRESHOLD_VEH_SPEED_IN_KM;
+	ulMaxVehicleSpeedInKm 			= configMAX_VEH_SPEED_IN_KM;
 
 /**Miles configuration parameters*/
-	ucKmToMilesDivisionFactor = configKM_TO_MILES_DIV_FACTOR;
-	ucKmToMilesSpeedMultiFactor = configKM_TO_MILES_MULTI_FACTOR;
-    ucSafeThresholdSpeedInMiles = configSAFE_THRESHOLD_VEH_SPEED_IN_MILES;
-    ulMaxVehicleSpeedInMiles = configMAX_VEH_SPEED_IN_MILES;
-
+	ucKmToMilesDivisionFactor 		= configKM_TO_MILES_DIV_FACTOR;
+	ucKmToMilesSpeedMultiFactor 	= configKM_TO_MILES_MULTI_FACTOR;
+    ucSafeThresholdSpeedInMiles 	= configSAFE_THRESHOLD_VEH_SPEED_IN_MILES;
+    ulMaxVehicleSpeedInMiles 		= configMAX_VEH_SPEED_IN_MILES;
 }
+
+/**************************************************************************************************/
 void xLoadToEEPROM(void)
 {
 #if(SPEEDO_TEST_MACRO == 1)
    printf("Config parameters loaded to EEPROM...\r\n");
 #endif
 }
+
+/**************************************************************************************************/
  /**
  * @brief Speed calculation algorithm
  *
@@ -172,6 +181,8 @@ void vSpeedoAlgorithm(void)
         vCalculateSpeed();
     }
 }
+
+/**************************************************************************************************/
 /**
  * @brief Distance calculation
  *
@@ -180,39 +191,52 @@ void vSpeedoAlgorithm(void)
  *@return Void.
  */
 void vCalculateSpeed(void)
-{    
+{
+	speedoUnits = xGetToggleMetrics();
     if(speedoUnits == SPEED_IN_KMPH)
         vCalculateSpeedInKm();
     else
         vCalculateSpeedInMiles();   
 }
 
+/**************************************************************************************************/
 void vCalculateSpeedInKm(void)
 {
 	ulReceivedPulses = vPulseDeltaCounter();
-	ulDistanceInMts = (ulReceivedPulses / ucPulsesPerMeter );
-	ulSpeedInMtsPerSec = ( (ulDistanceInMts * configMILLI_SEC_TO_SECS_CONV_FACTOR) / configSPEEDO_ALGO_CALL_FREQ_IN_MS );
+	ulReceivedPulses = 42; /*Simulation*/
+	ulDistanceInMts = ( (ulReceivedPulses*10) / ucPulsesPerMeter );
+	ulSpeedInMtsPerSec = ( (ulDistanceInMts * configMILLI_SEC_TO_SECS_CONV_FACTOR) / configSPEEDO_TASK_PERIODICITY_IN_MS );
 	ulSpeedInKm = ((ulSpeedInMtsPerSec * configSEC_TO_HR_TIME_CONV_FACTOR) / configMTS_TO_KM_DIST_CONV_FACTOR );
+	ulSpeedInKm = (ulSpeedInKm/10);
 	vValidateSpeed();
 
 #if(SPEEDO_TEST_MACRO == 1)
     /**Debug purpose*/
+	printf("sU: %ld\t", speedoUnits);
     printf("dP: %ld\t",ulReceivedPulses);
-    printf("dm: %ld\tm/s: %ld\tk/h: %ld\t", ulDistanceInMts, ulSpeedInMtsPerSec, ulSpeedInKm);
-//    printf("sK: %ld\t", ulSpeedInKm);
-//    printf("dU: %d\t", speedoUnits);
-//    printf("dI: %d\t\n", xSafeSpeedCheck());
-    printf("\n");
+    printf("m/s: %ld\t", ulSpeedInMtsPerSec);
+    printf("k/h: %ld", ulSpeedInKm);
+    if(speedoUnits == SPEED_IN_KMPH)
+        	printf("\n\n");
+        else
+        	printf("\t");
 #endif
 }
 
+/**************************************************************************************************/
 void vCalculateSpeedInMiles(void)
 {
     vCalculateSpeedInKm();
-    ulspeedInMiles = ( (ulSpeedInKm * ucKmToMilesSpeedMultiFactor) / ucKmToMilesDivisionFactor );
-    //printf("sM: %d\t", ulspeedInMiles);   //Debug purpose
+//    ulspeedInMiles = ( (ulSpeedInKm * ucKmToMilesSpeedMultiFactor) / ucKmToMilesDivisionFactor );
+    ulspeedInMiles = ( (ulSpeedInKm * 1000) / 1609 );
+#if(SPEEDO_TEST_MACRO == 1)
+    printf("M/h: %d\n\n", ulspeedInMiles);   //Debug purpose
+    printf("Multi: %d\tDiv: %d\n", ucKmToMilesSpeedMultiFactor, configKM_TO_MILES_DIV_FACTOR);
+#endif
+
 }
 
+/**************************************************************************************************/
 void vValidateSpeed(void)
 {
 	if(ulSpeedInKm > configMAX_VEH_SPEED_IN_KM)
@@ -228,6 +252,7 @@ void vValidateSpeed(void)
     }
 }
 
+/**************************************************************************************************/
 uint32_t vPulseDeltaCounter(void)
 {
 	ulCurrentReceivedPulses = xGetRollingPulseCount(ODO_SPEEDO_CHANNEL);
@@ -243,6 +268,7 @@ uint32_t vPulseDeltaCounter(void)
 	return sllDelta;
 }
 
+/**************************************************************************************************/
 bool xSafeSpeedCheck(void)
 {
     if(speedoUnits == SPEED_IN_KMPH)
@@ -258,7 +284,7 @@ bool xSafeSpeedCheck(void)
     }
     else if(speedoUnits == SPEED_IN_MPH)
     {
-        if(ulSpeedInKm > ucSafeThresholdSpeedInMiles)
+        if(ulspeedInMiles > ucSafeThresholdSpeedInMiles)
         {
             safeSpeedLimitExceededFlag = 1;
         }
@@ -275,6 +301,7 @@ bool xSafeSpeedCheck(void)
     return safeSpeedLimitExceededFlag;
 }
 
+/**************************************************************************************************/
 /**
  * @brief Customize Odo units
  *
@@ -296,6 +323,7 @@ void vCustomizeSpeedUnits(void)
     }
 }
 
+/**************************************************************************************************/
 /**
  * @brief Provides Speed value
  * 
@@ -320,17 +348,39 @@ uint32_t xGetSpeedValue(void)
 
 	if(speedoUnits == SPEED_IN_KMPH)
 	{
-		return ulSpeedInKm;
+		ulSpeedValue = ulSpeedInKm;
 	}
 	else if(speedoUnits == SPEED_IN_MPH)
 	{
-		return ulspeedInMiles;
+		ulSpeedValue = ulspeedInMiles;
 	}
+	prvSpeedDampOut();
+	return ulSpeedValue;
 }
 
+/**************************************************************************************************/
 uint32_t GetSpeedValueInKM(void)
 {
 	return ulSpeedInKm;
 }
+/**************************************************************************************************/
+void prvSpeedDampOut(void)
+{
+	presSpeedVal = ulSpeedValue;
+	if(prevSpeedVal > presSpeedVal)
+		deltaSpeed = prevSpeedVal - presSpeedVal;
+	else
+		deltaSpeed = presSpeedVal - prevSpeedVal;
 
+	if(deltaSpeed > 2)
+	{
+		ulSpeedValue = presSpeedVal;
+		prevSpeedVal = presSpeedVal;
+	}
+	else
+	{
+		ulSpeedValue = prevSpeedVal;
+	}
+}
+/**************************************************************************************************/
 #endif	/* SPEEDOMETER_C */

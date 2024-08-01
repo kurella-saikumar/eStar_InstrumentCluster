@@ -1,6 +1,6 @@
 Application/User/LIBJPEG/App/libjpeg.o: \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/LIBJPEG/App/libjpeg.c \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/LIBJPEG/App/libjpeg.h \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/LIBJPEG/App/libjpeg.c \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/LIBJPEG/App/libjpeg.h \
  ../../Middlewares/Third_Party/LibJPEG/include/jpeglib.h \
  ../../LIBJPEG/Target/jconfig.h ../../LIBJPEG/Target/jdata_conf.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os.h \
@@ -56,7 +56,7 @@ Application/User/LIBJPEG/App/libjpeg.o: \
  ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Stack_Usage/../../../../PlatformConfig/safe_checks_Config.h \
  ../../Core/Inc/main.h \
  ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Task_OverLoad_DeadLock/Task_OverLoad_DeadLock.h \
- D:\Projects\Git_WorkSpace\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\safe_checks_Config.h \
+ ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Task_OverLoad_DeadLock/../../../../../Core/PlatformConfig/safe_checks_Config.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
@@ -66,7 +66,7 @@ Application/User/LIBJPEG/App/libjpeg.o: \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
  ../../LIBJPEG/Target/jmorecfg.h
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/LIBJPEG/App/libjpeg.h:
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/LIBJPEG/App/libjpeg.h:
 ../../Middlewares/Third_Party/LibJPEG/include/jpeglib.h:
 ../../LIBJPEG/Target/jconfig.h:
 ../../LIBJPEG/Target/jdata_conf.h:
@@ -124,7 +124,7 @@ D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/LIBJPEG/App
 ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Stack_Usage/../../../../PlatformConfig/safe_checks_Config.h:
 ../../Core/Inc/main.h:
 ../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Task_OverLoad_DeadLock/Task_OverLoad_DeadLock.h:
-D:\Projects\Git_WorkSpace\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\safe_checks_Config.h:
+../../Core/Inc/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Task_OverLoad_DeadLock/../../../../../Core/PlatformConfig/safe_checks_Config.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:

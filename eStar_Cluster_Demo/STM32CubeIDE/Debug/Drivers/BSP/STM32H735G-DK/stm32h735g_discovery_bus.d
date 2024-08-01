@@ -1,6 +1,6 @@
 Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o: \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.c \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.h \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.c \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.h \
  ../../Core/Inc/stm32h735g_discovery_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../../Core/Inc/stm32h7xx_hal_conf.h \
@@ -47,8 +47,8 @@ Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.h:
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_bus.h:
 ../../Core/Inc/stm32h735g_discovery_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
 ../../Core/Inc/stm32h7xx_hal_conf.h:
@@ -95,4 +95,4 @@ D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h:
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h:

@@ -1,4 +1,4 @@
 Application/User/generated/image_EngineOil2.o: \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/images/src/WarningIndicators/EngineOil/image_EngineOil2.cpp \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/images/src/WarningIndicators/EngineOil/image_EngineOil2.cpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp:

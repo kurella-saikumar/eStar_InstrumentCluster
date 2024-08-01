@@ -7,5 +7,5 @@
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:191:20:xClockSettingGetSetMode	6
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:441:22:xGetSwitchStatus	1
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:450:9:xGetToggleMetrics	1
-../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:459:9:xToggleUnits	1
+../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:460:9:xToggleUnits	1
 ../Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.c:266:6:vHandleModeResetActions	23

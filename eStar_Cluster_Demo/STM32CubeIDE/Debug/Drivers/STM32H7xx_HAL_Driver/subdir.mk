@@ -5,38 +5,38 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_crc.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_crc_ex.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma2d.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_iwdg.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc_ex.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ospi.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rtc.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rtc_ex.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c \
-D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c 
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_crc.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_crc_ex.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma2d.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_iwdg.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc_ex.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ospi.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rtc.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rtc_ex.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c \
+D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c 
 
 C_DEPS += \
 ./Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.d \
@@ -108,69 +108,69 @@ OBJS += \
 
 
 # Each subdirectory must supply rules for building sources it contributes
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc_ex.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc_ex.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_adc_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_adc_ex.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_cortex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_crc.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_crc.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_crc_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_crc_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_crc_ex.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma2d.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma2d.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma2d.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma2d.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma2d.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma_ex.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma_ex.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_dma_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_dma_ex.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_exti.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_exti.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_exti.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_exti.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_fdcan.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_fdcan.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_fdcan.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_fdcan.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_flash.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_flash.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_flash.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_flash_ex.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_flash_ex.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_flash_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_flash_ex.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_gpio.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_hsem.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_hsem.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_hsem.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_hsem.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_i2c_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_iwdg.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_iwdg.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_iwdg.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_iwdg.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_iwdg.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc_ex.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc_ex.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ltdc_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ltdc_ex.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_mdma.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_mdma.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ospi.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ospi.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ospi.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_ospi.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_ospi.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_pwr_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rcc_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rtc.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rtc.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc_ex.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rtc_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc_ex.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_rtc_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rtc_ex.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_tim_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_tim_ex.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart.c_includes.args"
-Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
+Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/STM32H7xx_HAL_Driver/Src/stm32h7xx_hal_uart_ex.c Drivers/STM32H7xx_HAL_Driver/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_uart_ex.c_includes.args"
 
 clean: clean-Drivers-2f-STM32H7xx_HAL_Driver

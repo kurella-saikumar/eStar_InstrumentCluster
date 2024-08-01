@@ -1,5 +1,5 @@
 Application/User/generated/UnmappedDataFont.o: \
- D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/fonts/src/UnmappedDataFont.cpp \
+ D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/fonts/src/UnmappedDataFont.cpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/FlashDataReader.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Types.hpp \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/Config.hpp \

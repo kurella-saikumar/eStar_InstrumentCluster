@@ -236,9 +236,9 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
     EE_ELEMENT_TYPE status[4] = {0x00};
 
     // Read the specified number of header elements
-    if (HAL_OK != xFI_Read(Address, &ucHeader_Data[0][0], 4 * EE_HEADER_ELEMENT_SIZE))
+    if (EE_OK != xFI_Read(Address, &ucHeader_Data[0][0], 4 * EE_HEADER_ELEMENT_SIZE))
     {
-        return HAL_ERROR;
+        return STATE_PAGE_INVALID;
     }
 
     // Process the data to determine page state
@@ -302,7 +302,7 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 		case STATE_PAGE_RECEIVE:
 		{
 		/* Set new Page status to STATE_PAGE_RECEIVE status */
-			if (xFI_Write((ulHeader1), ucReceive,EE_HEADER_ELEMENT_SIZE)!= HAL_OK)
+			if (xFI_Write((ulHeader1), ucReceive,EE_HEADER_ELEMENT_SIZE)!= EE_OK)
 			{
 				return EE_WRITE_ERROR;
 			}
@@ -312,7 +312,7 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 		case STATE_PAGE_ACTIVE:
 		{
 			/* Set new Page status to STATE_PAGE_ACTIVE status */
-			if (xFI_Write((ulHeader2), ucActive,EE_HEADER_ELEMENT_SIZE)!= HAL_OK)
+			if (xFI_Write((ulHeader2), ucActive,EE_HEADER_ELEMENT_SIZE)!= EE_OK)
 			{
 				return EE_WRITE_ERROR;
 			}
@@ -323,7 +323,7 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 		case STATE_PAGE_VALID:
 		{
 			/* Set new Page status to STATE_PAGE_VALID status */
-			if (xFI_Write((ulHeader3), ucValid,EE_HEADER_ELEMENT_SIZE)!= HAL_OK)
+			if (xFI_Write((ulHeader3), ucValid,EE_HEADER_ELEMENT_SIZE)!= EE_OK)
 			{
 				return EE_WRITE_ERROR;
 			}
@@ -333,7 +333,7 @@ EE_Status xEE_WriteVariable32bits(uint32_t VirtAddress, uint32_t Data)
 		case STATE_PAGE_ERASING:
 		{
 			/* Set new Page status to STATE_PAGE_ERASING status */
-			if (xFI_Write((ulHeader4), ucErasing,EE_HEADER_ELEMENT_SIZE)!= HAL_OK)
+			if (xFI_Write((ulHeader4), ucErasing,EE_HEADER_ELEMENT_SIZE)!= EE_OK)
 			{
 				return EE_WRITE_ERROR;
 			}
@@ -776,9 +776,9 @@ EE_Status prvVerifyPagesFullWriteVariable(uint32_t VirtAddress, EE_DATA_TYPE Dat
 
 	/* Program variable data, virtual address,and CRC*/
 	/* If program operation was failed, a Flash error code is returned */
-	if(xFI_Write(activepageaddress+ulAddressNextWrite, ucDataArray, EE_ELEMENT_SIZE)!= HAL_OK)
+	if(xFI_Write(activepageaddress+ulAddressNextWrite, ucDataArray, EE_ELEMENT_SIZE)!= EE_OK)
 	{
-		return HAL_ERROR;
+		return EE_WRITE_ERROR;
 	}
 	/* Increment global variables relative to write operation done*/
 	ulAddressNextWrite += EE_ELEMENT_SIZE;
@@ -1028,7 +1028,8 @@ EE_Status xEE_Init(EE_Erase_type EraseType)
 
     //Flash interface (peripheral init) shall be done before eeprom read/write operation start
     vFI_Init();
-    prvEE_Format(EraseType);
+    //shouldn't enable this line, This line could be useful:when the memory was already emulated but not like this package
+    //prvEE_Format(EE_FORCED_ERASE);
     // Cache page states
     EE_State_type pageStates[PAGES_NUMBER];
     for (ulPage = START_PAGE; ulPage < (START_PAGE + PAGES_NUMBER); ulPage++)
@@ -1390,16 +1391,16 @@ uint32_t xShadowUpdate(void)
 #if(EMUL_DEBUG_ENABLE == 0)
 		//printf("SHRAM:%ld,Data:%ld\n",*UpdateToShadowRAM,Data);
 #endif
-		if (BSP_ERROR_NONE == xEE_WriteVariable32bits(VirtAddress, Data)) //Write into EEPROM
+		if (EE_OK == xEE_WriteVariable32bits(VirtAddress, Data)) //Write into EEPROM
 		{
 			*UpdateToShadowRAM = Data;
 		}
 		else
 		{
-			return BSP_ERROR_COMPONENT_FAILURE;
+			return EE_WRITE_ERROR;
 		}
 	}
-	return BSP_ERROR_NONE;
+	return EE_OK;
  }
 /**************************************************************************************************
  * End Of File

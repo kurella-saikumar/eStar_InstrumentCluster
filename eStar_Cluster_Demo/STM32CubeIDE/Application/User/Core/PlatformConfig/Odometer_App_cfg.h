@@ -39,9 +39,11 @@
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
  ***************************************************************************************************/
+#define configODO_TASK_PERIODICITY_IN_MS		   250U
+
 #define MAX_ODO_VALUE_IN_KM 	(16093439UL)    /* 16,09,343.9 Km */
 #define MAX_ODO_VALUE_IN_MILES 	(99999999UL)    /* 9,99,999.9 Miles */
-#define PULSES_PER_1_METER 		(25U)
+#define PULSES_PER_1_METER 		(10U)
 #define TRIP_A_MAX 				(10000U)
 #define TRIP_B_MAX 				(10000U)
 #define KM_TO_MILES_CONV_FACTOR (621U)    		/* (0.621*1000) */
