@@ -5,11 +5,11 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/freertos.c \
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c \
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_msp.c \
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_timebase_tim.c \
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_it.c \
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/freertos.c \
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c \
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_msp.c \
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_timebase_tim.c \
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_it.c \
 ../Application/User/Core/syscalls.c \
 ../Application/User/Core/sysmem.c 
 
@@ -33,15 +33,15 @@ OBJS += \
 
 
 # Each subdirectory must supply rules for building sources it contributes
-Application/User/Core/freertos.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/freertos.c Application/User/Core/subdir.mk
+Application/User/Core/freertos.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/freertos.c Application/User/Core/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Application/User/Core/freertos.c_includes.args"
-Application/User/Core/main.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c Application/User/Core/subdir.mk
+Application/User/Core/main.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/main.c Application/User/Core/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Application/User/Core/main.c_includes.args"
-Application/User/Core/stm32h7xx_hal_msp.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_msp.c Application/User/Core/subdir.mk
+Application/User/Core/stm32h7xx_hal_msp.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_msp.c Application/User/Core/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Application/User/Core/stm32h7xx_hal_msp.c_includes.args"
-Application/User/Core/stm32h7xx_hal_timebase_tim.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_timebase_tim.c Application/User/Core/subdir.mk
+Application/User/Core/stm32h7xx_hal_timebase_tim.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_hal_timebase_tim.c Application/User/Core/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Application/User/Core/stm32h7xx_hal_timebase_tim.c_includes.args"
-Application/User/Core/stm32h7xx_it.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_it.c Application/User/Core/subdir.mk
+Application/User/Core/stm32h7xx_it.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Core/Src/stm32h7xx_it.c Application/User/Core/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Application/User/Core/stm32h7xx_it.c_includes.args"
 Application/User/Core/%.o Application/User/Core/%.su Application/User/Core/%.cyclo: ../Application/User/Core/%.c Application/User/Core/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Application/User/Core/syscalls.c_includes.args"

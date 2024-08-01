@@ -2,26 +2,26 @@
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:115:18:virtual void touchgfx::Screen::tearDownScreen()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:144:18:virtual void touchgfx::Screen::handleTickEvent()	0	static
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Screen.hpp:154:18:virtual void touchgfx::Screen::handleKeyEvent(uint8_t)	0	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:102:6:virtual void Screen1View::TRIP_A(uint16_t)	0	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:108:6:virtual void Screen1View::TRIP_B(uint16_t)	0	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:114:6:virtual void Screen1View::AVSValue(uint32_t)	0	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:120:6:virtual void Screen1View::AFEValue(uint32_t)	0	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:126:6:virtual void Screen1View::RANGEValue(uint16_t)	0	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:102:6:virtual void Screen1View::TRIP_A(uint16_t)	0	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:108:6:virtual void Screen1View::TRIP_B(uint16_t)	0	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:114:6:virtual void Screen1View::AVSValue(uint32_t)	0	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:120:6:virtual void Screen1View::AFEValue(uint32_t)	0	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:126:6:virtual void Screen1View::RANGEValue(uint16_t)	0	static
 ../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:15:13:Screen1View::~Screen1View()	8	static
 ../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:15:13:virtual Screen1View::~Screen1View()	8	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:9:1:Screen1View::Screen1View()	8	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:356:6:void Screen1View::BlinkIndicator(bool, uint32_t&, touchgfx::Image&, uint32_t)	16	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:18:6:virtual void Screen1View::setupScreen()	8	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:39:6:virtual void Screen1View::SpeedUpdate(uint32_t)	8	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:47:6:virtual void Screen1View::OdoDataUpdate(uint32_t)	8	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:55:6:virtual void Screen1View::FuelGauageAnimation(uint16_t)	24	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:80:6:virtual void Screen1View::RPMDataAnimation(uint16_t)	24	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:132:6:void Screen1View::DriverInforMenu()	16	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:180:6:virtual void Screen1View::MetricsToggle(uint8_t)	24	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:213:6:virtual void Screen1View::ClockUpdate(uint8_t, uint8_t, uint8_t, uint8_t)	16	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:237:6:void Screen1View::startBlinkingHours()	8	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:245:6:void Screen1View::startBlinkingMinutes()	8	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:253:6:void Screen1View::stopBlinking()	16	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:262:6:void Screen1View::ClockValueChangingMode()	0	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:331:6:virtual void Screen1View::SwitchingModes(uint8_t)	0	static
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:377:6:virtual void Screen1View::IndicatorsStatus(IndicationStatus_t)	32	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:9:1:Screen1View::Screen1View()	8	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:356:6:void Screen1View::BlinkIndicator(bool, uint32_t&, touchgfx::Image&, uint32_t)	16	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:18:6:virtual void Screen1View::setupScreen()	8	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:39:6:virtual void Screen1View::SpeedUpdate(uint32_t)	8	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:47:6:virtual void Screen1View::OdoDataUpdate(uint32_t)	8	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:55:6:virtual void Screen1View::FuelGauageAnimation(uint16_t)	24	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:80:6:virtual void Screen1View::RPMDataAnimation(uint16_t)	24	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:132:6:void Screen1View::DriverInforMenu()	16	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:180:6:virtual void Screen1View::MetricsToggle(uint8_t)	24	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:213:6:virtual void Screen1View::ClockUpdate(uint8_t, uint8_t, uint8_t, uint8_t)	16	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:237:6:void Screen1View::startBlinkingHours()	8	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:245:6:void Screen1View::startBlinkingMinutes()	8	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:253:6:void Screen1View::stopBlinking()	16	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:262:6:void Screen1View::ClockValueChangingMode()	0	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:331:6:virtual void Screen1View::SwitchingModes(uint8_t)	0	static
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1View.cpp:377:6:virtual void Screen1View::IndicatorsStatus(IndicationStatus_t)	32	static

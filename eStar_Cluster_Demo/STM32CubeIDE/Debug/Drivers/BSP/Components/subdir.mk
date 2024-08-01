@@ -5,10 +5,10 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/ft5336/ft5336.c \
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/ft5336/ft5336_reg.c \
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/mx25lm51245g/mx25lm51245g.c \
-D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/s70kl1281/s70kl1281.c 
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/ft5336/ft5336.c \
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/ft5336/ft5336_reg.c \
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/mx25lm51245g/mx25lm51245g.c \
+D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/s70kl1281/s70kl1281.c 
 
 C_DEPS += \
 ./Drivers/BSP/Components/ft5336.d \
@@ -24,13 +24,13 @@ OBJS += \
 
 
 # Each subdirectory must supply rules for building sources it contributes
-Drivers/BSP/Components/ft5336.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/ft5336/ft5336.c Drivers/BSP/Components/subdir.mk
+Drivers/BSP/Components/ft5336.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/ft5336/ft5336.c Drivers/BSP/Components/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/BSP/Components/ft5336.c_includes.args"
-Drivers/BSP/Components/ft5336_reg.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/ft5336/ft5336_reg.c Drivers/BSP/Components/subdir.mk
+Drivers/BSP/Components/ft5336_reg.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/ft5336/ft5336_reg.c Drivers/BSP/Components/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/BSP/Components/ft5336_reg.c_includes.args"
-Drivers/BSP/Components/mx25lm51245g.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/mx25lm51245g/mx25lm51245g.c Drivers/BSP/Components/subdir.mk
+Drivers/BSP/Components/mx25lm51245g.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/mx25lm51245g/mx25lm51245g.c Drivers/BSP/Components/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/BSP/Components/mx25lm51245g.c_includes.args"
-Drivers/BSP/Components/s70kl1281.o: D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/s70kl1281/s70kl1281.c Drivers/BSP/Components/subdir.mk
+Drivers/BSP/Components/s70kl1281.o: D:/Projects/Git_WorkSpace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Drivers/BSP/Components/s70kl1281/s70kl1281.c Drivers/BSP/Components/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Drivers/BSP/Components/s70kl1281.c_includes.args"
 
 clean: clean-Drivers-2f-BSP-2f-Components

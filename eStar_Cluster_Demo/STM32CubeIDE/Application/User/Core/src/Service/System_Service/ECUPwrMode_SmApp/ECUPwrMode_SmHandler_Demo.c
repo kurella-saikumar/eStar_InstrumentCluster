@@ -115,29 +115,30 @@ void vEcuPwrModeOffToSleepEntryAction(void)
 #if(ECUPwrMode_TestMacro == 1)
     printf("ECUPwrModeOff_To_Sleep_EntryAction\n");
 #endif
-	HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
-	/*## Configure the Wake up timer ###########################################*/
-	  /*  RTC Wake-up Interrupt Generation:
-		  Wake-up Time Base = (RTC_WAKEUPCLOCK_RTCCLK_DIV /(LSI))
-		  ==> WakeUpCounter = Wake-up Time / Wake-up Time Base
-
-		  To configure the wake up timer to 20s the WakeUpCounter is set to 0xA017:
-			RTC_WAKEUPCLOCK_RTCCLK_DIV = RTCCLK_Div16 = 16
-			Wake-up Time Base = 16 /(32KHz) = 0.0005 seconds
-			==> WakeUpCounter = ~10s/0.0005s = 20000 = 0x4E20,20s -0x9C40  */
-	  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,0x9C40, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
-		{
-		  Error_Handler();
-		}
-	  /****** Suspend the Ticks before entering the STOP mode or else this can wake the device up **********/
-//	  HAL_SuspendTick();
-//	  HAL_PWR_EnableSleepOnExit();
-//	  HAL_LTDC_DeInit(&hltdc);
-	  HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
-	  // The code will continue here upon wake-up
-	  SYSCLKConfig_STOP();
-	// Deactivate the Wake-up Timer
-	HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+//	HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+//	/*## Configure the Wake up timer ###########################################*/
+//	  /*  RTC Wake-up Interrupt Generation:
+//		  Wake-up Time Base = (RTC_WAKEUPCLOCK_RTCCLK_DIV /(LSI))
+//		  ==> WakeUpCounter = Wake-up Time / Wake-up Time Base
+//
+//		  To configure the wake up timer to 20s the WakeUpCounter is set to 0xA017:
+//			RTC_WAKEUPCLOCK_RTCCLK_DIV = RTCCLK_Div16 = 16
+//			Wake-up Time Base = 16 /(32KHz) = 0.0005 seconds
+//			==> WakeUpCounter = ~10s/0.0005s = 20000 = 0x4E20,20s -0x9C40  */
+//	  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc,0x9C40, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+//		{
+//		  Error_Handler();
+//		}
+//	  /****** Suspend the Ticks before entering the STOP mode or else this can wake the device up **********/
+////	  HAL_SuspendTick();
+////	  HAL_PWR_EnableSleepOnExit();
+////	  HAL_LTDC_DeInit(&hltdc);
+//	  HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
+//	  // The code will continue here upon wake-up
+//	  SYSCLKConfig_STOP();
+//	// Deactivate the Wake-up Timer
+//	HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+    pm_ReqNewState(ECU_POWER_MODE_SLEEP);
 
 }
 

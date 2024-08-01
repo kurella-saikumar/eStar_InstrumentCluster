@@ -336,7 +336,7 @@ PUTCHAR_PROTOTYPE
   return ch;
 }
 
-extern void SYSCLKConfig_STOP(void);
+static void SYSCLKConfig_STOP(void);
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -1293,7 +1293,7 @@ static void MX_RTC_Init(void)
   hrtc.Instance = RTC;
   hrtc.Init.HourFormat = RTC_HOURFORMAT_24;
   hrtc.Init.AsynchPrediv = 127;
-  hrtc.Init.SynchPrediv = 255;
+  hrtc.Init.SynchPrediv = 0xF9;  /* 32Khz/128 - 1 */  //255;
   hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
   hrtc.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
   hrtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
@@ -1676,7 +1676,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-extern void SYSCLKConfig_STOP(void)
+static void SYSCLKConfig_STOP(void)
 {
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
@@ -2601,27 +2601,41 @@ void vMaxTaskRegisteredCallback(uint8_t registered_task_index)
 	/** end*/ /** @enduml */
 #endif
 }
+
 /* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
-
+	uint8_t Ecu_Status = 0;
   /* Infinite loop */
   for(;;)
   {
 	  vStackMonitorDemonTask_Handler();
-//	  res = HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
-//	  if(res == HAL_OK)
-//	  {
-//		  printf("%02d:%02d:%02d \n", sTime.Hours, sTime.Minutes, sTime.Seconds);
-//	  }
-//
-//	  res = HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
-//	  if(res == HAL_OK)
-//	  {
-//		  printf("Current date: %02d-%02d-%04d\n", sDate.Date, sDate.Month, sDate.Year);
-//	  }
-    osDelay(5000);
+	  Ecu_Status = pm_GetSyncStatus();
+	switch (Ecu_Status)
+	{
+	case ECU_POWER_MODE_ACTIVE:
+	  break;
+
+	case ECU_POWER_MODE_SLEEP:
+	  // Handle sleep mode
+	  printf("Entering sleep mode...\n");
+	  /* Disable Wakeup Counter */
+	     HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+	     HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x9C40, RTC_WAKEUPCLOCK_RTCCLK_DIV16);
+	     /* Enter Stop Mode */
+	     HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
+	     SYSCLKConfig_STOP();
+	     printf("\n\r Exiting sleep mode\n\r");
+	     pm_ReqNewState(ECU_POWER_MODE_OFF);
+	  break;
+	case ECU_POWER_MODE_OFF:
+	  // Handle ignition off state
+	  break;
+	default :
+		break;
+	}
+    osDelay(100);
   }
   /* USER CODE END 5 */
 }
