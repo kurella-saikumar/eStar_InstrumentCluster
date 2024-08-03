@@ -106,7 +106,6 @@ void vTacho_Init(void)
  *
  * @return void
 */
-//gl_pulses_u32
 
 void vMeasureRPM(void)
 {
@@ -119,7 +118,7 @@ void vMeasureRPM(void)
 
     	slDeltaPulse = UINT32_MAX + slDeltaPulse;
     }
-    ulFrequency = (slDeltaPulse) / configTIME; // Assuming TIME is in seconds
+    ulFrequency = (slDeltaPulse) / configTIME; // Assuming TIME is in miliseconds
 
     if(ulFrequency >= (UINT32_MAX / 60))
     {
@@ -135,7 +134,7 @@ void vMeasureRPM(void)
 //    printf("pv:%ld\r\t",ulPreviousCapture);
 //    ulRpm = ( ulPresentCapture / 16)* 1000;
 //    printf("rpm %lu\r\n", ulRpm);
-      printf("RPM:%ld\n\r",ulRpm);
+    //  printf("RPM:%ld\n\r",ulRpm);
 #endif
       ulPreviousCapture = ulPresentCapture;
 
@@ -146,9 +145,6 @@ void vMeasureRPM(void)
  *
  * This function retrieves tachometer data and stores it in the provided
  * IndicationStatus_t structure.
- *
- * @param[out] Indication - Pointer to the structure to store tachometer data.
- *
  * @return uint16_t - The tachometer data.
  */
 

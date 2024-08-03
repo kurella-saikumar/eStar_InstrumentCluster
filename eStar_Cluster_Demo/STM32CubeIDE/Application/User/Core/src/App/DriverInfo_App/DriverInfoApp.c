@@ -156,19 +156,22 @@ void vCalculateAVS(void)
 
 	SpeedUnits = xGetToggleMetrics();
 	ulSpeedValue = GetSpeedValueInKM();
-
 	ulSpeedMovAvg = calculateMovingAverage(ulSpeedValue,&l_AVS_MA_t);
 
 
 	if(SpeedUnits == UNITS_IN_KM)
 	{
 		ulFinal_AVS = ulSpeedMovAvg;
+		//printf("AVS1:%d",ulFinal_AVS);
 	}
 	else
 	{
-		ulFinal_AVS = (ulSpeedMovAvg * configKM_TO_MILES_MULTI_FACTOR / configKM_TO_MILES_DIV_FACTOR );
+		ulFinal_AVS = (ulSpeedMovAvg * KM_TO_MILES_CONVERSION_MULTIPLICATION_FACTOR)/ KM_TO_MILES_CONVERSION_DIVISION_FACTOR ;
+		//printf("AVS2:%d",ulFinal_AVS);
 	}
+
 	ModeStatus.AverageVehicleSpeed = ulFinal_AVS;
+//	printf("AVS:%d",ModeStatus.AverageVehicleSpeed);
 }
 
 
@@ -299,13 +302,15 @@ void vCalculateAFE(void)
 	if(OdoUnits == UNITS_IN_KM)
 	{
 		ulAfe = ulAfeinKmperLitre;
+		//printf("Afe1:%d",ulAfe);
 
 	}
 	else
 	{
-		ulAfe = (ulAfeinKmperLitre * KM_TO_MILES_CONV_FACTOR) / 1000;
-	}
+		ulAfe = (ulAfeinKmperLitre * KMTOLITRE_TO_MILESPERGALLON_MULTIPLICATION_FACTOR * 10) / KMTOLITRE_TO_MILESPERGALLON_DIVISION_FACTOR ;
+		//printf("Afe2:%d",ulAfe);
 
+	}
 	ulpreviousAFEinKmperLitre = ulAfeinKmperLitre;
     ModeStatus.AverageFuelEconomy = ulAfe;
 
@@ -358,7 +363,7 @@ void vCalculateRange(void)
 		}
 		else
 		{
-			usCalculated_DTEinKm = usfuelRemainingInLitres * ulAfeinKmperLitre;
+			usCalculated_DTEinKm = (usfuelRemainingInLitres * ulAfeinKmperLitre) / 10;
 		 	uspresent_DTEinKm = usCalculated_DTEinKm;
 			//printf("POUT_DTE:%d\t",uspresent_DTEinKm);
 			/*Here, if DTE = 28 then it's actual value is 2.8*/
@@ -408,7 +413,7 @@ void vCalculateRange(void)
 	}
 	else
 	{
-		uspresent_DTE = (uspresent_DTEinKm * KM_TO_MILES_CONV_FACTOR) / 1000;
+		uspresent_DTE = (uspresent_DTEinKm * KMTOLITRE_TO_MILESPERGALLON_MULTIPLICATION_FACTOR ) / KMTOLITRE_TO_MILESPERGALLON_DIVISION_FACTOR;
 
 	}
 	ModeStatus.Range = uspresent_DTE;

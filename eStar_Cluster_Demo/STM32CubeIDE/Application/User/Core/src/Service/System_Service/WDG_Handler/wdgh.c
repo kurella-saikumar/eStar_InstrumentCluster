@@ -158,7 +158,7 @@ void tsk_wdt_kick_data(void)
 {
     for(uint32_t fl_loop_index_u32 = 0; fl_loop_index_u32 < l_wdt_kick_task_counter_u32; fl_loop_index_u32++)
     {
-        printf("\n %s: MIN:=%ld, MAX=%ld, ACTUAL=%ld \n", l_task_kick_data[fl_loop_index_u32].taskName, l_task_kick_data[fl_loop_index_u32].min_count, l_task_kick_data[fl_loop_index_u32].max_count, l_task_kick_data[fl_loop_index_u32].kick_counter);
+        //printf("\n %s: MIN:=%ld, MAX=%ld, ACTUAL=%ld \n", l_task_kick_data[fl_loop_index_u32].taskName, l_task_kick_data[fl_loop_index_u32].min_count, l_task_kick_data[fl_loop_index_u32].max_count, l_task_kick_data[fl_loop_index_u32].kick_counter);
     }
 }
 

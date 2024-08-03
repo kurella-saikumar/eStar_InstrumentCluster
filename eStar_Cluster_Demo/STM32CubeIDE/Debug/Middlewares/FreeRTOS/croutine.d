@@ -1,5 +1,5 @@
 Middlewares/FreeRTOS/croutine.o: \
- D:/GIT_Work_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/croutine.c \
+ D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/FreeRTOS/Source/croutine.c \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../../Core/Inc/FreeRTOSConfig.h \
  ../../Core/Inc/safe_checks_freeRTOSConfig.h ../../Core/Inc/main.h \

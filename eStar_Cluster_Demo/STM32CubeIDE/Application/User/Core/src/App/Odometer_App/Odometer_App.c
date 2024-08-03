@@ -158,7 +158,7 @@ uint32_t vPulseCount(void)
 void vCalculateOdoInKm(void)
 {
 	ulPulsesReceived = vPulseCount();
-	ulPulsesReceived = 42; /*Simulation*/
+//	ulPulsesReceived = 42; /*Simulation*/
 	ulDistanceInMtsOdo = ( (ulPulsesReceived*10) / PULSES_PER_1_METER );
 	ulDistanceInMtsOdo = (ulDistanceInMtsOdo/10);
     ulUpdatedOdoValue = ulOdoInEeprom + ulDistanceInMtsOdo;// Update OdoInEeprom with the new value
@@ -259,7 +259,7 @@ uint16_t xGetTripA_OdoReading(void)
 #if(ODO_TEST_MACRO == 1)
 //    printf("A: %d\t", usTripA);
 #endif
-    printf("lA: %ld\n", usTripA);
+   // printf("lA: %ld\n", usTripA);
     return usTripA;
 }
 
@@ -275,7 +275,7 @@ void vResetTripB_OdoReadings(void)
 
 #if(ODO_TEST_MACRO == 1)
 	if (0 == FlashStatus)
-		printf("ESW_S: EE[5]:%ld\n\r",*eepromVariables[5]);
+		//printf("ESW_S: EE[5]:%ld\n\r",*eepromVariables[5]);
 	else
 		printf("ESW_F\n\r");
     printf("BVR: %ld\n" ,ulOdoValBeforeTripBReset);
@@ -304,7 +304,7 @@ uint16_t xGetTripB_OdoReading(void)
 
 #if (ODO_TEST_MACRO == 1)
         if (0 == FlashStatus)
-            printf("ESW_S EE[5]:%ld\n\r", *eepromVariables[5]);
+           // printf("ESW_S EE[5]:%ld\n\r", *eepromVariables[5]);
         else
             printf("ESW_F:tripBGet\n\r");
 #endif
@@ -344,7 +344,7 @@ void vWrite_OdoVal_to_EEPROM(void)
 
 	uint16_t FlashStatus= xES_WriteVariable((uint32_t)eepromVariables[0],ulOdoInEeprom,eepromVariables[0]);
 
-#if(ODO_TEST_MACRO == 0)
+#if(ODO_TEST_MACRO == 1)
 	if (0 == FlashStatus)
 		printf("ESW_S EE[0]:%ld\n\r",*eepromVariables[0]);
 	else

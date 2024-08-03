@@ -203,7 +203,7 @@ void vCalculateSpeed(void)
 void vCalculateSpeedInKm(void)
 {
 	ulReceivedPulses = vPulseDeltaCounter();
-	ulReceivedPulses = 42; /*Simulation*/
+//	ulReceivedPulses = 42; /*Simulation*/
 	ulDistanceInMts = ( (ulReceivedPulses*10) / ucPulsesPerMeter );
 	ulSpeedInMtsPerSec = ( (ulDistanceInMts * configMILLI_SEC_TO_SECS_CONV_FACTOR) / configSPEEDO_TASK_PERIODICITY_IN_MS );
 	ulSpeedInKm = ((ulSpeedInMtsPerSec * configSEC_TO_HR_TIME_CONV_FACTOR) / configMTS_TO_KM_DIST_CONV_FACTOR );

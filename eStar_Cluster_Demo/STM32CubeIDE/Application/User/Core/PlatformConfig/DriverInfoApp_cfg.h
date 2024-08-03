@@ -29,6 +29,16 @@
 
 #define FINAL_FUEL_LEVEL 				40.0	/*Initial fuel level in liters*/
 
+#define KM_TO_MILES_CONVERSION_FACTOR        (621U)    		/* (0.621*1000) */
+
+#define KM_TO_MILES_CONVERSION_MULTIPLICATION_FACTOR	1000
+
+#define KM_TO_MILES_CONVERSION_DIVISION_FACTOR			1609
+
+#define KMTOLITRE_TO_MILESPERGALLON_MULTIPLICATION_FACTOR  	(2352)			/* (2.352*1000) */
+
+#define KMTOLITRE_TO_MILESPERGALLON_DIVISION_FACTOR 		1000
+
 //#define Multifactor 					16		/**/
 //
 //#define DivisionFactor 					50

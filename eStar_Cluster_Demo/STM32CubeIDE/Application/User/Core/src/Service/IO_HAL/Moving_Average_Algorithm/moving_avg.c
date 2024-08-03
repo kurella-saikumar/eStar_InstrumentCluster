@@ -28,17 +28,17 @@
 uint32_t calculateMovingAverage(uint32_t p_rawData_f32, MV_data_t * p_ma_data_ptr)
 {
 	uint32_t fl_mv_return_f32 = 0.0;
-	uint32_t fl_sum_f64 = 0.0;
+	uint32_t fl_sum_f64 = 0;
 	uint16_t fl_data_index_U16 = p_ma_data_ptr->window_index; // 6
 	uint16_t fl_avg_loop_counter_U16 = 0;
-	//printf("p_rawData_f32: %f\n", p_rawData_f32); // p_rawData_f32 == Speed values
+	//printf("rS: %d\n", p_rawData_f32); // p_rawData_f32 == Speed values
 
 	p_ma_data_ptr->dataInp_ptr[p_ma_data_ptr->raw_ip_index] = p_rawData_f32; //AVS[0] = Speed values
 
 	//printf("MA_Vs_RPM_input_Data[%d]: %ld\n", p_ma_data_ptr->raw_ip_index, p_ma_data_ptr->dataInp_ptr[p_ma_data_ptr->raw_ip_index]);
 	//printf("raw_ip_index: %d\n", p_ma_data_ptr->raw_ip_index);
 
-	if(p_ma_data_ptr->min_raw_data_counter < p_ma_data_ptr->window_size)
+	if(p_ma_data_ptr->min_raw_data_counter <= p_ma_data_ptr->window_size)
 	{
 		p_ma_data_ptr->min_raw_data_counter++;
 		//printf("min_raw_data_counter: %d\n", p_ma_data_ptr->min_raw_data_counter);
@@ -50,7 +50,7 @@ uint32_t calculateMovingAverage(uint32_t p_rawData_f32, MV_data_t * p_ma_data_pt
 			fl_sum_f64 += p_ma_data_ptr->dataInp_ptr[fl_data_index_U16];
 		//	printf("fl_sum_f64: %ld\n", fl_sum_f64);
 
-			if(fl_data_index_U16 <= (p_ma_data_ptr->raw_data_size) -1 )
+			if(fl_data_index_U16 < (p_ma_data_ptr->raw_data_size) -1 )
 			{
 				fl_data_index_U16++;
 				//printf("fl_data_index_U16: %d\n",fl_data_index_U16);
@@ -63,7 +63,7 @@ uint32_t calculateMovingAverage(uint32_t p_rawData_f32, MV_data_t * p_ma_data_pt
 
 		fl_mv_return_f32 = (uint32_t)(fl_sum_f64/p_ma_data_ptr->window_size);
 	//	printf("fl_mv_return_f32: %ld\n", fl_mv_return_f32);
-	   if(p_ma_data_ptr->window_index <= (p_ma_data_ptr->raw_data_size - 1))
+	   if(p_ma_data_ptr->window_index < (p_ma_data_ptr->raw_data_size - 1))
 	   {
 			p_ma_data_ptr->window_index++;
 			//printf("window_index: %d\n", p_ma_data_ptr->window_index);
@@ -74,7 +74,7 @@ uint32_t calculateMovingAverage(uint32_t p_rawData_f32, MV_data_t * p_ma_data_pt
 	   }
 	}
 
-	if(p_ma_data_ptr->raw_ip_index <= (p_ma_data_ptr->raw_data_size - 1))
+	if(p_ma_data_ptr->raw_ip_index < (p_ma_data_ptr->raw_data_size - 1))
 	{
 		p_ma_data_ptr->raw_ip_index++;
 	}
@@ -82,7 +82,7 @@ uint32_t calculateMovingAverage(uint32_t p_rawData_f32, MV_data_t * p_ma_data_pt
 	{
 		p_ma_data_ptr->raw_ip_index = 0;
 	}
-	//printf("fl_mv_return_f32: %f\n", fl_mv_return_f32);
+	//printf("fl_mv_return_f32: %d\n", fl_mv_return_f32);
 	return (fl_mv_return_f32);
 }
 
