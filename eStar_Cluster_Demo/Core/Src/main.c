@@ -228,7 +228,7 @@ const osThreadAttr_t SpeedoMeter_attributes = {
 };
 /* Definitions for TachoMeter */
 osThreadId_t TachoMeterHandle;
-uint32_t TachoMeterBuffer[ 128 ];
+uint32_t TachoMeterBuffer[ 256 ];
 osStaticThreadDef_t TachoMeterControlBlock;
 const osThreadAttr_t TachoMeter_attributes = {
   .name = "TachoMeter",
@@ -272,7 +272,7 @@ const osThreadAttr_t CAN_AppTask_attributes = {
   .cb_size = sizeof(CAN_AppTaskControlBlock),
   .stack_mem = &CAN_AppTaskBuffer[0],
   .stack_size = sizeof(CAN_AppTaskBuffer),
-  .priority = (osPriority_t) osPriorityLow1,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for Indicators_App */
 osThreadId_t Indicators_AppHandle;
@@ -2771,7 +2771,7 @@ void DigitalDebounce_Task(void *argument)
 
   TaskHandle3_t xTaskHandler;
   xTaskHandler = xTaskGetCurrentTaskHandle();
-  const char *taskName = pcTaskGetName(xTaskHandler);
+  char *taskName = pcTaskGetName(xTaskHandler);
   vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,4000,SwitchErrorHook1 );
   fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(DIGITALDEBOUNCE_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(DIGITALDEBOUNCE_TASK_DELAY_IN_MS),taskName);
   /* Infinite loop */
@@ -2852,7 +2852,7 @@ void vTask_demo1PeriodicityCheckErrorHook02(TaskPeriodicityCheck_t *xPeriodicity
 void SwitchErrorHook2(uint8_t reason)
 {
 #if(SafeChecks_TestMacro == 1)
-	printf("task2 hook- reason:%d \r\n",reason);
+	printf("task2 state mc hook- reason:%d \r\n",reason);
 #endif
 #if(UART_DEBUG == 1)
 	/* Buffer to hold checksum status */
@@ -2877,7 +2877,7 @@ void State_Machine_Task(void *argument)
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
-	const char *taskName = pcTaskGetName(xTaskHandler);
+	char *taskName = pcTaskGetName(xTaskHandler);
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,500,SwitchErrorHook2 );
 	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(STATE_MACHINE_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(STATE_MACHINE_TASK_DELAY_IN_MS),taskName);
 
@@ -2885,7 +2885,7 @@ void State_Machine_Task(void *argument)
   for(;;)
   {
 
-	  //vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T02,vTask_demo1PeriodicityCheckErrorHook02 );
+	 vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T02,vTask_demo1PeriodicityCheckErrorHook02 );
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  State_Manager_task();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(3000000), execTimeFault_cb2);
@@ -2980,7 +2980,7 @@ void Analog_Debounce_Task(void *argument)
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
-	const char *taskName = pcTaskGetName(xTaskHandler);
+	char *taskName = pcTaskGetName(xTaskHandler);
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,500,SwitchErrorHook3 );
 	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(ANALOG_DEBOUNCE_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(ANALOG_DEBOUNCE_TASK_DELAY_IN_MS),taskName);
 
@@ -3092,8 +3092,8 @@ void FuelGuageTask(void *argument)
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
-	const char *taskName = pcTaskGetName(xTaskHandler);
-	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,5,SwitchErrorHook4 );
+	char *taskName = pcTaskGetName(xTaskHandler);
+	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,100,SwitchErrorHook4 );
 	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(FUELGUAGE_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(FUELGUAGE_TASK_DELAY_IN_MS),taskName);
 
   /* Infinite loop */
@@ -3144,8 +3144,8 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T05 = {
 	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
 	.ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
 	.ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
-	.ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(4500000),   /**< Minimum periodicity for vTask_demo1 */
-	.ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(5500000)   /**< Maximum periodicity for vTask_demo1 */
+	.ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(225000),   /**< Minimum periodicity for vTask_demo1 */
+	.ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(275000)   /**< Maximum periodicity for vTask_demo1 */
 };
 void vTask_demo1PeriodicityCheckErrorHook05(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
@@ -3198,8 +3198,8 @@ void Odo_Task(void *argument)
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
-	const char *taskName = pcTaskGetName(xTaskHandler);
-	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,5500,SwitchErrorHook5 );
+	char *taskName = pcTaskGetName(xTaskHandler);
+	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,500,SwitchErrorHook5 );
 	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(ODO_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(ODO_TASK_DELAY_IN_MS),taskName);
 
   /* Infinite loop */
@@ -3301,8 +3301,8 @@ void Speedo_Task(void *argument)
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
-	const char *taskName = pcTaskGetName(xTaskHandler);
-	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,5500,SwitchErrorHook6 );
+	char *taskName = pcTaskGetName(xTaskHandler);
+	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,500,SwitchErrorHook6 );
 	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(SPEEDO_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(SPEEDO_TASK_DELAY_IN_MS),taskName);
 
   /* Infinite loop */
@@ -3349,8 +3349,8 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T07 = {
 	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
 	.ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
 	.ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
-	.ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(900000),   /**< Minimum periodicity for vTask_demo1 */
-	.ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(1100000)   /**< Maximum periodicity for vTask_demo1 */
+	.ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(90000),   /**< Minimum periodicity for vTask_demo1 */
+	.ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(110000)   /**< Maximum periodicity for vTask_demo1 */
 };
 void vTask_demo1PeriodicityCheckErrorHook07(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
@@ -3403,14 +3403,14 @@ void Tacho_Task(void *argument)
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
-	const char *taskName = pcTaskGetName(xTaskHandler);
-	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1500,SwitchErrorHook7 );
+	char *taskName = pcTaskGetName(xTaskHandler);
+	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,500,SwitchErrorHook7 );
 	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(TACHO_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(TACHO_TASK_DELAY_IN_MS),taskName);
 
   /* Infinite loop */
   for(;;)
   {
-	 // vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T07,vTask_demo1PeriodicityCheckErrorHook07 );
+	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T07,vTask_demo1PeriodicityCheckErrorHook07 );
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vTacho_App();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb7);
@@ -3505,8 +3505,8 @@ void SwitchHandlerTask(void *argument)
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
-	const char *taskName = pcTaskGetName(xTaskHandler);
-	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,10000,SwitchErrorHook8 );
+	char *taskName = pcTaskGetName(xTaskHandler);
+	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,100,SwitchErrorHook8 );
 	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(SWITCHHANDLER_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(SWITCHHANDLER_TASK_DELAY_IN_MS),taskName);
 
   /* Infinite loop */
@@ -3610,14 +3610,14 @@ void GetClockTask(void *argument)
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
-	const char *taskName = pcTaskGetName(xTaskHandler);
+	char *taskName = pcTaskGetName(xTaskHandler);
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook9 );
 	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(GETCLOCK_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(GETCLOCK_TASK_DELAY_IN_MS),taskName);
 
   /* Infinite loop */
   for(;;)
   {
-	 // vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T09,vTask_demo1PeriodicityCheckErrorHook09 );
+	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T09,vTask_demo1PeriodicityCheckErrorHook09 );
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vGet_Clock();
 	  //vClockIncreament();
@@ -3658,8 +3658,8 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T10 = {
 	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
 	.ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
 	.ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
-	.ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(90000),   /**< Minimum periodicity for vTask_demo1 */
-	.ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(110000)   /**< Maximum periodicity for vTask_demo1 */
+	.ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(7000),   /**< Minimum periodicity for vTask_demo1 */
+	.ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(13000)   /**< Maximum periodicity for vTask_demo1 */
 };
 void vTask_demo1PeriodicityCheckErrorHook10(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
@@ -3688,7 +3688,7 @@ void vTask_demo1PeriodicityCheckErrorHook10(TaskPeriodicityCheck_t *xPeriodicity
 void SwitchErrorHook10(uint8_t reason)
 {
 #if(SafeChecks_TestMacro == 1)
-	printf("task10 hook- reason:%d \r\n",reason);
+	printf("task10 CAN hook- reason:%d \r\n",reason);
 #endif
 #if(UART_DEBUG == 1)
 	/* Buffer to hold checksum status */
@@ -3713,14 +3713,14 @@ void CAN_Task(void *argument)
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
-	const char *taskName = pcTaskGetName(xTaskHandler);
-	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,500,SwitchErrorHook10 );
+	char *taskName = pcTaskGetName(xTaskHandler);
+	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,10,100,SwitchErrorHook10 );
 	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(CAN_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(CAN_TASK_DELAY_IN_MS),taskName);
 
   /* Infinite loop */
   for(;;)
   {
-	 // vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T10,vTask_demo1PeriodicityCheckErrorHook10 );
+	  vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T10,vTask_demo1PeriodicityCheckErrorHook10 );
 	  vBeginExecMeas(&p_measurement_var_ptr);
 	  vNim_ProcessRxTask();
 	  vEndExecMeas(&p_measurement_var_ptr, CONVERT_USEC_TO_TIMER_COUNTS(1000), execTimeFault_cb10);
@@ -3815,14 +3815,14 @@ void IndicatorsApp_Task(void *argument)
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
-	const char *taskName = pcTaskGetName(xTaskHandler);
-	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,500,SwitchErrorHook11 );
+	char *taskName = pcTaskGetName(xTaskHandler);
+	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,100,SwitchErrorHook11 );
 	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(INDICATORSAPP_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(INDICATORSAPP_TASK_DELAY_IN_MS),taskName);
 
   /* Infinite loop */
 	for(;;)
 	  {
-		//vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T11,vTask_demo1PeriodicityCheckErrorHook11 );
+		vCheckPeriodicity(&xPeriodicityCheckTaskInfo_T11,vTask_demo1PeriodicityCheckErrorHook11 );
 		vBeginExecMeas(&p_measurement_var_ptr);
 		vIndicator_App_Task();
 		indicator = xGetIndicatorstatus();
@@ -3864,8 +3864,8 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T12 = {
 	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
 	.ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
 	.ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
-	.ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(900000),   /**< Minimum periodicity for vTask_demo1 */
-	.ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(1100000)   /**< Maximum periodicity for vTask_demo1 */
+	.ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(450000),   /**< Minimum periodicity for vTask_demo1 */
+	.ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(550000)   /**< Maximum periodicity for vTask_demo1 */
 };
 void vTask_demo1PeriodicityCheckErrorHook12(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
@@ -3919,7 +3919,7 @@ void ServiceIndicatorApp_Task(void *argument)
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
-	const char *taskName = pcTaskGetName(xTaskHandler);
+	char *taskName = pcTaskGetName(xTaskHandler);
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook12 );
 	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(SERVICEINDICATOR_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(SERVICEINDICATOR_TASK_DELAY_IN_MS),taskName);
 
@@ -3966,8 +3966,8 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T13 = {
 	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
 	.ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
 	.ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
-	.ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(900000),   /**< Minimum periodicity for vTask_demo1 */
-	.ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(1100000)   /**< Maximum periodicity for vTask_demo1 */
+	.ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(450000),   /**< Minimum periodicity for vTask_demo1 */
+	.ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(550000)   /**< Maximum periodicity for vTask_demo1 */
 };
 void vTask_demo1PeriodicityCheckErrorHook13(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
@@ -4025,7 +4025,7 @@ void DriverInfoApp_Task(void *argument)
 
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
-	const char *taskName = pcTaskGetName(xTaskHandler);
+	char *taskName = pcTaskGetName(xTaskHandler);
 	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(DRIVERINFOAPP_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(DRIVERINFOAPP_TASK_DELAY_IN_MS),taskName);
 
 	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook13 );
@@ -4073,8 +4073,8 @@ TaskPeriodicityCheck_t xPeriodicityCheckTaskInfo_T14 = {
 	.ucFistLoopFlag = 0,	/**< Flag must be set to zero for vTask_demo1 */
 	.ulCurrSwitchTime = 0,        /**< Current switch time for vTask_demo1 */
 	.ulPrevSwitchTime = 0,        /**< Previous switch time for vTask_demo1 */
-	.ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(900000),   /**< Minimum periodicity for vTask_demo1 */
-	.ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(1100000)   /**< Maximum periodicity for vTask_demo1 */
+	.ulMinPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(450000),   /**< Minimum periodicity for vTask_demo1 */
+	.ulMaxPeriodicity = CONVERT_USEC_TO_TIMER_COUNTS(550000)   /**< Maximum periodicity for vTask_demo1 */
 };
 void vTask_demo1PeriodicityCheckErrorHook14(TaskPeriodicityCheck_t *xPeriodicityCheckTaskInfo)
 {
@@ -4124,8 +4124,8 @@ void DeadLockTask(void *argument)
 	int32_t fl_wdt_task_kick_id_i32 = -1;
 	TaskHandle3_t xTaskHandler;
 	xTaskHandler = xTaskGetCurrentTaskHandle();
-	const char *taskName = pcTaskGetName(xTaskHandler);
-	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,100,SwitchErrorHook14 );
+	char *taskName = pcTaskGetName(xTaskHandler);
+	vRegisterTaskForOverloadDeadLockCheck(xTaskHandler,5,1000,SwitchErrorHook14 );
 	fl_wdt_task_kick_id_i32 = register_for_watchdog_monitoring(WDT_TASK_MIN_COUNT(DEADLOCK_TASK_DELAY_IN_MS), WDT_TASK_MAX_COUNT(DEADLOCK_TASK_DELAY_IN_MS),taskName);
 
   /* Infinite loop */

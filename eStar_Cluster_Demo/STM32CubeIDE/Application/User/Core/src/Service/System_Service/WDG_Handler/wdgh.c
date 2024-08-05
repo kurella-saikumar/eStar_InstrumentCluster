@@ -148,7 +148,7 @@ uint8_t validate_tsk_wdt_kick(void)
 			fl_return_status_u8 = 0;
 			printf("\n %s: MIN:=%ld, MAX=%ld, ACTUAL=%ld \n", l_task_kick_data[fl_loop_index_u32].taskName, l_task_kick_data[fl_loop_index_u32].min_count, l_task_kick_data[fl_loop_index_u32].max_count, l_task_kick_data[fl_loop_index_u32].kick_counter);
 		}
-       // printf("\n %s: MIN:=%d, MAX=%d, ACTUAL=%d \n", l_task_kick_data[fl_loop_index_u32].taskName, l_task_kick_data[fl_loop_index_u32].min_count, l_task_kick_data[fl_loop_index_u32].max_count, l_task_kick_data[fl_loop_index_u32].kick_counter);
+        //printf("\n %s: MIN:=%d, MAX=%d, ACTUAL=%d \n", l_task_kick_data[fl_loop_index_u32].taskName, l_task_kick_data[fl_loop_index_u32].min_count, l_task_kick_data[fl_loop_index_u32].max_count, l_task_kick_data[fl_loop_index_u32].kick_counter);
         l_task_kick_data[fl_loop_index_u32].kick_counter = 0;
 	}
 	return(fl_return_status_u8);
