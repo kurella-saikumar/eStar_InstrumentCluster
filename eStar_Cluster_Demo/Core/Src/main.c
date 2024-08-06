@@ -2670,7 +2670,7 @@ void WDG_SRVC_Task(void *argument)
 			else
 			{
 #if(DBGPrints_TestMacro == 0)
-				printf("Watchdog Serviced\r\n");
+				//printf("Watchdog Serviced\r\n");
 #endif
 			}
 	    }
