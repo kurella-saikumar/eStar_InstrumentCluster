@@ -103,6 +103,7 @@ void Error_Handler(void);
 #define RENDER_TIME_GPIO_Port GPIOG
 #define Ignition_Pin GPIO_PIN_8
 #define Ignition_GPIO_Port GPIOF
+#define Ignition_EXTI_IRQn EXTI9_5_IRQn
 #define Tacho_Pin GPIO_PIN_15
 #define Tacho_GPIO_Port GPIOD
 #define MCU_ACTIVE_Pin GPIO_PIN_15

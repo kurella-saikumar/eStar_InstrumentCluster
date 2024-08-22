@@ -104,7 +104,7 @@ void vGet_Clock(void)
     }
     else
     {
-#if(ClockApp_TestMacro == 1)
+#if(ClockApp_TestMacro == 0)
     	printf("DT: %02d:%02d:%02d \n", xTime.Hours, xTime.Minutes, xTime.Seconds);
 #endif
     }

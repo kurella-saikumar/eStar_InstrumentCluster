@@ -228,7 +228,7 @@ const osThreadAttr_t SpeedoMeter_attributes = {
 };
 /* Definitions for TachoMeter */
 osThreadId_t TachoMeterHandle;
-uint32_t TachoMeterBuffer[ 256 ];
+uint32_t TachoMeterBuffer[ 128 ];
 osStaticThreadDef_t TachoMeterControlBlock;
 const osThreadAttr_t TachoMeter_attributes = {
   .name = "TachoMeter",
@@ -272,7 +272,7 @@ const osThreadAttr_t CAN_AppTask_attributes = {
   .cb_size = sizeof(CAN_AppTaskControlBlock),
   .stack_mem = &CAN_AppTaskBuffer[0],
   .stack_size = sizeof(CAN_AppTaskBuffer),
-  .priority = (osPriority_t) osPriorityNormal,
+  .priority = (osPriority_t) osPriorityLow1,
 };
 /* Definitions for Indicators_App */
 osThreadId_t Indicators_AppHandle;
@@ -592,10 +592,10 @@ int main(void)
 
   /* Init scheduler */
   osKernelInitialize();
-  HAL_TIM_Base_Start(&htim2);
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
+  HAL_TIM_Base_Start(&htim2);
   /* USER CODE END RTOS_MUTEX */
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
@@ -1293,7 +1293,7 @@ static void MX_RTC_Init(void)
   hrtc.Instance = RTC;
   hrtc.Init.HourFormat = RTC_HOURFORMAT_24;
   hrtc.Init.AsynchPrediv = 127;
-  hrtc.Init.SynchPrediv = 0xF9;  /* 32Khz/128 - 1 */  //255;
+  hrtc.Init.SynchPrediv = 255;
   hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
   hrtc.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
   hrtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
@@ -1330,10 +1330,10 @@ static void MX_RTC_Init(void)
 
   /** Enable the WakeUp
   */
-//  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
-//  {
-//    Error_Handler();
-//  }
+  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+  {
+    Error_Handler();
+  }
   /* USER CODE BEGIN RTC_Init 2 */
   if(HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR0) != 0x32F2)
   {
@@ -1634,7 +1634,7 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : Ignition_Pin */
   GPIO_InitStruct.Pin = Ignition_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(Ignition_GPIO_Port, &GPIO_InitStruct);
 
@@ -1669,6 +1669,9 @@ static void MX_GPIO_Init(void)
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI4_IRQn, 5, 0);
   HAL_NVIC_EnableIRQ(EXTI4_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 5, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 
@@ -1740,7 +1743,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	  }
 	  SystemClock_Config ();
 	  HAL_ResumeTick();
-#if(DBGPrints_TestMacro == 1)
+#if(DBGPrints_TestMacro == 0)
 	  printf("WAKEUP FROM EXTII\r\n");
 #endif
  // HAL_PWR_DisableSleepOnExit();
@@ -2621,8 +2624,8 @@ void StartDefaultTask(void *argument)
 	  // Handle sleep mode
 	  printf("Entering sleep mode...\n");
 	  /* Disable Wakeup Counter */
-	     HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
-	     HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x9C40, RTC_WAKEUPCLOCK_RTCCLK_DIV16);
+	     //HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+	     //HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x9C40, RTC_WAKEUPCLOCK_RTCCLK_DIV16);
 	     /* Enter Stop Mode */
 	     HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
 	     SYSCLKConfig_STOP();
@@ -2659,7 +2662,7 @@ void WDG_SRVC_Task(void *argument)
 	    osDelay(WDT_WINDOW_OPEN_IN_SEC*1000); //watchdog period
 	    //service or refresh or reload the watchdog here
 
-	    if(validate_tsk_wdt_kick())
+	    //if(validate_tsk_wdt_kick())
 	    {
 			if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
 			{
@@ -2674,14 +2677,14 @@ void WDG_SRVC_Task(void *argument)
 #endif
 			}
 	    }
-	    else
-	    {
-
-#if(DBGPrints_TestMacro == 0)
-			printf("Watchdog Service validation Filure\r\n");
-#endif
-			while(1);
-	    }
+//	    else
+//	    {
+//
+//#if(DBGPrints_TestMacro == 0)
+//			printf("Watchdog Service validation Filure\r\n");
+//#endif
+//			while(1);
+//	    }
 
   }
   /* USER CODE END WDG_SRVC_Task */
