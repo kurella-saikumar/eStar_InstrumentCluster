@@ -112,7 +112,7 @@ Screen1ViewBase::Screen1ViewBase()
     FuelBarAnimation.setUpdateTicksInterval(1);
     add(FuelBarAnimation);
 
-    Speed_Ta.setXY(158, 88);
+    Speed_Ta.setXY(160, 91);
     Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     Speed_Ta.setLinespacing(0);
     Unicode::snprintf(Speed_TaBuffer, SPEED_TA_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_MEO5).getText());
@@ -121,7 +121,7 @@ Screen1ViewBase::Screen1ViewBase()
     Speed_Ta.setTypedText(touchgfx::TypedText(T___SINGLEUSE_VG2X));
     add(Speed_Ta);
 
-    KMPH_MPH.setXY(290, 166);
+    KMPH_MPH.setXY(303, 156);
     KMPH_MPH.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     KMPH_MPH.setLinespacing(0);
     Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_ZEGA).getText());
@@ -130,7 +130,7 @@ Screen1ViewBase::Screen1ViewBase()
     KMPH_MPH.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DKL2));
     add(KMPH_MPH);
 
-    KMPH_MPH_ODO.setPosition(290, 214, 43, 18);
+    KMPH_MPH_ODO.setPosition(301, 210, 43, 18);
     KMPH_MPH_ODO.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     KMPH_MPH_ODO.setLinespacing(0);
     Unicode::snprintf(KMPH_MPH_ODOBuffer, KMPH_MPH_ODO_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_947A).getText());
@@ -138,7 +138,7 @@ Screen1ViewBase::Screen1ViewBase()
     KMPH_MPH_ODO.setTypedText(touchgfx::TypedText(T___SINGLEUSE_VE6R));
     add(KMPH_MPH_ODO);
 
-    DriverInfo_Units.setPosition(290, 241, 46, 18);
+    DriverInfo_Units.setPosition(301, 243, 46, 18);
     DriverInfo_Units.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     DriverInfo_Units.setLinespacing(0);
     Unicode::snprintf(DriverInfo_UnitsBuffer, DRIVERINFO_UNITS_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_CK36).getText());
@@ -146,7 +146,7 @@ Screen1ViewBase::Screen1ViewBase()
     DriverInfo_Units.setTypedText(touchgfx::TypedText(T___SINGLEUSE_EPWF));
     add(DriverInfo_Units);
 
-    ODOReadings.setXY(191, 195);
+    ODOReadings.setXY(171, 192);
     ODOReadings.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     ODOReadings.setLinespacing(0);
     Unicode::snprintf(ODOReadingsBuffer, ODOREADINGS_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_1I4V).getText());
@@ -206,13 +206,13 @@ Screen1ViewBase::Screen1ViewBase()
     Clock_MN.setTypedText(touchgfx::TypedText(T___SINGLEUSE_BVFY));
     add(Clock_MN);
 
-    Clock_SEC.setPosition(406, 15, 25, 25);
+    Clock_SEC.setPosition(405, 14, 25, 25);
     Clock_SEC.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     Clock_SEC.setLinespacing(0);
     Clock_SEC.setTypedText(touchgfx::TypedText(T___SINGLEUSE_IOGO));
     add(Clock_SEC);
 
-    AM_PM.setXY(444, 22);
+    AM_PM.setXY(444, 21);
     AM_PM.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     AM_PM.setLinespacing(0);
     Unicode::snprintf(AM_PMBuffer, AM_PM_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_TIW9).getText());

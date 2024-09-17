@@ -9,10 +9,10 @@
       <Text Id="__SingleUse_IOGO" Alignment="Center" TypographyId="Clock">
         <Translation Language="GB">:</Translation>
       </Text>
-      <Text Id="__SingleUse_OFVJ" Alignment="Left" TypographyId="Clock">
+      <Text Id="__SingleUse_OFVJ" Alignment="Left" TypographyId="Clock_min">
         <Translation Language="GB">00</Translation>
       </Text>
-      <Text Id="__SingleUse_BVFY" Alignment="Center" TypographyId="Clock">
+      <Text Id="__SingleUse_BVFY" Alignment="Center" TypographyId="Clock_min">
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_TIW9" Alignment="Left" TypographyId="AM_PM">
@@ -21,10 +21,10 @@
       <Text Id="__SingleUse_KI12" Alignment="Left" TypographyId="AM_PM">
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
-      <Text Id="__SingleUse_KYEZ" Alignment="Left" TypographyId="Clock">
+      <Text Id="__SingleUse_KYEZ" Alignment="Left" TypographyId="Clock_hr">
         <Translation Language="GB">00</Translation>
       </Text>
-      <Text Id="__SingleUse_M204" Alignment="Center" TypographyId="Clock">
+      <Text Id="__SingleUse_M204" Alignment="Center" TypographyId="Clock_hr">
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_U3CB" Alignment="Left" TypographyId="DriverInfoMenu">
@@ -75,17 +75,17 @@
     </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Speed" Font="Technology-Bold.ttf" Size="96" Bpp="4" IsVector="yes" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
-    <Typography Id="KMPH" Font="Technology-Bold.ttf" Size="17" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="A-Z,a-z" />
-    <Typography Id="Odo" Font="Technology-Bold.ttf" Size="36" Bpp="4" IsVector="yes" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
-    <Typography Id="DriverInfo" Font="Technology-Bold.ttf" Size="24" Bpp="4" IsVector="yes" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
-    <Typography Id="AM_PM" Font="Technology-Bold.ttf" Size="16" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="A-Z" />
-    <Typography Id="Clock_hr" Font="Technology-Bold.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
-    <Typography Id="Clock_min" Font="Technology-Bold.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="Speed" Font="arial.ttf" Size="80" Bpp="4" IsVector="yes" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="KMPH" Font="arial.ttf" Size="13" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="A-Z,a-z" />
+    <Typography Id="Odo" Font="arial.ttf" Size="36" Bpp="4" IsVector="yes" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="DriverInfo" Font="arial.ttf" Size="24" Bpp="4" IsVector="yes" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="AM_PM" Font="arial.ttf" Size="12" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="A-Z" />
+    <Typography Id="Clock_hr" Font="arial.ttf" Size="18" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="Clock_min" Font="arial.ttf" Size="18" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
     <Typography Id="Semicolon" Font="Technology-Bold.ttf" Size="24" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
     <Typography Id="DrivrInfo_Data" Font="Technology-Bold.ttf" Size="17" Bpp="4" IsVector="no" Direction="LTR" WildcardCharacterRanges="a-z,A-Z" EllipsisCharacter=" " />
-    <Typography Id="DriverInfoMenu" Font="Technology-Bold.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="; , .  :" WildcardCharacterRanges="a-z,A-Z" />
-    <Typography Id="Clock" Font="Technology-Bold.ttf" Size="22" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789" />
-    <Typography Id="ODO_UNITS" Font="Technology-Bold.ttf" Size="17" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="Miles" WildcardCharacterRanges="a-z,A-Z" />
+    <Typography Id="DriverInfoMenu" Font="arial.ttf" Size="17" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="; , .  :" WildcardCharacterRanges="a-z,A-Z" />
+    <Typography Id="Clock" Font="arial.ttf" Size="18" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="123456789" />
+    <Typography Id="ODO_UNITS" Font="arial.ttf" Size="14" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacters="Miles" WildcardCharacterRanges="a-z,A-Z" />
   </Typographies>
 </TextDatabase>

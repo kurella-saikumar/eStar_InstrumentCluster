@@ -10,41 +10,41 @@ touchgfx::Font* ApplicationFontProvider::getFont(touchgfx::FontId typography)
     switch (typography)
     {
     case Typography::SPEED:
-        // Technology_Bold_96_4bpp
+        // arial_80_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[0]);
     case Typography::KMPH:
-        // Technology_Bold_17_4bpp
+        // arial_13_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[1]);
     case Typography::ODO:
-        // Technology_Bold_36_4bpp
+        // arial_36_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[2]);
     case Typography::DRIVERINFO:
-        // Technology_Bold_24_4bpp
+        // arial_24_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[3]);
     case Typography::AM_PM:
-        // Technology_Bold_16_4bpp
+        // arial_12_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[4]);
     case Typography::CLOCK_HR:
-        // Technology_Bold_20_4bpp
+        // arial_18_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[5]);
     case Typography::CLOCK_MIN:
-        // Technology_Bold_20_4bpp
+        // arial_18_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[5]);
     case Typography::SEMICOLON:
         // Technology_Bold_24_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[6]);
     case Typography::DRIVRINFO_DATA:
         // Technology_Bold_17_4bpp
-        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[1]);
-    case Typography::DRIVERINFOMENU:
-        // Technology_Bold_20_4bpp
-        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[5]);
-    case Typography::CLOCK:
-        // Technology_Bold_22_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[7]);
+    case Typography::DRIVERINFOMENU:
+        // arial_17_4bpp
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[8]);
+    case Typography::CLOCK:
+        // arial_18_4bpp
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[5]);
     case Typography::ODO_UNITS:
-        // Technology_Bold_17_4bpp
-        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[1]);
+        // arial_14_4bpp
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[9]);
     default:
         return 0;
     }
