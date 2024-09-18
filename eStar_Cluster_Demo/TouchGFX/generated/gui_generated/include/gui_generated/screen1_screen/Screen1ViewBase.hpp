@@ -61,7 +61,6 @@ protected:
     touchgfx::TextAreaWithOneWildcard ODOReadings;
     touchgfx::TextAreaWithTwoWildcards DriverInfo;
     touchgfx::ScalableImage High_beem_White;
-    touchgfx::ScalableImage High_beem_Blue;
     touchgfx::AnimatedImage RPMAnimation;
     touchgfx::TextAreaWithOneWildcard DriverInfoMenu;
     touchgfx::TextAreaWithOneWildcard Clock_HR;

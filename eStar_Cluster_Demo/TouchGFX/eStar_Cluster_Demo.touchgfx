@@ -18,7 +18,7 @@
             "Type": "Image",
             "Name": "ABS_Detection_w",
             "X": 224,
-            "Y": 47,
+            "Y": 40,
             "Width": 24,
             "Height": 20,
             "RelativeFilename": "WarningIndicators\\ABS_Detection\\ABS_Detection1.png"
@@ -27,7 +27,7 @@
             "Type": "Image",
             "Name": "ABS_Detection_r",
             "X": 224,
-            "Y": 47,
+            "Y": 40,
             "Width": 24,
             "Height": 20,
             "RelativeFilename": "WarningIndicators\\ABS_Detection\\ABS_Detection2.png"
@@ -54,7 +54,7 @@
             "Type": "Image",
             "Name": "DoorsIcon_w",
             "X": 126,
-            "Y": 48,
+            "Y": 41,
             "Width": 24,
             "Height": 20,
             "RelativeFilename": "WarningIndicators\\Doors\\DoorsWarning1.png"
@@ -63,7 +63,7 @@
             "Type": "Image",
             "Name": "DoorsIcon_r",
             "X": 126,
-            "Y": 48,
+            "Y": 41,
             "Width": 24,
             "Height": 20,
             "RelativeFilename": "WarningIndicators\\Doors\\DoorsWarning2.png"
@@ -90,7 +90,7 @@
             "Type": "Image",
             "Name": "Temperature_w",
             "X": 38,
-            "Y": 48,
+            "Y": 41,
             "Width": 24,
             "Height": 20,
             "RelativeFilename": "WarningIndicators\\Temperature\\TempIcon1.png"
@@ -99,7 +99,7 @@
             "Type": "Image",
             "Name": "Temperature_r",
             "X": 38,
-            "Y": 48,
+            "Y": 41,
             "Width": 24,
             "Height": 20,
             "RelativeFilename": "WarningIndicators\\Temperature\\TempIcon2.png"
@@ -125,7 +125,7 @@
           {
             "Type": "Image",
             "Name": "HighBeam_w",
-            "X": 355,
+            "X": 350,
             "Y": 15,
             "Width": 24,
             "Height": 20,
@@ -134,7 +134,7 @@
           {
             "Type": "Image",
             "Name": "HighBeam_r",
-            "X": 355,
+            "X": 350,
             "Y": 15,
             "Width": 24,
             "Height": 20,
@@ -364,16 +364,6 @@
             "ScalingAlgorithm": "Nearest-neighbor"
           },
           {
-            "Type": "ScalableImage",
-            "Name": "High_beem_Blue",
-            "X": 309,
-            "Y": 15,
-            "Width": 24,
-            "Height": 24,
-            "Filename": "high_beam_1.png",
-            "ScalingAlgorithm": "Nearest-neighbor"
-          },
-          {
             "Type": "AnimatedImage",
             "Name": "RPMAnimation",
             "X": 10,
@@ -408,7 +398,7 @@
             "Type": "TextArea",
             "Name": "Clock_HR",
             "X": 393,
-            "Y": 15,
+            "Y": 13,
             "Width": 25,
             "Height": 25,
             "TextId": "__SingleUse_M204",
@@ -428,7 +418,7 @@
             "Type": "TextArea",
             "Name": "Clock_MN",
             "X": 419,
-            "Y": 15,
+            "Y": 13,
             "Width": 25,
             "Height": 25,
             "TextId": "__SingleUse_BVFY",
@@ -448,7 +438,7 @@
             "Type": "TextArea",
             "Name": "Clock_SEC",
             "X": 405,
-            "Y": 14,
+            "Y": 12,
             "Width": 25,
             "Height": 25,
             "TextId": "__SingleUse_IOGO",
@@ -463,7 +453,7 @@
             "Type": "TextArea",
             "Name": "AM_PM",
             "X": 444,
-            "Y": 21,
+            "Y": 19,
             "Width": 18,
             "Height": 13,
             "TextId": "__SingleUse_KI12",
@@ -523,8 +513,8 @@
           {
             "Type": "ScalableImage",
             "Name": "EngineWarning_w",
-            "X": 308,
-            "Y": 48,
+            "X": 312,
+            "Y": 41,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\EngineWarning_w.png",
@@ -533,8 +523,8 @@
           {
             "Type": "ScalableImage",
             "Name": "EngineWarning_y",
-            "X": 308,
-            "Y": 48,
+            "X": 312,
+            "Y": 41,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\EngineWarning_y.png",
