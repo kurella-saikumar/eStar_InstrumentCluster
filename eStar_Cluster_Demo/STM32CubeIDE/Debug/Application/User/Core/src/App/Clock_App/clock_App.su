@@ -1,6 +1,7 @@
-../Application/User/Core/src/App/Clock_App/clock_App.c:87:6:clock_Init	0	static
-../Application/User/Core/src/App/Clock_App/clock_App.c:96:6:vGet_Clock	16	static
-../Application/User/Core/src/App/Clock_App/clock_App.c:238:6:vClock_exit	0	static
-../Application/User/Core/src/App/Clock_App/clock_App.c:249:6:ContinousIncrement	8	static
-../Application/User/Core/src/App/Clock_App/clock_App.c:293:6:vClockIncreament	0	static
-../Application/User/Core/src/App/Clock_App/clock_App.c:127:6:clockSettingRunMode	8	static
+../Application/User/Core/src/App/Clock_App/clock_App.c:88:6:clock_Init	0	static
+../Application/User/Core/src/App/Clock_App/clock_App.c:98:6:vGet_Clock	24	static
+../Application/User/Core/src/App/Clock_App/clock_App.c:265:6:Switch_Clock_Format	16	static
+../Application/User/Core/src/App/Clock_App/clock_App.c:312:6:vClock_exit	0	static
+../Application/User/Core/src/App/Clock_App/clock_App.c:323:6:ContinousIncrement	24	static
+../Application/User/Core/src/App/Clock_App/clock_App.c:415:6:vClockIncreament	0	static
+../Application/User/Core/src/App/Clock_App/clock_App.c:141:6:clockSettingRunMode	16	static

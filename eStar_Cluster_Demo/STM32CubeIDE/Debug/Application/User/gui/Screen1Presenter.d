@@ -1,5 +1,5 @@
 Application/User/gui/Screen1Presenter.o: \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1Presenter.cpp \
+ D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen1_screen/Screen1Presenter.cpp \
  ../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp \
  ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp \
@@ -57,7 +57,7 @@ Application/User/gui/Screen1Presenter.o: \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ScalableImage.hpp \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/clock_App.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h \
- ../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/../Switch/switch.h \
+ D:\Govind_WorkSpace\Github_Workspace\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\src\Service\IO_HAL\Switch\switch.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfoMenu_App/DriverInfoMenu_App.h \
  ../../TouchGFX/gui/include/gui/screen1_screen/../../../../../STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.h
 ../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:
@@ -117,6 +117,6 @@ Application/User/gui/Screen1Presenter.o: \
 ../../Middlewares/ST/touchgfx/framework/include/touchgfx/widgets/ScalableImage.hpp:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/clock_App.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h:
-../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/../Switch/switch.h:
+D:\Govind_WorkSpace\Github_Workspace\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\src\Service\IO_HAL\Switch\switch.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfoMenu_App/DriverInfoMenu_App.h:
 ../../TouchGFX/gui/include/gui/screen1_screen/../../../../../STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.h:

@@ -24,7 +24,7 @@ public:
     virtual void notifyAVSDataChanged(uint32_t AVS){};
     virtual void notifyAFEDataChanged(uint32_t AFE){};
     virtual void notifyRANGEDataChanged(uint16_t RANGE){};
-    virtual void notifyClockDataChanged(uint8_t Hours,uint8_t Minutes,uint8_t Seconds, uint8_t TimeFormat){};
+    virtual void notifyClockDataChanged(uint8_t Hours,uint8_t Minutes,uint8_t Seconds, uint8_t TimeFormat,uint8_t l_12_24_Hrs_Flag){};
     //virtual void notifyClockEditingDataChanged(uint8_t ClockEditingMode){};
     virtual void notifySwitchHandlerDataChanged(uint8_t SwitchStatus){};
    // virtual void notifyDriverInforMenuDataChanged(uint8_t newMenu){};

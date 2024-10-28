@@ -35,11 +35,10 @@ public:
     virtual void notifyAVSDataChanged(uint32_t newAVS);
 	virtual void notifyAFEDataChanged(uint32_t newAFE);
 	virtual void notifyRANGEDataChanged(uint16_t newRANGE);
-    virtual void notifyClockDataChanged(uint8_t Hours,uint8_t Minutes, uint8_t Seconds,uint8_t TimeFormat);
     virtual void notifySwitchHandlerDataChanged(uint8_t SwitchStatus);
     virtual void notifyIndicatorStatusDataChanged(IndicationStatus_t newIndicators);
     virtual void notifyMetricsToggleDataChanged(uint8_t newMetrics);
-
+    virtual void notifyClockDataChanged(uint8_t Hours,uint8_t Minutes,uint8_t Seconds, uint8_t TimeFormat,uint8_t l_12_24_Hrs_Flag);
 
     virtual ~Screen1Presenter() {}
 

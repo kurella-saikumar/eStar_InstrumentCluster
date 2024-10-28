@@ -186,6 +186,7 @@ uint8_t prvFuelSimulation(void)
 		ucsimulatedFuel = 100;
 
 	ucsimulatedFuel = ucsimulatedFuel-20;
+	//printf("S:%ld\r\n",ucfinalFuelPercentage);
 	return ucsimulatedFuel;
 }
 #endif
@@ -231,13 +232,16 @@ void vCalculateAFE(void)
 
 	ulfinalDistanceinKm = ulOdoInKm;
 	ulDeltaDistanceinKm = ulfinalDistanceinKm - ulinitialDistanceinKm;
+//	printf("DD:%ld\r\n",ulDeltaDistanceinKm);
 
-#if(FUEL_TEST_MACRO == 0)
+
+#if(FUEL_TEST_MACRO == 1)
 	ucfinalFuelPercentage = xGetFuelLevel();
 #endif
 
-#if(FUEL_TEST_MACRO == 1)
+#if(FUEL_TEST_MACRO == 0)
 	ucfinalFuelPercentage = prvFuelSimulation();
+	//printf("A:%ld\r\n",ucfinalFuelPercentage);
 #endif
 
 
@@ -246,12 +250,14 @@ void vCalculateAFE(void)
 		ulinitialDistanceinKm = ulfinalDistanceinKm;
 		ucinitialFuelPercentage = ucfinalFuelPercentage;
 		ulAfeinKmperLitre = DEFAULT_AFE;
+//		printf("afe1:%ld\r\n",ulAfeinKmperLitre);
 	}
 	else if((ulDeltaDistanceinKm == 0) && (ulpreviousAFEinKmperLitre != 0))
 	{
 		ulinitialDistanceinKm = ulfinalDistanceinKm;
 		ucinitialFuelPercentage = ucfinalFuelPercentage;
 		ulAfeinKmperLitre = ulpreviousAFEinKmperLitre;
+//		printf("afe2:%ld\r\n",ulAfeinKmperLitre);
 	}
 
 	else if(( ulDeltaDistanceinKm == ulfinalDistanceinKm ) && (ulpreviousAFEinKmperLitre == 0))
@@ -259,40 +265,44 @@ void vCalculateAFE(void)
 		ulinitialDistanceinKm = ulfinalDistanceinKm;
 		ucinitialFuelPercentage = ucfinalFuelPercentage;
 		ulAfeinKmperLitre = DEFAULT_AFE;
+//		printf("afe3:%ld\r\n",ulAfeinKmperLitre);
 	}
 	else if(ulinitialDistanceinKm > ulfinalDistanceinKm)
 	{
 		ulinitialDistanceinKm = ulfinalDistanceinKm;
 		ucinitialFuelPercentage = ucfinalFuelPercentage;
 		ulAfeinKmperLitre = ulpreviousAFEinKmperLitre;
+//		printf("afe4:%ld\r\n",ulAfeinKmperLitre);
 	}
-	else
+	else if(( ulDeltaDistanceinKm != 0 ) && (ulpreviousAFEinKmperLitre != 0))
 	{
 		ulAverageDitsance = calculateMovingAverage(ulDeltaDistanceinKm,&l_Odo_MA_t);
 		usdeltaFuelInPercentage = ucinitialFuelPercentage - ucfinalFuelPercentage;
+//		printf("DF_Pmmmmmmmmmmmmmmmmmm:%ld\r\n",usdeltaFuelInPercentage);
 
 		if(usdeltaFuelInPercentage <= 0)
 		{
 			ulinitialDistanceinKm = ulfinalDistanceinKm;
 			ucinitialFuelPercentage = ucfinalFuelPercentage;
-			//printf("I_Per:%d\t",ucinitialFuelPercentage);
+			printf("I_Per:%d\t",ucinitialFuelPercentage);
 			ulAfeinKmperLitre  = ulpreviousAFEinKmperLitre;
 		}
 		else
 		{
 			usdeltaFuelInLitres = (uint16_t)(prvconvert_FuelPercentageToLitres(usdeltaFuelInPercentage));
 			usAverageFuel = calculateMovingAverage(usdeltaFuelInLitres,&l_Fuel_MA_t);
-			//printf("Fuel_MA:%u\t", usAverageFuel);
+//			printf("Fuel_MAmmmmmmmmmmmmmmmmmmmm:%u\t", usAverageFuel);
 
 			if (usAverageFuel == 0)
 			{
 				// Handle the division by zero case
 				ulAfeinKmperLitre = DEFAULT_AFE;
+//				printf("afe5:%ld\r\n",ulAfeinKmperLitre);
 			}
 			else
 			{
 				ulAfeinKmperLitre = (ulAverageDitsance * 10) /(uint32_t)(usAverageFuel);
-				//printf("AFE_C:%ld\n\r", ulAfeinKmperLitre);
+//				printf("AFE_C:%ld\n\r", ulAfeinKmperLitre);
 				ulinitialDistanceinKm = ulfinalDistanceinKm;
 				ucinitialFuelPercentage = ucfinalFuelPercentage;
 			}
@@ -302,17 +312,17 @@ void vCalculateAFE(void)
 	if(OdoUnits == UNITS_IN_KM)
 	{
 		ulAfe = ulAfeinKmperLitre;
-		//printf("Afe1:%d",ulAfe);
+//		printf("Afekm:%ld",ulAfe);
 
 	}
 	else
 	{
 		ulAfe = (ulAfeinKmperLitre * KMTOLITRE_TO_MILESPERGALLON_MULTIPLICATION_FACTOR * 10) / KMTOLITRE_TO_MILESPERGALLON_DIVISION_FACTOR ;
-		//printf("Afe2:%d",ulAfe);
+		//printf("AfeM:%ld",ulAfe);
 
 	}
 	ulpreviousAFEinKmperLitre = ulAfeinKmperLitre;
-    ModeStatus.AverageFuelEconomy = ulAfe;
+//    ModeStatus.AverageFuelEconomy = ulAfe;
 
    // return ulAfe;
 }

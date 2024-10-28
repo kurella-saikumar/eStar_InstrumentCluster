@@ -1309,9 +1309,10 @@ static void MX_RTC_Init(void)
 
   /** Initialize RTC and set the Time and Date
   */
-  sTime.Hours = 0x12;
+  sTime.Hours = 0x14;
   sTime.Minutes = 0x30;
   sTime.Seconds = 0x20;
+//  sTime.TimeFormat = RTC_HOURFORMAT12_PM;
   sTime.DayLightSaving = RTC_DAYLIGHTSAVING_NONE;
   sTime.StoreOperation = RTC_STOREOPERATION_RESET;
   if (HAL_RTC_SetTime(&hrtc, &sTime, RTC_FORMAT_BCD) != HAL_OK)
@@ -1323,7 +1324,7 @@ static void MX_RTC_Init(void)
   sDate.Date = 0x10;
   sDate.Year = 0x24;
 
-  if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BCD) != HAL_OK)
+  if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BIN) != HAL_OK)
   {
     Error_Handler();
   }
@@ -2667,13 +2668,13 @@ void WDG_SRVC_Task(void *argument)
 			if (HAL_IWDG_Refresh(&hiwdg1) != HAL_OK)
 			{
 #if(DBGPrints_TestMacro == 0)
-				printf("Watchdog Refresh Filure\r\n");
+				printf("W\r\n");
 #endif
 			}
 			else
 			{
 #if(DBGPrints_TestMacro == 0)
-				printf("Watchdog Serviced\r\n");
+				printf("W\r\n");
 #endif
 			}
 	    }

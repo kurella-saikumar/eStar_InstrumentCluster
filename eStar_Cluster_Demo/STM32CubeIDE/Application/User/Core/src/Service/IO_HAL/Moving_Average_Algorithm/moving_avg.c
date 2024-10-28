@@ -48,6 +48,7 @@ uint32_t calculateMovingAverage(uint32_t p_rawData_f32, MV_data_t * p_ma_data_pt
 		for(fl_avg_loop_counter_U16 = 0; fl_avg_loop_counter_U16 < p_ma_data_ptr->window_size; fl_avg_loop_counter_U16++)
 		{
 			fl_sum_f64 += p_ma_data_ptr->dataInp_ptr[fl_data_index_U16];
+			//printf("arrayy : %d\n\r ", p_ma_data_ptr->dataInp_ptr[fl_data_index_U16]);
 		//	printf("fl_sum_f64: %ld\n", fl_sum_f64);
 
 			if(fl_data_index_U16 < (p_ma_data_ptr->raw_data_size) -1 )
