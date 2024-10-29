@@ -19,95 +19,7 @@ Screen1ViewBase::Screen1ViewBase()
     BackGround.setBitmap(touchgfx::Bitmap(BITMAP_BACKGROUND_ID));
     add(BackGround);
 
-    ABS_Detection_w.setXY(224, 47);
-    ABS_Detection_w.setBitmap(touchgfx::Bitmap(BITMAP_ABS_DETECTION1_ID));
-    add(ABS_Detection_w);
-
-    ABS_Detection_r.setXY(224, 47);
-    ABS_Detection_r.setBitmap(touchgfx::Bitmap(BITMAP_ABS_DETECTION2_ID));
-    add(ABS_Detection_r);
-
-    LowBatteryIcon_w.setXY(174, 14);
-    LowBatteryIcon_w.setBitmap(touchgfx::Bitmap(BITMAP_LOWBATTERY1_ID));
-    add(LowBatteryIcon_w);
-
-    LowBatteryIcon_r.setXY(174, 14);
-    LowBatteryIcon_r.setBitmap(touchgfx::Bitmap(BITMAP_LOWBATTERY2_ID));
-    add(LowBatteryIcon_r);
-
-    DoorsIcon_w.setXY(126, 48);
-    DoorsIcon_w.setBitmap(touchgfx::Bitmap(BITMAP_DOORSWARNING1_ID));
-    add(DoorsIcon_w);
-
-    DoorsIcon_r.setXY(126, 48);
-    DoorsIcon_r.setBitmap(touchgfx::Bitmap(BITMAP_DOORSWARNING2_ID));
-    add(DoorsIcon_r);
-
-    EngineOIl_w.setXY(266, 14);
-    EngineOIl_w.setBitmap(touchgfx::Bitmap(BITMAP_ENGINEOIL1_ID));
-    add(EngineOIl_w);
-
-    EngineOIl_r.setXY(266, 14);
-    EngineOIl_r.setBitmap(touchgfx::Bitmap(BITMAP_ENGINEOIL2_ID));
-    add(EngineOIl_r);
-
-    Temperature_w.setXY(38, 48);
-    Temperature_w.setBitmap(touchgfx::Bitmap(BITMAP_TEMPICON1_ID));
-    add(Temperature_w);
-
-    Temperature_r.setXY(38, 48);
-    Temperature_r.setBitmap(touchgfx::Bitmap(BITMAP_TEMPICON2_ID));
-    add(Temperature_r);
-
-    FuelICon_w.setXY(406, 241);
-    FuelICon_w.setBitmap(touchgfx::Bitmap(BITMAP_CLUSTERICONS1_ID));
-    add(FuelICon_w);
-
-    FuelIcon_r.setXY(406, 241);
-    FuelIcon_r.setBitmap(touchgfx::Bitmap(BITMAP_CLUSTERICONS2_ID));
-    add(FuelIcon_r);
-
-    HighBeam_w.setXY(355, 15);
-    HighBeam_w.setBitmap(touchgfx::Bitmap(BITMAP_HIGHBEAM1_ID));
-    add(HighBeam_w);
-
-    HighBeam_r.setXY(355, 15);
-    HighBeam_r.setBitmap(touchgfx::Bitmap(BITMAP_HIGHBEAM2_ID));
-    add(HighBeam_r);
-
-    LeftIndicator_w.setXY(99, 147);
-    LeftIndicator_w.setBitmap(touchgfx::Bitmap(BITMAP_LEFTINDICATOR1_ID));
-    add(LeftIndicator_w);
-
-    LeftIndicator_r.setXY(99, 147);
-    LeftIndicator_r.setBitmap(touchgfx::Bitmap(BITMAP_LEFTINDICATOR2_ID));
-    add(LeftIndicator_r);
-
-    LowBeam_w.setXY(79, 15);
-    LowBeam_w.setBitmap(touchgfx::Bitmap(BITMAP_LOWBEAM1_ID));
-    add(LowBeam_w);
-
-    LowBeam_r.setXY(79, 15);
-    LowBeam_r.setBitmap(touchgfx::Bitmap(BITMAP_LOWBEAM2_ID));
-    add(LowBeam_r);
-
-    RightIndicator_w.setXY(356, 146);
-    RightIndicator_w.setBitmap(touchgfx::Bitmap(BITMAP_RIGHTINDICATOR1_ID));
-    add(RightIndicator_w);
-
-    RightIndicator_r.setXY(356, 146);
-    RightIndicator_r.setBitmap(touchgfx::Bitmap(BITMAP_RIGHTINDICATOR2_ID));
-    add(RightIndicator_r);
-
-    RPMIcon_w.setXY(50, 241);
-    RPMIcon_w.setBitmap(touchgfx::Bitmap(BITMAP_RPMICON1_ID));
-    add(RPMIcon_w);
-
-    RPMIcon_r.setXY(50, 241);
-    RPMIcon_r.setBitmap(touchgfx::Bitmap(BITMAP_RPMICON2_ID));
-    add(RPMIcon_r);
-
-    FuelBarAnimation.setXY(342, 100);
+    FuelBarAnimation.setXY(380, 92);
     FuelBarAnimation.setBitmaps(BITMAP_FUELBAR01_ID, BITMAP_FUELBAR10_ID);
     FuelBarAnimation.setUpdateTicksInterval(1);
     add(FuelBarAnimation);
@@ -121,7 +33,7 @@ Screen1ViewBase::Screen1ViewBase()
     Speed_Ta.setTypedText(touchgfx::TypedText(T___SINGLEUSE_VG2X));
     add(Speed_Ta);
 
-    KMPH_MPH.setXY(303, 156);
+    KMPH_MPH.setXY(301, 156);
     KMPH_MPH.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     KMPH_MPH.setLinespacing(0);
     Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_ZEGA).getText());
@@ -130,7 +42,7 @@ Screen1ViewBase::Screen1ViewBase()
     KMPH_MPH.setTypedText(touchgfx::TypedText(T___SINGLEUSE_DKL2));
     add(KMPH_MPH);
 
-    KMPH_MPH_ODO.setPosition(301, 210, 43, 18);
+    KMPH_MPH_ODO.setPosition(298, 210, 43, 18);
     KMPH_MPH_ODO.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     KMPH_MPH_ODO.setLinespacing(0);
     Unicode::snprintf(KMPH_MPH_ODOBuffer, KMPH_MPH_ODO_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_947A).getText());
@@ -155,7 +67,7 @@ Screen1ViewBase::Screen1ViewBase()
     ODOReadings.setTypedText(touchgfx::TypedText(T___SINGLEUSE_7ZNN));
     add(ODOReadings);
 
-    DriverInfo.setXY(236, 234);
+    DriverInfo.setXY(236, 235);
     DriverInfo.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     DriverInfo.setLinespacing(0);
     touchgfx::Unicode::snprintf(DriverInfoBuffer1, DRIVERINFOBUFFER1_SIZE, "%s", touchgfx::TypedText(T___SINGLEUSE_69GV).getText());
@@ -166,18 +78,7 @@ Screen1ViewBase::Screen1ViewBase()
     DriverInfo.setTypedText(touchgfx::TypedText(T___SINGLEUSE_0GI1));
     add(DriverInfo);
 
-    High_beem_White.setBitmap(touchgfx::Bitmap(BITMAP_HIGH_BEAM_ID));
-    High_beem_White.setPosition(318, 14, 24, 24);
-    High_beem_White.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
-    High_beem_White.setVisible(false);
-    add(High_beem_White);
-
-    High_beem_Blue.setBitmap(touchgfx::Bitmap(BITMAP_HIGH_BEAM_1_ID));
-    High_beem_Blue.setPosition(309, 15, 24, 24);
-    High_beem_Blue.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
-    add(High_beem_Blue);
-
-    RPMAnimation.setXY(10, 100);
+    RPMAnimation.setXY(23, 92);
     RPMAnimation.setBitmaps(BITMAP_RPMBAR01_ID, BITMAP_RPMBAR10_ID);
     RPMAnimation.setUpdateTicksInterval(1);
     add(RPMAnimation);
@@ -221,45 +122,165 @@ Screen1ViewBase::Screen1ViewBase()
     AM_PM.setTypedText(touchgfx::TypedText(T___SINGLEUSE_KI12));
     add(AM_PM);
 
+    FuelIcon_w.setBitmap(touchgfx::Bitmap(BITMAP_FUELICON_W_ID));
+    FuelIcon_w.setPosition(430, 228, 25, 25);
+    FuelIcon_w.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(FuelIcon_w);
+
+    FuelIcon_r.setBitmap(touchgfx::Bitmap(BITMAP_FUELICON_R_ID));
+    FuelIcon_r.setPosition(430, 228, 25, 25);
+    FuelIcon_r.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(FuelIcon_r);
+
+    ABS_Detection_w.setBitmap(touchgfx::Bitmap(BITMAP_ABS_DETECTION_W_ID));
+    ABS_Detection_w.setPosition(192, 34, 25, 25);
+    ABS_Detection_w.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(ABS_Detection_w);
+
+    ABS_Detection_r.setBitmap(touchgfx::Bitmap(BITMAP_ABS_DETECTION_R_ID));
+    ABS_Detection_r.setPosition(192, 34, 25, 25);
+    ABS_Detection_r.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(ABS_Detection_r);
+
+    Temperature_w.setBitmap(touchgfx::Bitmap(BITMAP_TEMPERATURE_W_ID));
+    Temperature_w.setPosition(301, 59, 25, 25);
+    Temperature_w.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(Temperature_w);
+
+    Temperature_r.setBitmap(touchgfx::Bitmap(BITMAP_TEMPERATURE_R_ID));
+    Temperature_r.setPosition(301, 59, 25, 25);
+    Temperature_r.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(Temperature_r);
+
+    Parking_w.setBitmap(touchgfx::Bitmap(BITMAP_PARKING_W_ID));
+    Parking_w.setPosition(64, 59, 25, 25);
+    Parking_w.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(Parking_w);
+
+    Parking_r.setBitmap(touchgfx::Bitmap(BITMAP_PARKING_R_ID));
+    Parking_r.setPosition(64, 59, 25, 25);
+    Parking_r.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(Parking_r);
+
+    LowBeam_w.setBitmap(touchgfx::Bitmap(BITMAP_LOWBEAM_W_ID));
+    LowBeam_w.setPosition(64, 9, 25, 25);
+    LowBeam_w.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(LowBeam_w);
+
+    DoorsIcon_w.setBitmap(touchgfx::Bitmap(BITMAP_DOORSICON_W_ID));
+    DoorsIcon_w.setPosition(103, 34, 25, 25);
+    DoorsIcon_w.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(DoorsIcon_w);
+
+    LowBeam_r.setBitmap(touchgfx::Bitmap(BITMAP_LOWBEAM_R_ID));
+    LowBeam_r.setPosition(64, 9, 25, 25);
+    LowBeam_r.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(LowBeam_r);
+
+    DoorsIcon_r.setBitmap(touchgfx::Bitmap(BITMAP_DOORSICON_R_ID));
+    DoorsIcon_r.setPosition(103, 34, 25, 25);
+    DoorsIcon_r.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(DoorsIcon_r);
+
+    LowBatteryIcon_w.setBitmap(touchgfx::Bitmap(BITMAP_LOWBATTERYICON_W_ID));
+    LowBatteryIcon_w.setPosition(146, 9, 25, 25);
+    LowBatteryIcon_w.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(LowBatteryIcon_w);
+
+    LowBatteryIcon_r.setBitmap(touchgfx::Bitmap(BITMAP_LOWBATTERYICON_R_ID));
+    LowBatteryIcon_r.setPosition(146, 9, 25, 25);
+    LowBatteryIcon_r.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(LowBatteryIcon_r);
+
     SeatBelt_w.setBitmap(touchgfx::Bitmap(BITMAP_SEATBELT_W_ID));
-    SeatBelt_w.setPosition(174, 68, 25, 25);
+    SeatBelt_w.setPosition(146, 59, 25, 25);
     SeatBelt_w.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
     add(SeatBelt_w);
 
     SeatBelt_r.setBitmap(touchgfx::Bitmap(BITMAP_SEATBELT_R_ID));
-    SeatBelt_r.setPosition(174, 68, 25, 25);
+    SeatBelt_r.setPosition(146, 59, 25, 25);
     SeatBelt_r.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
     add(SeatBelt_r);
 
-    Parking_w.setBitmap(touchgfx::Bitmap(BITMAP_PARKING_W_ID));
-    Parking_w.setPosition(79, 68, 25, 25);
-    Parking_w.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
-    add(Parking_w);
+    ServiceReminder_w.setBitmap(touchgfx::Bitmap(BITMAP_SERVICEREMINDER_W_ID));
+    ServiceReminder_w.setPosition(231, 59, 25, 25);
+    ServiceReminder_w.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(ServiceReminder_w);
 
-    Parking_r.setBitmap(touchgfx::Bitmap(BITMAP_PARKING_R_ID));
-    Parking_r.setPosition(79, 68, 25, 25);
-    Parking_r.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
-    add(Parking_r);
+    EngineOil_w.setBitmap(touchgfx::Bitmap(BITMAP_ENGINEOIL_W_ID));
+    EngineOil_w.setPosition(231, 9, 25, 25);
+    EngineOil_w.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(EngineOil_w);
+
+    EngineOil_r.setBitmap(touchgfx::Bitmap(BITMAP_ENGINEOIL_R_ID));
+    EngineOil_r.setPosition(231, 9, 25, 25);
+    EngineOil_r.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(EngineOil_r);
+
+    ServiceReminder_y.setBitmap(touchgfx::Bitmap(BITMAP_SERVICEREMINDER_Y_ID));
+    ServiceReminder_y.setPosition(231, 59, 25, 25);
+    ServiceReminder_y.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(ServiceReminder_y);
 
     EngineWarning_w.setBitmap(touchgfx::Bitmap(BITMAP_ENGINEWARNING_W_ID));
-    EngineWarning_w.setPosition(308, 48, 25, 25);
-    EngineWarning_w.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
+    EngineWarning_w.setPosition(270, 34, 25, 25);
+    EngineWarning_w.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
     add(EngineWarning_w);
 
     EngineWarning_y.setBitmap(touchgfx::Bitmap(BITMAP_ENGINEWARNING_Y_ID));
-    EngineWarning_y.setPosition(308, 48, 25, 25);
-    EngineWarning_y.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
+    EngineWarning_y.setPosition(270, 34, 25, 25);
+    EngineWarning_y.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
     add(EngineWarning_y);
 
-    ServiceReminder_w.setBitmap(touchgfx::Bitmap(BITMAP_SERVICEREMINDER_W_ID));
-    ServiceReminder_w.setPosition(266, 68, 25, 25);
-    ServiceReminder_w.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
-    add(ServiceReminder_w);
+    HighBeam_wb.setBitmap(touchgfx::Bitmap(BITMAP_HIGHBEAM_WB_ID));
+    HighBeam_wb.setPosition(301, 9, 25, 25);
+    HighBeam_wb.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(HighBeam_wb);
 
-    ServiceReminder_y.setBitmap(touchgfx::Bitmap(BITMAP_SERVICEREMINDER_Y_ID));
-    ServiceReminder_y.setPosition(266, 68, 25, 25);
-    ServiceReminder_y.setScalingAlgorithm(touchgfx::ScalableImage::BILINEAR_INTERPOLATION);
-    add(ServiceReminder_y);
+    HighBeam_Blue.setBitmap(touchgfx::Bitmap(BITMAP_HIGHBEAM_BLUE_ID));
+    HighBeam_Blue.setPosition(301, 9, 25, 25);
+    HighBeam_Blue.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(HighBeam_Blue);
+
+    LeftIndicator_w.setBitmap(touchgfx::Bitmap(BITMAP_LEFTINDICATOR_W_ID));
+    LeftIndicator_w.setPosition(108, 124, 25, 25);
+    LeftIndicator_w.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(LeftIndicator_w);
+
+    LeftIndicator_r.setBitmap(touchgfx::Bitmap(BITMAP_LEFTINDICATOR_R_ID));
+    LeftIndicator_r.setPosition(108, 124, 25, 25);
+    LeftIndicator_r.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(LeftIndicator_r);
+
+    HighBeam_w.setBitmap(touchgfx::Bitmap(BITMAP_HIGHBEAM_W_ID));
+    HighBeam_w.setPosition(343, 9, 25, 25);
+    HighBeam_w.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(HighBeam_w);
+
+    HighBeam_r.setBitmap(touchgfx::Bitmap(BITMAP_HIGHBEAM_R_ID));
+    HighBeam_r.setPosition(343, 9, 25, 25);
+    HighBeam_r.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(HighBeam_r);
+
+    RPMIcon_w.setBitmap(touchgfx::Bitmap(BITMAP_RPMICON_W_ID));
+    RPMIcon_w.setPosition(29, 228, 25, 25);
+    RPMIcon_w.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(RPMIcon_w);
+
+    RPMIcon_r.setBitmap(touchgfx::Bitmap(BITMAP_RPMICON_R_ID));
+    RPMIcon_r.setPosition(29, 228, 25, 25);
+    RPMIcon_r.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(RPMIcon_r);
+
+    RightIndicator_w.setBitmap(touchgfx::Bitmap(BITMAP_RIGHTINDICATOR_W_ID));
+    RightIndicator_w.setPosition(331, 124, 25, 25);
+    RightIndicator_w.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(RightIndicator_w);
+
+    RightIndicator_r.setBitmap(touchgfx::Bitmap(BITMAP_RIGHTINDICATOR_R_ID));
+    RightIndicator_r.setPosition(331, 124, 25, 25);
+    RightIndicator_r.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(RightIndicator_r);
 }
 
 Screen1ViewBase::~Screen1ViewBase()
