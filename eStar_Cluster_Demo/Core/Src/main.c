@@ -443,7 +443,7 @@ KEEP extern const unsigned char image_temperature_w_const[];
 
 #if 1
 extern unsigned char ucimage_abs_detection_r_HypRAM[64*64];
-extern unsigned char ucimage_abs_detection_w_HypRAM[64*64*25];
+extern unsigned char ucimage_abs_detection_w_HypRAM[64*64];
 extern unsigned char ucimage_background_HypRAM[480*272];
 extern unsigned char ucimage_doorsicon_r_HypRAM[64*64];
 extern unsigned char ucimage_doorsicon_w_HypRAM[64*64];
@@ -1758,7 +1758,7 @@ void Disp_imgDataHyperRAM_Init(void)
 
 
 	memset(ucimage_abs_detection_r_HypRAM, 0 ,(64*64));
-	memset(ucimage_abs_detection_w_HypRAM, 0 ,(64*64*25));
+	memset(ucimage_abs_detection_w_HypRAM, 0 ,(64*64));
 	memset(ucimage_background_HypRAM, 0 , (480*272));
 	memset(ucimage_doorsicon_r_HypRAM,0 ,(64*64));
 	memset(ucimage_doorsicon_w_HypRAM,0 ,(64*64));
@@ -1897,7 +1897,7 @@ void Disp_imgDataHyperRAM_Init(void)
 	}
 
 	uint32_t Address7= (uint32_t )(&image_doorsicon_w_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,image_doorsicon_w_HypRAM,Address7,(64*64*4)))
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucimage_doorsicon_w_HypRAM,Address7,(64*64*4)))
 	{
 #if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-7\n\r");
@@ -2105,7 +2105,7 @@ void Disp_imgDataHyperRAM_Init(void)
 #endif
 	}
 
-	uint32_t Address22= (uint32_t )(&image_highbeam_blue_HypRAM_const[0] - FLASH_BASE_ADDR);
+	uint32_t Address22= (uint32_t )(&image_highbeam_blue_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucimage_highbeam_blue_HypRAM,Address22,(64*64*4)))
 	{
 #if(DBGPrints_TestMacro == 1)
@@ -2120,7 +2120,7 @@ void Disp_imgDataHyperRAM_Init(void)
 	}
 
 	uint32_t Address23= (uint32_t )(&image_highbeam_wb_const[0] - FLASH_BASE_ADDR);
-	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucimage_highbeam_wb_HypRAM,Address23,(64*64*4)))
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucimage_highbeam_wb_HypRAM, Address23,(64*64*4)))
 	{
 #if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-23\n\r");
@@ -2345,7 +2345,7 @@ void Disp_imgDataHyperRAM_Init(void)
 #endif
 	}
 
-	uint32_t Address39= (uint32_t )(&image_rpmbarr04_const[0] - FLASH_BASE_ADDR);
+	uint32_t Address39= (uint32_t )(&image_rpmbar04_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucimage_rpmbar04_HypRAM,Address39,(75*128*4)))
 	{
 #if(DBGPrints_TestMacro == 1)

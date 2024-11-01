@@ -222,10 +222,6 @@ SECTIONS
 	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
     
-    *(image_background image_background_buf.*)
-	*(.gnu.linkonce.r.*)
-    . = ALIGN(0x4);
-    
     *(image_fuelicon_r_buf image_fuelicon_r_buf.*)
 	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
@@ -428,6 +424,10 @@ SECTIONS
     
     *(image_temperature_w_buf image_temperature_w_buf.*)
     *(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_background image_background_buf.*)
+	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
   } >HYPERRAM
 }
