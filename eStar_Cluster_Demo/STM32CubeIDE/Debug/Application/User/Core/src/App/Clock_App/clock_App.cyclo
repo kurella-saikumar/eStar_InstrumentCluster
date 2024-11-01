@@ -1,7 +1,9 @@
 ../Application/User/Core/src/App/Clock_App/clock_App.c:88:6:clock_Init	1
 ../Application/User/Core/src/App/Clock_App/clock_App.c:98:6:vGet_Clock	2
-../Application/User/Core/src/App/Clock_App/clock_App.c:265:6:Switch_Clock_Format	5
-../Application/User/Core/src/App/Clock_App/clock_App.c:312:6:vClock_exit	1
-../Application/User/Core/src/App/Clock_App/clock_App.c:323:6:ContinousIncrement	10
-../Application/User/Core/src/App/Clock_App/clock_App.c:415:6:vClockIncreament	2
+../Application/User/Core/src/App/Clock_App/clock_App.c:322:6:vClock_exit	1
+../Application/User/Core/src/App/Clock_App/clock_App.c:333:6:ContinousIncrement	10
+../Application/User/Core/src/App/Clock_App/clock_App.c:425:6:vClockIncreament	2
+../Application/User/Core/src/App/Clock_App/clock_App.c:449:6:Hr12_RTC_Init	4
+../Application/User/Core/src/App/Clock_App/clock_App.c:502:6:Hr24_RTC_Init	4
+../Application/User/Core/src/App/Clock_App/clock_App.c:269:6:Switch_Clock_Format	7
 ../Application/User/Core/src/App/Clock_App/clock_App.c:141:6:clockSettingRunMode	12

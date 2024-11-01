@@ -385,18 +385,10 @@ void vHandleModeResetActions(void)
             }
         }
     }
-    else if(ucResetButtonEventStatus == LONG_PRESS_RELEASED)
-        {
-        	if(eClockMode == CLOCK_MODE_ACTIVE)
-    		{
+    else
+    {
 
-        		ClockEditing = RESET_LONGPRESS_RELEASE;
-        		printf("longpress released-%d\n",ClockEditing);
-        		xClockSettingGetSetMode();
-    			//Button_Push_Event_T reset_status = getResetButtonStatus();
-    			ucResetButtonEventStatus = 0xFF;
-    		}
-        }
+    }
     if(ucModeButtonEventStatus == LONG_PRESS_HELD)
     {
         if(eClockMode == CLOCK_MODE_ACTIVE)
@@ -407,9 +399,7 @@ void vHandleModeResetActions(void)
             //Button_Push_Event_T mode_status = getModeButtonStatus();
             ucModeButtonEventStatus = 0xFF;
         }
-        
     }
-
     if(ucResetButtonEventStatus == LONG_PRESS_HELD)
     {
         if(eClockMode == CLOCK_MODE_ACTIVE)
@@ -417,14 +407,21 @@ void vHandleModeResetActions(void)
         	ClockEditing = RESET_LONGPRESS_HELD;
         	printf("longpress held-%d\n",ClockEditing);
         	xClockSettingGetSetMode();
-            //Button_Push_Event_T reset_status = getResetButtonStatus();
-
-            //ucResetButtonEventStatus = 0xFF;
 
         }
-        
     }
+    if(ucResetButtonEventStatus == LONG_PRESS_RELEASED)
+	{
+		if(eClockMode == CLOCK_MODE_ACTIVE)
+		{
 
+			ClockEditing = RESET_LONGPRESS_RELEASE;
+			printf("longpress released-%d\n",ClockEditing);
+			xClockSettingGetSetMode();
+			//Button_Push_Event_T reset_status = getResetButtonStatus();
+			ucResetButtonEventStatus = 0xFF;
+		}
+	}
 
     // Reset button timeout and statuses if clock mode is active and any button is short-pressed
     if ((eClockMode == CLOCK_MODE_ACTIVE) && (ucModeButtonEventStatus == SHORT_PRESS_HELD || ucResetButtonEventStatus == SHORT_PRESS_HELD))
