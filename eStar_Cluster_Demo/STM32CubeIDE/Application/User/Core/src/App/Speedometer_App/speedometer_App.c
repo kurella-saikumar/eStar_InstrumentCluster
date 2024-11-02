@@ -16,15 +16,6 @@
  * forbidden unless prior written permission is obtained from
  * eSTAR TECHNOLOGIES(OPC) PRIVATE LIMITED
  ********************************************************************************************** @}*/
-/* 
- * File:   Speedometer.c
- * Author: ravit
- *
- * Created on February 22, 2024, 4:10 PM
- */
-
-#ifndef SPEEDOMETER_C
-#define	SPEEDOMETER_C
 
 
 /**************************************************************************************************
@@ -69,7 +60,7 @@ uint16_t ucKmToMilesDivisionFactor = 0;
 uint16_t ucKmToMilesSpeedMultiFactor = 0;
 
 /**Speedometer variables*/
-bool ignitionStatus_speed = 0;
+//bool ignitionStatus_speed = 0;
 int64_t sllDelta = 0;
 uint32_t ulCurrentReceivedPulses = 0;
 uint32_t ulPreviousReceivedPulses = 0;
@@ -78,10 +69,10 @@ uint32_t ulSpeedValue = 0;
 /**km variables*/
 uint8_t ucPulsesPerMeter = 0;
 uint32_t ulDistanceInMts = 0;
-uint32_t ulPulse100mCountRatio = 0;
+//uint32_t ulPulse100mCountRatio = 0;
 uint32_t ulReceivedPulses = 0;
-uint32_t ulDistanceInKm = 0;
-uint32_t ulTimeInHr = 0;
+//uint32_t ulDistanceInKm = 0;
+//uint32_t ulTimeInHr = 0;
 uint32_t ulSpeedInMtsPerSec = 0;
 uint32_t ulSpeedInKm = 0;
 
@@ -127,6 +118,17 @@ void vSpeedoInit(void)
 }
 
 /**************************************************************************************************/
+/**
+ * @brief Initialize the Speedometer
+ *
+ * This function initializes the Speedometer by configuring the necessary parameters for speed calculation
+ * in both kilometers and miles, including conversion factors, pulse factors, and speed thresholds.
+ *
+ * @param[in] void
+ *
+ * @return void
+ *
+ */
 void vInitializeSpeedometer(void)
 {
     /**Km configuration parameters*/
@@ -147,6 +149,15 @@ void vInitializeSpeedometer(void)
 }
 
 /**************************************************************************************************/
+/**
+ * @brief Load Configuration Parameters to EEPROM
+ *
+ * This function simulates loading configuration parameters to EEPROM.
+ * @param[in] void
+ *
+ * @return void
+ *
+ */
 void xLoadToEEPROM(void)
 {
 #if(SPEEDO_TEST_MACRO == 1)
@@ -200,43 +211,93 @@ void vCalculateSpeed(void)
 }
 
 /**************************************************************************************************/
+/**
+ * @brief Calculate Speed in Kilometers per Hour
+ *
+ * This function calculates the speed in kilometers per hour (KMPH) based on received pulses.
+ * @param[in] void
+ *
+ * @return void
+ *
+ */
 void vCalculateSpeedInKm(void)
 {
-	ulReceivedPulses = vPulseDeltaCounter();
-//	ulReceivedPulses = 42; /*Simulation*/
-	ulDistanceInMts = ( (ulReceivedPulses*10) / ucPulsesPerMeter );
-	ulSpeedInMtsPerSec = ( (ulDistanceInMts * configMILLI_SEC_TO_SECS_CONV_FACTOR) / configSPEEDO_TASK_PERIODICITY_IN_MS );
-	ulSpeedInKm = ((ulSpeedInMtsPerSec * configSEC_TO_HR_TIME_CONV_FACTOR) / configMTS_TO_KM_DIST_CONV_FACTOR );
-	ulSpeedInKm = (ulSpeedInKm/10);
-	vValidateSpeed();
+    ulReceivedPulses = vPulseDeltaCounter();
 
-#if(SPEEDO_TEST_MACRO == 1)
-    /**Debug purpose*/
-	printf("sU: %ld\t", speedoUnits);
-    printf("dP: %ld\t",ulReceivedPulses);
-    printf("m/s: %ld\t", ulSpeedInMtsPerSec);
-    printf("k/h: %ld", ulSpeedInKm);
-    if(speedoUnits == SPEED_IN_KMPH)
-        	printf("\n\n");
+    if (ulReceivedPulses < (UINT32_MAX / 10))
+    {
+        ulDistanceInMts = (ulReceivedPulses * 10) / ucPulsesPerMeter;
+
+        if (ulDistanceInMts < (UINT32_MAX / configMILLI_SEC_TO_SECS_CONV_FACTOR))
+        {
+            ulSpeedInMtsPerSec = ( (ulDistanceInMts * configMILLI_SEC_TO_SECS_CONV_FACTOR) / configSPEEDO_TASK_PERIODICITY_IN_MS );
+
+            if (ulSpeedInMtsPerSec < (UINT32_MAX / ulSecToHrTimeConvFactor))
+            {
+                ulSpeedInKm = ((ulSpeedInMtsPerSec * ulSecToHrTimeConvFactor) / ulMtsToKmDistConvFactorSpeed );
+                ulSpeedInKm /= 10;
+
+                vValidateSpeed();
+
+                #if (SPEEDO_TEST_MACRO == 1)
+                    printf("sU: %ld\t", speedoUnits);
+                    printf("dP: %ld\t", ulReceivedPulses);
+                    printf("m/s: %ld\t", ulSpeedInMtsPerSec);
+                    printf("k/h: %ld", ulSpeedInKm);
+
+                    if (speedoUnits == SPEED_IN_KMPH)
+                        printf("\n\n");
+                    else
+                        printf("\t");
+                #endif
+            }
+            else
+            {
+            }
+        }
         else
-        	printf("\t");
-#endif
+        {
+        }
+    }
+    else
+    {
+    }
 }
 
 /**************************************************************************************************/
+/**
+ * @brief Calculate Speed in Miles
+ *
+ * This function calculates the speed in miles based on received pulses.
+ * @param[in] void
+ *
+ * @return void
+ *
+ */
 void vCalculateSpeedInMiles(void)
 {
     vCalculateSpeedInKm();
 //    ulspeedInMiles = ( (ulSpeedInKm * ucKmToMilesSpeedMultiFactor) / ucKmToMilesDivisionFactor );
     ulspeedInMiles = ( (ulSpeedInKm * 1000) / 1609 );
-#if(SPEEDO_TEST_MACRO == 1)
-    printf("M/h: %d\n\n", ulspeedInMiles);   //Debug purpose
-    printf("Multi: %d\tDiv: %d\n", ucKmToMilesSpeedMultiFactor, configKM_TO_MILES_DIV_FACTOR);
-#endif
+	#if(SPEEDO_TEST_MACRO == 1)
+		printf("M/h: %d\n\n", ulspeedInMiles);   //Debug purpose
+		printf("Multi: %d\tDiv: %d\n", ucKmToMilesSpeedMultiFactor, configKM_TO_MILES_DIV_FACTOR);
+	#endif
 
 }
 
 /**************************************************************************************************/
+/**
+ * @brief Validate the Speed Value
+ *
+ * This function checks if the current speed in kilometers per hour (KMPH) exceeds the maximum allowable
+ * vehicle speed. If it does, the speed is set to an error value.
+ *
+ * @param[in] void
+ *
+ * @return void
+ *
+ */
 void vValidateSpeed(void)
 {
 	if(ulSpeedInKm > configMAX_VEH_SPEED_IN_KM)
@@ -253,11 +314,21 @@ void vValidateSpeed(void)
 }
 
 /**************************************************************************************************/
+/**
+ * @brief Calculate the Pulse Delta Counter
+ *
+ * This function calculates the pulse difference between the current and previous counts, adjusting for rollover if the delta is negative.
+ *
+ * @param[in] void
+ *
+ * @return uint32_t The calculated pulse delta.
+ *
+ */
 uint32_t vPulseDeltaCounter(void)
 {
 	ulCurrentReceivedPulses = xGetRollingPulseCount(ODO_SPEEDO_CHANNEL);
 
-	sllDelta = ulCurrentReceivedPulses - ulPreviousReceivedPulses;
+	sllDelta =(int64_t)ulCurrentReceivedPulses - (int64_t)ulPreviousReceivedPulses;
 
 	if(sllDelta < 0 )
 	{
@@ -265,10 +336,21 @@ uint32_t vPulseDeltaCounter(void)
 	}
 
 	ulPreviousReceivedPulses =  ulCurrentReceivedPulses;
-	return sllDelta;
+	return (uint32_t)sllDelta;
 }
 
 /**************************************************************************************************/
+/**
+ * @brief Check if the Speed Exceeds the Safe Limit
+ *
+ * This function checks whether the current speed exceeds the safe threshold based on the selected
+ * speed unit (KMPH or MPH) and sets a flag accordingly.
+ *
+ * @param[in] void
+ *
+ * @return bool Returns true if the safe speed limit is exceeded, false otherwise.
+ *
+ */
 bool xSafeSpeedCheck(void)
 {
     if(speedoUnits == SPEED_IN_KMPH)
@@ -329,10 +411,8 @@ void vCustomizeSpeedUnits(void)
  * 
  * This function is designed to provide the latest updated Speed readings at the same time it need to update the out parameters namely SpeedoUnits and speedStatus
  *
- *@param SpeedoUnits  It provides the vehicle's Speedo Units information
+ *@param void
  *
- * @param speedStatus It provides the information indicating that the speed value has exceeded the safe threshold limit.
- * 
  * @return uint16_t  This return parameter provides the latest updated Speed value
  */
 uint32_t xGetSpeedValue(void)
@@ -359,11 +439,32 @@ uint32_t xGetSpeedValue(void)
 }
 
 /**************************************************************************************************/
-uint32_t GetSpeedValueInKM(void)
+/**
+ * @brief Get the Current Speed in Kilometers per Hour (KMPH)
+ *
+ * This function returns the current speed value in kilometers per hour.
+ *
+ * @param[in] void
+ *
+ * @return uint32_t The current speed in KMPH.
+ *
+ */
+uint32_t xGetSpeedValueInKM(void)
 {
 	return ulSpeedInKm;
 }
 /**************************************************************************************************/
+/**
+ * @brief Dampen Speed Value Fluctuations
+ *
+ * This function smooths out speed value fluctuations by comparing the current speed with the previous one.
+ * If the speed difference exceeds a threshold, the current speed is updated; otherwise, the previous speed is retained.
+ *
+ * @param[in] void
+ *
+ * @return void
+ *
+ */
 void prvSpeedDampOut(void)
 {
 	presSpeedVal = ulSpeedValue;
@@ -383,4 +484,3 @@ void prvSpeedDampOut(void)
 	}
 }
 /**************************************************************************************************/
-#endif	/* SPEEDOMETER_C */

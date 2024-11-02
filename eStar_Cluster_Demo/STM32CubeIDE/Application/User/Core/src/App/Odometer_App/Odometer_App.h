@@ -7,7 +7,7 @@
  *
  * File Short Name: 
  *
- * Author: 
+ * Author: Monika
  *
  * Create Date: 
  *
@@ -17,13 +17,6 @@
  * forbidden unless prior written permission is obtained from
  * eSTAR TECHNOLOGIES(OPC) PRIVATE LIMITED
  ********************************************************************************************** @}*/
-
-/* 
- * File:   Odometer_App.h
- * Author: Monika
- *
- * Created on February 28, 2024, 4:09 PM
- */
 
 #ifndef ODOMETER_H
 #define	ODOMETER_H
@@ -80,8 +73,8 @@ extern "C" {
 #endif
 
 uint32_t xGetOdoReadings(void);
-uint16_t xGetTripA_OdoReading(void);
-uint16_t xGetTripB_OdoReading(void);
+uint32_t xGetTripA_OdoReading(void);
+uint32_t xGetTripB_OdoReading(void);
 #ifdef __cplusplus
 }
 #endif

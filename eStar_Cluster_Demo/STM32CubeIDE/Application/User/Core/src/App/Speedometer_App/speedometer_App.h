@@ -64,7 +64,7 @@ extern "C"
 
 uint32_t xGetSpeedValue(void);
 
-uint32_t GetSpeedValueInKM(void);
+uint32_t xGetSpeedValueInKM(void);
 
 
 #ifdef __cplusplus

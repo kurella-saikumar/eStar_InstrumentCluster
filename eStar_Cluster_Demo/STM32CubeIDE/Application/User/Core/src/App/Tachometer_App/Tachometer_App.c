@@ -6,7 +6,7 @@
  *
  * File Short Name: 
  *
- * Author: 
+ * Author: Meghana
  *
  * Create Date: 
  *
@@ -16,14 +16,7 @@
  * forbidden unless prior written permission is obtained from
  * eSTAR TECHNOLOGIES(OPC) PRIVATE LIMITED
  ********************************************************************************************** @}*/
-/* 
- * File:   Tachometer.c
- * Author: 
- *
- */
 
-#ifndef TACHOMETER_C
-#define	TACHOMETER_C
 
 
 /**************************************************************************************************
@@ -35,6 +28,7 @@
 #include"stdio.h"
 #include "inttypes.h"
 #include "IGN_SmHandler.h"
+#include "eeprom_emul_cfg.h"
 /**************************************************************************************************
  * Include Project Specific Headers
  ***************************************************************************************************/
@@ -53,16 +47,8 @@
 
 	uint32_t ulRpm = 0;
 	uint32_t ulPreviousCapture = 0;
-	uint32_t ulPresentCapture = 0;
-	int64_t slDeltaPulse = 0;
-	uint32_t ulFrequency = 0;
 	//IndicationStatus_t *Indication;
 	bool status = false;
-
-
-
-
-
 
 /**************************************************************************************************
  * DECLARE FILE SCOPE STATIC VARIABLES
@@ -110,32 +96,27 @@ void vTacho_Init(void)
 void vMeasureRPM(void)
 {
 
-	ulPresentCapture = xGetRollingPulseCount(1);
-	slDeltaPulse = ulPresentCapture - ulPreviousCapture;
+	uint32_t ulPresentCapture = xGetRollingPulseCount(1);
+	int64_t slDeltaPulse = (int64_t)ulPresentCapture - (int64_t)ulPreviousCapture;
 
     if(slDeltaPulse < 0)
     {
 
     	slDeltaPulse = UINT32_MAX + slDeltaPulse;
     }
-    ulFrequency = (slDeltaPulse) / configTIME; // Assuming TIME is in miliseconds
-
-    if(ulFrequency >= (UINT32_MAX / 60))
-    {
-    	ulRpm= UINT32_MAX;
-    }
-    else
-    {
-    	ulRpm = ((ulFrequency * 60) / configFIXED_PPR_VALUE);
-    }
-#if(TACHO_TEST_MACRO == 1)
-    //printf("Ap: %ld\r\t",ulPresentCapture);
-   // printf("Td: %llu\t", slDeltaPulse);
+    uint32_t ulFrequency = (slDeltaPulse) / configTIME; // Assuming TIME is in miliseconds
+    ulRpm = ((ulFrequency * 60) / *eepromVariables[13]);
+//    printf("Ap: %ld\r\t",ulPresentCapture);
 //    printf("pv:%ld\r\t",ulPreviousCapture);
-//    ulRpm = ( ulPresentCapture / 16)* 1000;
 //    printf("rpm %lu\r\n", ulRpm);
-    //  printf("RPM:%ld\n\r",ulRpm);
-#endif
+	#if(TACHO_TEST_MACRO == 1)
+		printf("Ap: %ld\r\t",ulPresentCapture);
+	    printf("Td: %llu\t", slDeltaPulse);
+	    printf("pv:%ld\r\t",ulPreviousCapture);
+	    ulRpm = ( ulPresentCapture / 16)* 1000;
+	    printf("rpm %lu\r\n", ulRpm);
+		//printf("RPM:%ld\n\r",ulRpm);
+	#endif
       ulPreviousCapture = ulPresentCapture;
 
 }
@@ -152,7 +133,7 @@ uint16_t xGet_TachometerData(void)
 {
 	Status.indicators.tachometer_indicator = 0;
 
-    if( ulRpm >= configMAXIMUM_ENGINE_RPM || ulRpm <= configIDLE_ENGINE_RPM)
+    if( ulRpm >= *eepromVariables[11] || ulRpm <= *eepromVariables[9])
 	{
     	Status.indicators.tachometer_indicator = 1;
 	}
@@ -194,5 +175,4 @@ void vTacho_App(void)
     
    
 }
-#endif	/* TACHOMETER_C */
 

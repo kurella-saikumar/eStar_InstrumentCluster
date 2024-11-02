@@ -6,9 +6,9 @@
  *
  * File Short Name: Tachometer_App.h
  *
- * @author: _________
+ * @author: Meghana
  *
- * @date: __________
+ * @date:
  *
  * @copyright:  All information contained herein is, and remains the property of
  * eSTAR TECHNOLOGIES(OPC) PRIVATE LIMITED and its suppliers, if any.

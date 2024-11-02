@@ -1,9 +1,27 @@
-/*
- * DisplayService.c
+/** \addtogroup
+ *  @{
+ * @file DisplayBacklightBrightness.c
+ * @file
+ * @brief Template Source File
  *
- *  Created on: Apr 25, 2024
- *      Author: 91810
- */
+ * File Short Name:
+ *
+ * Author: Meghana
+ *
+ * Create Date:
+ *
+ * Copyright:  All information contained herein is, and remains the property of
+ * eSTAR TECHNOLOGIES(OPC) PRIVATE LIMITED and its suppliers, if any.
+ * Dissemination of this information or reproduction of this material is strictly
+ * forbidden unless prior written permission is obtained from
+ * eSTAR TECHNOLOGIES(OPC) PRIVATE LIMITED
+ ********************************************************************************************** @}*/
+
+
+
+/**************************************************************************************************
+ * Include Platform or Standard Headers
+ ***************************************************************************************************/
 
 #include "main.h"
 #include "stm32h735g_discovery_errno.h"
@@ -20,6 +38,8 @@ void vBacklightBrightness(void);
 #define LCD_BL_CTRL_PIN                       GPIO_PIN_15
 #define LCD_BL_CTRL_GPIO_PORT                 GPIOG
 #define LCD_INSTANCES_NBR      			      1U
+
+
 
 /**
   * @brief  Switch On the display.
@@ -48,6 +68,8 @@ int32_t BSP_LCD_DisplayOn(uint32_t Instance)
   return ret;
 }
 
+
+
 /**
   * @brief  Switch Off the display.
   * @param  Instance    LCD Instance
@@ -74,6 +96,9 @@ int32_t BSP_LCD_DisplayOff(uint32_t Instance)
 
   return ret;
 }
+
+
+
 void vBacklightBrightness(void)
 {
 	BSP_LCD_DisplayOff(0);

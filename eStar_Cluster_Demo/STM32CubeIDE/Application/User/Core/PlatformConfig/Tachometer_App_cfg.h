@@ -4,11 +4,11 @@
  *
  * @brief This file contains an example template of how the .h 
  *
- * File Short Name: tmpl
+ * File Short Name:
  *
- * @author: _________
+ * @author:Meghana
  *
- * @date: __________
+ * @date:
  *
  * @copyright:  All information contained herein is, and remains the property of
  * eSTAR TECHNOLOGIES(OPC) PRIVATE LIMITED and its suppliers, if any.
@@ -35,7 +35,7 @@
 #define configMAXIMUM_ENGINE_RPM 12000
 //#define ERROR_THRESHOLD_RPM  >12000 
 #define configFIXED_PPR_VALUE 1
-#define configTIME 100
+#define configTIME TACHO_TASK_DELAY_IN_MS
 
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE TYPES

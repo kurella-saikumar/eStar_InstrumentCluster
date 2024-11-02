@@ -18,7 +18,9 @@ IndicationStatus_t   Status;
 
 #if 1
 //clock variables//
+extern RTC_HandleTypeDef hrtc;
 extern RTC_TimeTypeDef xTime;
+extern RTC_TimeTypeDef xEditTime;
 uint8_t Hours;
 uint8_t Minutes;
 uint8_t Seconds;
@@ -164,11 +166,23 @@ void Model::Clock()
 	Minutes = xTime.Minutes;
 	Seconds = xTime.Seconds;
 	TimeFormat = xTime.TimeFormat;
+	uint8_t l_12_24_Hrs_Flag=0xFF;
+
+		if(hrtc.Init.HourFormat == RTC_HOURFORMAT_12)
+		{
+			l_12_24_Hrs_Flag=1; //12hrs if this flag set to 1
+			//printf("12 HRS FORMAT\r\n");
+		}
+		else
+		{
+			l_12_24_Hrs_Flag=0; //24hrs if this flag set to 0
+			//printf("24 HRS FORMAT\r\n");
+		}
 
 	// Notify listener about Clock data change
 	if(modelListener !=0)
 	{
-		modelListener->notifyClockDataChanged(Hours,Minutes,Seconds,TimeFormat);
+		modelListener->notifyClockDataChanged(Hours,Minutes,Seconds,TimeFormat,l_12_24_Hrs_Flag);
 	}
 }
 

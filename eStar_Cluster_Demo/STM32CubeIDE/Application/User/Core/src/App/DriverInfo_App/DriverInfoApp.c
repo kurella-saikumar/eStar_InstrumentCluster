@@ -155,7 +155,7 @@ void vCalculateAVS(void)
 	DriverInfo_Units_t SpeedUnits = 0;
 
 	SpeedUnits = xGetToggleMetrics();
-	ulSpeedValue = GetSpeedValueInKM();
+	ulSpeedValue = xGetSpeedValueInKM();
 	ulSpeedMovAvg = calculateMovingAverage(ulSpeedValue,&l_AVS_MA_t);
 
 
@@ -180,13 +180,17 @@ void vCalculateAVS(void)
 #if(FUEL_TEST_MACRO == 0)
 uint8_t prvFuelSimulation(void)
 {
-	static uint8_t ucsimulatedFuel = 100;
+	static uint8_t simulatedFuel = 100;
+	static uint16_t secsCounter = 1;
 
-	if(ucsimulatedFuel <= 0)
-		ucsimulatedFuel = 100;
-
-	ucsimulatedFuel = ucsimulatedFuel-20;
-	return ucsimulatedFuel;
+	if(secsCounter == 300)
+	{
+		/*Subtracting with 5 so that for every minute 2 lit fuel will be decreased*/
+		simulatedFuel = simulatedFuel-1;
+		secsCounter = 0;
+	}
+	secsCounter++;
+	return simulatedFuel;
 }
 #endif
 
@@ -232,25 +236,28 @@ void vCalculateAFE(void)
 	ulfinalDistanceinKm = ulOdoInKm;
 	ulDeltaDistanceinKm = ulfinalDistanceinKm - ulinitialDistanceinKm;
 
-#if(FUEL_TEST_MACRO == 0)
+#if(FUEL_TEST_MACRO == 1)
 	ucfinalFuelPercentage = xGetFuelLevel();
+	printf("F:%ld\r\n",ucfinalFuelPercentage);
 #endif
 
-#if(FUEL_TEST_MACRO == 1)
+#if(FUEL_TEST_MACRO == 0)
 	ucfinalFuelPercentage = prvFuelSimulation();
+//	printf("F1:%ld\r\n",ucfinalFuelPercentage);
+
 #endif
 
 
 	if((ulDeltaDistanceinKm == 0) && (ulpreviousAFEinKmperLitre == 0))
 	{
 		ulinitialDistanceinKm = ulfinalDistanceinKm;
-		ucinitialFuelPercentage = ucfinalFuelPercentage;
+		//ucinitialFuelPercentage = ucfinalFuelPercentage;
 		ulAfeinKmperLitre = DEFAULT_AFE;
 	}
 	else if((ulDeltaDistanceinKm == 0) && (ulpreviousAFEinKmperLitre != 0))
 	{
 		ulinitialDistanceinKm = ulfinalDistanceinKm;
-		ucinitialFuelPercentage = ucfinalFuelPercentage;
+		//ucinitialFuelPercentage = ucfinalFuelPercentage;
 		ulAfeinKmperLitre = ulpreviousAFEinKmperLitre;
 	}
 
@@ -282,7 +289,7 @@ void vCalculateAFE(void)
 		{
 			usdeltaFuelInLitres = (uint16_t)(prvconvert_FuelPercentageToLitres(usdeltaFuelInPercentage));
 			usAverageFuel = calculateMovingAverage(usdeltaFuelInLitres,&l_Fuel_MA_t);
-			//printf("Fuel_MA:%u\t", usAverageFuel);
+//			printf("Fuel_MA:%u\t", usAverageFuel);
 
 			if (usAverageFuel == 0)
 			{
@@ -292,7 +299,12 @@ void vCalculateAFE(void)
 			else
 			{
 				ulAfeinKmperLitre = (ulAverageDitsance * 10) /(uint32_t)(usAverageFuel);
-				//printf("AFE_C:%ld\n\r", ulAfeinKmperLitre);
+				ulAfeinKmperLitre = ulAfeinKmperLitre * 10;
+
+//				printf("iD: %ld\tfD: %ld\tDd:%ld\r\n",ulinitialDistanceinKm, ulfinalDistanceinKm, ulDeltaDistanceinKm);
+//				printf("iF:%ld\tfF:%ld\tdF:%ld\r\n",ucinitialFuelPercentage, ucfinalFuelPercentage, usdeltaFuelInPercentage);
+//				printf("aD: %ld\taF: %ld\tAFE:%ld\n\r", ulAverageDitsance, usAverageFuel, ulAfeinKmperLitre);
+
 				ulinitialDistanceinKm = ulfinalDistanceinKm;
 				ucinitialFuelPercentage = ucfinalFuelPercentage;
 			}

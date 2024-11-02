@@ -210,18 +210,31 @@ void Screen1View::MetricsToggle(uint8_t newMetrics)
 }
 
 
-void Screen1View:: ClockUpdate (uint8_t Hours,uint8_t Minutes,uint8_t Seconds, uint8_t TimeFormat)
+void Screen1View:: ClockUpdate (uint8_t Hours,uint8_t Minutes,uint8_t Seconds, uint8_t TimeFormat,uint8_t l_12_24_Hrs_Flag)
 {
 
 	Current_Hours = Hours;
 	Current_Minutes = Minutes;
 	Current_Seconds = Seconds;
-
+	const char* amPmText;
 	Unicode::snprintf(Clock_HRBuffer, CLOCK_HR_SIZE, "%d", Hours);
 	Unicode::snprintf(Clock_MNBuffer, CLOCK_MN_SIZE, "%d", Minutes);
-	//const char* amPmText = (TimeFormat == 0) ? "AM" : "PM";
-	const char* amPmText = (TimeFormat == 0) ? "" : "";
-	Unicode::snprintf(AM_PMBuffer, AM_PM_SIZE, amPmText);
+//	//const char* amPmText = (TimeFormat == 0) ? "AM" : "PM";
+//	const char* amPmText = (TimeFormat == 0) ? "" : "";
+//	Unicode::snprintf(AM_PMBuffer, AM_PM_SIZE, amPmText);
+	if(l_12_24_Hrs_Flag == 1)
+	{
+		amPmText = (TimeFormat == 0) ? "AM" : "PM";
+		Unicode::snprintf(AM_PMBuffer, AM_PM_SIZE, amPmText);
+		AM_PM.invalidate();
+	}
+
+	else
+	{
+		amPmText = "HR";
+		Unicode::snprintf(AM_PMBuffer, AM_PM_SIZE, amPmText );
+		AM_PM.invalidate();
+	}
 
 	if (Previous_Seconds != Current_Seconds)  // Adjust this value to control blink frequency
 	{
@@ -240,6 +253,8 @@ void Screen1View::startBlinkingHours(void)
     Clock_HR.invalidate();
     Clock_MN.setVisible(true);
     Clock_MN.invalidate();
+    AM_PM.setVisible(true);
+    AM_PM.invalidate();
 }
 
 void Screen1View::startBlinkingMinutes(void)
@@ -248,6 +263,18 @@ void Screen1View::startBlinkingMinutes(void)
     Clock_MN.invalidate();
     Clock_HR.setVisible(true);
     Clock_HR.invalidate();
+    AM_PM.setVisible(true);
+    AM_PM.invalidate();
+}
+
+void Screen1View::startBlinkingAmPm(void)
+{
+	AM_PM.setVisible(!AM_PM.isVisible());
+	AM_PM.invalidate();
+    Clock_HR.setVisible(true);
+    Clock_HR.invalidate();
+    Clock_MN.setVisible(true);
+    Clock_MN.invalidate();
 }
 
 void Screen1View::stopBlinking(void)
@@ -256,6 +283,8 @@ void Screen1View::stopBlinking(void)
     Clock_HR.invalidate();
     Clock_MN.setVisible(true);
     Clock_MN.invalidate();
+    AM_PM.setVisible(true);
+    AM_PM.invalidate();
 }
 
 
@@ -286,6 +315,10 @@ void Screen1View::ClockValueChangingMode(void)
 				{
         			startBlinkingMinutes();
 				}
+        		else if(ulShiftingPosition == E_CLOCK_AM_PM_POS)
+        		{
+        	     	startBlinkingAmPm();
+        		}
         		else
         		{
 
@@ -314,6 +347,10 @@ void Screen1View::ClockValueChangingMode(void)
 				else if(ulShiftingPosition == E_CLOCK_MINS_POS)
 				{
 					startBlinkingMinutes();
+				}
+				else if(ulShiftingPosition == E_CLOCK_AM_PM_POS)
+				{
+					startBlinkingAmPm();
 				}
 				else
 				{

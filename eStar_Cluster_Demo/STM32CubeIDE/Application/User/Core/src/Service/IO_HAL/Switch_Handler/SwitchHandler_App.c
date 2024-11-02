@@ -81,7 +81,8 @@ Switch_PushRelease_State_T eResetButtonPushReleaseState = BUTTON_RELEASED;
 extern ClockEditModeState_t eClockMode = CLOCK_MODE_INACTIVE; //eClockMode
 // Define a timer variable to track the count since the last button press
 
-uint32_t ulButtonTimeout = 0, ulButtonTimeoutStart = 0, ulButtonTimeoutEnd = 0;
+uint32_t ulButtonTimeout = 0;
+uint16_t usButtonTimeoutStart = 0, usButtonTimeoutEnd = 0;
 
 
 
@@ -358,7 +359,7 @@ void vHandleModeResetActions(void)
 #endif
             
             eClockMode = CLOCK_MODE_ACTIVE;
-            ulButtonTimeoutStart = HAL_GetTick(); // Reset the button timeout counter
+            usButtonTimeoutStart = HAL_GetTick(); // Reset the button timeout counter
             ucModeButtonEventStatus = 0xFF;
             ucResetButtonEventStatus = 0xFF;
             
@@ -370,8 +371,8 @@ void vHandleModeResetActions(void)
         // Increment button timeout counter if no button is pressed
         if (eModeButtonPushReleaseState == BUTTON_RELEASED && eResetButtonPushReleaseState == BUTTON_RELEASED)
         {
-        	ulButtonTimeoutEnd= HAL_GetTick();
-            ulButtonTimeout = ulButtonTimeoutEnd - ulButtonTimeoutStart;
+        	usButtonTimeoutEnd= HAL_GetTick();
+            ulButtonTimeout = usButtonTimeoutEnd - usButtonTimeoutStart;
             // Check if the timeout threshold has been reached
             if (ulButtonTimeout >= BUTTON_TIMEOUT_THRESHOLD)
             {
@@ -385,18 +386,10 @@ void vHandleModeResetActions(void)
             }
         }
     }
-    else if(ucResetButtonEventStatus == LONG_PRESS_RELEASED)
-        {
-        	if(eClockMode == CLOCK_MODE_ACTIVE)
-    		{
+    else
+    {
 
-        		ClockEditing = RESET_LONGPRESS_RELEASE;
-        		printf("longpress released-%d\n",ClockEditing);
-        		xClockSettingGetSetMode();
-    			//Button_Push_Event_T reset_status = getResetButtonStatus();
-    			ucResetButtonEventStatus = 0xFF;
-    		}
-        }
+    }
     if(ucModeButtonEventStatus == LONG_PRESS_HELD)
     {
         if(eClockMode == CLOCK_MODE_ACTIVE)
@@ -425,13 +418,21 @@ void vHandleModeResetActions(void)
         
     }
 
+    if(ucResetButtonEventStatus == LONG_PRESS_RELEASED)
+   {
+    	if(eClockMode == CLOCK_MODE_ACTIVE)
+		{
+			//Button_Push_Event_T reset_status = getResetButtonStatus();
+			ucResetButtonEventStatus = 0xFF;
+		}
+   }
 
     // Reset button timeout and statuses if clock mode is active and any button is short-pressed
     if ((eClockMode == CLOCK_MODE_ACTIVE) && (ucModeButtonEventStatus == SHORT_PRESS_HELD || ucResetButtonEventStatus == SHORT_PRESS_HELD))
     {
     	ulButtonTimeout = 0;
-    	ulButtonTimeoutEnd = HAL_GetTick();
-		 ulButtonTimeoutStart = HAL_GetTick();
+    	usButtonTimeoutEnd = HAL_GetTick();
+		 usButtonTimeoutStart = HAL_GetTick();
          ucModeButtonEventStatus = 0xFF;
          ucResetButtonEventStatus = 0xFF;
     }

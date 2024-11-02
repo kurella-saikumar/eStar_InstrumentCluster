@@ -24,7 +24,7 @@
 #include "clock_App.h"
 #include "../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h"
 #include "main.h"
-
+#include "stm32h7xx_hal_rtc.h"
 
 ClockEditModeState_t eclockMode ;
 /**************************************************************************************************
@@ -48,7 +48,8 @@ extern RTC_HandleTypeDef hrtc;
 /**************************************************************************************************
  * DECLARE FILE SCOPE STATIC VARIABLES
 ***************************************************************************************************/
-uint8_t ulHours,ulMinutes;
+uint8_t ulHours,ulMinutes,ulTimeFormat;
+;
 
 en_clockShiftingPositionType_t ulShiftingPosition = E_CLOCK_HOURS_POS;
 /*
@@ -88,6 +89,7 @@ void clock_Init(void)
 {
 	ulHours = xTime.Hours;
 	ulMinutes = xTime.Minutes;
+	ulTimeFormat = xTime.TimeFormat;
 	HAL_RTC_GetTime(&hrtc, &xTime, RTC_FORMAT_BIN);
 }
 
@@ -105,7 +107,19 @@ void vGet_Clock(void)
     else
     {
 #if(ClockApp_TestMacro == 0)
-    	printf("DT: %02d:%02d:%02d \n", xTime.Hours, xTime.Minutes, xTime.Seconds);
+    	//const char *am_pm = (xTime.TimeFormat == RTC_HOURFORMAT12_PM) ? "PM" : "AM";
+//    	const char *am_pm = NULL;
+//    	if(xTime.TimeFormat == RTC_HOURFORMAT12_PM)
+//    	{
+//    		am_pm = "PM";
+//    		printf("TimeFormat == PM\r\n");
+//    	}
+//    	else
+//    	{
+//    		am_pm = "AM";
+//    		printf("TimeFormat == AM\r\n");
+//    	}
+    	printf("DT: %02d:%02d:%02d:%d \n", xTime.Hours, xTime.Minutes, xTime.Seconds, xTime.TimeFormat);
 #endif
     }
     xRes = HAL_RTC_GetDate(&hrtc, &xDate, RTC_FORMAT_BIN);
@@ -133,9 +147,12 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 #if(ClockApp_TestMacro == 1)
 		printf("Clock Edit Mode Entry\n");
 #endif
+
 		HAL_RTC_GetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
 		ulHours = xEditTime.Hours;
 		ulMinutes = xEditTime.Minutes;
+		ulTimeFormat = xEditTime.TimeFormat;
+
 #if(ClockApp_TestMacro == 1)
 		printf("Hours:%02d,Minutes:%02d \n", ulHours, ulMinutes);
 #endif
@@ -191,10 +208,18 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
       case RESET_SHORTPRESS:
     	if (ulShiftingPosition == E_CLOCK_HOURS_POS)
     	{
+    		HAL_RTC_GetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
+
 			//Increment hours
 			xEditTime.Hours++;
+			HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
 			// Ensure hours wrap around correctly
-			xEditTime.Hours %= 24;
+			xEditTime.Hours %= (hrtc.Init.HourFormat == RTC_HOURFORMAT_24) ? 24 : 12;
+			if(xEditTime.Hours == 24)
+			{
+				xEditTime.Hours = 0;
+			}
+
 			HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
 #if(ClockApp_TestMacro == 1)
 			//printf("case5");
@@ -215,10 +240,6 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 #if(ClockApp_TestMacro == 1)
 				//printf("Case5\n");
 #endif
-				// Increment hours
-//				xEditTime.Hours++;
-				// Ensure hours wrap around correctly
-//				xEditTime.Hours %= 24;
 			}
 			else
 			{
@@ -228,12 +249,78 @@ void clockSettingRunMode(ClockEditActions_t clockSettingMode)
 #endif
 			}
 		}
+        else if (ulShiftingPosition == E_CLOCK_AM_PM_POS)
+        {
+        	Switch_Clock_Format();
+        }
+        else
+        {
+
+        }
+
        break;
        default:
     	   // Handle unknown mode
        break;
 	}
 }
+
+
+void Switch_Clock_Format(void) {
+    if (hrtc.Init.HourFormat == RTC_HOURFORMAT_24)
+    {
+
+//        hrtc.Init.HourFormat = RTC_HOURFORMAT_12;
+
+        HAL_RTC_GetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
+
+        if (xEditTime.Hours >= 12)
+        {
+        	if(xEditTime.Hours > 12)
+        	{
+        		xEditTime.Hours -= 12;
+        	}
+        	xEditTime.TimeFormat = RTC_HOURFORMAT12_PM;
+        }
+        else if(xEditTime.Hours == 0)
+		{
+        	xEditTime.Hours = 12;
+			xEditTime.TimeFormat = RTC_HOURFORMAT12_AM;
+		}
+        else
+		{
+        	xEditTime.TimeFormat = RTC_HOURFORMAT12_AM;
+        }
+        Hr12_RTC_Init();
+    }
+    else
+    {
+        // Switch to 24-hour format
+//        hrtc.Init.HourFormat = RTC_HOURFORMAT_24;
+
+        HAL_RTC_GetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
+
+        if ((xEditTime.Hours < 12) && (xEditTime.TimeFormat == RTC_HOURFORMAT12_PM))
+        {
+            xEditTime.Hours += 12;  // Convert PM to 24-hour format
+        }
+        else if ((xEditTime.TimeFormat == RTC_HOURFORMAT12_AM) && (xEditTime.Hours == 12))
+        {
+            xEditTime.Hours = 0;  // Handle 12:00 AM as 00:00 in 24-hour format
+        }
+//		HAL_RTC_Init(&hrtc);
+//        HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
+		Hr24_RTC_Init();
+    }
+
+    //HAL_RTC_Init(&hrtc);
+}
+
+
+
+
+
+
 
 void vClock_exit(void)
 {
@@ -283,6 +370,54 @@ void ContinousIncrement(void)
 			printf("ContinousIncrement_Minutes:%d",xEditTime.Minutes);
 #endif
 	}
+    else if (ulShiftingPosition == E_CLOCK_AM_PM_POS)
+    {
+    	HAL_RTC_GetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
+		if(hrtc.Init.HourFormat != RTC_HOURFORMAT_12)
+		{
+			hrtc.Init.HourFormat = RTC_HOURFORMAT_12;
+			if(xEditTime.Hours>12)
+			{
+				xEditTime.Hours -=12;
+			}
+			else if(xEditTime.Hours==0)
+			{
+				xEditTime.Hours=12;
+			}
+			else
+			{
+
+			}
+
+			if (xEditTime.TimeFormat != RTC_HOURFORMAT12_AM)
+			{
+				xEditTime.TimeFormat = RTC_HOURFORMAT12_AM;
+			}
+			else
+			{
+				xEditTime.TimeFormat = RTC_HOURFORMAT12_PM;
+			}
+			HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
+		}
+		else
+		{
+			hrtc.Init.HourFormat = RTC_HOURFORMAT_24;
+			if(xEditTime.Hours < 12)
+			{
+				xEditTime.Hours +=12;
+			}
+			HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
+		}
+
+		if (HAL_RTC_Init(&hrtc) != HAL_OK)
+		{
+			Error_Handler();
+		}
+
+		HAL_RTC_GetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN);
+		printf("Date: %02d:%02d:%02d:%d:%ld \n", xTime.Hours, xTime.Minutes, xTime.Seconds, xTime.TimeFormat,hrtc.Init.HourFormat );
+
+    }
 	else
 
 	{
@@ -306,7 +441,112 @@ void vClockIncreament(void)
 	}
 
 }
+
+
 /** end*/ /** @enduml */
+/**
+  * @brief RTC Initialization Function
+  * @param None
+  * @retval None
+  */
+void Hr12_RTC_Init(void)
+{
+  HAL_RTC_DeInit(&hrtc);
+  RTC_TimeTypeDef sTime = {0};
+  RTC_DateTypeDef sDate = {0};
+
+  /* USER CODE BEGIN RTC_Init 1 */
+
+  /* USER CODE END RTC_Init 1 */
+
+  /** Initialize RTC Only
+  */
+  hrtc.Instance = RTC;
+  hrtc.Init.HourFormat = RTC_HOURFORMAT_12;
+  hrtc.Init.AsynchPrediv = 127;
+  hrtc.Init.SynchPrediv = 255;
+  hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
+  hrtc.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
+  hrtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
+  hrtc.Init.OutPutRemap = RTC_OUTPUT_REMAP_NONE;
+  if (HAL_RTC_Init(&hrtc) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /* USER CODE BEGIN Check_RTC_BKUP */
+
+  /* USER CODE END Check_RTC_BKUP */
+
+  /** Initialize RTC and set the Time and Date
+  */
+  if (HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+   (void)HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
+
+
+  if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BIN) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+}
+
+
+
+/**
+  * @brief RTC Initialization Function
+  * @param None
+  * @retval None
+  */
+void Hr24_RTC_Init(void)
+{
+  HAL_RTC_DeInit(&hrtc);
+  RTC_TimeTypeDef sTime = {0};
+  RTC_DateTypeDef sDate = {0};
+
+  /* USER CODE BEGIN RTC_Init 1 */
+
+  /* USER CODE END RTC_Init 1 */
+
+  /** Initialize RTC Only
+  */
+  hrtc.Instance = RTC;
+  hrtc.Init.HourFormat = RTC_HOURFORMAT_24;
+  hrtc.Init.AsynchPrediv = 127;
+  hrtc.Init.SynchPrediv = 255;
+  hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
+  hrtc.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_HIGH;
+  hrtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
+  hrtc.Init.OutPutRemap = RTC_OUTPUT_REMAP_NONE;
+  if (HAL_RTC_Init(&hrtc) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /* USER CODE BEGIN Check_RTC_BKUP */
+
+  /* USER CODE END Check_RTC_BKUP */
+
+  /** Initialize RTC and set the Time and Date
+  */
+  if (HAL_RTC_SetTime(&hrtc, &xEditTime, RTC_FORMAT_BIN) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+   (void)HAL_RTC_GetDate(&hrtc, &sDate, RTC_FORMAT_BIN);
+
+
+  if (HAL_RTC_SetDate(&hrtc, &sDate, RTC_FORMAT_BIN) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+}
 /**************************************************************************************************
  * End Of File
 ***************************************************************************************************/
@@ -337,7 +577,7 @@ void vClockIncreament(void)
 
 
 
-	
+
 
 
 

@@ -42,6 +42,7 @@ typedef enum
 {
 	E_CLOCK_HOURS_POS,
 	E_CLOCK_MINS_POS,
+	E_CLOCK_AM_PM_POS,
 	E_CLOCK_INVALID_POS
 
 }en_clockShiftingPositionType_t;
@@ -55,12 +56,15 @@ extern en_clockShiftingPositionType_t ulShiftingPosition;
  * DEFINE GLOBAL SCOPE FUNCTION PROTOTYPES
 ***************************************************************************************************/
 extern void clock_Init(void);
+void Hr12_RTC_Init(void);
+void Hr24_RTC_Init(void);
 //extern void vGet_Clock(struct tm CurrentTime);
 //extern void vGet_Clock(void);
 //extern void clockSettingRunMode(Clock_Edit_Actions clockSettingMode);
 extern void vClock_exit(void);
 extern void ContinousIncrement(void);
 extern void vClockIncreament(void);
+void Switch_Clock_Format(void);
 
 #ifdef __cplusplus
 extern "C" {

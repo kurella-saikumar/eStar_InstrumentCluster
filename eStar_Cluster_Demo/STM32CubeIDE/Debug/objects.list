@@ -1,3 +1,7 @@
+"./Application/User/Core/AppTask.o"
+"./Application/User/Core/DisplayInit.o"
+"./Application/User/Core/InstrumentClusterInit.o"
+"./Application/User/Core/SafetyCheckPluginDemo.o"
 "./Application/User/Core/freertos.o"
 "./Application/User/Core/main.o"
 "./Application/User/Core/stm32h7xx_hal_msp.o"

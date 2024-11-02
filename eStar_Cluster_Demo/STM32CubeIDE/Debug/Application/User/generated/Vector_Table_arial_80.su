@@ -1,2 +1,2 @@
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/fonts/src/Vector_Table_arial_80.cpp:26:221:void __tcf_0()	0	static
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/fonts/src/Vector_Table_arial_80.cpp:24:32:touchgfx::GeneratedVectorFont& getFont_vector_arial_80()	24	static
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/fonts/src/Vector_Table_arial_80.cpp:26:221:void __tcf_0()	0	static
+E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/fonts/src/Vector_Table_arial_80.cpp:24:32:touchgfx::GeneratedVectorFont& getFont_vector_arial_80()	24	static

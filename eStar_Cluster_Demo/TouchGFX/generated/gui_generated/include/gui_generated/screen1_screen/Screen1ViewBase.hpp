@@ -100,7 +100,7 @@ protected:
     touchgfx::Unicode::UnicodeChar Clock_HRBuffer[CLOCK_HR_SIZE];
     static const uint16_t CLOCK_MN_SIZE = 10;
     touchgfx::Unicode::UnicodeChar Clock_MNBuffer[CLOCK_MN_SIZE];
-    static const uint16_t AM_PM_SIZE = 5;
+    static const uint16_t AM_PM_SIZE = 10;
     touchgfx::Unicode::UnicodeChar AM_PMBuffer[AM_PM_SIZE];
 
 private:

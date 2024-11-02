@@ -30,6 +30,7 @@
 #include "main.h"
 #include "stdio.h"
 #include "STM32H735xx.h"
+#include "Tachometer_App.h"
 /**************************************************************************************************
  * DEFINE GLOBAL SCOPE MACROS
 ***************************************************************************************************/
@@ -61,11 +62,11 @@
 #define SPEEDO_UNITS							(uint32_t)(0x000A)
 #define SPEEDO_MAX_SPEED_PULSE_COUNT			(uint32_t)(0x000A)
 #define SPEEDO_THRESHOLD						(uint32_t)(0x000A)
-#define TACHO_IDLE_ENGINE_RPM 					(uint32_t)(0x000A)
+#define TACHO_IDLE_ENGINE_RPM 					(uint32_t)(configIDLE_ENGINE_RPM)
 #define TACHO_WARNING_ENGINE_RPM				(uint32_t)(0x000A)
-#define TACHO_MAXIMUM_ENGINE_RPM				(uint32_t)(0x000A)
+#define TACHO_MAXIMUM_ENGINE_RPM				(uint32_t)(configMAXIMUM_ENGINE_RPM)
 #define TACHO_ERROR_THRESHOLD_RPM				(uint32_t)(0x000A)
-#define TACHO_FIXED_PPR_VALUE					(uint32_t)(0x000A)
+#define TACHO_FIXED_PPR_VALUE					(uint32_t)(configFIXED_PPR_VALUE)
 #define FUEL_TANK_CAPACITY						(uint32_t)(0x000A)
 #define FUEL_WARNING_THRESHOLD_VALUE			(uint32_t)(0x000A)
 #define SERVICE_REQUEST_THRESHOLD_DISTANCE		(uint32_t)(0x000A)

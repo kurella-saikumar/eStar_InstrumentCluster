@@ -24,7 +24,7 @@ public:
     virtual void AVSValue(uint32_t newAVS);
     virtual void AFEValue(uint32_t newAFE);
     virtual void RANGEValue(uint16_t newRANGE);
-    virtual void ClockUpdate (uint8_t Hours,uint8_t Minutes,uint8_t Seconds,uint8_t TimeFormat);
+    virtual void ClockUpdate (uint8_t Hours,uint8_t Minutes,uint8_t Seconds,uint8_t TimeFormat,uint8_t l_12_24_Hrs_Flag);
     //virtual void ClockValueChangingMode(uint8_t ClockEditingMode);
     virtual void SwitchingModes(uint8_t SwitchStatus);
     virtual void IndicatorsStatus(IndicationStatus_t newIndicators);
@@ -98,7 +98,9 @@ protected:
 //    void updateClock_MinutesVisibility(void);
     void startBlinkingHours(void);
     void startBlinkingMinutes(void);
+    void startBlinkingAmPm(void);
     void stopBlinking(void);
+
 //    void StopHoursBlinking(void);
 //    void StopMinutesBlinking(void);
 

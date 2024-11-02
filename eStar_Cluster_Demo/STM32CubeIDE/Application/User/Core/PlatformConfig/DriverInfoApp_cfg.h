@@ -9,7 +9,7 @@
 #define DRIVERINFOAPP_CFG_H
 
 
-#define FUEL_TANK_CAPACITY 				40	  	/*The Total Capacity of Fuel Tank */
+#define FUEL_TANK_CAPACITY 				50	  	/*The Total Capacity of Fuel Tank */
 
 #define BLINK_THRESHOLD_LOW 			50	  	/*The DTE MINIMUM THRESHOLD Limit*/
 
@@ -23,7 +23,7 @@
 
 #define MAX_THRESHOLD_DTE  				FUEL_TANK_CAPACITY * IDLE_VEHICLE_MILEAGE * MULTIPLICATION_FACTOR /*The DTE MAXIMUM THRESHOLD Limit .Here (40 * 20 * 10 = 8000) but MAX_THRESHOLD_DTE value should be within the 800.0 threshold  */
 
-#define DEFAULT_AFE 					15.0	/*Manufacturer-provided value*/
+#define DEFAULT_AFE 					150	/*Manufacturer-provided value*/
 
 #define FINAL_FUEL_PERCENTAGE 			100		/*Initial fuel level in Percentages*/
 

@@ -41,6 +41,8 @@
  ***************************************************************************************************/
 #define configODO_TASK_PERIODICITY_IN_MS		   250U
 
+#define MAX_DISPLAYED_ODO_VAL_IN_KM			999999U
+#define MAX_DISPLAYED_ODO_VAL_IN_MILES		999999U
 #define MAX_ODO_VALUE_IN_KM 	(16093439UL)    /* 16,09,343.9 Km */
 #define MAX_ODO_VALUE_IN_MILES 	(99999999UL)    /* 9,99,999.9 Miles */
 #define PULSES_PER_1_METER 		(10U)
