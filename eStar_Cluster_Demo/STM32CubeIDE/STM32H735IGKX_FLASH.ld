@@ -426,7 +426,7 @@ SECTIONS
     *(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
     
-    *(image_background image_background_buf.*)
+    *(image_background_buf image_background_buf.*)
 	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
   } >HYPERRAM
