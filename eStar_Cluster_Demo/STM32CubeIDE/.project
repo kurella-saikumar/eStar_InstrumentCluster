@@ -919,11 +919,6 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/IndicatorIcons/HighBeam/image_HighBeam2.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/image_high_beam.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/IndicatorIcons/HighBeam/image_high_beam.cpp</locationURI>
-		</link>
-		<link>
 			<name>Application/User/generated/image_LeftIndicator1.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/IndicatorIcons/LeftIndicator/image_LeftIndicator1.cpp</locationURI>
@@ -1009,6 +1004,46 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/EngineOil/image_EngineOil2.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/image_EngineWarning_w.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/EngineWarning/image_EngineWarning_w.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_EngineWarning_y.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/EngineWarning/image_EngineWarning_y.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Parking_r.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/Parking/image_Parking_r.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Parking_w.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/Parking/image_Parking_w.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_SeatBelt_r.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/SeatBelt/image_SeatBelt_r.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_SeatBelt_w.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/SeatBelt/image_SeatBelt_w.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_ServiceReminder_w.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/ServiceReminder/image_ServiceReminder_w.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_ServiceReminder_y.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/ServiceReminder/image_ServiceReminder_y.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/image_TempIcon1.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/Temperature/image_TempIcon1.cpp</locationURI>
@@ -1019,54 +1054,9 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/Temperature/image_TempIcon2.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/image_EngineWarning_w.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_EngineWarning_w.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_EngineWarning_y.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_EngineWarning_y.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_Parking_r.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_Parking_r.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_Parking_w.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_Parking_w.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_SeatBelt_r.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_SeatBelt_r.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_SeatBelt_w.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_SeatBelt_w.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_ServiceReminder_w.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_ServiceReminder_w.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_ServiceReminder_y.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/WarningIndicators/image_ServiceReminder_y.cpp</locationURI>
-		</link>
-		<link>
 			<name>Application/User/generated/image_BackGround.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_BackGround.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_high_beam_1.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_high_beam_1.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/LanguageGb.cpp</name>

@@ -204,7 +204,7 @@ SECTIONS
     . = ALIGN(0x4);
   } >OSPI
   
-  BufferSection (NOLOAD) :
+BufferSection (NOLOAD) :
   {
 	*(TouchGFX_Framebuffer TouchGFX_Framebuffer.*)
     *(.gnu.linkonce.r.*)
