@@ -32,31 +32,31 @@ using namespace touchgfx;
 
 
 LOCATION_PRAGMA_NOLOAD("image_abs_detection1_buf")
-uint32_t ucImage_abs_detection1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_abs_detection1_buf");
+uint32_t ucImage_abs_detection1_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_abs_detection1_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_abs_detection2_buf")
-uint32_t ucImage_abs_detection2_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_abs_detection2_buf");
+uint32_t ucImage_abs_detection2_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_abs_detection2_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_background_buf")
 uint32_t ucImage_background_HypRAM[480*272]  LOCATION_ATTRIBUTE_NOLOAD("image_background_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_clustericons1_buf")
-uint32_t ucImage_clustericons1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_clustericons1_buf");
+uint32_t ucImage_clustericons1_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_clustericons1_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_clustericons2_buf")
-uint32_t ucImage_clustericons2_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_clustericons2_buf");
+uint32_t ucImage_clustericons2_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_clustericons2_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_doorswarning1_buf")
-uint32_t ucImage_doorswarning1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_doorswarning1_buf");
+uint32_t ucImage_doorswarning1_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_doorswarning1_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_doorswarning2_buf")
-uint32_t ucImage_doorswarning2_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_doorswarning2_buf");
+uint32_t ucImage_doorswarning2_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_doorswarning2_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_engineoil1_buf")
-uint32_t ucImage_engineoil1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_engineoil1_buf");
+uint32_t ucImage_engineoil1_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_engineoil1_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_engineoil2_buf")
-uint32_t ucImage_engineoil2_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_engineoil2_buf");
+uint32_t ucImage_engineoil2_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_engineoil2_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_enginewarning_w_buf")
 uint32_t ucImage_enginewarning_w_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_enginewarning_w_buf");
@@ -65,28 +65,28 @@ LOCATION_PRAGMA_NOLOAD("image_enginewarning_y_buf")
 uint32_t ucImage_enginewarning_y_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_enginewarning_y_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_fuelbar01_buf")
-uint32_t ucImage_fuelbar01_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar01_buf");
+uint32_t ucImage_fuelbar01_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar01_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_fuelbar02_buf")
-uint32_t ucImage_fuelbar02_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar02_buf");
+uint32_t ucImage_fuelbar02_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar02_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_fuelbar03_buf")
-uint32_t ucImage_fuelbar03_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar03_buf");
+uint32_t ucImage_fuelbar03_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar03_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_fuelbar04_buf")
-uint32_t ucImage_fuelbar04_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar04_buf");
+uint32_t ucImage_fuelbar04_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar04_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_fuelbar05_buf")
-uint32_t ucImage_fuelbar05_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar05_buf");
+uint32_t ucImage_fuelbar05_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar05_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_fuelbar06_buf")
-uint32_t ucImage_fuelbar06_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar06_buf");
+uint32_t ucImage_fuelbar06_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar06_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_fuelbar07_buf")
-uint32_t ucImage_fuelbar07_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar07_buf");
+uint32_t ucImage_fuelbar07_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar07_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_fuelbar08_buf")
-uint32_t ucImage_fuelbar08_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar08_buf");
+uint32_t ucImage_fuelbar08_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar08_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_fuelbar09_buf")
 uint32_t ucImage_fuelbar09_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar09_buf");
@@ -94,35 +94,35 @@ uint32_t ucImage_fuelbar09_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fue
 LOCATION_PRAGMA_NOLOAD("image_fuelbar10_buf")
 uint32_t ucImage_fuelbar10_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar10_buf");
 
-LOCATION_PRAGMA_NOLOAD("image_high_beam_buf")
-uint32_t ucImage_high_beam_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_high_beam_buf");
-
-LOCATION_PRAGMA_NOLOAD("image_high_beam_1_buf")
-uint32_t ucImage_high_beam_1_HypRAM[50*50]  LOCATION_ATTRIBUTE_NOLOAD("image_high_beam_1_buf");
+//LOCATION_PRAGMA_NOLOAD("image_high_beam_buf")
+//uint32_t ucImage_high_beam_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_high_beam_buf");
+//
+//LOCATION_PRAGMA_NOLOAD("image_high_beam_1_buf")
+//uint32_t ucImage_high_beam_1_HypRAM[50*50]  LOCATION_ATTRIBUTE_NOLOAD("image_high_beam_1_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_highbeam1_buf")
-uint32_t ucImage_highbeam1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_highbeam1_buf");
+uint32_t ucImage_highbeam1_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_highbeam1_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_highbeam2_buf")
-uint32_t ucImage_highbeam2_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_highbeam2_buf");
+uint32_t ucImage_highbeam2_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_highbeam2_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_leftindicator1_buf")
-uint32_t ucImage_leftindicator1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_leftindicator1_buf");
+uint32_t ucImage_leftindicator1_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_leftindicator1_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_leftindicator2_buf")
-uint32_t ucImage_leftindicator2_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_leftindicator2_buf");
+uint32_t ucImage_leftindicator2_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_leftindicator2_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_lowbattery1_buf")
-uint32_t ucImage_lowbattery1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_lowbattery1_buf");
+uint32_t ucImage_lowbattery1_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_lowbattery1_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_lowbattery2_buf")
-uint32_t ucImage_lowbattery2_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_lowbattery2_buf");
+uint32_t ucImage_lowbattery2_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_lowbattery2_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_lowbeam1_buf")
-uint32_t ucImage_lowbeam1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_lowbeam1_buf");
+uint32_t ucImage_lowbeam1_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_lowbeam1_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_lowbeam2_buf")
-uint32_t ucImage_lowbeam2_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_lowbeam2_buf");
+uint32_t ucImage_lowbeam2_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_lowbeam2_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_parking_r_buf")
 uint32_t ucImage_parking_r_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_parking_r_buf");
@@ -131,46 +131,46 @@ LOCATION_PRAGMA_NOLOAD("image_parking_w_buf")
 uint32_t ucImage_parking_w_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_parking_w_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_rightindicator1_buf")
-uint32_t ucImage_rightindicator1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_rightindicator1_buf");
+uint32_t ucImage_rightindicator1_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_rightindicator1_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_rightindicator2_buf")
-uint32_t ucImage_rightindicator2_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_rightindicator2_buf");
+uint32_t ucImage_rightindicator2_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_rightindicator2_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_rpmbar01_buf")
-uint32_t ucImage_rpmbar01_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar01_buf");
+uint32_t ucImage_rpmbar01_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar01_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_rpmbar02_buf")
-uint32_t ucImage_rpmbar02_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar02_buf");
+uint32_t ucImage_rpmbar02_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar02_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_rpmbar03_buf")
-uint32_t ucImage_rpmbar03_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar03_buf");
+uint32_t ucImage_rpmbar03_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar03_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_rpmbar04_buf")
-uint32_t ucImage_rpmbar04_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar04_buf");
+uint32_t ucImage_rpmbar04_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar04_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_rpmbar05_buf")
-uint32_t ucImage_rpmbar05_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar05_buf");
+uint32_t ucImage_rpmbar05_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar05_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_rpmbar06_buf")
-uint32_t ucImage_rpmbar06_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar06_buf");
+uint32_t ucImage_rpmbar06_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar06_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_rpmbar07_buf")
-uint32_t ucImage_rpmbar07_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar07_buf");
+uint32_t ucImage_rpmbar07_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar07_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_rpmbar08_buf")
-uint32_t ucImage_rpmbar08_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar08_buf");
+uint32_t ucImage_rpmbar08_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar08_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_rpmbar09_buf")
-uint32_t ucImage_rpmbar09_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar09_buf");
+uint32_t ucImage_rpmbar09_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar09_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_rpmbar10_buf")
-uint32_t ucImage_rpmbar10_HypRAM[128*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar10_buf");
+uint32_t ucImage_rpmbar10_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmbar10_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_rpmicon1_buf")
-uint32_t ucImage_rpmicon1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmicon1_buf");
+uint32_t ucImage_rpmicon1_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmicon1_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_rpmicon2_buf")
-uint32_t ucImage_rpmicon2_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmicon2_buf");
+uint32_t ucImage_rpmicon2_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_rpmicon2_buf");
 
 
 LOCATION_PRAGMA_NOLOAD("image_seatbelt_r_buf")
@@ -186,10 +186,10 @@ LOCATION_PRAGMA_NOLOAD("image_servicereminder_y_buf")
 uint32_t ucImage_servicereminder_y_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_servicereminder_y_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_tempicon1_buf")
-uint32_t ucImage_tempicon1_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_tempicon1_buf");
+uint32_t ucImage_tempicon1_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_tempicon1_buf");
 
 LOCATION_PRAGMA_NOLOAD("image_tempicon2_buf")
-uint32_t ucImage_tempicon2_HypRAM[24*20]  LOCATION_ATTRIBUTE_NOLOAD("image_tempicon2_buf");
+uint32_t ucImage_tempicon2_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_tempicon2_buf");
 
 
 namespace

@@ -9,10 +9,10 @@
 #include <gui/screen1_screen/Screen1Presenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/Image.hpp>
-#include <touchgfx/widgets/AnimatedImage.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
-#include <touchgfx/widgets/ScalableImage.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/widgets/ScalableImage.hpp>
+#include <touchgfx/widgets/AnimatedImage.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -31,51 +31,49 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Image BackGround;
-    touchgfx::Image ABS_Detection_w;
-    touchgfx::Image ABS_Detection_r;
-    touchgfx::Image LowBatteryIcon_w;
-    touchgfx::Image LowBatteryIcon_r;
-    touchgfx::Image DoorsIcon_w;
-    touchgfx::Image DoorsIcon_r;
-    touchgfx::Image EngineOIl_w;
-    touchgfx::Image EngineOIl_r;
-    touchgfx::Image Temperature_w;
-    touchgfx::Image Temperature_r;
-    touchgfx::Image FuelICon_w;
-    touchgfx::Image FuelIcon_r;
-    touchgfx::Image HighBeam_w;
-    touchgfx::Image HighBeam_r;
-    touchgfx::Image LeftIndicator_w;
-    touchgfx::Image LeftIndicator_r;
-    touchgfx::Image LowBeam_w;
-    touchgfx::Image LowBeam_r;
-    touchgfx::Image RightIndicator_w;
-    touchgfx::Image RightIndicator_r;
-    touchgfx::Image RPMIcon_w;
-    touchgfx::Image RPMIcon_r;
-    touchgfx::AnimatedImage FuelBarAnimation;
     touchgfx::TextAreaWithOneWildcard Speed_Ta;
     touchgfx::TextAreaWithOneWildcard KMPH_MPH;
     touchgfx::TextAreaWithOneWildcard KMPH_MPH_ODO;
     touchgfx::TextAreaWithOneWildcard DriverInfo_Units;
     touchgfx::TextAreaWithOneWildcard ODOReadings;
     touchgfx::TextAreaWithTwoWildcards DriverInfo;
-    touchgfx::ScalableImage High_beem_White;
-    touchgfx::ScalableImage High_beem_Blue;
-    touchgfx::AnimatedImage RPMAnimation;
     touchgfx::TextAreaWithOneWildcard DriverInfoMenu;
     touchgfx::TextAreaWithOneWildcard Clock_HR;
     touchgfx::TextAreaWithOneWildcard Clock_MN;
     touchgfx::TextArea Clock_SEC;
     touchgfx::TextAreaWithOneWildcard AM_PM;
-    touchgfx::ScalableImage SeatBelt_w;
-    touchgfx::ScalableImage SeatBelt_r;
+    touchgfx::ScalableImage Teperature_w;
+    touchgfx::ScalableImage Temperature_r;
+    touchgfx::ScalableImage LowBeam_w;
+    touchgfx::ScalableImage LowBeam_r;
     touchgfx::ScalableImage Parking_w;
     touchgfx::ScalableImage Parking_r;
-    touchgfx::ScalableImage EngineWarning_w;
-    touchgfx::ScalableImage EngineWarning_y;
+    touchgfx::ScalableImage DoorsIcon_w;
+    touchgfx::ScalableImage DoorsIcon_r;
+    touchgfx::ScalableImage SeatBelt_w;
+    touchgfx::ScalableImage SeatBelt_r;
+    touchgfx::ScalableImage ABS_Detection_w;
+    touchgfx::ScalableImage ABS_Detection_r;
+    touchgfx::ScalableImage EngineOIl_w;
+    touchgfx::ScalableImage EngineOIl_r;
     touchgfx::ScalableImage ServiceReminder_w;
     touchgfx::ScalableImage ServiceReminder_y;
+    touchgfx::ScalableImage EngineWarning_w;
+    touchgfx::ScalableImage EngineWarning_y;
+    touchgfx::ScalableImage HighBeam_w;
+    touchgfx::ScalableImage HighBeam_r;
+    touchgfx::ScalableImage LeftIndicator_w;
+    touchgfx::ScalableImage LeftIndicator_r;
+    touchgfx::ScalableImage RightIndicator_w;
+    touchgfx::ScalableImage RightIndicator_r;
+    touchgfx::AnimatedImage RPMAnimation;
+    touchgfx::AnimatedImage FuelBarAnimation;
+    touchgfx::ScalableImage RPMIcon_w;
+    touchgfx::ScalableImage RPMIcon_r;
+    touchgfx::ScalableImage FuelICon_w;
+    touchgfx::ScalableImage FuelIcon_r;
+    touchgfx::ScalableImage LowBatteryIcon_w;
+    touchgfx::ScalableImage LowBatteryIcon_r;
 
     /*
      * Wildcard Buffers
@@ -100,7 +98,7 @@ protected:
     touchgfx::Unicode::UnicodeChar Clock_HRBuffer[CLOCK_HR_SIZE];
     static const uint16_t CLOCK_MN_SIZE = 10;
     touchgfx::Unicode::UnicodeChar Clock_MNBuffer[CLOCK_MN_SIZE];
-    static const uint16_t AM_PM_SIZE = 10;
+    static const uint16_t AM_PM_SIZE = 5;
     touchgfx::Unicode::UnicodeChar AM_PMBuffer[AM_PM_SIZE];
 
 private:

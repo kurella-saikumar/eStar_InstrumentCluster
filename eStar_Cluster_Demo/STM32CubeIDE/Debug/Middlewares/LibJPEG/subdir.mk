@@ -5,52 +5,52 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jaricom.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcapimin.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcapistd.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcarith.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jccoefct.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jccolor.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcdctmgr.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jchuff.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcinit.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcmainct.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcmarker.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcmaster.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcomapi.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcparam.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcprepct.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcsample.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jctrans.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdapimin.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdapistd.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdarith.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdatadst.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdatasrc.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdcoefct.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdcolor.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jddctmgr.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdhuff.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdinput.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdmainct.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdmarker.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdmaster.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdmerge.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdpostct.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdsample.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdtrans.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jerror.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jfdctflt.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jfdctfst.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jfdctint.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jidctflt.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jidctfst.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jidctint.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jmemmgr.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jmemnobs.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jquant1.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jquant2.c \
-E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jutils.c 
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jaricom.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcapimin.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcapistd.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcarith.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jccoefct.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jccolor.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcdctmgr.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jchuff.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcinit.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcmainct.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcmarker.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcmaster.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcomapi.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcparam.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcprepct.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcsample.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jctrans.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdapimin.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdapistd.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdarith.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdatadst.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdatasrc.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdcoefct.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdcolor.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jddctmgr.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdhuff.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdinput.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdmainct.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdmarker.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdmaster.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdmerge.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdpostct.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdsample.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdtrans.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jerror.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jfdctflt.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jfdctfst.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jfdctint.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jidctflt.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jidctfst.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jidctint.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jmemmgr.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jmemnobs.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jquant1.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jquant2.c \
+D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jutils.c 
 
 C_DEPS += \
 ./Middlewares/LibJPEG/jaricom.d \
@@ -150,97 +150,97 @@ OBJS += \
 
 
 # Each subdirectory must supply rules for building sources it contributes
-Middlewares/LibJPEG/jaricom.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jaricom.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jaricom.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jaricom.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jaricom.c_includes.args"
-Middlewares/LibJPEG/jcapimin.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcapimin.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jcapimin.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcapimin.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jcapimin.c_includes.args"
-Middlewares/LibJPEG/jcapistd.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcapistd.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jcapistd.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcapistd.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jcapistd.c_includes.args"
-Middlewares/LibJPEG/jcarith.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcarith.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jcarith.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcarith.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jcarith.c_includes.args"
-Middlewares/LibJPEG/jccoefct.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jccoefct.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jccoefct.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jccoefct.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jccoefct.c_includes.args"
-Middlewares/LibJPEG/jccolor.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jccolor.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jccolor.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jccolor.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jccolor.c_includes.args"
-Middlewares/LibJPEG/jcdctmgr.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcdctmgr.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jcdctmgr.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcdctmgr.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jcdctmgr.c_includes.args"
-Middlewares/LibJPEG/jchuff.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jchuff.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jchuff.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jchuff.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jchuff.c_includes.args"
-Middlewares/LibJPEG/jcinit.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcinit.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jcinit.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcinit.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jcinit.c_includes.args"
-Middlewares/LibJPEG/jcmainct.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcmainct.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jcmainct.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcmainct.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jcmainct.c_includes.args"
-Middlewares/LibJPEG/jcmarker.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcmarker.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jcmarker.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcmarker.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jcmarker.c_includes.args"
-Middlewares/LibJPEG/jcmaster.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcmaster.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jcmaster.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcmaster.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jcmaster.c_includes.args"
-Middlewares/LibJPEG/jcomapi.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcomapi.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jcomapi.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcomapi.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jcomapi.c_includes.args"
-Middlewares/LibJPEG/jcparam.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcparam.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jcparam.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcparam.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jcparam.c_includes.args"
-Middlewares/LibJPEG/jcprepct.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcprepct.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jcprepct.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcprepct.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jcprepct.c_includes.args"
-Middlewares/LibJPEG/jcsample.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcsample.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jcsample.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jcsample.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jcsample.c_includes.args"
-Middlewares/LibJPEG/jctrans.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jctrans.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jctrans.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jctrans.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jctrans.c_includes.args"
-Middlewares/LibJPEG/jdapimin.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdapimin.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jdapimin.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdapimin.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jdapimin.c_includes.args"
-Middlewares/LibJPEG/jdapistd.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdapistd.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jdapistd.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdapistd.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jdapistd.c_includes.args"
-Middlewares/LibJPEG/jdarith.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdarith.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jdarith.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdarith.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jdarith.c_includes.args"
-Middlewares/LibJPEG/jdatadst.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdatadst.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jdatadst.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdatadst.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jdatadst.c_includes.args"
-Middlewares/LibJPEG/jdatasrc.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdatasrc.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jdatasrc.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdatasrc.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jdatasrc.c_includes.args"
-Middlewares/LibJPEG/jdcoefct.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdcoefct.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jdcoefct.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdcoefct.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jdcoefct.c_includes.args"
-Middlewares/LibJPEG/jdcolor.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdcolor.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jdcolor.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdcolor.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jdcolor.c_includes.args"
-Middlewares/LibJPEG/jddctmgr.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jddctmgr.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jddctmgr.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jddctmgr.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jddctmgr.c_includes.args"
-Middlewares/LibJPEG/jdhuff.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdhuff.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jdhuff.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdhuff.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jdhuff.c_includes.args"
-Middlewares/LibJPEG/jdinput.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdinput.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jdinput.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdinput.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jdinput.c_includes.args"
-Middlewares/LibJPEG/jdmainct.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdmainct.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jdmainct.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdmainct.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jdmainct.c_includes.args"
-Middlewares/LibJPEG/jdmarker.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdmarker.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jdmarker.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdmarker.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jdmarker.c_includes.args"
-Middlewares/LibJPEG/jdmaster.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdmaster.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jdmaster.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdmaster.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jdmaster.c_includes.args"
-Middlewares/LibJPEG/jdmerge.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdmerge.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jdmerge.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdmerge.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jdmerge.c_includes.args"
-Middlewares/LibJPEG/jdpostct.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdpostct.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jdpostct.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdpostct.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jdpostct.c_includes.args"
-Middlewares/LibJPEG/jdsample.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdsample.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jdsample.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdsample.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jdsample.c_includes.args"
-Middlewares/LibJPEG/jdtrans.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdtrans.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jdtrans.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jdtrans.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jdtrans.c_includes.args"
-Middlewares/LibJPEG/jerror.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jerror.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jerror.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jerror.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jerror.c_includes.args"
-Middlewares/LibJPEG/jfdctflt.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jfdctflt.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jfdctflt.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jfdctflt.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jfdctflt.c_includes.args"
-Middlewares/LibJPEG/jfdctfst.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jfdctfst.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jfdctfst.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jfdctfst.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jfdctfst.c_includes.args"
-Middlewares/LibJPEG/jfdctint.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jfdctint.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jfdctint.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jfdctint.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jfdctint.c_includes.args"
-Middlewares/LibJPEG/jidctflt.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jidctflt.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jidctflt.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jidctflt.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jidctflt.c_includes.args"
-Middlewares/LibJPEG/jidctfst.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jidctfst.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jidctfst.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jidctfst.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jidctfst.c_includes.args"
-Middlewares/LibJPEG/jidctint.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jidctint.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jidctint.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jidctint.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jidctint.c_includes.args"
-Middlewares/LibJPEG/jmemmgr.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jmemmgr.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jmemmgr.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jmemmgr.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jmemmgr.c_includes.args"
-Middlewares/LibJPEG/jmemnobs.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jmemnobs.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jmemnobs.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jmemnobs.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jmemnobs.c_includes.args"
-Middlewares/LibJPEG/jquant1.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jquant1.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jquant1.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jquant1.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jquant1.c_includes.args"
-Middlewares/LibJPEG/jquant2.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jquant2.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jquant2.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jquant2.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jquant2.c_includes.args"
-Middlewares/LibJPEG/jutils.o: E:/GitProjects/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jutils.c Middlewares/LibJPEG/subdir.mk
+Middlewares/LibJPEG/jutils.o: D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/Middlewares/Third_Party/LibJPEG/source/jutils.c Middlewares/LibJPEG/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DUSE_BPP=24 -DDEBUG -DSTM32H735xx -c -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv5-d16 -mfloat-abi=hard -mthumb -o "$@" @"Middlewares/LibJPEG/jutils.c_includes.args"
 
 clean: clean-Middlewares-2f-LibJPEG

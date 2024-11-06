@@ -15,215 +15,6 @@
             "RelativeFilename": "BackGround.png"
           },
           {
-            "Type": "Image",
-            "Name": "ABS_Detection_w",
-            "X": 224,
-            "Y": 47,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "WarningIndicators\\ABS_Detection\\ABS_Detection1.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "ABS_Detection_r",
-            "X": 224,
-            "Y": 47,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "WarningIndicators\\ABS_Detection\\ABS_Detection2.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "LowBatteryIcon_w",
-            "X": 174,
-            "Y": 14,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "WarningIndicators\\BatteryIcon\\LowBattery1.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "LowBatteryIcon_r",
-            "X": 174,
-            "Y": 14,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "WarningIndicators\\BatteryIcon\\LowBattery2.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "DoorsIcon_w",
-            "X": 126,
-            "Y": 48,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "WarningIndicators\\Doors\\DoorsWarning1.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "DoorsIcon_r",
-            "X": 126,
-            "Y": 48,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "WarningIndicators\\Doors\\DoorsWarning2.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "EngineOIl_w",
-            "X": 266,
-            "Y": 14,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "WarningIndicators\\EngineOil\\EngineOil1.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "EngineOIl_r",
-            "X": 266,
-            "Y": 14,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "WarningIndicators\\EngineOil\\EngineOil2.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "Temperature_w",
-            "X": 38,
-            "Y": 48,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "WarningIndicators\\Temperature\\TempIcon1.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "Temperature_r",
-            "X": 38,
-            "Y": 48,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "WarningIndicators\\Temperature\\TempIcon2.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "FuelICon_w",
-            "X": 406,
-            "Y": 241,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "IndicatorIcons\\FuelIcon\\ClusterIcons1.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "FuelIcon_r",
-            "X": 406,
-            "Y": 241,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "IndicatorIcons\\FuelIcon\\ClusterIcons2.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "HighBeam_w",
-            "X": 355,
-            "Y": 15,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "IndicatorIcons\\HighBeam\\HighBeam1.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "HighBeam_r",
-            "X": 355,
-            "Y": 15,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "IndicatorIcons\\HighBeam\\HighBeam2.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "LeftIndicator_w",
-            "X": 99,
-            "Y": 147,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "IndicatorIcons\\LeftIndicator\\LeftIndicator1.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "LeftIndicator_r",
-            "X": 99,
-            "Y": 147,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "IndicatorIcons\\LeftIndicator\\LeftIndicator2.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "LowBeam_w",
-            "X": 79,
-            "Y": 15,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "IndicatorIcons\\Low_beam\\LowBeam1.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "LowBeam_r",
-            "X": 79,
-            "Y": 15,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "IndicatorIcons\\Low_beam\\LowBeam2.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "RightIndicator_w",
-            "X": 356,
-            "Y": 146,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "IndicatorIcons\\RightIndicator\\RightIndicator1.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "RightIndicator_r",
-            "X": 356,
-            "Y": 146,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "IndicatorIcons\\RightIndicator\\RightIndicator2.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "RPMIcon_w",
-            "X": 50,
-            "Y": 241,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "IndicatorIcons\\RMPIcon\\RPMIcon1.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "RPMIcon_r",
-            "X": 50,
-            "Y": 241,
-            "Width": 24,
-            "Height": 20,
-            "RelativeFilename": "IndicatorIcons\\RMPIcon\\RPMIcon2.png"
-          },
-          {
-            "Type": "AnimatedImage",
-            "Name": "FuelBarAnimation",
-            "X": 342,
-            "Y": 100,
-            "Width": 128,
-            "Height": 128,
-            "FileNameFirst": "AnimationImages\\FuelBar_UpToDown\\FuelBar01.png",
-            "FileNameLast": "AnimationImages\\FuelBar_UpToDown\\FuelBar10.png",
-            "UpdateTicksInterval": 1
-          },
-          {
             "Type": "TextArea",
             "Name": "Speed_Ta",
             "X": 160,
@@ -353,38 +144,6 @@
             }
           },
           {
-            "Type": "ScalableImage",
-            "Name": "High_beem_White",
-            "X": 318,
-            "Y": 14,
-            "Width": 24,
-            "Height": 24,
-            "Visible": false,
-            "Filename": "IndicatorIcons\\HighBeam\\high_beam.png",
-            "ScalingAlgorithm": "Nearest-neighbor"
-          },
-          {
-            "Type": "ScalableImage",
-            "Name": "High_beem_Blue",
-            "X": 309,
-            "Y": 15,
-            "Width": 24,
-            "Height": 24,
-            "Filename": "high_beam_1.png",
-            "ScalingAlgorithm": "Nearest-neighbor"
-          },
-          {
-            "Type": "AnimatedImage",
-            "Name": "RPMAnimation",
-            "X": 10,
-            "Y": 100,
-            "Width": 128,
-            "Height": 128,
-            "FileNameFirst": "AnimationImages\\RPM\\RPMBar01.png",
-            "FileNameLast": "AnimationImages\\RPM\\RPMBar10.png",
-            "UpdateTicksInterval": 1
-          },
-          {
             "Type": "TextArea",
             "Name": "DriverInfoMenu",
             "X": 160,
@@ -482,6 +241,86 @@
           },
           {
             "Type": "ScalableImage",
+            "Name": "Teperature_w",
+            "X": 38,
+            "Y": 41,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "WarningIndicators\\Temperature\\TempIcon1.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "Temperature_r",
+            "X": 38,
+            "Y": 41,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "WarningIndicators\\Temperature\\TempIcon2.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "LowBeam_w",
+            "X": 79,
+            "Y": 15,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "IndicatorIcons\\Low_beam\\LowBeam1.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "LowBeam_r",
+            "X": 79,
+            "Y": 15,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "IndicatorIcons\\Low_beam\\LowBeam2.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "Parking_w",
+            "X": 79,
+            "Y": 68,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "WarningIndicators\\Parking_w.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "Parking_r",
+            "X": 79,
+            "Y": 68,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "WarningIndicators\\Parking_r.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "DoorsIcon_w",
+            "X": 126,
+            "Y": 41,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "WarningIndicators\\Doors\\DoorsWarning1.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "DoorsIcon_r",
+            "X": 126,
+            "Y": 41,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "WarningIndicators\\Doors\\DoorsWarning2.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
             "Name": "SeatBelt_w",
             "X": 174,
             "Y": 68,
@@ -502,43 +341,43 @@
           },
           {
             "Type": "ScalableImage",
-            "Name": "Parking_w",
-            "X": 79,
-            "Y": 68,
+            "Name": "ABS_Detection_w",
+            "X": 224,
+            "Y": 41,
             "Width": 25,
             "Height": 25,
-            "Filename": "WarningIndicators\\Parking_w.png",
-            "ScalingAlgorithm": "Bilinear Interpolation"
+            "Filename": "WarningIndicators\\ABS_Detection\\ABS_Detection1.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
           },
           {
             "Type": "ScalableImage",
-            "Name": "Parking_r",
-            "X": 79,
-            "Y": 68,
+            "Name": "ABS_Detection_r",
+            "X": 224,
+            "Y": 41,
             "Width": 25,
             "Height": 25,
-            "Filename": "WarningIndicators\\Parking_r.png",
-            "ScalingAlgorithm": "Bilinear Interpolation"
+            "Filename": "WarningIndicators\\ABS_Detection\\ABS_Detection2.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
           },
           {
             "Type": "ScalableImage",
-            "Name": "EngineWarning_w",
-            "X": 308,
-            "Y": 48,
+            "Name": "EngineOIl_w",
+            "X": 266,
+            "Y": 15,
             "Width": 25,
             "Height": 25,
-            "Filename": "WarningIndicators\\EngineWarning_w.png",
-            "ScalingAlgorithm": "Bilinear Interpolation"
+            "Filename": "WarningIndicators\\EngineOil\\EngineOil1.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
           },
           {
             "Type": "ScalableImage",
-            "Name": "EngineWarning_y",
-            "X": 308,
-            "Y": 48,
+            "Name": "EngineOIl_r",
+            "X": 266,
+            "Y": 15,
             "Width": 25,
             "Height": 25,
-            "Filename": "WarningIndicators\\EngineWarning_y.png",
-            "ScalingAlgorithm": "Bilinear Interpolation"
+            "Filename": "WarningIndicators\\EngineOil\\EngineOil2.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
           },
           {
             "Type": "ScalableImage",
@@ -548,7 +387,7 @@
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\ServiceReminder_w.png",
-            "ScalingAlgorithm": "Bilinear Interpolation"
+            "ScalingAlgorithm": "Nearest-neighbor"
           },
           {
             "Type": "ScalableImage",
@@ -558,7 +397,171 @@
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\ServiceReminder_y.png",
-            "ScalingAlgorithm": "Bilinear Interpolation"
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "EngineWarning_w",
+            "X": 312,
+            "Y": 41,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "WarningIndicators\\EngineWarning_w.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "EngineWarning_y",
+            "X": 312,
+            "Y": 41,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "WarningIndicators\\EngineWarning_y.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "HighBeam_w",
+            "X": 350,
+            "Y": 15,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "IndicatorIcons\\HighBeam\\HighBeam2.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "HighBeam_r",
+            "X": 350,
+            "Y": 15,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "IndicatorIcons\\HighBeam\\HighBeam1.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "LeftIndicator_w",
+            "X": 92,
+            "Y": 131,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "IndicatorIcons\\LeftIndicator\\LeftIndicator1.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "LeftIndicator_r",
+            "X": 92,
+            "Y": 131,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "IndicatorIcons\\LeftIndicator\\LeftIndicator2.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "RightIndicator_w",
+            "X": 362,
+            "Y": 131,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "IndicatorIcons\\RightIndicator\\RightIndicator1.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "RightIndicator_r",
+            "X": 362,
+            "Y": 131,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "IndicatorIcons\\RightIndicator\\RightIndicator2.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "AnimatedImage",
+            "Name": "RPMAnimation",
+            "X": 17,
+            "Y": 100,
+            "Width": 75,
+            "Height": 128,
+            "FileNameFirst": "AnimationImages\\RPM\\RPMBar01.png",
+            "FileNameLast": "AnimationImages\\RPM\\RPMBar10.png",
+            "UpdateTicksInterval": 10,
+            "StartOnLoad": true
+          },
+          {
+            "Type": "AnimatedImage",
+            "Name": "FuelBarAnimation",
+            "X": 387,
+            "Y": 100,
+            "Width": 75,
+            "Height": 128,
+            "FileNameFirst": "AnimationImages\\FuelBar_UpToDown\\FuelBar01.png",
+            "FileNameLast": "AnimationImages\\FuelBar_UpToDown\\FuelBar10.png",
+            "UpdateTicksInterval": 10,
+            "StartOnLoad": true
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "RPMIcon_w",
+            "X": 25,
+            "Y": 233,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "IndicatorIcons\\RMPIcon\\RPMIcon1.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "RPMIcon_r",
+            "X": 25,
+            "Y": 233,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "IndicatorIcons\\RMPIcon\\RPMIcon2.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "FuelICon_w",
+            "X": 432,
+            "Y": 233,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "IndicatorIcons\\FuelIcon\\ClusterIcons1.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "FuelIcon_r",
+            "X": 432,
+            "Y": 233,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "IndicatorIcons\\FuelIcon\\ClusterIcons2.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "LowBatteryIcon_w",
+            "X": 174,
+            "Y": 15,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "WarningIndicators\\BatteryIcon\\LowBattery1.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "LowBatteryIcon_r",
+            "X": 174,
+            "Y": 15,
+            "Width": 25,
+            "Height": 25,
+            "Filename": "WarningIndicators\\BatteryIcon\\LowBattery2.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
           }
         ],
         "Interactions": []
