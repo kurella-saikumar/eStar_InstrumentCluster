@@ -1,0 +1,2 @@
+../Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.c:176:6:DebounceTask	16	static
+../Application/User/Core/src/Service/IO_HAL/DigitalDebounce/digital_debounce.c:269:9:get_debounce_status	0	static

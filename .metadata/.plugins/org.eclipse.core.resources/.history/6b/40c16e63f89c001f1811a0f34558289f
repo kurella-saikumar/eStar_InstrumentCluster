@@ -1,0 +1,2 @@
+../Application/User/Core/src/Service/IO_HAL/Moving_Average_Algorithm/moving_avg.c:28:10:calculateMovingAverage	6
+../Application/User/Core/src/Service/IO_HAL/Moving_Average_Algorithm/moving_avg.c:100:10:MovingAverage_1stOrder_filter	3

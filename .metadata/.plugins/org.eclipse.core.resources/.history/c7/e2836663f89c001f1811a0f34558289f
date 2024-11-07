@@ -1,0 +1,13 @@
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:98:6:AVSreset_IO_LM_BV_FA_data	8	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:111:6:Odoreset_IO_LM_BV_FA_data	8	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:124:6:Fuelreset_IO_LM_BV_FA_data	8	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:151:6:vCalculateAVS	8	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:181:9:prvFuelSimulation	0	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:195:9:prvconvert_FuelPercentageToLitres	0	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:219:6:vCalculateAFE	32	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:332:6:vCalculateRange	16	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:64:6:vDriver_InfoTask	8	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:427:10:DisplayDTE	0	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:452:10:xGetAVSstatus	0	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:462:10:xGetAFEstatus	0	static
+../Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.c:470:10:xGetRANGEstatus	0	static

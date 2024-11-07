@@ -1,0 +1,5 @@
+../Application/User/Core/src/Service/System_Service/WDG_Handler/wdgh.c:74:6:wdt_handler_init	1
+../Application/User/Core/src/Service/System_Service/WDG_Handler/wdgh.c:90:9:register_for_watchdog_monitoring	5
+../Application/User/Core/src/Service/System_Service/WDG_Handler/wdgh.c:122:6:wdt_kick_task	2
+../Application/User/Core/src/Service/System_Service/WDG_Handler/wdgh.c:139:9:validate_tsk_wdt_kick	4
+../Application/User/Core/src/Service/System_Service/WDG_Handler/wdgh.c:157:6:tsk_wdt_kick_data	1

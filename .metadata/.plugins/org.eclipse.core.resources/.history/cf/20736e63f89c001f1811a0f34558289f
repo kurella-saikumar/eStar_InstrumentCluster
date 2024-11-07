@@ -1,0 +1,5 @@
+../Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.c:78:6:vTriggeredEdge_Counter	8	static
+../Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.c:99:10:xGetRollingPulseCount	0	static
+../Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.c:109:6:HAL_TIM_IC_CaptureCallback	0	static
+../Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.c:128:6:vDisable_OdoSpeedo_Channel_Interrupts	8	static
+../Application/User/Core/src/Service/IO_HAL/ICU_middleware/ICU_driver.c:136:6:vEnable_OdoSpeedo_Channel_Interrupts	8	static

@@ -415,7 +415,9 @@ void tearDown()
     /* Clear transfer flags */
     WRITE_REG(DMA2D->IFCR, DMA2D_FLAG_TC | DMA2D_FLAG_CE | DMA2D_FLAG_TE);
 }
-
+void flushLine(uint32_t* addr, int sizebytes)
+{
+}
 namespace rgb888
 {
 /**
