@@ -62,9 +62,9 @@ void Screen1View::FuelGauageAnimation(uint16_t newFuelCount)
 
 	 FuelBarAnimation.setBitmaps(FuelbarImageIds[0], FuelbarImageIds[9]);
 
-	 if (newFuelCount<100)
+	 if (newFuelCount>10)
 	 {
-		int imageIndex = 9 -(newFuelCount/10);
+		int imageIndex = (newFuelCount/10)-1;
 
 		// Set the current image for the animation
 		FuelBarAnimation.setBitmaps(FuelbarImageIds[imageIndex], FuelbarImageIds[imageIndex]);

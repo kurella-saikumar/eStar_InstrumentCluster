@@ -1,6 +1,6 @@
-D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:68:43:const touchgfx::TypedText::TypedTextData* TypedTextDatabase::getInstance(touchgfx::LanguageId)	1
-D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:73:10:uint16_t TypedTextDatabase::getInstanceSize()	1
-D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:78:24:const touchgfx::Font** TypedTextDatabase::getFonts()	1
-D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:83:23:const touchgfx::Font* TypedTextDatabase::setFont(touchgfx::FontId, const touchgfx::Font*)	1
-D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:90:6:void TypedTextDatabase::resetFont(touchgfx::FontId)	11
-D:/Govind_WorkSpace/Github_Workspace/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:126:1:cpp)	1
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:68:43:const touchgfx::TypedText::TypedTextData* TypedTextDatabase::getInstance(touchgfx::LanguageId)	1
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:73:10:uint16_t TypedTextDatabase::getInstanceSize()	1
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:78:24:const touchgfx::Font** TypedTextDatabase::getFonts()	1
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:83:23:const touchgfx::Font* TypedTextDatabase::setFont(touchgfx::FontId, const touchgfx::Font*)	1
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:90:6:void TypedTextDatabase::resetFont(touchgfx::FontId)	11
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/texts/src/TypedTextDatabase.cpp:126:1:cpp)	1
