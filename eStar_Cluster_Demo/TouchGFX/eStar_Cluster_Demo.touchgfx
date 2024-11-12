@@ -594,11 +594,11 @@
               "Type": "TriggerScreenTransitionBegins"
             },
             "Action": {
-              "Type": "ActionMove",
-              "X": 480,
+              "Type": "ActionFade",
+              "Alpha": 0,
               "Easing": "Linear",
               "EasingOption": "In",
-              "Duration": 500,
+              "Duration": 100,
               "AnimationDelay": 3000,
               "ActionComponent": "eStarLogo"
             }

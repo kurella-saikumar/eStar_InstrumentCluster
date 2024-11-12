@@ -10,7 +10,7 @@
 #include <touchgfx/widgets/Box.hpp>
 #include <touchgfx/widgets/ScalableImage.hpp>
 #include <touchgfx/EasingEquations.hpp>
-#include <touchgfx/mixins/MoveAnimator.hpp>
+#include <touchgfx/mixins/FadeAnimator.hpp>
 
 class Screen2ViewBase : public touchgfx::View<Screen2Presenter>
 {
@@ -39,19 +39,19 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::ScalableImage BackGround;
-    touchgfx::MoveAnimator< touchgfx::ScalableImage > eStarLogo;
+    touchgfx::FadeAnimator< touchgfx::ScalableImage > eStarLogo;
 
 private:
 
     /*
      * Callback Declarations
      */
-    touchgfx::Callback < Screen2ViewBase, const touchgfx::MoveAnimator<touchgfx::ScalableImage>& > interaction1EndedCallback;
+    touchgfx::Callback < Screen2ViewBase, const touchgfx::FadeAnimator<touchgfx::ScalableImage>& > interaction1EndedCallback;
 
     /*
      * Callback Handler Declarations
      */
-    void interaction1EndedCallbackHandler(const touchgfx::MoveAnimator<touchgfx::ScalableImage>& comp);
+    void interaction1EndedCallbackHandler(const touchgfx::FadeAnimator<touchgfx::ScalableImage>& comp);
 
 };
 

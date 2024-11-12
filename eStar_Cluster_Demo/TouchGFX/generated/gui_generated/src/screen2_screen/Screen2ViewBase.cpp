@@ -36,15 +36,15 @@ void Screen2ViewBase::setupScreen()
 void Screen2ViewBase::transitionBegins()
 {
     //Interaction1
-    //When screen transition begins move eStarLogo
-    //Move eStarLogo to x:480, y:0 with LinearIn easing in 500 ms (30 Ticks)
-    eStarLogo.clearMoveAnimationEndedAction();
-    eStarLogo.setMoveAnimationDelay(180);
-    eStarLogo.startMoveAnimation(480, 0, 30, touchgfx::EasingEquations::linearEaseIn, touchgfx::EasingEquations::linearEaseIn);
-    eStarLogo.setMoveAnimationEndedAction(interaction1EndedCallback);
+    //When screen transition begins fade eStarLogo
+    //Fade eStarLogo to alpha:0 with LinearIn easing in 100 ms (6 Ticks)
+    eStarLogo.clearFadeAnimationEndedAction();
+    eStarLogo.setFadeAnimationDelay(180);
+    eStarLogo.startFadeAnimation(0, 6, touchgfx::EasingEquations::linearEaseIn);
+    eStarLogo.setFadeAnimationEndedAction(interaction1EndedCallback);
 }
 
-void Screen2ViewBase::interaction1EndedCallbackHandler(const touchgfx::MoveAnimator<touchgfx::ScalableImage>& comp)
+void Screen2ViewBase::interaction1EndedCallbackHandler(const touchgfx::FadeAnimator<touchgfx::ScalableImage>& comp)
 {
     //Interaction2
     //When Interaction1 completed change screen to Screen1
