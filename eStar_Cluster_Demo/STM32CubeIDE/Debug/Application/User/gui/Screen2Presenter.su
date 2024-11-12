@@ -1,0 +1,18 @@
+../../TouchGFX/gui/include/gui/model/ModelListener.hpp:18:18:virtual void ModelListener::notifySpeedDataChanged(uint32_t)	0	static
+../../TouchGFX/gui/include/gui/model/ModelListener.hpp:19:18:virtual void ModelListener::notifyOdoDataChanged(uint32_t)	0	static
+../../TouchGFX/gui/include/gui/model/ModelListener.hpp:20:18:virtual void ModelListener::notifyFuelCounter(uint16_t)	0	static
+../../TouchGFX/gui/include/gui/model/ModelListener.hpp:21:18:virtual void ModelListener::notifyRPMDataChanged(uint16_t)	0	static
+../../TouchGFX/gui/include/gui/model/ModelListener.hpp:22:18:virtual void ModelListener::notifyTrip_ADataChanged(uint16_t)	0	static
+../../TouchGFX/gui/include/gui/model/ModelListener.hpp:23:18:virtual void ModelListener::notifyTrip_BDataChanged(uint16_t)	0	static
+../../TouchGFX/gui/include/gui/model/ModelListener.hpp:24:18:virtual void ModelListener::notifyAVSDataChanged(uint32_t)	0	static
+../../TouchGFX/gui/include/gui/model/ModelListener.hpp:25:18:virtual void ModelListener::notifyAFEDataChanged(uint32_t)	0	static
+../../TouchGFX/gui/include/gui/model/ModelListener.hpp:26:18:virtual void ModelListener::notifyRANGEDataChanged(uint16_t)	0	static
+../../TouchGFX/gui/include/gui/model/ModelListener.hpp:27:18:virtual void ModelListener::notifyClockDataChanged(uint8_t, uint8_t, uint8_t, uint8_t, uint8_t)	0	static
+../../TouchGFX/gui/include/gui/model/ModelListener.hpp:29:18:virtual void ModelListener::notifySwitchHandlerDataChanged(uint8_t)	0	static
+../../TouchGFX/gui/include/gui/model/ModelListener.hpp:31:18:virtual void ModelListener::notifyIndicatorStatusDataChanged(IndicationStatus_t)	0	static
+../../TouchGFX/gui/include/gui/model/ModelListener.hpp:32:18:virtual void ModelListener::notifyMetricsToggleDataChanged(uint8_t)	0	static
+../../TouchGFX/gui/include/gui/screen2_screen/Screen2Presenter.hpp:28:13:Screen2Presenter::~Screen2Presenter()	0	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen2_screen/Screen2Presenter.cpp:10:6:virtual void Screen2Presenter::activate()	0	static
+../../TouchGFX/gui/include/gui/screen2_screen/Screen2Presenter.hpp:28:13:virtual Screen2Presenter::~Screen2Presenter()	8	static
+../../TouchGFX/gui/include/gui/screen2_screen/Screen2Presenter.hpp:28:13:virtual void* Screen2Presenter::_ZThn4_N16Screen2PresenterD1Ev()	0	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen2_screen/Screen2Presenter.cpp:4:1:Screen2Presenter::Screen2Presenter(Screen2View&)	0	static

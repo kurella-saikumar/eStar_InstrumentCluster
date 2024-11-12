@@ -258,6 +258,11 @@ SECTIONS
 	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
     
+    *(image_estar_tech_logo_buf image_estar_tech_logo_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    
     *(image_fuelbar01_buf image_fuelbar01_buf.*)
 	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);

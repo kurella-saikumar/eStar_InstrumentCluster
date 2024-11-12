@@ -6,7 +6,7 @@ D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/gene
 ../../TouchGFX/target/generated/SoftwareMJPEGDecoder.hpp:23:7:SoftwareMJPEGDecoder::~SoftwareMJPEGDecoder()	0	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/SoftwareMJPEGDecoder.cpp:528:6:virtual bool SoftwareMJPEGDecoder::decodeThumbnail(uint32_t, uint8_t*, uint16_t, uint16_t)	8	static
 ../../TouchGFX/target/generated/SoftwareMJPEGDecoder.hpp:23:7:virtual SoftwareMJPEGDecoder::~SoftwareMJPEGDecoder()	8	static
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/SoftwareMJPEGDecoder.cpp:331:6:0(const uint8_t*, uint32_t, uint8_t*, uint16_t, uint16_t, uint32_t)	656	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/SoftwareMJPEGDecoder.cpp:331:6:0(const uint8_t*, uint32_t, uint8_t*, uint16_t, uint16_t, uint32_t)	664	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/SoftwareMJPEGDecoder.cpp:38:1:SoftwareMJPEGDecoder::SoftwareMJPEGDecoder(uint8_t*)	0	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/SoftwareMJPEGDecoder.cpp:49:5:int SoftwareMJPEGDecoder::compare(uint32_t, const char*, uint32_t)	4	static
 D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/target/generated/SoftwareMJPEGDecoder.cpp:64:17:uint32_t SoftwareMJPEGDecoder::getU32(uint32_t)	8	static

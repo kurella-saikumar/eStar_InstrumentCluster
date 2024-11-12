@@ -565,6 +565,63 @@
           }
         ],
         "Interactions": []
+      },
+      {
+        "Name": "Screen2",
+        "Components": [
+          {
+            "Type": "ScalableImage",
+            "Name": "BackGround",
+            "Width": 480,
+            "Height": 272,
+            "Filename": "BackGround.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "ScalableImage",
+            "Name": "eStarLogo",
+            "Width": 480,
+            "Height": 272,
+            "Filename": "eSTAR_Tech_logo.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "HasCompletedTrigger": true,
+            "Trigger": {
+              "Type": "TriggerScreenTransitionBegins"
+            },
+            "Action": {
+              "Type": "ActionMove",
+              "X": 480,
+              "Easing": "Linear",
+              "EasingOption": "In",
+              "Duration": 500,
+              "AnimationDelay": 3000,
+              "ActionComponent": "eStarLogo"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "Interaction1"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Screen1"
+            }
+          }
+        ],
+        "CustomActions": [
+          {
+            "Name": "action1",
+            "HasValue": true
+          }
+        ]
       }
     ],
     "CustomContainerDefinitions": [],
@@ -574,7 +631,7 @@
       "Height": 272
     },
     "SelectedColorDepth": 24,
-    "StartupScreenName": "Screen1",
+    "StartupScreenName": "Screen2",
     "SelectedStartupLanguage": "GB",
     "TouchGfxPath": "../Middlewares/ST/touchgfx",
     "UIPath": ".",
@@ -627,6 +684,6 @@
       "Video"
     ]
   },
-  "Version": "4.23.2",
+  "Version": "4.24.1",
   "CreatedBy": "4.23.0"
 }

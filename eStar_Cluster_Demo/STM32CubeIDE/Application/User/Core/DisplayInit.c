@@ -61,6 +61,7 @@ KEEP extern const unsigned char image_engineoil1_const[];
 KEEP extern const unsigned char image_engineoil2_const[];
 KEEP extern const unsigned char image_enginewarning_w_const[];
 KEEP extern const unsigned char image_enginewarning_y_const[];
+KEEP extern const unsigned char image_estar_tech_logo_const[];
 KEEP extern const unsigned char image_fuelbar01_const[];
 KEEP extern const unsigned char image_fuelbar02_const[];
 KEEP extern const unsigned char image_fuelbar03_const[];
@@ -116,6 +117,7 @@ extern unsigned char ucImage_engineoil1_HypRAM[64*64];
 extern unsigned char ucImage_engineoil2_HypRAM[64*64];
 extern unsigned char ucImage_enginewarning_w_HypRAM[64*64];
 extern unsigned char ucImage_enginewarning_y_HypRAM[64*64];
+extern unsigned char ucImage_estar_tech_logo_HypRAM[222*120];
 extern unsigned char ucImage_fuelbar01_HypRAM[75*128];
 extern unsigned char ucImage_fuelbar02_HypRAM[75*128];
 extern unsigned char ucImage_fuelbar03_HypRAM[75*128];
@@ -175,6 +177,7 @@ void Disp_imgDataHyperRAM_Init(void)
 	memset(ucImage_engineoil2_HypRAM, 0 ,(64*64));
 	memset(ucImage_enginewarning_w_HypRAM, 0 ,(64*64));
 	memset(ucImage_enginewarning_y_HypRAM, 0 ,(64*64));
+	memset(ucImage_estar_tech_logo_HypRAM, 0 ,(222*120));
 	memset(ucImage_fuelbar01_HypRAM, 0 ,(75*128));
 	memset(ucImage_fuelbar02_HypRAM, 0 ,(75*128));
 	memset(ucImage_fuelbar03_HypRAM, 0 ,(75*128));
@@ -361,6 +364,20 @@ void Disp_imgDataHyperRAM_Init(void)
 
 	uint32_t Address11= (uint32_t )(&image_enginewarning_y_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_enginewarning_y_HypRAM,Address11,(64*64*4)))
+	{
+#if(DBGPrints_TestMacro == 1)
+		printf("Copy Fail-11\n\r");
+#endif
+	}
+	else
+	{
+#if(DBGPrints_TestMacro == 1)
+		printf("Copy Success11\n\r");
+#endif
+	}
+
+	uint32_t Address22= (uint32_t )(&image_estar_tech_logo_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_estar_tech_logo_HypRAM,Address22,(222*120*4)))
 	{
 #if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-11\n\r");
