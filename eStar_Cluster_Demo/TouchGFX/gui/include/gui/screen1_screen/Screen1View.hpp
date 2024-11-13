@@ -107,6 +107,8 @@ protected:
     //virtual void ClockValueChangingMode(uint8_t ClockEditingMode);
     void ClockValueChangingMode(void);
     void DriverInforMenu(void);
+    void FuelGauageStartupAnimation(void);
+    void RPMDataStartupAnimation(void);
 
 };
 

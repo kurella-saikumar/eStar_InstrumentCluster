@@ -63,7 +63,8 @@ Application/User/gui/Screen1View.o: \
  ../../Middlewares/ST/touchgfx/framework/include/touchgfx/Color.hpp \
  ../../TouchGFX/generated/texts/include/texts/TextKeysAndLanguages.hpp \
  ../../TouchGFX/generated/images/include/BitmapDatabase.hpp \
- ../../TouchGFX/generated/images/include/images/BitmapDatabase.hpp
+ ../../TouchGFX/generated/images/include/images/BitmapDatabase.hpp \
+ D:\GitWork_Areas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\Middlewares\ST\touchgfx\framework\include\touchgfx\hal\OSWrappers.hpp
 ../../TouchGFX/gui/include/gui/screen1_screen/Screen1View.hpp:
 ../../TouchGFX/generated/gui_generated/include/gui_generated/screen1_screen/Screen1ViewBase.hpp:
 ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp:
@@ -128,3 +129,4 @@ Application/User/gui/Screen1View.o: \
 ../../TouchGFX/generated/texts/include/texts/TextKeysAndLanguages.hpp:
 ../../TouchGFX/generated/images/include/BitmapDatabase.hpp:
 ../../TouchGFX/generated/images/include/images/BitmapDatabase.hpp:
+D:\GitWork_Areas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\Middlewares\ST\touchgfx\framework\include\touchgfx\hal\OSWrappers.hpp:

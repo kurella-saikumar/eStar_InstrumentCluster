@@ -571,7 +571,7 @@
         "Components": [
           {
             "Type": "ScalableImage",
-            "Name": "scalableImage1",
+            "Name": "eStarLogo",
             "Width": 480,
             "Height": 272,
             "Filename": "eStarLogo.png",
@@ -586,13 +586,13 @@
               "Type": "TriggerScreenTransitionBegins"
             },
             "Action": {
-              "Type": "ActionFade",
-              "Alpha": 0,
+              "Type": "ActionMove",
+              "X": 480,
               "Easing": "Linear",
               "EasingOption": "In",
-              "Duration": 100,
+              "Duration": 1000,
               "AnimationDelay": 3000,
-              "ActionComponent": "scalableImage1"
+              "ActionComponent": "eStarLogo"
             }
           },
           {

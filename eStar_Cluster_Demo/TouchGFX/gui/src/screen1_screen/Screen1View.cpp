@@ -4,7 +4,7 @@
 #include <texts/TextKeysAndLanguages.hpp>
 #include <BitmapDatabase.hpp>
 #include <cstdio>
-
+#include "D:\GitWork_Areas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\Middlewares\ST\touchgfx\framework\include\touchgfx\hal\OSWrappers.hpp"
 
 Screen1View::Screen1View()
 {
@@ -33,6 +33,8 @@ void Screen1View::setupScreen()
 	Parking_r.setVisible(false);
 	EngineWarning_y.setVisible(false);
 	ServiceReminder_y.setVisible(false);
+	//void FuelGauageStartupAnimation(void);
+	//void RPMDataStartupAnimation(void);
 }
 
 
@@ -50,8 +52,26 @@ void Screen1View::OdoDataUpdate(uint32_t newOdoData)
 	ODOReadings.invalidate();
 }
 
+void Screen1View::FuelGauageStartupAnimation(void)
+{
 
+	 for (int i = 0; i < 10; i++)
+	 {
+		 FuelbarImageIds[i] = BITMAP_FUELBAR01_ID + i;
+		 FuelBarAnimation.setBitmaps(FuelbarImageIds[i], FuelbarImageIds[i]);
+		 OSWrappers::taskDelay(500);
+	 }
+}
+void Screen1View:: RPMDataStartupAnimation(void)
+	 {
+	 	for (int i = 0; i < 10; i++)
+	 	{
+	 		RPMBarImageIds[i] = BITMAP_RPMBAR01_ID + i;
+	 		RPMAnimation.setBitmaps(RPMBarImageIds[i], RPMBarImageIds[i]);
+	 		OSWrappers::taskDelay(500);
+	 	}
 
+	 }
 void Screen1View::FuelGauageAnimation(uint16_t newFuelCount)
 {
 
@@ -61,6 +81,8 @@ void Screen1View::FuelGauageAnimation(uint16_t newFuelCount)
 	 }
 
 	 FuelBarAnimation.setBitmaps(FuelbarImageIds[0], FuelbarImageIds[9]);
+
+
 
 	 if (newFuelCount>10)
 	 {

@@ -12,10 +12,10 @@ Screen2ViewBase::Screen2ViewBase() :
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
-    scalableImage1.setBitmap(touchgfx::Bitmap(BITMAP_ESTARLOGO_ID));
-    scalableImage1.setPosition(0, 0, 480, 272);
-    scalableImage1.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
-    add(scalableImage1);
+    eStarLogo.setBitmap(touchgfx::Bitmap(BITMAP_ESTARLOGO_ID));
+    eStarLogo.setPosition(0, 0, 480, 272);
+    eStarLogo.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    add(eStarLogo);
 }
 
 Screen2ViewBase::~Screen2ViewBase()
@@ -31,15 +31,15 @@ void Screen2ViewBase::setupScreen()
 void Screen2ViewBase::transitionBegins()
 {
     //Interaction1
-    //When screen transition begins fade scalableImage1
-    //Fade scalableImage1 to alpha:0 with LinearIn easing in 100 ms (6 Ticks)
-    scalableImage1.clearFadeAnimationEndedAction();
-    scalableImage1.setFadeAnimationDelay(180);
-    scalableImage1.startFadeAnimation(0, 6, touchgfx::EasingEquations::linearEaseIn);
-    scalableImage1.setFadeAnimationEndedAction(interaction1EndedCallback);
+    //When screen transition begins move eStarLogo
+    //Move eStarLogo to x:480, y:0 with LinearIn easing in 1000 ms (60 Ticks)
+    eStarLogo.clearMoveAnimationEndedAction();
+    eStarLogo.setMoveAnimationDelay(180);
+    eStarLogo.startMoveAnimation(480, 0, 60, touchgfx::EasingEquations::linearEaseIn, touchgfx::EasingEquations::linearEaseIn);
+    eStarLogo.setMoveAnimationEndedAction(interaction1EndedCallback);
 }
 
-void Screen2ViewBase::interaction1EndedCallbackHandler(const touchgfx::FadeAnimator<touchgfx::ScalableImage>& comp)
+void Screen2ViewBase::interaction1EndedCallbackHandler(const touchgfx::MoveAnimator<touchgfx::ScalableImage>& comp)
 {
     //Interaction2
     //When Interaction1 completed change screen to Screen1
