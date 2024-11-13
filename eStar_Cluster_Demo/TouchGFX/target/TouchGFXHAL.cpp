@@ -64,6 +64,9 @@ uint32_t ucImage_enginewarning_w_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image
 LOCATION_PRAGMA_NOLOAD("image_enginewarning_y_buf")
 uint32_t ucImage_enginewarning_y_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_enginewarning_y_buf");
 
+LOCATION_PRAGMA_NOLOAD("image_estarlogo_buf")
+uint32_t ucImage_estarlogo_HypRAM[666*360]  LOCATION_ATTRIBUTE_NOLOAD("image_estarlogo_buf");
+
 LOCATION_PRAGMA_NOLOAD("image_fuelbar01_buf")
 uint32_t ucImage_fuelbar01_HypRAM[75*128]  LOCATION_ATTRIBUTE_NOLOAD("image_fuelbar01_buf");
 

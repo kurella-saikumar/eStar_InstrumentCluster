@@ -565,6 +565,49 @@
           }
         ],
         "Interactions": []
+      },
+      {
+        "Name": "Screen2",
+        "Components": [
+          {
+            "Type": "ScalableImage",
+            "Name": "scalableImage1",
+            "Width": 480,
+            "Height": 272,
+            "Filename": "eStarLogo.png",
+            "ScalingAlgorithm": "Nearest-neighbor"
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "HasCompletedTrigger": true,
+            "Trigger": {
+              "Type": "TriggerScreenTransitionBegins"
+            },
+            "Action": {
+              "Type": "ActionFade",
+              "Alpha": 0,
+              "Easing": "Linear",
+              "EasingOption": "In",
+              "Duration": 100,
+              "AnimationDelay": 3000,
+              "ActionComponent": "scalableImage1"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "Interaction1"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Screen1"
+            }
+          }
+        ]
       }
     ],
     "CustomContainerDefinitions": [],
@@ -574,7 +617,7 @@
       "Height": 272
     },
     "SelectedColorDepth": 24,
-    "StartupScreenName": "Screen1",
+    "StartupScreenName": "Screen2",
     "SelectedStartupLanguage": "GB",
     "TouchGfxPath": "../Middlewares/ST/touchgfx",
     "UIPath": ".",
@@ -627,6 +670,6 @@
       "Video"
     ]
   },
-  "Version": "4.23.2",
+  "Version": "4.24.1",
   "CreatedBy": "4.23.0"
 }

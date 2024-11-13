@@ -258,6 +258,10 @@ SECTIONS
 	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
     
+     *(image_estarlogo_buf image_estarlogo_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4); 
+    
     *(image_fuelbar01_buf image_fuelbar01_buf.*)
 	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
@@ -427,6 +431,10 @@ SECTIONS
     . = ALIGN(0x4);
     
     *(image_tempicon2_buf image_tempicon2_buf.*)
+    *(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(video_eStarLogo_bin_start_buf video_eStarLogo_bin_start_buf.*)
     *(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
   } >HYPERRAM

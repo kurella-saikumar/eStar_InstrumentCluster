@@ -61,6 +61,7 @@ KEEP extern const unsigned char image_engineoil1_const[];
 KEEP extern const unsigned char image_engineoil2_const[];
 KEEP extern const unsigned char image_enginewarning_w_const[];
 KEEP extern const unsigned char image_enginewarning_y_const[];
+KEEP extern const unsigned char image_estarlogo_const[];
 KEEP extern const unsigned char image_fuelbar01_const[];
 KEEP extern const unsigned char image_fuelbar02_const[];
 KEEP extern const unsigned char image_fuelbar03_const[];
@@ -116,6 +117,7 @@ extern unsigned char ucImage_engineoil1_HypRAM[64*64];
 extern unsigned char ucImage_engineoil2_HypRAM[64*64];
 extern unsigned char ucImage_enginewarning_w_HypRAM[64*64];
 extern unsigned char ucImage_enginewarning_y_HypRAM[64*64];
+extern unsigned char ucImage_estarlogo_HypRAM[666*360];
 extern unsigned char ucImage_fuelbar01_HypRAM[75*128];
 extern unsigned char ucImage_fuelbar02_HypRAM[75*128];
 extern unsigned char ucImage_fuelbar03_HypRAM[75*128];
@@ -175,6 +177,7 @@ void Disp_imgDataHyperRAM_Init(void)
 	memset(ucImage_engineoil2_HypRAM, 0 ,(64*64));
 	memset(ucImage_enginewarning_w_HypRAM, 0 ,(64*64));
 	memset(ucImage_enginewarning_y_HypRAM, 0 ,(64*64));
+	memset(ucImage_estarlogo_HypRAM, 0 ,(666*360));
 	memset(ucImage_fuelbar01_HypRAM, 0 ,(75*128));
 	memset(ucImage_fuelbar02_HypRAM, 0 ,(75*128));
 	memset(ucImage_fuelbar03_HypRAM, 0 ,(75*128));
@@ -185,8 +188,6 @@ void Disp_imgDataHyperRAM_Init(void)
 	memset(ucImage_fuelbar08_HypRAM, 0 ,(75*128));
 	memset(ucImage_fuelbar09_HypRAM, 0 ,(75*128));
 	memset(ucImage_fuelbar10_HypRAM, 0 ,(75*128));
-//	memset(ucImage_high_beam_HypRAM, 0 ,(64*64));
-//	memset(ucImage_high_beam_1_HypRAM, 0 ,(50*50));
 	memset(ucImage_highbeam1_HypRAM, 0 ,(64*64));
 	memset(ucImage_highbeam2_HypRAM, 0 ,(64*64));
 	memset(ucImage_leftindicator1_HypRAM, 0 ,(64*64));
@@ -373,6 +374,19 @@ void Disp_imgDataHyperRAM_Init(void)
 #endif
 	}
 
+	uint32_t Address22= (uint32_t )(&image_estarlogo_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_estarlogo_HypRAM,Address22,(666*360*4)))
+	{
+#if(DBGPrints_TestMacro == 1)
+		printf("Copy Fail-11\n\r");
+#endif
+	}
+	else
+	{
+#if(DBGPrints_TestMacro == 1)
+		printf("Copy Success11\n\r");
+#endif
+	}
 
 	uint32_t Address12= (uint32_t )(&image_fuelbar01_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_fuelbar01_HypRAM,Address12,(75*128*4)))
