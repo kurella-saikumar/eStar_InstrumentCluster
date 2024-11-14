@@ -270,7 +270,7 @@ Screen1ViewBase::Screen1ViewBase()
     gauge1.getArc().setPainter(gauge1Painter);
     gauge1.getArc().setRadius(0);
     gauge1.getArc().setLineWidth(0);
-    gauge1.setArcPosition(0, 0, 239, 168);
+    gauge1.setArcPosition(100, 100, 239, 168);
     add(gauge1);
 }
 

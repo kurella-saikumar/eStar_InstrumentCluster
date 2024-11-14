@@ -43,6 +43,16 @@ void Screen1View::SpeedUpdate(uint32_t newSpeedValue)
 //	Unicode::snprintf(Speed_TaBuffer, SPEED_TA_SIZE, "%d",newSpeedValue);
 //	Speed_Ta.invalidate();
 
+	// Ensure the speed value is within the valid range (0 to 100)
+	    if (newSpeedValue > 100)
+	        newSpeedValue = 100;
+
+	    // Update the needle based on the speed value
+	    gauge1.setValue(newSpeedValue);
+	    gauge1.setArcVisible();
+
+	    gauge1.invalidate();  // Redraw the gauge, including the arc and the needle
+
 }
 
 

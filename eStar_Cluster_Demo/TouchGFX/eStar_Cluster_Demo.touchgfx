@@ -547,6 +547,8 @@
               "Blue": 197
             },
             "SetArcPosition": true,
+            "ArcX": 100.0,
+            "ArcY": 100.0,
             "ArcWidth": 239.0,
             "ArcHeight": 168.0,
             "ArcCapStyle": "Butt"
