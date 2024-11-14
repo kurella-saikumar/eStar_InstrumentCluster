@@ -52,6 +52,8 @@
 
 KEEP extern const unsigned char image_abs_detection1_const[];
 KEEP extern const unsigned char image_abs_detection2_const[];
+KEEP extern const unsigned char image_alternate_theme_images_widgets_gauge_medium_backgrounds_active_const[];
+KEEP extern const unsigned char image_alternate_theme_images_widgets_gauge_medium_needles_smooth_const[];
 KEEP extern const unsigned char image_background_const[];
 KEEP extern const unsigned char image_clustericons1_const[];
 KEEP extern const unsigned char image_clustericons2_const[];
@@ -108,6 +110,8 @@ KEEP extern const unsigned char image_tempicon2_const[];
 #if 1
 extern unsigned char ucImage_abs_detection1_HypRAM[64*64];
 extern unsigned char ucImage_abs_detection2_HypRAM[64*64];
+extern unsigned char ucImage_alternate_theme_images_widgets_gauge_medium_backgrounds_active_HypRAM[240*240];
+extern unsigned char ucImage_alternate_theme_images_widgets_gauge_medium_needles_smooth_HypRAM[14*75];
 extern unsigned char ucImage_background_HypRAM[480*272];
 extern unsigned char ucImage_clustericons1_HypRAM[64*64];
 extern unsigned char ucImage_clustericons2_HypRAM[64*64];
@@ -168,6 +172,8 @@ void Disp_imgDataHyperRAM_Init(void)
 
 	memset(ucImage_abs_detection1_HypRAM, 0 ,(64*64));
 	memset(ucImage_abs_detection2_HypRAM, 0 ,(64*64));
+	memset(ucImage_alternate_theme_images_widgets_gauge_medium_backgrounds_active_HypRAM, 0 ,(240*240));
+	memset(ucImage_alternate_theme_images_widgets_gauge_medium_needles_smooth_HypRAM, 0 ,(14*75));
 	memset(ucImage_background_HypRAM, 0 ,(480*272));
 	memset(ucImage_clustericons1_HypRAM, 0 ,(64*64));
 	memset(ucImage_clustericons2_HypRAM, 0 ,(64*64));
@@ -236,6 +242,34 @@ void Disp_imgDataHyperRAM_Init(void)
 
 	uint32_t Address2= (uint32_t )(&image_abs_detection2_const[0] - FLASH_BASE_ADDR);
 	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_abs_detection2_HypRAM,Address2,(64*64*4)))
+	{
+#if(DBGPrints_TestMacro == 1)
+		printf("Copy Fail-2\n\r");
+#endif
+	}
+	else
+	{
+#if(DBGPrints_TestMacro == 1)
+		printf("Copy Success2\n\r");
+#endif
+	}
+
+	uint32_t Address23= (uint32_t )(&image_alternate_theme_images_widgets_gauge_medium_backgrounds_active_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_alternate_theme_images_widgets_gauge_medium_backgrounds_active_HypRAM,Address23,(240*240*4)))
+	{
+#if(DBGPrints_TestMacro == 1)
+		printf("Copy Fail-2\n\r");
+#endif
+	}
+	else
+	{
+#if(DBGPrints_TestMacro == 1)
+		printf("Copy Success2\n\r");
+#endif
+	}
+
+	uint32_t Address54= (uint32_t )(&image_alternate_theme_images_widgets_gauge_medium_needles_smooth_const[0] - FLASH_BASE_ADDR);
+	if(BSP_OSPI_NOR_Read(BSP_INSTANCE,ucImage_alternate_theme_images_widgets_gauge_medium_needles_smooth_HypRAM,Address54,(14*75*4)))
 	{
 #if(DBGPrints_TestMacro == 1)
 		printf("Copy Fail-2\n\r");

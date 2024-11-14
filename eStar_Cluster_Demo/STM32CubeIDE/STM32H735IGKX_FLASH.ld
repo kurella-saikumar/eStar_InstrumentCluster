@@ -222,6 +222,14 @@ SECTIONS
 	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);
     
+    *(image_alternate_theme_images_widgets_gauge_medium_backgrounds_active_buf image_alternate_theme_images_widgets_gauge_medium_backgrounds_active_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
+    *(image_alternate_theme_images_widgets_gauge_medium_needles_smooth_buf image_alternate_theme_images_widgets_gauge_medium_needles_smooth_buf.*)
+	*(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+    
     *(image_background_buf image_background_buf.*)
 	*(.gnu.linkonce.r.*)
     . = ALIGN(0x4);

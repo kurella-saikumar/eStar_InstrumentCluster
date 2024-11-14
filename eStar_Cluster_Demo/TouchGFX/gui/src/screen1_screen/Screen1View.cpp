@@ -40,8 +40,8 @@ void Screen1View::setupScreen()
 
 void Screen1View::SpeedUpdate(uint32_t newSpeedValue)
 {
-	Unicode::snprintf(Speed_TaBuffer, SPEED_TA_SIZE, "%d",newSpeedValue);
-	Speed_Ta.invalidate();
+//	Unicode::snprintf(Speed_TaBuffer, SPEED_TA_SIZE, "%d",newSpeedValue);
+//	Speed_Ta.invalidate();
 
 }
 
@@ -203,13 +203,13 @@ void Screen1View::MetricsToggle(uint8_t newMetrics)
 {
     Units = newMetrics;
 
-    const char* SpeedUnits = (Units == 0) ? "KMPH" : "MPH";
+    //const char* SpeedUnits = (Units == 0) ? "KMPH" : "MPH";
     const char* OdoUnits = (Units == 0) ? "KM" : "MILES";
     const char* AFEUnits = (Units == 0) ? "KMPL" : "MPL";
 
-    Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, SpeedUnits);
+    //Unicode::snprintf(KMPH_MPHBuffer, KMPH_MPH_SIZE, SpeedUnits);
     Unicode::snprintf(KMPH_MPH_ODOBuffer, KMPH_MPH_ODO_SIZE, OdoUnits);
-    KMPH_MPH.invalidate();
+    //KMPH_MPH.invalidate();
     KMPH_MPH_ODO.invalidate();
 
     switch (InfoMenu)
@@ -456,14 +456,14 @@ void Screen1View::IndicatorsStatus(IndicationStatus_t newIndicators)
     // Color handling for over_speed_indicator (no blinking, just color change)
     if (newIndicators.indicators.over_speed_indicator == 1)
     {
-        Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
-        Speed_Ta.invalidate();
+//        Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));
+//        Speed_Ta.invalidate();
     }
     else
     {
-        Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-        Speed_Ta.invalidate();
-    }
+//        Speed_Ta.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+//        Speed_Ta.invalidate();
+   }
 }
 
 

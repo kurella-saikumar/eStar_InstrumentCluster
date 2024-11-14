@@ -1,2 +1,2 @@
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/images/src/BitmapDatabase.cpp:170:37:const touchgfx::Bitmap::BitmapData* BitmapDatabase::getInstance()	0	static
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/images/src/BitmapDatabase.cpp:175:10:uint16_t BitmapDatabase::getInstanceSize()	0	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/images/src/BitmapDatabase.cpp:176:37:const touchgfx::Bitmap::BitmapData* BitmapDatabase::getInstance()	0	static
+D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/generated/images/src/BitmapDatabase.cpp:181:10:uint16_t BitmapDatabase::getInstanceSize()	0	static

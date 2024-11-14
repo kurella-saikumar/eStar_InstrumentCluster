@@ -16,51 +16,9 @@
           },
           {
             "Type": "TextArea",
-            "Name": "Speed_Ta",
-            "X": 160,
-            "Y": 91,
-            "Width": 135,
-            "Height": 81,
-            "TextId": "__SingleUse_VG2X",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "TextId": "__SingleUse_MEO5",
-              "UseBuffer": true,
-              "BufferSize": 6
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "KMPH_MPH",
-            "X": 303,
-            "Y": 156,
-            "Width": 38,
-            "Height": 16,
-            "TextId": "__SingleUse_DKL2",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true,
-            "Wildcard1": {
-              "TextId": "__SingleUse_ZEGA",
-              "UseBuffer": true,
-              "BufferSize": 6
-            }
-          },
-          {
-            "Type": "TextArea",
             "Name": "KMPH_MPH_ODO",
-            "X": 301,
-            "Y": 210,
+            "X": 387,
+            "Y": 242,
             "Width": 43,
             "Height": 18,
             "TextId": "__SingleUse_VE6R",
@@ -79,8 +37,8 @@
           {
             "Type": "TextArea",
             "Name": "DriverInfo_Units",
-            "X": 301,
-            "Y": 243,
+            "X": 194,
+            "Y": 242,
             "Width": 46,
             "Height": 18,
             "TextId": "__SingleUse_EPWF",
@@ -91,7 +49,6 @@
               "Blue": 255
             },
             "Wildcard1": {
-              "TextId": "__SingleUse_CK36",
               "UseBuffer": true,
               "BufferSize": 10
             }
@@ -99,8 +56,8 @@
           {
             "Type": "TextArea",
             "Name": "ODOReadings",
-            "X": 171,
-            "Y": 192,
+            "X": 256,
+            "Y": 224,
             "Width": 120,
             "Height": 36,
             "TextId": "__SingleUse_7ZNN",
@@ -120,9 +77,9 @@
           {
             "Type": "TextArea",
             "Name": "DriverInfo",
-            "X": 236,
-            "Y": 234,
-            "Width": 59,
+            "X": 128,
+            "Y": 231,
+            "Width": 46,
             "Height": 24,
             "TextId": "__SingleUse_0GI1",
             "TextRotation": "0",
@@ -138,7 +95,6 @@
               "BufferSize": 10
             },
             "Wildcard2": {
-              "TextId": "__SingleUse_DPKY",
               "UseBuffer": true,
               "BufferSize": 10
             }
@@ -146,8 +102,8 @@
           {
             "Type": "TextArea",
             "Name": "DriverInfoMenu",
-            "X": 160,
-            "Y": 238,
+            "X": 58,
+            "Y": 236,
             "Width": 65,
             "Height": 21,
             "TextId": "__SingleUse_OOJU",
@@ -242,8 +198,8 @@
           {
             "Type": "ScalableImage",
             "Name": "Teperature_w",
-            "X": 38,
-            "Y": 41,
+            "X": 231,
+            "Y": 15,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\Temperature\\TempIcon1.png",
@@ -252,8 +208,8 @@
           {
             "Type": "ScalableImage",
             "Name": "Temperature_r",
-            "X": 38,
-            "Y": 41,
+            "X": 231,
+            "Y": 15,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\Temperature\\TempIcon2.png",
@@ -262,8 +218,8 @@
           {
             "Type": "ScalableImage",
             "Name": "LowBeam_w",
-            "X": 79,
-            "Y": 15,
+            "X": 17,
+            "Y": 14,
             "Width": 25,
             "Height": 25,
             "Filename": "IndicatorIcons\\Low_beam\\LowBeam1.png",
@@ -272,8 +228,8 @@
           {
             "Type": "ScalableImage",
             "Name": "LowBeam_r",
-            "X": 79,
-            "Y": 15,
+            "X": 17,
+            "Y": 14,
             "Width": 25,
             "Height": 25,
             "Filename": "IndicatorIcons\\Low_beam\\LowBeam2.png",
@@ -282,8 +238,8 @@
           {
             "Type": "ScalableImage",
             "Name": "Parking_w",
-            "X": 79,
-            "Y": 68,
+            "X": 104,
+            "Y": 14,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\Parking_w.png",
@@ -292,8 +248,8 @@
           {
             "Type": "ScalableImage",
             "Name": "Parking_r",
-            "X": 79,
-            "Y": 68,
+            "X": 104,
+            "Y": 14,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\Parking_r.png",
@@ -302,8 +258,8 @@
           {
             "Type": "ScalableImage",
             "Name": "DoorsIcon_w",
-            "X": 126,
-            "Y": 41,
+            "X": 148,
+            "Y": 14,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\Doors\\DoorsWarning1.png",
@@ -312,8 +268,8 @@
           {
             "Type": "ScalableImage",
             "Name": "DoorsIcon_r",
-            "X": 126,
-            "Y": 41,
+            "X": 148,
+            "Y": 14,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\Doors\\DoorsWarning2.png",
@@ -322,8 +278,8 @@
           {
             "Type": "ScalableImage",
             "Name": "SeatBelt_w",
-            "X": 174,
-            "Y": 68,
+            "X": 192,
+            "Y": 14,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\SeatBelt_w.png",
@@ -332,8 +288,8 @@
           {
             "Type": "ScalableImage",
             "Name": "SeatBelt_r",
-            "X": 174,
-            "Y": 68,
+            "X": 192,
+            "Y": 14,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\SeatBelt_r.png",
@@ -342,8 +298,8 @@
           {
             "Type": "ScalableImage",
             "Name": "ABS_Detection_w",
-            "X": 224,
-            "Y": 41,
+            "X": 270,
+            "Y": 14,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\ABS_Detection\\ABS_Detection1.png",
@@ -352,8 +308,8 @@
           {
             "Type": "ScalableImage",
             "Name": "ABS_Detection_r",
-            "X": 224,
-            "Y": 41,
+            "X": 270,
+            "Y": 14,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\ABS_Detection\\ABS_Detection2.png",
@@ -362,7 +318,7 @@
           {
             "Type": "ScalableImage",
             "Name": "EngineOIl_w",
-            "X": 266,
+            "X": 310,
             "Y": 15,
             "Width": 25,
             "Height": 25,
@@ -372,7 +328,7 @@
           {
             "Type": "ScalableImage",
             "Name": "EngineOIl_r",
-            "X": 266,
+            "X": 310,
             "Y": 15,
             "Width": 25,
             "Height": 25,
@@ -382,8 +338,8 @@
           {
             "Type": "ScalableImage",
             "Name": "ServiceReminder_w",
-            "X": 266,
-            "Y": 68,
+            "X": 351,
+            "Y": 54,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\ServiceReminder_w.png",
@@ -392,8 +348,8 @@
           {
             "Type": "ScalableImage",
             "Name": "ServiceReminder_y",
-            "X": 266,
-            "Y": 68,
+            "X": 351,
+            "Y": 54,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\ServiceReminder_y.png",
@@ -402,8 +358,8 @@
           {
             "Type": "ScalableImage",
             "Name": "EngineWarning_w",
-            "X": 312,
-            "Y": 41,
+            "X": 62,
+            "Y": 54,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\EngineWarning_w.png",
@@ -412,8 +368,8 @@
           {
             "Type": "ScalableImage",
             "Name": "EngineWarning_y",
-            "X": 312,
-            "Y": 41,
+            "X": 62,
+            "Y": 54,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\EngineWarning_y.png",
@@ -422,7 +378,7 @@
           {
             "Type": "ScalableImage",
             "Name": "HighBeam_w",
-            "X": 350,
+            "X": 351,
             "Y": 15,
             "Width": 25,
             "Height": 25,
@@ -432,7 +388,7 @@
           {
             "Type": "ScalableImage",
             "Name": "HighBeam_r",
-            "X": 350,
+            "X": 351,
             "Y": 15,
             "Width": 25,
             "Height": 25,
@@ -442,8 +398,8 @@
           {
             "Type": "ScalableImage",
             "Name": "LeftIndicator_w",
-            "X": 92,
-            "Y": 131,
+            "X": 81,
+            "Y": 114,
             "Width": 25,
             "Height": 25,
             "Filename": "IndicatorIcons\\LeftIndicator\\LeftIndicator1.png",
@@ -452,8 +408,8 @@
           {
             "Type": "ScalableImage",
             "Name": "LeftIndicator_r",
-            "X": 92,
-            "Y": 131,
+            "X": 81,
+            "Y": 114,
             "Width": 25,
             "Height": 25,
             "Filename": "IndicatorIcons\\LeftIndicator\\LeftIndicator2.png",
@@ -462,8 +418,8 @@
           {
             "Type": "ScalableImage",
             "Name": "RightIndicator_w",
-            "X": 362,
-            "Y": 131,
+            "X": 359,
+            "Y": 114,
             "Width": 25,
             "Height": 25,
             "Filename": "IndicatorIcons\\RightIndicator\\RightIndicator1.png",
@@ -472,8 +428,8 @@
           {
             "Type": "ScalableImage",
             "Name": "RightIndicator_r",
-            "X": 362,
-            "Y": 131,
+            "X": 359,
+            "Y": 114,
             "Width": 25,
             "Height": 25,
             "Filename": "IndicatorIcons\\RightIndicator\\RightIndicator2.png",
@@ -482,8 +438,8 @@
           {
             "Type": "AnimatedImage",
             "Name": "RPMAnimation",
-            "X": 17,
-            "Y": 100,
+            "X": 6,
+            "Y": 87,
             "Width": 75,
             "Height": 128,
             "FileNameFirst": "AnimationImages\\RPM\\RPMBar01.png",
@@ -494,8 +450,8 @@
           {
             "Type": "AnimatedImage",
             "Name": "FuelBarAnimation",
-            "X": 387,
-            "Y": 100,
+            "X": 395,
+            "Y": 87,
             "Width": 75,
             "Height": 128,
             "FileNameFirst": "AnimationImages\\FuelBar_UpToDown\\FuelBar01.png",
@@ -506,8 +462,8 @@
           {
             "Type": "ScalableImage",
             "Name": "RPMIcon_w",
-            "X": 25,
-            "Y": 233,
+            "X": 11,
+            "Y": 220,
             "Width": 25,
             "Height": 25,
             "Filename": "IndicatorIcons\\RMPIcon\\RPMIcon1.png",
@@ -516,8 +472,8 @@
           {
             "Type": "ScalableImage",
             "Name": "RPMIcon_r",
-            "X": 25,
-            "Y": 233,
+            "X": 11,
+            "Y": 220,
             "Width": 25,
             "Height": 25,
             "Filename": "IndicatorIcons\\RMPIcon\\RPMIcon2.png",
@@ -526,8 +482,8 @@
           {
             "Type": "ScalableImage",
             "Name": "FuelICon_w",
-            "X": 432,
-            "Y": 233,
+            "X": 441,
+            "Y": 220,
             "Width": 25,
             "Height": 25,
             "Filename": "IndicatorIcons\\FuelIcon\\ClusterIcons1.png",
@@ -536,8 +492,8 @@
           {
             "Type": "ScalableImage",
             "Name": "FuelIcon_r",
-            "X": 432,
-            "Y": 233,
+            "X": 441,
+            "Y": 220,
             "Width": 25,
             "Height": 25,
             "Filename": "IndicatorIcons\\FuelIcon\\ClusterIcons2.png",
@@ -546,8 +502,8 @@
           {
             "Type": "ScalableImage",
             "Name": "LowBatteryIcon_w",
-            "X": 174,
-            "Y": 15,
+            "X": 62,
+            "Y": 14,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\BatteryIcon\\LowBattery1.png",
@@ -556,12 +512,44 @@
           {
             "Type": "ScalableImage",
             "Name": "LowBatteryIcon_r",
-            "X": 174,
-            "Y": 15,
+            "X": 62,
+            "Y": 14,
             "Width": 25,
             "Height": 25,
             "Filename": "WarningIndicators\\BatteryIcon\\LowBattery2.png",
             "ScalingAlgorithm": "Nearest-neighbor"
+          },
+          {
+            "Type": "Gauge",
+            "Name": "gauge1",
+            "X": 112,
+            "Y": 47,
+            "Width": 239,
+            "Height": 168,
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_gauge_medium_backgrounds_active.png",
+            "RotationCenterX": 120.0,
+            "RotationCenterY": 120.0,
+            "StartAngle": -113.0,
+            "EndAngle": 112.0,
+            "RangeMax": 100.0,
+            "InitialValue": 50.0,
+            "Easing": "Linear",
+            "EasingOption": "In",
+            "FileNameNeedle": "__generated\\alternate_theme_images_widgets_gauge_medium_needles_smooth.png",
+            "NeedleRotationCenterX": 7.0,
+            "NeedleRotationCenterY": 67.0,
+            "NeedleMovingRenderingAlgorithm": "Bilinear Interpolation",
+            "NeedleSteadyRenderingAlgorithm": "Bilinear Interpolation",
+            "UseArc": true,
+            "ArcColor": {
+              "Red": 20,
+              "Green": 151,
+              "Blue": 197
+            },
+            "SetArcPosition": true,
+            "ArcWidth": 239.0,
+            "ArcHeight": 168.0,
+            "ArcCapStyle": "Butt"
           }
         ],
         "Interactions": []

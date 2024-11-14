@@ -33,12 +33,6 @@
       <Text Id="__SingleUse_OOJU" Alignment="Right" TypographyId="DriverInfoMenu">
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
-      <Text Id="__SingleUse_DPKY" Alignment="Left" TypographyId="Speed">
-        <Translation Language="GB">0</Translation>
-      </Text>
-      <Text Id="__SingleUse_CK36" Alignment="Left" TypographyId="KMPH">
-        <Translation Language="GB">KM</Translation>
-      </Text>
       <Text Id="__SingleUse_EPWF" Alignment="Left" TypographyId="KMPH">
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
@@ -58,18 +52,6 @@
         <Translation Language="GB">000000</Translation>
       </Text>
       <Text Id="__SingleUse_7ZNN" Alignment="Right" TypographyId="Odo">
-        <Translation Language="GB">&lt;value&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_ZEGA" Alignment="Left" TypographyId="KMPH">
-        <Translation Language="GB">KMPH</Translation>
-      </Text>
-      <Text Id="__SingleUse_DKL2" Alignment="Left" TypographyId="KMPH">
-        <Translation Language="GB">&lt;value&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_MEO5" Alignment="Left" TypographyId="Speed">
-        <Translation Language="GB">000</Translation>
-      </Text>
-      <Text Id="__SingleUse_VG2X" Alignment="Right" TypographyId="Speed">
         <Translation Language="GB">&lt;value&gt;</Translation>
       </Text>
     </TextGroup>

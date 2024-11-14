@@ -13,6 +13,8 @@
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/widgets/ScalableImage.hpp>
 #include <touchgfx/widgets/AnimatedImage.hpp>
+#include <touchgfx/widgets/Gauge.hpp>
+#include <touchgfx/widgets/canvas/PainterRGB888.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -31,8 +33,6 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Image BackGround;
-    touchgfx::TextAreaWithOneWildcard Speed_Ta;
-    touchgfx::TextAreaWithOneWildcard KMPH_MPH;
     touchgfx::TextAreaWithOneWildcard KMPH_MPH_ODO;
     touchgfx::TextAreaWithOneWildcard DriverInfo_Units;
     touchgfx::TextAreaWithOneWildcard ODOReadings;
@@ -74,14 +74,12 @@ protected:
     touchgfx::ScalableImage FuelIcon_r;
     touchgfx::ScalableImage LowBatteryIcon_w;
     touchgfx::ScalableImage LowBatteryIcon_r;
+    touchgfx::Gauge gauge1;
+    touchgfx::PainterRGB888 gauge1Painter;
 
     /*
      * Wildcard Buffers
      */
-    static const uint16_t SPEED_TA_SIZE = 6;
-    touchgfx::Unicode::UnicodeChar Speed_TaBuffer[SPEED_TA_SIZE];
-    static const uint16_t KMPH_MPH_SIZE = 6;
-    touchgfx::Unicode::UnicodeChar KMPH_MPHBuffer[KMPH_MPH_SIZE];
     static const uint16_t KMPH_MPH_ODO_SIZE = 10;
     touchgfx::Unicode::UnicodeChar KMPH_MPH_ODOBuffer[KMPH_MPH_ODO_SIZE];
     static const uint16_t DRIVERINFO_UNITS_SIZE = 10;

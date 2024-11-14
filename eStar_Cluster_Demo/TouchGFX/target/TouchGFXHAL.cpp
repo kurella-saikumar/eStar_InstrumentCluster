@@ -37,6 +37,12 @@ uint32_t ucImage_abs_detection1_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_
 LOCATION_PRAGMA_NOLOAD("image_abs_detection2_buf")
 uint32_t ucImage_abs_detection2_HypRAM[64*64]  LOCATION_ATTRIBUTE_NOLOAD("image_abs_detection2_buf");
 
+LOCATION_PRAGMA_NOLOAD("image_alternate_theme_images_widgets_gauge_medium_backgrounds_active_buf")
+uint32_t ucImage_alternate_theme_images_widgets_gauge_medium_backgrounds_active_HypRAM[240*240]  LOCATION_ATTRIBUTE_NOLOAD("image_alternate_theme_images_widgets_gauge_medium_backgrounds_active_buf");
+
+LOCATION_PRAGMA_NOLOAD("image_alternate_theme_images_widgets_gauge_medium_needles_smooth_buf")
+uint32_t ucImage_alternate_theme_images_widgets_gauge_medium_needles_smooth_HypRAM[14*75]  LOCATION_ATTRIBUTE_NOLOAD("image_alternate_theme_images_widgets_gauge_medium_needles_smooth_buf");
+
 LOCATION_PRAGMA_NOLOAD("image_background_buf")
 uint32_t ucImage_background_HypRAM[480*272]  LOCATION_ATTRIBUTE_NOLOAD("image_background_buf");
 
