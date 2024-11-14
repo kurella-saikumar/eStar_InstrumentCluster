@@ -2,7 +2,7 @@ Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/ee
  ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.c \
  ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h7xx_hal_conf.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h \
@@ -46,27 +46,27 @@ Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/ee
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h \
  ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul_cfg.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../../Core/PlatformConfig/Tachometer_App_cfg.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../src/App/Indicator_App/Indicator_App.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../src/Service/IO_HAL/ICU_middleware/ICU_driver.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../src/Service/IO_HAL/ICU_middleware/../../../../PlatformConfig/ICU_driver_cfg.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../../Core/PlatformConfig/Tachometer_App_cfg.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../src/App/Indicator_App/Indicator_App.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../src/Service/IO_HAL/ICU_middleware/ICU_driver.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../src/Service/IO_HAL/ICU_middleware/../../../../PlatformConfig/ICU_driver_cfg.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.H \
  ../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h735g_discovery_conf.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h735g_discovery_conf.h \
  ../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h \
  ../../Drivers/BSP/STM32H735G-DK/../Components/mx25lm51245g/mx25lm51245g.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/mx25lm51245g_conf.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/mx25lm51245g_conf.h \
  ../../Drivers/BSP/STM32H735G-DK/../Components/s70kl1281/s70kl1281.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/s70kl1281_conf.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/checksum/checksum.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.h
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/s70kl1281_conf.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/checksum/checksum.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.h
 ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h7xx_hal_conf.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h7xx_hal_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:
@@ -110,21 +110,21 @@ D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Applica
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h:
 ../Application/User/Core/src/Service/Memory_Service/eeprom_emul/eeprom_emulation/eeprom_emul_cfg.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../../Core/PlatformConfig/Tachometer_App_cfg.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../src/App/Indicator_App/Indicator_App.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../src/Service/IO_HAL/ICU_middleware/ICU_driver.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../src/Service/IO_HAL/ICU_middleware/../../../../PlatformConfig/ICU_driver_cfg.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/Tachometer_App.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../../Core/PlatformConfig/Tachometer_App_cfg.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../src/App/Indicator_App/Indicator_App.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../src/Service/IO_HAL/ICU_middleware/ICU_driver.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../src/Service/IO_HAL/ICU_middleware/../../../../PlatformConfig/ICU_driver_cfg.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/STM32H735xx.H:
 ../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_ospi.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h735g_discovery_conf.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h735g_discovery_conf.h:
 ../../Drivers/BSP/STM32H735G-DK/stm32h735g_discovery_errno.h:
 ../../Drivers/BSP/STM32H735G-DK/../Components/mx25lm51245g/mx25lm51245g.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/mx25lm51245g_conf.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/mx25lm51245g_conf.h:
 ../../Drivers/BSP/STM32H735G-DK/../Components/s70kl1281/s70kl1281.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/s70kl1281_conf.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/checksum/checksum.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/s70kl1281_conf.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/checksum/checksum.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/Memory_Service/eeprom_emul/flash_interface/flash_interface.h:

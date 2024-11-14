@@ -34,4 +34,6 @@ typedef enum
 PM_PWRDN_TYPE checkBootReason(void);
 extern uint8_t Mcu_GetResetReason(void);
 
+extern void vSys_EnterSTOP_Mode(void);
+extern void vSys_WakeUpFromSTOP(void);
 #endif /* SYS_WAKEUP_REASON_H_ */

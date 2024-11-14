@@ -735,10 +735,10 @@ static void MX_RTC_Init(void)
 
   /** Enable the WakeUp
   */
-  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
-  {
-    Error_Handler();
-  }
+//  if (HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x9C40, RTC_WAKEUPCLOCK_RTCCLK_DIV16) != HAL_OK)
+//  {
+//    Error_Handler();
+//  }
   /* USER CODE BEGIN RTC_Init 2 */
   if(HAL_RTCEx_BKUPRead(&hrtc, RTC_BKP_DR0) != 0x32F2)
   {
@@ -1185,21 +1185,28 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	/* Prevent unused argument(s) compilation warning */
 	  UNUSED(GPIO_Pin);
-	  res = HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
-	  if(res == HAL_OK)
-	  {
-#if(DBGPrints_TestMacro == 1)
-		  printf("%02d:%02d:%02d \n", sTime.Hours, sTime.Minutes, sTime.Seconds);
-#endif
-	  }
-	  SystemClock_Config ();
-	  HAL_ResumeTick();
-#if(DBGPrints_TestMacro == 0)
-	  printf("WAKEUP FROM EXTII\r\n");
-#endif
- // HAL_PWR_DisableSleepOnExit();
-}
 
+#if(DBGPrints_TestMacro == 0)
+//	  SystemClock_Config ();//to print the statement clock need to be configured when wokeup from sleep
+//	  printf(" Extended Interrupt Callback\r\n");
+#endif
+
+}
+/**
+  * @brief  RTC Wake Up callback
+  * @param  None
+  * @retval None
+  */
+void HAL_RTCEx_WakeUpTimerEventCallback(RTC_HandleTypeDef *hrtc)
+{
+  /* Clear Wake Up Flag */
+//	SystemClock_Config();
+//	printf("Wake up From RTC Timer Event Callback\r\n");
+
+    /* Reset all RSR(Reset) flags */
+    SET_BIT(RCC->RSR, RCC_RSR_RMVF);
+    HAL_IWDG_Refresh(&hiwdg1);
+}
 
  /* MPU Configuration */
 

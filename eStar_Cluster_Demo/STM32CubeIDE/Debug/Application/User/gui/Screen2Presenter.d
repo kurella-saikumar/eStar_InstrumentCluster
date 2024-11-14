@@ -1,5 +1,5 @@
 Application/User/gui/Screen2Presenter.o: \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen2_screen/Screen2Presenter.cpp \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/screen2_screen/Screen2Presenter.cpp \
  ../../TouchGFX/gui/include/gui/screen2_screen/Screen2View.hpp \
  ../../TouchGFX/generated/gui_generated/include/gui_generated/screen2_screen/Screen2ViewBase.hpp \
  ../../TouchGFX/gui/include/gui/common/FrontendApplication.hpp \

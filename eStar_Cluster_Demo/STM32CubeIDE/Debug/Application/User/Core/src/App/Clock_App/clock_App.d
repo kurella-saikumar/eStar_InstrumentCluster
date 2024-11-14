@@ -3,9 +3,9 @@ Application/User/Core/src/App/Clock_App/clock_App.o: \
  ../Application/User/Core/src/App/Clock_App/clock_App.h \
  ../Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h \
  ../Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/../Switch/switch.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h7xx_hal_conf.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h \
@@ -52,9 +52,9 @@ Application/User/Core/src/App/Clock_App/clock_App.o: \
 ../Application/User/Core/src/App/Clock_App/clock_App.h:
 ../Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h:
 ../Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/../Switch/switch.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h7xx_hal_conf.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h7xx_hal_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:

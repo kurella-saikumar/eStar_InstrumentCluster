@@ -1,11 +1,11 @@
 Application/User/gui/Model.o: \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/Model.cpp \
  ../../TouchGFX/gui/include/gui/model/Model.hpp \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_App.h \
  ../../TouchGFX/gui/include/gui/model/ModelListener.hpp \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h7xx_hal_conf.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h \
@@ -49,11 +49,11 @@ Application/User/gui/Model.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfoMenu_App/DriverInfoMenu_App.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfoMenu_App/DriverInfoMenu_App.h \
  ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App.h \
  ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../../../../Core/PlatformConfig/speedometer_App_cfg.h \
  ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../../Service/IO_HAL/ICU_middleware/ICU_driver.h \
- D:\GitWork_Areas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\ICU_driver_cfg.h \
+ D:\GIT_WorkAreas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\ICU_driver_cfg.h \
  ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h \
  ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../../Service/IO_HAL/Switch_Handler/../Switch/switch.h \
  ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../Indicator_App/Indicator_App.h \
@@ -67,18 +67,18 @@ Application/User/gui/Model.o: \
  ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../../Core/PlatformConfig/Tachometer_App_cfg.h \
  ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../src/App/Indicator_App/Indicator_App.h \
  ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../src/Service/IO_HAL/ICU_middleware/ICU_driver.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/clock_App.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/clock_App.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_App.h
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_App.h
 ../../TouchGFX/gui/include/gui/model/Model.hpp:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_App.h:
 ../../TouchGFX/gui/include/gui/model/ModelListener.hpp:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h7xx_hal_conf.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h7xx_hal_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:
@@ -122,11 +122,11 @@ D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Applica
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfoMenu_App/DriverInfoMenu_App.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfoMenu_App/DriverInfoMenu_App.h:
 ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App.h:
 ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../../../../Core/PlatformConfig/speedometer_App_cfg.h:
 ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../../Service/IO_HAL/ICU_middleware/ICU_driver.h:
-D:\GitWork_Areas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\ICU_driver_cfg.h:
+D:\GIT_WorkAreas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Application\User\Core\PlatformConfig\ICU_driver_cfg.h:
 ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h:
 ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../../Service/IO_HAL/Switch_Handler/../Switch/switch.h:
 ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/../Indicator_App/Indicator_App.h:
@@ -140,9 +140,9 @@ D:\GitWork_Areas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\STM32CubeIDE\Applica
 ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../../Core/PlatformConfig/Tachometer_App_cfg.h:
 ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../src/App/Indicator_App/Indicator_App.h:
 ../../TouchGFX/App/../../../eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/App/Tachometer_App/../../../src/Service/IO_HAL/ICU_middleware/ICU_driver.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/clock_App.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/clock_App.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/Clock_App/../../Service/IO_HAL/Switch_Handler/SwitchHandler_App.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/Service/IO_HAL/Switch_Handler/SwitchHandler_App.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/DriverInfo_App/DriverInfoApp.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/Legacy/../../../../STM32CubeIDE/Application/User/Core/src/App/Speedometer_App/speedometer_App.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_App.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/TouchGFX/gui/src/model/../../../../STM32CubeIDE/Application/User/Core/src/App/Indicator_App/Indicator_App.h:

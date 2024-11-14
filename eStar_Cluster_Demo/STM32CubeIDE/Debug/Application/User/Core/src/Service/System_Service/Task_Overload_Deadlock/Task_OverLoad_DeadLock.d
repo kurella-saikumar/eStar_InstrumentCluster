@@ -2,9 +2,9 @@ Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock/Task_Ove
  ../Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock/Task_OverLoad_DeadLock.c \
  ../Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock/Task_OverLoad_DeadLock.h \
  ../Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock/../../../../../Core/PlatformConfig/safe_checks_Config.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h7xx_hal_conf.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h \
  ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h \
@@ -49,9 +49,9 @@ Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock/Task_Ove
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/FreeRTOSConfig.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/safe_checks_freeRTOSConfig.h \
- D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/FreeRTOSConfig.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/safe_checks_freeRTOSConfig.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h \
  ../../TouchGFX/App/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Stack_Usage/Stack_Usage.h \
  ../../TouchGFX/App/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Stack_Usage/../../../../PlatformConfig/safe_checks_Config.h \
  ../../TouchGFX/App/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Task_OverLoad_DeadLock/Task_OverLoad_DeadLock.h \
@@ -64,9 +64,9 @@ Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock/Task_Ove
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
 ../Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock/Task_OverLoad_DeadLock.h:
 ../Application/User/Core/src/Service/System_Service/Task_Overload_Deadlock/../../../../../Core/PlatformConfig/safe_checks_Config.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h7xx_hal_conf.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/stm32h7xx_hal_conf.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_def.h:
 ../../Drivers/CMSIS/Device/ST/STM32H7xx/Include/stm32h7xx.h:
@@ -111,9 +111,9 @@ D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Applica
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/FreeRTOSConfig.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/safe_checks_freeRTOSConfig.h:
-D:/GitWork_Areas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/FreeRTOSConfig.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/safe_checks_freeRTOSConfig.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/main.h:
 ../../TouchGFX/App/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Stack_Usage/Stack_Usage.h:
 ../../TouchGFX/App/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Stack_Usage/../../../../PlatformConfig/safe_checks_Config.h:
 ../../TouchGFX/App/../../STM32CubeIDE/Application/User/Core/src/Service/System_Service/Task_OverLoad_DeadLock/Task_OverLoad_DeadLock.h:

@@ -1,5 +1,6 @@
 ../Application/User/Core/InstrumentClusterInit.c:1084:6:SystemClock_Config	120	static
 ../Application/User/Core/InstrumentClusterInit.c:1150:6:PeriphCommonClock_Config	192	static
-../Application/User/Core/InstrumentClusterInit.c:1184:6:HAL_GPIO_EXTI_Callback	8	static
-../Application/User/Core/InstrumentClusterInit.c:1206:6:MPU_Config	24	static
+../Application/User/Core/InstrumentClusterInit.c:1184:6:HAL_GPIO_EXTI_Callback	0	static
+../Application/User/Core/InstrumentClusterInit.c:1200:6:HAL_RTCEx_WakeUpTimerEventCallback	0	static
+../Application/User/Core/InstrumentClusterInit.c:1213:6:MPU_Config	24	static
 ../Application/User/Core/InstrumentClusterInit.c:124:6:vCluster_Init	152	static,ignoring_inline_asm

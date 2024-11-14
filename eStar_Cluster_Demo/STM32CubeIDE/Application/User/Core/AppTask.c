@@ -392,43 +392,7 @@ void vCreate_AllTask(void)
 
 
 
-
-
 /* USER CODE BEGIN 4 */
-static void SYSCLKConfig_STOP(void)
-{
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  uint32_t pFLatency = 0;
-
-
-   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE0);
-   while(!__HAL_PWR_GET_FLAG(PWR_FLAG_VOSRDY)) {}
-
-  /* Get the Oscillators configuration according to the internal RCC registers */
-  HAL_RCC_GetOscConfig(&RCC_OscInitStruct);
-
-  /* After wake-up from STOP reconfigure the system clock: Enable HSE and PLL */
-  RCC_OscInitStruct.OscillatorType  = RCC_OSCILLATORTYPE_HSE;
-  RCC_OscInitStruct.HSEState        = RCC_HSE_ON;
-  RCC_OscInitStruct.PLL.PLLState    = RCC_PLL_ON;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /* Get the Clocks configuration according to the internal RCC registers */
-  HAL_RCC_GetClockConfig(&RCC_ClkInitStruct, &pFLatency);
-
-  /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2
-     clocks dividers */
-  RCC_ClkInitStruct.ClockType     = RCC_CLOCKTYPE_SYSCLK;
-  RCC_ClkInitStruct.SYSCLKSource  = RCC_SYSCLKSOURCE_PLLCLK;
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, pFLatency) != HAL_OK)
-  {
-    Error_Handler();
-  }
-}
 
 /* USER CODE BEGIN Header_StartDefaultTask */
 /**
@@ -449,18 +413,14 @@ void StartDefaultTask(void *argument)
 	switch (Ecu_Status)
 	{
 	case ECU_POWER_MODE_ACTIVE:
+		/* Disable Wakeup Counter */
+	    HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
 	  break;
-
 	case ECU_POWER_MODE_SLEEP:
-	  // Handle sleep mode
-	  printf("Entering sleep mode...\n");
-	  /* Disable Wakeup Counter */
-	     //HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
-	     //HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x9C40, RTC_WAKEUPCLOCK_RTCCLK_DIV16);
 	     /* Enter Stop Mode */
-	     HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
-	     SYSCLKConfig_STOP();
-	     printf("\n\r Exiting sleep mode\n\r");
+	  	 vSys_EnterSTOP_Mode();
+	  	 vSys_WakeUpFromSTOP();
+//	  	(void)Mcu_GetResetReason();
 	     pm_ReqNewState(ECU_POWER_MODE_OFF);
 	  break;
 	case ECU_POWER_MODE_OFF:
