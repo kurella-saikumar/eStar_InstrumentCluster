@@ -166,7 +166,11 @@ void vSys_EnterSTOP_Mode(void)
     HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
     /* Enable Wakeup Counter and set to  20s -0x9C40 periodic wakeup is system sleep*/
     HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x9C40, RTC_WAKEUPCLOCK_RTCCLK_DIV16);
+
 	BSP_LCD_DisplayOff(0);
+
+	vDelete_ActiveMode_Tasks();
+
 	/*Invoke HAL API to enter stop mode with LOW_PWR_REG ON & Wait for Interrupt */
 	HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
 }
@@ -174,6 +178,7 @@ void vSys_WakeUpFromSTOP(void)
 {
 	SystemClock_Config();
 	PeriphCommonClock_Config();
+	vCreate_ActiveMode_Tasks();
 	BSP_LCD_DisplayOn(0);
 }
 /**************************************************************************************************

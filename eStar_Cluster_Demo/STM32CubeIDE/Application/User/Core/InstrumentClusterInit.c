@@ -118,6 +118,7 @@ static void MX_ADC3_Init(void);
 static void MX_FDCAN3_Init(void);
 static void MX_TIM2_Init(void);
 void vBacklightBrightness(void);
+void vActiviMode_Peripheral_Init(void);
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES
  ***************************************************************************************************/
@@ -191,7 +192,7 @@ void vCluster_Init(void)
   {
 	  Error_Handler();
   }
-  vBacklightBrightness();
+  //vBacklightBrightness();
 
 //  vEE_Demo();
 //  Disp_imgDataHyperRAM_Init();
@@ -1268,4 +1269,8 @@ void MPU_Config(void)
 }
 
 
+void vActiviMode_Peripheral_Init(void)
+{
+
+}
 

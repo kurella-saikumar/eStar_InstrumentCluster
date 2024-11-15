@@ -25,8 +25,10 @@
 
 
 /* GLOBAL TYPE DEFINES*/
-void vCreate_AllTask(void);
-
+void vCreate_AllTasks(void);
+void vCreate_LowPowerMode_Tasks(void);
+void vCreate_ActiveMode_Tasks(void);
+void vDelete_ActiveMode_Tasks(void);
 /* GLOBAL VARIABLES*/
 
 /* GLOBAL FUNCTIONS*/

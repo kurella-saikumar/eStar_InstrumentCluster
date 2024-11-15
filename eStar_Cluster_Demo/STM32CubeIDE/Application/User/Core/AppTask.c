@@ -304,7 +304,6 @@ PUTCHAR_PROTOTYPE
 
 /* Private function prototypes -----------------------------------------------*/
 
-static void SYSCLKConfig_STOP(void);
 void StartDefaultTask(void *argument);
 extern void TouchGFX_Task(void *argument);
 extern void videoTaskFunc(void *argument);
@@ -322,16 +321,32 @@ void CAN_Task(void *argument);
 void IndicatorsApp_Task(void *argument);
 void ServiceIndicatorApp_Task(void *argument);
 void DriverInfoApp_Task(void *argument);
-
-
+void vCreate_LowPowerMode_Tasks(void);
+void vCreate_ActiveMode_Tasks(void);
+void vDelete_ActiveMode_Tasks(void);
 /* end of prototypes -----------------------------------------------*/
 
+/**
+ * @brief Create all system tasks required for both active and low-power modes.
+ *
+ * This function creates all necessary tasks by calling:
+ * - `vCreate_LowPowerMode_Tasks()`: for tasks running in both low-power and active modes.
+ * - `vCreate_ActiveMode_Tasks()`: for tasks specific to active (normal) mode.
+ */
 
+void vCreate_AllTasks(void)
+{
+	/* Create the thread(s) */
+	  vCreate_LowPowerMode_Tasks();
+	  vCreate_ActiveMode_Tasks();
+}
 
+/**
+ * @brief Create tasks that operate during both low-power and active modes.
+ * @note Use this function to create tasks specifically required in low-power mode.
+ */
 
-
-
-void vCreate_AllTask(void)
+void vCreate_LowPowerMode_Tasks(void)
 {
 	/* Create the thread(s) */
 	  /* creation of defaultTask */
@@ -352,6 +367,23 @@ void vCreate_AllTask(void)
 	  /* creation of State_Manager */
 	  State_ManagerHandle = osThreadNew(State_Machine_Task, NULL, &State_Manager_attributes);
 
+	  /* creation of CAN_AppTask */
+	  CAN_AppTaskHandle = osThreadNew(CAN_Task, NULL, &CAN_AppTask_attributes);
+
+	  /* creation of DeadLock */
+	  DeadLockHandle = osThreadNew(DeadLockTask, NULL, &DeadLock_attributes);
+
+	  /* creation of GetClock */
+	  GetClockHandle = osThreadNew(GetClockTask, NULL, &GetClock_attributes);
+}
+
+/**
+ * @brief Create tasks that operate during active mode only.
+ * @note Use this function to create tasks specific to normal or active mode operation.
+ */
+void vCreate_ActiveMode_Tasks(void)
+{
+	/* Create the thread(s) */
 	  /* creation of Analog_Debounce */
 	  Analog_DebounceHandle = osThreadNew(Analog_Debounce_Task, NULL, &Analog_Debounce_attributes);
 
@@ -370,12 +402,6 @@ void vCreate_AllTask(void)
 	  /* creation of SwitchHandler */
 	  SwitchHandlerHandle = osThreadNew(SwitchHandlerTask, NULL, &SwitchHandler_attributes);
 
-	  /* creation of GetClock */
-	  GetClockHandle = osThreadNew(GetClockTask, NULL, &GetClock_attributes);
-
-	  /* creation of CAN_AppTask */
-	  CAN_AppTaskHandle = osThreadNew(CAN_Task, NULL, &CAN_AppTask_attributes);
-
 	  /* creation of Indicators_App */
 	  Indicators_AppHandle = osThreadNew(IndicatorsApp_Task, NULL, &Indicators_App_attributes);
 
@@ -384,14 +410,35 @@ void vCreate_AllTask(void)
 
 	  /* creation of DriverInfoApp */
 	  DriverInfoAppHandle = osThreadNew(DriverInfoApp_Task, NULL, &DriverInfoApp_attributes);
-
-	  /* creation of DeadLock */
-	  DeadLockHandle = osThreadNew(DeadLockTask, NULL, &DeadLock_attributes);
-
 }
 
-
-
+void vDelete_ActiveMode_Tasks(void)
+{
+	osThreadId_t ActiveModeTaskHandles[] =
+	{
+			Analog_DebounceHandle,
+			FuelGuageHandle,
+			OdoMeterHandle,
+			SpeedoMeterHandle,
+			TachoMeterHandle,
+			SwitchHandlerHandle,
+			Indicators_AppHandle,
+			ServiceIndicatoHandle,
+			DriverInfoAppHandle
+	};
+	for(uint8_t ucLoopCounter = 0;ucLoopCounter<(sizeof(ActiveModeTaskHandles) / sizeof(ActiveModeTaskHandles[0]));ucLoopCounter++)
+	{
+		vTaskDelete(ActiveModeTaskHandles[ucLoopCounter]);
+		if(ActiveModeTaskHandles[ucLoopCounter] != NULL)
+		{
+			Error_Handler();
+		}
+		else
+		{
+			printf("ActiveTask:%d Deleted\n",ucLoopCounter);
+		}
+	}
+}
 /* USER CODE BEGIN 4 */
 
 /* USER CODE BEGIN Header_StartDefaultTask */

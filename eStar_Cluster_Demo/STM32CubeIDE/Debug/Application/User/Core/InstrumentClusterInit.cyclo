@@ -1,6 +1,7 @@
-../Application/User/Core/InstrumentClusterInit.c:1084:6:SystemClock_Config	4
-../Application/User/Core/InstrumentClusterInit.c:1150:6:PeriphCommonClock_Config	2
-../Application/User/Core/InstrumentClusterInit.c:1184:6:HAL_GPIO_EXTI_Callback	1
-../Application/User/Core/InstrumentClusterInit.c:1200:6:HAL_RTCEx_WakeUpTimerEventCallback	1
-../Application/User/Core/InstrumentClusterInit.c:1213:6:MPU_Config	1
-../Application/User/Core/InstrumentClusterInit.c:124:6:vCluster_Init	49
+../Application/User/Core/InstrumentClusterInit.c:1086:6:SystemClock_Config	4
+../Application/User/Core/InstrumentClusterInit.c:1152:6:PeriphCommonClock_Config	2
+../Application/User/Core/InstrumentClusterInit.c:1186:6:HAL_GPIO_EXTI_Callback	1
+../Application/User/Core/InstrumentClusterInit.c:1202:6:HAL_RTCEx_WakeUpTimerEventCallback	1
+../Application/User/Core/InstrumentClusterInit.c:1215:6:MPU_Config	1
+../Application/User/Core/InstrumentClusterInit.c:125:6:vCluster_Init	49
+../Application/User/Core/InstrumentClusterInit.c:1273:6:vActiviMode_Peripheral_Init	1

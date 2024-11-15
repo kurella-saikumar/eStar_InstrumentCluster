@@ -1,4 +1,4 @@
 ../Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/Sys_WakeUp_Reason.c:73:15:checkBootReason	6
 ../Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/Sys_WakeUp_Reason.c:112:9:Mcu_GetResetReason	7
 ../Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/Sys_WakeUp_Reason.c:163:6:vSys_EnterSTOP_Mode	1
-../Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/Sys_WakeUp_Reason.c:173:6:vSys_WakeUpFromSTOP	1
+../Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/Sys_WakeUp_Reason.c:177:6:vSys_WakeUpFromSTOP	1
