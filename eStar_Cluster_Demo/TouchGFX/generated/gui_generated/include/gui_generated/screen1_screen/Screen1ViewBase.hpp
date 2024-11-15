@@ -14,6 +14,7 @@
 #include <touchgfx/widgets/ScalableImage.hpp>
 #include <touchgfx/widgets/AnimatedImage.hpp>
 #include <touchgfx/widgets/Gauge.hpp>
+#include <touchgfx/widgets/canvas/PainterRGB888.hpp>
 
 class Screen1ViewBase : public touchgfx::View<Screen1Presenter>
 {
@@ -74,6 +75,7 @@ protected:
     touchgfx::ScalableImage LowBatteryIcon_w;
     touchgfx::ScalableImage LowBatteryIcon_r;
     touchgfx::Gauge gauge1;
+    touchgfx::PainterRGB888 gauge1Painter;
 
     /*
      * Wildcard Buffers

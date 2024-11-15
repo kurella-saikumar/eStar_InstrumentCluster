@@ -528,14 +528,12 @@
             "Y": 58,
             "Width": 245,
             "Height": 166,
-            "Preset": "alternate_theme\\presets\\gauges\\medium\\active.json",
             "FileNameBackground": "__generated\\alternate_theme_images_widgets_gauge_medium_backgrounds_active.png",
             "RotationCenterX": 120.0,
             "RotationCenterY": 120.0,
             "StartAngle": -113.0,
             "EndAngle": 112.0,
-            "RangeMax": 100.0,
-            "InitialValue": 50.0,
+            "RangeMax": 200.0,
             "Easing": "Linear",
             "EasingOption": "In",
             "FileNameNeedle": "__generated\\alternate_theme_images_widgets_gauge_medium_needles_smooth.png",
@@ -543,12 +541,15 @@
             "NeedleRotationCenterY": 67.0,
             "NeedleMovingRenderingAlgorithm": "Bilinear Interpolation",
             "NeedleSteadyRenderingAlgorithm": "Bilinear Interpolation",
+            "UseArc": true,
             "ArcColor": {
               "Red": 20,
               "Green": 151,
               "Blue": 197
             },
-            "ArcCapStyle": "Butt"
+            "ArcRadius": 105.0,
+            "ArcLineWidth": 8.0,
+            "ArcCapStyle": "Round"
           }
         ],
         "Interactions": []

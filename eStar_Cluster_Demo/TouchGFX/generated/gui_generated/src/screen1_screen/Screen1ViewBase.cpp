@@ -260,11 +260,17 @@ Screen1ViewBase::Screen1ViewBase()
     gauge1.setPosition(118, 58, 245, 166);
     gauge1.setCenter(120, 120);
     gauge1.setStartEndAngle(-113, 112);
-    gauge1.setRange(0, 100);
-    gauge1.setValue(50);
+    gauge1.setRange(0, 200);
+    gauge1.setValue(0);
     gauge1.setNeedle(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_GAUGE_MEDIUM_NEEDLES_SMOOTH_ID, 7, 67);
     gauge1.setMovingNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
     gauge1.setSteadyNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    gauge1.setArcVisible();
+    gauge1Painter.setColor(touchgfx::Color::getColorFromRGB(20, 151, 197));
+    gauge1.getArc().setPainter(gauge1Painter);
+    gauge1.getArc().setRadius(105);
+    gauge1.getArc().setLineWidth(8);
+    gauge1.getArc().setCapPrecision(10);
     add(gauge1);
 }
 
