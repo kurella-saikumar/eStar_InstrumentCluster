@@ -55,7 +55,9 @@ Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/Sys_WakeUp_Rea
  ../../Drivers/BSP/STM32H735G-DK/../Components/mx25lm51245g/mx25lm51245g.h \
  D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/mx25lm51245g_conf.h \
  ../../Drivers/BSP/STM32H735G-DK/../Components/s70kl1281/s70kl1281.h \
- D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/s70kl1281_conf.h
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/s70kl1281_conf.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/AppTask.h \
+ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/InstrumentClusterInit.h
 ../Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/Sys_WakeUp_Reason.h:
 ../Application/User/Core/src/Service/System_Service/ECUPwrMode_SmApp/ECUPwrMode_SmHandler.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/src/Service/System_Service/stateManager/smHandler.h:
@@ -112,3 +114,5 @@ D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Applica
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/mx25lm51245g_conf.h:
 ../../Drivers/BSP/STM32H735G-DK/../Components/s70kl1281/s70kl1281.h:
 D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/s70kl1281_conf.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/AppTask.h:
+D:/GIT_WorkAreas/eSTAR_InstrumentCluster/eStar_Cluster_Demo/STM32CubeIDE/Application/User/Core/Inc/InstrumentClusterInit.h:

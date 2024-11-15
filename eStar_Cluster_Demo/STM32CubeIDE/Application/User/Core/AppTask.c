@@ -455,8 +455,8 @@ void StartDefaultTask(void *argument)
   /* Infinite loop */
   for(;;)
   {
-	  vStackMonitorDemonTask_Handler();
-	  Ecu_Status = pm_GetSyncStatus();
+	vStackMonitorDemonTask_Handler();
+	Ecu_Status = pm_GetSyncStatus();
 	switch (Ecu_Status)
 	{
 	case ECU_POWER_MODE_ACTIVE:

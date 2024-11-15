@@ -118,89 +118,12 @@ static void MX_ADC3_Init(void);
 static void MX_FDCAN3_Init(void);
 static void MX_TIM2_Init(void);
 void vBacklightBrightness(void);
-void vActiviMode_Peripheral_Init(void);
+void vInit_ActiveMode_Peri_and_Apps(void);
+void vInit_LowPowerMode_Peri_and_Apps(void);
+void vDeInit_ActiveMode_PeriPherals(void);
 /**************************************************************************************************
  * DECLARE GLOBAL VARIABLES
  ***************************************************************************************************/
-void vCluster_Init(void)
-{
-
-/* MPU Configuration--------------------------------------------------------*/
-  MPU_Config();
-
-/* Enable the CPU Cache */
-
-/* Enable I-Cache---------------------------------------------------------*/
-  SCB_EnableICache();
-
-/* Enable D-Cache---------------------------------------------------------*/
-  SCB_EnableDCache();
-
-
-  HAL_Init();
-
-/* USER CODE BEGIN Init */
-
-/* USER CODE END Init */
-
-/* Configure the system clock */
-  SystemClock_Config();
-
-/* Configure the peripherals common clocks */
-  PeriphCommonClock_Config();
-
-/* Initialize all configured peripherals */
-  MX_GPIO_Init();
-  MX_CRC_Init();
-  MX_DMA2D_Init();
-  MX_LTDC_Init();
-  MX_OCTOSPI1_Init();
-  MX_OCTOSPI2_Init();
-  MX_LIBJPEG_Init();
-  MX_TIM1_Init();
-  MX_TIM4_Init();
-  MX_ADC1_Init();
-  MX_RTC_Init();
-  MX_USART3_UART_Init();
-  MX_IWDG1_Init();
-  MX_ADC3_Init();
-  MX_FDCAN3_Init();
-  MX_TIM2_Init();
-  MX_TouchGFX_Init();
-  /* Call PreOsInit function */
-  MX_TouchGFX_PreOSInit();
-  /* USER CODE BEGIN 2 */
-  vEmul_Init();
-  (void)Mcu_GetResetReason();
-  State_Manager_init();
-  vOdoInit();
-  vSpeedoInit();
-  vTacho_Init();
-  clock_Init();
-  vFuelGuageTaskInit();
-  VCAN_Init();
-  vNim_Sig_Init();
-  vIndicatorsInit();
-  vServiceRequestTask_Init();
-  wdt_handler_init();
-
-  if(HAL_TIM_IC_Start_IT(&htim1,TIM_CHANNEL_4)!=HAL_OK)
-  {
-	  Error_Handler();
-  }
-  if(HAL_TIM_IC_Start_IT(&htim4,TIM_CHANNEL_4)!=HAL_OK)
-  {
-	  Error_Handler();
-  }
-  //vBacklightBrightness();
-
-//  vEE_Demo();
-//  Disp_imgDataHyperRAM_Init();
-  HAL_TIM_Base_Start(&htim2);
-  /* USER CODE END 2 */
-
-}
-
 
 static void MX_ADC1_Init(void)
 {
@@ -1268,9 +1191,94 @@ void MPU_Config(void)
 
 }
 
-
-void vActiviMode_Peripheral_Init(void)
+void vCluster_Init(void)
 {
+	vInit_LowPowerMode_Peri_and_Apps();
+	vInit_ActiveMode_Peri_and_Apps();
+}
+
+
+void vInit_LowPowerMode_Peri_and_Apps(void)
+{
+	/* MPU Configuration*/
+	MPU_Config();
+
+	/* Enable CPU I-Cache*/
+	SCB_EnableICache();
+
+	/* Enable CPU D-Cache*/
+	SCB_EnableDCache();
+
+	HAL_Init();
+
+	/* Configure the system clock */
+	SystemClock_Config();
+
+	/* Configure the peripherals common clocks */
+	PeriphCommonClock_Config();
+
+	/* Initialize all configured peripherals */
+	MX_GPIO_Init();
+	MX_CRC_Init();
+	MX_DMA2D_Init();
+	MX_LTDC_Init();
+	MX_OCTOSPI1_Init();
+	MX_OCTOSPI2_Init();
+	MX_LIBJPEG_Init();
+	MX_RTC_Init();
+	MX_IWDG1_Init();
+	MX_FDCAN3_Init();
+	MX_TIM2_Init();
+	MX_TouchGFX_Init();
+	MX_TouchGFX_PreOSInit();
+
+	HAL_TIM_Base_Start(&htim2);
+
+	/*LowPower_APP_init*/
+	vEmul_Init();
+	(void)Mcu_GetResetReason();
+	State_Manager_init();
+	clock_Init();
+	VCAN_Init();
+	vNim_Sig_Init();
+	vIndicatorsInit();
+	vServiceRequestTask_Init();
+	wdt_handler_init();
 
 }
 
+void vInit_ActiveMode_Peri_and_Apps(void)
+{
+	  MX_USART3_UART_Init();
+	  MX_TIM1_Init();
+	  MX_TIM4_Init();
+	  MX_ADC1_Init();
+	  MX_ADC3_Init();
+	  if(HAL_TIM_IC_Start_IT(&htim1,TIM_CHANNEL_4)!=HAL_OK)
+	  {
+		  Error_Handler();
+	  }
+	  if(HAL_TIM_IC_Start_IT(&htim4,TIM_CHANNEL_4)!=HAL_OK)
+	  {
+		  Error_Handler();
+	  }
+	  vOdoInit();
+	  vSpeedoInit();
+	  vTacho_Init();
+	  vFuelGuageTaskInit();
+//	  vBacklightBrightness();
+//	  vEE_Demo();
+//	  Disp_imgDataHyperRAM_Init();
+}
+
+
+void vDeInit_ActiveMode_PeriPherals(void)
+{
+	(void)HAL_UART_DeInit(&huart3);
+	(void)HAL_ADC_DeInit(&hadc1);
+	(void)HAL_ADC_DeInit(&hadc3);
+	(void)HAL_TIM_IC_Stop_IT(&htim1,TIM_CHANNEL_4);
+	(void)HAL_TIM_IC_Stop_IT(&htim4,TIM_CHANNEL_4);
+	(void)HAL_TIM_Base_DeInit(&htim1);
+	(void)HAL_TIM_Base_DeInit(&htim4);
+}

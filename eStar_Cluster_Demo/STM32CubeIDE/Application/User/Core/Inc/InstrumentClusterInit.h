@@ -31,6 +31,8 @@
 
 /* GLOBAL FUNCTIONS*/
 void vCluster_Init(void);
-
+void vInit_ActiveMode_Peri_and_Apps(void);
+void vInit_LowPowerMode_Peri_and_Apps(void);
+void vDeInit_ActiveMode_PeriPherals(void);
 
 #endif /* INSTRUMENTCLUSTERINIT_H */

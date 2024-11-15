@@ -23,6 +23,8 @@
 #include "Sys_WakeUp_Reason.h"
 #include "stm32h735g_discovery_ospi.h"
 #include "stm32h7xx_hal_ospi.h"
+#include "AppTask.h"
+#include "InstrumentClusterInit.h"
 /**************************************************************************************************
  * Include Project Specific Headers
 ***************************************************************************************************/
@@ -170,7 +172,7 @@ void vSys_EnterSTOP_Mode(void)
 	BSP_LCD_DisplayOff(0);
 
 	vDelete_ActiveMode_Tasks();
-
+	vDeInit_ActiveMode_PeriPherals();
 	/*Invoke HAL API to enter stop mode with LOW_PWR_REG ON & Wait for Interrupt */
 	HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
 }
@@ -178,6 +180,7 @@ void vSys_WakeUpFromSTOP(void)
 {
 	SystemClock_Config();
 	PeriphCommonClock_Config();
+	vInit_ActiveMode_Peri_and_Apps();
 	vCreate_ActiveMode_Tasks();
 	BSP_LCD_DisplayOn(0);
 }

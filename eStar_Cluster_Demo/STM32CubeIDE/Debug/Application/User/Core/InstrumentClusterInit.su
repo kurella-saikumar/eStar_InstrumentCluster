@@ -1,7 +1,9 @@
-../Application/User/Core/InstrumentClusterInit.c:1086:6:SystemClock_Config	120	static
-../Application/User/Core/InstrumentClusterInit.c:1152:6:PeriphCommonClock_Config	192	static
-../Application/User/Core/InstrumentClusterInit.c:1186:6:HAL_GPIO_EXTI_Callback	0	static
-../Application/User/Core/InstrumentClusterInit.c:1202:6:HAL_RTCEx_WakeUpTimerEventCallback	0	static
-../Application/User/Core/InstrumentClusterInit.c:1215:6:MPU_Config	24	static
-../Application/User/Core/InstrumentClusterInit.c:125:6:vCluster_Init	152	static,ignoring_inline_asm
-../Application/User/Core/InstrumentClusterInit.c:1273:6:vActiviMode_Peripheral_Init	0	static
+../Application/User/Core/InstrumentClusterInit.c:1008:6:SystemClock_Config	120	static
+../Application/User/Core/InstrumentClusterInit.c:1074:6:PeriphCommonClock_Config	192	static
+../Application/User/Core/InstrumentClusterInit.c:1108:6:HAL_GPIO_EXTI_Callback	0	static
+../Application/User/Core/InstrumentClusterInit.c:1124:6:HAL_RTCEx_WakeUpTimerEventCallback	0	static
+../Application/User/Core/InstrumentClusterInit.c:1137:6:MPU_Config	24	static
+../Application/User/Core/InstrumentClusterInit.c:1201:6:vInit_LowPowerMode_Peri_and_Apps	152	static,ignoring_inline_asm
+../Application/User/Core/InstrumentClusterInit.c:1250:6:vInit_ActiveMode_Peri_and_Apps	72	static
+../Application/User/Core/InstrumentClusterInit.c:1194:6:vCluster_Init	8	static
+../Application/User/Core/InstrumentClusterInit.c:1275:6:vDeInit_ActiveMode_PeriPherals	16	static
