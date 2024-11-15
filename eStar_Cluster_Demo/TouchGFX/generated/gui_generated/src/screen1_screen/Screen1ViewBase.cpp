@@ -257,7 +257,7 @@ Screen1ViewBase::Screen1ViewBase()
     add(LowBatteryIcon_r);
 
     gauge1.setBackground(touchgfx::Bitmap(BITMAP_ALTERNATE_THEME_IMAGES_WIDGETS_GAUGE_MEDIUM_BACKGROUNDS_ACTIVE_ID));
-    gauge1.setPosition(112, 47, 239, 168);
+    gauge1.setPosition(112, 54, 239, 168);
     gauge1.setCenter(120, 120);
     gauge1.setStartEndAngle(-113, 112);
     gauge1.setRange(0, 100);
@@ -268,9 +268,9 @@ Screen1ViewBase::Screen1ViewBase()
     gauge1.setArcVisible();
     gauge1Painter.setColor(touchgfx::Color::getColorFromRGB(20, 151, 197));
     gauge1.getArc().setPainter(gauge1Painter);
-    gauge1.getArc().setRadius(0);
-    gauge1.getArc().setLineWidth(0);
-    gauge1.setArcPosition(100, 100, 239, 168);
+    gauge1.getArc().setRadius(100);
+    gauge1.getArc().setLineWidth(5);
+    gauge1.getArc().setCapPrecision(10);
     add(gauge1);
 }
 

@@ -523,7 +523,7 @@
             "Type": "Gauge",
             "Name": "gauge1",
             "X": 112,
-            "Y": 47,
+            "Y": 54,
             "Width": 239,
             "Height": 168,
             "FileNameBackground": "__generated\\alternate_theme_images_widgets_gauge_medium_backgrounds_active.png",
@@ -546,12 +546,9 @@
               "Green": 151,
               "Blue": 197
             },
-            "SetArcPosition": true,
-            "ArcX": 100.0,
-            "ArcY": 100.0,
-            "ArcWidth": 239.0,
-            "ArcHeight": 168.0,
-            "ArcCapStyle": "Butt"
+            "ArcRadius": 100.0,
+            "ArcLineWidth": 5.0,
+            "ArcCapStyle": "Round"
           }
         ],
         "Interactions": []
