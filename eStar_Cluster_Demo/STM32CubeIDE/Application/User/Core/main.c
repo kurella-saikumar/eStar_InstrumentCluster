@@ -89,7 +89,7 @@ int main(void)
   osKernelInitialize();
 
   /* USER CODE BEGIN  */
-  vCreate_AllTask();
+  vCreate_AllTasks();
   /* USER CODE END  */
 
   /* Start scheduler */

@@ -102,6 +102,8 @@ extern UART_HandleTypeDef huart3;
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
+extern void PeriphCommonClock_Config(void);
+extern void SystemClock_Config(void);
 
 /* USER CODE BEGIN EFP */
 

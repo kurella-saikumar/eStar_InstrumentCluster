@@ -23,6 +23,8 @@
 #include "Sys_WakeUp_Reason.h"
 #include "stm32h735g_discovery_ospi.h"
 #include "stm32h7xx_hal_ospi.h"
+#include "AppTask.h"
+#include "InstrumentClusterInit.h"
 /**************************************************************************************************
  * Include Project Specific Headers
 ***************************************************************************************************/
@@ -66,6 +68,9 @@ pmReqStatus_t pmReqStatus;
 
 PM_PWRDN_TYPE checkBootReason(void);
 uint8_t Mcu_GetResetReason(void);
+
+extern int32_t BSP_LCD_DisplayOn(uint32_t Instance);
+extern int32_t BSP_LCD_DisplayOff(uint32_t Instance);
 
 PM_PWRDN_TYPE checkBootReason(void)
 {
@@ -155,6 +160,29 @@ uint8_t Mcu_GetResetReason(void)
     /* Reset all RSR flags */
     SET_BIT(RCC->RSR, RCC_RSR_RMVF);
     return boot_reason;
+}
+
+void vSys_EnterSTOP_Mode(void)
+{
+	/* Disable Wakeup Counter */
+    HAL_RTCEx_DeactivateWakeUpTimer(&hrtc);
+    /* Enable Wakeup Counter and set to  20s -0x9C40 periodic wakeup is system sleep*/
+    HAL_RTCEx_SetWakeUpTimer_IT(&hrtc, 0x9C40, RTC_WAKEUPCLOCK_RTCCLK_DIV16);
+
+	BSP_LCD_DisplayOff(0);
+
+	vDelete_ActiveMode_Tasks();
+	vDeInit_ActiveMode_PeriPherals();
+	/*Invoke HAL API to enter stop mode with LOW_PWR_REG ON & Wait for Interrupt */
+	HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
+}
+void vSys_WakeUpFromSTOP(void)
+{
+	SystemClock_Config();
+	PeriphCommonClock_Config();
+	vInit_ActiveMode_Peri_and_Apps();
+	vCreate_ActiveMode_Tasks();
+	BSP_LCD_DisplayOn(0);
 }
 /**************************************************************************************************
  * End Of File

@@ -4,7 +4,7 @@
 #include <texts/TextKeysAndLanguages.hpp>
 #include <BitmapDatabase.hpp>
 #include <cstdio>
-#include "D:\GitWork_Areas\eSTAR_InstrumentCluster\eStar_Cluster_Demo\Middlewares\ST\touchgfx\framework\include\touchgfx\hal\OSWrappers.hpp"
+#include "../../../../Middlewares/ST/touchgfx/framework/include/touchgfx/hal/OSWrappers.hpp"
 
 Screen1View::Screen1View()
 {

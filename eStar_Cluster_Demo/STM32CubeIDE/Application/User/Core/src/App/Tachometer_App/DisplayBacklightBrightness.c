@@ -46,7 +46,7 @@ void vBacklightBrightness(void);
   * @param  Instance    LCD Instance
   * @retval BSP status
   */
-int32_t BSP_LCD_DisplayOn(uint32_t Instance)
+__WEAK int32_t BSP_LCD_DisplayOn(uint32_t Instance)
 {
   int32_t ret;
 
@@ -75,7 +75,7 @@ int32_t BSP_LCD_DisplayOn(uint32_t Instance)
   * @param  Instance    LCD Instance
   * @retval BSP status
   */
-int32_t BSP_LCD_DisplayOff(uint32_t Instance)
+__WEAK int32_t BSP_LCD_DisplayOff(uint32_t Instance)
 {
   int32_t ret;
 
